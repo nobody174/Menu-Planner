@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block title %}{{ recipe.title }} - Vartdals Ukesmeny{% endblock %}
+
+{% block content %}
+<div class="recipe-header">
+    <h1>{{ recipe.title }}</h1>
+    <h2 class="subtitle">{{ recipe.subtitle }}</h2>
+    <div class="recipe-meta">
+        <span class="meta-item">
+            <strong>Vanskelighetsgrad:</strong> {{ recipe.difficulty }}
+        </span>
+        <span class="meta-item">
+            <strong>Tidsbruk:</strong> {{ recipe.time_minutes }} minutter
+        </span>
+        <span class="meta-item">
+            <strong>Type:</strong> {{ recipe.category }}
+        </span>
+    </div>
+</div>
+
+{% if recipe.rating %}
+<div class="rating">
+    <span class="stars">{{ '★' * recipe.rating }}{{ '☆' * (5 - recipe.rating) }}</span>
+    <span class="rating-text">{{ recipe.rating }}/5 ({{ recipe.rating_count }} vurderinger)</span>
+</div>
+{% endif %}
+
+{% if recipe.allergens %}
+<div class="allergens">
+    <h3>Allergener:</h3>
+    <div class="allergen-list">
+        {% for allergen in recipe.allergens %}
+        <span class="allergen-badge">{{ allergen }}</span>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+<div class="recipe-content">
+    <div class="ingredients-section">
+        <h2>Ingredienser</h2>
+
+        {% if recipe.ingredients_included %}
+        <div class="ingredients-group">
+            <h3>Inkludert i pakken:</h3>
+            <ul class="ingredient-list">
+                {% for ing in recipe.ingredients_included %}
+                <li>
+                    <span class="ingredient-name">{{ ing.name }}</span>
+                    {% if ing.quantity > 0 %}
+                    <span class="ingredient-qty">{{ ing.quantity }} {{ ing.unit }}</span>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        {% if recipe.ingredients_not_included %}
+        <div class="ingredients-group">
+            <h3>Må hentes hjemmefra:</h3>
+            <ul class="ingredient-list">
+                {% for ing in recipe.ingredients_not_included %}
+                <li>
+                    <span class="ingredient-name">{{ ing.name }}</span>
+                    {% if ing.quantity > 0 %}
+                    <span class="ingredient-qty">{{ ing.quantity }} {{ ing.unit }}</span>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="instructions-section">
+        <h2>Fremgangsmåte</h2>
+
+        {% if recipe.description %}
+        <div class="description">
+            <p>{{ recipe.description }}</p>
+        </div>
+        {% endif %}
+
+        {% if recipe.instructions %}
+        <div class="steps">
+            {% for step in recipe.instructions %}
+            <div class="step">
+                <div class="step-header">
+                    <h3>Steg {{ step.step }}: {{ step.title }}</h3>
+                </div>
+                <div class="step-body">
+                    {% if step.image_path %}
+                    <img src="{{ step.image_path }}" alt="Steg {{ step.step }}" class="step-image">
+                    {% endif %}
+                    <p class="step-description">{{ step.description }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="print-section">
+    <button onclick="window.print()" class="btn btn-secondary">Skriv ut oppskrift</button>
+</div>
+{% endblock %}

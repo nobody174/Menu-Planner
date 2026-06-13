@@ -1,0 +1,365 @@
+[
+  {
+    "id": "test-9-pizza",
+    "title": "Hjemmelaget pizza",
+    "subtitle": "Margherita med fersk basil",
+    "category": "Populære",
+    "url": "https://example.com/9",
+    "rating": 4.7,
+    "rating_count": 300,
+    "time_minutes": 35,
+    "difficulty": "Medium",
+    "tags": [],
+    "allergens": [
+      "Gluten",
+      "Melk"
+    ],
+    "description": "Italiensk pizza med tomat, mozzarella og basil.",
+    "ingredients_included": [
+      {
+        "quantity": 500,
+        "unit": "g",
+        "name": "Pizzadeig",
+        "allergens": [
+          "Gluten"
+        ]
+      },
+      {
+        "quantity": 300,
+        "unit": "g",
+        "name": "Mozzarella",
+        "allergens": [
+          "Melk"
+        ]
+      },
+      {
+        "quantity": 200,
+        "unit": "g",
+        "name": "Tomat",
+        "allergens": []
+      },
+      {
+        "quantity": 20,
+        "unit": "g",
+        "name": "Basilikum",
+        "allergens": []
+      }
+    ],
+    "ingredients_not_included": [],
+    "instructions": [],
+    "scraped_at": "2026-06-13T22:43:00"
+  },
+  {
+    "id": "test-14-ramen",
+    "title": "Ramen suppe",
+    "subtitle": "med kylling",
+    "category": "Populære",
+    "url": "https://example.com/14",
+    "rating": 4.4,
+    "rating_count": 140,
+    "time_minutes": 28,
+    "difficulty": "Medium",
+    "tags": [],
+    "allergens": [],
+    "description": "Lekker populære oppskrift.",
+    "ingredients_included": [
+      {
+        "quantity": 600,
+        "unit": "g",
+        "name": "Ingrediens 5",
+        "allergens": []
+      },
+      {
+        "quantity": 200,
+        "unit": "g",
+        "name": "Ingrediens 6",
+        "allergens": []
+      }
+    ],
+    "ingredients_not_included": [],
+    "instructions": [],
+    "scraped_at": "2026-06-13T22:43:00"
+  },
+  {
+    "id": "test-16-fajitas",
+    "title": "Kylling fajitas",
+    "subtitle": "med paprika og løk",
+    "category": "Populære",
+    "url": "https://example.com/16",
+    "rating": 4.6,
+    "rating_count": 160,
+    "time_minutes": 20,
+    "difficulty": "Enkel",
+    "tags": [
+      "RASK"
+    ],
+    "allergens": [],
+    "description": "Lekker populære oppskrift.",
+    "ingredients_included": [
+      {
+        "quantity": 700,
+        "unit": "g",
+        "name": "Ingrediens 7",
+        "allergens": []
+      },
+      {
+        "quantity": 200,
+        "unit": "g",
+        "name": "Ingrediens 8",
+        "allergens": []
+      }
+    ],
+    "ingredients_not_included": [],
+    "instructions": [],
+    "scraped_at": "2026-06-13T22:43:00"
+  },
+  {
+    "id": "test-18-pad-thai",
+    "title": "Pad Thai",
+    "subtitle": "med rejer",
+    "category": "Populære",
+    "url": "https://example.com/18",
+    "rating": 4.0,
+    "rating_count": 180,
+    "time_minutes": 25,
+    "difficulty": "Medium",
+    "tags": [],
+    "allergens": [],
+    "description": "Lekker populære oppskrift.",
+    "ingredients_included": [
+      {
+        "quantity": 800,
+        "unit": "g",
+        "name": "Ingrediens 9",
+        "allergens": []
+      },
+      {
+        "quantity": 200,
+        "unit": "g",
+        "name": "Ingrediens 10",
+        "allergens": []
+      }
+    ],
+    "ingredients_not_included": [],
+    "instructions": [],
+    "scraped_at": "2026-06-13T22:43:00"
+  },
+  {
+    "id": "hf-naked-cheeseburger-med-karamellisert-l-k",
+    "title": "'Naked cheeseburger' med karamellisert løk",
+    "subtitle": "med regnbuefries og burgerdressing",
+    "category": "Populære",
+    "url": "",
+    "rating": 0,
+    "rating_count": 0,
+    "time_minutes": 30,
+    "difficulty": "Enkel",
+    "tags": [],
+    "allergens": [],
+    "description": "med regnbuefries og burgerdressing",
+    "ingredients_included": [],
+    "ingredients_not_included": [],
+    "instructions": [],
+    "scraped_at": "2026-06-13T22:48:01.464245"
+  },
+  {
+    "id": "hf-kinesisk-inspirert-kylling-i-chiliglaze",
+    "title": "Kinesisk-inspirert kylling i chiliglaze",
+    "subtitle": "med sesambrokkolini og fersk koriander",
+    "category": "Populære",
+    "url": "",
+    "rating": 0,
+    "rating_count": 0,
+    "time_minutes": 30,
+    "difficulty": "Enkel",
+    "tags": [],
+    "allergens": [],
+    "description": "med sesambrokkolini og fersk koriander",
+    "ingredients_included": [],
+    "ingredients_not_included": [],
+    "instructions": [],
+    "scraped_at": "2026-06-13T22:48:01.464245"
+  },
+  {
+    "id": "hf-med-ovnsbakte-fries-og-ga-laksa-majones",
+    "title": "med ovnsbakte fries og Ga-laksa-majones",
+    "subtitle": "MELKEFRI",
+    "category": "Populære",
+    "url": "",
+    "rating": 0,
+    "rating_count": 0,
+    "time_minutes": 30,
+    "difficulty": "Enkel",
+    "tags": [],
+    "allergens": [],
+    "description": "MELKEFRI",
+    "ingredients_included": [],
+    "ingredients_not_included": [],
+    "instructions": [],
+    "scraped_at": "2026-06-13T22:48:01.464245"
+  },
+  {
+    "id": "hf-rask",
+    "title": "| RASK",
+    "subtitle": "| PLANTEBASERT",
+    "category": "Populære",
+    "url": "",
+    "rating": 0,
+    "rating_count": 0,
+    "time_minutes": 25,
+    "difficulty": "Enkel",
+    "tags": [],
+    "allergens": [],
+    "description": "| PLANTEBASERT",
+    "ingredients_included": [],
+    "ingredients_not_included": [],
+    "instructions": [],
+    "scraped_at": "2026-06-13T22:48:01.464245"
+  },
+  {
+    "id": "hf-under-50g-karbo",
+    "title": "| UNDER 50G KARBO",
+    "subtitle": "| MELKEFRI",
+    "category": "Populære",
+    "url": "",
+    "rating": 0,
+    "rating_count": 0,
+    "time_minutes": 25,
+    "difficulty": "Enkel",
+    "tags": [],
+    "allergens": [],
+    "description": "| MELKEFRI",
+    "ingredients_included": [],
+    "ingredients_not_included": [],
+    "instructions": [],
+    "scraped_at": "2026-06-13T22:48:01.464245"
+  },
+  {
+    "id": "hf-melkefri",
+    "title": "| MELKEFRI",
+    "subtitle": "| SPIS MEG FØRST",
+    "category": "Populære",
+    "url": "",
+    "rating": 0,
+    "rating_count": 0,
+    "time_minutes": 15,
+    "difficulty": "Enkel",
+    "tags": [
+      "RASK"
+    ],
+    "allergens": [],
+    "description": "| SPIS MEG FØRST",
+    "ingredients_included": [],
+    "ingredients_not_included": [],
+    "instructions": [],
+    "scraped_at": "2026-06-13T22:48:01.464245"
+  },
+  {
+    "id": "hf-vegetar",
+    "title": "| VEGETAR",
+    "subtitle": "| HVETEFRI",
+    "category": "Populære",
+    "url": "",
+    "rating": 0,
+    "rating_count": 0,
+    "time_minutes": 25,
+    "difficulty": "Enkel",
+    "tags": [],
+    "allergens": [],
+    "description": "| HVETEFRI",
+    "ingredients_included": [],
+    "ingredients_not_included": [],
+    "instructions": [],
+    "scraped_at": "2026-06-13T22:48:01.464245"
+  },
+  {
+    "id": "hf-under-650-kcal",
+    "title": "UNDER 650 KCAL",
+    "subtitle": "| SPIS MEG FØRST",
+    "category": "Populære",
+    "url": "",
+    "rating": 0,
+    "rating_count": 0,
+    "time_minutes": 35,
+    "difficulty": "Enkel",
+    "tags": [],
+    "allergens": [],
+    "description": "| SPIS MEG FØRST",
+    "ingredients_included": [],
+    "ingredients_not_included": [],
+    "instructions": [],
+    "scraped_at": "2026-06-13T22:48:01.464245"
+  },
+  {
+    "id": "hf-under-650-kcal",
+    "title": "| UNDER 650 KCAL",
+    "subtitle": "| SPIS MEG FØRST",
+    "category": "Populære",
+    "url": "",
+    "rating": 0,
+    "rating_count": 0,
+    "time_minutes": 25,
+    "difficulty": "Enkel",
+    "tags": [],
+    "allergens": [],
+    "description": "| SPIS MEG FØRST",
+    "ingredients_included": [],
+    "ingredients_not_included": [],
+    "instructions": [],
+    "scraped_at": "2026-06-13T22:48:01.464245"
+  },
+  {
+    "id": "hf-med-tortillachips-og-pico-de-gallo",
+    "title": "med tortillachips og pico de gallo",
+    "subtitle": "VEGETAR",
+    "category": "Populære",
+    "url": "",
+    "rating": 0,
+    "rating_count": 0,
+    "time_minutes": 35,
+    "difficulty": "Enkel",
+    "tags": [],
+    "allergens": [],
+    "description": "VEGETAR",
+    "ingredients_included": [],
+    "ingredients_not_included": [],
+    "instructions": [],
+    "scraped_at": "2026-06-13T22:48:01.464245"
+  },
+  {
+    "id": "hf-med-honningbakt-gulrot-og-pastinakk",
+    "title": "med honningbakt gulrot og pastinakk",
+    "subtitle": "HVETEFRI",
+    "category": "Populære",
+    "url": "",
+    "rating": 0,
+    "rating_count": 0,
+    "time_minutes": 30,
+    "difficulty": "Enkel",
+    "tags": [],
+    "allergens": [],
+    "description": "HVETEFRI",
+    "ingredients_included": [],
+    "ingredients_not_included": [],
+    "instructions": [],
+    "scraped_at": "2026-06-13T22:48:01.464245"
+  },
+  {
+    "id": "hf-under-650-kcal",
+    "title": "UNDER 650 KCAL",
+    "subtitle": "| HVETEFRI",
+    "category": "Populære",
+    "url": "",
+    "rating": 0,
+    "rating_count": 0,
+    "time_minutes": 30,
+    "difficulty": "Enkel",
+    "tags": [],
+    "allergens": [],
+    "description": "| HVETEFRI",
+    "ingredients_included": [],
+    "ingredients_not_included": [],
+    "instructions": [],
+    "scraped_at": "2026-06-13T22:48:01.464245"
+  }
+]

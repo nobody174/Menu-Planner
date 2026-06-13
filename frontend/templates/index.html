@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Vartdals Ukesmeny{% endblock %}
+
+{% block content %}
+{% include "category_selector.html" %}
+
+<div class="hero">
+    <h1>Vartdals Ukesmeny</h1>
+    <p class="week-range">{{ menu.week_start }} til {{ menu.week_end }}</p>
+    {% if menu.selected_categories %}
+    <p class="categories-info">Kategorier: {{ menu.selected_categories | join(', ') }}</p>
+    {% endif %}
+</div>
+
+<div class="menu-grid">
+    {% for dinner in menu.dinners %}
+    <div class="menu-card">
+        <div class="card-header">
+            <h2 class="day-name">{{ dinner.day }}</h2>
+            <span class="meal-time">{{ dinner.time_minutes }} min</span>
+        </div>
+        <div class="card-body">
+            <h3 class="recipe-title">{{ dinner.title }}</h3>
+            <p class="difficulty">{{ dinner.difficulty }}</p>
+            <span class="protein-badge protein-{{ dinner.protein }}">{{ dinner.protein }}</span>
+        </div>
+        <div class="card-footer">
+            <a href="/recipe/{{ dinner.recipe_id }}" class="btn btn-primary">Se oppskrift</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="actions">
+    <a href="/shopping" class="btn btn-secondary btn-large">Se handleliste</a>
+</div>
+{% endblock %}

@@ -1,0 +1,130 @@
+{
+  "week_start": "2026-06-15",
+  "week_end": "2026-06-20",
+  "generated_at": "2026-06-13T23:21:55.837223",
+  "selected_categories": [
+    "Populære",
+    "Familie",
+    "Rask Middag"
+  ],
+  "dinners": [
+    {
+      "day": "Mandag",
+      "recipe_id": "hf-naked-cheeseburger-med-karamellisert-l-k",
+      "title": "'Naked cheeseburger' med karamellisert løk",
+      "time_minutes": 30,
+      "difficulty": "Enkel",
+      "protein": "other"
+    },
+    {
+      "day": "Tirsdag",
+      "recipe_id": "hf-vegetar",
+      "title": "| VEGETAR",
+      "time_minutes": 25,
+      "difficulty": "Enkel",
+      "protein": "vegetarian"
+    },
+    {
+      "day": "Onsdag",
+      "recipe_id": "test-8-hamburger",
+      "title": "Hjemmelaget hamburger",
+      "time_minutes": 25,
+      "difficulty": "Enkel",
+      "protein": "other"
+    },
+    {
+      "day": "Torsdag",
+      "recipe_id": "test-1-laks",
+      "title": "Stekt laks og gulrot med ris",
+      "time_minutes": 25,
+      "difficulty": "Enkel",
+      "protein": "fish"
+    },
+    {
+      "day": "Fredag",
+      "recipe_id": "test-17-stew",
+      "title": "Kjøttstuing",
+      "time_minutes": 45,
+      "difficulty": "Medium",
+      "protein": "beef"
+    },
+    {
+      "day": "Lørdag",
+      "recipe_id": "hf-under-50g-karbo",
+      "title": "| UNDER 50G KARBO",
+      "time_minutes": 25,
+      "difficulty": "Enkel",
+      "protein": "other"
+    }
+  ],
+  "shopping_list": {
+    "Proteins": [
+      {
+        "ingredient": "Laksefilet",
+        "quantity": 400,
+        "unit": "g",
+        "allergens": [
+          "Fisk"
+        ]
+      }
+    ],
+    "Vegetables": [
+      {
+        "ingredient": "Gulrot",
+        "quantity": 300,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Salat",
+        "quantity": 100,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Tomat",
+        "quantity": 200,
+        "unit": "g",
+        "allergens": []
+      }
+    ],
+    "Dairy": [],
+    "Pantry": [
+      {
+        "ingredient": "Hamburgerbrød",
+        "quantity": 4,
+        "unit": "stk",
+        "allergens": [
+          "Gluten"
+        ]
+      }
+    ],
+    "Herbs & Spices": [],
+    "Other": [
+      {
+        "ingredient": "Ingrediens 8",
+        "quantity": 750,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Ingrediens 9",
+        "quantity": 200,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Kjøttdeig",
+        "quantity": 600,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Sitron",
+        "quantity": 1,
+        "unit": "stk",
+        "allergens": []
+      }
+    ]
+  }
+}

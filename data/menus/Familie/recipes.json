@@ -1,0 +1,689 @@
+[
+  {
+    "id": "test-1-laks",
+    "title": "Stekt laks og gulrot med ris",
+    "subtitle": "med sitron og hvitløk",
+    "category": "Familie",
+    "url": "https://example.com/1",
+    "rating": 4.5,
+    "rating_count": 100,
+    "time_minutes": 25,
+    "difficulty": "Enkel",
+    "tags": [
+      "RASK"
+    ],
+    "allergens": [
+      "Fisk"
+    ],
+    "description": "Enkel og rask fiskret med frisk sitron.",
+    "ingredients_included": [
+      {
+        "quantity": 400,
+        "unit": "g",
+        "name": "Laksefilet",
+        "allergens": [
+          "Fisk"
+        ]
+      },
+      {
+        "quantity": 300,
+        "unit": "g",
+        "name": "Gulrot",
+        "allergens": []
+      },
+      {
+        "quantity": 200,
+        "unit": "g",
+        "name": "Hvitløk",
+        "allergens": []
+      },
+      {
+        "quantity": 1,
+        "unit": "stk",
+        "name": "Sitron",
+        "allergens": []
+      }
+    ],
+    "ingredients_not_included": [
+      {
+        "quantity": 0,
+        "unit": "",
+        "name": "Salt til koking",
+        "allergens": []
+      },
+      {
+        "quantity": 0,
+        "unit": "",
+        "name": "Olje",
+        "allergens": []
+      }
+    ],
+    "instructions": [],
+    "scraped_at": "2026-06-13T20:43:20.900026"
+  },
+  {
+    "id": "test-2-kjottes",
+    "title": "Kjøttboller i tomatsaus",
+    "subtitle": "med potet og salat",
+    "category": "Familie",
+    "url": "https://example.com/2",
+    "rating": 4.3,
+    "rating_count": 150,
+    "time_minutes": 30,
+    "difficulty": "Enkel",
+    "tags": [],
+    "allergens": [
+      "Gluten",
+      "Hvete"
+    ],
+    "description": "Klassisk kjøttbollerett med hjemmelaget tomatsaus.",
+    "ingredients_included": [
+      {
+        "quantity": 500,
+        "unit": "g",
+        "name": "Kjøttdeig",
+        "allergens": []
+      },
+      {
+        "quantity": 600,
+        "unit": "g",
+        "name": "Potet",
+        "allergens": []
+      },
+      {
+        "quantity": 400,
+        "unit": "g",
+        "name": "Gulrot",
+        "allergens": []
+      },
+      {
+        "quantity": 200,
+        "unit": "ml",
+        "name": "Melk",
+        "allergens": [
+          "Melk"
+        ]
+      }
+    ],
+    "ingredients_not_included": [
+      {
+        "quantity": 0,
+        "unit": "",
+        "name": "Salt",
+        "allergens": []
+      },
+      {
+        "quantity": 0,
+        "unit": "",
+        "name": "Pepper",
+        "allergens": []
+      }
+    ],
+    "instructions": [],
+    "scraped_at": "2026-06-13T20:43:20.900026"
+  },
+  {
+    "id": "test-4-torsk",
+    "title": "Bakt torsk med sitron og dill",
+    "subtitle": "med søtpotet og spinat",
+    "category": "Familie",
+    "url": "https://example.com/4",
+    "rating": 4.7,
+    "rating_count": 120,
+    "time_minutes": 25,
+    "difficulty": "Enkel",
+    "tags": [],
+    "allergens": [
+      "Fisk"
+    ],
+    "description": "Lett og næringsfull fiskret med gode tilbehør.",
+    "ingredients_included": [
+      {
+        "quantity": 450,
+        "unit": "g",
+        "name": "Torskfilet",
+        "allergens": [
+          "Fisk"
+        ]
+      },
+      {
+        "quantity": 400,
+        "unit": "g",
+        "name": "Søtpotet",
+        "allergens": []
+      },
+      {
+        "quantity": 200,
+        "unit": "g",
+        "name": "Spinat",
+        "allergens": []
+      },
+      {
+        "quantity": 1,
+        "unit": "stk",
+        "name": "Sitron",
+        "allergens": []
+      }
+    ],
+    "ingredients_not_included": [
+      {
+        "quantity": 0,
+        "unit": "",
+        "name": "Dill",
+        "allergens": []
+      }
+    ],
+    "instructions": [],
+    "scraped_at": "2026-06-13T20:43:20.900026"
+  },
+  {
+    "id": "test-5-tofu",
+    "title": "Stekt tofu med grønnsaker og soya",
+    "subtitle": "servert med ris",
+    "category": "Familie",
+    "url": "https://example.com/5",
+    "rating": 4.2,
+    "rating_count": 80,
+    "time_minutes": 22,
+    "difficulty": "Enkel",
+    "tags": [
+      "RASK"
+    ],
+    "allergens": [
+      "Soja"
+    ],
+    "description": "Vegetarvenlig middag med proteinrik tofu.",
+    "ingredients_included": [
+      {
+        "quantity": 300,
+        "unit": "g",
+        "name": "Tofu",
+        "allergens": []
+      },
+      {
+        "quantity": 300,
+        "unit": "g",
+        "name": "Løk",
+        "allergens": []
+      },
+      {
+        "quantity": 200,
+        "unit": "g",
+        "name": "Paprika",
+        "allergens": []
+      },
+      {
+        "quantity": 100,
+        "unit": "ml",
+        "name": "Soyasaus",
+        "allergens": [
+          "Soja"
+        ]
+      }
+    ],
+    "ingredients_not_included": [
+      {
+        "quantity": 0,
+        "unit": "",
+        "name": "Riseolje",
+        "allergens": []
+      }
+    ],
+    "instructions": [],
+    "scraped_at": "2026-06-13T20:43:20.900026"
+  },
+  {
+    "id": "test-6-svin",
+    "title": "Grillet svinekjøtt med asparges",
+    "subtitle": "med balsamico glaze",
+    "category": "Familie",
+    "url": "https://example.com/6",
+    "rating": 4.4,
+    "rating_count": 90,
+    "time_minutes": 28,
+    "difficulty": "Enkel",
+    "tags": [],
+    "allergens": [],
+    "description": "Saftig svinekjøtt med grillede grønnsaker.",
+    "ingredients_included": [
+      {
+        "quantity": 600,
+        "unit": "g",
+        "name": "Svinekjøtt",
+        "allergens": []
+      },
+      {
+        "quantity": 300,
+        "unit": "g",
+        "name": "Asparges",
+        "allergens": []
+      },
+      {
+        "quantity": 100,
+        "unit": "ml",
+        "name": "Balsamico",
+        "allergens": []
+      },
+      {
+        "quantity": 200,
+        "unit": "g",
+        "name": "Kirsebærtomat",
+        "allergens": []
+      }
+    ],
+    "ingredients_not_included": [
+      {
+        "quantity": 0,
+        "unit": "",
+        "name": "Olje",
+        "allergens": []
+      }
+    ],
+    "instructions": [],
+    "scraped_at": "2026-06-13T20:43:20.900026"
+  },
+  {
+    "id": "test-8-hamburger",
+    "title": "Hjemmelaget hamburger",
+    "subtitle": "med friske grønnsaker",
+    "category": "Familie",
+    "url": "https://example.com/8",
+    "rating": 4.6,
+    "rating_count": 180,
+    "time_minutes": 25,
+    "difficulty": "Enkel",
+    "tags": [],
+    "allergens": [
+      "Gluten"
+    ],
+    "description": "Saftig hjemmelaget hamburger med toppings.",
+    "ingredients_included": [
+      {
+        "quantity": 600,
+        "unit": "g",
+        "name": "Kjøttdeig",
+        "allergens": []
+      },
+      {
+        "quantity": 4,
+        "unit": "stk",
+        "name": "Hamburgerbrød",
+        "allergens": [
+          "Gluten"
+        ]
+      },
+      {
+        "quantity": 200,
+        "unit": "g",
+        "name": "Tomat",
+        "allergens": []
+      },
+      {
+        "quantity": 100,
+        "unit": "g",
+        "name": "Salat",
+        "allergens": []
+      }
+    ],
+    "ingredients_not_included": [],
+    "instructions": [],
+    "scraped_at": "2026-06-13T22:43:00"
+  },
+  {
+    "id": "test-10-tacos",
+    "title": "Mexicanske tacos",
+    "subtitle": "med kjøttstoff",
+    "category": "Familie",
+    "url": "https://example.com/10",
+    "rating": 4.0,
+    "rating_count": 100,
+    "time_minutes": 22,
+    "difficulty": "Enkel",
+    "tags": [
+      "RASK"
+    ],
+    "allergens": [],
+    "description": "Lekker familie oppskrift.",
+    "ingredients_included": [
+      {
+        "quantity": 400,
+        "unit": "g",
+        "name": "Ingrediens 1",
+        "allergens": []
+      },
+      {
+        "quantity": 200,
+        "unit": "g",
+        "name": "Ingrediens 2",
+        "allergens": []
+      }
+    ],
+    "ingredients_not_included": [],
+    "instructions": [],
+    "scraped_at": "2026-06-13T22:43:00"
+  },
+  {
+    "id": "test-12-risotto",
+    "title": "Svamprisotto",
+    "subtitle": "med parmigiano",
+    "category": "Familie",
+    "url": "https://example.com/12",
+    "rating": 4.2,
+    "rating_count": 120,
+    "time_minutes": 30,
+    "difficulty": "Medium",
+    "tags": [],
+    "allergens": [],
+    "description": "Lekker familie oppskrift.",
+    "ingredients_included": [
+      {
+        "quantity": 500,
+        "unit": "g",
+        "name": "Ingrediens 3",
+        "allergens": []
+      },
+      {
+        "quantity": 200,
+        "unit": "g",
+        "name": "Ingrediens 4",
+        "allergens": []
+      }
+    ],
+    "ingredients_not_included": [],
+    "instructions": [],
+    "scraped_at": "2026-06-13T22:43:00"
+  },
+  {
+    "id": "test-15-curry",
+    "title": "Kylling tikka masala",
+    "subtitle": "med ris",
+    "category": "Familie",
+    "url": "https://example.com/15",
+    "rating": 4.5,
+    "rating_count": 150,
+    "time_minutes": 35,
+    "difficulty": "Medium",
+    "tags": [],
+    "allergens": [],
+    "description": "Lekker familie oppskrift.",
+    "ingredients_included": [
+      {
+        "quantity": 650,
+        "unit": "g",
+        "name": "Ingrediens 6",
+        "allergens": []
+      },
+      {
+        "quantity": 200,
+        "unit": "g",
+        "name": "Ingrediens 7",
+        "allergens": []
+      }
+    ],
+    "ingredients_not_included": [],
+    "instructions": [],
+    "scraped_at": "2026-06-13T22:43:00"
+  },
+  {
+    "id": "test-17-stew",
+    "title": "Kjøttstuing",
+    "subtitle": "med rotgrønnsaker",
+    "category": "Familie",
+    "url": "https://example.com/17",
+    "rating": 4.7,
+    "rating_count": 170,
+    "time_minutes": 45,
+    "difficulty": "Medium",
+    "tags": [],
+    "allergens": [],
+    "description": "Lekker familie oppskrift.",
+    "ingredients_included": [
+      {
+        "quantity": 750,
+        "unit": "g",
+        "name": "Ingrediens 8",
+        "allergens": []
+      },
+      {
+        "quantity": 200,
+        "unit": "g",
+        "name": "Ingrediens 9",
+        "allergens": []
+      }
+    ],
+    "ingredients_not_included": [],
+    "instructions": [],
+    "scraped_at": "2026-06-13T22:43:00"
+  },
+  {
+    "id": "test-19-chili",
+    "title": "Chili con carne",
+    "subtitle": "med bønner",
+    "category": "Familie",
+    "url": "https://example.com/19",
+    "rating": 4.1,
+    "rating_count": 190,
+    "time_minutes": 40,
+    "difficulty": "Enkel",
+    "tags": [],
+    "allergens": [],
+    "description": "Lekker familie oppskrift.",
+    "ingredients_included": [
+      {
+        "quantity": 850,
+        "unit": "g",
+        "name": "Ingrediens 10",
+        "allergens": []
+      },
+      {
+        "quantity": 200,
+        "unit": "g",
+        "name": "Ingrediens 11",
+        "allergens": []
+      }
+    ],
+    "ingredients_not_included": [],
+    "instructions": [],
+    "scraped_at": "2026-06-13T22:43:00"
+  },
+  {
+    "id": "hf-vegetar",
+    "title": "| VEGETAR",
+    "subtitle": "| MELKEFRI",
+    "category": "Familie",
+    "url": "",
+    "rating": 0,
+    "rating_count": 0,
+    "time_minutes": 25,
+    "difficulty": "Enkel",
+    "tags": [],
+    "allergens": [],
+    "description": "| MELKEFRI",
+    "ingredients_included": [],
+    "ingredients_not_included": [],
+    "instructions": [],
+    "scraped_at": "2026-06-13T22:48:04.352101"
+  },
+  {
+    "id": "hf-naked-cheeseburger-med-karamellisert-l-k",
+    "title": "'Naked cheeseburger' med karamellisert løk",
+    "subtitle": "med regnbuefries og burgerdressing",
+    "category": "Familie",
+    "url": "",
+    "rating": 0,
+    "rating_count": 0,
+    "time_minutes": 30,
+    "difficulty": "Enkel",
+    "tags": [],
+    "allergens": [],
+    "description": "med regnbuefries og burgerdressing",
+    "ingredients_included": [],
+    "ingredients_not_included": [],
+    "instructions": [],
+    "scraped_at": "2026-06-13T22:48:04.352101"
+  },
+  {
+    "id": "hf-melkefri",
+    "title": "| MELKEFRI",
+    "subtitle": "| RASK",
+    "category": "Familie",
+    "url": "",
+    "rating": 0,
+    "rating_count": 0,
+    "time_minutes": 25,
+    "difficulty": "Enkel",
+    "tags": [],
+    "allergens": [],
+    "description": "| RASK",
+    "ingredients_included": [],
+    "ingredients_not_included": [],
+    "instructions": [],
+    "scraped_at": "2026-06-13T22:48:04.352101"
+  },
+  {
+    "id": "hf-under-650-kcal",
+    "title": "| UNDER 650 KCAL",
+    "subtitle": "| VEGETAR",
+    "category": "Familie",
+    "url": "",
+    "rating": 0,
+    "rating_count": 0,
+    "time_minutes": 25,
+    "difficulty": "Enkel",
+    "tags": [],
+    "allergens": [],
+    "description": "| VEGETAR",
+    "ingredients_included": [],
+    "ingredients_not_included": [],
+    "instructions": [],
+    "scraped_at": "2026-06-13T22:48:04.352101"
+  },
+  {
+    "id": "hf-med-kachumbersalat-og-raita",
+    "title": "med kachumbersalat og raita",
+    "subtitle": "VEGETAR",
+    "category": "Familie",
+    "url": "",
+    "rating": 0,
+    "rating_count": 0,
+    "time_minutes": 35,
+    "difficulty": "Enkel",
+    "tags": [],
+    "allergens": [],
+    "description": "VEGETAR",
+    "ingredients_included": [],
+    "ingredients_not_included": [],
+    "instructions": [],
+    "scraped_at": "2026-06-13T22:48:04.352101"
+  },
+  {
+    "id": "hf-kinesisk-inspirert-kylling-i-chiliglaze",
+    "title": "Kinesisk-inspirert kylling i chiliglaze",
+    "subtitle": "med sesambrokkolini og fersk koriander",
+    "category": "Familie",
+    "url": "",
+    "rating": 0,
+    "rating_count": 0,
+    "time_minutes": 30,
+    "difficulty": "Enkel",
+    "tags": [],
+    "allergens": [],
+    "description": "med sesambrokkolini og fersk koriander",
+    "ingredients_included": [],
+    "ingredients_not_included": [],
+    "instructions": [],
+    "scraped_at": "2026-06-13T22:48:04.352101"
+  },
+  {
+    "id": "hf-med-ovnsbakte-fries-og-ga-laksa-majones",
+    "title": "med ovnsbakte fries og Ga-laksa-majones",
+    "subtitle": "MELKEFRI",
+    "category": "Familie",
+    "url": "",
+    "rating": 0,
+    "rating_count": 0,
+    "time_minutes": 30,
+    "difficulty": "Enkel",
+    "tags": [],
+    "allergens": [],
+    "description": "MELKEFRI",
+    "ingredients_included": [],
+    "ingredients_not_included": [],
+    "instructions": [],
+    "scraped_at": "2026-06-13T22:48:04.352101"
+  },
+  {
+    "id": "hf-rask",
+    "title": "| RASK",
+    "subtitle": "| PLANTEBASERT",
+    "category": "Familie",
+    "url": "",
+    "rating": 0,
+    "rating_count": 0,
+    "time_minutes": 25,
+    "difficulty": "Enkel",
+    "tags": [],
+    "allergens": [],
+    "description": "| PLANTEBASERT",
+    "ingredients_included": [],
+    "ingredients_not_included": [],
+    "instructions": [],
+    "scraped_at": "2026-06-13T22:48:04.352101"
+  },
+  {
+    "id": "hf-rask",
+    "title": "| RASK",
+    "subtitle": "| HVETEFRI",
+    "category": "Familie",
+    "url": "",
+    "rating": 0,
+    "rating_count": 0,
+    "time_minutes": 15,
+    "difficulty": "Enkel",
+    "tags": [
+      "RASK"
+    ],
+    "allergens": [],
+    "description": "| HVETEFRI",
+    "ingredients_included": [],
+    "ingredients_not_included": [],
+    "instructions": [],
+    "scraped_at": "2026-06-13T22:48:04.352101"
+  },
+  {
+    "id": "hf-under-50g-karbo",
+    "title": "| UNDER 50G KARBO",
+    "subtitle": "| MELKEFRI",
+    "category": "Familie",
+    "url": "",
+    "rating": 0,
+    "rating_count": 0,
+    "time_minutes": 25,
+    "difficulty": "Enkel",
+    "tags": [],
+    "allergens": [],
+    "description": "| MELKEFRI",
+    "ingredients_included": [],
+    "ingredients_not_included": [],
+    "instructions": [],
+    "scraped_at": "2026-06-13T22:48:04.352101"
+  },
+  {
+    "id": "hf-midt-sten-inspiret-salat-og-bakte-gr-nns",
+    "title": "Midtøsten-inspiret salat og bakte grønnsaker",
+    "subtitle": "med granateple og pistasjnøtter",
+    "category": "Familie",
+    "url": "",
+    "rating": 0,
+    "rating_count": 0,
+    "time_minutes": 35,
+    "difficulty": "Enkel",
+    "tags": [],
+    "allergens": [],
+    "description": "med granateple og pistasjnøtter",
+    "ingredients_included": [],
+    "ingredients_not_included": [],
+    "instructions": [],
+    "scraped_at": "2026-06-13T22:48:04.352101"
+  }
+]
