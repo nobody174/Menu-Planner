@@ -25,29 +25,39 @@ A Python/Flask web application for families to organize recipes, generate weekly
 
 - Python 3.9+
 - Git
+- pip (Python package manager)
 
-### Installation
+### Installation (5 minutes)
 
 ```bash
-# Clone repository
+# 1. Clone repository
 git clone https://github.com/nobody174/Pi-Menu-Public.git
 cd Pi-Menu-Public
 
-# Create virtual environment
+# 2. Create & activate virtual environment
 python3 -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
+source venv/bin/activate
+# On Windows: venv\Scripts\activate
 
-# Install dependencies
+# 3. Install dependencies
 pip install -r requirements.txt
 
-# Copy configuration template
+# 4. Configure (edit .env with your family name)
 cp .env.template .env
+nano .env  # Edit: HOUSEHOLD_NAME=Your Family
 
-# Start application
+# 5. Start the app
 python3 pi-deployment/app.py
 ```
 
-Visit: **http://localhost:5000**
+**Open browser:** http://localhost:5000
+
+### First Steps
+
+1. **Add your recipes** - Download Excel template → Fill with your recipes → Import
+2. **Generate menu** - Click "Generer ny meny" (Generate Menu)
+3. **Create shopping list** - Click "Handleliste" (Shopping List)
+4. **Customize** - Change language, theme, and categories in Settings
 
 ## Configuration
 
@@ -97,6 +107,35 @@ EMAIL_SEND_ENABLED=false
 - Change language: Settings → Språk
 - Switch theme: Settings → Tema
 - Edit categories: `data/categories.json`
+
+## Command-Line Tools
+
+Manage Pi-Menu from the terminal:
+
+```bash
+# List all recipes
+python3 scripts/pi-menu-cli.py recipes list
+
+# Count recipes by category
+python3 scripts/pi-menu-cli.py recipes count
+
+# Validate recipe data
+python3 scripts/pi-menu-cli.py recipes validate
+
+# List categories
+python3 scripts/pi-menu-cli.py categories list
+
+# Generate weekly menu
+python3 scripts/pi-menu-cli.py menu generate
+
+# Validate configuration
+python3 scripts/pi-menu-cli.py validate
+
+# Manage categories
+python3 scripts/category-editor.py --list
+python3 scripts/category-editor.py --add
+python3 scripts/category-editor.py --backup
+```
 
 ## Documentation
 

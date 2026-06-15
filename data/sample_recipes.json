@@ -5,14 +5,22 @@
     "title_en": "Creamy Pasta with Meatballs",
     "description_no": "Klassisk italiensk rett med hjemmelaget kjøttkugler i en cremekilde tomatsaus",
     "description_en": "Classic Italian dish with homemade meatballs in a creamy tomato sauce",
-    "category": "Familie",
+    "category": "familie",
     "difficulty": "Middels",
     "time_minutes": 35,
     "servings": 4,
     "calories": 520,
     "protein": 28,
-    "tags": ["italiensk", "pasta", "kjøtt"],
-    "allergens": ["melk", "gluten", "egg"],
+    "tags": [
+      "italiensk",
+      "pasta",
+      "kjøtt"
+    ],
+    "allergens": [
+      "melk",
+      "gluten",
+      "egg"
+    ],
     "ingredients_included": [
       {
         "id": "ing_001",
@@ -64,7 +72,8 @@
       }
     ],
     "instructions_no": "1. Brun hakket kjøtt i en panne. 2. Tilsett finhakket løk og hvitkål. 3. Tilsett tomat og la det småkoke. 4. Tilsett fløte og krydderier. 5. Kok pasta etter anvisning. 6. Bland pasta med sausen.",
-    "instructions_en": "1. Brown ground beef in a pan. 2. Add diced onion and garlic. 3. Add tomato and simmer. 4. Stir in cream and seasonings. 5. Cook pasta according to instructions. 6. Mix pasta with sauce."
+    "instructions_en": "1. Brown ground beef in a pan. 2. Add diced onion and garlic. 3. Add tomato and simmer. 4. Stir in cream and seasonings. 5. Cook pasta according to instructions. 6. Mix pasta with sauce.",
+    "title": "Kremete Pasta med Kjøttkugler"
   },
   {
     "id": "sample_002",
@@ -72,14 +81,20 @@
     "title_en": "Grilled Salmon with Asparagus",
     "description_no": "Frisk og helserik laksefillet grillet til perfeksjon med ferske aspargesstilker",
     "description_en": "Fresh and healthy salmon fillet grilled to perfection with fresh asparagus spears",
-    "category": "Fisk",
+    "category": "fisk",
     "difficulty": "Enkel",
     "time_minutes": 25,
     "servings": 2,
     "calories": 380,
     "protein": 42,
-    "tags": ["fisk", "helsekost", "rask"],
-    "allergens": ["fisk"],
+    "tags": [
+      "fisk",
+      "helsekost",
+      "rask"
+    ],
+    "allergens": [
+      "fisk"
+    ],
     "ingredients_included": [
       {
         "id": "ing_007",
@@ -115,7 +130,8 @@
       }
     ],
     "instructions_no": "1. Varm grillen. 2. Klem sitronjuice over laksen. 3. Grill laksen ca 12 minutter. 4. Tilsett asparges på grillen. 5. Grill til alt er mørt.",
-    "instructions_en": "1. Heat grill. 2. Squeeze lemon juice over salmon. 3. Grill salmon for about 12 minutes. 4. Add asparagus to grill. 5. Grill until everything is tender."
+    "instructions_en": "1. Heat grill. 2. Squeeze lemon juice over salmon. 3. Grill salmon for about 12 minutes. 4. Add asparagus to grill. 5. Grill until everything is tender.",
+    "title": "Grillet Laks med Aspargess"
   },
   {
     "id": "sample_003",
@@ -123,14 +139,20 @@
     "title_en": "Green Vegetable Stir-fry with Chicken",
     "description_no": "Rask og fargerik stir-fry med ferske grønnsaker og grillet kylling",
     "description_en": "Quick and colorful stir-fry with fresh vegetables and grilled chicken",
-    "category": "Rask Middag",
+    "category": "rask",
     "difficulty": "Enkel",
     "time_minutes": 20,
     "servings": 2,
     "calories": 320,
     "protein": 38,
-    "tags": ["vegetar-vennlig", "asiatisk", "rask"],
-    "allergens": ["soya"],
+    "tags": [
+      "vegetar-vennlig",
+      "asiatisk",
+      "rask"
+    ],
+    "allergens": [
+      "soya"
+    ],
     "ingredients_included": [
       {
         "id": "ing_011",
@@ -174,7 +196,8 @@
       }
     ],
     "instructions_no": "1. Skjær kyllingen i biter. 2. Varm olje i wok eller stor panne. 3. Stek kyllingen til den er gyllen. 4. Tilsett grønnsaker og ingefær. 5. Tilsett soyasaus og la det koke i 5 minutter.",
-    "instructions_en": "1. Cut chicken into pieces. 2. Heat oil in wok or large pan. 3. Stir-fry chicken until golden. 4. Add vegetables and ginger. 5. Add soy sauce and cook for 5 minutes."
+    "instructions_en": "1. Cut chicken into pieces. 2. Heat oil in wok or large pan. 3. Stir-fry chicken until golden. 4. Add vegetables and ginger. 5. Add soy sauce and cook for 5 minutes.",
+    "title": "Grønn Wok med Kylling"
   },
   {
     "id": "sample_004",
@@ -182,14 +205,21 @@
     "title_en": "Chicken Tacos with Fresh Toppings",
     "description_no": "Mexicansk inspirert familiekost med krydret kylling og mange gode toppinger",
     "description_en": "Mexican-inspired family meal with spiced chicken and many delicious toppings",
-    "category": "Familie",
+    "category": "familie",
     "difficulty": "Enkel",
     "time_minutes": 25,
     "servings": 4,
     "calories": 420,
     "protein": 32,
-    "tags": ["mexicansk", "famiglia", "rask"],
-    "allergens": ["gluten", "melk"],
+    "tags": [
+      "mexicansk",
+      "famiglia",
+      "rask"
+    ],
+    "allergens": [
+      "gluten",
+      "melk"
+    ],
     "ingredients_included": [
       {
         "id": "ing_016",
@@ -241,7 +271,8 @@
       }
     ],
     "instructions_no": "1. Kutt kyllingen i små biter. 2. Krydre med taco-krydder. 3. Fry kyllingen i 10 minutter. 4. Varm tortillas. 5. Assemble tacosene med salat, tomat, ost og guacamole.",
-    "instructions_en": "1. Cut chicken into small pieces. 2. Season with taco seasoning. 3. Fry chicken for 10 minutes. 4. Warm tortillas. 5. Assemble tacos with lettuce, tomato, cheese and guacamole."
+    "instructions_en": "1. Cut chicken into small pieces. 2. Season with taco seasoning. 3. Fry chicken for 10 minutes. 4. Warm tortillas. 5. Assemble tacos with lettuce, tomato, cheese and guacamole.",
+    "title": "Kyllingtaco med Friske Toppinger"
   },
   {
     "id": "sample_005",
@@ -249,14 +280,20 @@
     "title_en": "Baked Cod with Potatoes",
     "description_no": "Klassisk norsk fiskeret med saftig torsk og roastede poteter",
     "description_en": "Classic Norwegian fish dish with juicy cod and roasted potatoes",
-    "category": "Fisk",
+    "category": "fisk",
     "difficulty": "Enkel",
     "time_minutes": 40,
     "servings": 4,
     "calories": 340,
     "protein": 36,
-    "tags": ["norsk", "fisk", "enkelt"],
-    "allergens": ["fisk"],
+    "tags": [
+      "norsk",
+      "fisk",
+      "enkelt"
+    ],
+    "allergens": [
+      "fisk"
+    ],
     "ingredients_included": [
       {
         "id": "ing_022",
@@ -292,7 +329,8 @@
       }
     ],
     "instructions_no": "1. Forvarm ovnen til 200°C. 2. Kutt kartofler i biter og tilsett olje. 3. Ros kartofler i 30 minutter. 4. Tilsett torsk på toppen og bak i 10-12 minutter. 5. Garnerer med dill og sitron.",
-    "instructions_en": "1. Preheat oven to 200°C. 2. Cut potatoes and toss with oil. 3. Roast potatoes for 30 minutes. 4. Place cod on top and bake for 10-12 minutes. 5. Garnish with dill and lemon."
+    "instructions_en": "1. Preheat oven to 200°C. 2. Cut potatoes and toss with oil. 3. Roast potatoes for 30 minutes. 4. Place cod on top and bake for 10-12 minutes. 5. Garnish with dill and lemon.",
+    "title": "Kokt Torsk med Kartofler"
   },
   {
     "id": "sample_006",
@@ -300,13 +338,17 @@
     "title_en": "Beef Stew with Vegetables",
     "description_no": "Varmende og mettende gryte med mørt kjøtt og rotgrønnsaker",
     "description_en": "Warming and hearty stew with tender beef and root vegetables",
-    "category": "Familie",
+    "category": "familie",
     "difficulty": "Middels",
     "time_minutes": 90,
     "servings": 4,
     "calories": 420,
     "protein": 34,
-    "tags": ["gryte", "familie", "varmt"],
+    "tags": [
+      "gryte",
+      "familie",
+      "varmt"
+    ],
     "allergens": [],
     "ingredients_included": [
       {
@@ -351,7 +393,8 @@
       }
     ],
     "instructions_no": "1. Brun kjøttet i en gryte. 2. Tilsett løk og gulerot. 3. Tilsett buljong og la det småkoke i 60 minutter. 4. Tilsett brokkoli og la det koke i 10 minutter til.",
-    "instructions_en": "1. Brown beef in a pot. 2. Add onion and carrot. 3. Add broth and simmer for 60 minutes. 4. Add broccoli and cook for 10 more minutes."
+    "instructions_en": "1. Brown beef in a pot. 2. Add onion and carrot. 3. Add broth and simmer for 60 minutes. 4. Add broccoli and cook for 10 more minutes.",
+    "title": "Stuet Kjøtt med Grønnsaker"
   },
   {
     "id": "sample_007",
@@ -359,14 +402,20 @@
     "title_en": "Chickpea Curry with Rice",
     "description_no": "Vegetarisk curry full av smak, perfekt med ris",
     "description_en": "Vegetarian curry full of flavor, perfect with rice",
-    "category": "Vegetar",
+    "category": "vegetar",
     "difficulty": "Middels",
     "time_minutes": 35,
     "servings": 3,
     "calories": 380,
     "protein": 14,
-    "tags": ["vegetar", "asiatisk", "krydret"],
-    "allergens": ["melk"],
+    "tags": [
+      "vegetar",
+      "asiatisk",
+      "krydret"
+    ],
+    "allergens": [
+      "melk"
+    ],
     "ingredients_included": [
       {
         "id": "ing_031",
@@ -418,7 +467,8 @@
       }
     ],
     "instructions_no": "1. Kok ris etter anvisning. 2. Tilsett løk og currykriyder i en panne. 3. Tilsett kikerter, kokosmjølk og tomat. 4. La det småkoke i 20 minutter.",
-    "instructions_en": "1. Cook rice according to instructions. 2. Sauté onion and curry powder in a pan. 3. Add chickpeas, coconut milk and tomato. 4. Simmer for 20 minutes."
+    "instructions_en": "1. Cook rice according to instructions. 2. Sauté onion and curry powder in a pan. 3. Add chickpeas, coconut milk and tomato. 4. Simmer for 20 minutes.",
+    "title": "Kikertatekurry med Ris"
   },
   {
     "id": "sample_008",
@@ -426,14 +476,20 @@
     "title_en": "Pork Tenderloin with Mushrooms",
     "description_no": "Elegantx grisekjøttretten med fløtekrem og sopp",
     "description_en": "Elegant pork dish with cream sauce and mushrooms",
-    "category": "Familie",
+    "category": "familie",
     "difficulty": "Middels",
     "time_minutes": 40,
     "servings": 4,
     "calories": 450,
     "protein": 40,
-    "tags": ["grisekjøtt", "elegant", "fløte"],
-    "allergens": ["melk"],
+    "tags": [
+      "grisekjøtt",
+      "elegant",
+      "fløte"
+    ],
+    "allergens": [
+      "melk"
+    ],
     "ingredients_included": [
       {
         "id": "ing_037",
@@ -477,7 +533,8 @@
       }
     ],
     "instructions_no": "1. Brun grisekjøttet fra alle sider. 2. Fjern og sett til side. 3. Tilsett sopp og hvitløk og fry til det blir mykt. 4. Tilsett fløte og la det småkoke. 5. Tilbake grisekjøttet og la det ferdigstekte.",
-    "instructions_en": "1. Brown pork on all sides. 2. Remove and set aside. 3. Sauté mushrooms and garlic until soft. 4. Add cream and simmer. 5. Return pork and finish cooking."
+    "instructions_en": "1. Brown pork on all sides. 2. Remove and set aside. 3. Sauté mushrooms and garlic until soft. 4. Add cream and simmer. 5. Return pork and finish cooking.",
+    "title": "Grisekjøtt Tenderloin med Sopp"
   },
   {
     "id": "sample_009",
@@ -485,14 +542,20 @@
     "title_en": "Vegetarian Buddha Bowl",
     "description_no": "Fargerik og næringsrik bolle med hele korn, grønnsaker og linser",
     "description_en": "Colorful and nutritious bowl with whole grains, vegetables and lentils",
-    "category": "Vegetar",
+    "category": "vegetar",
     "difficulty": "Enkel",
     "time_minutes": 30,
     "servings": 2,
     "calories": 380,
     "protein": 16,
-    "tags": ["vegetar", "helsekost", "bowl"],
-    "allergens": ["gluten"],
+    "tags": [
+      "vegetar",
+      "helsekost",
+      "bowl"
+    ],
+    "allergens": [
+      "gluten"
+    ],
     "ingredients_included": [
       {
         "id": "ing_042",
@@ -544,7 +607,8 @@
       }
     ],
     "instructions_no": "1. Kok linser og quinoa etter anvisning. 2. Damp spinat og tilsett linser. 3. Tilsett rødbete. 4. Lag tahini dressing. 5. Assemble bolle med alle ingrediensene.",
-    "instructions_en": "1. Cook lentils and quinoa according to instructions. 2. Steam spinach and add lentils. 3. Add beet. 4. Make tahini dressing. 5. Assemble bowl with all ingredients."
+    "instructions_en": "1. Cook lentils and quinoa according to instructions. 2. Steam spinach and add lentils. 3. Add beet. 4. Make tahini dressing. 5. Assemble bowl with all ingredients.",
+    "title": "Vegetar Buddha Bowl"
   },
   {
     "id": "sample_010",
@@ -552,14 +616,22 @@
     "title_en": "Fish Cakes with Remoulade",
     "description_no": "Klassisk norsk fiskekaker - perfekt til kvelds eller bursdagskalas",
     "description_en": "Classic Norwegian fish cakes - perfect for dinner or birthday party",
-    "category": "Fisk",
+    "category": "fisk",
     "difficulty": "Middels",
     "time_minutes": 45,
     "servings": 4,
     "calories": 360,
     "protein": 32,
-    "tags": ["norsk", "fisk", "klassisk"],
-    "allergens": ["fisk", "egg", "melk"],
+    "tags": [
+      "norsk",
+      "fisk",
+      "klassisk"
+    ],
+    "allergens": [
+      "fisk",
+      "egg",
+      "melk"
+    ],
     "ingredients_included": [
       {
         "id": "ing_048",
@@ -611,6 +683,7 @@
       }
     ],
     "instructions_no": "1. Kok kartofler og løk til mørt. 2. Flis fisken fint. 3. Bland fisk, kartofler, løk, egg og melk. 4. Form boller og panerer med mel. 5. Fry til gyllent brunt.",
-    "instructions_en": "1. Boil potatoes and onion until tender. 2. Finely shred fish. 3. Mix fish, potatoes, onion, egg and milk. 4. Form balls and coat with flour. 5. Fry until golden brown."
+    "instructions_en": "1. Boil potatoes and onion until tender. 2. Finely shred fish. 3. Mix fish, potatoes, onion, egg and milk. 4. Form balls and coat with flour. 5. Fry until golden brown.",
+    "title": "Fiskekaker med Remoulade"
   }
 ]
