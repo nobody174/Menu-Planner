@@ -136,6 +136,10 @@ def all_recipes_page():
     recipes = load_recipes_db()
     return render_template('all-recipes.html', recipes=recipes)
 
+@app.route('/settings')
+def settings_page():
+    return render_template('settings.html')
+
 # ── Auth routes ───────────────────────────────────────────────────────────────
 
 @app.route('/login')

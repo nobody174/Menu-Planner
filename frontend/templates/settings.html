@@ -1,0 +1,187 @@
+{% extends "base.html" %}
+
+{% block title %}Innstillinger - {{ household_name }} Ukesmeny{% endblock %}
+
+{% block content %}
+<div class="settings-page">
+    <h1>Innstillinger / Settings</h1>
+
+    <div class="settings-container">
+        <!-- Language Settings -->
+        <section class="settings-section">
+            <h2>Språk / Language</h2>
+            <p>Velg ditt foretrukne språk</p>
+            <div class="language-buttons">
+                <button onclick="switchLanguage('no')" class="btn btn-primary">🇳🇴 Norsk</button>
+                <button onclick="switchLanguage('en')" class="btn btn-secondary">🇬🇧 English</button>
+            </div>
+        </section>
+
+        <!-- Theme Settings -->
+        <section class="settings-section">
+            <h2>Tema / Theme</h2>
+            <p>Velg et tema som passer din stil</p>
+            <div class="theme-grid">
+                <div class="theme-option" onclick="switchTheme('warm-modern')" style="background: linear-gradient(135deg, #d97706, #f97316);">
+                    <span>Warm & Modern</span>
+                </div>
+                <div class="theme-option" onclick="switchTheme('warm-terracotta')" style="background: linear-gradient(135deg, #d97b36, #a16207);">
+                    <span>Terracotta & Sage</span>
+                </div>
+                <div class="theme-option" onclick="switchTheme('apple-fitness')" style="background: linear-gradient(135deg, #30D158, #00C884);">
+                    <span>Apple Fitness</span>
+                </div>
+                <div class="theme-option" onclick="switchTheme('brutalist')" style="background: linear-gradient(135deg, #000000, #333333);">
+                    <span>Brutalist</span>
+                </div>
+                <div class="theme-option" onclick="switchTheme('chalkboard-bistro')" style="background: linear-gradient(135deg, #E8C547, #d4a373);">
+                    <span>Chalkboard Bistro</span>
+                </div>
+                <div class="theme-option" onclick="switchTheme('coastal-kitchen')" style="background: linear-gradient(135deg, #2C5F5A, #1f4d48);">
+                    <span>Coastal Kitchen</span>
+                </div>
+                <div class="theme-option" onclick="switchTheme('forest-forager')" style="background: linear-gradient(135deg, #7BA05B, #5a7d45);">
+                    <span>Forest Forager</span>
+                </div>
+                <div class="theme-option" onclick="switchTheme('kjøkkenhylle')" style="background: linear-gradient(135deg, #2C4A3E, #1a2f2a);">
+                    <span>Kjøkkenhylle</span>
+                </div>
+                <div class="theme-option" onclick="switchTheme('pop-art-diner')" style="background: linear-gradient(135deg, #D32F2F, #FF1744);">
+                    <span>Pop Art Diner</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recipe Management -->
+        <section class="settings-section">
+            <h2>Oppskrifter / Recipes</h2>
+            <p>Administrer dine oppskrifter</p>
+            <div class="action-buttons">
+                <a href="/add-recipe" class="btn btn-primary">+ Legg til oppskrift</a>
+                <a href="/all-recipes" class="btn btn-secondary">Se alle oppskrifter</a>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section class="settings-section">
+            <h2>Om / About</h2>
+            <p>Pi-Menu v1.0 - Weekly Meal Planner</p>
+            <p class="settings-info">
+                Created by <a href="{{ github_url }}" target="_blank">{{ creator }}</a><br>
+                <a href="{{ patreon_url }}" target="_blank">Support on Patreon</a><br>
+                <a href="{{ github_url }}" target="_blank">View on GitHub</a>
+            </p>
+            <p class="settings-info" style="font-size: 0.9em; margin-top: 16px;">
+                MIT License - Open Source & Free
+            </p>
+        </section>
+    </div>
+</div>
+
+<style>
+.settings-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.settings-page h1 {
+    margin-bottom: 30px;
+    color: var(--color-primary, #d97706);
+}
+
+.settings-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.settings-section {
+    background: var(--color-bg-secondary, #f9fafb);
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid var(--color-border, #e5e7eb);
+}
+
+.settings-section h2 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 1.3em;
+}
+
+.settings-section > p {
+    color: var(--color-text-secondary, #666);
+    margin-bottom: 16px;
+}
+
+.language-buttons,
+.action-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.theme-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
+}
+
+.theme-option {
+    padding: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 2px solid transparent;
+}
+
+.theme-option:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.settings-info {
+    background: var(--color-bg-primary, white);
+    padding: 12px;
+    border-radius: 6px;
+    line-height: 1.6;
+}
+
+.settings-info a {
+    color: var(--color-primary, #d97706);
+    text-decoration: none;
+}
+
+.settings-info a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+    .settings-page {
+        padding: 12px;
+    }
+
+    .settings-section {
+        padding: 16px;
+    }
+
+    .theme-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+
+    .language-buttons,
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+</style>
+{% endblock %}
