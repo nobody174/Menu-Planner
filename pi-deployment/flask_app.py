@@ -54,6 +54,18 @@ app.jinja_env.cache = None
 logger.info(f"Flask templates: {app.template_folder}")
 logger.info(f"Flask static: {app.static_folder}")
 
+# ── Context Processors ───────────────────────────────────────────────────────
+
+@app.context_processor
+def inject_config():
+    """Inject configuration into all templates"""
+    return {
+        'household_name': os.getenv('HOUSEHOLD_NAME', '{Family_Name}'),
+        'creator': 'nobody174',
+        'github_url': 'https://github.com/nobody174/Pi-Menu-Public',
+        'patreon_url': 'https://www.patreon.com/c/Nobody174'
+    }
+
 # ── Helpers ──────────────────────────────────────────────────────────────────
 
 def load_menu():

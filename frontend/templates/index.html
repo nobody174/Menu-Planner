@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Vartdals Ukesmeny{% endblock %}
+{% block title %}{{ household_name }} Ukesmeny{% endblock %}
 
 {% block content %}
 
@@ -9,7 +9,7 @@
    ───────────────────────────────────────────────────────────── #}
 <div id="layout-standard">
   <div class="hero">
-      <h1>Vartdals Ukesmeny</h1>
+      <h1>{{ household_name }} Ukesmeny</h1>
       <p class="week-range">{{ menu.week_start }} til {{ menu.week_end }}</p>
       {% if menu.selected_categories %}
       <p class="categories-info">Kategorier: {{ menu.selected_categories | join(', ') }}</p>
@@ -56,7 +56,7 @@
         <div class="tc-chef-icon">🍳</div>
         <span class="tc-eyebrow">Familiens menyplan</span>
       </div>
-      <h1 class="tc-title">Vartdals Ukesmeny</h1>
+      <h1 class="tc-title">{{ household_name }} Ukesmeny</h1>
       <p class="tc-subtitle">{{ menu.week_start }} – {{ menu.week_end }}</p>
     </div>
     <div class="tc-header-actions">

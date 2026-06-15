@@ -1,4 +1,4 @@
-const CACHE_NAME = "vartdals-ukesmeny-v1";
+const CACHE_NAME = "pi-menu-ukesmeny-v1";
 const PRECACHE = ["/", "/shopping", "/static/style.css", "/static/manifest.json"];
 
 self.addEventListener("install", (event) => {

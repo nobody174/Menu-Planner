@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Handleliste - Vartdals Ukesmeny{% endblock %}
+{% block title %}Handleliste - {{ household_name }} Ukesmeny{% endblock %}
 
 {% block content %}
 <div class="shopping-header">
@@ -103,7 +103,7 @@ function syncToToDo(button) {
         if (res.ok) {
             pmAlert('📱', 'Sendt til To Do!', res.data.message);
         } else if (res.data.requiresAuth) {
-            pmAlert('🔒', 'Ikke tilkoblet', 'Pi-Menu er ikke koblet til Microsoft To Do. Be Vartdal om å gå til /login én gang.');
+            pmAlert('🔒', 'Ikke tilkoblet', 'Pi-Menu er ikke koblet til Microsoft To Do. Gå til /login og logg inn.');
         } else {
             pmAlert('❌', 'Noe gikk galt', res.data.message || 'Ukjent feil');
         }
