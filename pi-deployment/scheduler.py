@@ -1,3 +1,10 @@
+#
+# Pi-Menu - Weekly Meal Planner
+# Creator: nobody174 (nobodylearn174@gmail.com)
+# GitHub: https://github.com/nobody174/Pi-Menu-Public
+# License: MIT
+#
+
 import logging
 import os
 import sys

@@ -1,14 +1,11 @@
 #
-# Pi-Menu
-# Author:  nobody174 (nobodylearn174@gmail.com)
-# Repo:    https://github.com/nobody174/Pi-Menu
-# License: All rights reserved © 2025 nobody174
-# "It's never too late to give up!"
+# Pi-Menu - Weekly Meal Planner
+# Creator: nobody174 (nobodylearn174@gmail.com)
+# GitHub: https://github.com/nobody174/Pi-Menu-Public
+# License: MIT
 #
 
-# Pi-Menu Configuration
-# Created: 2026-06-13
-# Author: Vartdal
+# Configuration file for Pi-Menu application
 
 import os
 from pathlib import Path

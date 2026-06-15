@@ -1,4 +1,11 @@
 #!/usr/bin/env python3
+#
+# Pi-Menu - Weekly Meal Planner
+# Creator: nobody174 (nobodylearn174@gmail.com)
+# GitHub: https://github.com/nobody174/Pi-Menu-Public
+# License: MIT
+#
+
 """
 Pi-Menu Main Application Entry Point
 Runs Flask app with background scheduler
