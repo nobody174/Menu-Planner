@@ -287,3 +287,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// ── Language switching ────────────────────────────────────────────────────
+function switchLanguage(lang) {
+    if (window.languageManager) {
+        window.languageManager.setLanguage(lang);
+        window.languageManager.applyLanguage();
+        location.reload();
+    }
+}
