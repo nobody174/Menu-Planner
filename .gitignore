@@ -33,6 +33,9 @@ share/python-wheels/
 *.egg
 MANIFEST
 
+# Recipe cache
+data/recipes_cache/
+
 # Virtual environments
 venv/
 ENV/
