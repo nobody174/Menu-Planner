@@ -216,9 +216,9 @@ def test_sync(client_id: str, client_secret: str, tenant_id: str):
 
 if __name__ == '__main__':
     import os
-    client_id = os.getenv('AZURE_CLIENT_ID', '6a554392-f3fb-4e8e-b85c-4970711ea412')
-    client_secret = os.getenv('AZURE_CLIENT_SECRET', 'test-secret')
-    tenant_id = os.getenv('AZURE_TENANT_ID', 'd450370d-b4f6-4ee6-916c-1d3c2091d1a3')
+    client_id = os.getenv('AZURE_CLIENT_ID', '')
+    client_secret = os.getenv('AZURE_CLIENT_SECRET', '')
+    tenant_id = os.getenv('AZURE_TENANT_ID', '')
 
     logger.info("Testing To Do sync")
     test_sync(client_id, client_secret, tenant_id)

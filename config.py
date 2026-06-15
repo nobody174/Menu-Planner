@@ -36,10 +36,10 @@ for directory in [DATA_DIR, RECIPES_CACHE_DIR, LOGS_DIR]:
 # AZURE / MICROSOFT GRAPH API
 # ============================================================================
 
-AZURE_CLIENT_ID = os.getenv("AZURE_CLIENT_ID", "6a554392-f3fb-4e8e-b85c-4970711ea412")
-AZURE_CLIENT_SECRET = os.getenv("AZURE_CLIENT_SECRET", "")  # Set via environment variable
-AZURE_TENANT_ID = os.getenv("AZURE_TENANT_ID", "d450370d-b4f6-4ee6-916c-1d3c2091d1a3")
-AZURE_USERNAME = os.getenv("AZURE_USERNAME", "vartdal@gmail.com")  # Your Microsoft account email
+AZURE_CLIENT_ID = os.getenv("AZURE_CLIENT_ID", "")
+AZURE_CLIENT_SECRET = os.getenv("AZURE_CLIENT_SECRET", "")
+AZURE_TENANT_ID = os.getenv("AZURE_TENANT_ID", "")
+AZURE_USERNAME = os.getenv("AZURE_USERNAME", "")  # Your Microsoft account email
 AZURE_PASSWORD = os.getenv("AZURE_PASSWORD", "")  # Your Microsoft account password (for test only)
 TO_DO_LIST_NAME = "Handleliste"
 SHOPPING_LIST_NAME = "Handleliste"
@@ -48,8 +48,8 @@ SHOPPING_LIST_NAME = "Handleliste"
 # EMAIL CONFIGURATION
 # ============================================================================
 
-EMAIL_SENDER = "noreply@pi-menu.local"
-EMAIL_RECIPIENTS = ["vartdal@gmail.com"]  # Add wife's email later
+EMAIL_SENDER = os.getenv("EMAIL_SENDER", "noreply@pi-menu.local")
+EMAIL_RECIPIENTS = os.getenv("EMAIL_RECIPIENTS", "").split(",") if os.getenv("EMAIL_RECIPIENTS") else []
 EMAIL_SMTP_SERVER = "smtp.gmail.com"  # Or your SMTP server
 EMAIL_SMTP_PORT = 587
 EMAIL_USERNAME = os.getenv("EMAIL_USERNAME", "")
@@ -132,7 +132,7 @@ LOG_LEVEL = "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
 # HOUSEHPLD SETTINGS
 # ============================================================================
 
-HOUSEHOLD_NAME = "Vartdal Household"
+HOUSEHOLD_NAME = os.getenv("HOUSEHOLD_NAME", "{Family_Name}")
 HOUSEHOLD_SIZE = 5
 TIMEZONE = "Europe/Oslo"
 
