@@ -1,0 +1,21 @@
+Pi-Menu Recipe Template
+========================
+
+This folder will contain:
+1. recipe-template.xlsx - Excel template for users to add their own recipes
+
+The Excel template has 4 sheets:
+- Sheet 1: "Add Your Recipes" (main data entry)
+- Sheet 2: "Categories" (reference list)
+- Sheet 3: "Units" (reference list)
+- Sheet 4: "Instructions" (how-to guide)
+
+Users will fill in their recipes in Sheet 1 following the format:
+- Recipe Name (Norwegian and English)
+- Category
+- Prep Time (minutes)
+- Difficulty
+- Ingredients (with quantities and units)
+- Instructions (step by step)
+
+The import script will convert these to the JSON format used by Pi-Menu.
