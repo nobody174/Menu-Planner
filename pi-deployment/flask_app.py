@@ -231,11 +231,16 @@ def api_regenerate():
 
 @app.route('/api/categories')
 def get_categories():
-    menus_dir = Path('../data/menus')
+    """Get all available categories from categories.json"""
+    categories_file = Path(__file__).parent.parent / 'data' / 'categories.json'
     categories = []
-    if menus_dir.exists():
-        categories = [d.name for d in menus_dir.iterdir() if d.is_dir()]
-    return jsonify({'categories': sorted(categories)})
+    if categories_file.exists():
+        try:
+            with open(categories_file, 'r', encoding='utf-8') as f:
+                categories = json.load(f)
+        except Exception as e:
+            logger.error(f"Error loading categories: {e}")
+    return jsonify({'categories': categories})
 
 @app.route('/api/sync-shopping-list', methods=['POST'])
 def api_sync_shopping_list():

@@ -27,7 +27,8 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 DATA_DIR = Path('data')
-RECIPES_DB_FILE = DATA_DIR / 'recipes_db.json'
+RECIPES_DB_FILE = DATA_DIR / 'sample_recipes.json'
+CATEGORIES_FILE = DATA_DIR / 'categories.json'
 MENU_OUTPUT_FILE = DATA_DIR / 'weekly_menu.json'
 
 ORANGE_KEYWORDS = [
@@ -54,49 +55,45 @@ class MenuGenerator:
             random.seed(seed)
             logger.info(f"Seeded with: {seed}")
 
-        self.selected_categories = selected_categories or ['Populære', 'Familie', 'Rask Middag']
+        self.categories = self.load_categories()
+        self.selected_categories = selected_categories or ['familie', 'rask']  # Default categories
         self.recipes_db = []
         self.deduplicator = IngredientDeduplicator()
         self.filtered_recipes = []
 
+    def load_categories(self) -> List[Dict]:
+        """Load categories from JSON file"""
+        if CATEGORIES_FILE.exists():
+            try:
+                with open(CATEGORIES_FILE, 'r', encoding='utf-8') as f:
+                    return json.load(f)
+            except Exception as e:
+                logger.warning(f"Could not load categories: {e}")
+                return []
+        return []
+
     def load_recipes(self) -> bool:
-        """Load recipes from selected categories in menus folder"""
+        """Load recipes from sample_recipes.json and filter by selected categories"""
         self.recipes_db = []
-        menus_dir = Path('data/menus')
 
-        # Try to load from menus folder first (new structure)
-        if menus_dir.exists():
-            for category in self.selected_categories:
-                if category == 'Favoritter':
-                    # Skip Favoritter here, it's handled via localStorage on frontend
-                    logger.info("Favoritter category selected (handled client-side)")
-                    continue
+        if not RECIPES_DB_FILE.exists():
+            logger.error(f"Recipes database not found: {RECIPES_DB_FILE}")
+            return False
 
-                category_dir = menus_dir / category
-                recipes_file = category_dir / 'recipes.json'
-
-                if recipes_file.exists():
-                    with open(recipes_file, 'r', encoding='utf-8') as f:
-                        recipes = json.load(f)
-                        self.recipes_db.extend(recipes)
-                        logger.info(f"Loaded {len(recipes)} recipes from {category}")
-                else:
-                    logger.warning(f"No recipes found for category: {category}")
-        else:
-            # Fallback to old recipes_db.json if menus folder doesn't exist
-            if not RECIPES_DB_FILE.exists():
-                logger.error(f"Recipes database not found: {RECIPES_DB_FILE}")
-                return False
-
+        try:
             with open(RECIPES_DB_FILE, 'r', encoding='utf-8') as f:
                 all_recipes = json.load(f)
 
-            # Filter by selected categories (skip Favoritter, it's client-side)
+            # Filter by selected categories
             for recipe in all_recipes:
-                if recipe.get('category') in self.selected_categories or recipe.get('category') in [cat for cat in self.selected_categories if cat != 'Favoritter']:
+                category = recipe.get('category', '').lower()
+                if category in self.selected_categories:
                     self.recipes_db.append(recipe)
 
-            logger.info(f"Loaded {len(self.recipes_db)} recipes from recipes_db.json (filtered by {self.selected_categories})")
+            logger.info(f"Loaded {len(self.recipes_db)} recipes from {RECIPES_DB_FILE} (filtered by {self.selected_categories})")
+        except Exception as e:
+            logger.error(f"Error loading recipes: {e}")
+            return False
 
         logger.info(f"Total recipes loaded: {len(self.recipes_db)}")
         return len(self.recipes_db) > 0

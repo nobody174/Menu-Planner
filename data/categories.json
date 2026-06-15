@@ -1,0 +1,56 @@
+[
+  {
+    "code": "familie",
+    "name_no": "Familie",
+    "name_en": "Family",
+    "description_no": "Familievennlige middager som hele familien liker",
+    "description_en": "Family-friendly dinners that everyone loves",
+    "icon": "👨‍👩‍👧‍👦",
+    "color": "#FF6B6B"
+  },
+  {
+    "code": "rask",
+    "name_no": "Rask Middag",
+    "name_en": "Quick Dinner",
+    "description_no": "Middager som lages på under 30 minutter",
+    "description_en": "Meals prepared in under 30 minutes",
+    "icon": "⚡",
+    "color": "#4ECDC4"
+  },
+  {
+    "code": "vegetar",
+    "name_no": "Vegetar",
+    "name_en": "Vegetarian",
+    "description_no": "Oppskrifter uten kjøtt",
+    "description_en": "Recipes without meat",
+    "icon": "🥗",
+    "color": "#95E1D3"
+  },
+  {
+    "code": "fisk",
+    "name_no": "Fisk & Sjømat",
+    "name_en": "Fish & Seafood",
+    "description_no": "Fisk og sjømatmiddager",
+    "description_en": "Fish and seafood meals",
+    "icon": "🐟",
+    "color": "#6C8EBF"
+  },
+  {
+    "code": "kjøtt",
+    "name_no": "Kjøtt",
+    "name_en": "Meat",
+    "description_no": "Deilige kjøttmiddager",
+    "description_en": "Delicious meat dishes",
+    "icon": "🥩",
+    "color": "#C5504C"
+  },
+  {
+    "code": "annet",
+    "name_no": "Annet",
+    "name_en": "Other",
+    "description_no": "Øvrige oppskrifter",
+    "description_en": "Other recipes",
+    "icon": "🍽️",
+    "color": "#999999"
+  }
+]
