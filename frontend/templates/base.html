@@ -4,7 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Pi-Menu{% endblock %}</title>
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+    <meta name="theme-color" content="#d97706">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Ukesmeny">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='themes/theme-switcher.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='themes/theme-terracotta.css') }}">
 </head>
 <body>
     <nav class="navbar">
@@ -17,8 +24,91 @@
                 <li class="nav-item">
                     <a href="/shopping" class="nav-link">Handleliste</a>
                 </li>
+                <li class="nav-item nav-category-selector">
+                    <div class="category-dropdown-wrapper" id="categoryDropdownWrapper">
+                        <button class="category-dropdown-btn" onclick="toggleCategoryDropdown(event)">
+                            Kategorier <span class="dropdown-arrow">▾</span>
+                        </button>
+                        <div class="category-dropdown-menu" id="categoryDropdownMenu">
+                            <label><input type="checkbox" value="Favoritter"> ⭐ Favoritter</label>
+                            <label><input type="checkbox" value="Kjappe Middager" checked> Kjappe Middager</label>
+                            <label><input type="checkbox" value="Pasta & Nudler" checked> Pasta & Nudler</label>
+                            <label><input type="checkbox" value="Kyllingretter" checked> Kyllingretter</label>
+                            <label><input type="checkbox" value="Kjøttdeig & Pølser" checked> Kjøttdeig & Pølser</label>
+                            <label><input type="checkbox" value="Fisk & Sjømat" checked> Fisk & Sjømat</label>
+                            <label><input type="checkbox" value="Taco & Tex-Mex"> Taco & Tex-Mex</label>
+                            <label><input type="checkbox" value="Grill"> Grill</label>
+                            <label><input type="checkbox" value="Supper & Gryter"> Supper & Gryter</label>
+                            <label><input type="checkbox" value="Vegetar"> Vegetar</label>
+                            <label><input type="checkbox" value="HomeMade"> HomeMade</label>
+                            <div class="dropdown-actions">
+                                <button onclick="applyCategories()" class="btn-apply">Bruk</button>
+                            </div>
+                        </div>
+                    </div>
+                </li>
                 <li class="nav-item">
                     <a href="#" onclick="refreshMenu()" class="nav-link">Generer ny meny</a>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-settings-menu">
+                        <button id="settings-btn" class="settings-btn" aria-label="Innstillinger" title="Innstillinger" onclick="toggleSettingsMenu(event)">⚙️</button>
+                        <div id="settings-dropdown" class="settings-dropdown">
+                            <div class="settings-section">
+                                <div class="settings-section-title">Tema</div>
+                                <a href="#" class="settings-submenu-item" onclick="openThemeMenu(event)">
+                                    Velg tema <span class="submenu-arrow">›</span>
+                                </a>
+                                <div id="theme-submenu" class="theme-submenu" style="display:none;">
+                                    <div class="theme-option" data-theme="warm-modern" onclick="switchTheme('warm-modern', event)">
+                                        <span class="theme-option-name">Warm &amp; Modern</span>
+                                        <span class="theme-preview-swatch" style="background:#d97706;"></span>
+                                    </div>
+                                    <div class="theme-option" data-theme="warm-terracotta" onclick="switchTheme('warm-terracotta', event)">
+                                        <span class="theme-option-name">Terracotta &amp; Sage</span>
+                                        <span class="theme-preview-swatch" style="background:#d97b36;"></span>
+                                    </div>
+                                    <div class="theme-option" data-theme="apple-fitness" onclick="switchTheme('apple-fitness', event)">
+                                        <span class="theme-option-name">Apple Fitness</span>
+                                        <span class="theme-preview-swatch" style="background:#30D158;"></span>
+                                    </div>
+                                    <div class="theme-option" data-theme="brutalist" onclick="switchTheme('brutalist', event)">
+                                        <span class="theme-option-name">Brutalist</span>
+                                        <span class="theme-preview-swatch" style="background:#000000;"></span>
+                                    </div>
+                                    <div class="theme-option" data-theme="chalkboard-bistro" onclick="switchTheme('chalkboard-bistro', event)">
+                                        <span class="theme-option-name">Chalkboard Bistro</span>
+                                        <span class="theme-preview-swatch" style="background:#E8C547;"></span>
+                                    </div>
+                                    <div class="theme-option" data-theme="coastal-kitchen" onclick="switchTheme('coastal-kitchen', event)">
+                                        <span class="theme-option-name">Coastal Kitchen</span>
+                                        <span class="theme-preview-swatch" style="background:#2C5F5A;"></span>
+                                    </div>
+                                    <div class="theme-option" data-theme="forest-forager" onclick="switchTheme('forest-forager', event)">
+                                        <span class="theme-option-name">Forest Forager</span>
+                                        <span class="theme-preview-swatch" style="background:#7BA05B;"></span>
+                                    </div>
+                                    <div class="theme-option" data-theme="kjøkkenhylle" onclick="switchTheme('kjøkkenhylle', event)">
+                                        <span class="theme-option-name">Kjøkkenhylle</span>
+                                        <span class="theme-preview-swatch" style="background:#2C4A3E;"></span>
+                                    </div>
+                                    <div class="theme-option" data-theme="pop-art-diner" onclick="switchTheme('pop-art-diner', event)">
+                                        <span class="theme-option-name">Pop Art Diner</span>
+                                        <span class="theme-preview-swatch" style="background:#D32F2F;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="settings-divider"></div>
+                            <a href="/all-recipes" class="settings-item">Alle oppskrifter</a>
+                            <a href="/add-recipe" class="settings-item">+ Legg til oppskrift</a>
+                            <div class="settings-divider"></div>
+                            <div id="nav-auth-section" style="display:none;">
+                                <a href="/login" id="nav-login-item" class="settings-item" style="display:none;">Logg inn (To Do)</a>
+                                <span id="nav-user-display-settings" style="display:none; font-size:0.85rem; color:var(--color-text-secondary,#888); padding:8px 16px; display:block;"></span>
+                                <a href="/logout" id="nav-logout-item" class="settings-item settings-logout" style="display:none;">Logg ut</a>
+                            </div>
+                        </div>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -40,9 +130,106 @@
 
     <footer class="footer">
         <p>Pi-Menu &copy; 2026 | Vartdal Household</p>
-        <p style="font-size: 0.85em; margin-top: 5px;">Built with assistance from <em>Claude Code</em> by Anthropic.</p>
+        <p style="font-size: 0.8em; margin-top: 4px;">Built with <em>Claude Code</em> by Anthropic.</p>
     </footer>
 
+    <script src="{{ url_for('static', filename='themes/theme-colors.js') }}"></script>
+    <script src="{{ url_for('static', filename='themes/theme-manager.js') }}"></script>
     <script src="{{ url_for('static', filename='app.js') }}"></script>
+
+    <script>
+    // ── Dynamic Preview Theme Loader ────────────────────────────────────────
+    // Fetches theme-registry.json and appends preview theme options to the
+    // existing dropdown. Runs after ThemeManager has already initialised.
+    document.addEventListener('DOMContentLoaded', function () {
+        var REGISTRY_URL = '/static/themes/previews/theme-registry.json';
+        var dropdown = document.getElementById('theme-dropdown');
+        if (!dropdown) return;
+
+        fetch(REGISTRY_URL)
+            .then(function (res) {
+                if (!res.ok) {
+                    // No registry yet (extract_themes.py hasn't been run) — fail silently
+                    return null;
+                }
+                return res.json();
+            })
+            .then(function (themes) {
+                if (!Array.isArray(themes) || themes.length === 0) return;
+
+                themes.forEach(function (theme) {
+                    var option = document.createElement('div');
+                    option.className = 'theme-option';
+                    option.dataset.theme = theme.id;
+                    option.innerHTML =
+                        '<div class="theme-option-content">' +
+                            '<span class="theme-option-name">' + _escapeHtml(theme.name) + '</span>' +
+                            '<span class="theme-option-desc">Preview tema</span>' +
+                        '</div>' +
+                        '<span class="theme-preview-swatch" style="background:' + _escapeHtml(theme.preview_color) + ';"></span>';
+
+                    // Wire up click handler to match existing options
+                    option.addEventListener('click', function () {
+                        var name = option.dataset.theme;
+                        if (window.themeManager) {
+                            window.themeManager.applyTheme(name);
+                            localStorage.setItem('vartdal-theme', name);
+                            window.themeManager.markActiveTheme();
+                        }
+                        dropdown.classList.remove('open');
+                    });
+
+                    dropdown.appendChild(option);
+                });
+
+                // Re-run active marking so the current theme is highlighted
+                // even if it's one of the newly appended preview options
+                if (window.themeManager) {
+                    window.themeManager.markActiveTheme();
+                }
+            })
+            .catch(function () {
+                // Network error or malformed JSON — fail silently
+            });
+
+        function _escapeHtml(str) {
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;');
+        }
+    });
+
+    // ── Auth status ────────────────────────────────────────────────────────
+    fetch('/api/user')
+        .then(function(r){ return r.json(); })
+        .then(function(data){
+            var loginBtn  = document.getElementById('nav-login-btn');
+            var logoutBtn = document.getElementById('nav-logout-btn');
+            var userDisp  = document.getElementById('nav-user-display');
+            if (!loginBtn) return;
+            if (data.authenticated) {
+                userDisp.textContent = data.name || data.email || '';
+                userDisp.style.display = '';
+                logoutBtn.style.display = '';
+            } else {
+                loginBtn.style.display = '';
+            }
+        })
+        .catch(function(){
+            var loginBtn = document.getElementById('nav-login-btn');
+            if (loginBtn) loginBtn.style.display = '';
+        });
+
+    // ── Service Worker (PWA) ───────────────────────────────────────────────
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('/static/sw.js')
+                .then(function(reg){ console.log('SW registered', reg.scope); })
+                .catch(function(err){ console.log('SW registration failed', err); });
+        });
+    }
+    </script>
 </body>
 </html>

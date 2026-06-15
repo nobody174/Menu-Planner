@@ -3,36 +3,177 @@
 {% block title %}Vartdals Ukesmeny{% endblock %}
 
 {% block content %}
-{% include "category_selector.html" %}
 
-<div class="hero">
-    <h1>Vartdals Ukesmeny</h1>
-    <p class="week-range">{{ menu.week_start }} til {{ menu.week_end }}</p>
-    {% if menu.selected_categories %}
-    <p class="categories-info">Kategorier: {{ menu.selected_categories | join(', ') }}</p>
-    {% endif %}
+{# ─────────────────────────────────────────────────────────────
+   STANDARD LAYOUT — shown for all themes except warm-terracotta
+   ───────────────────────────────────────────────────────────── #}
+<div id="layout-standard">
+  <div class="hero">
+      <h1>Vartdals Ukesmeny</h1>
+      <p class="week-range">{{ menu.week_start }} til {{ menu.week_end }}</p>
+      {% if menu.selected_categories %}
+      <p class="categories-info">Kategorier: {{ menu.selected_categories | join(', ') }}</p>
+      {% endif %}
+  </div>
+
+  <div class="menu-grid">
+      {% for dinner in menu.dinners %}
+      <div class="menu-card">
+          <div class="card-header">
+              <h2 class="day-name">{{ dinner.day }}</h2>
+              <span class="meal-time">{{ dinner.time_minutes }} min</span>
+          </div>
+          <div class="card-body">
+              <h3 class="recipe-title">{{ dinner.title }}</h3>
+              <p class="difficulty">{{ dinner.difficulty }}</p>
+          </div>
+          <div class="card-footer">
+              <a href="/recipe/{{ dinner.recipe_id }}" class="btn btn-primary">Se oppskrift</a>
+          </div>
+      </div>
+      {% endfor %}
+  </div>
+
+  <div class="actions">
+      <a href="/shopping" class="btn btn-secondary btn-large">Se handleliste</a>
+  </div>
 </div>
 
-<div class="menu-grid">
+{# ─────────────────────────────────────────────────────────────
+   RICH LAYOUT — Terracotta & Sage theme
+   Full redesign: images, day-nav, summary bar, shopping CTA
+   ───────────────────────────────────────────────────────────── #}
+<div id="layout-rich" style="display:none">
+
+  {# Decorative background orbs — CSS-only, no extra JS #}
+  <div class="tc-orb tc-orb-tr"></div>
+  <div class="tc-orb tc-orb-bl"></div>
+
+  {# ── Header ── #}
+  <div class="tc-header">
+    <div class="tc-header-left">
+      <div class="tc-logo-row">
+        <div class="tc-chef-icon">🍳</div>
+        <span class="tc-eyebrow">Familiens menyplan</span>
+      </div>
+      <h1 class="tc-title">Vartdals Ukesmeny</h1>
+      <p class="tc-subtitle">{{ menu.week_start }} – {{ menu.week_end }}</p>
+    </div>
+    <div class="tc-header-actions">
+      <a href="/shopping" class="tc-btn-outline">🛒 Handleliste</a>
+      <a href="#" onclick="refreshMenu(); return false;" class="tc-btn-primary">↻ Ny meny</a>
+    </div>
+  </div>
+
+  {# ── Category pills ── #}
+  {% if menu.selected_categories %}
+  <div class="tc-pills">
+    {% set cat_icons = {'Familie': '👨‍👩‍👧', 'Populære': '🔥', 'Rask Middag': '⚡', 'Vegetar': '🌿', 'Vegansk': '🌱', 'Fisk': '🐟', 'Pasta': '🍝', 'Japansk': '🍱', 'Lavkarbo': '🥗', 'Enkelt': '✨'} %}
+    {% for cat in menu.selected_categories %}
+    <span class="tc-pill tc-pill-active">{{ cat_icons.get(cat, '•') }} {{ cat }}</span>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {# ── Day selector ── #}
+  <div class="tc-day-nav" id="tc-day-nav">
+    {% set days_short = ['Man', 'Tir', 'Ons', 'Tor', 'Fre', 'Lør', 'Søn'] %}
     {% for dinner in menu.dinners %}
-    <div class="menu-card">
-        <div class="card-header">
-            <h2 class="day-name">{{ dinner.day }}</h2>
-            <span class="meal-time">{{ dinner.time_minutes }} min</span>
+    <button class="tc-day-btn{% if loop.first %} tc-day-active{% endif %}"
+            data-day-index="{{ loop.index0 }}"
+            onclick="tcSelectDay({{ loop.index0 }})">
+      <span class="tc-day-label">{{ dinner.day[:3] }}</span>
+      <span class="tc-day-num">{{ loop.index + 14 }}</span>
+    </button>
+    {% endfor %}
+  </div>
+
+  {# ── Cards grid ── #}
+  <div class="tc-grid">
+    {% for dinner in menu.dinners %}
+    <div class="tc-card tc-card-anim tc-card-delay-{{ loop.index }}" data-day-index="{{ loop.index0 }}">
+      {# Image area — recipe image if available, gradient placeholder otherwise #}
+      <div class="tc-card-img-wrap">
+        {% if dinner.image_url %}
+        <img src="{{ dinner.image_url }}" alt="{{ dinner.title }}" class="tc-card-img">
+        {% else %}
+        <div class="tc-card-img-placeholder">
+          <span class="tc-placeholder-icon">{{ ['🍝','🥗','🐟','🍗','🥩','🥦','🍜','🍛'][loop.index0 % 8] }}</span>
         </div>
-        <div class="card-body">
-            <h3 class="recipe-title">{{ dinner.title }}</h3>
-            <p class="difficulty">{{ dinner.difficulty }}</p>
-            <span class="protein-badge protein-{{ dinner.protein }}">{{ dinner.protein }}</span>
+        {% endif %}
+        <div class="tc-card-img-overlay">
+          <span class="tc-day-badge">📅 {{ dinner.day }}</span>
+          <span class="tc-time-badge">🕐 {{ dinner.time_minutes }} min</span>
         </div>
-        <div class="card-footer">
-            <a href="/recipe/{{ dinner.recipe_id }}" class="btn btn-primary">Se oppskrift</a>
+      </div>
+      {# Card body #}
+      <div class="tc-card-body">
+        <h3 class="tc-card-title">{{ dinner.title }}</h3>
+        {% if dinner.subtitle %}
+        <p class="tc-card-desc">{{ dinner.subtitle }}</p>
+        {% endif %}
+        <div class="tc-card-footer">
+          <div class="tc-card-tags">
+            {% if dinner.categories %}
+              {% for cat in dinner.categories[:2] %}
+              <span class="tc-tag">{{ cat }}</span>
+              {% endfor %}
+            {% elif dinner.difficulty %}
+              <span class="tc-tag">{{ dinner.difficulty }}</span>
+            {% endif %}
+          </div>
+          <a href="/recipe/{{ dinner.recipe_id }}" class="tc-recipe-link">
+            Se oppskrift <span class="tc-arrow">→</span>
+          </a>
         </div>
+      </div>
     </div>
     {% endfor %}
-</div>
+  </div>
 
-<div class="actions">
-    <a href="/shopping" class="btn btn-secondary btn-large">Se handleliste</a>
-</div>
+  {# ── Weekly summary ── #}
+  <div class="tc-summary">
+    <div class="tc-summary-left">
+      <h3 class="tc-summary-title">Ukens oppsummering</h3>
+      <p class="tc-summary-sub">{{ menu.dinners | length }} middager planlagt</p>
+    </div>
+    <div class="tc-summary-stats">
+      {% set total_min = menu.dinners | sum(attribute='time_minutes') %}
+      {% set avg_min = (total_min / menu.dinners | length) | int if menu.dinners | length > 0 else 0 %}
+      <div class="tc-stat">
+        <span class="tc-stat-icon">🕐</span>
+        <span class="tc-stat-value">{{ avg_min }} min</span>
+        <span class="tc-stat-label">Snitt</span>
+      </div>
+      <div class="tc-stat-divider"></div>
+      {% set veg_count = menu.dinners | selectattr('categories') | list | length %}
+      <div class="tc-stat">
+        <span class="tc-stat-icon">🌿</span>
+        <span class="tc-stat-value">{{ menu.dinners | selectattr('protein_type', 'equalto', 'vegetarian') | list | length }}</span>
+        <span class="tc-stat-label">Vegetar</span>
+      </div>
+      <div class="tc-stat-divider"></div>
+      <div class="tc-stat">
+        <span class="tc-stat-icon">👨‍🍳</span>
+        <span class="tc-stat-value">{{ menu.dinners | length }}</span>
+        <span class="tc-stat-label">Retter</span>
+      </div>
+    </div>
+  </div>
+
+  {# ── Shopping list CTA ── #}
+  <div class="tc-cta">
+    <div class="tc-cta-orb tc-cta-orb-tr"></div>
+    <div class="tc-cta-orb tc-cta-orb-bl"></div>
+    <div class="tc-cta-inner">
+      <div>
+        <h3 class="tc-cta-title">Klar til å handle?</h3>
+        <p class="tc-cta-sub">Generer en handleliste basert på ukens meny.</p>
+      </div>
+      <a href="/shopping" class="tc-cta-btn">🛒 Lag handleliste</a>
+    </div>
+  </div>
+
+</div>{# /layout-rich #}
+
 {% endblock %}

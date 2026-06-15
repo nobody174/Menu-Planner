@@ -1,16 +1,15 @@
 {% extends "base.html" %}
 
-<!-- TESTING: NEW VERSION - Claude AI 2026-06-13 -->
-
 {% block title %}Handleliste - Vartdals Ukesmeny{% endblock %}
 
 {% block content %}
 <div class="shopping-header">
     <h1>Handleliste for denne uken</h1>
+    <p class="shopping-hint">Huk av det du allerede har hjemme — resten sendes til To Do.</p>
     <div class="shopping-actions">
-        <button onclick="window.print()" class="btn btn-secondary">Skriv ut liste</button>
-        <button onclick="toggleChecked()" class="btn btn-secondary">Merk alt som kjøpt</button>
-        <button onclick="syncToToDo()" class="btn btn-primary">Send Handleliste til telefon 📱</button>
+        <button onclick="window.print()" class="btn btn-secondary">Skriv ut</button>
+        <button onclick="uncheckAll()" class="btn btn-secondary">Nullstill</button>
+        <button onclick="syncToToDo(this)" class="btn btn-primary">Send til To Do 📱</button>
     </div>
 </div>
 
@@ -30,9 +29,12 @@
             <h2 class="category-title">{{ category_names.get(category, category) }}</h2>
             <ul class="category-items">
                 {% for item in items %}
-                <li class="shopping-item">
+                <li class="shopping-item"
+                    data-ingredient="{{ item.ingredient }}"
+                    data-quantity="{{ item.quantity }}"
+                    data-unit="{{ item.unit }}">
                     <label class="checkbox-label">
-                        <input type="checkbox" class="shopping-checkbox item-checkbox" data-item="{{ item.ingredient }}-{{ item.quantity }}-{{ item.unit }}">
+                        <input type="checkbox" class="item-checkbox">
                         <span class="item-name">{{ item.ingredient }}</span>
                         <span class="item-qty">{{ item.quantity }}{{ item.unit }}</span>
                     </label>
@@ -52,67 +54,68 @@
 </div>
 
 <div class="shopping-footer">
-    <p class="note">Tips: Sjekk kjøleskapet ditt før du handler - du har kanskje det meste hjemme!</p>
+    <p class="note">Tips: Huk av det du har hjemme, så sendes bare det du mangler til telefonen.</p>
 </div>
-{% endblock %}
 
 <script>
-function toggleChecked() {
-    const checkboxes = document.querySelectorAll('.item-checkbox');
-    checkboxes.forEach(cb => cb.checked = !cb.checked);
+var SHOPPING_LIST = {{ shopping_list | tojson }};
+
+// Uncheck all — reset the list
+function uncheckAll() {
+    document.querySelectorAll('.item-checkbox').forEach(function(cb) { cb.checked = false; });
 }
 
-function syncToToDo() {
-    // Get all checked items
-    const checkedItems = [];
-    document.querySelectorAll('.item-checkbox:checked').forEach(cb => {
-        const data = cb.dataset.item.split('-');
-        checkedItems.push({
-            ingredient: data[0],
-            quantity: data[1],
-            unit: data[2]
-        });
+function syncToToDo(button) {
+    // Collect UNCHECKED items — those are what you still need to buy
+    var itemsToSync = [];
+    document.querySelectorAll('.shopping-item').forEach(function(li) {
+        var cb = li.querySelector('.item-checkbox');
+        if (cb && !cb.checked) {
+            itemsToSync.push({
+                ingredient: li.dataset.ingredient || '',
+                quantity:   li.dataset.quantity   || '',
+                unit:       li.dataset.unit        || ''
+            });
+        }
     });
 
-    if (checkedItems.length === 0) {
-        alert('Velg minst ett element før du sender til telefon');
+    if (itemsToSync.length === 0) {
+        pmAlert('✅', 'Ingenting å sende', 'Alt er allerede haket av som kjøpt!');
         return;
     }
 
-    // Show loading state
-    const button = event.target;
-    const originalText = button.textContent;
+    var originalText = button.textContent;
     button.disabled = true;
     button.textContent = 'Sender...';
 
-    // Send to backend
     fetch('/api/sync-shopping-list', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            items: checkedItems,
-            shopping_list: {{ shopping_list | tojson }}
+            items: itemsToSync,
+            shopping_list: SHOPPING_LIST
         })
     })
-    .then(response => response.json())
-    .then(data => {
-        if (data.status === 'success') {
-            alert('Handleliste sendt til telefon! 📱');
-            // Uncheck items after successful sync
-            document.querySelectorAll('.item-checkbox:checked').forEach(cb => cb.checked = false);
+    .then(function(r) {
+        return r.json().then(function(data) { return { ok: r.ok, data: data }; });
+    })
+    .then(function(res) {
+        if (res.ok) {
+            pmAlert('📱', 'Sendt til To Do!', res.data.message);
+        } else if (res.data.requiresAuth) {
+            pmAlert('🔒', 'Ikke tilkoblet', 'Pi-Menu er ikke koblet til Microsoft To Do. Be Vartdal om å gå til /login én gang.');
         } else {
-            alert('Feil ved sending: ' + (data.message || 'Ukjent feil'));
+            pmAlert('❌', 'Noe gikk galt', res.data.message || 'Ukjent feil');
         }
     })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('Feil ved sending til telefon');
+    .catch(function(err) {
+        console.error('Sync error:', err);
+        pmAlert('❌', 'Serverfeil', 'Kunne ikke kontakte serveren. Prøv igjen.');
     })
-    .finally(() => {
+    .finally(function() {
         button.disabled = false;
         button.textContent = originalText;
     });
 }
 </script>
+{% endblock %}

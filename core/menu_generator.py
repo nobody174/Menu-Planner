@@ -68,6 +68,11 @@ class MenuGenerator:
         # Try to load from menus folder first (new structure)
         if menus_dir.exists():
             for category in self.selected_categories:
+                if category == 'Favoritter':
+                    # Skip Favoritter here, it's handled via localStorage on frontend
+                    logger.info("Favoritter category selected (handled client-side)")
+                    continue
+
                 category_dir = menus_dir / category
                 recipes_file = category_dir / 'recipes.json'
 
@@ -85,8 +90,14 @@ class MenuGenerator:
                 return False
 
             with open(RECIPES_DB_FILE, 'r', encoding='utf-8') as f:
-                self.recipes_db = json.load(f)
-            logger.info(f"Loaded {len(self.recipes_db)} recipes from recipes_db.json (fallback)")
+                all_recipes = json.load(f)
+
+            # Filter by selected categories (skip Favoritter, it's client-side)
+            for recipe in all_recipes:
+                if recipe.get('category') in self.selected_categories or recipe.get('category') in [cat for cat in self.selected_categories if cat != 'Favoritter']:
+                    self.recipes_db.append(recipe)
+
+            logger.info(f"Loaded {len(self.recipes_db)} recipes from recipes_db.json (filtered by {self.selected_categories})")
 
         logger.info(f"Total recipes loaded: {len(self.recipes_db)}")
         return len(self.recipes_db) > 0

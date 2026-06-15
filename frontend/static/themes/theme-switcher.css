@@ -1,0 +1,133 @@
+.theme-switcher {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.theme-toggle-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background-color 200ms ease-in-out, transform 150ms ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: white;
+  user-select: none;
+  line-height: 1;
+}
+
+.theme-toggle-btn:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: rotate(20deg);
+}
+
+.theme-toggle-btn:active {
+  transform: rotate(30deg) scale(0.92);
+}
+
+.theme-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background: var(--color-surface, #fff);
+  border: 1px solid var(--color-border, #e5e7eb);
+  border-radius: 12px;
+  box-shadow: var(--color-shadow-large, 0 10px 15px rgba(0,0,0,0.1));
+  min-width: 240px;
+  z-index: 9999;
+  padding: 6px;
+  animation: themeSlideDown 200ms ease-out;
+}
+
+.theme-dropdown.open {
+  display: block;
+}
+
+@keyframes themeSlideDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.theme-dropdown-header {
+  padding: 8px 12px 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-secondary, #6b7280);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.theme-option {
+  padding: 10px 12px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  gap: 12px;
+  transition: background-color 200ms ease-in-out;
+}
+
+.theme-option:hover {
+  background-color: var(--color-divider, #f3f4f6);
+}
+
+.theme-option.active {
+  background-color: rgba(217, 119, 6, 0.08);
+  outline: 1px solid var(--color-secondary, #d97706);
+}
+
+.theme-option-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  text-align: left;
+}
+
+.theme-option-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--color-text-primary, #1f2937);
+  display: block;
+}
+
+.theme-option.active .theme-option-name {
+  color: var(--color-secondary, #d97706);
+}
+
+.theme-option-desc {
+  font-size: 0.78rem;
+  color: var(--color-text-secondary, #6b7280);
+  display: block;
+}
+
+.theme-preview-swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: 2px solid rgba(0,0,0,0.1);
+  flex-shrink: 0;
+  transition: transform 150ms ease-in-out;
+}
+
+.theme-option:hover .theme-preview-swatch {
+  transform: scale(1.12);
+}
+
+@media (max-width: 640px) {
+  .theme-dropdown {
+    right: -12px;
+    min-width: 200px;
+  }
+  .theme-option-desc {
+    display: none;
+  }
+}

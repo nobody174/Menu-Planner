@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pi-Menu — Brutalist Theme</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+  --bg: #FFFFFF;
+  --surface: #FFFFFF;
+  --primary: #000000;
+  --accent: #FF0000;
+  --text: #000000;
+  --muted: #555555;
+  --border: #000000;
+  --border-w: 4px;
+  --shadow-hard: 8px 8px 0 0 #000000;
+  --shadow-hard-red: 8px 8px 0 0 #FF0000;
+  --shadow-inset: -4px -4px 0 0 #000000;
+  --font: 'Space Mono', monospace;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  min-height: 100vh;
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* Brutalist noise texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.015) 2px, rgba(0,0,0,0.015) 4px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page-wrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 0 80px;
+}
+
+/* ── HEADER — intentionally oversized, breaking ── */
+.header {
+  border-bottom: var(--border-w) solid var(--border);
+  padding: 24px 32px 20px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: start;
+  gap: 16px;
+  position: relative;
+}
+
+/* Red bar at top */
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: var(--accent);
+}
+
+.header-brand {
+  padding-top: 10px;
+}
+
+/* HUGE title — deliberately oversized */
+.header-title {
+  font-size: clamp(3rem, 10vw, 6rem);
+  font-weight: 700;
+  line-height: 0.85;
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.header-title .slash {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.header-subtitle {
+  font-size: 0.65rem;
+  font-weight: 400;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 8px;
+  border-left: 3px solid var(--accent);
+  padding-left: 8px;
+}
+
+.header-week {
+  align-self: end;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  background: #000;
+  padding: 6px 12px;
+  border: 2px solid var(--accent);
+  white-space: nowrap;
+}
+
+.header-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  padding-top: 10px;
+}
+
+/* Brutalist buttons */
+.btn {
+  font-family: var(--font);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.btn:active {
+  transform: translate(4px, 4px);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  padding: 10px 20px;
+  border: var(--border-w) solid var(--border);
+  box-shadow: 5px 5px 0 0 #000;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.btn-primary:hover {
+  box-shadow: 7px 7px 0 0 #000;
+  transform: translate(-2px, -2px);
+}
+
+.btn-secondary {
+  background: var(--surface);
+  color: var(--text);
+  padding: 10px 20px;
+  border: var(--border-w) solid var(--border);
+  box-shadow: 5px 5px 0 0 #000;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.btn-secondary:hover {
+  background: #f0f0f0;
+  box-shadow: 7px 7px 0 0 #000;
+  transform: translate(-2px, -2px);
+}
+
+.btn-icon {
+  background: var(--surface);
+  color: var(--text);
+  width: 40px;
+  height: 40px;
+  border: var(--border-w) solid var(--border);
+  box-shadow: 4px 4px 0 0 #000;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: var(--font);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.btn-icon:hover {
+  box-shadow: 6px 6px 0 0 #000;
+  transform: translate(-2px, -2px);
+}
+
+/* ── Intentionally misaligned section label ── */
+.section-label-wrap {
+  padding: 28px 32px 0;
+  position: relative;
+}
+
+.section-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: inline-block;
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 4px;
+}
+
+/* Intentional visual noise — tiny overlapping number */
+.section-count {
+  position: absolute;
+  right: 32px;
+  top: 24px;
+  font-size: 4rem;
+  font-weight: 700;
+  color: rgba(0,0,0,0.04);
+  line-height: 1;
+  font-style: italic;
+  pointer-events: none;
+}
+
+/* ── Recipe Card — brutalist ── */
+.recipe-card {
+  margin: 24px 32px 0;
+  border: var(--border-w) solid var(--border);
+  box-shadow: var(--shadow-hard);
+  background: var(--surface);
+  position: relative;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.recipe-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 11px 11px 0 0 #000;
+}
+
+/* Red corner accent */
+.recipe-card::before {
+  content: '★';
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  width: 36px;
+  height: 36px;
+  background: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: #fff;
+  line-height: 36px;
+  text-align: center;
+}
+
+/* Top border accent bar */
+.card-top-bar {
+  background: var(--text);
+  color: #fff;
+  padding: 8px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.card-day-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.6);
+}
+
+.card-day-value {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #fff;
+}
+
+.card-time-raw {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+}
+
+/* Main card content */
+.card-body {
+  padding: 28px 24px 24px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: start;
+}
+
+.card-main {}
+
+.card-id-raw {
+  font-size: 0.62rem;
+  font-weight: 400;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+  font-style: italic;
+}
+
+/* Very large title — extreme size */
+.card-title {
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  border-left: 6px solid var(--accent);
+  padding-left: 14px;
+  margin-left: -14px;
+}
+
+.card-desc {
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: 20px;
+  max-width: 500px;
+}
+
+/* Tags — solid red rectangles */
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 4px 10px;
+}
+
+.tag-red {
+  background: var(--accent);
+  color: #fff;
+  border: 2px solid var(--accent);
+}
+
+.tag-black {
+  background: var(--text);
+  color: #fff;
+  border: 2px solid var(--text);
+}
+
+.tag-outline {
+  background: var(--surface);
+  color: var(--text);
+  border: 2px solid var(--text);
+}
+
+.card-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+/* Tiny text — extreme small */
+.card-meta-tiny {
+  font-size: 0.55rem;
+  color: var(--muted);
+  text-align: right;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  line-height: 1.8;
+}
+
+.btn-view {
+  background: var(--text);
+  color: #fff;
+  font-family: var(--font);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 12px 20px;
+  border: var(--border-w) solid var(--text);
+  box-shadow: var(--shadow-inset);
+  cursor: pointer;
+  transition: transform 0.1s ease;
+  white-space: nowrap;
+}
+
+.btn-view:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.btn-view:active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+
+/* Card bottom rule */
+.card-bottom {
+  border-top: var(--border-w) solid var(--border);
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.card-bottom-meta {
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.card-bottom-accent {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ── Shopping CTA — stark black bar ── */
+.shopping-cta {
+  margin: 48px 32px 0;
+  background: var(--text);
+  color: #fff;
+  padding: 32px 28px;
+  border: var(--border-w) solid var(--text);
+  box-shadow: var(--shadow-hard-red);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+/* Red stripe accent on CTA */
+.shopping-cta::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 8px;
+  background: var(--accent);
+}
+
+.cta-text {
+  padding-left: 8px;
+}
+
+.cta-label {
+  font-size: 0.6rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 6px;
+}
+
+.cta-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.btn-cta {
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 14px 28px;
+  border: var(--border-w) solid #fff;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform 0.1s ease;
+}
+
+.btn-cta:hover {
+  background: #fff;
+  color: var(--accent);
+}
+
+.btn-cta:active {
+  transform: scale(0.97);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .header {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 20px 24px 16px;
+  }
+
+  .header-actions {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: auto;
+  }
+
+  .header-week {
+    align-self: auto;
+  }
+
+  .recipe-card,
+  .shopping-cta {
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+
+  .section-label-wrap {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .card-body {
+    grid-template-columns: 1fr;
+  }
+
+  .card-actions {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-wrapper {
+    padding-bottom: 60px;
+  }
+
+  .header {
+    padding: 16px 20px 14px;
+  }
+
+  .recipe-card,
+  .shopping-cta {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .section-label-wrap {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .card-body {
+    padding: 20px 20px 16px;
+  }
+
+  .card-bottom {
+    padding: 8px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .section-count {
+    display: none;
+  }
+
+  .shopping-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .card-title {
+    font-size: 1.3rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="page-wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-brand">
+      <h1 class="header-title">Pi<span class="slash">/</span>Menu</h1>
+      <p class="header-subtitle">Vartdals Ukesmeny</p>
+    </div>
+    <div class="header-week">WEEK_START – WEEK_END</div>
+    <div class="header-actions">
+      <button class="btn btn-primary">_Generer ny meny</button>
+      <button class="btn btn-secondary">_Handleliste</button>
+      <button class="btn-icon">⚙️</button>
+    </div>
+  </header>
+
+  <!-- SECTION LABEL -->
+  <div class="section-label-wrap">
+    <div class="section-label">// Ukens oppskrifter</div>
+    <div class="section-count">01</div>
+  </div>
+
+  <!-- RECIPE CARD -->
+  <article class="recipe-card">
+    <div class="card-top-bar">
+      <div>
+        <div class="card-day-label">dag //</div>
+        <div class="card-day-value">DAY_NAME</div>
+      </div>
+      <div class="card-time-raw">[TIME_MINUTES MIN]</div>
+    </div>
+
+    <div class="card-body">
+      <div class="card-main">
+        <div class="card-id-raw">// ref: RECIPE_ID — kategori: CATEGORY_TAG_1</div>
+        <h2 class="card-title">RECIPE_TITLE</h2>
+        <p class="card-desc">SHORT_DESC</p>
+        <div class="card-tags">
+          <span class="tag tag-red">CATEGORY_TAG_1</span>
+          <span class="tag tag-black">CATEGORY_TAG_2</span>
+          <span class="tag tag-outline">TIME_MINUTES min</span>
+        </div>
+      </div>
+
+      <div class="card-actions">
+        <div class="card-meta-tiny">
+          ID: RECIPE_ID<br>
+          DAY_NAME<br>
+          TIME_MINUTES MIN
+        </div>
+        <button class="btn-view">Se oppskrift →</button>
+      </div>
+    </div>
+
+    <div class="card-bottom">
+      <span class="card-bottom-meta">RECIPE_ID · DAY_NAME · CATEGORY_TAG_2</span>
+      <span class="card-bottom-accent">★ CATEGORY_TAG_1</span>
+    </div>
+  </article>
+
+  <!-- SHOPPING CTA -->
+  <section class="shopping-cta">
+    <div class="cta-text">
+      <div class="cta-label">// Neste steg</div>
+      <div class="cta-title">Klar til å handle?<br>Vis handleliste.</div>
+    </div>
+    <button class="btn-cta">→ Vis Handleliste</button>
+  </section>
+
+</div>
+</body>
+</html>

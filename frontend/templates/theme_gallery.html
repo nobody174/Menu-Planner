@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema-galleri – Pi-Menu</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; background: #F5F1E8; color: #1A1A1A; padding: 2rem 1rem; }
+        .header { max-width: 1100px; margin: 0 auto 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        h1 { font-size: 2rem; font-weight: 700; }
+        .header p { color: #666; font-size: 0.95rem; }
+        .back { display: inline-block; color: #3F6B5B; font-weight: 600; text-decoration: none; font-size: 0.9rem; border: 1px solid #3F6B5B; padding: 0.5rem 1rem; border-radius: 6px; }
+        .back:hover { background: #3F6B5B; color: white; }
+        .grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+        .card { background: white; border-radius: 10px; border: 1px solid #DDD0BE; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+        .card-body { padding: 1.2rem; }
+        .card-body h2 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+        .card-body p { font-size: 0.8rem; color: #888; font-family: monospace; }
+        .card-link { display: block; text-align: center; padding: 0.7rem; background: #3F6B5B; color: white; font-weight: 600; font-size: 0.85rem; text-decoration: none; }
+        .card-link:hover { background: #2D5016; }
+        .count { background: #3F6B5B; color: white; border-radius: 20px; padding: 0.25rem 0.75rem; font-size: 0.85rem; font-weight: 600; }
+        @media (max-width: 640px) { h1 { font-size: 1.5rem; } }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div>
+            <h1>Tema-galleri</h1>
+            <p>Klikk på et tema for å forhåndsvise det i nettleseren</p>
+        </div>
+        <div style="display:flex;gap:0.75rem;align-items:center">
+            <span class="count">{{ themes|length }} temaer</span>
+            <a href="/" class="back">← Til menyen</a>
+        </div>
+    </div>
+    <div class="grid">
+        {% for theme in themes %}
+        <div class="card">
+            <div class="card-body">
+                <h2>{{ theme.name }}</h2>
+                <p>{{ theme.file }}</p>
+            </div>
+            <a href="/themes/{{ theme.file }}" class="card-link" target="_blank">Forhåndsvis →</a>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

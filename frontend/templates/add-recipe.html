@@ -1,0 +1,289 @@
+{% extends "base.html" %}
+
+{% block title %}Legg til oppskrift - Vartdals Ukesmeny{% endblock %}
+
+{% block content %}
+<div class="recipe-form-container">
+    <h1>Legg til egen oppskrift</h1>
+
+    <form id="recipeForm" class="recipe-form">
+        <div class="form-section">
+            <h2>Grunninfo</h2>
+
+            <div class="form-group">
+                <label for="title">Oppskriftens navn *</label>
+                <input type="text" id="title" name="title" placeholder="f.eks. Pizza Rebekka" required>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Kort beskrivelse *</label>
+                <textarea id="description" name="description" placeholder="f.eks. Med cream fresh, spekeskinke og mozzarella" required rows="2"></textarea>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="difficulty">Vanskelighetsgrad *</label>
+                    <select id="difficulty" name="difficulty" required>
+                        <option value="">-- Velg --</option>
+                        <option value="Enkel">Enkel</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Vanskelig">Vanskelig</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="time">Tidsbruk *</label>
+                    <select id="time" name="time" required>
+                        <option value="">-- Velg --</option>
+                        <option value="20 minutter">20 minutter</option>
+                        <option value="30 minutter">30 minutter</option>
+                        <option value="1 time">1 time</option>
+                        <option value="1.5 timer">1.5 timer</option>
+                        <option value="2+ timer">2+ timer</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Kategori *</label>
+                    <select id="category" name="category" required>
+                        <option value="">-- Velg --</option>
+                        <option value="HomeMade">HomeMade</option>
+                        <option value="Familie">Familie</option>
+                        <option value="Populære">Populære</option>
+                        <option value="Rask Middag">Rask Middag</option>
+                        <option value="Pasta">Pasta</option>
+                        <option value="Japansk">Japansk</option>
+                        <option value="Fisk">Fisk</option>
+                        <option value="Lavkarbo">Lavkarbo</option>
+                        <option value="Vegetar">Vegetar</option>
+                        <option value="Vegansk">Vegansk</option>
+                        <option value="Enkelt">Enkelt</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2>Ingredienser</h2>
+            <div class="form-group">
+                <label for="ingredients">Ingredienser (én per linje) *</label>
+                <textarea id="ingredients" name="ingredients" placeholder="f.eks.&#10;400g pizza mel&#10;250ml tomatsaus&#10;200g mozzarella" required rows="6"></textarea>
+                <small>Skriv hver ingrediens på sin egen linje</small>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2>Fremgangsmåte</h2>
+            <div class="form-group">
+                <label for="instructions">Steg-for-steg instruksjoner (én per linje) *</label>
+                <textarea id="instructions" name="instructions" placeholder="Steg 1: Bland mel og salt&#10;Steg 2: Tilsett vann og olje&#10;Steg 3: Knet i 10 minutter" required rows="6"></textarea>
+                <small>Skriv hver instruksjon på sin egen linje (vil automatisk nummereres)</small>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2>Kommentar (valgfri)</h2>
+            <div class="form-group">
+                <label for="comment">Kommentar/Tips</label>
+                <textarea id="comment" name="comment" placeholder="f.eks. Spise og kos dere, enjoy!" rows="3"></textarea>
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Legg til meny</button>
+            <a href="/" class="btn btn-secondary">Avbryt</a>
+        </div>
+    </form>
+</div>
+
+<style>
+.recipe-form-container {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.recipe-form-container h1 {
+    margin-bottom: 30px;
+    text-align: center;
+    color: var(--color-text-primary, #1a1a1a);
+}
+
+.form-section {
+    background: var(--color-surface, #fff);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border: 1px solid var(--color-border, #e5e7eb);
+}
+
+.form-section h2 {
+    font-size: 1.1rem;
+    color: var(--color-text-primary, #1a1a1a);
+    margin-bottom: 15px;
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--color-primary, #d97706);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    color: var(--color-text-primary, #1a1a1a);
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+}
+
+.form-group input[type="text"],
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--color-border, #ddd);
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    color: var(--color-text-primary, #1a1a1a);
+    background: white;
+}
+
+.form-group input[type="text"]:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--color-primary, #d97706);
+    box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    line-height: 1.4;
+}
+
+.form-group small {
+    display: block;
+    color: var(--color-text-secondary, #666);
+    font-size: 0.85rem;
+    margin-top: 4px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.form-actions .btn {
+    padding: 12px 28px;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+.form-actions .btn-primary {
+    background: var(--color-primary, #d97706);
+    color: white;
+}
+
+.form-actions .btn-primary:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.form-actions .btn-secondary {
+    background: var(--color-border, #e5e7eb);
+    color: var(--color-text-primary, #1a1a1a);
+}
+
+.form-actions .btn-secondary:hover {
+    opacity: 0.8;
+}
+</style>
+
+<script>
+document.getElementById('recipeForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    var ingredients = document.getElementById('ingredients').value
+        .split('\n')
+        .map(function(line) { return line.trim(); })
+        .filter(function(line) { return line.length > 0; });
+
+    var instructions = document.getElementById('instructions').value
+        .split('\n')
+        .map(function(line) { return line.trim(); })
+        .filter(function(line) { return line.length > 0; });
+
+    if (ingredients.length === 0 || instructions.length === 0) {
+        pmAlert('❌', 'Ufullstendig form', 'Du må fylle ut minst én ingrediens og ett instruksjonssteg.');
+        return;
+    }
+
+    var recipe = {
+        title: document.getElementById('title').value,
+        description: document.getElementById('description').value,
+        difficulty: document.getElementById('difficulty').value,
+        time_minutes: parseInt(document.getElementById('time').value) || 30,
+        category: document.getElementById('category').value,
+        ingredients: ingredients.map(function(ing) {
+            return {
+                quantity: "",
+                unit: "",
+                name: ing,
+                allergens: []
+            };
+        }),
+        instructions: instructions.map(function(inst, index) {
+            return {
+                step: index + 1,
+                title: "Steg " + (index + 1),
+                description: inst
+            };
+        }),
+        comment: document.getElementById('comment').value || ''
+    };
+
+    fetch('/api/add-recipe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(recipe)
+    })
+    .then(function(r) { return r.json().then(function(data) { return { ok: r.ok, data: data }; }); })
+    .then(function(res) {
+        if (res.ok) {
+            pmAlert('✅', 'Oppskrift lagret!', recipe.title + ' er lagt til i menyen.').then(function() {
+                window.location.href = '/';
+            });
+        } else {
+            pmAlert('❌', 'Noe gikk galt', res.data.message || 'Feil ved lagring');
+        }
+    })
+    .catch(function(err) {
+        console.error('Error:', err);
+        pmAlert('❌', 'Serverfeil', 'Kunne ikke kontakte serveren');
+    });
+});
+</script>
+{% endblock %}

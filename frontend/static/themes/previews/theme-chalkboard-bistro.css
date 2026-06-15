@@ -1,0 +1,429 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+/* ── Pi-Menu Preview Theme: chalkboard-bistro ── */
+
+/* ── CSS Variables ──────────────────────────────────────────── */
+    [data-theme="chalkboard-bistro"] {
+      --bg:          #1C1C1C;
+      --surface:     #242424;
+      --surface-alt: #2C2C2C;
+      --primary:     #F5F0E8;
+      --accent:      #E8C547;
+      --secondary:   #7DB87D;
+      --text:        #F5F0E8;
+      --muted:       rgba(245,240,232,0.60);
+      --border:      rgba(245,240,232,0.15);
+      --border-dash: rgba(245,240,232,0.30);
+
+      --font-body:      'Inter', system-ui, sans-serif;
+      --font-handwrite: 'Caveat', cursive;
+
+      --radius-sm:   4px;
+      --radius-md:   8px;
+      --radius-lg:   12px;
+      --radius-pill: 999px;
+
+      --shadow-card: 0 4px 20px rgba(0,0,0,0.45), 0 1px 6px rgba(0,0,0,0.30);
+      --transition:  0.18s ease;
+    }
+
+    /* ── Reset ──────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg);
+      /* Noise/grain texture via SVG data-URI */
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      color: var(--text);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; font-family: var(--font-body); border: none; outline: none; }
+
+    /* ── Layout wrapper ─────────────────────────────────────────── */
+    .app-wrapper {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 16px 48px;
+    }
+
+    /* ── Header ─────────────────────────────────────────────────── */
+    .site-header {
+      position: relative;
+      overflow: hidden;
+      background: var(--surface);
+      padding: 36px 24px 32px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    /* Chalk texture lines on header */
+    .site-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(
+          90deg,
+          transparent 0px,
+          transparent 39px,
+          rgba(245,240,232,0.03) 39px,
+          rgba(245,240,232,0.03) 40px
+        ),
+        repeating-linear-gradient(
+          0deg,
+          transparent 0px,
+          transparent 29px,
+          rgba(245,240,232,0.03) 29px,
+          rgba(245,240,232,0.03) 30px
+        );
+      pointer-events: none;
+    }
+
+    .header-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      text-align: center;
+    }
+
+    /* Chalk underline ornament */
+    .chalk-rule {
+      width: 80px;
+      height: 2px;
+      background: linear-gradient(
+        to right,
+        transparent 0%,
+        var(--accent) 20%,
+        var(--accent) 80%,
+        transparent 100%
+      );
+      opacity: 0.7;
+      border-radius: 2px;
+      margin: 4px auto 10px;
+    }
+
+    .site-title {
+      font-family: var(--font-handwrite);
+      font-size: clamp(2rem, 6vw, 3rem);
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.01em;
+      line-height: 1.1;
+      /* slight chalk roughness via text-shadow */
+      text-shadow:
+        1px 1px 0 rgba(245,240,232,0.08),
+        -1px -1px 0 rgba(0,0,0,0.20),
+        0 0 12px rgba(245,240,232,0.06);
+    }
+
+    .week-range {
+      font-family: var(--font-handwrite);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      margin-top: 2px;
+    }
+    .week-range strong {
+      color: var(--accent);
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    /* ── Buttons ─────────────────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 10px 20px;
+      border-radius: var(--radius-sm);
+      font-size: 0.875rem;
+      font-weight: 600;
+      transition: filter var(--transition), transform var(--transition);
+      white-space: nowrap;
+    }
+    .btn:hover { filter: brightness(1.10); transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); filter: brightness(0.95); }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #1C1C1C;
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--primary);
+      border: 1.5px dashed var(--border-dash);
+    }
+    .btn-secondary:hover {
+      background: rgba(245,240,232,0.06);
+    }
+
+    /* ── Chalk line divider ───────────────────────────────────────── */
+    .chalk-divider {
+      height: 1px;
+      background: linear-gradient(
+        to right,
+        transparent 0%,
+        var(--border-dash) 15%,
+        var(--border-dash) 85%,
+        transparent 100%
+      );
+      margin: 0;
+    }
+
+    /* ── Main content ─────────────────────────────────────────────── */
+    .main-content {
+      padding-top: 36px;
+    }
+
+    .section-label {
+      font-family: var(--font-handwrite);
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--secondary);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-shadow: 0 0 8px rgba(125,184,125,0.20);
+    }
+    .section-label::before {
+      content: '✦';
+      font-size: 0.8rem;
+      color: var(--accent);
+      opacity: 0.7;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, var(--border-dash), transparent);
+    }
+
+    /* ── Card grid ────────────────────────────────────────────────── */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    /* ── Recipe Card ──────────────────────────────────────────────── */
+    .recipe-card {
+      background: var(--surface);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+      /* Dashed chalk-style border */
+      border: 1.5px dashed var(--border-dash);
+      position: relative;
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+    .recipe-card::before {
+      /* Subtle inner texture */
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+    .recipe-card:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.55), 0 2px 10px rgba(0,0,0,0.35);
+      transform: translateY(-2px);
+    }
+
+    .card-header {
+      position: relative;
+      z-index: 1;
+      padding: 20px 22px 14px;
+      border-bottom: 1px dashed var(--border);
+    }
+
+    .card-day {
+      font-family: var(--font-handwrite);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      margin-bottom: 6px;
+      text-shadow: 0 0 6px rgba(232,197,71,0.25);
+    }
+
+    .card-title {
+      font-family: var(--font-handwrite);
+      font-size: clamp(1.4rem, 4vw, 1.8rem);
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.2;
+      text-shadow: 1px 1px 0 rgba(0,0,0,0.30);
+    }
+
+    .card-body {
+      position: relative;
+      z-index: 1;
+      padding: 16px 22px 20px;
+    }
+
+    .card-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 16px;
+      font-weight: 400;
+    }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .meta-item svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+      opacity: 0.65;
+    }
+
+    .card-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.75rem;
+      font-weight: 600;
+      font-family: var(--font-handwrite);
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+      border: 1.5px solid;
+    }
+    .tag-chalk-yellow {
+      color: var(--accent);
+      border-color: rgba(232,197,71,0.35);
+      background: rgba(232,197,71,0.06);
+    }
+    .tag-chalk-green {
+      color: var(--secondary);
+      border-color: rgba(125,184,125,0.35);
+      background: rgba(125,184,125,0.06);
+    }
+
+    .card-footer {
+      position: relative;
+      z-index: 1;
+      padding: 12px 22px 18px;
+      border-top: 1px dashed var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .recipe-id {
+      font-size: 0.72rem;
+      color: var(--muted);
+      font-weight: 400;
+      opacity: 0.55;
+      font-style: normal;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .btn-view {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      font-weight: 600;
+      background: var(--accent);
+      color: #1C1C1C;
+      border: none;
+      transition: filter var(--transition), transform var(--transition);
+    }
+    .btn-view:hover { filter: brightness(1.10); transform: translateY(-1px); }
+
+    /* ── Shopping list CTA ────────────────────────────────────────── */
+    .shopping-cta {
+      margin-top: 36px;
+      background: var(--surface-alt);
+      border: 1.5px dashed var(--border-dash);
+      border-radius: var(--radius-md);
+      padding: 24px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .shopping-cta-text h3 {
+      font-family: var(--font-handwrite);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 4px;
+      text-shadow: 0 0 6px rgba(245,240,232,0.08);
+    }
+    .shopping-cta-text p {
+      font-size: 0.84rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .btn-shopping {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 22px;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-weight: 600;
+      background: var(--secondary);
+      color: #1C1C1C;
+      white-space: nowrap;
+      transition: filter var(--transition), transform var(--transition);
+    }
+    .btn-shopping:hover { filter: brightness(1.12); transform: translateY(-1px); }
+
+    /* ── Responsive ───────────────────────────────────────────────── */
+    @media (min-width: 640px) {
+      .app-wrapper { padding: 0 24px 56px; }
+      .site-header { padding: 40px 32px 36px; }
+      .card-grid { grid-template-columns: 1fr; max-width: 540px; }
+    }
+
+    @media (min-width: 768px) {
+      .app-wrapper { padding: 0 32px 64px; }
+      .site-header { padding: 48px 40px 40px; }
+      .card-grid { grid-template-columns: repeat(2, 1fr); max-width: 100%; }
+      .shopping-cta { flex-wrap: nowrap; }
+    }

@@ -1,0 +1,9 @@
+[
+  {"id": "apple-fitness", "name": "Apple Fitness", "file": "theme-apple-fitness.css", "preview_color": "#30D158"},
+  {"id": "brutalist", "name": "Brutalist", "file": "theme-brutalist.css", "preview_color": "#000000"},
+  {"id": "chalkboard-bistro", "name": "Chalkboard Bistro", "file": "theme-chalkboard-bistro.css", "preview_color": "#E8C547"},
+  {"id": "coastal-kitchen", "name": "Coastal Kitchen", "file": "theme-coastal-kitchen.css", "preview_color": "#2C5F5A"},
+  {"id": "forest-forager", "name": "Forest Forager", "file": "theme-forest-forager.css", "preview_color": "#7BA05B"},
+  {"id": "kjøkkenhylle", "name": "Kjøkkenhylle", "file": "theme-kjøkkenhylle.css", "preview_color": "#2C4A3E"},
+  {"id": "pop-art-diner", "name": "Pop Art Diner", "file": "theme-pop-art-diner.css", "preview_color": "#D32F2F"}
+]
