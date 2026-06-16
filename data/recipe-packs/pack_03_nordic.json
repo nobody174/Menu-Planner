@@ -1,0 +1,1149 @@
+{
+  "packId": "pack_nordic_classics",
+  "packName": {
+    "no": "Nordiske klassikere",
+    "en": "Nordic Classics"
+  },
+  "packDescription": {
+    "no": "Tradisjonelle retter fra Sverige, Danmark, Island og de nordiske landene.",
+    "en": "Traditional dishes from Sweden, Denmark, Iceland and the Nordic countries."
+  },
+  "packImage": "nordic-flag",
+  "packColor": "#1E90FF",
+  "recipeCount": 15,
+  "estimatedCookTime": "30-120 minutes",
+  "difficulty": "medium",
+  "recipes": [
+    {
+      "id": "nd_001",
+      "title": {
+        "no": "Kjøttkaker (Svenske)",
+        "en": "Swedish Meatballs"
+      },
+      "subtitle": {
+        "no": "Svenske kjøttkaker med fløte-saus",
+        "en": "Swedish meatballs with cream sauce"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 35,
+      "servings": 4,
+      "category": "Meat",
+      "tags": ["swedish", "meatballs", "cream", "classic"],
+      "allergens": ["gluten", "dairy"],
+      "ingredients": [
+        {
+          "name": {"no": "Kjøttdeig", "en": "Ground meat"},
+          "amount": 600,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Brødkrumler", "en": "Breadcrumbs"},
+          "amount": 75,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Melk", "en": "Milk"},
+          "amount": 75,
+          "unit": {"no": "ml", "en": "ml"}
+        },
+        {
+          "name": {"no": "Egg", "en": "Egg"},
+          "amount": 1,
+          "unit": {"no": "stk", "en": "piece"}
+        },
+        {
+          "name": {"no": "Løk (finhakket)", "en": "Onion (minced)"},
+          "amount": 1,
+          "unit": {"no": "small", "en": "small"}
+        },
+        {
+          "name": {"no": "Fløte (syrnet)", "en": "Sour cream"},
+          "amount": 300,
+          "unit": {"no": "ml", "en": "ml"}
+        },
+        {
+          "name": {"no": "Smør", "en": "Butter"},
+          "amount": 50,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Lingonbær-syltetøy", "en": "Lingonberry jam"},
+          "amount": 150,
+          "unit": {"no": "gram", "en": "g"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bløtlegg brødkrumler i melk.",
+          "2. Bland kjøttdeigen med brødkrumler, egg, løk, salt og pepper.",
+          "3. Form til 20-24 små kuler.",
+          "4. Steik kullene i smør til de er brune.",
+          "5. Tilsett den syrlige fløten til pannen.",
+          "6. La kullene småkoke i sausen i 10 minutter.",
+          "7. Server med potetmos og lingonbær-syltetøy."
+        ],
+        "en": [
+          "1. Soak breadcrumbs in milk.",
+          "2. Mix ground meat with breadcrumbs, egg, onion, salt and pepper.",
+          "3. Form into 20-24 small balls.",
+          "4. Fry balls in butter until brown.",
+          "5. Add sour cream to pan.",
+          "6. Let balls simmer in sauce for 10 minutes.",
+          "7. Serve with mashed potatoes and lingonberry jam."
+        ]
+      }
+    },
+    {
+      "id": "nd_002",
+      "title": {
+        "no": "Gravlax",
+        "en": "Gravlax"
+      },
+      "subtitle": {
+        "no": "Skandinavisk gravlaks med urter",
+        "en": "Scandinavian cured salmon with herbs"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 1440,
+      "servings": 8,
+      "category": "Fish",
+      "tags": ["scandinavian", "salmon", "cured", "elegant"],
+      "allergens": ["fish"],
+      "ingredients": [
+        {
+          "name": {"no": "Laks (fersk, filéer)", "en": "Salmon (fresh, fillets)"},
+          "amount": 1000,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Salt", "en": "Salt"},
+          "amount": 30,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Sukker", "en": "Sugar"},
+          "amount": 20,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Dill (frisk)", "en": "Dill (fresh)"},
+          "amount": 50,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Pepper (sort)", "en": "Black pepper"},
+          "amount": 1,
+          "unit": {"no": "ts", "en": "tsp"}
+        },
+        {
+          "name": {"no": "Anis eller fennikelfrø", "en": "Anise or fennel seeds"},
+          "amount": 1,
+          "unit": {"no": "ts", "en": "tsp"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Pat laksen tørt med papirtøy.",
+          "2. Bland salt, sukker, pepper, dill, anis og fennikelfrø.",
+          "3. Legg laksen på folie, hud-siden ned.",
+          "4. Påfør half av blandingen på laksen.",
+          "5. Legg den andre laksefileten på toppen, hud-siden opp.",
+          "6. Påfør resten av blandingen på toppen.",
+          "7. Pakk inn og legg i kjøleskapet.",
+          "8. Legg en plate på toppen med vekt.",
+          "9. La det kurere i 24-48 timer, vend hver 12. time.",
+          "10. Skjær i tynne skiver og server på brød med rømme, løk og agurk."
+        ],
+        "en": [
+          "1. Pat salmon dry with paper towels.",
+          "2. Mix salt, sugar, pepper, dill, anise and fennel seeds.",
+          "3. Place salmon on foil, skin side down.",
+          "4. Apply half mixture to salmon.",
+          "5. Place other salmon fillet on top, skin side up.",
+          "6. Apply remaining mixture on top.",
+          "7. Wrap and place in refrigerator.",
+          "8. Place a plate on top with weight.",
+          "9. Let cure 24-48 hours, turn every 12 hours.",
+          "10. Slice thinly and serve on bread with sour cream, onion and cucumber."
+        ]
+      }
+    },
+    {
+      "id": "nd_003",
+      "title": {
+        "no": "Smørrebrød",
+        "en": "Smørrebrød"
+      },
+      "subtitle": {
+        "no": "Dansk åpent smørbrød med pålegg",
+        "en": "Danish open sandwich with toppings"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 20,
+      "servings": 2,
+      "category": "Other",
+      "tags": ["danish", "sandwich", "lunch", "quick"],
+      "allergens": ["gluten", "fish", "dairy"],
+      "ingredients": [
+        {
+          "name": {"no": "Rugbrød (dansk)", "en": "Rye bread (Danish)"},
+          "amount": 4,
+          "unit": {"no": "skivor", "en": "slices"}
+        },
+        {
+          "name": {"no": "Smør", "en": "Butter"},
+          "amount": 50,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Gravlaks eller røkt fisk", "en": "Gravlax or smoked fish"},
+          "amount": 150,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Rømme eller kremost", "en": "Sour cream or cream cheese"},
+          "amount": 100,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Løk (tynne skiver)", "en": "Onion (thin slices)"},
+          "amount": 1,
+          "unit": {"no": "small", "en": "small"}
+        },
+        {
+          "name": {"no": "Agurk (tynne skiver)", "en": "Cucumber (thin slices)"},
+          "amount": 1,
+          "unit": {"no": "stk", "en": "piece"}
+        },
+        {
+          "name": {"no": "Citron", "en": "Lemon"},
+          "amount": 1,
+          "unit": {"no": "halv", "en": "half"}
+        },
+        {
+          "name": {"no": "Dill (frisk)", "en": "Dill (fresh)"},
+          "amount": 1,
+          "unit": {"no": "knippe", "en": "bunch"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Smør brødskivene.",
+          "2. Påfør et tynt lag rømme eller kremost.",
+          "3. Legg gravlaks eller røkt fisk på toppen.",
+          "4. Toppes med løk- og agurkskiver.",
+          "5. Garnering med dill og sitron.",
+          "6. Server umiddelbart som et elegant lunsjtilbud."
+        ],
+        "en": [
+          "1. Butter the bread slices.",
+          "2. Spread a thin layer of sour cream or cream cheese.",
+          "3. Top with gravlax or smoked fish.",
+          "4. Top with onion and cucumber slices.",
+          "5. Garnish with dill and lemon.",
+          "6. Serve immediately as an elegant lunch option."
+        ]
+      }
+    },
+    {
+      "id": "nd_004",
+      "title": {
+        "no": "Plokkfisk",
+        "en": "Plokkfisk"
+      },
+      "subtitle": {
+        "no": "Islandsk fiskérett",
+        "en": "Icelandic fish dish"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 45,
+      "servings": 4,
+      "category": "Fish",
+      "tags": ["icelandic", "fish", "comfort-food"],
+      "allergens": ["fish", "dairy"],
+      "ingredients": [
+        {
+          "name": {"no": "Fiskefiléer", "en": "Fish fillets"},
+          "amount": 800,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Poteter", "en": "Potatoes"},
+          "amount": 600,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Løk", "en": "Onion"},
+          "amount": 2,
+          "unit": {"no": "medium", "en": "medium"}
+        },
+        {
+          "name": {"no": "Smør", "en": "Butter"},
+          "amount": 75,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Mel", "en": "Flour"},
+          "amount": 3,
+          "unit": {"no": "ss", "en": "tbsp"}
+        },
+        {
+          "name": {"no": "Melk", "en": "Milk"},
+          "amount": 300,
+          "unit": {"no": "ml", "en": "ml"}
+        },
+        {
+          "name": {"no": "Salt og pepper", "en": "Salt and pepper"},
+          "amount": 1,
+          "unit": {"no": "etter smak", "en": "to taste"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok poteter til halvkjøpt, kutt i terninger.",
+          "2. Kok fiskefilene lett og bli av med beinen.",
+          "3. Lag sausen: smelt smør, tilsett mel og rør til det er glatt.",
+          "4. Tilsett melk langsomt mens du rører.",
+          "5. Bland poteter, fisk og løk i sausen.",
+          "6. La det småkoke i 15 minutter.",
+          "7. Smak til med salt og pepper.",
+          "8. Server varmt som en komfortrett."
+        ],
+        "en": [
+          "1. Boil potatoes until half-cooked, dice them.",
+          "2. Boil fish fillets lightly and remove bones.",
+          "3. Make sauce: melt butter, add flour and stir until smooth.",
+          "4. Add milk slowly while stirring.",
+          "5. Mix potatoes, fish and onion in sauce.",
+          "6. Simmer for 15 minutes.",
+          "7. Season with salt and pepper.",
+          "8. Serve hot as a comfort dish."
+        ]
+      }
+    },
+    {
+      "id": "nd_005",
+      "title": {
+        "no": "Prinsessekake",
+        "en": "Princess Cake"
+      },
+      "subtitle": {
+        "no": "Svensk festkake med grønn fondant",
+        "en": "Swedish celebration cake with green fondant"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 120,
+      "servings": 8,
+      "category": "Other",
+      "tags": ["swedish", "cake", "elegant", "celebration"],
+      "allergens": ["gluten", "dairy", "eggs"],
+      "ingredients": [
+        {
+          "name": {"no": "Biskvi-kake (ferdig bakket)", "en": "Sponge cake (pre-baked)"},
+          "amount": 1,
+          "unit": {"no": "stk", "en": "piece"}
+        },
+        {
+          "name": {"no": "Fløte (tykk)", "en": "Cream (heavy)"},
+          "amount": 500,
+          "unit": {"no": "ml", "en": "ml"}
+        },
+        {
+          "name": {"no": "Stivelse eller pudringssukker", "en": "Cornstarch or powdered sugar"},
+          "amount": 2,
+          "unit": {"no": "ss", "en": "tbsp"}
+        },
+        {
+          "name": {"no": "Sukker", "en": "Sugar"},
+          "amount": 50,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Vaniljeekstrakt", "en": "Vanilla extract"},
+          "amount": 1,
+          "unit": {"no": "ts", "en": "tsp"}
+        },
+        {
+          "name": {"no": "Fondant (grønn)", "en": "Fondant (green)"},
+          "amount": 400,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Syltetøy (for midt-lag)", "en": "Jam (for middle layer)"},
+          "amount": 200,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Rosenbär (til toppen)", "en": "Marzipan rose"},
+          "amount": 1,
+          "unit": {"no": "stk", "en": "piece"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Del kaken i tre lag horisontalt.",
+          "2. Visp fløten stivt med stivelse, sukker og vaniljeekstrakt.",
+          "3. Lag lag med kake, syltetøy, og fløtecreme.",
+          "4. Dekk hele kaken med det siste laget av fløtecreme.",
+          "5. Rull ut fondanten og dekk kaken på samme måte som en baldakin.",
+          "6. Garner toppen med en rosenbær og en lite palmeblad.",
+          "7. Kjøl i minst 2 timer før servering.",
+          "8. Server som en klassisk svensk festkake."
+        ],
+        "en": [
+          "1. Slice cake into three horizontal layers.",
+          "2. Whip cream stiff with cornstarch, sugar and vanilla extract.",
+          "3. Layer cake, jam, and whipped cream.",
+          "4. Cover entire cake with final layer of whipped cream.",
+          "5. Roll out fondant and cover cake like a dome.",
+          "6. Garnish top with a marzipan rose and a small palm leaf.",
+          "7. Chill for at least 2 hours before serving.",
+          "8. Serve as a classic Swedish celebration cake."
+        ]
+      }
+    },
+    {
+      "id": "nd_006",
+      "title": {
+        "no": "Mørbrad med jordbær og flødeskum",
+        "en": "Pork Tenderloin with Strawberries and Whipped Cream"
+      },
+      "subtitle": {
+        "no": "Skandinavisk elegant rett",
+        "en": "Scandinavian elegant dish"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 40,
+      "servings": 4,
+      "category": "Meat",
+      "tags": ["scandinavian", "elegant", "summer"],
+      "allergens": ["dairy"],
+      "ingredients": [
+        {
+          "name": {"no": "Mørbrad (gris)", "en": "Pork tenderloin"},
+          "amount": 700,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Smør", "en": "Butter"},
+          "amount": 50,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Jordbær (friske)", "en": "Strawberries (fresh)"},
+          "amount": 300,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Fløte (tykk)", "en": "Cream (heavy)"},
+          "amount": 200,
+          "unit": {"no": "ml", "en": "ml"}
+        },
+        {
+          "name": {"no": "Hvit vin", "en": "White wine"},
+          "amount": 100,
+          "unit": {"no": "ml", "en": "ml"}
+        },
+        {
+          "name": {"no": "Salt og pepper", "en": "Salt and pepper"},
+          "amount": 1,
+          "unit": {"no": "etter smak", "en": "to taste"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Sesr mørbradstykket lett og smak til med salt og pepper.",
+          "2. Heat smør i en stekepanne.",
+          "3. Steik mørbradstykket på høy varme 3-4 minutter på hver side.",
+          "4. Legg på en varmt stell.",
+          "5. Hell hvit vin i pannen og la det redusere.",
+          "6. Tilsett fløten og la det småkoke i 5 minutter.",
+          "7. Tilsett jordbærene til sausen.",
+          "8. Skjær mørbradstykket i skiver og arrange på en tallerken.",
+          "9. Hell jordebærsausen over og server varmt."
+        ],
+        "en": [
+          "1. Season tenderloin lightly and taste with salt and pepper.",
+          "2. Heat butter in a frying pan.",
+          "3. Fry tenderloin on high heat 3-4 minutes on each side.",
+          "4. Place on warm plate.",
+          "5. Pour white wine in pan and let reduce.",
+          "6. Add cream and simmer for 5 minutes.",
+          "7. Add strawberries to sauce.",
+          "8. Slice tenderloin and arrange on plate.",
+          "9. Pour strawberry sauce over and serve hot."
+        ]
+      }
+    },
+    {
+      "id": "nd_007",
+      "title": {
+        "no": "Frikadellettar (Danmark)",
+        "en": "Danish Meatballs"
+      },
+      "subtitle": {
+        "no": "Danske møkkert-stilk kjøttboller",
+        "en": "Danish meatballs"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 40,
+      "servings": 4,
+      "category": "Meat",
+      "tags": ["danish", "meatballs", "comfort-food"],
+      "allergens": ["gluten", "dairy"],
+      "ingredients": [
+        {
+          "name": {"no": "Kjøttdeig (blandet)", "en": "Ground meat (mixed)"},
+          "amount": 600,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Løk (finhakket)", "en": "Onion (minced)"},
+          "amount": 1,
+          "unit": {"no": "medium", "en": "medium"}
+        },
+        {
+          "name": {"no": "Egg", "en": "Egg"},
+          "amount": 1,
+          "unit": {"no": "stk", "en": "piece"}
+        },
+        {
+          "name": {"no": "Brødkrumler", "en": "Breadcrumbs"},
+          "amount": 75,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Melk", "en": "Milk"},
+          "amount": 75,
+          "unit": {"no": "ml", "en": "ml"}
+        },
+        {
+          "name": {"no": "Smør", "en": "Butter"},
+          "amount": 50,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Brunsaus", "en": "Brown sauce"},
+          "amount": 200,
+          "unit": {"no": "ml", "en": "ml"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bløtlegg brødkrumler i melk.",
+          "2. Bland kjøttdeig, brødkrumler, egg, løk, salt og pepper.",
+          "3. Form små kuler.",
+          "4. Steik kullene i smør til de er brune.",
+          "5. Fjern kullene og tilsett brunsausen til pannen.",
+          "6. Tilbakesett kullene og la det småkoke i 10 minutter.",
+          "7. Server med potetmos, grønnsaker og syltetøy."
+        ],
+        "en": [
+          "1. Soak breadcrumbs in milk.",
+          "2. Mix ground meat, breadcrumbs, egg, onion, salt and pepper.",
+          "3. Form small balls.",
+          "4. Fry balls in butter until brown.",
+          "5. Remove balls and add brown sauce to pan.",
+          "6. Return balls and simmer for 10 minutes.",
+          "7. Serve with mashed potatoes, vegetables and jam."
+        ]
+      }
+    },
+    {
+      "id": "nd_008",
+      "title": {
+        "no": "Rødgrød med fløde",
+        "en": "Red Fruit Compote with Cream"
+      },
+      "subtitle": {
+        "no": "Dansk dessert med bær og fløte",
+        "en": "Danish dessert with berries and cream"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Other",
+      "tags": ["danish", "dessert", "berries", "summer"],
+      "allergens": ["dairy"],
+      "ingredients": [
+        {
+          "name": {"no": "Jordbær", "en": "Strawberries"},
+          "amount": 300,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Kirsebær", "en": "Cherries"},
+          "amount": 200,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Rabarber", "en": "Rhubarb"},
+          "amount": 300,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Sukker", "en": "Sugar"},
+          "amount": 100,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Vann", "en": "Water"},
+          "amount": 300,
+          "unit": {"no": "ml", "en": "ml"}
+        },
+        {
+          "name": {"no": "Stivelse (maiskorn)", "en": "Cornstarch"},
+          "amount": 2,
+          "unit": {"no": "ss", "en": "tbsp"}
+        },
+        {
+          "name": {"no": "Fløte", "en": "Cream"},
+          "amount": 300,
+          "unit": {"no": "ml", "en": "ml"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kutt rabaraberen i biter.",
+          "2. Kok fruktene med vann og sukker i ca. 10 minutter.",
+          "3. Bland stivelsen med litt kaldt vann.",
+          "4. Tilsett stivelsespasta til det kokte frukten.",
+          "5. Rør godt og kok et minutt til for å la det stivne.",
+          "6. Sil blandingen hvis du ønsker en glatt tekstur.",
+          "7. Kjøl før servering.",
+          "8. Server i glass eller skål med kald fløte på toppen."
+        ],
+        "en": [
+          "1. Cut rhubarb into pieces.",
+          "2. Cook fruits with water and sugar for about 10 minutes.",
+          "3. Mix cornstarch with a little cold water.",
+          "4. Add starch paste to cooked fruit.",
+          "5. Stir well and cook one more minute to thicken.",
+          "6. Strain mixture if smooth texture is desired.",
+          "7. Chill before serving.",
+          "8. Serve in glass or bowl with cold cream on top."
+        ]
+      }
+    },
+    {
+      "id": "nd_009",
+      "title": {
+        "no": "Janteloven Brød",
+        "en": "Jante Law Bread"
+      },
+      "subtitle": {
+        "no": "Skandinavisk tradisjonelt brød",
+        "en": "Scandinavian traditional bread"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 240,
+      "servings": 2,
+      "category": "Other",
+      "tags": ["scandinavian", "bread", "traditional"],
+      "allergens": ["gluten"],
+      "ingredients": [
+        {
+          "name": {"no": "Rugmel", "en": "Rye flour"},
+          "amount": 300,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Hvetemel", "en": "Wheat flour"},
+          "amount": 200,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Gjær", "en": "Yeast"},
+          "amount": 25,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Vann", "en": "Water"},
+          "amount": 350,
+          "unit": {"no": "ml", "en": "ml"}
+        },
+        {
+          "name": {"no": "Salt", "en": "Salt"},
+          "amount": 1,
+          "unit": {"no": "ts", "en": "tsp"}
+        },
+        {
+          "name": {"no": "Honning (valgfritt)", "en": "Honey (optional)"},
+          "amount": 1,
+          "unit": {"no": "ss", "en": "tbsp"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland rugmel, hvetemel og salt.",
+          "2. Løs gjæren i lunkken vann.",
+          "3. Bland gjærblandingen med melblanden.",
+          "4. Trill deigen godt i 10 minutter.",
+          "5. La deigen heve i 2-3 timer under et handklæ.",
+          "6. Form til brødboller eller flat brød.",
+          "7. La det heve i ytterligere 1 time.",
+          "8. Bak på 200°C i 35-40 minutter.",
+          "9. Brødet skal være gyllent brunt når det er ferdig."
+        ],
+        "en": [
+          "1. Mix rye flour, wheat flour and salt.",
+          "2. Dissolve yeast in lukewarm water.",
+          "3. Mix yeast mixture with flour mixture.",
+          "4. Knead dough well for 10 minutes.",
+          "5. Let dough rise 2-3 hours under towel.",
+          "6. Shape into bread rolls or flat bread.",
+          "7. Let rise another 1 hour.",
+          "8. Bake at 200°C for 35-40 minutes.",
+          "9. Bread should be golden brown when done."
+        ]
+      }
+    },
+    {
+      "id": "nd_010",
+      "title": {
+        "no": "Sild (Røkt eller Saltpotet)",
+        "en": "Herring (Smoked or Pickled)"
+      },
+      "subtitle": {
+        "no": "Skandinavisk sild-tradisjon",
+        "en": "Scandinavian herring tradition"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 20,
+      "servings": 4,
+      "category": "Fish",
+      "tags": ["scandinavian", "seafood", "traditional"],
+      "allergens": ["fish"],
+      "ingredients": [
+        {
+          "name": {"no": "Sild (røkt eller saltet)", "en": "Herring (smoked or pickled)"},
+          "amount": 400,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Løk (rød)", "en": "Red onion"},
+          "amount": 1,
+          "unit": {"no": "medium", "en": "medium"}
+        },
+        {
+          "name": {"no": "Rugbrød", "en": "Rye bread"},
+          "amount": 4,
+          "unit": {"no": "skivor", "en": "slices"}
+        },
+        {
+          "name": {"no": "Smør", "en": "Butter"},
+          "amount": 50,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Rømme", "en": "Sour cream"},
+          "amount": 100,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Dill (frisk)", "en": "Dill (fresh)"},
+          "amount": 1,
+          "unit": {"no": "knippe", "en": "bunch"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skjær silden i biter.",
+          "2. Skjær løken i tynne ringer.",
+          "3. Smør brødskivene.",
+          "4. Påfør et tynt lag rømme.",
+          "5. Legg sildbiter på toppen.",
+          "6. Garner med løk-ringer og frisk dill.",
+          "7. Server som en klassisk skandinavisk lunsj."
+        ],
+        "en": [
+          "1. Cut herring into pieces.",
+          "2. Slice onion into thin rings.",
+          "3. Butter bread slices.",
+          "4. Spread thin layer of sour cream.",
+          "5. Place herring pieces on top.",
+          "6. Garnish with onion rings and fresh dill.",
+          "7. Serve as a classic Scandinavian lunch."
+        ]
+      }
+    },
+    {
+      "id": "nd_011",
+      "title": {
+        "no": "Kransekake",
+        "en": "Kransekake"
+      },
+      "subtitle": {
+        "no": "Skandinavisk festkake med mands og rom",
+        "en": "Scandinavian celebration cake with almond and rum"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 120,
+      "servings": 10,
+      "category": "Other",
+      "tags": ["scandinavian", "cake", "celebration"],
+      "allergens": ["nuts", "dairy", "eggs"],
+      "ingredients": [
+        {
+          "name": {"no": "Mandelmel", "en": "Almond flour"},
+          "amount": 300,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Egg", "en": "Eggs"},
+          "amount": 5,
+          "unit": {"no": "stk", "en": "pieces"}
+        },
+        {
+          "name": {"no": "Sukker (puddringssukker)", "en": "Sugar (powdered)"},
+          "amount": 300,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Rom eller likør", "en": "Rum or liqueur"},
+          "amount": 3,
+          "unit": {"no": "ss", "en": "tbsp"}
+        },
+        {
+          "name": {"no": "Hvitløk eller vaniljeekstrakt", "en": "Zest or vanilla"},
+          "amount": 1,
+          "unit": {"no": "ts", "en": "tsp"}
+        },
+        {
+          "name": {"no": "Sjokolade (til dekorasjon)", "en": "Chocolate (for decoration)"},
+          "amount": 100,
+          "unit": {"no": "gram", "en": "g"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Visp egg og sukker til det er luftig og lyst.",
+          "2. Fold in mandelmel.",
+          "3. Tilsett rom og vaniljeekstrakt.",
+          "4. Fordel deigen i forskjellige sirkulære ringer.",
+          "5. Bak på 175°C i ca. 10-12 minutter per ring.",
+          "6. La ringene kjøle helt.",
+          "7. Stable ringene på hverandre med de største på bunnen.",
+          "8. Dekorér toppen med smeltet sjokolade og små flagg.",
+          "9. Serve som en klassisk skandinavisk festkake."
+        ],
+        "en": [
+          "1. Whisk eggs and sugar until fluffy and pale.",
+          "2. Fold in almond flour.",
+          "3. Add rum and vanilla extract.",
+          "4. Divide dough into different circular rings.",
+          "5. Bake at 175°C for about 10-12 minutes per ring.",
+          "6. Let rings cool completely.",
+          "7. Stack rings on top of each other with largest at bottom.",
+          "8. Decorate top with melted chocolate and small flags.",
+          "9. Serve as a classic Scandinavian celebration cake."
+        ]
+      }
+    },
+    {
+      "id": "nd_012",
+      "title": {
+        "no": "Søt-Suppe",
+        "en": "Sweet Fruit Soup"
+      },
+      "subtitle": {
+        "no": "Nordisk dessert-suppe med frukter",
+        "en": "Nordic dessert soup with fruit"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Other",
+      "tags": ["scandinavian", "soup", "dessert", "fruit"],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {"no": "Tørket frukt (blandede)", "en": "Dried fruit (mixed)"},
+          "amount": 400,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Sukker", "en": "Sugar"},
+          "amount": 50,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Vann", "en": "Water"},
+          "amount": 1,
+          "unit": {"no": "liter", "en": "liter"}
+        },
+        {
+          "name": {"no": "Kanelstang", "en": "Cinnamon stick"},
+          "amount": 1,
+          "unit": {"no": "stk", "en": "piece"}
+        },
+        {
+          "name": {"no": "Nellik", "en": "Cloves"},
+          "amount": 3,
+          "unit": {"no": "stk", "en": "pieces"}
+        },
+        {
+          "name": {"no": "Sitron (saft og skall)", "en": "Lemon (juice and zest)"},
+          "amount": 1,
+          "unit": {"no": "stk", "en": "piece"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok tørket frukt i vann med sukker i 20 minutter.",
+          "2. Tilsett kanelstang, nellik og sitronskall.",
+          "3. Kok ytterligere 5 minutter.",
+          "4. Fjern kanelstang og nellik.",
+          "5. Tilsett sitrojus.",
+          "6. Server varmt eller kaldt etter smak.",
+          "7. Kan serveres som dessert-suppe eller brennevin."
+        ],
+        "en": [
+          "1. Boil dried fruit in water with sugar for 20 minutes.",
+          "2. Add cinnamon stick, cloves and lemon zest.",
+          "3. Cook another 5 minutes.",
+          "4. Remove cinnamon stick and cloves.",
+          "5. Add lemon juice.",
+          "6. Serve hot or cold to taste.",
+          "7. Can be served as dessert soup or as a compote."
+        ]
+      }
+    },
+    {
+      "id": "nd_013",
+      "title": {
+        "no": "Fiskeboller",
+        "en": "Fish Balls"
+      },
+      "subtitle": {
+        "no": "Skandinavisk fisk-spesialet",
+        "en": "Scandinavian fish specialty"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 45,
+      "servings": 4,
+      "category": "Fish",
+      "tags": ["scandinavian", "fish", "comfort-food"],
+      "allergens": ["fish", "dairy", "gluten"],
+      "ingredients": [
+        {
+          "name": {"no": "Fisk (finhakket)", "en": "Fish (minced)"},
+          "amount": 600,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Melk", "en": "Milk"},
+          "amount": 100,
+          "unit": {"no": "ml", "en": "ml"}
+        },
+        {
+          "name": {"no": "Brødkrumler", "en": "Breadcrumbs"},
+          "amount": 75,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Egg", "en": "Egg"},
+          "amount": 1,
+          "unit": {"no": "stk", "en": "piece"}
+        },
+        {
+          "name": {"no": "Løk (finhakket)", "en": "Onion (minced)"},
+          "amount": 1,
+          "unit": {"no": "small", "en": "small"}
+        },
+        {
+          "name": {"no": "Dill (frisk)", "en": "Dill (fresh)"},
+          "amount": 2,
+          "unit": {"no": "ss", "en": "tbsp"}
+        },
+        {
+          "name": {"no": "Smør", "en": "Butter"},
+          "amount": 50,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Buljong (fisk)", "en": "Fish broth"},
+          "amount": 500,
+          "unit": {"no": "ml", "en": "ml"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bløtlegg brødkrumler i melk.",
+          "2. Bland fisk, brødkrumler, egg, løk, dill, salt og pepper.",
+          "3. Form små kuler.",
+          "4. Steik kullene i smør til de er lett brune.",
+          "5. Hell fiskbuljongen i pannen.",
+          "6. La kullene småkoke i ca. 15 minutter.",
+          "7. Server med poteter og grønnsaker."
+        ],
+        "en": [
+          "1. Soak breadcrumbs in milk.",
+          "2. Mix fish, breadcrumbs, egg, onion, dill, salt and pepper.",
+          "3. Form small balls.",
+          "4. Fry balls in butter until lightly brown.",
+          "5. Pour fish broth in pan.",
+          "6. Let balls simmer for about 15 minutes.",
+          "7. Serve with potatoes and vegetables."
+        ]
+      }
+    },
+    {
+      "id": "nd_014",
+      "title": {
+        "no": "Frikadellettar (Island)",
+        "en": "Icelandic Meatballs"
+      },
+      "subtitle": {
+        "no": "Islandsk kjøtt-spesialet",
+        "en": "Icelandic meat specialty"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 35,
+      "servings": 4,
+      "category": "Meat",
+      "tags": ["icelandic", "meatballs", "comfort-food"],
+      "allergens": ["gluten", "dairy"],
+      "ingredients": [
+        {
+          "name": {"no": "Kjøttdeig", "en": "Ground meat"},
+          "amount": 600,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Løk (finhakket)", "en": "Onion (minced)"},
+          "amount": 1,
+          "unit": {"no": "medium", "en": "medium"}
+        },
+        {
+          "name": {"no": "Egg", "en": "Egg"},
+          "amount": 1,
+          "unit": {"no": "stk", "en": "piece"}
+        },
+        {
+          "name": {"no": "Brødkrumler", "en": "Breadcrumbs"},
+          "amount": 75,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Melk", "en": "Milk"},
+          "amount": 75,
+          "unit": {"no": "ml", "en": "ml"}
+        },
+        {
+          "name": {"no": "Smør", "en": "Butter"},
+          "amount": 50,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Brunsaus", "en": "Brown sauce"},
+          "amount": 200,
+          "unit": {"no": "ml", "en": "ml"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bløtlegg brødkrumler i melk.",
+          "2. Bland kjøttdeig, brødkrumler, egg, løk, salt og pepper.",
+          "3. Form små kuler.",
+          "4. Steik kullene i smør til de er brune.",
+          "5. Fjern kullene fra pannen.",
+          "6. Tilsett brunsausen til pannen.",
+          "7. Tilbakesett kullene og la det småkoke 10 minutter.",
+          "8. Server med potetmos og grønnsaker."
+        ],
+        "en": [
+          "1. Soak breadcrumbs in milk.",
+          "2. Mix ground meat, breadcrumbs, egg, onion, salt and pepper.",
+          "3. Form small balls.",
+          "4. Fry balls in butter until brown.",
+          "5. Remove balls from pan.",
+          "6. Add brown sauce to pan.",
+          "7. Return balls and simmer 10 minutes.",
+          "8. Serve with mashed potatoes and vegetables."
+        ]
+      }
+    },
+    {
+      "id": "nd_015",
+      "title": {
+        "no": "Serinakake",
+        "en": "Serina Cake"
+      },
+      "subtitle": {
+        "no": "Islandsk lagkake",
+        "en": "Icelandic layer cake"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 60,
+      "servings": 8,
+      "category": "Other",
+      "tags": ["icelandic", "cake", "layered"],
+      "allergens": ["gluten", "dairy", "eggs"],
+      "ingredients": [
+        {
+          "name": {"no": "Hvetemel", "en": "Wheat flour"},
+          "amount": 300,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Smør", "en": "Butter"},
+          "amount": 200,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Sukker", "en": "Sugar"},
+          "amount": 200,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Egg", "en": "Eggs"},
+          "amount": 3,
+          "unit": {"no": "stk", "en": "pieces"}
+        },
+        {
+          "name": {"no": "Bakepulver", "en": "Baking powder"},
+          "amount": 2,
+          "unit": {"no": "ts", "en": "tsp"}
+        },
+        {
+          "name": {"no": "Melk", "en": "Milk"},
+          "amount": 100,
+          "unit": {"no": "ml", "en": "ml"}
+        },
+        {
+          "name": {"no": "Syltetøy", "en": "Jam"},
+          "amount": 300,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Fløte (tykk)", "en": "Cream (heavy)"},
+          "amount": 500,
+          "unit": {"no": "ml", "en": "ml"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Lag to kaker: blend smør og sukker, visp inn egg, tilsett mel, bakepulver og melk.",
+          "2. Fordel i to bakeplater.",
+          "3. Bak på 180°C i ca. 25-30 minutter.",
+          "4. La kakene kjøle helt.",
+          "5. Spreik kaken horisontalt.",
+          "6. Bland syltetøy mellom lagene.",
+          "7. Visp fløten stivt og bruk som topping.",
+          "8. Dekorasjon med frukter eller konfekt."
+        ],
+        "en": [
+          "1. Make two cakes: cream butter and sugar, whisk in eggs, add flour, baking powder and milk.",
+          "2. Divide into two baking pans.",
+          "3. Bake at 180°C for about 25-30 minutes.",
+          "4. Let cakes cool completely.",
+          "5. Split cake horizontally.",
+          "6. Spread jam between layers.",
+          "7. Whip cream stiff and use as topping.",
+          "8. Decorate with fruit or candies."
+        ]
+      }
+    }
+  ]
+}

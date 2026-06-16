@@ -1,0 +1,1046 @@
+{
+  "packId": "pack_norwegian_classics",
+  "packName": {
+    "no": "Populære norske oppskrifter",
+    "en": "Popular Norwegian Recipes"
+  },
+  "packDescription": {
+    "no": "Klassiske norske familieretter som har vært elskede i generasjoner. Tradisjonelle smaker fra hele landet.",
+    "en": "Classic Norwegian family recipes beloved for generations. Traditional flavors from across the country."
+  },
+  "packImage": "norwegian-flag",
+  "packColor": "#BA0C2F",
+  "recipeCount": 15,
+  "estimatedCookTime": "30-60 minutes",
+  "difficulty": "easy",
+  "recipes": [
+    {
+      "id": "no_001",
+      "title": {
+        "no": "Fårikål",
+        "en": "Lamb and Cabbage Stew"
+      },
+      "subtitle": {
+        "no": "Klassisk norsk kjøttstuing med kål og løk",
+        "en": "Classic Norwegian meat stew with cabbage and onion"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 90,
+      "servings": 4,
+      "category": "Meat",
+      "tags": ["traditional", "norwegian", "slow-cooked", "comfort-food"],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {"no": "Lammekjøtt (kjøttbiter)", "en": "Lamb (meat chunks)"},
+          "amount": 800,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Kål (hvit)", "en": "Cabbage (white)"},
+          "amount": 1,
+          "unit": {"no": "hode", "en": "head"}
+        },
+        {
+          "name": {"no": "Løk", "en": "Onion"},
+          "amount": 3,
+          "unit": {"no": "stk", "en": "pieces"}
+        },
+        {
+          "name": {"no": "Salt og pepper", "en": "Salt and pepper"},
+          "amount": 1,
+          "unit": {"no": "etter smak", "en": "to taste"}
+        },
+        {
+          "name": {"no": "Vann", "en": "Water"},
+          "amount": 1,
+          "unit": {"no": "liter", "en": "liter"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kutt lammen i portjonsstykker og løken i skivis.",
+          "2. Skjær kålen i sjansekutt.",
+          "3. Legg lammen i en stor gryte lag for lag med kål og løk.",
+          "4. Tilsett salt, pepper og litt vann.",
+          "5. La det koke sakte i ca. 1,5 time til kjøttet er mørt.",
+          "6. Server varmt med nypoteter eller brød."
+        ],
+        "en": [
+          "1. Cut lamb into portions and slice onions.",
+          "2. Chop cabbage into chunks.",
+          "3. Layer lamb in a large pot with cabbage and onion.",
+          "4. Add salt, pepper and water.",
+          "5. Simmer slowly for about 1.5 hours until meat is tender.",
+          "6. Serve hot with new potatoes or bread."
+        ]
+      }
+    },
+    {
+      "id": "no_002",
+      "title": {
+        "no": "Raspeball",
+        "en": "Potato Meatball"
+      },
+      "subtitle": {
+        "no": "Norsk potetbolle med kjøtt og løk",
+        "en": "Norwegian potato ball with meat and onion"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 45,
+      "servings": 4,
+      "category": "Meat",
+      "tags": ["traditional", "norwegian", "comfort-food", "potato-based"],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {"no": "Poteter (rå)", "en": "Potatoes (raw)"},
+          "amount": 1000,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Kjøttdeig (svin/okse)", "en": "Ground meat (pork/beef)"},
+          "amount": 400,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Løk (finhakket)", "en": "Onion (minced)"},
+          "amount": 1,
+          "unit": {"no": "medium", "en": "medium"}
+        },
+        {
+          "name": {"no": "Mel", "en": "Flour"},
+          "amount": 3,
+          "unit": {"no": "ss", "en": "tbsp"}
+        },
+        {
+          "name": {"no": "Salt og pepper", "en": "Salt and pepper"},
+          "amount": 1,
+          "unit": {"no": "etter smak", "en": "to taste"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Mos råpoteter fint eller riv dem på en rivjern.",
+          "2. Bland poteter, kjøttdeig, løk, mel, salt og pepper.",
+          "3. Form deigstykkene til store boller.",
+          "4. Kok bollene i saltet vann i ca. 30-40 minutter.",
+          "5. Server med smør, potetmos og tyttebær eller preskekompott."
+        ],
+        "en": [
+          "1. Mash raw potatoes finely or grate them.",
+          "2. Mix potatoes, ground meat, onion, flour, salt and pepper.",
+          "3. Form into large balls.",
+          "4. Boil the balls in salted water for 30-40 minutes.",
+          "5. Serve with butter, mashed potatoes, lingonberry or prune compote."
+        ]
+      }
+    },
+    {
+      "id": "no_003",
+      "title": {
+        "no": "Kjøttkaker",
+        "en": "Meatballs"
+      },
+      "subtitle": {
+        "no": "Klassiske norske kjøttkaker med brun saus",
+        "en": "Classic Norwegian meatballs with brown gravy"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Meat",
+      "tags": ["traditional", "norwegian", "easy", "quick"],
+      "allergens": ["gluten"],
+      "ingredients": [
+        {
+          "name": {"no": "Kjøttdeig", "en": "Ground meat"},
+          "amount": 500,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Brød (fint formolket)", "en": "Bread (crumbled)"},
+          "amount": 100,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Melk", "en": "Milk"},
+          "amount": 100,
+          "unit": {"no": "ml", "en": "ml"}
+        },
+        {
+          "name": {"no": "Egg", "en": "Egg"},
+          "amount": 1,
+          "unit": {"no": "stk", "en": "piece"}
+        },
+        {
+          "name": {"no": "Løk (finhakket)", "en": "Onion (minced)"},
+          "amount": 1,
+          "unit": {"no": "medium", "en": "medium"}
+        },
+        {
+          "name": {"no": "Salt og pepper", "en": "Salt and pepper"},
+          "amount": 1,
+          "unit": {"no": "etter smak", "en": "to taste"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bløtlegg brødet i melk.",
+          "2. Bland kjøttdeig, brød, egg, løk, salt og pepper.",
+          "3. Form til mindre kuler.",
+          "4. Steik kullene i en panne med smør til de er gylne.",
+          "5. Server med potetmos, grønnsaker og brunsaus."
+        ],
+        "en": [
+          "1. Soak bread in milk.",
+          "2. Mix ground meat, bread, egg, onion, salt and pepper.",
+          "3. Form into small balls.",
+          "4. Fry the balls in a pan with butter until golden.",
+          "5. Serve with mashed potatoes, vegetables and brown gravy."
+        ]
+      }
+    },
+    {
+      "id": "no_004",
+      "title": {
+        "no": "Lapskaus",
+        "en": "Meat and Vegetable Stew"
+      },
+      "subtitle": {
+        "no": "Norsk grytérett med kjøtt og grønnsaker",
+        "en": "Norwegian pot stew with meat and vegetables"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 60,
+      "servings": 4,
+      "category": "Meat",
+      "tags": ["traditional", "norwegian", "slow-cooked", "comfort-food"],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {"no": "Oksekjøtt (kube)", "en": "Beef (cubed)"},
+          "amount": 700,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Poteter", "en": "Potatoes"},
+          "amount": 500,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Gulrøtter", "en": "Carrots"},
+          "amount": 300,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Løk", "en": "Onion"},
+          "amount": 2,
+          "unit": {"no": "medium", "en": "medium"}
+        },
+        {
+          "name": {"no": "Buljong (okse)", "en": "Beef broth"},
+          "amount": 1,
+          "unit": {"no": "liter", "en": "liter"}
+        },
+        {
+          "name": {"no": "Salt og pepper", "en": "Salt and pepper"},
+          "amount": 1,
+          "unit": {"no": "etter smak", "en": "to taste"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Steik kjøttet i en gryte til det får farge.",
+          "2. Tilsett løk og la det bli lyst.",
+          "3. Legg i kubet poteter og gulrøtter.",
+          "4. Hell på buljongen og la det koke sakte i ca. 45 minutter.",
+          "5. Smak til med salt og pepper.",
+          "6. Server varmt med brød eller flatbrød."
+        ],
+        "en": [
+          "1. Brown the meat in a pot.",
+          "2. Add onion and cook until light.",
+          "3. Add cubed potatoes and carrots.",
+          "4. Pour in broth and simmer for about 45 minutes.",
+          "5. Season with salt and pepper.",
+          "6. Serve hot with bread."
+        ]
+      }
+    },
+    {
+      "id": "no_005",
+      "title": {
+        "no": "Fiskegrateng",
+        "en": "Fish Gratin"
+      },
+      "subtitle": {
+        "no": "Norsk gratinert fiskérett med poteter",
+        "en": "Norwegian gratined fish dish with potatoes"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 50,
+      "servings": 4,
+      "category": "Fish",
+      "tags": ["norwegian", "seafood", "comfort-food"],
+      "allergens": ["fish", "dairy"],
+      "ingredients": [
+        {
+          "name": {"no": "Fiskéfiléer (torsk/sei)", "en": "Fish fillets (cod/pollock)"},
+          "amount": 800,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Poteter", "en": "Potatoes"},
+          "amount": 700,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Melk", "en": "Milk"},
+          "amount": 400,
+          "unit": {"no": "ml", "en": "ml"}
+        },
+        {
+          "name": {"no": "Smør", "en": "Butter"},
+          "amount": 50,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Mel", "en": "Flour"},
+          "amount": 3,
+          "unit": {"no": "ss", "en": "tbsp"}
+        },
+        {
+          "name": {"no": "Ost (riven)", "en": "Cheese (grated)"},
+          "amount": 100,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Salt og pepper", "en": "Salt and pepper"},
+          "amount": 1,
+          "unit": {"no": "etter smak", "en": "to taste"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok poteter til de er halvkjøpt, kutt dem i skiver.",
+          "2. Lag en béchamel-saus: smelt smør, tilsett mel og rør godt.",
+          "3. Tilsett melk sakte mens du rører.",
+          "4. Lag lag av poteter, fisk og saus i en ildfast form.",
+          "5. Helles av resten av sausen og strø ost på toppen.",
+          "6. Bak på 200°C i ca. 30 minutter til det er gyllent."
+        ],
+        "en": [
+          "1. Boil potatoes until half-cooked, slice them.",
+          "2. Make a béchamel sauce: melt butter, add flour and stir well.",
+          "3. Add milk slowly while stirring.",
+          "4. Layer potatoes, fish and sauce in a baking dish.",
+          "5. Pour remaining sauce and sprinkle cheese on top.",
+          "6. Bake at 200°C for about 30 minutes until golden."
+        ]
+      }
+    },
+    {
+      "id": "no_006",
+      "title": {
+        "no": "Brunost-og-vafler",
+        "en": "Brown Cheese Waffles"
+      },
+      "subtitle": {
+        "no": "Tradisjonelle norske vafler med brunost",
+        "en": "Traditional Norwegian waffles with brown cheese"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Other",
+      "tags": ["norwegian", "breakfast", "snack", "traditional"],
+      "allergens": ["dairy", "gluten", "eggs"],
+      "ingredients": [
+        {
+          "name": {"no": "Mel", "en": "Flour"},
+          "amount": 300,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Egg", "en": "Eggs"},
+          "amount": 3,
+          "unit": {"no": "stk", "en": "pieces"}
+        },
+        {
+          "name": {"no": "Melk", "en": "Milk"},
+          "amount": 500,
+          "unit": {"no": "ml", "en": "ml"}
+        },
+        {
+          "name": {"no": "Smør (smeltet)", "en": "Butter (melted)"},
+          "amount": 100,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Brunost (riven)", "en": "Brown cheese (grated)"},
+          "amount": 100,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Sukker", "en": "Sugar"},
+          "amount": 2,
+          "unit": {"no": "ss", "en": "tbsp"}
+        },
+        {
+          "name": {"no": "Bakepulver", "en": "Baking powder"},
+          "amount": 1,
+          "unit": {"no": "ts", "en": "tsp"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland mel, bakepulver og sukker.",
+          "2. Visp egg og melk sammen.",
+          "3. Bland tørre og våte ingredienser, tilsett smeltet smør.",
+          "4. Fold inn brunost.",
+          "5. Bak vafler i en vaffelsteke til de er gyllent brune.",
+          "6. Server varme med brunost og syltetøy."
+        ],
+        "en": [
+          "1. Mix flour, baking powder and sugar.",
+          "2. Whisk eggs and milk together.",
+          "3. Combine dry and wet ingredients, add melted butter.",
+          "4. Fold in brown cheese.",
+          "5. Bake waffles in a waffle iron until golden brown.",
+          "6. Serve hot with brown cheese and jam."
+        ]
+      }
+    },
+    {
+      "id": "no_007",
+      "title": {
+        "no": "Kålsuppe",
+        "en": "Cabbage Soup"
+      },
+      "subtitle": {
+        "no": "Varmende norsk suppe med kål og kjøtt",
+        "en": "Warming Norwegian soup with cabbage and meat"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 45,
+      "servings": 4,
+      "category": "Other",
+      "tags": ["traditional", "norwegian", "soup", "warm"],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {"no": "Kjøtt (kuber)", "en": "Meat (cubes)"},
+          "amount": 400,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Kål (hvit)", "en": "Cabbage (white)"},
+          "amount": 600,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Poteter", "en": "Potatoes"},
+          "amount": 300,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Løk", "en": "Onion"},
+          "amount": 1,
+          "unit": {"no": "medium", "en": "medium"}
+        },
+        {
+          "name": {"no": "Buljong", "en": "Broth"},
+          "amount": 1.5,
+          "unit": {"no": "liter", "en": "liter"}
+        },
+        {
+          "name": {"no": "Salt og pepper", "en": "Salt and pepper"},
+          "amount": 1,
+          "unit": {"no": "etter smak", "en": "to taste"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Stekt kjøttkubene til de er brune.",
+          "2. Tilsett løk og steik litt til.",
+          "3. Hell på buljongen og la det koke.",
+          "4. Tilsett kubet poteter og kål.",
+          "5. La det koke til alt er mørt, ca. 30 minutter.",
+          "6. Smak til med salt og pepper.",
+          "7. Server med brød og smør."
+        ],
+        "en": [
+          "1. Brown the meat cubes.",
+          "2. Add onion and cook a bit more.",
+          "3. Pour in broth and bring to boil.",
+          "4. Add cubed potatoes and cabbage.",
+          "5. Simmer until everything is tender, about 30 minutes.",
+          "6. Season with salt and pepper.",
+          "7. Serve with bread and butter."
+        ]
+      }
+    },
+    {
+      "id": "no_008",
+      "title": {
+        "no": "Skilpaddesuppe",
+        "en": "Turtle Soup (Beef & Vegetable)"
+      },
+      "subtitle": {
+        "no": "Norsk spesialsuppe med okse og grønnsaker",
+        "en": "Norwegian specialty soup with beef and vegetables"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 90,
+      "servings": 6,
+      "category": "Meat",
+      "tags": ["traditional", "norwegian", "special", "soup"],
+      "allergens": ["gluten", "eggs"],
+      "ingredients": [
+        {
+          "name": {"no": "Oksekjøtt (kuber)", "en": "Beef (cubes)"},
+          "amount": 700,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Oksebuljong", "en": "Beef broth"},
+          "amount": 2,
+          "unit": {"no": "liter", "en": "liter"}
+        },
+        {
+          "name": {"no": "Egg (kokt og hakket)", "en": "Eggs (boiled and chopped)"},
+          "amount": 2,
+          "unit": {"no": "stk", "en": "pieces"}
+        },
+        {
+          "name": {"no": "Poteter", "en": "Potatoes"},
+          "amount": 400,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Gulrøtter", "en": "Carrots"},
+          "amount": 200,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Løk", "en": "Onion"},
+          "amount": 1,
+          "unit": {"no": "medium", "en": "medium"}
+        },
+        {
+          "name": {"no": "Mel", "en": "Flour"},
+          "amount": 2,
+          "unit": {"no": "ss", "en": "tbsp"}
+        },
+        {
+          "name": {"no": "Smør", "en": "Butter"},
+          "amount": 50,
+          "unit": {"no": "gram", "en": "g"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Steik kjøttet til det blir brunt.",
+          "2. Tilsett løk og steik litt til.",
+          "3. Støv mel over og rør godt.",
+          "4. Hell på buljongen langsomt.",
+          "5. La det koke sakte i ca. 45 minutter.",
+          "6. Tilsett poteter og gulrøtter, kok 20 minutter til.",
+          "7. Tilsett de kokte eggene like før servering.",
+          "8. Smak til med salt og pepper."
+        ],
+        "en": [
+          "1. Brown the meat.",
+          "2. Add onion and cook a bit more.",
+          "3. Dust flour over and stir well.",
+          "4. Pour in broth slowly.",
+          "5. Simmer slowly for about 45 minutes.",
+          "6. Add potatoes and carrots, cook 20 more minutes.",
+          "7. Add boiled eggs just before serving.",
+          "8. Season with salt and pepper."
+        ]
+      }
+    },
+    {
+      "id": "no_009",
+      "title": {
+        "no": "Klippfisk",
+        "en": "Salted Dried Fish"
+      },
+      "subtitle": {
+        "no": "Tradisjonell norsk fiskérett",
+        "en": "Traditional Norwegian salted fish dish"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 120,
+      "servings": 4,
+      "category": "Fish",
+      "tags": ["traditional", "norwegian", "seafood", "historic"],
+      "allergens": ["fish"],
+      "ingredients": [
+        {
+          "name": {"no": "Klippfisk (saltfisk)", "en": "Klippfisk (salted fish)"},
+          "amount": 800,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Poteter", "en": "Potatoes"},
+          "amount": 700,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Løk", "en": "Onion"},
+          "amount": 2,
+          "unit": {"no": "medium", "en": "medium"}
+        },
+        {
+          "name": {"no": "Smør", "en": "Butter"},
+          "amount": 100,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Salt og pepper", "en": "Salt and pepper"},
+          "amount": 1,
+          "unit": {"no": "etter smak", "en": "to taste"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bløtlegg klippfisken i kaldt vann i minst 24 timer.",
+          "2. Skift vannet flere ganger.",
+          "3. Kok fisken i en gryte med friskt vann i ca. 20 minutter.",
+          "4. Kok poteter og løk separat.",
+          "5. Server fisken med poteter, løk og smørsaus.",
+          "6. Garner med egg og løk hvis ønsket."
+        ],
+        "en": [
+          "1. Soak klippfisk in cold water for at least 24 hours.",
+          "2. Change the water several times.",
+          "3. Boil the fish in fresh water for about 20 minutes.",
+          "4. Boil potatoes and onion separately.",
+          "5. Serve fish with potatoes, onion and butter sauce.",
+          "6. Garnish with egg and onion if desired."
+        ]
+      }
+    },
+    {
+      "id": "no_010",
+      "title": {
+        "no": "Lutefisk",
+        "en": "Lye-Cured Fish"
+      },
+      "subtitle": {
+        "no": "Klassisk norsk juléérett",
+        "en": "Classic Norwegian Christmas dish"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 60,
+      "servings": 4,
+      "category": "Fish",
+      "tags": ["traditional", "norwegian", "christmas", "holiday"],
+      "allergens": ["fish"],
+      "ingredients": [
+        {
+          "name": {"no": "Lutefisk (ferdig behandlet)", "en": "Lutefisk (pre-treated)"},
+          "amount": 1000,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Salt (til kokevann)", "en": "Salt (for cooking water)"},
+          "amount": 2,
+          "unit": {"no": "ss", "en": "tbsp"}
+        },
+        {
+          "name": {"no": "Poteter", "en": "Potatoes"},
+          "amount": 800,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Ertebønner (tørket)", "en": "Yellow peas (dried)"},
+          "amount": 400,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Fløte", "en": "Cream"},
+          "amount": 200,
+          "unit": {"no": "ml", "en": "ml"}
+        },
+        {
+          "name": {"no": "Fløtesaus", "en": "Cream sauce"},
+          "amount": 1,
+          "unit": {"no": "etter smak", "en": "to taste"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok lutefisken i saltet vann i ca. 5-10 minutter.",
+          "2. Lutefisken skal være gjennomvarmet men ikke overkokt.",
+          "3. Kok poteter og tørket erter separat.",
+          "4. Tilsett fløte til speilegg eller lag fløtesaus.",
+          "5. Server lutefisken med poteter, ertebønner og fløtesaus.",
+          "6. Garnering med bacon eller røkt fisk er tradisjonelt."
+        ],
+        "en": [
+          "1. Boil lutefisk in salted water for about 5-10 minutes.",
+          "2. The fish should be heated through but not overcooked.",
+          "3. Boil potatoes and dried peas separately.",
+          "4. Add cream to fried eggs or make cream sauce.",
+          "5. Serve lutefisk with potatoes, peas and cream sauce.",
+          "6. Garnish with bacon or smoked fish is traditional."
+        ]
+      }
+    },
+    {
+      "id": "no_011",
+      "title": {
+        "no": "Pinnekjøtt",
+        "en": "Salted Lamb Ribs"
+      },
+      "subtitle": {
+        "no": "Tradisjonell norsk julémat",
+        "en": "Traditional Norwegian Christmas food"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 120,
+      "servings": 4,
+      "category": "Meat",
+      "tags": ["traditional", "norwegian", "christmas", "holiday"],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {"no": "Pinnekjøtt (saltlam)", "en": "Pinnekjøtt (salted lamb ribs)"},
+          "amount": 1000,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Poteter", "en": "Potatoes"},
+          "amount": 800,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Rutabaga (kålrot)", "en": "Rutabaga (swede)"},
+          "amount": 500,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Salt og pepper", "en": "Salt and pepper"},
+          "amount": 1,
+          "unit": {"no": "etter smak", "en": "to taste"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bløtlegg pinnekjøttet i kaldt vann i 1-2 timer.",
+          "2. Kok pinnekjøttet i ferskt vann i ca. 1,5 time.",
+          "3. Fjern ribbenene fra vannet de siste 30 minuttene.",
+          "4. Kok poteter og rutabaga separat.",
+          "5. Server varmt med poteter, rutabaga og brunsaus.",
+          "6. Server med akavit som tradisjon sier."
+        ],
+        "en": [
+          "1. Soak pinnekjøtt in cold water for 1-2 hours.",
+          "2. Boil pinnekjøtt in fresh water for about 1.5 hours.",
+          "3. Remove ribs from water during last 30 minutes.",
+          "4. Boil potatoes and rutabaga separately.",
+          "5. Serve hot with potatoes, rutabaga and brown sauce.",
+          "6. Serve with aquavit as tradition dictates."
+        ]
+      }
+    },
+    {
+      "id": "no_012",
+      "title": {
+        "no": "Rakørret",
+        "en": "Cured Trout"
+      },
+      "subtitle": {
+        "no": "Norsk fiskédelicacy",
+        "en": "Norwegian fish delicacy"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 1440,
+      "servings": 6,
+      "category": "Fish",
+      "tags": ["traditional", "norwegian", "seafood", "cured"],
+      "allergens": ["fish"],
+      "ingredients": [
+        {
+          "name": {"no": "Ørret (fersk)", "en": "Trout (fresh)"},
+          "amount": 1500,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Salt", "en": "Salt"},
+          "amount": 40,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Sukker", "en": "Sugar"},
+          "amount": 20,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Dill (frisk)", "en": "Dill (fresh)"},
+          "amount": 30,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Pepperkorn", "en": "Peppercorns"},
+          "amount": 10,
+          "unit": {"no": "gram", "en": "g"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Rengjør ørreten og del den langs ryggen.",
+          "2. Fjern ryggbein men la huden sitte på.",
+          "3. Bland salt, sukker, dill og pepperkorn.",
+          "4. Gni blandingen inn i fisken.",
+          "5. Legg ørreten på aluminiumsfolie i kjøleskapet.",
+          "6. La det kurere i 24-48 timer.",
+          "7. Skjær i tynne skiver og server på brød med løk og sitron."
+        ],
+        "en": [
+          "1. Clean the trout and split along the back.",
+          "2. Remove backbone but leave skin.",
+          "3. Mix salt, sugar, dill and peppercorns.",
+          "4. Rub mixture into fish.",
+          "5. Place trout on foil in refrigerator.",
+          "6. Let cure for 24-48 hours.",
+          "7. Slice thinly and serve on bread with onion and lemon."
+        ]
+      }
+    },
+    {
+      "id": "no_013",
+      "title": {
+        "no": "Søteboller",
+        "en": "Sweet Buns"
+      },
+      "subtitle": {
+        "no": "Norske søte rundstykker",
+        "en": "Norwegian sweet rolls"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 90,
+      "servings": 12,
+      "category": "Other",
+      "tags": ["norwegian", "baking", "sweet", "traditional"],
+      "allergens": ["gluten", "dairy", "eggs"],
+      "ingredients": [
+        {
+          "name": {"no": "Hvetemel", "en": "Wheat flour"},
+          "amount": 500,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Melk (lunkken)", "en": "Milk (lukewarm)"},
+          "amount": 250,
+          "unit": {"no": "ml", "en": "ml"}
+        },
+        {
+          "name": {"no": "Gjær", "en": "Yeast"},
+          "amount": 50,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Sukker", "en": "Sugar"},
+          "amount": 50,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Salt", "en": "Salt"},
+          "amount": 1,
+          "unit": {"no": "ts", "en": "tsp"}
+        },
+        {
+          "name": {"no": "Smør", "en": "Butter"},
+          "amount": 50,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Egg", "en": "Egg"},
+          "amount": 1,
+          "unit": {"no": "stk", "en": "piece"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Løs gjæren i lunkken melk med sukker.",
+          "2. Tilsett mel, salt og smør.",
+          "3. Trill deigen godt i ca. 10 minutter.",
+          "4. La deigen heve i 1 time under et handklæ.",
+          "5. Del deigen i 12 like deler og roll til boller.",
+          "6. La bollene heve i 30 minutter.",
+          "7. Pensl med slått egg.",
+          "8. Bak på 200°C i ca. 15-20 minutter."
+        ],
+        "en": [
+          "1. Dissolve yeast in lukewarm milk with sugar.",
+          "2. Add flour, salt and butter.",
+          "3. Knead dough well for about 10 minutes.",
+          "4. Let dough rise for 1 hour under a towel.",
+          "5. Divide dough into 12 equal parts and roll into balls.",
+          "6. Let buns rise for 30 minutes.",
+          "7. Brush with beaten egg.",
+          "8. Bake at 200°C for about 15-20 minutes."
+        ]
+      }
+    },
+    {
+      "id": "no_014",
+      "title": {
+        "no": "Sjokoladekake",
+        "en": "Chocolate Cake"
+      },
+      "subtitle": {
+        "no": "Klassisk norsk sjokoladekake",
+        "en": "Classic Norwegian chocolate cake"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 45,
+      "servings": 8,
+      "category": "Other",
+      "tags": ["norwegian", "baking", "dessert", "chocolate"],
+      "allergens": ["gluten", "dairy", "eggs"],
+      "ingredients": [
+        {
+          "name": {"no": "Smør", "en": "Butter"},
+          "amount": 200,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Sukker", "en": "Sugar"},
+          "amount": 200,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Egg", "en": "Eggs"},
+          "amount": 3,
+          "unit": {"no": "stk", "en": "pieces"}
+        },
+        {
+          "name": {"no": "Hvetemel", "en": "Wheat flour"},
+          "amount": 300,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Kakao (usøtet)", "en": "Cocoa (unsweetened)"},
+          "amount": 50,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Bakepulver", "en": "Baking powder"},
+          "amount": 1.5,
+          "unit": {"no": "ts", "en": "tsp"}
+        },
+        {
+          "name": {"no": "Melk", "en": "Milk"},
+          "amount": 200,
+          "unit": {"no": "ml", "en": "ml"}
+        },
+        {
+          "name": {"no": "Vaniljeekstrakt", "en": "Vanilla extract"},
+          "amount": 1,
+          "unit": {"no": "ts", "en": "tsp"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Smelt smør og blanda det med sukker.",
+          "2. Visp inn egg en om gangen.",
+          "3. Bland mel, kakao og bakepulver.",
+          "4. Veksla mellom å tilsette tørre ingredienser og melk.",
+          "5. Tilsett vaniljeekstrakt.",
+          "6. Hell deigen i en smurt og melstøvet form.",
+          "7. Bak på 180°C i ca. 25-30 minutter.",
+          "8. La den kjøle før du dekorerer med glasur."
+        ],
+        "en": [
+          "1. Melt butter and mix with sugar.",
+          "2. Whisk in eggs one at a time.",
+          "3. Mix flour, cocoa and baking powder.",
+          "4. Alternate adding dry ingredients and milk.",
+          "5. Add vanilla extract.",
+          "6. Pour batter into greased and floured pan.",
+          "7. Bake at 180°C for about 25-30 minutes.",
+          "8. Let cool before decorating with frosting."
+        ]
+      }
+    },
+    {
+      "id": "no_015",
+      "title": {
+        "no": "Krumkake",
+        "en": "Krumkake (Thin Cookies)"
+      },
+      "subtitle": {
+        "no": "Tradisjonelle norske tynne kaker",
+        "en": "Traditional Norwegian thin waffle cookies"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 60,
+      "servings": 24,
+      "category": "Other",
+      "tags": ["norwegian", "baking", "traditional", "cookies"],
+      "allergens": ["gluten", "dairy", "eggs"],
+      "ingredients": [
+        {
+          "name": {"no": "Smør", "en": "Butter"},
+          "amount": 200,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Sukker", "en": "Sugar"},
+          "amount": 200,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Egg", "en": "Eggs"},
+          "amount": 2,
+          "unit": {"no": "stk", "en": "pieces"}
+        },
+        {
+          "name": {"no": "Hvetemel", "en": "Wheat flour"},
+          "amount": 200,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Kartoffelstivelse", "en": "Potato starch"},
+          "amount": 100,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Vaniljeekstrakt", "en": "Vanilla extract"},
+          "amount": 1,
+          "unit": {"no": "ts", "en": "tsp"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Smelt smør og blanda det med sukker.",
+          "2. Visp inn egg.",
+          "3. Bland mel, kartoffelstivelse og vaniljeekstrakt.",
+          "4. Tilsett tørre ingredienser til smørblanden.",
+          "5. Varm opp krumkakejernet.",
+          "6. Legg en tesked deig i jernet og bak til den er gyllent.",
+          "7. Rull kakene mens de er varme rundt en kjegle.",
+          "8. La dem kjøle og stive.",
+          "9. Server med sjokolade eller fylling etter ønske."
+        ],
+        "en": [
+          "1. Melt butter and mix with sugar.",
+          "2. Whisk in eggs.",
+          "3. Mix flour, potato starch and vanilla extract.",
+          "4. Add dry ingredients to butter mixture.",
+          "5. Heat krumkake iron.",
+          "6. Put a teaspoon of dough in iron and bake until golden.",
+          "7. Roll cookies while warm around a cone.",
+          "8. Let cool and harden.",
+          "9. Serve with chocolate or filling if desired."
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,1216 @@
+{
+  "packId": "pack_european_classics",
+  "packName": {
+    "no": "Europeiske klassikere",
+    "en": "European Classics"
+  },
+  "packDescription": {
+    "no": "Deilige tradisjoner fra Italia, Frankrike, Spania og resten av Europa.",
+    "en": "Delicious traditions from Italy, France, Spain and the rest of Europe."
+  },
+  "packImage": "european-flag",
+  "packColor": "#4B7BA7",
+  "recipeCount": 15,
+  "estimatedCookTime": "30-90 minutes",
+  "difficulty": "medium",
+  "recipes": [
+    {
+      "id": "eu_001",
+      "title": {
+        "no": "Spaghetti Bolognese",
+        "en": "Spaghetti Bolognese"
+      },
+      "subtitle": {
+        "no": "Italiensk klassiker med kjøttsaus",
+        "en": "Italian classic with meat sauce"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 60,
+      "servings": 4,
+      "category": "Meat",
+      "tags": ["italian", "pasta", "comfort-food", "classic"],
+      "allergens": ["gluten"],
+      "ingredients": [
+        {
+          "name": {"no": "Kjøttdeig", "en": "Ground meat"},
+          "amount": 500,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Tomat (konservert)", "en": "Tomato (canned)"},
+          "amount": 800,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Løk", "en": "Onion"},
+          "amount": 2,
+          "unit": {"no": "medium", "en": "medium"}
+        },
+        {
+          "name": {"no": "Hvitløk", "en": "Garlic"},
+          "amount": 3,
+          "unit": {"no": "fedd", "en": "cloves"}
+        },
+        {
+          "name": {"no": "Spaghetti", "en": "Spaghetti"},
+          "amount": 400,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Olivenolje", "en": "Olive oil"},
+          "amount": 3,
+          "unit": {"no": "ss", "en": "tbsp"}
+        },
+        {
+          "name": {"no": "Salt og pepper", "en": "Salt and pepper"},
+          "amount": 1,
+          "unit": {"no": "etter smak", "en": "to taste"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Heat olivenolje i en stekepanne.",
+          "2. Steik løk og hvitløk til det dufter.",
+          "3. Tilsett kjøttdeigen og steik til den er brun.",
+          "4. Hell på tomaten og la det småkoke i 30 minutter.",
+          "5. Kok spaghettien etter anvisning.",
+          "6. Bland sausen med pastaen eller server ved siden av.",
+          "7. Smak til med salt og pepper."
+        ],
+        "en": [
+          "1. Heat olive oil in a pan.",
+          "2. Fry onion and garlic until fragrant.",
+          "3. Add ground meat and brown it.",
+          "4. Pour in tomato and simmer for 30 minutes.",
+          "5. Cook spaghetti according to instructions.",
+          "6. Mix sauce with pasta or serve on the side.",
+          "7. Season with salt and pepper."
+        ]
+      }
+    },
+    {
+      "id": "eu_002",
+      "title": {
+        "no": "Risotto",
+        "en": "Risotto"
+      },
+      "subtitle": {
+        "no": "Italiensk creme-risotto med saffran",
+        "en": "Italian creamy saffron risotto"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 40,
+      "servings": 4,
+      "category": "Other",
+      "tags": ["italian", "rice", "creamy", "elegant"],
+      "allergens": ["dairy", "saffron"],
+      "ingredients": [
+        {
+          "name": {"no": "Arborio-ris", "en": "Arborio rice"},
+          "amount": 300,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Buljong (varmt)", "en": "Broth (warm)"},
+          "amount": 1,
+          "unit": {"no": "liter", "en": "liter"}
+        },
+        {
+          "name": {"no": "Hvitløk", "en": "Garlic"},
+          "amount": 2,
+          "unit": {"no": "fedd", "en": "cloves"}
+        },
+        {
+          "name": {"no": "Løk", "en": "Onion"},
+          "amount": 1,
+          "unit": {"no": "medium", "en": "medium"}
+        },
+        {
+          "name": {"no": "Hvitvín", "en": "White wine"},
+          "amount": 100,
+          "unit": {"no": "ml", "en": "ml"}
+        },
+        {
+          "name": {"no": "Saffran", "en": "Saffron"},
+          "amount": 1,
+          "unit": {"no": "g", "en": "g"}
+        },
+        {
+          "name": {"no": "Parmesan-ost", "en": "Parmesan cheese"},
+          "amount": 100,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Smør", "en": "Butter"},
+          "amount": 50,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Olivenolje", "en": "Olive oil"},
+          "amount": 2,
+          "unit": {"no": "ss", "en": "tbsp"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Heat olivenolje og steik løk og hvitløk.",
+          "2. Tilsett risen og rør i 2 minutter.",
+          "3. Hell på hvitvin og rør til det er absorbert.",
+          "4. Tilsett saffran til buljongen.",
+          "5. Tilsett buljong en liten del om gangen, og rør konstant.",
+          "6. Kok til risen er kremete og al dente, ca. 18-20 minutter.",
+          "7. Fjern fra varmen og rør inn smør og parmesan.",
+          "8. Server umiddelbart."
+        ],
+        "en": [
+          "1. Heat olive oil and fry onion and garlic.",
+          "2. Add rice and stir for 2 minutes.",
+          "3. Pour in white wine and stir until absorbed.",
+          "4. Add saffron to broth.",
+          "5. Add broth a little at a time, stirring constantly.",
+          "6. Cook until rice is creamy and al dente, about 18-20 minutes.",
+          "7. Remove from heat and stir in butter and parmesan.",
+          "8. Serve immediately."
+        ]
+      }
+    },
+    {
+      "id": "eu_003",
+      "title": {
+        "no": "Bouillabaisse",
+        "en": "Bouillabaisse"
+      },
+      "subtitle": {
+        "no": "Fransk fisksuppe fra Provence",
+        "en": "French fish soup from Provence"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 60,
+      "servings": 4,
+      "category": "Fish",
+      "tags": ["french", "seafood", "soup", "classic"],
+      "allergens": ["fish", "shellfish", "saffron"],
+      "ingredients": [
+        {
+          "name": {"no": "Blandede fisker", "en": "Mixed fish"},
+          "amount": 800,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Blåskjell", "en": "Mussels"},
+          "amount": 500,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Tomat (frisk eller konservert)", "en": "Tomato (fresh or canned)"},
+          "amount": 600,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Løk", "en": "Onion"},
+          "amount": 2,
+          "unit": {"no": "medium", "en": "medium"}
+        },
+        {
+          "name": {"no": "Hvitløk", "en": "Garlic"},
+          "amount": 4,
+          "unit": {"no": "fedd", "en": "cloves"}
+        },
+        {
+          "name": {"no": "Saffran", "en": "Saffron"},
+          "amount": 1,
+          "unit": {"no": "g", "en": "g"}
+        },
+        {
+          "name": {"no": "Buljong (fisk)", "en": "Fish broth"},
+          "amount": 1,
+          "unit": {"no": "liter", "en": "liter"}
+        },
+        {
+          "name": {"no": "Fennikkel", "en": "Fennel"},
+          "amount": 1,
+          "unit": {"no": "stengel", "en": "stalk"}
+        },
+        {
+          "name": {"no": "Olivenolje", "en": "Olive oil"},
+          "amount": 3,
+          "unit": {"no": "ss", "en": "tbsp"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Heat olivenolje og steik løk, hvitløk og fennikkel.",
+          "2. Tilsett tomater og la det koke i 10 minutter.",
+          "3. Hell på fiskbuljongen og saffran.",
+          "4. Tilsett fiskene og la det koke i 15 minutter.",
+          "5. Tilsett blåskjellene og kok til de åpner seg.",
+          "6. Smak til med salt og pepper.",
+          "7. Server i dype skåler med brød og rouille."
+        ],
+        "en": [
+          "1. Heat olive oil and fry onion, garlic and fennel.",
+          "2. Add tomatoes and let simmer for 10 minutes.",
+          "3. Pour in fish broth and saffron.",
+          "4. Add fish and cook for 15 minutes.",
+          "5. Add mussels and cook until they open.",
+          "6. Season with salt and pepper.",
+          "7. Serve in deep bowls with bread and rouille."
+        ]
+      }
+    },
+    {
+      "id": "eu_004",
+      "title": {
+        "no": "Paella",
+        "en": "Paella"
+      },
+      "subtitle": {
+        "no": "Spansk ris med sjømat og kjøtt",
+        "en": "Spanish rice with seafood and meat"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 60,
+      "servings": 6,
+      "category": "Meat",
+      "tags": ["spanish", "rice", "seafood", "festive"],
+      "allergens": ["shellfish", "saffron"],
+      "ingredients": [
+        {
+          "name": {"no": "Paella-ris (kortkorn)", "en": "Paella rice (short grain)"},
+          "amount": 400,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Kylling (kuber)", "en": "Chicken (cubes)"},
+          "amount": 400,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Rekér", "en": "Shrimp"},
+          "amount": 300,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Røde paprika", "en": "Red bell pepper"},
+          "amount": 2,
+          "unit": {"no": "stk", "en": "pieces"}
+        },
+        {
+          "name": {"no": "Erter (friske eller frosne)", "en": "Peas (fresh or frozen)"},
+          "amount": 200,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Løk", "en": "Onion"},
+          "amount": 1,
+          "unit": {"no": "medium", "en": "medium"}
+        },
+        {
+          "name": {"no": "Hvitløk", "en": "Garlic"},
+          "amount": 3,
+          "unit": {"no": "fedd", "en": "cloves"}
+        },
+        {
+          "name": {"no": "Saffran", "en": "Saffron"},
+          "amount": 1,
+          "unit": {"no": "g", "en": "g"}
+        },
+        {
+          "name": {"no": "Buljong (varm)", "en": "Broth (warm)"},
+          "amount": 900,
+          "unit": {"no": "ml", "en": "ml"}
+        },
+        {
+          "name": {"no": "Olivenolje", "en": "Olive oil"},
+          "amount": 4,
+          "unit": {"no": "ss", "en": "tbsp"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Heat olivenolje i en stor paella-panne.",
+          "2. Steik kyllingbiter til de er brune.",
+          "3. Tilsett løk, hvitløk og paprika, steik 3 minutter.",
+          "4. Tilsett risen og rør i 2 minutter.",
+          "5. Hell på buljongen med saffran.",
+          "6. La det koke uten å røre i 20 minutter.",
+          "7. Tilsett rekene og ertene, kok 10 minutter til.",
+          "8. Server direkte fra pannen."
+        ],
+        "en": [
+          "1. Heat olive oil in a large paella pan.",
+          "2. Brown chicken pieces.",
+          "3. Add onion, garlic and bell pepper, cook 3 minutes.",
+          "4. Add rice and stir for 2 minutes.",
+          "5. Pour in broth with saffron.",
+          "6. Let cook without stirring for 20 minutes.",
+          "7. Add shrimp and peas, cook 10 more minutes.",
+          "8. Serve directly from the pan."
+        ]
+      }
+    },
+    {
+      "id": "eu_005",
+      "title": {
+        "no": "Moussaka",
+        "en": "Moussaka"
+      },
+      "subtitle": {
+        "no": "Gresk aubergine og kjøtt-lag",
+        "en": "Greek eggplant and meat layers"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 90,
+      "servings": 6,
+      "category": "Meat",
+      "tags": ["greek", "eggplant", "layered", "comfort-food"],
+      "allergens": ["dairy", "gluten"],
+      "ingredients": [
+        {
+          "name": {"no": "Aubergine", "en": "Eggplant"},
+          "amount": 1000,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Kjøttdeig", "en": "Ground meat"},
+          "amount": 500,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Tomat (konservert)", "en": "Tomato (canned)"},
+          "amount": 400,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Løk", "en": "Onion"},
+          "amount": 1,
+          "unit": {"no": "large", "en": "large"}
+        },
+        {
+          "name": {"no": "Hvitløk", "en": "Garlic"},
+          "amount": 2,
+          "unit": {"no": "fedd", "en": "cloves"}
+        },
+        {
+          "name": {"no": "Hvit saus (béchamel)", "en": "White sauce (béchamel)"},
+          "amount": 500,
+          "unit": {"no": "ml", "en": "ml"}
+        },
+        {
+          "name": {"no": "Ost (riven)", "en": "Cheese (grated)"},
+          "amount": 150,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Olivenolje", "en": "Olive oil"},
+          "amount": 5,
+          "unit": {"no": "ss", "en": "tbsp"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skjær auberginen i lange skiver og steik dem i oljenolje.",
+          "2. Lag kjøttsausen: steik løk, hvitløk og kjøttdeigen.",
+          "3. Tilsett tomat og la det småkoke.",
+          "4. Smak til med salt, pepper og oregano.",
+          "5. Lag béchamel-sausen.",
+          "6. I en ildfast form: aubergine, kjøttsaus, aubergine osv.",
+          "7. Hell béchamel over og strø ost på toppen.",
+          "8. Bak på 180°C i 45 minutter."
+        ],
+        "en": [
+          "1. Slice eggplant and fry in olive oil.",
+          "2. Make meat sauce: fry onion, garlic and ground meat.",
+          "3. Add tomato and simmer.",
+          "4. Season with salt, pepper and oregano.",
+          "5. Make béchamel sauce.",
+          "6. In a baking dish: eggplant, meat sauce, eggplant etc.",
+          "7. Pour béchamel over and sprinkle cheese on top.",
+          "8. Bake at 180°C for 45 minutes."
+        ]
+      }
+    },
+    {
+      "id": "eu_006",
+      "title": {
+        "no": "Coq au Vin",
+        "en": "Coq au Vin"
+      },
+      "subtitle": {
+        "no": "Fransk kylling i rødvin",
+        "en": "French chicken in red wine"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 90,
+      "servings": 4,
+      "category": "Meat",
+      "tags": ["french", "chicken", "wine", "classic"],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {"no": "Kylling (hele eller deler)", "en": "Chicken (whole or parts)"},
+          "amount": 1200,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Rødvin", "en": "Red wine"},
+          "amount": 500,
+          "unit": {"no": "ml", "en": "ml"}
+        },
+        {
+          "name": {"no": "Spek", "en": "Bacon"},
+          "amount": 200,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Løk", "en": "Onion"},
+          "amount": 2,
+          "unit": {"no": "medium", "en": "medium"}
+        },
+        {
+          "name": {"no": "Hvitløk", "en": "Garlic"},
+          "amount": 3,
+          "unit": {"no": "fedd", "en": "cloves"}
+        },
+        {
+          "name": {"no": "Brun sopp", "en": "Brown mushroom"},
+          "amount": 300,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Buljong", "en": "Broth"},
+          "amount": 250,
+          "unit": {"no": "ml", "en": "ml"}
+        },
+        {
+          "name": {"no": "Tomat-puré", "en": "Tomato paste"},
+          "amount": 2,
+          "unit": {"no": "ss", "en": "tbsp"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Steik speket til det er sprøtt, ta det ut.",
+          "2. Steik kylingen til den er gylden.",
+          "3. Tilsett løk, hvitløk og tomat-puré.",
+          "4. Hell på rødvin og buljong.",
+          "5. Tilsett speket og la det småkoke i 45 minutter.",
+          "6. Tilsett sopp og kok 15 minutter til.",
+          "7. Smak til med salt og pepper.",
+          "8. Server med poteter eller brød."
+        ],
+        "en": [
+          "1. Fry bacon until crispy, remove it.",
+          "2. Brown the chicken.",
+          "3. Add onion, garlic and tomato paste.",
+          "4. Pour in red wine and broth.",
+          "5. Add bacon and simmer for 45 minutes.",
+          "6. Add mushrooms and cook 15 more minutes.",
+          "7. Season with salt and pepper.",
+          "8. Serve with potatoes or bread."
+        ]
+      }
+    },
+    {
+      "id": "eu_007",
+      "title": {
+        "no": "Penne all'Arrabbiata",
+        "en": "Penne all'Arrabbiata"
+      },
+      "subtitle": {
+        "no": "Italiensk pasta med tomat og chilì",
+        "en": "Italian pasta with tomato and chili"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Other",
+      "tags": ["italian", "pasta", "vegetarian", "spicy"],
+      "allergens": ["gluten"],
+      "ingredients": [
+        {
+          "name": {"no": "Penne", "en": "Penne"},
+          "amount": 400,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Tomat (konservert)", "en": "Tomato (canned)"},
+          "amount": 800,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Hvitløk", "en": "Garlic"},
+          "amount": 4,
+          "unit": {"no": "fedd", "en": "cloves"}
+        },
+        {
+          "name": {"no": "Chilì (tørket)", "en": "Chili (dried)"},
+          "amount": 2,
+          "unit": {"no": "stk", "en": "pieces"}
+        },
+        {
+          "name": {"no": "Olivenolje", "en": "Olive oil"},
+          "amount": 5,
+          "unit": {"no": "ss", "en": "tbsp"}
+        },
+        {
+          "name": {"no": "Salt", "en": "Salt"},
+          "amount": 1,
+          "unit": {"no": "ts", "en": "tsp"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok penneen etter anvisning.",
+          "2. Heat olivenolje og tilsett finhakket hvitløk og chilì.",
+          "3. Rør forsiktig i 1-2 minutter.",
+          "4. Tilsett konserverte tomater og salt.",
+          "5. La det småkoke i 10-15 minutter.",
+          "6. Bland pastaen med sausen.",
+          "7. Server umiddelbart med frisk persille."
+        ],
+        "en": [
+          "1. Cook penne according to instructions.",
+          "2. Heat olive oil and add minced garlic and chili.",
+          "3. Stir gently for 1-2 minutes.",
+          "4. Add canned tomatoes and salt.",
+          "5. Simmer for 10-15 minutes.",
+          "6. Mix pasta with sauce.",
+          "7. Serve immediately with fresh parsley."
+        ]
+      }
+    },
+    {
+      "id": "eu_008",
+      "title": {
+        "no": "Frikadellettar",
+        "en": "Swedish Meatballs"
+      },
+      "subtitle": {
+        "no": "Svenske kjøttboller med fløte",
+        "en": "Swedish meatballs with cream"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 40,
+      "servings": 4,
+      "category": "Meat",
+      "tags": ["swedish", "meatballs", "cream", "comfort-food"],
+      "allergens": ["gluten", "dairy"],
+      "ingredients": [
+        {
+          "name": {"no": "Kjøttdeig", "en": "Ground meat"},
+          "amount": 600,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Brød (fint formolket)", "en": "Bread (crumbled)"},
+          "amount": 100,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Melk", "en": "Milk"},
+          "amount": 100,
+          "unit": {"no": "ml", "en": "ml"}
+        },
+        {
+          "name": {"no": "Egg", "en": "Egg"},
+          "amount": 1,
+          "unit": {"no": "stk", "en": "piece"}
+        },
+        {
+          "name": {"no": "Løk", "en": "Onion"},
+          "amount": 1,
+          "unit": {"no": "small", "en": "small"}
+        },
+        {
+          "name": {"no": "Fløte", "en": "Cream"},
+          "amount": 300,
+          "unit": {"no": "ml", "en": "ml"}
+        },
+        {
+          "name": {"no": "Smør", "en": "Butter"},
+          "amount": 50,
+          "unit": {"no": "gram", "en": "g"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bløtlegg brødet i melk.",
+          "2. Bland kjøttdeig, brød, egg, finhakket løk, salt og pepper.",
+          "3. Form små kuler.",
+          "4. Steik kullene i smør til de er brune.",
+          "5. Fjern kullene fra pannen.",
+          "6. Tilsett fløten til pannen og tilsett kullene.",
+          "7. La det småkoke i 10 minutter.",
+          "8. Smak til med salt og pepper.",
+          "9. Server med lingonbær-syltetøy og poteter."
+        ],
+        "en": [
+          "1. Soak bread in milk.",
+          "2. Mix ground meat, bread, egg, minced onion, salt and pepper.",
+          "3. Form small balls.",
+          "4. Fry balls in butter until brown.",
+          "5. Remove balls from pan.",
+          "6. Add cream to pan and return balls.",
+          "7. Simmer for 10 minutes.",
+          "8. Season with salt and pepper.",
+          "9. Serve with lingonberry jam and potatoes."
+        ]
+      }
+    },
+    {
+      "id": "eu_009",
+      "title": {
+        "no": "Gazpacho",
+        "en": "Gazpacho"
+      },
+      "subtitle": {
+        "no": "Spansk kald tomat-suppe",
+        "en": "Spanish cold tomato soup"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Other",
+      "tags": ["spanish", "cold-soup", "vegetarian", "summer"],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {"no": "Tomat (frisk)", "en": "Tomato (fresh)"},
+          "amount": 1000,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Agurk", "en": "Cucumber"},
+          "amount": 1,
+          "unit": {"no": "medium", "en": "medium"}
+        },
+        {
+          "name": {"no": "Rødt paprika", "en": "Red bell pepper"},
+          "amount": 1,
+          "unit": {"no": "stk", "en": "piece"}
+        },
+        {
+          "name": {"no": "Hvitløk", "en": "Garlic"},
+          "amount": 2,
+          "unit": {"no": "fedd", "en": "cloves"}
+        },
+        {
+          "name": {"no": "Brød (gammelt)", "en": "Bread (stale)"},
+          "amount": 100,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Rødvin-eddiksyre", "en": "Red wine vinegar"},
+          "amount": 3,
+          "unit": {"no": "ss", "en": "tbsp"}
+        },
+        {
+          "name": {"no": "Olivenolje", "en": "Olive oil"},
+          "amount": 4,
+          "unit": {"no": "ss", "en": "tbsp"}
+        },
+        {
+          "name": {"no": "Salt", "en": "Salt"},
+          "amount": 1,
+          "unit": {"no": "ts", "en": "tsp"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Hakk tomater, agurk, paprika og hvitløk grovt.",
+          "2. Tilsett brød, rødvin-eddiksyre, olivenolje og salt.",
+          "3. Bland i en food processor eller miksmaster til ønsket tekstur.",
+          "4. Kjøl i minst 2 timer.",
+          "5. Rør om før servering.",
+          "6. Server med toppinger: hakket agurk, paprika, egg og croutons.",
+          "7. Server kald som appetitt-suppe på varme dager."
+        ],
+        "en": [
+          "1. Chop tomatoes, cucumber, bell pepper and garlic coarsely.",
+          "2. Add bread, red wine vinegar, olive oil and salt.",
+          "3. Blend in a food processor to desired texture.",
+          "4. Chill for at least 2 hours.",
+          "5. Stir before serving.",
+          "6. Serve with toppings: chopped cucumber, pepper, egg and croutons.",
+          "7. Serve cold as an appetizer on warm days."
+        ]
+      }
+    },
+    {
+      "id": "eu_010",
+      "title": {
+        "no": "Ratatouille",
+        "en": "Ratatouille"
+      },
+      "subtitle": {
+        "no": "Fransk grønnsakstuing",
+        "en": "French vegetable stew"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 45,
+      "servings": 4,
+      "category": "Other",
+      "tags": ["french", "vegetable", "vegetarian", "healthy"],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {"no": "Aubergine", "en": "Eggplant"},
+          "amount": 1,
+          "unit": {"no": "large", "en": "large"}
+        },
+        {
+          "name": {"no": "Zucchini", "en": "Zucchini"},
+          "amount": 2,
+          "unit": {"no": "medium", "en": "medium"}
+        },
+        {
+          "name": {"no": "Rødt paprika", "en": "Red bell pepper"},
+          "amount": 2,
+          "unit": {"no": "stk", "en": "pieces"}
+        },
+        {
+          "name": {"no": "Tomat (frisk)", "en": "Tomato (fresh)"},
+          "amount": 500,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Løk", "en": "Onion"},
+          "amount": 1,
+          "unit": {"no": "medium", "en": "medium"}
+        },
+        {
+          "name": {"no": "Hvitløk", "en": "Garlic"},
+          "amount": 3,
+          "unit": {"no": "fedd", "en": "cloves"}
+        },
+        {
+          "name": {"no": "Oregano (frisk eller tørket)", "en": "Oregano (fresh or dried)"},
+          "amount": 2,
+          "unit": {"no": "ts", "en": "tsp"}
+        },
+        {
+          "name": {"no": "Olivenolje", "en": "Olive oil"},
+          "amount": 4,
+          "unit": {"no": "ss", "en": "tbsp"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kutt alle grønnsakene i terninger.",
+          "2. Heat olivenolje og steik løk og hvitløk.",
+          "3. Tilsett auberginen og zucchini, steik i 5 minutter.",
+          "4. Tilsett paprika og tomater.",
+          "5. Tilsett oregano, salt og pepper.",
+          "6. La det småkoke i 25-30 minutter.",
+          "7. Grønnsakene bør bli myke men ikke muslete.",
+          "8. Server varmt eller kaldt."
+        ],
+        "en": [
+          "1. Dice all vegetables.",
+          "2. Heat olive oil and fry onion and garlic.",
+          "3. Add eggplant and zucchini, cook 5 minutes.",
+          "4. Add bell pepper and tomatoes.",
+          "5. Add oregano, salt and pepper.",
+          "6. Simmer for 25-30 minutes.",
+          "7. Vegetables should be soft but not mushy.",
+          "8. Serve hot or cold."
+        ]
+      }
+    },
+    {
+      "id": "eu_011",
+      "title": {
+        "no": "Schnitzel",
+        "en": "Schnitzel"
+      },
+      "subtitle": {
+        "no": "Tysk og østeuropeisk flatslått kjøtt",
+        "en": "German and Eastern European breaded meat"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 20,
+      "servings": 4,
+      "category": "Meat",
+      "tags": ["german", "fried", "quick", "classic"],
+      "allergens": ["gluten", "dairy", "eggs"],
+      "ingredients": [
+        {
+          "name": {"no": "Svinekotelett (eller kylling)", "en": "Pork cutlet (or chicken)"},
+          "amount": 4,
+          "unit": {"no": "stk", "en": "pieces"}
+        },
+        {
+          "name": {"no": "Mel", "en": "Flour"},
+          "amount": 100,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Egg", "en": "Eggs"},
+          "amount": 2,
+          "unit": {"no": "stk", "en": "pieces"}
+        },
+        {
+          "name": {"no": "Brødkrumler (eller panko)", "en": "Breadcrumbs (or panko)"},
+          "amount": 150,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Smør (til steking)", "en": "Butter (for frying)"},
+          "amount": 100,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Salt og pepper", "en": "Salt and pepper"},
+          "amount": 1,
+          "unit": {"no": "etter smak", "en": "to taste"}
+        },
+        {
+          "name": {"no": "Sitron", "en": "Lemon"},
+          "amount": 1,
+          "unit": {"no": "stk", "en": "piece"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Legg kjøttet mellom plastfolie og slå det flatt med en kjøtthammer.",
+          "2. Sett mel, visp egg og brødkrumler i tre separate små boller.",
+          "3. Gjennomtreng hvert kjøttstykke med mel, egg og brødkrumler.",
+          "4. Heat smør i en stekepanne.",
+          "5. Steik schnitzelene 3-4 minutter på hver side til de er gylne.",
+          "6. Server med sitronskiver og poteter.",
+          "7. Tradisjonelt serveres med sitron-saus eller syltetøy."
+        ],
+        "en": [
+          "1. Place meat between plastic wrap and pound with a meat mallet.",
+          "2. Set flour, beaten egg and breadcrumbs in three separate bowls.",
+          "3. Coat each piece with flour, egg and breadcrumbs.",
+          "4. Heat butter in a frying pan.",
+          "5. Fry schnitzel 3-4 minutes on each side until golden.",
+          "6. Serve with lemon slices and potatoes.",
+          "7. Traditionally served with lemon sauce or jam."
+        ]
+      }
+    },
+    {
+      "id": "eu_012",
+      "title": {
+        "no": "Crème Brûlée",
+        "en": "Crème Brûlée"
+      },
+      "subtitle": {
+        "no": "Fransk kullglassert fløte-dessert",
+        "en": "French caramelized cream dessert"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 90,
+      "servings": 4,
+      "category": "Other",
+      "tags": ["french", "dessert", "elegant", "creamy"],
+      "allergens": ["dairy", "eggs"],
+      "ingredients": [
+        {
+          "name": {"no": "Fløte (tykk)", "en": "Cream (heavy)"},
+          "amount": 400,
+          "unit": {"no": "ml", "en": "ml"}
+        },
+        {
+          "name": {"no": "Melk", "en": "Milk"},
+          "amount": 100,
+          "unit": {"no": "ml", "en": "ml"}
+        },
+        {
+          "name": {"no": "Eggeplommer", "en": "Egg yolks"},
+          "amount": 5,
+          "unit": {"no": "stk", "en": "pieces"}
+        },
+        {
+          "name": {"no": "Sukker (hvitt)", "en": "Sugar (white)"},
+          "amount": 100,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Vaniljeekstrakt", "en": "Vanilla extract"},
+          "amount": 1,
+          "unit": {"no": "ts", "en": "tsp"}
+        },
+        {
+          "name": {"no": "Sukker (til crusting)", "en": "Sugar (for crusting)"},
+          "amount": 4,
+          "unit": {"no": "ts", "en": "tsp"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Heat fløten og melk til det er varmt men ikke kokende.",
+          "2. Visp eggeplommer med sukker til det er lett og gult.",
+          "3. Hell fløten langsomt i eggeplommen mens du rører konstant.",
+          "4. Tilsett vaniljeekstrakt.",
+          "5. Sil blandingen gjennom en fin sil.",
+          "6. Hell i små ramekiner eller kopjer.",
+          "7. Stelle them i et vannbad på 160°C i 25-30 minutter.",
+          "8. Kjøl i minst 4 timer.",
+          "9. Rett før servering, sprinkle sukker på toppen og kullglasér med en brenner."
+        ],
+        "en": [
+          "1. Heat cream and milk until warm but not boiling.",
+          "2. Whisk egg yolks with sugar until light and pale.",
+          "3. Slowly pour cream into yolks while stirring constantly.",
+          "4. Add vanilla extract.",
+          "5. Strain mixture through a fine sieve.",
+          "6. Pour into small ramekins or cups.",
+          "7. Bake in a water bath at 160°C for 25-30 minutes.",
+          "8. Chill for at least 4 hours.",
+          "9. Just before serving, sprinkle sugar on top and caramelize with a torch."
+        ]
+      }
+    },
+    {
+      "id": "eu_013",
+      "title": {
+        "no": "Tiramisu",
+        "en": "Tiramisu"
+      },
+      "subtitle": {
+        "no": "Italiensk lagdessert med kaffe og mascarpone",
+        "en": "Italian layered dessert with coffee and mascarpone"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 60,
+      "servings": 6,
+      "category": "Other",
+      "tags": ["italian", "dessert", "layered", "coffee"],
+      "allergens": ["dairy", "eggs", "gluten"],
+      "ingredients": [
+        {
+          "name": {"no": "Mascarpone", "en": "Mascarpone"},
+          "amount": 500,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Sukker", "en": "Sugar"},
+          "amount": 100,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Egg (eller pasteuriserte)", "en": "Eggs (or pasteurized)"},
+          "amount": 4,
+          "unit": {"no": "stk", "en": "pieces"}
+        },
+        {
+          "name": {"no": "Kaffe (sterk)", "en": "Coffee (strong)"},
+          "amount": 300,
+          "unit": {"no": "ml", "en": "ml"}
+        },
+        {
+          "name": {"no": "Kakao-pulver", "en": "Cocoa powder"},
+          "amount": 30,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Savoiardi-kaker", "en": "Savoiardi cookies"},
+          "amount": 400,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Likør (valgfritt)", "en": "Liqueur (optional)"},
+          "amount": 3,
+          "unit": {"no": "ss", "en": "tbsp"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Visp eggeplommer med sukker til det er kremete.",
+          "2. Fold in mascarpone forsiktig.",
+          "3. Visp eggehviter stivt og fold inn i blandingen.",
+          "4. Bland kaffen sammen med likør hvis brukt.",
+          "5. Dipp savoiardi-kakene raskt i kaffeblanden.",
+          "6. Lag lag: savoiardi, mascarpone-creme, savoiardi, mascarpone-creme.",
+          "7. Kjøl i minst 6 timer (bedre over natten).",
+          "8. Strø kakao-pulver på toppen rett før servering."
+        ],
+        "en": [
+          "1. Whisk egg yolks with sugar until creamy.",
+          "2. Fold in mascarpone carefully.",
+          "3. Beat egg whites stiff and fold into mixture.",
+          "4. Combine coffee with liqueur if using.",
+          "5. Quickly dip savoiardi cookies in coffee mixture.",
+          "6. Layer: savoiardi, mascarpone cream, savoiardi, mascarpone cream.",
+          "7. Chill for at least 6 hours (better overnight).",
+          "8. Dust with cocoa powder just before serving."
+        ]
+      }
+    },
+    {
+      "id": "eu_014",
+      "title": {
+        "no": "Spätzle",
+        "en": "Spätzle"
+      },
+      "subtitle": {
+        "no": "Tysk egg-pasta med ost",
+        "en": "German egg pasta with cheese"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Other",
+      "tags": ["german", "pasta", "cheese", "comfort-food"],
+      "allergens": ["gluten", "dairy", "eggs"],
+      "ingredients": [
+        {
+          "name": {"no": "Hvetemel", "en": "Wheat flour"},
+          "amount": 300,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Egg", "en": "Eggs"},
+          "amount": 4,
+          "unit": {"no": "stk", "en": "pieces"}
+        },
+        {
+          "name": {"no": "Melk", "en": "Milk"},
+          "amount": 150,
+          "unit": {"no": "ml", "en": "ml"}
+        },
+        {
+          "name": {"no": "Salt", "en": "Salt"},
+          "amount": 1,
+          "unit": {"no": "ts", "en": "tsp"}
+        },
+        {
+          "name": {"no": "Muskatnøtt", "en": "Nutmeg"},
+          "amount": 1,
+          "unit": {"no": "ts", "en": "tsp"}
+        },
+        {
+          "name": {"no": "Ost (riven)", "en": "Cheese (grated)"},
+          "amount": 200,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Løk (steikt)", "en": "Onion (fried)"},
+          "amount": 2,
+          "unit": {"no": "medium", "en": "medium"}
+        },
+        {
+          "name": {"no": "Smør", "en": "Butter"},
+          "amount": 50,
+          "unit": {"no": "gram", "en": "g"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland mel, egg, melk, salt og muskatnøtt.",
+          "2. Deigen skal være tykk og elastisk.",
+          "3. Kok vann i en stor gryte.",
+          "4. Bruk en spätzle-press eller grov rivejern for å presse deigen gjennom.",
+          "5. Kok pastaen til den flyter opp og 1 minutt til.",
+          "6. Steik løk i smør til den er gylden.",
+          "7. Bland spätzle med smør, ost og steikt løk.",
+          "8. Server varmt."
+        ],
+        "en": [
+          "1. Mix flour, eggs, milk, salt and nutmeg.",
+          "2. Dough should be thick and elastic.",
+          "3. Boil water in a large pot.",
+          "4. Use a spätzle press or coarse grater to push dough through.",
+          "5. Cook pasta until it floats and 1 minute more.",
+          "6. Fry onion in butter until golden.",
+          "7. Mix spätzle with butter, cheese and fried onion.",
+          "8. Serve hot."
+        ]
+      }
+    },
+    {
+      "id": "eu_015",
+      "title": {
+        "no": "Cassoulet",
+        "en": "Cassoulet"
+      },
+      "subtitle": {
+        "no": "Fransk vit bønn-stuing med andekjøtt",
+        "en": "French white bean stew with duck"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 180,
+      "servings": 6,
+      "category": "Meat",
+      "tags": ["french", "beans", "slow-cooked", "hearty"],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {"no": "Hvite bønner (tørret)", "en": "White beans (dried)"},
+          "amount": 500,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Andekjøtt (konservert eller fersk)", "en": "Duck (canned or fresh)"},
+          "amount": 400,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Svinespek", "en": "Pork belly"},
+          "amount": 200,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Løk", "en": "Onion"},
+          "amount": 2,
+          "unit": {"no": "medium", "en": "medium"}
+        },
+        {
+          "name": {"no": "Hvitløk", "en": "Garlic"},
+          "amount": 4,
+          "unit": {"no": "fedd", "en": "cloves"}
+        },
+        {
+          "name": {"no": "Tomat-puré", "en": "Tomato paste"},
+          "amount": 2,
+          "unit": {"no": "ss", "en": "tbsp"}
+        },
+        {
+          "name": {"no": "Buljong", "en": "Broth"},
+          "amount": 1.5,
+          "unit": {"no": "liter", "en": "liter"}
+        },
+        {
+          "name": {"no": "Timen", "en": "Thyme"},
+          "amount": 2,
+          "unit": {"no": "ts", "en": "tsp"}
+        },
+        {
+          "name": {"no": "Laurblad", "en": "Bay leaf"},
+          "amount": 2,
+          "unit": {"no": "stk", "en": "pieces"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bløtlegg bønnene over natten.",
+          "2. Kok bønnene i friskt vann i ca. 1 time til de er halvkjøpt.",
+          "3. Steik speken til det er sprøtt.",
+          "4. Steik løk og hvitløk i samme panne.",
+          "5. Tilsett tomat-puré og bland godt.",
+          "6. Hell på buljongen langsomt.",
+          "7. Tilsett bønnene, speken, and-kjøttet, timen og laurbladet.",
+          "8. La det småkoke sakte i 1-2 timer.",
+          "9. Smak til med salt og pepper.",
+          "10. Server i dype skåler varmt."
+        ],
+        "en": [
+          "1. Soak beans overnight.",
+          "2. Cook beans in fresh water for about 1 hour until half-cooked.",
+          "3. Fry bacon until crispy.",
+          "4. Fry onion and garlic in same pan.",
+          "5. Add tomato paste and mix well.",
+          "6. Pour in broth slowly.",
+          "7. Add beans, bacon, duck meat, thyme and bay leaf.",
+          "8. Simmer slowly for 1-2 hours.",
+          "9. Season with salt and pepper.",
+          "10. Serve in deep bowls hot."
+        ]
+      }
+    }
+  ]
+}

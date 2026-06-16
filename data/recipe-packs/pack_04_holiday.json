@@ -1,0 +1,991 @@
+{
+  "packId": "pack_holiday_celebration",
+  "packName": {
+    "no": "Festoppskrifter",
+    "en": "Holiday Recipes"
+  },
+  "packDescription": {
+    "no": "Tradisjonelle festmåltider for jul, påske og andre høytider.",
+    "en": "Traditional festive meals for Christmas, Easter and other celebrations."
+  },
+  "packImage": "christmas-tree",
+  "packColor": "#C41E3A",
+  "recipeCount": 12,
+  "estimatedCookTime": "45-180 minutes",
+  "difficulty": "hard",
+  "recipes": [
+    {
+      "id": "hol_001",
+      "title": {
+        "no": "Julemiddag: Stekt Kalkun",
+        "en": "Christmas Dinner: Roasted Turkey"
+      },
+      "subtitle": {
+        "no": "Klassisk julemiddag med helstekt kalkun",
+        "en": "Classic Christmas dinner with whole roasted turkey"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 180,
+      "servings": 8,
+      "category": "Meat",
+      "tags": ["christmas", "turkey", "holiday", "festive"],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {"no": "Kalkun (hel)", "en": "Turkey (whole)"},
+          "amount": 4500,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Smør (mykt)", "en": "Butter (soft)"},
+          "amount": 200,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Salt og pepper", "en": "Salt and pepper"},
+          "amount": 1,
+          "unit": {"no": "etter smak", "en": "to taste"}
+        },
+        {
+          "name": {"no": "Timen", "en": "Thyme"},
+          "amount": 5,
+          "unit": {"no": "stengel", "en": "sprigs"}
+        },
+        {
+          "name": {"no": "Laurbær", "en": "Bay leaf"},
+          "amount": 3,
+          "unit": {"no": "stk", "en": "leaves"}
+        },
+        {
+          "name": {"no": "Sitron", "en": "Lemon"},
+          "amount": 2,
+          "unit": {"no": "stk", "en": "pieces"}
+        },
+        {
+          "name": {"no": "Buljong (varm)", "en": "Broth (warm)"},
+          "amount": 500,
+          "unit": {"no": "ml", "en": "ml"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Tørk kalkunen på innsiden og utsiden.",
+          "2. Fyll kalkuinen med frynsede sitronskiver, timen og laurbær.",
+          "3. Bind lårene sammen med norgekortnorsk snor.",
+          "4. Gnid smør over hele kalkunen, salt og pepper.",
+          "5. Legg kalkunen brystkant opp på en roastingsplatter.",
+          "6. Bak på 180°C i ca. 2,5-3 timer (15 minutter per 500g + 20 minutter).",
+          "7. Vann kalkunen hvert 30. minutt med pannesaft.",
+          "8. Kontroller temperaturen innvendig: 75°C når lårene og brystet er rørt.",
+          "9. La kalkunen hvile i 20 minutter før servering.",
+          "10. Lag saus fra pansaften."
+        ],
+        "en": [
+          "1. Pat turkey dry inside and outside.",
+          "2. Fill turkey with sliced lemon, thyme and bay leaf.",
+          "3. Tie legs together with string.",
+          "4. Rub butter over whole turkey, salt and pepper.",
+          "5. Place turkey breast up on a roasting pan.",
+          "6. Roast at 180°C for about 2.5-3 hours (15 min per 500g + 20 min).",
+          "7. Baste turkey every 30 minutes with pan juices.",
+          "8. Check internal temperature: 75°C when legs and breast are pierced.",
+          "9. Let turkey rest 20 minutes before serving.",
+          "10. Make gravy from pan juices."
+        ]
+      }
+    },
+    {
+      "id": "hol_002",
+      "title": {
+        "no": "Juleglogg",
+        "en": "Christmas Mulled Wine"
+      },
+      "subtitle": {
+        "no": "Tradisjonell varm juldrink",
+        "en": "Traditional warm Christmas drink"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 8,
+      "category": "Other",
+      "tags": ["christmas", "drink", "warm", "festive"],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {"no": "Rødvin", "en": "Red wine"},
+          "amount": 1,
+          "unit": {"no": "liter", "en": "liter"}
+        },
+        {
+          "name": {"no": "Brennevin (eller aquavit)", "en": "Spirits (or aquavit)"},
+          "amount": 150,
+          "unit": {"no": "ml", "en": "ml"}
+        },
+        {
+          "name": {"no": "Sukker", "en": "Sugar"},
+          "amount": 75,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Kanelstang", "en": "Cinnamon stick"},
+          "amount": 2,
+          "unit": {"no": "stk", "en": "pieces"}
+        },
+        {
+          "name": {"no": "Nellik", "en": "Cloves"},
+          "amount": 6,
+          "unit": {"no": "stk", "en": "pieces"}
+        },
+        {
+          "name": {"no": "Kardemomme", "en": "Cardamom"},
+          "amount": 3,
+          "unit": {"no": "stk", "en": "pieces"}
+        },
+        {
+          "name": {"no": "Ingefær (frisk)", "en": "Ginger (fresh)"},
+          "amount": 20,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Appelsin", "en": "Orange"},
+          "amount": 2,
+          "unit": {"no": "stk", "en": "pieces"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Hell rødvin i en gryte.",
+          "2. Tilsett sukker, kanelstang, nellik, kardemomme og frisk ingefær.",
+          "3. Skjær appelsinene i tynne skiver og legg dem til.",
+          "4. Varm opp til ca. 65-70°C (ikke kok).",
+          "5. La det småsimre i 15-20 minutter.",
+          "6. Fjern fra varmen og tilsett brennevinen.",
+          "7. Server varmt i små kopper.",
+          "8. Tradisjonelt serveres med rosiner og mandler."
+        ],
+        "en": [
+          "1. Pour red wine into a pot.",
+          "2. Add sugar, cinnamon stick, cloves, cardamom and fresh ginger.",
+          "3. Slice oranges and add them.",
+          "4. Heat to about 65-70°C (do not boil).",
+          "5. Let simmer for 15-20 minutes.",
+          "6. Remove from heat and add spirits.",
+          "7. Serve hot in small cups.",
+          "8. Traditionally served with raisins and almonds."
+        ]
+      }
+    },
+    {
+      "id": "hol_003",
+      "title": {
+        "no": "Risengrynssgrytt",
+        "en": "Rice Pudding"
+      },
+      "subtitle": {
+        "no": "Tradisjonell juledessert",
+        "en": "Traditional Christmas pudding"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 45,
+      "servings": 6,
+      "category": "Other",
+      "tags": ["christmas", "pudding", "dessert", "traditional"],
+      "allergens": ["dairy"],
+      "ingredients": [
+        {
+          "name": {"no": "Risengryns", "en": "Short grain rice"},
+          "amount": 200,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Melk", "en": "Milk"},
+          "amount": 1,
+          "unit": {"no": "liter", "en": "liter"}
+        },
+        {
+          "name": {"no": "Sukker", "en": "Sugar"},
+          "amount": 50,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Salt", "en": "Salt"},
+          "amount": 1,
+          "unit": {"no": "ts", "en": "tsp"}
+        },
+        {
+          "name": {"no": "Vaniljeekstrakt", "en": "Vanilla extract"},
+          "amount": 1,
+          "unit": {"no": "ts", "en": "tsp"}
+        },
+        {
+          "name": {"no": "Mandler (hakket)", "en": "Almonds (chopped)"},
+          "amount": 50,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Rosiner", "en": "Raisins"},
+          "amount": 75,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Fløte", "en": "Cream"},
+          "amount": 200,
+          "unit": {"no": "ml", "en": "ml"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok melk i en gryte.",
+          "2. Tilsett risen og salt, la det småkoke i 25-30 minutter.",
+          "3. Rør av og til så risen ikke setter seg på bunnen.",
+          "4. Når risen er myk, tilsett sukker og vaniljeekstrakt.",
+          "5. Tilsett mandler og rosiner.",
+          "6. La det kjøle.",
+          "7. Visp fløten og fold den inn like før servering.",
+          "8. Server med rød syltør eller jordbær-syltetøy."
+        ],
+        "en": [
+          "1. Boil milk in a pot.",
+          "2. Add rice and salt, let simmer 25-30 minutes.",
+          "3. Stir occasionally so rice doesn't stick to bottom.",
+          "4. When rice is soft, add sugar and vanilla extract.",
+          "5. Add almonds and raisins.",
+          "6. Let cool.",
+          "7. Whip cream and fold in just before serving.",
+          "8. Serve with red jam or strawberry jam."
+        ]
+      }
+    },
+    {
+      "id": "hol_004",
+      "title": {
+        "no": "Julerollekake",
+        "en": "Christmas Roll Cake"
+      },
+      "subtitle": {
+        "no": "Norsk julerullet med fløte og jam",
+        "en": "Norwegian Christmas roll with cream and jam"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 60,
+      "servings": 8,
+      "category": "Other",
+      "tags": ["christmas", "cake", "roll", "festive"],
+      "allergens": ["gluten", "dairy", "eggs"],
+      "ingredients": [
+        {
+          "name": {"no": "Egg", "en": "Eggs"},
+          "amount": 4,
+          "unit": {"no": "stk", "en": "pieces"}
+        },
+        {
+          "name": {"no": "Sukker", "en": "Sugar"},
+          "amount": 100,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Hvetemel", "en": "Wheat flour"},
+          "amount": 100,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Bakepulver", "en": "Baking powder"},
+          "amount": 1,
+          "unit": {"no": "ts", "en": "tsp"}
+        },
+        {
+          "name": {"no": "Fløte (tykk)", "en": "Cream (heavy)"},
+          "amount": 400,
+          "unit": {"no": "ml", "en": "ml"}
+        },
+        {
+          "name": {"no": "Syltetøy (til mitt)", "en": "Jam (for filling)"},
+          "amount": 200,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Pudringssukker", "en": "Powdered sugar"},
+          "amount": 50,
+          "unit": {"no": "gram", "en": "g"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Visp egg og sukker til det er luftig og lyst.",
+          "2. Bland mel og bakepulver, fold inn i eggeblandingen.",
+          "3. Hell på en bakeplaat dekket med bakepapir.",
+          "4. Bak på 200°C i ca. 10-12 minutter.",
+          "5. Legg kaken ut på et nytt bakepapir mens det er varmt.",
+          "6. Spredt syltetøy på kaken.",
+          "7. Rull sammen mens den er varm.",
+          "8. Visp fløten med litt sukker.",
+          "9. Spredt fløte på hele rollen.",
+          "10. Frysing med pudringssukker.",
+          "11. Kjøl før servering."
+        ],
+        "en": [
+          "1. Whisk eggs and sugar until fluffy and pale.",
+          "2. Mix flour and baking powder, fold into egg mixture.",
+          "3. Spread on baking sheet lined with parchment.",
+          "4. Bake at 200°C for about 10-12 minutes.",
+          "5. Turn cake out on new parchment while hot.",
+          "6. Spread jam on cake.",
+          "7. Roll together while hot.",
+          "8. Whip cream with a bit of sugar.",
+          "9. Spread cream on entire roll.",
+          "10. Dust with powdered sugar.",
+          "11. Chill before serving."
+        ]
+      }
+    },
+    {
+      "id": "hol_005",
+      "title": {
+        "no": "Påskekrim",
+        "en": "Easter Lamb"
+      },
+      "subtitle": {
+        "no": "Påske-tradisjonell stekt lamb",
+        "en": "Easter traditional roasted lamb"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 120,
+      "servings": 6,
+      "category": "Meat",
+      "tags": ["easter", "lamb", "holiday", "festive"],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {"no": "Lammekjøtt (ribben)", "en": "Lamb (rack)"},
+          "amount": 1500,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Smør", "en": "Butter"},
+          "amount": 75,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Hvitløk", "en": "Garlic"},
+          "amount": 3,
+          "unit": {"no": "fedd", "en": "cloves"}
+        },
+        {
+          "name": {"no": "Rosmarin (frisk)", "en": "Rosemary (fresh)"},
+          "amount": 3,
+          "unit": {"no": "stengel", "en": "sprigs"}
+        },
+        {
+          "name": {"no": "Timen (frisk)", "en": "Thyme (fresh)"},
+          "amount": 3,
+          "unit": {"no": "stengel", "en": "sprigs"}
+        },
+        {
+          "name": {"no": "Salt og pepper", "en": "Salt and pepper"},
+          "amount": 1,
+          "unit": {"no": "etter smak", "en": "to taste"}
+        },
+        {
+          "name": {"no": "Buljong (varmt)", "en": "Broth (warm)"},
+          "amount": 300,
+          "unit": {"no": "ml", "en": "ml"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Ta lammeribben ut av kjøleskapet 30 minutter før tilberedelse.",
+          "2. Gnid med salt, pepper og pressede hvitløkfedd.",
+          "3. Gnid med smør og tilsett rosmarin og timen.",
+          "4. Legg på en roastingsplatter.",
+          "5. Bak på 200°C i ca. 45-60 minutter (tilleggstime for middels rosé).",
+          "6. Hell over noe buljong i pannen.",
+          "7. La lammen hvile i 15 minutter før servering.",
+          "8. Server med sprøllet hull og nye poteter."
+        ],
+        "en": [
+          "1. Take lamb rack out of refrigerator 30 minutes before cooking.",
+          "2. Rub with salt, pepper and crushed garlic.",
+          "3. Rub with butter and add rosemary and thyme.",
+          "4. Place on roasting pan.",
+          "5. Roast at 200°C for about 45-60 minutes (longer for medium-rare).",
+          "6. Pour some broth in the pan.",
+          "7. Let lamb rest 15 minutes before serving.",
+          "8. Serve with crispy potatoes and new potatoes."
+        ]
+      }
+    },
+    {
+      "id": "hol_006",
+      "title": {
+        "no": "Påskebrød (Panartonone)",
+        "en": "Easter Bread"
+      },
+      "subtitle": {
+        "no": "Italiensk påske-panettone",
+        "en": "Italian Easter panettone"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 240,
+      "servings": 8,
+      "category": "Other",
+      "tags": ["easter", "bread", "holiday", "italian"],
+      "allergens": ["gluten", "dairy", "eggs", "nuts"],
+      "ingredients": [
+        {
+          "name": {"no": "Mel", "en": "Flour"},
+          "amount": 500,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Gjær", "en": "Yeast"},
+          "amount": 50,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Sukker", "en": "Sugar"},
+          "amount": 200,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Egg", "en": "Eggs"},
+          "amount": 4,
+          "unit": {"no": "stk", "en": "pieces"}
+        },
+        {
+          "name": {"no": "Smør", "en": "Butter"},
+          "amount": 200,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Rosiner", "en": "Raisins"},
+          "amount": 300,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Candita frukter", "en": "Candied fruits"},
+          "amount": 150,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Mandler (hele)", "en": "Almonds (whole)"},
+          "amount": 100,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Vaniljeekstrakt", "en": "Vanilla extract"},
+          "amount": 1,
+          "unit": {"no": "ts", "en": "tsp"}
+        },
+        {
+          "name": {"no": "Sitronskall", "en": "Lemon zest"},
+          "amount": 1,
+          "unit": {"no": "stk", "en": "piece"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Løs gjæren i lunkken vann med litt sukker.",
+          "2. Bland mel, gjær-blandingen, resten av sukker, egg og smør.",
+          "3. Trill deigen godt i 15 minutter.",
+          "4. La deigen heve i 2 timer under et handklæ.",
+          "5. Fold in rosiner, candita frukter, mandler, vaniljekstrakt og sitronskall.",
+          "6. La deigen heve igjen i 1 time.",
+          "7. Fordel i høye bakeplater.",
+          "8. Bak på 180°C i ca. 50-60 minutter.",
+          "9. Brødet skal være gyllent brunt når det er ferdig."
+        ],
+        "en": [
+          "1. Dissolve yeast in lukewarm water with a bit of sugar.",
+          "2. Mix flour, yeast mixture, remaining sugar, eggs and butter.",
+          "3. Knead dough well for 15 minutes.",
+          "4. Let dough rise 2 hours under towel.",
+          "5. Fold in raisins, candied fruits, almonds, vanilla extract and lemon zest.",
+          "6. Let dough rise again 1 hour.",
+          "7. Divide into tall baking pans.",
+          "8. Bake at 180°C for about 50-60 minutes.",
+          "9. Bread should be golden brown when done."
+        ]
+      }
+    },
+    {
+      "id": "hol_007",
+      "title": {
+        "no": "Grillet Fisk med Sommerkrydder",
+        "en": "Grilled Fish with Summer Herbs"
+      },
+      "subtitle": {
+        "no": "Sommerfest-klassiker",
+        "en": "Summer celebration classic"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Fish",
+      "tags": ["summer", "grilled", "fish", "festive"],
+      "allergens": ["fish"],
+      "ingredients": [
+        {
+          "name": {"no": "Fiskéfiléer (torsk/sei)", "en": "Fish fillets (cod/pollock)"},
+          "amount": 800,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Olivenolje", "en": "Olive oil"},
+          "amount": 4,
+          "unit": {"no": "ss", "en": "tbsp"}
+        },
+        {
+          "name": {"no": "Dill (frisk)", "en": "Dill (fresh)"},
+          "amount": 2,
+          "unit": {"no": "knippe", "en": "bunches"}
+        },
+        {
+          "name": {"no": "Persille (frisk)", "en": "Parsley (fresh)"},
+          "amount": 1,
+          "unit": {"no": "knippe", "en": "bunch"}
+        },
+        {
+          "name": {"no": "Sitron", "en": "Lemon"},
+          "amount": 2,
+          "unit": {"no": "stk", "en": "pieces"}
+        },
+        {
+          "name": {"no": "Salt og pepper", "en": "Salt and pepper"},
+          "amount": 1,
+          "unit": {"no": "etter smak", "en": "to taste"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Varme opp grillen til medium-høy varme.",
+          "2. Gnid fisken med olivenolje, salt og pepper.",
+          "3. Legg dill og persille på grillen eller inne i fisken.",
+          "4. Grill fisken 4-5 minutter på hver side.",
+          "5. Server varmt med sitronskiver.",
+          "6. Garner med ferske krydder."
+        ],
+        "en": [
+          "1. Preheat grill to medium-high heat.",
+          "2. Rub fish with olive oil, salt and pepper.",
+          "3. Place dill and parsley on grill or inside fish.",
+          "4. Grill fish 4-5 minutes on each side.",
+          "5. Serve hot with lemon slices.",
+          "6. Garnish with fresh herbs."
+        ]
+      }
+    },
+    {
+      "id": "hol_008",
+      "title": {
+        "no": "Nyårsaften: Flott Stekt Oksebiff",
+        "en": "New Year's Eve: Beautiful Roasted Beef"
+      },
+      "subtitle": {
+        "no": "Elegant New Year's dinner",
+        "en": "Elegant New Year's dinner"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 90,
+      "servings": 6,
+      "category": "Meat",
+      "tags": ["newyear", "beef", "elegant", "festive"],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {"no": "Oksebiff (beste kutt)", "en": "Beef roast (best cut)"},
+          "amount": 1500,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Smør", "en": "Butter"},
+          "amount": 100,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Hvitløk", "en": "Garlic"},
+          "amount": 4,
+          "unit": {"no": "fedd", "en": "cloves"}
+        },
+        {
+          "name": {"no": "Rosmarin (frisk)", "en": "Rosemary (fresh)"},
+          "amount": 3,
+          "unit": {"no": "stengel", "en": "sprigs"}
+        },
+        {
+          "name": {"no": "Salt og pepper", "en": "Salt and pepper"},
+          "amount": 1,
+          "unit": {"no": "etter smak", "en": "to taste"}
+        },
+        {
+          "name": {"no": "Rødvin", "en": "Red wine"},
+          "amount": 200,
+          "unit": {"no": "ml", "en": "ml"}
+        },
+        {
+          "name": {"no": "Buljong (okse)", "en": "Beef broth"},
+          "amount": 250,
+          "unit": {"no": "ml", "en": "ml"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Ta kjøttet ut av kjøleskapet 1 time før tilberedelse.",
+          "2. Salt og pepper det godt.",
+          "3. Heat smør i en stor gryte på høy varme.",
+          "4. Brun kjøttet på alle sider.",
+          "5. Fjern kjøttet og steik hvitløk og rosmarin.",
+          "6. Hell på rødvin og buljong.",
+          "7. Tilbakesett kjøttet og dekk.",
+          "8. Bak på 160°C i ca. 45-60 minutter for medium-rare.",
+          "9. La kjøttet hvile i 15 minutter.",
+          "10. Server med sprøllet hull, grønnsaker og saus fra pannen."
+        ],
+        "en": [
+          "1. Remove meat from refrigerator 1 hour before cooking.",
+          "2. Salt and pepper it well.",
+          "3. Heat butter in a large pot on high heat.",
+          "4. Brown meat on all sides.",
+          "5. Remove meat and fry garlic and rosemary.",
+          "6. Pour in red wine and broth.",
+          "7. Return meat and cover.",
+          "8. Bake at 160°C for about 45-60 minutes for medium-rare.",
+          "9. Let meat rest 15 minutes.",
+          "10. Serve with roasted vegetables and gravy from pan."
+        ]
+      }
+    },
+    {
+      "id": "hol_009",
+      "title": {
+        "no": "Forrett: Gravlaks med Sennepssaus",
+        "en": "Starter: Gravlax with Mustard Sauce"
+      },
+      "subtitle": {
+        "no": "Elegant starter for festmåltider",
+        "en": "Elegant starter for festive meals"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 1440,
+      "servings": 8,
+      "category": "Fish",
+      "tags": ["starter", "fish", "elegant", "holiday"],
+      "allergens": ["fish"],
+      "ingredients": [
+        {
+          "name": {"no": "Laks (ferskt filéer)", "en": "Salmon (fresh fillets)"},
+          "amount": 800,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Salt", "en": "Salt"},
+          "amount": 25,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Sukker", "en": "Sugar"},
+          "amount": 15,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Dill (frisk)", "en": "Dill (fresh)"},
+          "amount": 40,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Pepper (sort)", "en": "Black pepper"},
+          "amount": 1,
+          "unit": {"no": "ts", "en": "tsp"}
+        },
+        {
+          "name": {"no": "Sennepe (Dijon)", "en": "Mustard (Dijon)"},
+          "amount": 3,
+          "unit": {"no": "ss", "en": "tbsp"}
+        },
+        {
+          "name": {"no": "Honning", "en": "Honey"},
+          "amount": 1,
+          "unit": {"no": "ss", "en": "tbsp"}
+        },
+        {
+          "name": {"no": "Olivenolje", "en": "Olive oil"},
+          "amount": 3,
+          "unit": {"no": "ss", "en": "tbsp"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland salt, sukker, dill og pepper.",
+          "2. Gnid blandingen inn i laksefilené.",
+          "3. Pakk inn og legg i kjøleskapet.",
+          "4. La det kurere i 24-48 timer.",
+          "5. For sausen: bland sennepe, honning og olivenolje.",
+          "6. Skjær gravlaksen i tynne skiver.",
+          "7. Server med brød og sennepssausen.",
+          "8. Garner med frisk dill."
+        ],
+        "en": [
+          "1. Mix salt, sugar, dill and pepper.",
+          "2. Rub mixture into salmon fillet.",
+          "3. Wrap and place in refrigerator.",
+          "4. Let cure 24-48 hours.",
+          "5. For sauce: mix mustard, honey and olive oil.",
+          "6. Slice gravlax thinly.",
+          "7. Serve with bread and mustard sauce.",
+          "8. Garnish with fresh dill."
+        ]
+      }
+    },
+    {
+      "id": "hol_010",
+      "title": {
+        "no": "Dessert: Sjokolade Mousse",
+        "en": "Dessert: Chocolate Mousse"
+      },
+      "subtitle": {
+        "no": "Elegant og lys sjokolade-mousse",
+        "en": "Elegant light chocolate mousse"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Other",
+      "tags": ["dessert", "chocolate", "elegant", "holiday"],
+      "allergens": ["dairy", "eggs"],
+      "ingredients": [
+        {
+          "name": {"no": "Sjokolade (mørk)", "en": "Chocolate (dark)"},
+          "amount": 200,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Egg (eller pasteurisert)", "en": "Eggs (or pasteurized)"},
+          "amount": 4,
+          "unit": {"no": "stk", "en": "pieces"}
+        },
+        {
+          "name": {"no": "Fløte (tykk)", "en": "Cream (heavy)"},
+          "amount": 300,
+          "unit": {"no": "ml", "en": "ml"}
+        },
+        {
+          "name": {"no": "Sukker", "en": "Sugar"},
+          "amount": 50,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Kaffe (svak)", "en": "Coffee (strong)"},
+          "amount": 2,
+          "unit": {"no": "ss", "en": "tbsp"}
+        },
+        {
+          "name": {"no": "Vaniljeekstrakt", "en": "Vanilla extract"},
+          "amount": 1,
+          "unit": {"no": "ts", "en": "tsp"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Smelt sjokoladen i en bolle over dampbad.",
+          "2. Del egg: eggeplommer i en bolle, egg-hviter i en annen.",
+          "3. Visp eggeplommer med sukker til det er kremete.",
+          "4. Fold in smeltet sjokolade.",
+          "5. Tilsett kaffe og vaniljeekstrakt.",
+          "6. Visp egg-hviter stivt og fold forsiktig inn.",
+          "7. Visp fløten stivt og fold forsiktig inn.",
+          "8. Fordel i glass eller skåler.",
+          "9. Kjøl minst 2 timer.",
+          "10. Server med kakaopulver eller sjokoladeflak."
+        ],
+        "en": [
+          "1. Melt chocolate in a bowl over double boiler.",
+          "2. Separate eggs: yolks in one bowl, whites in another.",
+          "3. Whisk yolks with sugar until creamy.",
+          "4. Fold in melted chocolate.",
+          "5. Add coffee and vanilla extract.",
+          "6. Beat egg whites stiff and fold in carefully.",
+          "7. Whip cream stiff and fold in carefully.",
+          "8. Divide into glasses or bowls.",
+          "9. Chill at least 2 hours.",
+          "10. Serve with cocoa powder or chocolate flakes."
+        ]
+      }
+    },
+    {
+      "id": "hol_011",
+      "title": {
+        "no": "Juletradisjon: Pepper Nuts",
+        "en": "Christmas Tradition: Pepper Nuts"
+      },
+      "subtitle": {
+        "no": "Tradisjonelle små krydderkaker",
+        "en": "Traditional small spice cookies"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 90,
+      "servings": 30,
+      "category": "Other",
+      "tags": ["christmas", "cookies", "spice", "traditional"],
+      "allergens": ["gluten", "nuts"],
+      "ingredients": [
+        {
+          "name": {"no": "Hvetemel", "en": "Wheat flour"},
+          "amount": 250,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Smør", "en": "Butter"},
+          "amount": 100,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Brunsukkert", "en": "Brown sugar"},
+          "amount": 150,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Egg", "en": "Eggs"},
+          "amount": 2,
+          "unit": {"no": "stk", "en": "pieces"}
+        },
+        {
+          "name": {"no": "Anise-frø", "en": "Anise seeds"},
+          "amount": 1,
+          "unit": {"no": "ts", "en": "tsp"}
+        },
+        {
+          "name": {"no": "Kanelstang (pulver)", "en": "Cinnamon (powder)"},
+          "amount": 1,
+          "unit": {"no": "ts", "en": "tsp"}
+        },
+        {
+          "name": {"no": "Pepper (sort, malt)", "en": "Black pepper (ground)"},
+          "amount": 0.5,
+          "unit": {"no": "ts", "en": "tsp"}
+        },
+        {
+          "name": {"no": "Nellik (pulver)", "en": "Cloves (powder)"},
+          "amount": 0.5,
+          "unit": {"no": "ts", "en": "tsp"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Blend smør og brunsukkert.",
+          "2. Visp inn egg.",
+          "3. Bland mel, anise-frø, kanel, pepper og nellik.",
+          "4. Tilsett til smørblanden.",
+          "5. Form små kuler.",
+          "6. Legg på en bakeplatt.",
+          "7. Bak på 170°C i ca. 10-12 minutter.",
+          "8. La dem kjøle på pannen før de flyttes.",
+          "9. Store i en hermetisk beholder."
+        ],
+        "en": [
+          "1. Cream butter and brown sugar.",
+          "2. Whisk in eggs.",
+          "3. Mix flour, anise seeds, cinnamon, pepper and cloves.",
+          "4. Add to butter mixture.",
+          "5. Form small balls.",
+          "6. Place on baking sheet.",
+          "7. Bake at 170°C for about 10-12 minutes.",
+          "8. Let cool on pan before moving.",
+          "9. Store in an airtight container."
+        ]
+      }
+    },
+    {
+      "id": "hol_012",
+      "title": {
+        "no": "Julebakst: Gingerbread House",
+        "en": "Christmas Baking: Gingerbread House"
+      },
+      "subtitle": {
+        "no": "Tradisjonell leikateklubb",
+        "en": "Traditional gingerbread house"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 240,
+      "servings": 8,
+      "category": "Other",
+      "tags": ["christmas", "gingerbread", "building", "festive"],
+      "allergens": ["gluten", "dairy", "eggs"],
+      "ingredients": [
+        {
+          "name": {"no": "Hvetemel", "en": "Wheat flour"},
+          "amount": 500,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Smør", "en": "Butter"},
+          "amount": 200,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Brunsukkert", "en": "Brown sugar"},
+          "amount": 200,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Egg", "en": "Eggs"},
+          "amount": 2,
+          "unit": {"no": "stk", "en": "pieces"}
+        },
+        {
+          "name": {"no": "Ingefær (malt)", "en": "Ginger (ground)"},
+          "amount": 2,
+          "unit": {"no": "ts", "en": "tsp"}
+        },
+        {
+          "name": {"no": "Kanel", "en": "Cinnamon"},
+          "amount": 2,
+          "unit": {"no": "ts", "en": "tsp"}
+        },
+        {
+          "name": {"no": "Nellik (malt)", "en": "Cloves (ground)"},
+          "amount": 1,
+          "unit": {"no": "ts", "en": "tsp"}
+        },
+        {
+          "name": {"no": "Glasur (til dekorasjon)", "en": "Icing (for decoration)"},
+          "amount": 500,
+          "unit": {"no": "gram", "en": "g"}
+        },
+        {
+          "name": {"no": "Godteri (til dekorasjon)", "en": "Candies (for decoration)"},
+          "amount": 200,
+          "unit": {"no": "gram", "en": "g"}
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Blend smør og brunsukkert.",
+          "2. Visp inn egg.",
+          "3. Bland mel, ingefær, kanel og nellik.",
+          "4. Tilsett tørre ingredienser til smørblanden.",
+          "5. La deigen kjøle i minst 1 time.",
+          "6. Rull ut deigen på bakepapir.",
+          "7. Skjær hus-delene (vegger, tak, dør, vinduer).",
+          "8. Bak på 180°C i ca. 10-12 minutter.",
+          "9. La delene kjøle helt.",
+          "10. Bruk hvit glasur til å samle og dekorere huset.",
+          "11. Dekoré med godteri og andre detaljer.",
+          "12. La glasuren herdes før servering."
+        ],
+        "en": [
+          "1. Cream butter and brown sugar.",
+          "2. Whisk in eggs.",
+          "3. Mix flour, ginger, cinnamon and cloves.",
+          "4. Add dry ingredients to butter mixture.",
+          "5. Let dough cool for at least 1 hour.",
+          "6. Roll out dough on parchment paper.",
+          "7. Cut house pieces (walls, roof, door, windows).",
+          "8. Bake at 180°C for about 10-12 minutes.",
+          "9. Let pieces cool completely.",
+          "10. Use white icing to assemble and decorate house.",
+          "11. Decorate with candies and other details.",
+          "12. Let icing harden before serving."
+        ]
+      }
+    }
+  ]
+}
