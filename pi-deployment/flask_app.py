@@ -514,6 +514,63 @@ def manage_recipe_packs():
     # Group recipes by pack origin (if available)
     return render_template('recipe-packs-manage.html', recipes=recipes)
 
+# ── Personal Recipe Arsenal API ───────────────────────────────────────────────
+
+@app.route('/api/recipes/export')
+def api_recipes_export():
+    """Export all user recipes as JSON"""
+    try:
+        recipes = load_recipes_db()
+        return jsonify({
+            'success': True,
+            'recipes': recipes,
+            'count': len(recipes)
+        })
+    except Exception as e:
+        logger.error(f"Export error: {e}")
+        return jsonify({'success': False, 'message': str(e)}), 500
+
+@app.route('/api/recipes/import', methods=['POST'])
+def api_recipes_import():
+    """Import recipes from user-provided JSON file"""
+    try:
+        data = request.get_json()
+        recipes_to_import = data.get('recipes', [])
+
+        if not recipes_to_import:
+            return jsonify({'success': False, 'message': 'No recipes provided'}), 400
+
+        # Validate recipe structure
+        for recipe in recipes_to_import:
+            if not recipe.get('id') or not recipe.get('title'):
+                return jsonify({'success': False, 'message': 'Invalid recipe structure'}), 400
+
+        # Load existing recipes
+        existing_recipes = load_recipes_db()
+        existing_ids = {r['id'] for r in existing_recipes}
+
+        # Import non-duplicate recipes
+        imported_count = 0
+        for recipe in recipes_to_import:
+            if recipe['id'] not in existing_ids:
+                existing_recipes.append(recipe)
+                imported_count += 1
+
+        # Save updated database
+        with open(RECIPES_DB_FILE, 'w', encoding='utf-8') as f:
+            json.dump(existing_recipes, f, ensure_ascii=False, indent=2)
+
+        logger.info(f"Imported {imported_count} recipes from user file")
+        return jsonify({
+            'success': True,
+            'imported_count': imported_count,
+            'message': f'Imported {imported_count} recipes'
+        })
+
+    except Exception as e:
+        logger.error(f"Recipe import error: {e}")
+        return jsonify({'success': False, 'message': str(e)}), 500
+
 # ── Error handlers ────────────────────────────────────────────────────────────
 
 @app.errorhandler(404)
