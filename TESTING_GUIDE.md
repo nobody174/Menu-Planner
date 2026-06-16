@@ -21,15 +21,24 @@ code .
 - Use a different port (5001, 5002, 5003, etc.)
 
 **To use a different port:**
-```bash
-# Edit the Flask app to use port 5001 instead
-python3 pi-deployment/app.py  # This uses port 5000 by default
+
+Edit `pi-deployment/app.py` and change these two lines:
+
+**Line 51:**
+```python
+# BEFORE: app.run(host='0.0.0.0', port=5000, debug=False, use_reloader=False)
+# AFTER:  app.run(host='0.0.0.0', port=5001, debug=False, use_reloader=False)
 ```
 
-If you want to change the port, edit `pi-deployment/app.py` line 440:
+**Line 68:**
 ```python
 # BEFORE: app.run(host='0.0.0.0', port=5000, debug=False)
 # AFTER:  app.run(host='0.0.0.0', port=5001, debug=False)
+```
+
+Then run:
+```bash
+python3 pi-deployment/app.py
 ```
 
 ### Step 4: Start the Flask App
@@ -202,18 +211,20 @@ pip install flask python-dotenv apscheduler requests
 **Solution 1: Stop Pi's Flask app**
 - SSH into Pi: `ssh vartdalffs@10.0.0.54`
 - Kill Flask: `pkill -f "python3 pi-deployment"`
-- Then test on Windows
+- Then test on Windows on port 5000
 
-**Solution 2: Use Different Port**
-- Edit `pi-deployment/app.py` line 440
-- Change port to 5001, 5002, 5003, etc.
+**Solution 2: Use Different Port** (EASIEST)
+- Edit `pi-deployment/app.py`
+- Change line 51: `port=5000` → `port=5001`
+- Change line 68: `port=5000` → `port=5001`
+- Then run: `python3 pi-deployment/app.py`
 - Test on Windows at `http://localhost:5001`
 
 **Solution 3: Run on Pi Itself**
-- SSH into Pi
+- SSH into Pi: `ssh vartdalffs@10.0.0.54`
 - Run: `python3 pi-deployment/app.py`
+- Pi shows logs in SSH terminal
 - Access from Windows: `http://10.0.0.54:5000`
-- Terminal shows logs in SSH session
 
 ---
 
