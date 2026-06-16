@@ -6,7 +6,7 @@
 //
 
 class LanguageManager {
-    constructor(defaultLanguage = 'no') {
+    constructor(defaultLanguage = 'en') {
         this.defaultLanguage = defaultLanguage;
         this.currentLanguage = this.getLanguage();
         this.translations = {};

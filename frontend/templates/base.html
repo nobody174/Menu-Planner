@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="no">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,46 +16,46 @@
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <a href="/" class="nav-logo">{{ household_name }} Ukesmeny</a>
+            <a href="/" class="nav-logo">{{ household_name }} Weekly Menu</a>
             <ul class="nav-menu">
                 <li class="nav-item">
-                    <a href="/" class="nav-link">Meny</a>
+                    <a href="/" class="nav-link">Menu</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/shopping" class="nav-link">Handleliste</a>
+                    <a href="/shopping" class="nav-link">Shopping List</a>
                 </li>
                 <li class="nav-item nav-category-selector">
                     <div class="category-dropdown-wrapper" id="categoryDropdownWrapper">
                         <button class="category-dropdown-btn" onclick="toggleCategoryDropdown(event)">
-                            Kategorier <span class="dropdown-arrow">▾</span>
+                            Categories <span class="dropdown-arrow">▾</span>
                         </button>
                         <div class="category-dropdown-menu" id="categoryDropdownMenu">
-                            <label><input type="checkbox" value="Favoritter"> ⭐ Favoritter</label>
-                            <label><input type="checkbox" value="Kjappe Middager" checked> Kjappe Middager</label>
-                            <label><input type="checkbox" value="Pasta & Nudler" checked> Pasta & Nudler</label>
-                            <label><input type="checkbox" value="Kyllingretter" checked> Kyllingretter</label>
-                            <label><input type="checkbox" value="Kjøttdeig & Pølser" checked> Kjøttdeig & Pølser</label>
-                            <label><input type="checkbox" value="Fisk & Sjømat" checked> Fisk & Sjømat</label>
+                            <label><input type="checkbox" value="Favorites"> ⭐ Favorites</label>
+                            <label><input type="checkbox" value="Quick Dinners" checked> Quick Dinners</label>
+                            <label><input type="checkbox" value="Pasta & Noodles" checked> Pasta & Noodles</label>
+                            <label><input type="checkbox" value="Chicken" checked> Chicken</label>
+                            <label><input type="checkbox" value="Ground Meat & Sausages" checked> Ground Meat & Sausages</label>
+                            <label><input type="checkbox" value="Fish & Seafood" checked> Fish & Seafood</label>
                             <label><input type="checkbox" value="Taco & Tex-Mex"> Taco & Tex-Mex</label>
                             <label><input type="checkbox" value="Grill"> Grill</label>
-                            <label><input type="checkbox" value="Supper & Gryter"> Supper & Gryter</label>
-                            <label><input type="checkbox" value="Vegetar"> Vegetar</label>
-                            <label><input type="checkbox" value="HomeMade"> HomeMade</label>
+                            <label><input type="checkbox" value="Soups & Stews"> Soups & Stews</label>
+                            <label><input type="checkbox" value="Vegetarian"> Vegetarian</label>
+                            <label><input type="checkbox" value="Homemade"> Homemade</label>
                             <div class="dropdown-actions">
-                                <button onclick="applyCategories()" class="btn-apply">Bruk</button>
+                                <button onclick="applyCategories()" class="btn-apply">Apply</button>
                             </div>
                         </div>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="#" onclick="refreshMenu()" class="nav-link">Generer ny meny</a>
+                    <a href="#" onclick="refreshMenu()" class="nav-link">Generate Menu</a>
                 </li>
                 <li class="nav-item">
                     <div class="nav-settings-menu">
-                        <button id="settings-btn" class="settings-btn" aria-label="Innstillinger" title="Innstillinger" onclick="toggleSettingsMenu(event)">⚙️</button>
+                        <button id="settings-btn" class="settings-btn" aria-label="Settings" title="Settings" onclick="toggleSettingsMenu(event)">⚙️</button>
                         <div id="settings-dropdown" class="settings-dropdown">
                             <div class="settings-section">
-                                <div class="settings-section-title">Språk</div>
+                                <div class="settings-section-title">Language</div>
                                 <button class="settings-item" onclick="switchLanguage('no')" style="text-align: left;">
                                     <span id="lang-no-btn">🇳🇴 Norsk</span>
                                 </button>
@@ -65,9 +65,9 @@
                             </div>
                             <div class="settings-divider"></div>
                             <div class="settings-section">
-                                <div class="settings-section-title">Tema</div>
+                                <div class="settings-section-title">Theme</div>
                                 <a href="#" class="settings-submenu-item" onclick="openThemeMenu(event)">
-                                    Velg tema <span class="submenu-arrow">›</span>
+                                    Choose Theme <span class="submenu-arrow">›</span>
                                 </a>
                                 <div id="theme-submenu" class="theme-submenu" style="display:none;">
                                     <div class="theme-option" data-theme="warm-modern" onclick="switchTheme('warm-modern', event)">
@@ -109,14 +109,14 @@
                                 </div>
                             </div>
                             <div class="settings-divider"></div>
-                            <a href="/settings" class="settings-item">Innstillinger</a>
-                            <a href="/all-recipes" class="settings-item">Alle oppskrifter</a>
-                            <a href="/add-recipe" class="settings-item">+ Legg til oppskrift</a>
+                            <a href="/settings" class="settings-item">Settings</a>
+                            <a href="/all-recipes" class="settings-item">All Recipes</a>
+                            <a href="/add-recipe" class="settings-item">+ Add Recipe</a>
                             <div class="settings-divider"></div>
                             <div id="nav-auth-section" style="display:none;">
-                                <a href="/login" id="nav-login-item" class="settings-item" style="display:none;">Logg inn (To Do)</a>
+                                <a href="/login" id="nav-login-item" class="settings-item" style="display:none;">Login (To Do)</a>
                                 <span id="nav-user-display-settings" style="display:none; font-size:0.85rem; color:var(--color-text-secondary,#888); padding:8px 16px; display:block;"></span>
-                                <a href="/logout" id="nav-logout-item" class="settings-item settings-logout" style="display:none;">Logg ut</a>
+                                <a href="/logout" id="nav-logout-item" class="settings-item settings-logout" style="display:none;">Logout</a>
                             </div>
                         </div>
                     </div>
