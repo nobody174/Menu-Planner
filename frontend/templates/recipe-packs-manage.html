@@ -1,0 +1,309 @@
+{% extends "base.html" %}
+
+{% block title %}Administrer oppskrifter-pakker - {{ household_name }}{% endblock %}
+
+{% block content %}
+<div class="recipe-packs-page">
+    <h1>📦 Administrer oppskrifter-pakker</h1>
+
+    <div class="packs-info-section">
+        <p>Her kan du administrere dine importerte oppskrifter-pakker og se hvilke oppskrifter som kommer fra hver pakke.</p>
+    </div>
+
+    <div class="packs-stats">
+        <div class="stat-card">
+            <div class="stat-number" id="totalRecipes">{{ recipes | length }}</div>
+            <div class="stat-label">Totale oppskrifter</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number" id="importedFromPacks">0</div>
+            <div class="stat-label">Fra pakker</div>
+        </div>
+    </div>
+
+    <div class="packs-actions">
+        <a href="/settings" class="btn btn-secondary">← Tilbake til innstillinger</a>
+        <button onclick="exportMyRecipes()" class="btn btn-primary">💾 Eksporter mine oppskrifter</button>
+    </div>
+
+    <div id="packsContainer" class="packs-container">
+        <p>Laster oppskrifter-pakker...</p>
+    </div>
+
+    <div id="exportStatus" style="display: none; margin-top: 20px; padding: 15px; border-radius: 6px;"></div>
+</div>
+
+<style>
+.recipe-packs-page {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.recipe-packs-page h1 {
+    margin-bottom: 10px;
+    color: var(--color-primary, #d97706);
+}
+
+.packs-info-section {
+    background: var(--color-bg-secondary, #f9fafb);
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    color: var(--color-text-secondary, #666);
+}
+
+.packs-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    background: var(--color-bg-secondary, #f9fafb);
+    border: 1px solid var(--color-border, #e5e7eb);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2em;
+    font-weight: 700;
+    color: var(--color-primary, #d97706);
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    font-size: 0.9em;
+    color: var(--color-text-secondary, #666);
+}
+
+.packs-actions {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.packs-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.pack-group {
+    background: var(--color-bg-secondary, #f9fafb);
+    border: 1px solid var(--color-border, #e5e7eb);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.pack-group-header {
+    background: linear-gradient(135deg, var(--color-primary, #d97706), rgba(249, 115, 22, 0.8));
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.pack-group-header:hover {
+    opacity: 0.9;
+}
+
+.pack-group-title {
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+.pack-group-toggle {
+    font-size: 1.3em;
+    transition: transform 0.3s;
+}
+
+.pack-group.collapsed .pack-group-toggle {
+    transform: rotate(-90deg);
+}
+
+.pack-recipes {
+    padding: 15px 20px;
+    display: none;
+}
+
+.pack-recipes.expanded {
+    display: block;
+}
+
+.recipe-item {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--color-border, #e5e7eb);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.recipe-item:last-child {
+    border-bottom: none;
+}
+
+.recipe-name {
+    font-weight: 500;
+    color: var(--color-text, #000);
+}
+
+.recipe-meta {
+    display: flex;
+    gap: 10px;
+    font-size: 0.85em;
+    color: var(--color-text-secondary, #666);
+}
+
+.recipe-category {
+    background: var(--color-bg-primary, white);
+    padding: 3px 8px;
+    border-radius: 12px;
+    border: 1px solid var(--color-border, #e5e7eb);
+}
+
+.empty-message {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--color-text-secondary, #666);
+}
+
+@media (max-width: 640px) {
+    .recipe-packs-page {
+        padding: 12px;
+    }
+
+    .packs-stats {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .packs-actions {
+        flex-direction: column;
+    }
+
+    .packs-actions .btn {
+        width: 100%;
+    }
+}
+</style>
+
+<script>
+async function loadRecipePacks() {
+    try {
+        const response = await fetch('/api/recipe-packs/list');
+        const packs = await response.json();
+
+        const container = document.getElementById('packsContainer');
+        container.innerHTML = '';
+
+        if (packs.length === 0) {
+            container.innerHTML = '<div class="empty-message"><p>Ingen oppskrifter-pakker importert ennå.</p><a href="/settings" class="btn btn-primary">Importer nå</a></div>';
+            return;
+        }
+
+        // Create groups for each pack
+        packs.forEach(pack => {
+            const group = document.createElement('div');
+            group.className = 'pack-group collapsed';
+
+            const header = document.createElement('div');
+            header.className = 'pack-group-header';
+            header.onclick = () => togglePackGroup(group);
+
+            const title = document.createElement('div');
+            title.className = 'pack-group-title';
+            title.textContent = pack.packName[localStorage.getItem('language') === 'en' ? 'en' : 'no'] || pack.packName.en;
+
+            const toggle = document.createElement('div');
+            toggle.className = 'pack-group-toggle';
+            toggle.textContent = '▶';
+
+            header.appendChild(title);
+            header.appendChild(toggle);
+
+            const recipes = document.createElement('div');
+            recipes.className = 'pack-recipes';
+
+            // List recipes in this pack (simplified)
+            const recipesList = document.createElement('div');
+            recipesList.innerHTML = `<p style="color: var(--color-text-secondary, #666); margin: 0;">📊 ${pack.recipeCount} oppskrifter i denne pakken</p>`;
+
+            recipes.appendChild(recipesList);
+
+            group.appendChild(header);
+            group.appendChild(recipes);
+            container.appendChild(group);
+        });
+
+    } catch (error) {
+        console.error('Error loading packs:', error);
+        document.getElementById('packsContainer').innerHTML = '<p style="color: red;">Feil ved lasting av pakker</p>';
+    }
+}
+
+function togglePackGroup(group) {
+    group.classList.toggle('collapsed');
+    const recipes = group.querySelector('.pack-recipes');
+    recipes.classList.toggle('expanded');
+}
+
+async function exportMyRecipes() {
+    try {
+        const recipes = {{ recipes | tojson }};
+
+        if (recipes.length === 0) {
+            showExportStatus('Ingen oppskrifter å eksportere', 'error');
+            return;
+        }
+
+        const exportData = {
+            exportDate: new Date().toISOString(),
+            recipeCount: recipes.length,
+            recipes: recipes
+        };
+
+        // Create JSON file and download
+        const dataStr = JSON.stringify(exportData, null, 2);
+        const dataBlob = new Blob([dataStr], { type: 'application/json' });
+        const url = URL.createObjectURL(dataBlob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `pi-menu-export-${new Date().toISOString().split('T')[0]}.json`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+
+        showExportStatus(`Eksportert ${recipes.length} oppskrifter!`, 'success');
+    } catch (error) {
+        console.error('Export error:', error);
+        showExportStatus('Feil ved eksport', 'error');
+    }
+}
+
+function showExportStatus(message, type) {
+    const status = document.getElementById('exportStatus');
+    status.textContent = message;
+    status.style.display = 'block';
+    status.style.background = type === 'success' ? '#d4edda' : '#f8d7da';
+    status.style.color = type === 'success' ? '#155724' : '#721c24';
+    status.style.border = type === 'success' ? '1px solid #c3e6cb' : '1px solid #f5c6cb';
+
+    if (type === 'success') {
+        setTimeout(() => {
+            status.style.display = 'none';
+        }, 3000);
+    }
+}
+
+// Load packs on page load
+document.addEventListener('DOMContentLoaded', loadRecipePacks);
+</script>
+{% endblock %}

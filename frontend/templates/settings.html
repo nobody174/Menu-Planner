@@ -52,6 +52,16 @@
             </div>
         </section>
 
+        <!-- Recipe Packs Import -->
+        <section class="settings-section">
+            <h2>Oppskrifter-pakker / Recipe Packs</h2>
+            <p>Importer ferdiglagde samlinger med oppskrifter</p>
+            <div class="action-buttons">
+                <button onclick="openRecipePacksModal()" class="btn btn-primary">📦 Importer oppskrifter-pakker</button>
+                <a href="/recipe-packs/manage" class="btn btn-secondary">Administrer pakker</a>
+            </div>
+        </section>
+
         <!-- Recipe Management -->
         <section class="settings-section">
             <h2>Oppskrifter / Recipes</h2>
@@ -183,5 +193,338 @@
         width: 100%;
     }
 }
+
+/* Recipe Packs Modal */
+.recipe-packs-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.recipe-packs-modal.active {
+    display: flex;
+}
+
+.recipe-packs-modal-content {
+    background: var(--color-bg-primary, white);
+    border-radius: 12px;
+    padding: 30px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.recipe-packs-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--color-border, #e5e7eb);
+    padding-bottom: 15px;
+}
+
+.recipe-packs-modal-header h2 {
+    margin: 0;
+}
+
+.close-modal-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--color-text-secondary, #666);
+}
+
+.recipe-packs-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+.recipe-pack-card {
+    border: 2px solid var(--color-border, #e5e7eb);
+    border-radius: 8px;
+    padding: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.recipe-pack-card:hover {
+    border-color: var(--color-primary, #d97706);
+    background: var(--color-bg-secondary, #f9fafb);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-pack-card.selected {
+    border-color: var(--color-primary, #d97706);
+    background: linear-gradient(135deg, rgba(217, 119, 6, 0.1), rgba(249, 115, 22, 0.1));
+}
+
+.recipe-pack-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 10px;
+}
+
+.recipe-pack-card-title {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--color-primary, #d97706);
+}
+
+.recipe-count {
+    background: var(--color-primary, #d97706);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 600;
+}
+
+.recipe-pack-description {
+    color: var(--color-text-secondary, #666);
+    font-size: 0.95em;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.recipe-pack-meta {
+    display: flex;
+    gap: 15px;
+    font-size: 0.85em;
+    color: var(--color-text-secondary, #666);
+}
+
+.recipe-pack-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.recipe-packs-actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.recipe-packs-actions button {
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.recipe-packs-actions .btn-primary {
+    background: var(--color-primary, #d97706);
+    color: white;
+}
+
+.recipe-packs-actions .btn-primary:hover {
+    opacity: 0.9;
+}
+
+.recipe-packs-actions .btn-secondary {
+    background: var(--color-bg-secondary, #f9fafb);
+    color: var(--color-text, #000);
+    border: 1px solid var(--color-border, #e5e7eb);
+}
+
+.recipe-packs-actions .btn-secondary:hover {
+    background: var(--color-border, #e5e7eb);
+}
+
+.loading-spinner {
+    display: inline-block;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.import-status {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 6px;
+    display: none;
+}
+
+.import-status.success {
+    display: block;
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.import-status.error {
+    display: block;
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
 </style>
+
+<div id="recipePacksModal" class="recipe-packs-modal">
+    <div class="recipe-packs-modal-content">
+        <div class="recipe-packs-modal-header">
+            <h2>📦 Importer oppskrifter-pakker</h2>
+            <button class="close-modal-btn" onclick="closeRecipePacksModal()">✕</button>
+        </div>
+
+        <div id="recipePacksList" class="recipe-packs-list">
+            <p>Laster pakker...</p>
+        </div>
+
+        <div class="recipe-packs-actions">
+            <button class="btn btn-secondary" onclick="closeRecipePacksModal()">Avbryt</button>
+            <button class="btn btn-primary" onclick="importSelectedPacks()">Importer valgte</button>
+        </div>
+
+        <div id="importStatus" class="import-status"></div>
+    </div>
+</div>
+
+<script>
+async function openRecipePacksModal() {
+    const modal = document.getElementById('recipePacksModal');
+    modal.classList.add('active');
+    await loadAvailablePacks();
+}
+
+function closeRecipePacksModal() {
+    const modal = document.getElementById('recipePacksModal');
+    modal.classList.remove('active');
+    // Clear selections
+    document.querySelectorAll('.recipe-pack-card').forEach(card => {
+        card.classList.remove('selected');
+        card.querySelector('input[type="checkbox"]').checked = false;
+    });
+}
+
+async function loadAvailablePacks() {
+    try {
+        const response = await fetch('/api/recipe-packs/list');
+        const packs = await response.json();
+        displayRecipePacks(packs);
+    } catch (error) {
+        console.error('Error loading recipe packs:', error);
+        document.getElementById('recipePacksList').innerHTML = '<p style="color: red;">Feil ved lasting av pakker</p>';
+    }
+}
+
+function displayRecipePacks(packs) {
+    const container = document.getElementById('recipePacksList');
+    container.innerHTML = '';
+
+    packs.forEach(pack => {
+        const card = document.createElement('div');
+        card.className = 'recipe-pack-card';
+        card.onclick = () => togglePackSelection(card);
+
+        const description_en = pack.packDescription.en || '';
+        const description_no = pack.packDescription.no || '';
+        const description = localStorage.getItem('language') === 'en' ? description_en : description_no;
+
+        card.innerHTML = `
+            <div class="recipe-pack-card-header">
+                <div>
+                    <div class="recipe-pack-card-title">${pack.packName[localStorage.getItem('language') === 'en' ? 'en' : 'no'] || pack.packName.en}</div>
+                    <div class="recipe-pack-description">${description}</div>
+                </div>
+                <div class="recipe-count">${pack.recipeCount} oppskrifter</div>
+            </div>
+            <div class="recipe-pack-meta">
+                <div class="recipe-pack-meta-item">⏱️ ${pack.estimatedCookTime}</div>
+                <div class="recipe-pack-meta-item">📊 ${pack.difficulty}</div>
+            </div>
+            <label class="checkbox-label">
+                <input type="checkbox" data-pack-id="${pack.packId}" onchange="event.stopPropagation()">
+                Velg denne pakken
+            </label>
+        `;
+
+        container.appendChild(card);
+    });
+}
+
+function togglePackSelection(card) {
+    card.classList.toggle('selected');
+    const checkbox = card.querySelector('input[type="checkbox"]');
+    checkbox.checked = !checkbox.checked;
+}
+
+async function importSelectedPacks() {
+    const selected = document.querySelectorAll('.recipe-pack-card input[type="checkbox"]:checked');
+    const packIds = Array.from(selected).map(cb => cb.dataset.packId);
+
+    if (packIds.length === 0) {
+        showStatus('Velg minst en pakke før du importerer', 'error');
+        return;
+    }
+
+    try {
+        const response = await fetch('/api/recipe-packs/import', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ packIds })
+        });
+
+        const result = await response.json();
+        if (result.success) {
+            showStatus(`Importert ${result.imported_count} oppskrifter fra ${packIds.length} pakke(r)!`, 'success');
+            setTimeout(() => {
+                closeRecipePacksModal();
+                location.reload();
+            }, 2000);
+        } else {
+            showStatus('Feil ved import: ' + result.message, 'error');
+        }
+    } catch (error) {
+        console.error('Import error:', error);
+        showStatus('En feil oppstod ved import', 'error');
+    }
+}
+
+function showStatus(message, type) {
+    const status = document.getElementById('importStatus');
+    status.textContent = message;
+    status.className = `import-status ${type}`;
+}
+
+// Close modal when clicking outside
+document.getElementById('recipePacksModal')?.addEventListener('click', (e) => {
+    if (e.target.id === 'recipePacksModal') {
+        closeRecipePacksModal();
+    }
+});
+</script>
 {% endblock %}

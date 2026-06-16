@@ -424,6 +424,96 @@ def theme_preview(filename):
     preview_dir = Path(__file__).parent.parent / 'frontend/static/theme-previews'
     return send_from_directory(preview_dir, filename)
 
+# ── Recipe Packs API ──────────────────────────────────────────────────────────
+
+def get_available_recipe_packs():
+    """Load all available recipe packs from data/recipe-packs/"""
+    packs_dir = DATA_DIR / 'recipe-packs'
+    packs = []
+
+    if not packs_dir.exists():
+        logger.warning(f"Recipe packs directory not found: {packs_dir}")
+        return packs
+
+    for pack_file in sorted(packs_dir.glob('pack_*.json')):
+        try:
+            with open(pack_file, 'r', encoding='utf-8') as f:
+                pack = json.load(f)
+                packs.append(pack)
+        except Exception as e:
+            logger.error(f"Error loading pack {pack_file}: {e}")
+
+    return packs
+
+@app.route('/api/recipe-packs/list')
+def api_recipe_packs_list():
+    """Get list of available recipe packs"""
+    packs = get_available_recipe_packs()
+    # Return pack metadata only (not full recipes)
+    simplified = []
+    for pack in packs:
+        simplified.append({
+            'packId': pack['packId'],
+            'packName': pack['packName'],
+            'packDescription': pack['packDescription'],
+            'recipeCount': pack['recipeCount'],
+            'estimatedCookTime': pack['estimatedCookTime'],
+            'difficulty': pack['difficulty']
+        })
+    return jsonify(simplified)
+
+@app.route('/api/recipe-packs/import', methods=['POST'])
+def api_recipe_packs_import():
+    """Import selected recipe packs into user's recipe database"""
+    try:
+        data = request.get_json()
+        pack_ids = data.get('packIds', [])
+
+        if not pack_ids:
+            return jsonify({'success': False, 'message': 'No packs selected'}), 400
+
+        # Load all packs
+        all_packs = get_available_recipe_packs()
+        recipes_to_import = []
+
+        # Collect recipes from selected packs
+        for pack in all_packs:
+            if pack['packId'] in pack_ids:
+                recipes_to_import.extend(pack['recipes'])
+
+        # Load existing recipes database
+        existing_recipes = load_recipes_db()
+        existing_ids = {r['id'] for r in existing_recipes}
+
+        # Add new recipes (avoid duplicates)
+        imported_count = 0
+        for recipe in recipes_to_import:
+            if recipe['id'] not in existing_ids:
+                existing_recipes.append(recipe)
+                imported_count += 1
+
+        # Save updated database
+        with open(RECIPES_DB_FILE, 'w', encoding='utf-8') as f:
+            json.dump(existing_recipes, f, ensure_ascii=False, indent=2)
+
+        logger.info(f"Imported {imported_count} recipes from {len(pack_ids)} packs")
+        return jsonify({
+            'success': True,
+            'imported_count': imported_count,
+            'message': f'Imported {imported_count} recipes'
+        })
+
+    except Exception as e:
+        logger.error(f"Recipe pack import error: {e}")
+        return jsonify({'success': False, 'message': str(e)}), 500
+
+@app.route('/recipe-packs/manage')
+def manage_recipe_packs():
+    """Page to manage imported recipe packs"""
+    recipes = load_recipes_db()
+    # Group recipes by pack origin (if available)
+    return render_template('recipe-packs-manage.html', recipes=recipes)
+
 # ── Error handlers ────────────────────────────────────────────────────────────
 
 @app.errorhandler(404)
