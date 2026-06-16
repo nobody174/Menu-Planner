@@ -8,7 +8,8 @@ A Python/Flask web application for families to organize recipes, generate weekly
 
 ## Features
 
-✅ **Recipe Management** - Add your own recipes via Excel template  
+✅ **Recipe Management** - Add your own recipes via web form or import from Excel  
+✅ **Sample Recipes** - 10 bilingual sample recipes included to get started  
 ✅ **Menu Generation** - Automatically generate weekly menus from your recipes  
 ✅ **Shopping Lists** - Automatically deduplicated ingredient lists  
 ✅ **Bilingual Support** - Norwegian & English with one-click toggle  
@@ -54,10 +55,11 @@ python3 pi-deployment/app.py
 
 ### First Steps
 
-1. **Add your recipes** - Download Excel template → Fill with your recipes → Import
-2. **Generate menu** - Click "Generer ny meny" (Generate Menu)
-3. **Create shopping list** - Click "Handleliste" (Shopping List)
-4. **Customize** - Change language, theme, and categories in Settings
+1. **Explore sample recipes** - 10 bilingual recipes included as examples
+2. **Add your recipes** - Click "Legg til oppskrift" (Add Recipe) and fill in the form
+3. **Generate menu** - Click "Generer ny meny" (Generate Menu)
+4. **Create shopping list** - Click "Handleliste" (Shopping List)
+5. **Customize** - Change language, theme, and categories in Settings
 
 ## Configuration
 
