@@ -33,7 +33,98 @@ This document tracks feature ideas and enhancements for Pi-Menu v1.0 and beyond.
 
 ## v1.1 Planned / Proposed ⏳
 
-**Status:** Ready for discussion with user
+**Status:** Active development
+
+### 🍽️ Recipe Discovery & Preloaded Content (NEW)
+
+#### 1. Free Recipe Sources Library
+**Description:** Curated list of free recipe sources for users to discover
+**Priority:** Quick Win - Documentation only
+**Deliverable:** `FREE_RECIPE_SOURCES.md`
+- [x] Norwegian free recipe sites (with linking permission notes)
+- [x] English free recipe sites (with linking permission notes)
+- [x] Attribution and usage guidelines
+- [x] How to manually import recipes
+
+**Why:** Users need legitimate sources to expand their recipe collection
+
+---
+
+#### 2. Preloaded Recipe Packs System
+**Description:** Optional, curated recipe collections users can import with one click
+**Priority:** Medium - Requires UI + JSON data
+**Components:**
+- [ ] UI "Import Recipe Packs" button in settings
+- [ ] Pack selection modal with descriptions
+- [ ] One-click import functionality
+- [ ] Pack management (view imported packs, remove if needed)
+
+**Why:** New users get immediate recipe library to explore
+
+---
+
+#### 3. Curated Recipe Packs (Data)
+**Priority:** Medium-High - Data creation but straightforward
+**Packs to create (15 recipes each, bilingual NO/EN):**
+
+**Pack 1: Popular Norwegian Recipes**
+- Traditional Norwegian favorites
+- Family-friendly classics
+- 15 recipes with full bilingual support
+- Examples: Fårikål, Raspeball, Kjøttkaker, etc.
+
+**Pack 2: European Classics**
+- Italian, French, Spanish favorites
+- International comfort food
+- 15 recipes
+- Examples: Pasta, Risotto, Bouillabaisse, etc.
+
+**Pack 3: Nordic Classics**
+- Nordic regional specialties
+- Scandinavian heritage recipes
+- 15 recipes
+- Examples: Swedish Meatballs, Danish pastries, etc.
+
+**Pack 4: Holiday Recipes**
+- Christmas & festive meals
+- Easter special dishes
+- 10-12 recipes
+- Bilingual with seasonal notes
+
+**Pack 5: Summer Recipes**
+- **Fresh Salads** (5 recipes)
+- **Grill Recipes** (5 recipes)
+- **Seafood** - Shrimp, crab, fish (5 recipes)
+- Light, seasonal focus
+
+**Each recipe includes:**
+- Title (NO/EN)
+- Subtitle (NO/EN)
+- Ingredients with quantities & units
+- Step-by-step instructions (NO/EN)
+- Category mapping
+- Tags (seasonal, difficulty, cook time)
+- Allergen information
+- Bilingual complete support
+
+**Why:** Removes "blank slate" problem for new users
+
+---
+
+#### 4. Personal Recipe Arsenal Management
+**Description:** Users can organize, import, and export their own recipe collections
+**Priority:** Medium-High - Core functionality with UI
+**Features:**
+- [ ] Export personal recipes as JSON pack
+- [ ] Import custom recipe packs (JSON format)
+- [ ] Create named personal collections
+- [ ] Share collections with family
+- [ ] Backup/restore collections
+- [ ] Recipe pack templates (for sharing)
+
+**Why:** Enable power users and community sharing
+
+---
 
 ### User-Requested Features
 
@@ -217,23 +308,68 @@ This document tracks feature ideas and enhancements for Pi-Menu v1.0 and beyond.
 
 ---
 
-## Implementation Priority
+## v1.1 Implementation Priority
 
-**High Value / Easy to Implement:**
-1. Recipe edit/delete functionality
-2. Shopping list checkboxes
+### Phase 1: Quick Wins (Week 1-2)
+**Free Recipe Sources Library** ⚡
+1. Research & document Norwegian free recipe sources
+2. Research & document English free recipe sources
+3. Create `FREE_RECIPE_SOURCES.md`
+4. **Deliverable:** Complete documentation
+5. **Effort:** 1-2 days
+
+### Phase 2: Foundation (Week 2-3)
+**Preloaded Recipe Packs - Data Creation** 📦
+1. Create 75+ bilingual recipes (5 packs)
+2. Structure: JSON format with schema
+3. Ensure bilingual complete coverage (NO/EN)
+4. Allergen & tag standardization
+5. **Deliverable:** `data/recipe-packs/` with all packs
+6. **Effort:** 3-4 days (parallel work possible)
+
+### Phase 3: UI Implementation (Week 3-4)
+**Recipe Pack Import System** 🎛️
+1. Add "Import Recipe Packs" button to settings
+2. Create pack selection modal
+3. Show pack preview (name, description, recipe count)
+4. Implement one-click import
+5. Add "Manage Imported Packs" interface
+6. **Deliverable:** Full UI integration
+7. **Effort:** 2-3 days
+
+### Phase 4: Advanced Features (Week 4-5)
+**Personal Recipe Arsenal** 📚
+1. Export personal recipes as JSON
+2. Import custom recipe packs
+3. Named collections management
+4. Backup/restore functionality
+5. **Deliverable:** Full export/import system
+6. **Effort:** 2-3 days
+
+---
+
+## Overall v1.1 Priority (All Features)
+
+**Quick Wins (Week 1):**
+1. Free Recipe Sources documentation
+2. Recipe edit/delete functionality
+3. Shopping list checkboxes
+4. Recipe search
+
+**High Value / Moderate Effort (Weeks 2-3):**
+1. Preloaded recipe packs (data + UI)
+2. Personal recipe arsenal
 3. Menu history
 4. PDF export
-5. Recipe search
 
-**High Value / Moderate Effort:**
+**Medium Value / Lower Priority (Weeks 3+):**
 1. Family/household features
 2. Multi-user support
 3. Recipe backup/restore
 4. Analytics dashboard
 5. Ingredient-based filtering
 
-**High Value / High Effort:**
+**High Value / High Effort (v2.0):**
 1. Mobile app
 2. Cloud sync
 3. Grocery store integration
