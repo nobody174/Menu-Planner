@@ -1,32 +1,32 @@
 {% extends "base.html" %}
 
-{% block title %}Handleliste - {{ household_name }} Ukesmeny{% endblock %}
+{% block title %}{{ t.shopping_list }} - {{ household_name }}{% endblock %}
 
 {% block content %}
 <div class="shopping-header">
-    <h1>Handleliste for denne uken</h1>
-    <p class="shopping-hint">Huk av det du allerede har hjemme — resten sendes til To Do.</p>
+    <h1>{{ t.shopping_list_week }}</h1>
+    <p class="shopping-hint">{{ t.uncheck_items }}</p>
     <div class="shopping-actions">
-        <button onclick="window.print()" class="btn btn-secondary">Skriv ut</button>
-        <button onclick="uncheckAll()" class="btn btn-secondary">Nullstill</button>
-        <button onclick="syncToToDo(this)" class="btn btn-primary">Send til To Do 📱</button>
+        <button onclick="window.print()" class="btn btn-secondary">{{ t.print }}</button>
+        <button onclick="uncheckAll()" class="btn btn-secondary">{{ t.reset }}</button>
+        <button onclick="syncToToDo(this)" class="btn btn-primary">{{ t.send_to_todo }}</button>
     </div>
 </div>
 
 <div class="shopping-list">
-    {% set category_names = {
-        'Proteins': 'Kjøtt og fisk',
-        'Vegetables': 'Grønnsaker',
-        'Dairy': 'Melkeprodukter',
-        'Pantry': 'Matforråd',
-        'Herbs & Spices': 'Krydder og urter',
-        'Other': 'Øvrig'
+    {% set category_keys = {
+        'Proteins': 'proteins',
+        'Vegetables': 'vegetables',
+        'Dairy': 'dairy',
+        'Pantry': 'pantry',
+        'Herbs & Spices': 'herbs_spices',
+        'Other': 'other_category'
     } %}
 
     {% for category, items in shopping_list.items() %}
         {% if items %}
         <div class="category-section">
-            <h2 class="category-title">{{ category_names.get(category, category) }}</h2>
+            <h2 class="category-title">{{ t[category_keys.get(category, 'other_category')] if category_keys.get(category) else category }}</h2>
             <ul class="category-items">
                 {% for item in items %}
                 <li class="shopping-item"
@@ -54,19 +54,28 @@
 </div>
 
 <div class="shopping-footer">
-    <p class="note">Tips: Huk av det du har hjemme, så sendes bare det du mangler til telefonen.</p>
+    <p class="note">{{ t.shopping_tip }}</p>
 </div>
 
 <script>
 var SHOPPING_LIST = {{ shopping_list | tojson }};
+var STR = {
+    nothing_to_send:    '{{ t.nothing_to_send }}',
+    all_checked:        '{{ t.all_checked_off }}',
+    sending:            '{{ t.sending }}',
+    sent:               '{{ t.sent_to_todo }}',
+    not_connected:      '{{ t.not_connected_todo }}',
+    not_connected_msg:  '{{ t.not_connected_msg }}',
+    something_wrong:    '{{ t.something_went_wrong }}',
+    server_error:       '{{ t.server_error }}',
+    server_error_msg:   '{{ t.server_error_msg }}'
+};
 
-// Uncheck all — reset the list
 function uncheckAll() {
     document.querySelectorAll('.item-checkbox').forEach(function(cb) { cb.checked = false; });
 }
 
 function syncToToDo(button) {
-    // Collect UNCHECKED items — those are what you still need to buy
     var itemsToSync = [];
     document.querySelectorAll('.shopping-item').forEach(function(li) {
         var cb = li.querySelector('.item-checkbox');
@@ -80,37 +89,33 @@ function syncToToDo(button) {
     });
 
     if (itemsToSync.length === 0) {
-        pmAlert('✅', 'Ingenting å sende', 'Alt er allerede haket av som kjøpt!');
+        pmAlert('✅', STR.nothing_to_send, STR.all_checked);
         return;
     }
 
     var originalText = button.textContent;
-    button.disabled = true;
-    button.textContent = 'Sender...';
+    button.disabled  = true;
+    button.textContent = STR.sending;
 
     fetch('/api/sync-shopping-list', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            items: itemsToSync,
-            shopping_list: SHOPPING_LIST
-        })
+        body: JSON.stringify({ items: itemsToSync, shopping_list: SHOPPING_LIST })
     })
     .then(function(r) {
         return r.json().then(function(data) { return { ok: r.ok, data: data }; });
     })
     .then(function(res) {
         if (res.ok) {
-            pmAlert('📱', 'Sendt til To Do!', res.data.message);
+            pmAlert('📱', STR.sent, res.data.message);
         } else if (res.data.requiresAuth) {
-            pmAlert('🔒', 'Ikke tilkoblet', 'Pi-Menu er ikke koblet til Microsoft To Do. Gå til /login og logg inn.');
+            pmAlert('🔒', STR.not_connected, STR.not_connected_msg);
         } else {
-            pmAlert('❌', 'Noe gikk galt', res.data.message || 'Ukjent feil');
+            pmAlert('❌', STR.something_wrong, res.data.message || '');
         }
     })
-    .catch(function(err) {
-        console.error('Sync error:', err);
-        pmAlert('❌', 'Serverfeil', 'Kunne ikke kontakte serveren. Prøv igjen.');
+    .catch(function() {
+        pmAlert('❌', STR.server_error, STR.server_error_msg);
     })
     .finally(function() {
         button.disabled = false;

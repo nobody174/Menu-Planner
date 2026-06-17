@@ -1,32 +1,37 @@
 {% extends "base.html" %}
 
-{% block title %}{{ recipe.title }} - {{ household_name }} Ukesmeny{% endblock %}
+{% block title %}{{ recipe.title }} - {{ household_name }}{% endblock %}
 
 {% block content %}
 <div class="recipe-header">
     <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 12px;">
         <h1 style="margin: 0;">{{ recipe.title }}</h1>
-        <button id="favoriteBtn" class="favorite-btn" onclick="toggleFavorite('{{ recipe.id }}', this)" title="Legg til favoritter" style="background: none; border: none; font-size: 28px; cursor: pointer; padding: 4px 8px; border-radius: 8px; transition: all 0.2s;">
+        <button id="favoriteBtn" class="favorite-btn"
+                onclick="toggleFavorite('{{ recipe.id }}', this)"
+                title="{{ t.add_to_favorites }}"
+                style="background: none; border: none; font-size: 28px; cursor: pointer; padding: 4px 8px; border-radius: 8px; transition: all 0.2s;">
             ☆
         </button>
     </div>
+    {% if recipe.subtitle %}
     <h2 class="subtitle">{{ recipe.subtitle }}</h2>
+    {% endif %}
     <div class="recipe-meta">
         <span class="meta-item">
-            <strong>Vanskelighetsgrad:</strong> {{ recipe.difficulty }}
+            <strong>{{ t.difficulty_label }}:</strong> {{ recipe.difficulty }}
         </span>
         <span class="meta-item">
-            <strong>Tidsbruk:</strong> {{ recipe.time_minutes }} minutter
+            <strong>{{ t.time_label }}:</strong> {{ recipe.time_minutes }} {{ t.minutes }}
         </span>
         <span class="meta-item">
-            <strong>Type:</strong> {{ recipe.category }}
+            <strong>{{ t.type_label }}:</strong> {{ recipe.category }}
         </span>
     </div>
 </div>
 
 {% if recipe.allergens %}
 <div class="allergens">
-    <h3>Allergener:</h3>
+    <h3>{{ t.allergens }}:</h3>
     <div class="allergen-list">
         {% for allergen in recipe.allergens %}
         <span class="allergen-badge">{{ allergen }}</span>
@@ -37,11 +42,10 @@
 
 <div class="recipe-content">
     <div class="ingredients-section">
-        <h2>Ingredienser</h2>
-        <p class="portions-label">4 porsjoner</p>
+        <h2>{{ t.ingredients }}</h2>
+        <p class="portions-label">{{ t.portions_label }}</p>
         <ul class="ingredient-list">
             {% if recipe.ingredients_included %}
-                {# Scraped recipes have ingredients_included #}
                 {% for ing in recipe.ingredients_included %}
                 <li>
                     <span class="ingredient-name">{{ ing.name }}</span>
@@ -51,7 +55,6 @@
                 </li>
                 {% endfor %}
             {% elif recipe.ingredients %}
-                {# Manual recipes have ingredients as array #}
                 {% for ing in recipe.ingredients %}
                 <li>
                     <span class="ingredient-name">{% if ing.name %}{{ ing.name }}{% else %}{{ ing.ingredient }}{% endif %}</span>
@@ -63,7 +66,7 @@
             {% endif %}
         </ul>
         {% if recipe.ingredients_not_included %}
-        <h3 class="pantry-header">Har du hjemme?</h3>
+        <h3 class="pantry-header">{{ t.pantry_items }}</h3>
         <ul class="ingredient-list pantry-list">
             {% for ing in recipe.ingredients_not_included %}
             <li>
@@ -78,7 +81,7 @@
     </div>
 
     <div class="instructions-section">
-        <h2>Fremgangsmåte</h2>
+        <h2>{{ t.instructions }}</h2>
 
         {% if recipe.instructions %}
         <div class="steps">
@@ -86,10 +89,8 @@
             <div class="step">
                 <div class="step-header">
                     {% if step.step %}
-                        {# Recipes with step objects #}
-                        <h3>Steg {{ step.step }}</h3>
+                        <h3>{{ t.step }} {{ step.step }}</h3>
                     {% else %}
-                        {# Fallback for string instructions #}
                         <h3>{{ step }}</h3>
                     {% endif %}
                 </div>
@@ -103,16 +104,15 @@
         </div>
         {% endif %}
     </div>
-
 </div>
 
 <div class="print-section">
-    <button onclick="window.print()" class="btn btn-secondary">Skriv ut oppskrift</button>
+    <button onclick="window.print()" class="btn btn-secondary">{{ t.print_recipe }}</button>
 </div>
 
 {% if recipe.comment %}
 <div class="comment-section" style="background: linear-gradient(135deg, #faf9f7 0%, #f5f1ed 100%); padding: 30px; border-radius: 12px; margin-top: 40px; border-left: 4px solid var(--color-primary, #d97706);">
-    <h2 style="margin-top: 0; color: var(--color-text-primary, #1a1a1a);">💡 Tips & Kommentar</h2>
+    <h2 style="margin-top: 0; color: var(--color-text-primary, #1a1a1a);">💡 {{ t.tips_comment }}</h2>
     <p style="white-space: pre-wrap; line-height: 1.8; color: var(--color-text-secondary, #666); font-size: 1rem;">{{ recipe.comment }}</p>
 </div>
 {% endif %}

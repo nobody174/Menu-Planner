@@ -48,7 +48,7 @@ def run_app_with_scheduler():
 
     try:
         logger.info("Starting Flask app on http://0.0.0.0:5000")
-        app.run(host='0.0.0.0', port=5000, debug=False, use_reloader=False)
+        app.run(host='0.0.0.0', port=5001, debug=False, use_reloader=False)
     except KeyboardInterrupt:
         logger.info("Application interrupted by user")
         scheduler.shutdown()
@@ -65,7 +65,7 @@ def run_app_only():
 
     try:
         logger.info("Starting Flask app on http://0.0.0.0:5000")
-        app.run(host='0.0.0.0', port=5000, debug=False)
+        app.run(host='0.0.0.0', port=5001, debug=False)
     except Exception as e:
         logger.error(f"Application error: {e}")
         sys.exit(1)

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}{{ household_name }} Ukesmeny{% endblock %}
+{% block title %}{{ household_name }} {{ t.weekly_menu }}{% endblock %}
 
 {% block content %}
 
@@ -9,10 +9,10 @@
    ───────────────────────────────────────────────────────────── #}
 <div id="layout-standard">
   <div class="hero">
-      <h1>{{ household_name }} Ukesmeny</h1>
-      <p class="week-range">{{ menu.week_start }} til {{ menu.week_end }}</p>
+      <h1>{{ household_name }} {{ t.weekly_menu }}</h1>
+      <p class="week-range">{{ menu.week_start }} – {{ menu.week_end }}</p>
       {% if menu.selected_categories %}
-      <p class="categories-info">Kategorier: {{ menu.selected_categories | join(', ') }}</p>
+      <p class="categories-info">{{ t.categories }}: {{ menu.selected_categories | join(', ') }}</p>
       {% endif %}
   </div>
 
@@ -21,21 +21,21 @@
       <div class="menu-card">
           <div class="card-header">
               <h2 class="day-name">{{ dinner.day }}</h2>
-              <span class="meal-time">{{ dinner.time_minutes }} min</span>
+              <span class="meal-time">{{ dinner.time_minutes }} {{ t.minutes }}</span>
           </div>
           <div class="card-body">
               <h3 class="recipe-title">{{ dinner.title }}</h3>
               <p class="difficulty">{{ dinner.difficulty }}</p>
           </div>
           <div class="card-footer">
-              <a href="/recipe/{{ dinner.recipe_id }}" class="btn btn-primary">Se oppskrift</a>
+              <a href="/recipe/{{ dinner.recipe_id }}" class="btn btn-primary">{{ t.view_recipe }}</a>
           </div>
       </div>
       {% endfor %}
   </div>
 
   <div class="actions">
-      <a href="/shopping" class="btn btn-secondary btn-large">Se handleliste</a>
+      <a href="/shopping" class="btn btn-secondary btn-large">{{ t.view_shopping_list }}</a>
   </div>
 </div>
 
@@ -45,7 +45,6 @@
    ───────────────────────────────────────────────────────────── #}
 <div id="layout-rich" style="display:none">
 
-  {# Decorative background orbs — CSS-only, no extra JS #}
   <div class="tc-orb tc-orb-tr"></div>
   <div class="tc-orb tc-orb-bl"></div>
 
@@ -54,21 +53,21 @@
     <div class="tc-header-left">
       <div class="tc-logo-row">
         <div class="tc-chef-icon">🍳</div>
-        <span class="tc-eyebrow">Familiens menyplan</span>
+        <span class="tc-eyebrow">{{ t.family_menu_plan }}</span>
       </div>
-      <h1 class="tc-title">{{ household_name }} Ukesmeny</h1>
+      <h1 class="tc-title">{{ household_name }} {{ t.weekly_menu }}</h1>
       <p class="tc-subtitle">{{ menu.week_start }} – {{ menu.week_end }}</p>
     </div>
     <div class="tc-header-actions">
-      <a href="/shopping" class="tc-btn-outline">🛒 Handleliste</a>
-      <a href="#" onclick="refreshMenu(); return false;" class="tc-btn-primary">↻ Ny meny</a>
+      <a href="/shopping" class="tc-btn-outline">🛒 {{ t.shopping_list }}</a>
+      <a href="#" onclick="refreshMenu(); return false;" class="tc-btn-primary">↻ {{ t.new_menu }}</a>
     </div>
   </div>
 
   {# ── Category pills ── #}
   {% if menu.selected_categories %}
   <div class="tc-pills">
-    {% set cat_icons = {'Familie': '👨‍👩‍👧', 'Populære': '🔥', 'Rask Middag': '⚡', 'Vegetar': '🌿', 'Vegansk': '🌱', 'Fisk': '🐟', 'Pasta': '🍝', 'Japansk': '🍱', 'Lavkarbo': '🥗', 'Enkelt': '✨'} %}
+    {% set cat_icons = {'Familie': '👨‍👩‍👧', 'Family': '👨‍👩‍👧', 'Populære': '🔥', 'Popular': '🔥', 'Rask Middag': '⚡', 'Quick Dinners': '⚡', 'Vegetar': '🌿', 'Vegetarian': '🌿', 'Vegansk': '🌱', 'Fisk': '🐟', 'Fish & Seafood': '🐟', 'Pasta': '🍝', 'Pasta & Noodles': '🍝', 'Japansk': '🍱', 'Lavkarbo': '🥗', 'Enkelt': '✨', 'Homemade': '🏠'} %}
     {% for cat in menu.selected_categories %}
     <span class="tc-pill tc-pill-active">{{ cat_icons.get(cat, '•') }} {{ cat }}</span>
     {% endfor %}
@@ -77,7 +76,6 @@
 
   {# ── Day selector ── #}
   <div class="tc-day-nav" id="tc-day-nav">
-    {% set days_short = ['Man', 'Tir', 'Ons', 'Tor', 'Fre', 'Lør', 'Søn'] %}
     {% for dinner in menu.dinners %}
     <button class="tc-day-btn{% if loop.first %} tc-day-active{% endif %}"
             data-day-index="{{ loop.index0 }}"
@@ -92,7 +90,6 @@
   <div class="tc-grid">
     {% for dinner in menu.dinners %}
     <div class="tc-card tc-card-anim tc-card-delay-{{ loop.index }}" data-day-index="{{ loop.index0 }}">
-      {# Image area — recipe image if available, gradient placeholder otherwise #}
       <div class="tc-card-img-wrap">
         {% if dinner.image_url %}
         <img src="{{ dinner.image_url }}" alt="{{ dinner.title }}" class="tc-card-img">
@@ -103,10 +100,9 @@
         {% endif %}
         <div class="tc-card-img-overlay">
           <span class="tc-day-badge">📅 {{ dinner.day }}</span>
-          <span class="tc-time-badge">🕐 {{ dinner.time_minutes }} min</span>
+          <span class="tc-time-badge">🕐 {{ dinner.time_minutes }} {{ t.minutes }}</span>
         </div>
       </div>
-      {# Card body #}
       <div class="tc-card-body">
         <h3 class="tc-card-title">{{ dinner.title }}</h3>
         {% if dinner.subtitle %}
@@ -123,7 +119,7 @@
             {% endif %}
           </div>
           <a href="/recipe/{{ dinner.recipe_id }}" class="tc-recipe-link">
-            Se oppskrift <span class="tc-arrow">→</span>
+            {{ t.view_recipe }} <span class="tc-arrow">→</span>
           </a>
         </div>
       </div>
@@ -134,29 +130,28 @@
   {# ── Weekly summary ── #}
   <div class="tc-summary">
     <div class="tc-summary-left">
-      <h3 class="tc-summary-title">Ukens oppsummering</h3>
-      <p class="tc-summary-sub">{{ menu.dinners | length }} middager planlagt</p>
+      <h3 class="tc-summary-title">{{ t.week_summary }}</h3>
+      <p class="tc-summary-sub">{{ menu.dinners | length }} {{ t.dinners_planned }}</p>
     </div>
     <div class="tc-summary-stats">
       {% set total_min = menu.dinners | sum(attribute='time_minutes') %}
       {% set avg_min = (total_min / menu.dinners | length) | int if menu.dinners | length > 0 else 0 %}
       <div class="tc-stat">
         <span class="tc-stat-icon">🕐</span>
-        <span class="tc-stat-value">{{ avg_min }} min</span>
-        <span class="tc-stat-label">Snitt</span>
+        <span class="tc-stat-value">{{ avg_min }} {{ t.minutes }}</span>
+        <span class="tc-stat-label">{{ t.average_time }}</span>
       </div>
       <div class="tc-stat-divider"></div>
-      {% set veg_count = menu.dinners | selectattr('categories') | list | length %}
       <div class="tc-stat">
         <span class="tc-stat-icon">🌿</span>
         <span class="tc-stat-value">{{ menu.dinners | selectattr('protein_type', 'equalto', 'vegetarian') | list | length }}</span>
-        <span class="tc-stat-label">Vegetar</span>
+        <span class="tc-stat-label">{{ t.vegetarian_count }}</span>
       </div>
       <div class="tc-stat-divider"></div>
       <div class="tc-stat">
         <span class="tc-stat-icon">👨‍🍳</span>
         <span class="tc-stat-value">{{ menu.dinners | length }}</span>
-        <span class="tc-stat-label">Retter</span>
+        <span class="tc-stat-label">{{ t.dishes }}</span>
       </div>
     </div>
   </div>
@@ -167,10 +162,10 @@
     <div class="tc-cta-orb tc-cta-orb-bl"></div>
     <div class="tc-cta-inner">
       <div>
-        <h3 class="tc-cta-title">Klar til å handle?</h3>
-        <p class="tc-cta-sub">Generer en handleliste basert på ukens meny.</p>
+        <h3 class="tc-cta-title">{{ t.ready_to_shop }}</h3>
+        <p class="tc-cta-sub">{{ t.generate_shopping_list }}</p>
       </div>
-      <a href="/shopping" class="tc-cta-btn">🛒 Lag handleliste</a>
+      <a href="/shopping" class="tc-cta-btn">🛒 {{ t.create_shopping_list }}</a>
     </div>
   </div>
 

@@ -1,3 +1,15 @@
+// ── i18n helper ───────────────────────────────────────────────────────────────
+// Safe wrapper: always returns a string, never exposes missing key names.
+function _t(key) {
+    // window.T is injected by base.html (server-rendered, always available synchronously)
+    if (window.T && window.T[key] !== undefined) return window.T[key];
+    if (window.languageManager && window.languageManager.translations) {
+        var val = window.languageManager.t(key);
+        if (val && val !== key) return val;
+    }
+    return key;
+}
+
 // ── Custom modal (replaces browser alert/confirm) ─────────────────────────────
 
 var _modalResolve = null;
@@ -61,12 +73,13 @@ function pmAlert(icon, title, message) {
 function pmConfirm(icon, title, message, okLabel, okClass) {
     _ensureModal();
     okClass = okClass || 'pm-btn-primary';
+    var cancelLabel = _t('cancel');
     document.getElementById('pm-modal-icon').textContent  = icon;
     document.getElementById('pm-modal-title').textContent = title;
     document.getElementById('pm-modal-msg').textContent   = message;
     var btns = document.getElementById('pm-modal-btns');
     btns.innerHTML = [
-        '<button class="pm-btn pm-btn-secondary" id="pm-cancel">Avbryt</button>',
+        '<button class="pm-btn pm-btn-secondary" id="pm-cancel">' + cancelLabel + '</button>',
         '<button class="pm-btn ' + okClass + '" id="pm-ok">' + (okLabel || 'OK') + '</button>'
     ].join('');
     document.getElementById('pm-modal').style.display = 'flex';
@@ -81,36 +94,95 @@ function pmConfirm(icon, title, message, okLabel, okClass) {
 // ── Terracotta theme: day selector ────────────────────────────────────────────
 
 function tcSelectDay(index) {
-    document.querySelectorAll('.tc-day-btn').forEach((btn, i) => {
+    document.querySelectorAll('.tc-day-btn').forEach(function(btn, i) {
         btn.classList.toggle('tc-day-active', i === index);
     });
-    const card = document.querySelector(`.tc-card[data-day-index="${index}"]`);
+    var card = document.querySelector('.tc-card[data-day-index="' + index + '"]');
     if (card) card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
 // ── Category dropdown ─────────────────────────────────────────────────────────
 
+// Default categories (fallback if API fails)
+var DEFAULT_CATEGORIES = [
+    { value: 'Quick Dinners', i18n_key: 'quick_dinners' },
+    { value: 'Pasta & Noodles', i18n_key: 'pasta_noodles' },
+    { value: 'Chicken', i18n_key: 'chicken' },
+    { value: 'Ground Meat & Sausages', i18n_key: 'ground_meat' },
+    { value: 'Fish & Seafood', i18n_key: 'fish_seafood' },
+    { value: 'Taco & Tex-Mex', i18n_key: 'taco_texmex' },
+    { value: 'Grill', i18n_key: 'grill' },
+    { value: 'Soups & Stews', i18n_key: 'soups_stews' },
+    { value: 'Vegetarian', i18n_key: 'vegetarian' },
+    { value: 'Homemade', i18n_key: 'homemade' }
+];
+
+async function loadCategories() {
+    try {
+        var resp = await fetch('/api/categories');
+        if (!resp.ok) throw new Error('Failed to load categories');
+        var cats = await resp.json();
+        renderCategories(cats);
+    } catch (err) {
+        console.error('Error loading categories:', err);
+        // Fallback to default categories
+        renderCategories(DEFAULT_CATEGORIES);
+    }
+}
+
+function renderCategories(cats) {
+    var container = document.getElementById('dynamicCategoriesList');
+    if (!container) return;
+    container.innerHTML = '';
+
+    // Get saved categories
+    var saved = localStorage.getItem('selectedCategories');
+    var savedCats = saved ? JSON.parse(saved) : ['Quick Dinners', 'Pasta & Noodles', 'Chicken', 'Ground Meat & Sausages', 'Fish & Seafood'];
+
+    // Handle both array and object with 'categories' key
+    var catList = Array.isArray(cats) ? cats : (cats.categories || []);
+
+    catList.forEach(function(cat) {
+        var label = document.createElement('label');
+        var checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        // Use name_en as the value (the English category name for the menu generator)
+        var categoryValue = cat.name_en || cat.name || cat.value || '';
+        checkbox.value = categoryValue;
+        checkbox.checked = savedCats.includes(categoryValue);
+
+        // Display the translated name with icon
+        var displayName = cat.name || cat.name_en || categoryValue;
+        var icon = cat.icon || '';
+        label.appendChild(checkbox);
+        if (icon) {
+            label.appendChild(document.createTextNode(' ' + icon + ' '));
+        } else {
+            label.appendChild(document.createTextNode(' '));
+        }
+        label.appendChild(document.createTextNode(displayName));
+        container.appendChild(label);
+    });
+}
+
 function toggleCategoryDropdown(event) {
     event.stopPropagation();
-    const menu = document.getElementById('categoryDropdownMenu');
+    var menu = document.getElementById('categoryDropdownMenu');
     if (menu) menu.classList.toggle('open');
 }
 
 document.addEventListener('click', function(e) {
-    const wrapper = document.getElementById('categoryDropdownWrapper');
+    var wrapper = document.getElementById('categoryDropdownWrapper');
     if (wrapper && !wrapper.contains(e.target)) {
-        const menu = document.getElementById('categoryDropdownMenu');
+        var menu = document.getElementById('categoryDropdownMenu');
         if (menu) menu.classList.remove('open');
     }
 });
 
 function getSelectedCategories() {
-    // Try localStorage first, fall back to current checkboxes
     var saved = localStorage.getItem('selectedCategories');
     if (saved) {
-        try {
-            return JSON.parse(saved);
-        } catch(e) {}
+        try { return JSON.parse(saved); } catch(e) {}
     }
     var selected = [];
     document.querySelectorAll('#categoryDropdownMenu input[type="checkbox"]').forEach(function(cb) {
@@ -120,7 +192,6 @@ function getSelectedCategories() {
 }
 
 function applyCategories() {
-    // Save selected categories to localStorage, then close dropdown
     var cats = [];
     document.querySelectorAll('#categoryDropdownMenu input[type="checkbox"]').forEach(function(cb) {
         if (cb.checked) cats.push(cb.value);
@@ -130,51 +201,55 @@ function applyCategories() {
     var menu = document.getElementById('categoryDropdownMenu');
     if (menu) menu.classList.remove('open');
 
-    pmAlert('✅', 'Kategorier lagret', 'Valgte kategorier er lagret. Velg "Generer ny meny" når du er klar.');
+    pmAlert('✅', _t('categories_saved_title'), _t('categories_saved_msg'));
 }
 
 // ── Menu generation ───────────────────────────────────────────────────────────
 
 function refreshMenu() {
-    const categories = getSelectedCategories();
-    console.log('Regenerating with categories:', categories);
+    var categories = getSelectedCategories();
 
     if (categories.length === 0) {
-        pmAlert('⚠️', 'Ingen kategori valgt', 'Velg minst én kategori før du genererer ny meny.');
+        pmAlert('⚠️', _t('no_category_title'), _t('no_category_msg'));
         return;
     }
 
     pmConfirm(
         '🍽️',
-        'Generer ny ukemeny?',
-        'Dette vil erstatte den eksisterende menyen med nye oppskrifter.',
-        'Generer',
+        _t('generate_confirm_title'),
+        _t('generate_confirm_msg'),
+        _t('generate_label'),
         'pm-btn-primary'
     ).then(function(confirmed) {
         if (!confirmed) return;
 
         var navLink = document.querySelector('a[onclick="refreshMenu()"]');
-        if (navLink) { navLink.textContent = 'Genererer…'; navLink.style.opacity = '.6'; }
+        if (navLink) { navLink.textContent = _t('generating'); navLink.style.opacity = '.6'; }
 
         fetch('/api/regenerate', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ categories: categories })
         })
-        .then(r => r.json())
+        .then(function(r) { return r.json(); })
         .then(function(data) {
             if (data.status === 'success') {
-                pmAlert('✅', 'Ny meny klar!', 'Ukemenyen er oppdatert med nye oppskrifter.').then(function() {
+                pmAlert('✅', _t('menu_ready'), _t('menu_updated')).then(function() {
+                    // Ensure language cookie is synced before reload
+                    var stored = localStorage.getItem('pi-menu-language');
+                    if (stored) {
+                        document.cookie = 'pi_language=' + stored + '; path=/; max-age=31536000; SameSite=Lax';
+                    }
                     location.reload();
                 });
             } else {
-                pmAlert('❌', 'Noe gikk galt', 'Feil ved generering: ' + (data.message || 'ukjent feil'));
-                if (navLink) { navLink.textContent = 'Generer ny meny'; navLink.style.opacity = ''; }
+                pmAlert('❌', _t('generation_failed'), _t('generation_error') + ': ' + (data.message || ''));
+                if (navLink) { navLink.textContent = _t('generate_menu'); navLink.style.opacity = ''; }
             }
         })
         .catch(function() {
-            pmAlert('❌', 'Serverfeil', 'Kunne ikke kontakte serveren. Prøv igjen.');
-            if (navLink) { navLink.textContent = 'Generer ny meny'; navLink.style.opacity = ''; }
+            pmAlert('❌', _t('server_error'), _t('server_error_msg'));
+            if (navLink) { navLink.textContent = _t('generate_menu'); navLink.style.opacity = ''; }
         });
     });
 }
@@ -182,7 +257,7 @@ function refreshMenu() {
 // ── Category selection persistence ────────────────────────────────────────────
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Load saved category selection
+    loadCategories();
     var saved = localStorage.getItem('selectedCategories');
     if (saved) {
         try {
@@ -197,8 +272,8 @@ document.addEventListener('DOMContentLoaded', function() {
 // ── Favorite/Star system ─────────────────────────────────────────────────────
 
 function toggleFavorite(recipeId, btn) {
-    const favKey = 'favorite-' + recipeId;
-    const isFavorited = localStorage.getItem(favKey) === 'true';
+    var favKey = 'favorite-' + recipeId;
+    var isFavorited = localStorage.getItem(favKey) === 'true';
 
     if (isFavorited) {
         localStorage.removeItem(favKey);
@@ -212,20 +287,22 @@ function toggleFavorite(recipeId, btn) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Restore favorite star state
-    const favBtn = document.getElementById('favoriteBtn');
+    var favBtn = document.getElementById('favoriteBtn');
     if (favBtn) {
-        const recipeId = favBtn.getAttribute('onclick').match(/'([^']+)'/)[1];
-        if (localStorage.getItem('favorite-' + recipeId) === 'true') {
-            favBtn.textContent = '★';
-            favBtn.style.color = 'var(--color-primary, #d97706)';
+        var match = favBtn.getAttribute('onclick').match(/'([^']+)'/);
+        if (match) {
+            var recipeId = match[1];
+            if (localStorage.getItem('favorite-' + recipeId) === 'true') {
+                favBtn.textContent = '★';
+                favBtn.style.color = 'var(--color-primary, #d97706)';
+            }
         }
     }
 });
 
 function getFavoriteRecipes() {
-    const favorites = [];
-    for (let key in localStorage) {
+    var favorites = [];
+    for (var key in localStorage) {
         if (key.startsWith('favorite-')) {
             favorites.push(key.replace('favorite-', ''));
         }
@@ -237,7 +314,7 @@ function getFavoriteRecipes() {
 
 function toggleSettingsMenu(event) {
     event.stopPropagation();
-    const dropdown = document.getElementById('settings-dropdown');
+    var dropdown = document.getElementById('settings-dropdown');
     if (dropdown) {
         dropdown.classList.toggle('open');
     }
@@ -246,28 +323,29 @@ function toggleSettingsMenu(event) {
 function openThemeMenu(event) {
     event.preventDefault();
     event.stopPropagation();
-    const submenu = document.getElementById('theme-submenu');
+    var submenu = document.getElementById('theme-submenu');
     if (submenu) {
         submenu.style.display = submenu.style.display === 'none' ? 'block' : 'none';
     }
 }
 
 function switchTheme(theme, event) {
-    event.preventDefault();
-    event.stopPropagation();
-    // Trigger theme change through existing theme manager if available
-    const themeOption = document.querySelector(`.theme-option[data-theme="${theme}"]`);
-    if (themeOption) {
-        themeOption.click && themeOption.click();
+    if (event) {
+        event.preventDefault();
+        event.stopPropagation();
     }
-    // Close menu after selection
-    document.getElementById('settings-dropdown').classList.remove('open');
+    if (window.themeManager) {
+        window.themeManager.applyTheme(theme);
+        localStorage.setItem('pi-menu-theme', theme);
+        window.themeManager.markActiveTheme();
+    }
+    var dropdown = document.getElementById('settings-dropdown');
+    if (dropdown) dropdown.classList.remove('open');
 }
 
-// Close settings menu when clicking outside
 document.addEventListener('click', function(e) {
-    const settingsMenu = document.querySelector('.nav-settings-menu');
-    const dropdown = document.getElementById('settings-dropdown');
+    var settingsMenu = document.querySelector('.nav-settings-menu');
+    var dropdown = document.getElementById('settings-dropdown');
     if (settingsMenu && dropdown && !settingsMenu.contains(e.target)) {
         dropdown.classList.remove('open');
     }
@@ -276,9 +354,9 @@ document.addEventListener('click', function(e) {
 // ── Shopping list persistence ─────────────────────────────────────────────────
 
 document.addEventListener('DOMContentLoaded', function() {
-    const checkboxes = document.querySelectorAll('.shopping-checkbox');
-    checkboxes.forEach(checkbox => {
-        const key = 'shopping-' + checkbox.parentElement.textContent.trim();
+    var checkboxes = document.querySelectorAll('.shopping-checkbox');
+    checkboxes.forEach(function(checkbox) {
+        var key = 'shopping-' + checkbox.parentElement.textContent.trim();
         checkbox.addEventListener('change', function() {
             localStorage.setItem(key, this.checked);
         });
@@ -288,11 +366,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// ── Language switching ────────────────────────────────────────────────────
+// ── Language switching ────────────────────────────────────────────────────────
+
 function switchLanguage(lang) {
     if (window.languageManager) {
         window.languageManager.setLanguage(lang);
-        window.languageManager.applyLanguage();
+        // Set a cookie so Flask can read it server-side
+        document.cookie = 'pi_language=' + lang + '; path=/; max-age=31536000; SameSite=Lax';
         location.reload();
     }
 }

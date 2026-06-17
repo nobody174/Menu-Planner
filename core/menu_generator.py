@@ -5,6 +5,7 @@
 # License: MIT
 #
 
+import copy
 import json
 import logging
 import random
@@ -28,6 +29,7 @@ logger = logging.getLogger(__name__)
 
 DATA_DIR = Path('data')
 RECIPES_DB_FILE = DATA_DIR / 'sample_recipes.json'
+RECIPES_IMPORTED_FILE = DATA_DIR / 'recipes_db.json'
 CATEGORIES_FILE = DATA_DIR / 'categories.json'
 MENU_OUTPUT_FILE = DATA_DIR / 'weekly_menu.json'
 
@@ -36,7 +38,7 @@ ORANGE_KEYWORDS = [
     'orange zest', 'orange marmelade', 'oransjemost'
 ]
 
-DAYS = ['Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag']
+DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 
 PROTEIN_KEYWORDS = {
     'chicken': ['kylling', 'chicken', 'høne'],
@@ -56,7 +58,7 @@ class MenuGenerator:
             logger.info(f"Seeded with: {seed}")
 
         self.categories = self.load_categories()
-        self.selected_categories = selected_categories or ['familie', 'rask']  # Default categories
+        self.selected_categories = selected_categories or ['Quick Dinners', 'Fish & Seafood', 'Vegetarian']
         self.recipes_db = []
         self.deduplicator = IngredientDeduplicator()
         self.filtered_recipes = []
@@ -73,29 +75,52 @@ class MenuGenerator:
         return []
 
     def load_recipes(self) -> bool:
-        """Load recipes from sample_recipes.json and filter by selected categories"""
+        """Load recipes from sample_recipes.json and recipes_db.json, filter by selected categories."""
         self.recipes_db = []
+        all_recipes = []
 
-        if not RECIPES_DB_FILE.exists():
-            logger.error(f"Recipes database not found: {RECIPES_DB_FILE}")
+        # Load base sample recipes
+        if RECIPES_DB_FILE.exists():
+            try:
+                with open(RECIPES_DB_FILE, 'r', encoding='utf-8') as f:
+                    all_recipes.extend(json.load(f))
+            except Exception as e:
+                logger.error(f"Error loading {RECIPES_DB_FILE}: {e}")
+
+        # Also load imported pack recipes
+        if RECIPES_IMPORTED_FILE.exists():
+            try:
+                with open(RECIPES_IMPORTED_FILE, 'r', encoding='utf-8') as f:
+                    all_recipes.extend(json.load(f))
+            except Exception as e:
+                logger.error(f"Error loading {RECIPES_IMPORTED_FILE}: {e}")
+
+        if not all_recipes:
+            logger.error("No recipes found in any database file.")
             return False
 
-        try:
-            with open(RECIPES_DB_FILE, 'r', encoding='utf-8') as f:
-                all_recipes = json.load(f)
+        # Filter by selected categories (case-insensitive)
+        selected_lower = [c.lower() for c in self.selected_categories]
+        seen_ids = set()
+        for recipe in all_recipes:
+            rid = recipe.get('id', '')
+            if rid in seen_ids:
+                continue
+            seen_ids.add(rid)
+            category = recipe.get('category', '').lower()
+            if not self.selected_categories or category in selected_lower:
+                # Deep copy to preserve original bilingual data
+                recipe_copy = copy.deepcopy(recipe)
+                # For filtering, add flattened versions of text fields
+                # Keep originals intact for bilingual support
+                for field in ('title', 'subtitle', 'description', 'comment'):
+                    val = recipe_copy.get(field)
+                    if isinstance(val, dict):
+                        # Store flattened English version in a temporary field for filtering
+                        recipe_copy[f'_filter_{field}'] = val.get('en') or val.get('no') or ''
+                self.recipes_db.append(recipe_copy)
 
-            # Filter by selected categories
-            for recipe in all_recipes:
-                category = recipe.get('category', '').lower()
-                if category in self.selected_categories:
-                    self.recipes_db.append(recipe)
-
-            logger.info(f"Loaded {len(self.recipes_db)} recipes from {RECIPES_DB_FILE} (filtered by {self.selected_categories})")
-        except Exception as e:
-            logger.error(f"Error loading recipes: {e}")
-            return False
-
-        logger.info(f"Total recipes loaded: {len(self.recipes_db)}")
+        logger.info(f"Loaded {len(self.recipes_db)} recipes (filtered by {self.selected_categories})")
         return len(self.recipes_db) > 0
 
     def contains_orange(self, text: str) -> bool:
@@ -108,9 +133,25 @@ class MenuGenerator:
         self.filtered_recipes = []
 
         for recipe in self.recipes_db:
-            title = recipe.get('title', '')
-            subtitle = recipe.get('subtitle', '')
-            description = recipe.get('description', '')
+            # Use flattened filter fields if available, otherwise use original fields
+            title = recipe.get('_filter_title', '')
+            if not title and isinstance(recipe.get('title'), dict):
+                title = recipe['title'].get('en') or recipe['title'].get('no') or ''
+            elif not title:
+                title = recipe.get('title', '')
+
+            subtitle = recipe.get('_filter_subtitle', '')
+            if not subtitle and isinstance(recipe.get('subtitle'), dict):
+                subtitle = recipe['subtitle'].get('en') or recipe['subtitle'].get('no') or ''
+            elif not subtitle:
+                subtitle = recipe.get('subtitle', '')
+
+            description = recipe.get('_filter_description', '')
+            if not description and isinstance(recipe.get('description'), dict):
+                description = recipe['description'].get('en') or recipe['description'].get('no') or ''
+            elif not description:
+                description = recipe.get('description', '')
+
             allergens = recipe.get('allergens', [])
 
             if self.contains_orange(title) or self.contains_orange(subtitle) or self.contains_orange(description):
@@ -162,7 +203,12 @@ class MenuGenerator:
             random.shuffle(available_recipes)
 
             for recipe in available_recipes:
-                protein = self.get_protein_type(recipe['title'])
+                title = recipe.get('title')
+                if isinstance(title, dict):
+                    title_str = title.get('en') or title.get('no') or ''
+                else:
+                    title_str = title or ''
+                protein = self.get_protein_type(title_str)
 
                 if last_protein and protein == last_protein:
                     continue
@@ -173,13 +219,23 @@ class MenuGenerator:
 
             if not best_recipe:
                 best_recipe = available_recipes[0]
-                best_protein = self.get_protein_type(best_recipe['title'])
+                title = best_recipe.get('title')
+                if isinstance(title, dict):
+                    title_str = title.get('en') or title.get('no') or ''
+                else:
+                    title_str = title or ''
+                best_protein = self.get_protein_type(title_str)
 
             selected_recipes.append(best_recipe)
             available_recipes.remove(best_recipe)
             last_protein = best_protein
 
-            logger.info(f"Selected for {DAYS[i]}: {best_recipe['title']} ({best_protein})")
+            title = best_recipe.get('title')
+            if isinstance(title, dict):
+                title_str = title.get('en') or title.get('no') or ''
+            else:
+                title_str = title or ''
+            logger.info(f"Selected for {DAYS[i]}: {title_str} ({best_protein})")
 
         recipe_ids = [r['id'] for r in selected_recipes]
         shopping_list = self.deduplicator.deduplicate_from_recipes(recipe_ids)['shopping_list']
@@ -187,22 +243,46 @@ class MenuGenerator:
         week_start = self.get_next_monday()
         week_end = week_start + timedelta(days=5)  # Monday to Saturday = 5 days difference
 
+        dinners = []
+        for i, recipe in enumerate(selected_recipes):
+            title = recipe.get('title')
+            if isinstance(title, dict):
+                title_en = title.get('en', '')
+                title_no = title.get('no', '')
+            else:
+                title_en = recipe.get('title_en', title or '')
+                title_no = recipe.get('title_no', title or '')
+
+            subtitle = recipe.get('subtitle')
+            if isinstance(subtitle, dict):
+                subtitle_en = subtitle.get('en', '')
+                subtitle_no = subtitle.get('no', '')
+            else:
+                subtitle_en = recipe.get('subtitle_en', subtitle or '')
+                subtitle_no = recipe.get('subtitle_no', subtitle or '')
+
+            # Use English title for protein detection
+            protein_title = title_en or title_no or ''
+
+            dinners.append({
+                'day': DAYS[i],
+                'recipe_id': recipe['id'],
+                'title': recipe['title'],
+                'title_no': title_no,
+                'title_en': title_en,
+                'time_minutes': recipe.get('time_minutes', 0),
+                'difficulty': recipe.get('difficulty', ''),
+                'protein': self.get_protein_type(protein_title),
+                'subtitle_no': subtitle_no,
+                'subtitle_en': subtitle_en
+            })
+
         menu = {
             'week_start': week_start.strftime('%Y-%m-%d'),
             'week_end': week_end.strftime('%Y-%m-%d'),
             'generated_at': datetime.now().isoformat(),
             'selected_categories': self.selected_categories,
-            'dinners': [
-                {
-                    'day': DAYS[i],
-                    'recipe_id': recipe['id'],
-                    'title': recipe['title'],
-                    'time_minutes': recipe.get('time_minutes', 0),
-                    'difficulty': recipe.get('difficulty', ''),
-                    'protein': self.get_protein_type(recipe['title'])
-                }
-                for i, recipe in enumerate(selected_recipes)
-            ],
+            'dinners': dinners,
             'shopping_list': shopping_list
         }
 
@@ -237,7 +317,10 @@ class MenuGenerator:
         if not self.load_recipes():
             return {}
 
-        if not self.deduplicator.load_recipes(RECIPES_DB_FILE):
+        # Pass all loaded recipes directly to deduplicator
+        if self.recipes_db:
+            self.deduplicator.recipes_db = self.recipes_db
+        elif not self.deduplicator.load_recipes(RECIPES_DB_FILE):
             logger.warning("Deduplicator could not load recipes")
 
         self.filter_recipes()
@@ -259,7 +342,12 @@ class MenuGenerator:
         logger.info(f"\n=== WEEKLY MENU ({menu['week_start']} to {menu['week_end']}) ===\n")
 
         for dinner in menu['dinners']:
-            logger.info(f"{dinner['day']:12} | {dinner['title']:50} | {dinner['time_minutes']} min | {dinner['difficulty']}")
+            title = dinner.get('title')
+            if isinstance(title, dict):
+                title_str = title.get('en') or title.get('no') or ''
+            else:
+                title_str = title or ''
+            logger.info(f"{dinner['day']:12} | {title_str:50} | {dinner['time_minutes']} min | {dinner['difficulty']}")
 
         logger.info(f"\n=== SHOPPING LIST ===\n")
 

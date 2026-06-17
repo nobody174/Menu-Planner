@@ -15,6 +15,147 @@ from datetime import datetime
 import sys
 from dotenv import load_dotenv
 
+# ── i18n helpers ─────────────────────────────────────────────────────────────
+
+_I18N_CACHE = None
+
+def _load_i18n():
+    global _I18N_CACHE
+    if _I18N_CACHE is None:
+        i18n_path = Path(__file__).parent.parent / 'frontend' / 'static' / 'i18n.json'
+        try:
+            with open(i18n_path, 'r', encoding='utf-8') as f:
+                _I18N_CACHE = json.load(f)
+        except Exception as e:
+            _I18N_CACHE = {}
+            print(f"WARNING: Could not load i18n.json: {e}")
+    return _I18N_CACHE
+
+def _get_lang():
+    """Read language from cookie, fallback to 'en'."""
+    lang = request.cookies.get('pi_language', 'en')
+    return lang if lang in ('en', 'no') else 'en'
+
+def _make_t(lang):
+    """Return a dict of {key: translated_value} for the given language."""
+    raw = _load_i18n()
+    result = {}
+    suffix = '_' + lang
+    fallback_suffix = '_en'
+    for full_key, value in raw.items():
+        if full_key.endswith(suffix):
+            base = full_key[:-len(suffix)]
+            result[base] = value
+    # Fill in English fallbacks for any missing keys
+    for full_key, value in raw.items():
+        if full_key.endswith(fallback_suffix):
+            base = full_key[:-len(fallback_suffix)]
+            if base not in result:
+                result[base] = value
+    return result
+
+def _resolve(val, lang):
+    """Resolve a bilingual dict {'no': ..., 'en': ...} or plain string to a single string."""
+    if isinstance(val, dict):
+        return val.get(lang) or val.get('en') or val.get('no') or ''
+    return val or ''
+
+# Difficulty normalisation map (Norwegian → English)
+_DIFFICULTY_MAP = {
+    'enkel': 'Easy', 'easy': 'Easy',
+    'middels': 'Medium', 'medium': 'Medium',
+    'vanskelig': 'Hard', 'hard': 'Hard',
+}
+
+def _normalize_difficulty(val):
+    if isinstance(val, dict):
+        val = val.get('en') or val.get('no') or ''
+    if not val:
+        return 'Easy'
+    return _DIFFICULTY_MAP.get(str(val).lower(), val)
+
+def _normalize_recipe(recipe, lang='en'):
+    """Flatten all bilingual dict fields in a recipe to plain strings for the given lang."""
+    r = dict(recipe)
+    # Handle both formats: bilingual dict {'no': ..., 'en': ...} and separate _no/_en fields
+    # Prefer language-specific _no/_en fields, fall back to dict format, then fallback to plain string
+    for field in ('title', 'subtitle', 'description', 'comment'):
+        # First check for _no/_en suffix fields (sample_recipes.json format)
+        if r.get(f'{field}_{lang}'):
+            r[field] = r[f'{field}_{lang}']
+        # Then check for dict format
+        elif isinstance(r.get(field), dict):
+            r[field] = r[field].get(lang) or r[field].get('en') or r[field].get('no') or ''
+        # Keep plain string as-is, but only if no language-specific version exists
+        elif not isinstance(r.get(field), dict) and not r.get(f'{field}_{lang}'):
+            # Try fallback fields if language-specific not found
+            if lang != 'en' and r.get(f'{field}_en'):
+                r[field] = r.get(f'{field}_en')
+        # If field is missing entirely, ensure it's empty string
+        if field not in r or r[field] is None:
+            r[field] = ''
+
+    # time_minutes may be stored as cookTimeMinutes in pack recipes
+    if 'time_minutes' not in r or not r.get('time_minutes'):
+        r['time_minutes'] = r.get('cookTimeMinutes', r.get('time_minutes', 30))
+
+    # Difficulty: flatten + normalise
+    r['difficulty'] = _normalize_difficulty(_resolve(r.get('difficulty'), lang))
+
+    # Ingredients: support pack schema, sample_recipes _no/_en fields, and simple strings
+    new_ings = []
+    for ing in r.get('ingredients', []):
+        if isinstance(ing, dict):
+            # Try to get bilingual name: dict format, then _no/_en fields, then plain 'name'
+            if isinstance(ing.get('name'), dict):
+                name = _resolve(ing.get('name'), lang)
+            else:
+                name = ing.get(f'name_{lang}') or ing.get('name_en') or ing.get('name') or ''
+            qty  = ing.get('quantity', ing.get('amount', 0))
+            unit = ing.get('unit', '')
+            if isinstance(unit, dict):
+                unit = _resolve(unit, lang)
+            new_ings.append({'name': name, 'quantity': qty, 'unit': unit})
+        else:
+            new_ings.append(ing)
+    r['ingredients'] = new_ings
+    # Also flatten ingredients_included / ingredients_not_included if present
+    for field in ('ingredients_included', 'ingredients_not_included'):
+        if r.get(field):
+            flat = []
+            for ing in r[field]:
+                if isinstance(ing, dict):
+                    # Try to get bilingual name: dict format, then _no/_en fields, then plain 'name'
+                    if isinstance(ing.get('name'), dict):
+                        name = _resolve(ing.get('name'), lang)
+                    else:
+                        name = ing.get(f'name_{lang}') or ing.get('name_en') or ing.get('name') or ''
+                    qty  = ing.get('quantity', ing.get('amount', 0))
+                    unit = ing.get('unit', '')
+                    if isinstance(unit, dict):
+                        unit = _resolve(unit, lang)
+                    flat.append({'name': name, 'quantity': qty, 'unit': unit})
+                else:
+                    flat.append(ing)
+            r[field] = flat
+
+    # Instructions: support {no: [...], en: [...]} or [{step, description}] or [str]
+    raw_inst = r.get('instructions', [])
+    if isinstance(raw_inst, dict):
+        steps = raw_inst.get(lang) or raw_inst.get('en') or []
+        r['instructions'] = [{'step': i+1, 'description': s} for i, s in enumerate(steps)]
+    elif isinstance(raw_inst, list) and raw_inst:
+        # Already a list — normalise any dict entries
+        norm = []
+        for i, s in enumerate(raw_inst):
+            if isinstance(s, dict):
+                norm.append({'step': s.get('step', i+1), 'description': _resolve(s.get('description'), lang)})
+            else:
+                norm.append({'step': i+1, 'description': str(s)})
+        r['instructions'] = norm
+
+    return r
+
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 # Load .env from project root
@@ -58,12 +199,16 @@ logger.info(f"Flask static: {app.static_folder}")
 
 @app.context_processor
 def inject_config():
-    """Inject configuration into all templates"""
+    """Inject configuration and i18n into all templates."""
+    lang = _get_lang()
+    t = _make_t(lang)
     return {
         'household_name': os.getenv('HOUSEHOLD_NAME', '{Family_Name}'),
         'creator': 'nobody174',
         'github_url': 'https://github.com/nobody174/Pi-Menu-Public',
-        'patreon_url': 'https://www.patreon.com/c/Nobody174'
+        'patreon_url': 'https://www.patreon.com/c/Nobody174',
+        'lang': lang,
+        't': t,
     }
 
 # ── Helpers ──────────────────────────────────────────────────────────────────
@@ -81,19 +226,73 @@ def load_recipes_db():
     return []
 
 def find_recipe(recipe_id):
-    recipes = load_recipes_db()
-    return next((r for r in recipes if r['id'] == recipe_id), None)
+    # Search recipes_db.json first, then sample_recipes.json
+    all_recipes = load_recipes_db()
+    sample_path = DATA_DIR / 'sample_recipes.json'
+    if sample_path.exists():
+        try:
+            with open(sample_path, 'r', encoding='utf-8') as f:
+                all_recipes = all_recipes + json.load(f)
+        except Exception:
+            pass
+    return next((r for r in all_recipes if r['id'] == recipe_id), None)
 
 def _redirect_uri():
     return os.getenv("AZURE_REDIRECT_URI", "http://pi-menu.local:5000/callback")
 
 # ── Page routes ───────────────────────────────────────────────────────────────
 
+_DAY_TRANSLATIONS = {
+    'no': {
+        'Monday': 'Mandag', 'Tuesday': 'Tirsdag', 'Wednesday': 'Onsdag',
+        'Thursday': 'Torsdag', 'Friday': 'Fredag', 'Saturday': 'Lørdag', 'Sunday': 'Søndag'
+    }
+}
+
 @app.route('/')
 def dashboard():
     menu = load_menu()
     if not menu:
         return render_template('error.html', message='No menu generated yet'), 404
+    lang = _get_lang()
+    # Translate day names, difficulty, and categories for the current language
+    day_map = _DAY_TRANSLATIONS.get(lang, {})
+    t_dict = _make_t(lang)
+    diff_map = {
+        'Easy': t_dict.get('easy', 'Easy'),
+        'Medium': t_dict.get('medium', 'Medium'),
+        'Hard': t_dict.get('hard', 'Hard'),
+    }
+    # Category translation map
+    cat_map = {
+        'Quick Dinners': t_dict.get('quick_dinners', 'Quick Dinners'),
+        'Pasta & Noodles': t_dict.get('pasta_noodles', 'Pasta & Noodles'),
+        'Chicken': t_dict.get('chicken', 'Chicken'),
+        'Ground Meat & Sausages': t_dict.get('ground_meat', 'Ground Meat & Sausages'),
+        'Fish & Seafood': t_dict.get('fish_seafood', 'Fish & Seafood'),
+        'Taco & Tex-Mex': t_dict.get('taco_texmex', 'Taco & Tex-Mex'),
+        'Grill': t_dict.get('grill', 'Grill'),
+        'Soups & Stews': t_dict.get('soups_stews', 'Soups & Stews'),
+        'Vegetarian': t_dict.get('vegetarian', 'Vegetarian'),
+        'Homemade': t_dict.get('homemade', 'Homemade'),
+    }
+    import copy
+    menu = copy.deepcopy(menu)
+    # Translate categories
+    if menu.get('selected_categories'):
+        menu['selected_categories'] = [cat_map.get(c, c) for c in menu['selected_categories']]
+    for dinner in menu.get('dinners', []):
+        if dinner.get('day') in day_map:
+            dinner['day'] = day_map[dinner['day']]
+        # Always normalize & translate difficulty
+        d = dinner.get('difficulty', '')
+        d_normalized = _normalize_difficulty(d)
+        dinner['difficulty'] = diff_map.get(d_normalized, d_normalized)
+        # Resolve title to correct language (use _no/_en fields from menu JSON)
+        dinner['title'] = dinner.get(f'title_{lang}') or dinner.get('title_en') or dinner.get('title') or ''
+        # Also resolve subtitle if available
+        if f'subtitle_{lang}' in dinner or 'subtitle_en' in dinner:
+            dinner['subtitle'] = dinner.get(f'subtitle_{lang}') or dinner.get('subtitle_en') or dinner.get('subtitle') or ''
     logger.info("Dashboard accessed")
     return render_template('index.html', menu=menu)
 
@@ -115,8 +314,10 @@ def recipe_detail(recipe_id):
         recipe = find_recipe(recipe_id)
 
     if not recipe:
-        return render_template('error.html', message=f'Oppskrift ikke funnet: {recipe_id}'), 404
+        return render_template('error.html', message=f'Recipe not found: {recipe_id}'), 404
 
+    lang = _get_lang()
+    recipe = _normalize_recipe(recipe, lang)
     logger.info(f"Recipe detail accessed: {recipe_id}")
     return render_template('recipe.html', recipe=recipe)
 
@@ -125,7 +326,68 @@ def shopping_list():
     menu = load_menu()
     if not menu or 'shopping_list' not in menu:
         return render_template('error.html', message='No shopping list available'), 404
-    return render_template('shopping.html', shopping_list=menu['shopping_list'])
+
+    lang = _get_lang()
+    if lang == 'no':
+        # Rebuild shopping list ingredient names in Norwegian from the recipe data
+        shopping = {}
+        recipe_ids = [d['recipe_id'] for d in menu.get('dinners', [])]
+        all_recipes_raw = []
+        # Load from all sources: sample recipes, imported recipes, and recipe packs
+        for db_path in (DATA_DIR / 'sample_recipes.json', DATA_DIR / 'recipes_db.json'):
+            if db_path.exists():
+                try:
+                    with open(db_path, 'r', encoding='utf-8') as f:
+                        all_recipes_raw.extend(json.load(f))
+                except Exception:
+                    pass
+        # Also load from recipe packs (which have bilingual data)
+        packs_dir = DATA_DIR / 'recipe-packs'
+        if packs_dir.exists():
+            for pack_file in packs_dir.glob('*.json'):
+                try:
+                    with open(pack_file, 'r', encoding='utf-8') as f:
+                        pack = json.load(f)
+                        all_recipes_raw.extend(pack.get('recipes', []))
+                except Exception:
+                    pass
+        recipes_by_id = {r['id']: r for r in all_recipes_raw}
+        en_shopping = menu['shopping_list']
+        # Build a name map: english_name_lower -> norwegian_name
+        name_map = {}
+        for rid in recipe_ids:
+            r = recipes_by_id.get(rid)
+            if not r:
+                continue
+            # Check all possible ingredient fields
+            for field in ('ingredients', 'ingredients_included', 'ingredients_not_included'):
+                for ing in r.get(field, []):
+                    en = ''
+                    no = ''
+                    # Check for bilingual dict format (pack recipes)
+                    if isinstance(ing.get('name'), dict):
+                        en = (ing['name'].get('en') or '').strip().lower()
+                        no = (ing['name'].get('no') or '').strip()
+                    # Check for _no/_en suffix fields (sample_recipes format)
+                    elif ing.get('name_en'):
+                        en = (ing.get('name_en') or '').strip().lower()
+                        no = (ing.get('name_no') or '').strip()
+                    if en and no:
+                        name_map[en] = no
+        # Translate shopping list ingredient names
+        for category, items in en_shopping.items():
+            new_items = []
+            for item in items:
+                new_item = dict(item)
+                en_name = item.get('ingredient', '').strip().lower()
+                if en_name in name_map:
+                    new_item['ingredient'] = name_map[en_name]
+                new_items.append(new_item)
+            shopping[category] = new_items
+    else:
+        shopping = menu['shopping_list']
+
+    return render_template('shopping.html', shopping_list=shopping)
 
 @app.route('/add-recipe')
 def add_recipe_page():
@@ -133,7 +395,8 @@ def add_recipe_page():
 
 @app.route('/all-recipes')
 def all_recipes_page():
-    recipes = load_recipes_db()
+    lang = _get_lang()
+    recipes = [_normalize_recipe(r, lang) for r in load_recipes_db()]
     return render_template('all-recipes.html', recipes=recipes)
 
 @app.route('/settings')
@@ -165,17 +428,17 @@ def callback():
         if 'error' in result:
             err = result.get('error_description', result.get('error', 'Unknown error'))
             logger.error(f"Auth callback error: {err}")
-            return render_template('error.html', message=f'Innlogging feilet: {err}'), 400
+            return render_template('error.html', message=f'Login failed: {err}'), 400
 
         session['access_token'] = result['access_token']
         session.pop('auth_flow', None)
 
         try:
             user = get_user_info(result['access_token'])
-            session['user_name'] = user.get('displayName', user.get('userPrincipalName', 'Bruker'))
+            session['user_name'] = user.get('displayName', user.get('userPrincipalName', 'User'))
             session['user_email'] = user.get('userPrincipalName', '')
         except Exception:
-            session['user_name'] = 'Bruker'
+            session['user_name'] = 'User'
             session['user_email'] = ''
 
         logger.info(f"User authenticated: {session.get('user_email')}")
@@ -183,7 +446,7 @@ def callback():
 
     except Exception as e:
         logger.error(f"Callback exception: {e}")
-        return render_template('error.html', message=f'Autentiseringsfeil: {str(e)}'), 500
+        return render_template('error.html', message=f'Authentication error: {str(e)}'), 500
 
 @app.route('/logout')
 def logout():
@@ -227,6 +490,15 @@ def api_menu():
     menu = load_menu()
     if not menu:
         return jsonify({'error': 'No menu generated yet'}), 404
+    lang = _get_lang()
+    day_map = _DAY_TRANSLATIONS.get(lang, {})
+    if day_map:
+        import copy
+        menu = copy.deepcopy(menu)
+        for dinner in menu.get('dinners', []):
+            if dinner.get('day') in day_map:
+                dinner['day'] = day_map[dinner['day']]
+            dinner['title'] = _resolve(dinner.get('title'), lang)
     logger.info("API menu endpoint accessed")
     return jsonify(menu)
 
@@ -235,28 +507,37 @@ def api_regenerate():
     try:
         from core.menu_generator import MenuGenerator
         data = request.get_json() or {}
-        selected_categories = data.get('categories') or data.get('selected_categories') or ['Populære', 'Familie', 'Rask Middag']
+        selected_categories = data.get('categories') or data.get('selected_categories') or ['Quick Dinners', 'Fish & Seafood', 'Vegetarian']
         logger.info(f"Generating menu with categories: {selected_categories}")
         generator = MenuGenerator(selected_categories=selected_categories)
         menu = generator.run(num_dinners=6, save=True)
         logger.info("Menu regenerated via API")
         return jsonify({'status': 'success', 'menu': menu})
     except Exception as e:
+        import traceback
         logger.error(f"Menu regeneration failed: {e}")
+        logger.error(traceback.format_exc())
         return jsonify({'status': 'error', 'message': str(e)}), 500
 
 @app.route('/api/categories')
 def get_categories():
-    """Get all available categories from categories.json"""
+    """Get all available categories from categories.json, translated to current language"""
+    lang = _get_lang()
     categories_file = Path(__file__).parent.parent / 'data' / 'categories.json'
     categories = []
     if categories_file.exists():
         try:
             with open(categories_file, 'r', encoding='utf-8') as f:
-                categories = json.load(f)
+                raw_cats = json.load(f)
+                # Translate to current language
+                for cat in raw_cats:
+                    translated = dict(cat)
+                    # Add 'name' field with the translated category name
+                    translated['name'] = cat.get(f'name_{lang}') or cat.get('name_en') or cat.get('code')
+                    categories.append(translated)
         except Exception as e:
             logger.error(f"Error loading categories: {e}")
-    return jsonify({'categories': categories})
+    return jsonify(categories)
 
 @app.route('/api/sync-shopping-list', methods=['POST'])
 def api_sync_shopping_list():
@@ -270,7 +551,7 @@ def api_sync_shopping_list():
         if not token:
             return jsonify({
                 'status': 'error',
-                'message': 'Pi-Menu er ikke koblet til Microsoft To Do ennå. Be Vartdal om å logge inn én gang via /login.',
+                'message': 'Pi-Menu is not connected to Microsoft To Do yet. Please sign in once via /login.',
                 'requiresAuth': True,
                 'loginUrl': '/login',
             }), 401
@@ -280,7 +561,7 @@ def api_sync_shopping_list():
         selected_items = data.get('items', [])
 
         if not selected_items:
-            return jsonify({'status': 'error', 'message': 'Ingen elementer valgt'}), 400
+            return jsonify({'status': 'error', 'message': 'No items selected'}), 400
 
         selected_set = {
             f"{item['ingredient']}-{item['quantity']}-{item['unit']}"
@@ -295,9 +576,9 @@ def api_sync_shopping_list():
         result = sync_shopping_list_to_todo(token, filtered)
 
         logger.info(f"Synced {result['added']} items to To Do, errors: {result['errors']}")
-        msg = f"Sendt {result['added']} elementer til To Do ✓"
+        msg = f"Sent {result['added']} items to To Do ✓"
         if result['errors']:
-            msg += f" ({len(result['errors'])} feil)"
+            msg += f" ({len(result['errors'])} errors)"
         return jsonify({'status': 'success', 'message': msg})
 
     except Exception as e:
@@ -316,7 +597,7 @@ def api_add_recipe():
             'id': str(uuid.uuid4())[:8],
             'title': data.get('title', ''),
             'description': data.get('description', ''),
-            'difficulty': data.get('difficulty', 'Enkel'),
+            'difficulty': _normalize_difficulty(data.get('difficulty', 'Easy')),
             'time_minutes': data.get('time_minutes', 30),
             'category': data.get('category', 'HomeMade'),
             'ingredients': data.get('ingredients', []),
@@ -326,7 +607,7 @@ def api_add_recipe():
         }
 
         if not recipe['title'] or not recipe['ingredients']:
-            return jsonify({'status': 'error', 'message': 'Tittel og ingredienser er påkrevd'}), 400
+            return jsonify({'status': 'error', 'message': 'Title and ingredients are required'}), 400
 
         # Backup the form submission
         backup_dir = Path('data/sendt_forms')
@@ -346,10 +627,35 @@ def api_add_recipe():
             json.dump(recipes, f, ensure_ascii=False, indent=2)
 
         logger.info(f"Added recipe: {recipe['title']} (ID: {recipe['id']})")
-        return jsonify({'status': 'success', 'message': f"✅ {recipe['title']} lagret!", 'recipe_id': recipe['id']})
+        return jsonify({'status': 'success', 'message': f"✅ {recipe['title']} saved!", 'recipe_id': recipe['id']})
 
     except Exception as e:
         logger.error(f"Error adding recipe: {e}")
+        return jsonify({'status': 'error', 'message': str(e)}), 500
+
+@app.route('/api/delete-recipe', methods=['POST'])
+def api_delete_recipe():
+    """Delete a recipe from recipes_db.json by ID."""
+    try:
+        data = request.get_json() or {}
+        recipe_id = data.get('recipe_id')
+        if not recipe_id:
+            return jsonify({'status': 'error', 'message': 'recipe_id is required'}), 400
+
+        recipes = load_recipes_db()
+        original_count = len(recipes)
+        recipes = [r for r in recipes if r.get('id') != recipe_id]
+
+        if len(recipes) == original_count:
+            return jsonify({'status': 'error', 'message': f'Recipe {recipe_id} not found'}), 404
+
+        with open(RECIPES_DB_FILE, 'w', encoding='utf-8') as f:
+            json.dump(recipes, f, ensure_ascii=False, indent=2)
+
+        logger.info(f"Deleted recipe: {recipe_id}")
+        return jsonify({'status': 'success', 'message': f'Recipe {recipe_id} deleted'})
+    except Exception as e:
+        logger.error(f"Delete recipe error: {e}")
         return jsonify({'status': 'error', 'message': str(e)}), 500
 
 @app.route('/api/swap-recipe', methods=['POST'])
@@ -456,6 +762,8 @@ def api_recipe_packs_list():
             'packId': pack['packId'],
             'packName': pack['packName'],
             'packDescription': pack['packDescription'],
+            'packIcon': pack.get('packImage', '📦'),
+            'packColor': pack.get('packColor', '#999999'),
             'recipeCount': pack['recipeCount'],
             'estimatedCookTime': pack['estimatedCookTime'],
             'difficulty': pack['difficulty']
@@ -476,10 +784,36 @@ def api_recipe_packs_import():
         all_packs = get_available_recipe_packs()
         recipes_to_import = []
 
-        # Collect recipes from selected packs
+        # Collect recipes from selected packs, keeping bilingual fields intact
+        new_categories = {}  # Changed from set to dict to store pack metadata
         for pack in all_packs:
             if pack['packId'] in pack_ids:
-                recipes_to_import.extend(pack['recipes'])
+                # Use pack name as the category for all recipes in this pack
+                pack_category = pack.get('packName', {})
+                if isinstance(pack_category, dict):
+                    pack_category_name = pack_category.get('en') or pack_category.get('no') or 'Imported Pack'
+                else:
+                    pack_category_name = str(pack_category)
+                # Store pack metadata along with category name
+                new_categories[pack_category_name] = {
+                    'icon': pack.get('packImage', '📦'),
+                    'color': pack.get('packColor', '#999999')
+                }
+
+                for recipe in pack['recipes']:
+                    # Normalize only non-bilingual technical fields, keep titles/descriptions as bilingual dicts
+                    r = dict(recipe)
+                    # Override category with pack name
+                    r['category'] = pack_category_name
+                    # Store pack icon for display
+                    r['packIcon'] = pack.get('packImage', '📦')
+                    # Normalize difficulty if it's a bilingual dict
+                    if isinstance(r.get('difficulty'), dict):
+                        r['difficulty'] = r['difficulty'].get('en') or r['difficulty'].get('no') or 'Easy'
+                    # Ensure time_minutes is set (may be cookTimeMinutes in pack)
+                    if 'time_minutes' not in r or not r.get('time_minutes'):
+                        r['time_minutes'] = r.get('cookTimeMinutes', 30)
+                    recipes_to_import.append(r)
 
         # Load existing recipes database
         existing_recipes = load_recipes_db()
@@ -496,22 +830,133 @@ def api_recipe_packs_import():
         with open(RECIPES_DB_FILE, 'w', encoding='utf-8') as f:
             json.dump(existing_recipes, f, ensure_ascii=False, indent=2)
 
+        # Add new categories to categories.json if they don't exist
+        if new_categories:
+            categories_file = DATA_DIR / 'categories.json'
+            existing_cats = []
+            if categories_file.exists():
+                try:
+                    with open(categories_file, 'r', encoding='utf-8') as f:
+                        existing_cats = json.load(f)
+                except Exception:
+                    pass
+            existing_cat_codes = {c.get('code', '').lower() for c in existing_cats}
+            for cat_name, cat_meta in new_categories.items():
+                cat_code = cat_name.lower().replace(' ', '_').replace('&', 'and')
+                if cat_code not in existing_cat_codes:
+                    existing_cats.append({
+                        'code': cat_code,
+                        'name_no': cat_name,
+                        'name_en': cat_name,
+                        'description_no': cat_name,
+                        'description_en': cat_name,
+                        'icon': cat_meta.get('icon', '📦'),
+                        'color': cat_meta.get('color', '#999999')
+                    })
+                    existing_cat_codes.add(cat_code)
+            with open(categories_file, 'w', encoding='utf-8') as f:
+                json.dump(existing_cats, f, ensure_ascii=False, indent=2)
+
         logger.info(f"Imported {imported_count} recipes from {len(pack_ids)} packs")
         return jsonify({
             'success': True,
             'imported_count': imported_count,
-            'message': f'Imported {imported_count} recipes'
+            'message': f'Imported {imported_count} recipes',
+            'new_categories': list(new_categories.keys())
         })
 
     except Exception as e:
         logger.error(f"Recipe pack import error: {e}")
         return jsonify({'success': False, 'message': str(e)}), 500
 
+@app.route('/api/recipe-packs/imported', methods=['GET'])
+def api_get_imported_packs():
+    """Get list of imported packs (detected by their categories in recipes_db.json)"""
+    try:
+        imported_packs = {}
+        recipes_db_file = DATA_DIR / 'recipes_db.json'
+        if recipes_db_file.exists():
+            with open(recipes_db_file, 'r', encoding='utf-8') as f:
+                recipes = json.load(f)
+                for recipe in recipes:
+                    cat = recipe.get('category', '')
+                    if cat and cat not in imported_packs:
+                        imported_packs[cat] = {
+                            'category_name': cat,
+                            'recipe_count': 0,
+                            'icon': recipe.get('packIcon', '📦')
+                        }
+                    if cat in imported_packs:
+                        imported_packs[cat]['recipe_count'] += 1
+
+        return jsonify({
+            'success': True,
+            'packs': list(imported_packs.values())
+        })
+    except Exception as e:
+        logger.error(f"Error getting imported packs: {e}")
+        return jsonify({'success': False, 'message': str(e)}), 500
+
+@app.route('/api/recipe-packs/remove', methods=['POST'])
+def api_remove_imported_pack():
+    """Remove an imported pack (all recipes with that category)"""
+    try:
+        data = request.get_json()
+        pack_category = data.get('category', '')
+
+        if not pack_category:
+            return jsonify({'success': False, 'message': 'No category specified'}), 400
+
+        recipes_db_file = DATA_DIR / 'recipes_db.json'
+        removed_count = 0
+
+        if recipes_db_file.exists():
+            with open(recipes_db_file, 'r', encoding='utf-8') as f:
+                recipes = json.load(f)
+
+            # Filter out recipes from this category
+            filtered_recipes = [r for r in recipes if r.get('category', '') != pack_category]
+            removed_count = len(recipes) - len(filtered_recipes)
+
+            # Save updated recipes
+            with open(recipes_db_file, 'w', encoding='utf-8') as f:
+                json.dump(filtered_recipes, f, ensure_ascii=False, indent=2)
+
+            logger.info(f"Removed {removed_count} recipes from pack category '{pack_category}'")
+
+        # Remove category from categories.json if it matches the pack name
+        categories_file = DATA_DIR / 'categories.json'
+        if categories_file.exists():
+            try:
+                with open(categories_file, 'r', encoding='utf-8') as f:
+                    categories = json.load(f)
+
+                # Filter out categories that match the pack name
+                filtered_categories = [c for c in categories if c.get('name_en', '') != pack_category]
+
+                # Save updated categories
+                with open(categories_file, 'w', encoding='utf-8') as f:
+                    json.dump(filtered_categories, f, ensure_ascii=False, indent=2)
+
+                logger.info(f"Removed category '{pack_category}' from categories.json")
+            except Exception as e:
+                logger.warning(f"Could not clean up category: {e}")
+
+        return jsonify({
+            'success': True,
+            'removed_count': removed_count,
+            'message': f'Removed {removed_count} recipes from {pack_category}'
+        })
+
+    except Exception as e:
+        logger.error(f"Recipe pack removal error: {e}")
+        return jsonify({'success': False, 'message': str(e)}), 500
+
 @app.route('/recipe-packs/manage')
 def manage_recipe_packs():
     """Page to manage imported recipe packs"""
-    recipes = load_recipes_db()
-    # Group recipes by pack origin (if available)
+    lang = _get_lang()
+    recipes = [_normalize_recipe(r, lang) for r in load_recipes_db()]
     return render_template('recipe-packs-manage.html', recipes=recipes)
 
 # ── Personal Recipe Arsenal API ───────────────────────────────────────────────

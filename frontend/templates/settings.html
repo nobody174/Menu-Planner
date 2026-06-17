@@ -1,32 +1,32 @@
 {% extends "base.html" %}
 
-{% block title %}Innstillinger - {{ household_name }} Ukesmeny{% endblock %}
+{% block title %}{{ t.settings_title }} - {{ household_name }}{% endblock %}
 
 {% block content %}
 <div class="settings-page">
-    <h1>Innstillinger / Settings</h1>
+    <h1>{{ t.settings_title }}</h1>
 
     <div class="settings-container">
         <!-- Language Settings -->
         <section class="settings-section">
-            <h2>Språk / Language</h2>
-            <p>Velg ditt foretrukne språk</p>
+            <h2>{{ t.language_section }}</h2>
+            <p>{{ t.language_desc }}</p>
             <div class="language-buttons">
-                <button onclick="switchLanguage('no')" class="btn btn-primary">🇳🇴 Norsk</button>
-                <button onclick="switchLanguage('en')" class="btn btn-secondary">🇬🇧 English</button>
+                <button onclick="switchLanguage('no')" class="btn {% if lang == 'no' %}btn-primary{% else %}btn-secondary{% endif %}">🇳🇴 {{ t.norwegian }}</button>
+                <button onclick="switchLanguage('en')" class="btn {% if lang == 'en' %}btn-primary{% else %}btn-secondary{% endif %}">🇬🇧 {{ t.english }}</button>
             </div>
         </section>
 
         <!-- Theme Settings -->
         <section class="settings-section">
-            <h2>Tema / Theme</h2>
-            <p>Velg et tema som passer din stil</p>
+            <h2>{{ t.theme_section }}</h2>
+            <p>{{ t.theme_desc }}</p>
             <div class="theme-grid">
                 <div class="theme-option" onclick="switchTheme('warm-modern')" style="background: linear-gradient(135deg, #d97706, #f97316);">
-                    <span>Warm & Modern</span>
+                    <span>Warm &amp; Modern</span>
                 </div>
                 <div class="theme-option" onclick="switchTheme('warm-terracotta')" style="background: linear-gradient(135deg, #d97b36, #a16207);">
-                    <span>Terracotta & Sage</span>
+                    <span>Terracotta &amp; Sage</span>
                 </div>
                 <div class="theme-option" onclick="switchTheme('apple-fitness')" style="background: linear-gradient(135deg, #30D158, #00C884);">
                     <span>Apple Fitness</span>
@@ -54,45 +54,44 @@
 
         <!-- Recipe Packs Import -->
         <section class="settings-section">
-            <h2>Oppskrifter-pakker / Recipe Packs</h2>
-            <p>Importer ferdiglagde samlinger med oppskrifter</p>
+            <h2>{{ t.recipe_packs_section }}</h2>
+            <p>{{ t.recipe_packs_desc }}</p>
             <div class="action-buttons">
-                <button onclick="openRecipePacksModal()" class="btn btn-primary">📦 Importer oppskrifter-pakker</button>
-                <a href="/recipe-packs/manage" class="btn btn-secondary">Administrer pakker</a>
+                <button onclick="openRecipePacksModal()" class="btn btn-primary">📦 {{ t.import_recipe_packs }}</button>
+                <a href="/recipe-packs/manage" class="btn btn-secondary">{{ t.manage_packs }}</a>
             </div>
         </section>
 
         <!-- Personal Recipe Arsenal -->
         <section class="settings-section">
-            <h2>Mine oppskrifter-samlinger / Personal Arsenal</h2>
-            <p>Eksporter og sikkerhetskopier dine oppskrifter</p>
+            <h2>{{ t.personal_arsenal_section }}</h2>
+            <p>{{ t.personal_arsenal_desc }}</p>
             <div class="action-buttons">
-                <button onclick="exportAllRecipes()" class="btn btn-primary">💾 Eksporter alle oppskrifter</button>
-                <button onclick="openImportModal()" class="btn btn-secondary">📥 Importer fra fil</button>
+                <button onclick="exportAllRecipes()" class="btn btn-primary">💾 {{ t.export_all_recipes }}</button>
+                <button onclick="openImportModal()" class="btn btn-secondary">📥 {{ t.import_from_file }}</button>
             </div>
         </section>
 
         <!-- Recipe Management -->
         <section class="settings-section">
-            <h2>Oppskrifter / Recipes</h2>
-            <p>Administrer dine oppskrifter</p>
+            <h2>{{ t.recipes_section }}</h2>
+            <p>{{ t.recipes_desc }}</p>
             <div class="action-buttons">
-                <a href="/add-recipe" class="btn btn-primary">+ Legg til oppskrift</a>
-                <a href="/all-recipes" class="btn btn-secondary">Se alle oppskrifter</a>
+                <a href="/add-recipe" class="btn btn-primary">+ {{ t.add_recipe }}</a>
+                <a href="/all-recipes" class="btn btn-secondary">{{ t.view_all_recipes }}</a>
             </div>
         </section>
 
         <!-- About -->
         <section class="settings-section">
-            <h2>Om / About</h2>
-            <p>Pi-Menu v1.0 - Weekly Meal Planner</p>
+            <h2>{{ t.about_section }}</h2>
+            <p>Pi-Menu v1.1 — Weekly Meal Planner</p>
             <p class="settings-info">
                 Created by <a href="{{ github_url }}" target="_blank">{{ creator }}</a><br>
-                <a href="{{ patreon_url }}" target="_blank">Support on Patreon</a><br>
-                <a href="{{ github_url }}" target="_blank">View on GitHub</a>
+                <a href="{{ patreon_url }}" target="_blank">{{ t.support_patreon }}</a>
             </p>
-            <p class="settings-info" style="font-size: 0.9em; margin-top: 16px;">
-                MIT License - Open Source & Free
+            <p class="settings-info" style="font-size: 0.9em;">
+                {{ t.open_source }}
             </p>
         </section>
     </div>
@@ -104,49 +103,41 @@
     margin: 0 auto;
     padding: 20px;
 }
-
 .settings-page h1 {
     margin-bottom: 30px;
     color: var(--color-primary, #d97706);
 }
-
 .settings-container {
     display: flex;
     flex-direction: column;
     gap: 30px;
 }
-
 .settings-section {
     background: var(--color-bg-secondary, #f9fafb);
     padding: 24px;
     border-radius: 12px;
     border: 1px solid var(--color-border, #e5e7eb);
 }
-
 .settings-section h2 {
     margin-top: 0;
     margin-bottom: 8px;
     font-size: 1.3em;
 }
-
 .settings-section > p {
     color: var(--color-text-secondary, #666);
     margin-bottom: 16px;
 }
-
 .language-buttons,
 .action-buttons {
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
 }
-
 .theme-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 12px;
 }
-
 .theme-option {
     padding: 20px;
     border-radius: 8px;
@@ -159,70 +150,41 @@
     transition: transform 0.2s, box-shadow 0.2s;
     border: 2px solid transparent;
 }
-
 .theme-option:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
-
 .settings-info {
     background: var(--color-bg-primary, white);
     padding: 12px;
     border-radius: 6px;
     line-height: 1.6;
 }
-
 .settings-info a {
     color: var(--color-primary, #d97706);
     text-decoration: none;
 }
-
-.settings-info a:hover {
-    text-decoration: underline;
-}
-
+.settings-info a:hover { text-decoration: underline; }
 @media (max-width: 640px) {
-    .settings-page {
-        padding: 12px;
-    }
-
-    .settings-section {
-        padding: 16px;
-    }
-
-    .theme-grid {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    }
-
-    .language-buttons,
-    .action-buttons {
-        flex-direction: column;
-    }
-
-    .btn {
-        width: 100%;
-    }
+    .settings-page { padding: 12px; }
+    .settings-section { padding: 16px; }
+    .theme-grid { grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); }
+    .language-buttons, .action-buttons { flex-direction: column; }
+    .btn { width: 100%; }
 }
 
-/* Recipe Packs Modal */
-.recipe-packs-modal {
+/* ── Modals ── */
+.pm-overlay {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    inset: 0;
+    background: rgba(0,0,0,0.6);
     z-index: 1000;
     align-items: center;
     justify-content: center;
 }
-
-.recipe-packs-modal.active {
-    display: flex;
-}
-
-.recipe-packs-modal-content {
+.pm-overlay.active { display: flex; }
+.pm-modal-box {
     background: var(--color-bg-primary, white);
     border-radius: 12px;
     padding: 30px;
@@ -230,10 +192,9 @@
     width: 90%;
     max-height: 80vh;
     overflow-y: auto;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
 }
-
-.recipe-packs-modal-header {
+.pm-modal-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -241,503 +202,383 @@
     border-bottom: 1px solid var(--color-border, #e5e7eb);
     padding-bottom: 15px;
 }
-
-.recipe-packs-modal-header h2 {
-    margin: 0;
-}
-
-.close-modal-btn {
+.pm-modal-header h2 { margin: 0; }
+.pm-close-btn {
     background: none;
     border: none;
     font-size: 24px;
     cursor: pointer;
     color: var(--color-text-secondary, #666);
+    line-height: 1;
 }
-
-.recipe-packs-list {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 15px;
-}
-
-.recipe-pack-card {
-    border: 2px solid var(--color-border, #e5e7eb);
-    border-radius: 8px;
-    padding: 16px;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.recipe-pack-card:hover {
-    border-color: var(--color-primary, #d97706);
-    background: var(--color-bg-secondary, #f9fafb);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.recipe-pack-card.selected {
-    border-color: var(--color-primary, #d97706);
-    background: linear-gradient(135deg, rgba(217, 119, 6, 0.1), rgba(249, 115, 22, 0.1));
-}
-
-.recipe-pack-card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: start;
-    margin-bottom: 10px;
-}
-
-.recipe-pack-card-title {
-    font-size: 1.1em;
-    font-weight: 600;
-    color: var(--color-primary, #d97706);
-}
-
-.recipe-count {
-    background: var(--color-primary, #d97706);
-    color: white;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 0.85em;
-    font-weight: 600;
-}
-
-.recipe-pack-description {
-    color: var(--color-text-secondary, #666);
-    font-size: 0.95em;
-    margin-bottom: 8px;
-    line-height: 1.4;
-}
-
-.recipe-pack-meta {
-    display: flex;
-    gap: 15px;
-    font-size: 0.85em;
-    color: var(--color-text-secondary, #666);
-}
-
-.recipe-pack-meta-item {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-
-.checkbox-label {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 10px;
-    cursor: pointer;
-}
-
-.checkbox-label input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-}
-
-.recipe-packs-actions {
+.pm-modal-footer {
     margin-top: 20px;
     display: flex;
     gap: 10px;
     justify-content: flex-end;
 }
-
-.recipe-packs-actions button {
-    padding: 10px 20px;
-    border-radius: 6px;
-    border: none;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.3s;
-}
-
-.recipe-packs-actions .btn-primary {
-    background: var(--color-primary, #d97706);
-    color: white;
-}
-
-.recipe-packs-actions .btn-primary:hover {
-    opacity: 0.9;
-}
-
-.recipe-packs-actions .btn-secondary {
-    background: var(--color-bg-secondary, #f9fafb);
-    color: var(--color-text, #000);
-    border: 1px solid var(--color-border, #e5e7eb);
-}
-
-.recipe-packs-actions .btn-secondary:hover {
-    background: var(--color-border, #e5e7eb);
-}
-
-.loading-spinner {
-    display: inline-block;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-.import-status {
-    margin-top: 20px;
-    padding: 15px;
+.pm-status {
+    margin-top: 16px;
+    padding: 12px 16px;
     border-radius: 6px;
     display: none;
 }
-
-.import-status.success {
+.pm-status.success {
     display: block;
     background: #d4edda;
     color: #155724;
     border: 1px solid #c3e6cb;
 }
-
-.import-status.error {
+.pm-status.error {
     display: block;
     background: #f8d7da;
     color: #721c24;
     border: 1px solid #f5c6cb;
 }
+
+/* Recipe pack cards */
+.pack-list { display: flex; flex-direction: column; gap: 14px; }
+.pack-card {
+    border: 2px solid var(--color-border, #e5e7eb);
+    border-radius: 8px;
+    padding: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.pack-card:hover {
+    border-color: var(--color-primary, #d97706);
+    background: var(--color-bg-secondary, #f9fafb);
+    transform: translateY(-1px);
+}
+.pack-card.selected {
+    border-color: var(--color-primary, #d97706);
+    background: rgba(217,119,6,0.07);
+}
+.pack-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+}
+.pack-card-title {
+    font-size: 1.05em;
+    font-weight: 600;
+    color: var(--color-primary, #d97706);
+}
+.pack-count {
+    background: var(--color-primary, #d97706);
+    color: white;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.82em;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.pack-desc {
+    color: var(--color-text-secondary, #666);
+    font-size: 0.9em;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+.pack-meta {
+    display: flex;
+    gap: 14px;
+    font-size: 0.82em;
+    color: var(--color-text-secondary, #666);
+}
+.pack-select-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+.pack-select-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
 </style>
 
-<div id="recipePacksModal" class="recipe-packs-modal">
-    <div class="recipe-packs-modal-content">
-        <div class="recipe-packs-modal-header">
-            <h2>📦 Importer oppskrifter-pakker</h2>
-            <button class="close-modal-btn" onclick="closeRecipePacksModal()">✕</button>
+<!-- Recipe Packs Import Modal -->
+<div id="recipePacksModal" class="pm-overlay">
+    <div class="pm-modal-box">
+        <div class="pm-modal-header">
+            <h2>📦 {{ t.import_modal_title }}</h2>
+            <button class="pm-close-btn" onclick="closeRecipePacksModal()">✕</button>
         </div>
-
-        <div id="recipePacksList" class="recipe-packs-list">
-            <p>Laster pakker...</p>
+        <div id="recipePacksList" class="pack-list">
+            <p>{{ t.loading_packs }}</p>
         </div>
-
-        <div class="recipe-packs-actions">
-            <button class="btn btn-secondary" onclick="closeRecipePacksModal()">Avbryt</button>
-            <button class="btn btn-primary" onclick="importSelectedPacks()">Importer valgte</button>
+        <div class="pm-modal-footer">
+            <button class="btn btn-secondary" onclick="closeRecipePacksModal()">{{ t.cancel }}</button>
+            <button class="btn btn-primary" onclick="importSelectedPacks()">{{ t.import_selected }}</button>
         </div>
+        <div id="importStatus" class="pm-status"></div>
+    </div>
+</div>
 
-        <div id="importStatus" class="import-status"></div>
+<!-- Import from File Modal -->
+<div id="importArsenalModal" class="pm-overlay">
+    <div class="pm-modal-box">
+        <div class="pm-modal-header">
+            <h2>📥 {{ t.import_file_modal_title }}</h2>
+            <button class="pm-close-btn" onclick="closeImportModal()">✕</button>
+        </div>
+        <div style="padding: 16px 0;">
+            <p>{{ t.import_file_desc }}</p>
+            <div style="margin: 20px 0;">
+                <label for="recipeFileInput" class="btn btn-primary" style="display: inline-block; cursor: pointer;">
+                    📁 {{ t.choose_file }}
+                </label>
+                <input type="file" id="recipeFileInput" accept=".json" onchange="handleFileImport(event)" style="display: none;">
+            </div>
+            <p style="color: var(--color-text-secondary, #666); font-size: 0.9em;">{{ t.import_file_note }}</p>
+        </div>
+        <div class="pm-modal-footer">
+            <button class="btn btn-secondary" onclick="closeImportModal()">{{ t.cancel }}</button>
+        </div>
+        <div id="arsenalStatus" class="pm-status"></div>
     </div>
 </div>
 
 <script>
+// ── i18n strings passed from server ──────────────────────────────────────────
+var LANG = '{{ lang }}';
+var STR = {
+    loading_packs:      '{{ t.loading_packs }}',
+    error_loading:      '{{ t.error_loading_packs }}',
+    select_at_least:    '{{ t.select_at_least_one }}',
+    import_failed:      '{{ t.import_failed }}',
+    import_error:       '{{ t.import_error }}',
+    export_error:       '{{ t.export_error }}',
+    exported_success:   '{{ t.exported_success }}',
+    invalid_file:       '{{ t.invalid_file }}',
+    file_read_error:    '{{ t.file_read_error }}',
+    select_pack:        '{{ t.select_pack }}',
+    recipes_label:      '{{ t.recipes_label }}'
+};
+
+// ── Recipe Packs Modal ────────────────────────────────────────────────────────
+
 async function openRecipePacksModal() {
-    const modal = document.getElementById('recipePacksModal');
-    modal.classList.add('active');
+    document.getElementById('recipePacksModal').classList.add('active');
     await loadAvailablePacks();
 }
 
 function closeRecipePacksModal() {
-    const modal = document.getElementById('recipePacksModal');
-    modal.classList.remove('active');
-    // Clear selections
-    document.querySelectorAll('.recipe-pack-card').forEach(card => {
-        card.classList.remove('selected');
-        card.querySelector('input[type="checkbox"]').checked = false;
-    });
+    document.getElementById('recipePacksModal').classList.remove('active');
+    document.getElementById('importStatus').className = 'pm-status';
+    document.getElementById('importStatus').textContent = '';
 }
 
 async function loadAvailablePacks() {
+    var list = document.getElementById('recipePacksList');
+    list.innerHTML = '<p>' + STR.loading_packs + '</p>';
     try {
-        const response = await fetch('/api/recipe-packs/list');
-        const packs = await response.json();
+        var resp = await fetch('/api/recipe-packs/list');
+        if (!resp.ok) throw new Error('HTTP ' + resp.status);
+        var packs = await resp.json();
         displayRecipePacks(packs);
-    } catch (error) {
-        console.error('Error loading recipe packs:', error);
-        document.getElementById('recipePacksList').innerHTML = '<p style="color: red;">Feil ved lasting av pakker</p>';
+    } catch(err) {
+        console.error('Error loading recipe packs:', err);
+        list.innerHTML = '<p style="color:red;">' + STR.error_loading + '</p>';
     }
 }
 
 function displayRecipePacks(packs) {
-    const container = document.getElementById('recipePacksList');
-    container.innerHTML = '';
+    var list = document.getElementById('recipePacksList');
+    list.innerHTML = '';
 
-    packs.forEach(pack => {
-        const card = document.createElement('div');
-        card.className = 'recipe-pack-card';
-        card.onclick = () => togglePackSelection(card);
+    if (!packs || packs.length === 0) {
+        list.innerHTML = '<p style="color:#666;">No packs available.</p>';
+        return;
+    }
 
-        const description_en = pack.packDescription.en || '';
-        const description_no = pack.packDescription.no || '';
-        const description = localStorage.getItem('language') === 'en' ? description_en : description_no;
+    packs.forEach(function(pack) {
+        var name = (pack.packName && pack.packName[LANG]) || (pack.packName && pack.packName.en) || '';
+        var desc = (pack.packDescription && pack.packDescription[LANG]) || (pack.packDescription && pack.packDescription.en) || '';
 
-        card.innerHTML = `
-            <div class="recipe-pack-card-header">
-                <div>
-                    <div class="recipe-pack-card-title">${pack.packName[localStorage.getItem('language') === 'en' ? 'en' : 'no'] || pack.packName.en}</div>
-                    <div class="recipe-pack-description">${description}</div>
-                </div>
-                <div class="recipe-count">${pack.recipeCount} oppskrifter</div>
-            </div>
-            <div class="recipe-pack-meta">
-                <div class="recipe-pack-meta-item">⏱️ ${pack.estimatedCookTime}</div>
-                <div class="recipe-pack-meta-item">📊 ${pack.difficulty}</div>
-            </div>
-            <label class="checkbox-label">
-                <input type="checkbox" data-pack-id="${pack.packId}" onchange="event.stopPropagation()">
-                Velg denne pakken
-            </label>
-        `;
-
-        container.appendChild(card);
+        var card = document.createElement('div');
+        card.className = 'pack-card';
+        card.onclick = function() { togglePackSelection(card); };
+        card.innerHTML =
+            '<div class="pack-card-header">' +
+                '<div>' +
+                    '<div class="pack-card-title">' + _esc(name) + '</div>' +
+                    '<div class="pack-desc">' + _esc(desc) + '</div>' +
+                '</div>' +
+                '<div class="pack-count">' + pack.recipeCount + ' ' + STR.recipes_label + '</div>' +
+            '</div>' +
+            '<div class="pack-meta">' +
+                '<span>⏱️ ' + _esc(pack.estimatedCookTime || '') + '</span>' +
+                '<span>📊 ' + _esc(pack.difficulty || '') + '</span>' +
+            '</div>' +
+            '<label class="pack-select-label" onclick="event.stopPropagation()">' +
+                '<input type="checkbox" data-pack-id="' + _esc(pack.packId) + '" onchange="event.stopPropagation()">' +
+                ' ' + STR.select_pack +
+            '</label>';
+        list.appendChild(card);
     });
 }
 
 function togglePackSelection(card) {
     card.classList.toggle('selected');
-    const checkbox = card.querySelector('input[type="checkbox"]');
-    checkbox.checked = !checkbox.checked;
+    var cb = card.querySelector('input[type="checkbox"]');
+    if (cb) cb.checked = !cb.checked;
 }
 
 async function importSelectedPacks() {
-    const selected = document.querySelectorAll('.recipe-pack-card input[type="checkbox"]:checked');
-    const packIds = Array.from(selected).map(cb => cb.dataset.packId);
+    var checked = document.querySelectorAll('#recipePacksList input[type="checkbox"]:checked');
+    var packIds = Array.from(checked).map(function(cb) { return cb.dataset.packId; });
 
     if (packIds.length === 0) {
-        showStatus('Velg minst en pakke før du importerer', 'error');
+        setStatus('importStatus', STR.select_at_least, 'error');
         return;
     }
 
     try {
-        const response = await fetch('/api/recipe-packs/import', {
+        var resp = await fetch('/api/recipe-packs/import', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ packIds })
+            body: JSON.stringify({ packIds: packIds })
         });
-
-        const result = await response.json();
+        var result = await resp.json();
         if (result.success) {
-            showStatus(`Importert ${result.imported_count} oppskrifter fra ${packIds.length} pakke(r)!`, 'success');
-            setTimeout(() => {
+            // Merge new categories into the user's saved selectedCategories
+            if (result.new_categories && result.new_categories.length > 0) {
+                var saved = [];
+                try { saved = JSON.parse(localStorage.getItem('selectedCategories') || '[]'); } catch(e) {}
+                result.new_categories.forEach(function(cat) {
+                    if (cat && !saved.includes(cat)) saved.push(cat);
+                });
+                localStorage.setItem('selectedCategories', JSON.stringify(saved));
+            }
+            setStatus('importStatus', '✅ ' + result.imported_count + ' ' + STR.recipes_label + ' imported from ' + packIds.length + ' pack(s)!', 'success');
+            setTimeout(function() {
                 closeRecipePacksModal();
                 location.reload();
-            }, 2000);
+            }, 1800);
         } else {
-            showStatus('Feil ved import: ' + result.message, 'error');
+            setStatus('importStatus', STR.import_error + ': ' + (result.message || ''), 'error');
         }
-    } catch (error) {
-        console.error('Import error:', error);
-        showStatus('En feil oppstod ved import', 'error');
+    } catch(err) {
+        console.error('Import error:', err);
+        setStatus('importStatus', STR.import_failed, 'error');
     }
 }
 
-function showStatus(message, type) {
-    const status = document.getElementById('importStatus');
-    status.textContent = message;
-    status.className = `import-status ${type}`;
-}
-
-// Close modal when clicking outside
-document.getElementById('recipePacksModal')?.addEventListener('click', (e) => {
-    if (e.target.id === 'recipePacksModal') {
-        closeRecipePacksModal();
-    }
+// Click outside to close
+document.getElementById('recipePacksModal').addEventListener('click', function(e) {
+    if (e.target === this) closeRecipePacksModal();
 });
 
-/* Personal Recipe Arsenal */
+// ── Personal Recipe Arsenal ───────────────────────────────────────────────────
 
 async function exportAllRecipes() {
     try {
-        const response = await fetch('/api/recipes/export');
-        const data = await response.json();
-
+        var resp = await fetch('/api/recipes/export');
+        var data = await resp.json();
         if (!data.success) {
-            showArsenalStatus('Feil ved eksport: ' + data.message, 'error');
+            showToast(STR.export_error + ': ' + (data.message || ''), 'error');
             return;
         }
-
-        // Create JSON export file
-        const exportData = {
+        var exportData = {
             exportDate: new Date().toISOString(),
             recipeCount: data.recipes.length,
-            packName: {
-                no: 'Min personlig oppskrifts-samling',
-                en: 'My Personal Recipe Collection'
-            },
+            packName: { no: 'Min personlige oppskrifts-samling', en: 'My Personal Recipe Collection' },
             recipes: data.recipes
         };
-
-        const dataStr = JSON.stringify(exportData, null, 2);
-        const dataBlob = new Blob([dataStr], { type: 'application/json' });
-        const url = URL.createObjectURL(dataBlob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = `pi-menu-personal-recipes-${new Date().toISOString().split('T')[0]}.json`;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+        var blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+        var url  = URL.createObjectURL(blob);
+        var a    = document.createElement('a');
+        a.href   = url;
+        a.download = 'pi-menu-personal-recipes-' + new Date().toISOString().split('T')[0] + '.json';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
         URL.revokeObjectURL(url);
-
-        showArsenalStatus(`Eksportert ${data.recipes.length} oppskrifter!`, 'success');
-    } catch (error) {
-        console.error('Export error:', error);
-        showArsenalStatus('En feil oppstod ved eksport', 'error');
+        showToast('✅ ' + STR.exported_success, 'success');
+    } catch(err) {
+        console.error('Export error:', err);
+        showToast(STR.export_error, 'error');
     }
 }
 
 function openImportModal() {
-    const modal = document.getElementById('importArsenalModal');
-    modal.classList.add('active');
+    document.getElementById('importArsenalModal').classList.add('active');
 }
 
 function closeImportModal() {
-    const modal = document.getElementById('importArsenalModal');
-    modal.classList.remove('active');
+    document.getElementById('importArsenalModal').classList.remove('active');
+    document.getElementById('arsenalStatus').className = 'pm-status';
+    document.getElementById('arsenalStatus').textContent = '';
 }
 
 async function handleFileImport(event) {
-    const file = event.target.files[0];
+    var file = event.target.files[0];
     if (!file) return;
-
     try {
-        const fileContent = await file.text();
-        const importData = JSON.parse(fileContent);
-
-        // Validate structure
+        var text = await file.text();
+        var importData = JSON.parse(text);
         if (!importData.recipes || !Array.isArray(importData.recipes)) {
-            showArsenalStatus('Ugyldig fil-format', 'error');
+            setStatus('arsenalStatus', STR.invalid_file, 'error');
             return;
         }
-
-        // Send to backend for import
-        const response = await fetch('/api/recipes/import', {
+        var resp = await fetch('/api/recipes/import', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ recipes: importData.recipes })
         });
-
-        const result = await response.json();
+        var result = await resp.json();
         if (result.success) {
-            showArsenalStatus(`Importert ${result.imported_count} oppskrifter!`, 'success');
-            document.getElementById('importArsenalModal').classList.remove('active');
-            // Reset file input
+            setStatus('arsenalStatus', '✅ ' + result.imported_count + ' ' + STR.recipes_label + ' imported!', 'success');
             document.getElementById('recipeFileInput').value = '';
-            setTimeout(() => location.reload(), 1500);
+            setTimeout(function() { closeImportModal(); location.reload(); }, 1500);
         } else {
-            showArsenalStatus('Feil: ' + result.message, 'error');
+            setStatus('arsenalStatus', STR.import_error + ': ' + (result.message || ''), 'error');
         }
-    } catch (error) {
-        console.error('File import error:', error);
-        showArsenalStatus('Feil ved lesing av fil', 'error');
+    } catch(err) {
+        console.error('File import error:', err);
+        setStatus('arsenalStatus', STR.file_read_error, 'error');
     }
 }
 
-function showArsenalStatus(message, type) {
-    // Find or create status div
-    let status = document.getElementById('arsenalStatus');
-    if (!status) {
-        status = document.createElement('div');
-        status.id = 'arsenalStatus';
-        status.style.position = 'fixed';
-        status.style.top = '20px';
-        status.style.right = '20px';
-        status.style.maxWidth = '400px';
-        status.style.zIndex = '2000';
-        document.body.appendChild(status);
-    }
-
-    status.textContent = message;
-    status.style.display = 'block';
-    status.style.padding = '15px 20px';
-    status.style.borderRadius = '6px';
-    status.style.fontWeight = '500';
-    status.style.animation = 'slideIn 0.3s ease-out';
-
-    if (type === 'success') {
-        status.style.background = '#d4edda';
-        status.style.color = '#155724';
-        status.style.border = '1px solid #c3e6cb';
-        setTimeout(() => {
-            status.style.animation = 'slideOut 0.3s ease-out forwards';
-        }, 3000);
-    } else {
-        status.style.background = '#f8d7da';
-        status.style.color = '#721c24';
-        status.style.border = '1px solid #f5c6cb';
-    }
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateX(400px);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes slideOut {
-    from {
-        transform: translateX(0);
-        opacity: 1;
-    }
-    to {
-        transform: translateX(400px);
-        opacity: 0;
-    }
-}
-
-// Close import modal when clicking outside
-document.getElementById('importArsenalModal')?.addEventListener('click', (e) => {
-    if (e.target.id === 'importArsenalModal') {
-        closeImportModal();
-    }
+document.getElementById('importArsenalModal').addEventListener('click', function(e) {
+    if (e.target === this) closeImportModal();
 });
+
+// ── Utilities ─────────────────────────────────────────────────────────────────
+
+function setStatus(id, msg, type) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = msg;
+    el.className = 'pm-status ' + type;
+}
+
+function showToast(msg, type) {
+    var toast = document.getElementById('globalToast');
+    if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'globalToast';
+        toast.style.cssText = 'position:fixed;top:20px;right:20px;max-width:380px;z-index:9000;padding:14px 20px;border-radius:8px;font-weight:500;box-shadow:0 4px 16px rgba(0,0,0,.2);transition:opacity .3s;';
+        document.body.appendChild(toast);
+    }
+    toast.textContent = msg;
+    toast.style.opacity = '1';
+    toast.style.background  = type === 'success' ? '#d4edda' : '#f8d7da';
+    toast.style.color       = type === 'success' ? '#155724' : '#721c24';
+    toast.style.border      = type === 'success' ? '1px solid #c3e6cb' : '1px solid #f5c6cb';
+    clearTimeout(toast._timer);
+    toast._timer = setTimeout(function() { toast.style.opacity = '0'; }, 3500);
+}
+
+function _esc(str) {
+    return String(str || '')
+        .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
 </script>
-
-<!-- Import Recipe Arsenal Modal -->
-<div id="importArsenalModal" class="recipe-packs-modal">
-    <div class="recipe-packs-modal-content">
-        <div class="recipe-packs-modal-header">
-            <h2>📥 Importer oppskrifter</h2>
-            <button class="close-modal-btn" onclick="closeImportModal()">✕</button>
-        </div>
-
-        <div style="padding: 20px 0;">
-            <p>Velg en oppskrifts-fil som ble eksportert fra Pi-Menu</p>
-            <div style="margin: 20px 0;">
-                <label for="recipeFileInput" class="btn btn-primary" style="display: inline-block; padding: 10px 20px;">
-                    📁 Velg fil
-                </label>
-                <input type="file" id="recipeFileInput" accept=".json" onchange="handleFileImport(event)" style="display: none;">
-            </div>
-            <p style="color: var(--color-text-secondary, #666); font-size: 0.9em;">
-                Bare .json-filer som ble eksportert fra Pi-Menu er kompatible
-            </p>
-        </div>
-
-        <div class="recipe-packs-actions">
-            <button class="btn btn-secondary" onclick="closeImportModal()">Avbryt</button>
-        </div>
-    </div>
-</div>
-
-<style>
-.import-status {
-    margin-top: 20px;
-    padding: 15px;
-    border-radius: 6px;
-    display: none;
-}
-
-.import-status.success {
-    display: block;
-    background: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
-}
-
-.import-status.error {
-    display: block;
-    background: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
-}
-</style>
 
 {% endblock %}

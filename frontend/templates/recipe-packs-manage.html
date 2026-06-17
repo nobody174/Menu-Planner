@@ -1,65 +1,88 @@
 {% extends "base.html" %}
 
-{% block title %}Administrer oppskrifter-pakker - {{ household_name }}{% endblock %}
+{% block title %}{{ t.manage_packs_title }} - {{ household_name }}{% endblock %}
 
 {% block content %}
-<div class="recipe-packs-page">
-    <h1>📦 Administrer oppskrifter-pakker</h1>
+<div class="rp-page">
+    <h1>📦 {{ t.manage_packs_title }}</h1>
 
-    <div class="packs-info-section">
-        <p>Her kan du administrere dine importerte oppskrifter-pakker og se hvilke oppskrifter som kommer fra hver pakke.</p>
+    <div class="rp-info">
+        <p>{{ t.manage_packs_desc }}</p>
     </div>
 
-    <div class="packs-stats">
+    <div class="rp-stats">
         <div class="stat-card">
-            <div class="stat-number" id="totalRecipes">{{ recipes | length }}</div>
-            <div class="stat-label">Totale oppskrifter</div>
+            <div class="stat-number">{{ recipes | length }}</div>
+            <div class="stat-label">{{ t.total_recipes }}</div>
         </div>
         <div class="stat-card">
-            <div class="stat-number" id="importedFromPacks">0</div>
-            <div class="stat-label">Fra pakker</div>
+            <div class="stat-number" id="packRecipeCount">—</div>
+            <div class="stat-label">{{ t.available_packs }}</div>
         </div>
     </div>
 
-    <div class="packs-actions">
-        <a href="/settings" class="btn btn-secondary">← Tilbake til innstillinger</a>
-        <button onclick="exportMyRecipes()" class="btn btn-primary">💾 Eksporter mine oppskrifter</button>
+    <div class="rp-actions">
+        <a href="/settings" class="btn btn-secondary">← Back</a>
+        <button onclick="exportMyRecipes()" class="btn btn-primary">💾 Export My Recipes</button>
     </div>
 
+    <!-- Imported packs section (loaded via API) -->
+    <h2 style="margin-top: 32px; margin-bottom: 12px;">{{ t.imported_packs }}</h2>
+    <div id="importedPacksContainer" class="packs-container">
+        <p style="color: #999;">{{ t.loading_packs }}</p>
+    </div>
+
+    <!-- Available packs section (loaded via API) -->
+    <h2 style="margin-top: 32px; margin-bottom: 12px;">{{ t.available_packs }}</h2>
     <div id="packsContainer" class="packs-container">
-        <p>Laster oppskrifter-pakker...</p>
+        <p style="color: #999;">{{ t.loading_packs }}</p>
     </div>
 
-    <div id="exportStatus" style="display: none; margin-top: 20px; padding: 15px; border-radius: 6px;"></div>
+    <!-- Imported recipes section (from Jinja) -->
+    {% if recipes %}
+    <h2 style="margin-top: 36px; margin-bottom: 12px;">{{ t.all_recipes }} ({{ recipes | length }})</h2>
+    <div class="imported-list">
+        {% for recipe in recipes %}
+        <div class="recipe-row">
+            <div class="recipe-row-main">
+                <a href="/recipe/{{ recipe.id }}" class="recipe-row-title">{{ recipe.title }}</a>
+                <span class="recipe-row-cat">{{ recipe.category }}</span>
+            </div>
+            <div class="recipe-row-meta">
+                <span>⏱️ {{ recipe.time_minutes }} {{ t.minutes }}</span>
+                <span>📊 {{ recipe.difficulty }}</span>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <div id="exportStatus" style="display:none; margin-top:20px; padding:14px; border-radius:6px;"></div>
 </div>
 
 <style>
-.recipe-packs-page {
+.rp-page {
     max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
 }
-
-.recipe-packs-page h1 {
+.rp-page h1 {
     margin-bottom: 10px;
     color: var(--color-primary, #d97706);
 }
-
-.packs-info-section {
+.rp-info {
     background: var(--color-bg-secondary, #f9fafb);
-    padding: 15px 20px;
+    padding: 14px 20px;
     border-radius: 8px;
     margin-bottom: 20px;
     color: var(--color-text-secondary, #666);
 }
-
-.packs-stats {
+.rp-stats {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 15px;
     margin-bottom: 20px;
 }
-
 .stat-card {
     background: var(--color-bg-secondary, #f9fafb);
     border: 1px solid var(--color-border, #e5e7eb);
@@ -67,243 +90,300 @@
     border-radius: 8px;
     text-align: center;
 }
-
 .stat-number {
     font-size: 2em;
     font-weight: 700;
     color: var(--color-primary, #d97706);
     margin-bottom: 8px;
 }
-
 .stat-label {
     font-size: 0.9em;
     color: var(--color-text-secondary, #666);
 }
-
-.packs-actions {
+.rp-actions {
     display: flex;
     gap: 12px;
     margin-bottom: 20px;
     flex-wrap: wrap;
 }
-
 .packs-container {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
 }
-
 .pack-group {
     background: var(--color-bg-secondary, #f9fafb);
     border: 1px solid var(--color-border, #e5e7eb);
     border-radius: 8px;
     overflow: hidden;
 }
-
 .pack-group-header {
-    background: linear-gradient(135deg, var(--color-primary, #d97706), rgba(249, 115, 22, 0.8));
+    background: linear-gradient(135deg, var(--color-primary, #d97706), rgba(249,115,22,0.8));
     color: white;
-    padding: 15px 20px;
+    padding: 14px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
     user-select: none;
 }
-
-.pack-group-header:hover {
-    opacity: 0.9;
-}
-
-.pack-group-title {
-    font-weight: 600;
-    font-size: 1.1em;
-}
-
-.pack-group-toggle {
-    font-size: 1.3em;
-    transition: transform 0.3s;
-}
-
-.pack-group.collapsed .pack-group-toggle {
-    transform: rotate(-90deg);
-}
-
-.pack-recipes {
-    padding: 15px 20px;
-    display: none;
-}
-
-.pack-recipes.expanded {
-    display: block;
-}
-
-.recipe-item {
-    padding: 10px 0;
-    border-bottom: 1px solid var(--color-border, #e5e7eb);
+.pack-group-header:hover { opacity: 0.9; }
+.pack-group-title { font-weight: 600; font-size: 1.05em; }
+.pack-toggle { font-size: 1.2em; transition: transform 0.25s; }
+.pack-group.collapsed .pack-toggle { transform: rotate(-90deg); }
+.pack-body { display: none; padding: 14px 20px; }
+.pack-body.open { display: block; }
+.pack-body-meta { color: var(--color-text-secondary, #666); font-size: 0.9em; }
+.imported-list { display: flex; flex-direction: column; gap: 8px; }
+.recipe-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 10px 14px;
+    background: var(--color-bg-secondary, #f9fafb);
+    border: 1px solid var(--color-border, #e5e7eb);
+    border-radius: 6px;
+    gap: 12px;
+    flex-wrap: wrap;
 }
-
-.recipe-item:last-child {
-    border-bottom: none;
-}
-
-.recipe-name {
-    font-weight: 500;
-    color: var(--color-text, #000);
-}
-
-.recipe-meta {
+.recipe-row-main {
     display: flex;
+    align-items: center;
     gap: 10px;
+    flex: 1;
+    min-width: 0;
+}
+.recipe-row-title {
+    color: var(--color-primary, #d97706);
+    text-decoration: none;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.recipe-row-title:hover { text-decoration: underline; }
+.recipe-row-cat {
+    background: var(--color-bg-primary, white);
+    border: 1px solid var(--color-border, #ddd);
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    color: var(--color-text-secondary, #666);
+    white-space: nowrap;
+}
+.recipe-row-meta {
+    display: flex;
+    gap: 12px;
     font-size: 0.85em;
     color: var(--color-text-secondary, #666);
+    white-space: nowrap;
 }
-
-.recipe-category {
-    background: var(--color-bg-primary, white);
-    padding: 3px 8px;
-    border-radius: 12px;
+.imported-pack-card {
+    background: var(--color-bg-secondary, #f9fafb);
     border: 1px solid var(--color-border, #e5e7eb);
+    border-radius: 8px;
+    padding: 14px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
 }
-
-.empty-message {
+.imported-pack-card:hover {
+    border-color: var(--color-primary, #d97706);
+    background: rgba(217,119,6,0.03);
+}
+.btn-danger {
+    background: #ef4444;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85em;
+    transition: all 0.2s;
+}
+.btn-danger:hover {
+    background: #dc2626;
+    box-shadow: 0 2px 8px rgba(220,38,38,0.2);
+}
+.rp-empty {
     text-align: center;
     padding: 40px 20px;
     color: var(--color-text-secondary, #666);
 }
-
 @media (max-width: 640px) {
-    .recipe-packs-page {
-        padding: 12px;
-    }
-
-    .packs-stats {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .packs-actions {
-        flex-direction: column;
-    }
-
-    .packs-actions .btn {
-        width: 100%;
-    }
+    .rp-page { padding: 12px; }
+    .rp-stats { grid-template-columns: 1fr 1fr; }
+    .rp-actions { flex-direction: column; }
+    .rp-actions .btn { width: 100%; }
+    .recipe-row { flex-direction: column; align-items: flex-start; }
 }
 </style>
 
 <script>
-async function loadRecipePacks() {
-    try {
-        const response = await fetch('/api/recipe-packs/list');
-        const packs = await response.json();
+var LANG = '{{ lang }}';
+var STR = {
+    recipes_in_pack:  '{{ t.recipes_in_pack }}',
+    no_packs:         '{{ t.no_packs_imported }}',
+    import_now:       '{{ t.import_now }}',
+    error_loading:    '{{ t.error_loading_packs2 }}',
+    no_recipes_export:'{{ t.no_recipes_export }}',
+    exported:         '{{ t.exported_recipes }}',
+    export_failed:    '{{ t.export_failed }}'
+};
 
-        const container = document.getElementById('packsContainer');
-        container.innerHTML = '';
+async function loadAvailablePacks() {
+    var container = document.getElementById('packsContainer');
+    try {
+        var resp = await fetch('/api/recipe-packs/list');
+        if (!resp.ok) throw new Error('HTTP ' + resp.status);
+        var packs = await resp.json();
+
+        // Update stat
+        document.getElementById('packRecipeCount').textContent = packs.length;
 
         if (packs.length === 0) {
-            container.innerHTML = '<div class="empty-message"><p>Ingen oppskrifter-pakker importert ennå.</p><a href="/settings" class="btn btn-primary">Importer nå</a></div>';
+            container.innerHTML =
+                '<div style="text-align:center;padding:30px;color:#666;">' +
+                    '<p>' + STR.no_packs + '</p>' +
+                    '<a href="/settings" class="btn btn-primary">📦 ' + STR.import_now + '</a>' +
+                '</div>';
             return;
         }
 
-        // Create groups for each pack
-        packs.forEach(pack => {
-            const group = document.createElement('div');
+        container.innerHTML = '';
+        packs.forEach(function(pack) {
+            var name = (pack.packName && pack.packName[LANG]) || (pack.packName && pack.packName.en) || '';
+            var desc = (pack.packDescription && pack.packDescription[LANG]) || (pack.packDescription && pack.packDescription.en) || '';
+
+            var group = document.createElement('div');
             group.className = 'pack-group collapsed';
-
-            const header = document.createElement('div');
-            header.className = 'pack-group-header';
-            header.onclick = () => togglePackGroup(group);
-
-            const title = document.createElement('div');
-            title.className = 'pack-group-title';
-            title.textContent = pack.packName[localStorage.getItem('language') === 'en' ? 'en' : 'no'] || pack.packName.en;
-
-            const toggle = document.createElement('div');
-            toggle.className = 'pack-group-toggle';
-            toggle.textContent = '▶';
-
-            header.appendChild(title);
-            header.appendChild(toggle);
-
-            const recipes = document.createElement('div');
-            recipes.className = 'pack-recipes';
-
-            // List recipes in this pack (simplified)
-            const recipesList = document.createElement('div');
-            recipesList.innerHTML = `<p style="color: var(--color-text-secondary, #666); margin: 0;">📊 ${pack.recipeCount} oppskrifter i denne pakken</p>`;
-
-            recipes.appendChild(recipesList);
-
-            group.appendChild(header);
-            group.appendChild(recipes);
+            group.innerHTML =
+                '<div class="pack-group-header" onclick="toggleGroup(this.parentElement)">' +
+                    '<span class="pack-group-title">' + _esc(name) + '</span>' +
+                    '<span class="pack-toggle">▶</span>' +
+                '</div>' +
+                '<div class="pack-body">' +
+                    '<p class="pack-body-meta">' + _esc(desc) + '</p>' +
+                    '<p class="pack-body-meta" style="margin-top:8px;">📊 ' + pack.recipeCount + ' ' + STR.recipes_in_pack + '</p>' +
+                '</div>';
             container.appendChild(group);
         });
-
-    } catch (error) {
-        console.error('Error loading packs:', error);
-        document.getElementById('packsContainer').innerHTML = '<p style="color: red;">Feil ved lasting av pakker</p>';
+    } catch(err) {
+        console.error('Pack load error:', err);
+        container.innerHTML = '<p style="color:red;">' + STR.error_loading + '</p>';
     }
 }
 
-function togglePackGroup(group) {
+function toggleGroup(group) {
     group.classList.toggle('collapsed');
-    const recipes = group.querySelector('.pack-recipes');
-    recipes.classList.toggle('expanded');
+    var body = group.querySelector('.pack-body');
+    if (body) body.classList.toggle('open');
 }
 
-async function exportMyRecipes() {
-    try {
-        const recipes = {{ recipes | tojson }};
+function exportMyRecipes() {
+    var recipes = {{ recipes | tojson }};
+    if (!recipes || recipes.length === 0) {
+        showExportStatus(STR.no_recipes_export, 'error');
+        return;
+    }
+    var exportData = {
+        exportDate: new Date().toISOString(),
+        recipeCount: recipes.length,
+        recipes: recipes
+    };
+    var blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+    var url  = URL.createObjectURL(blob);
+    var a    = document.createElement('a');
+    a.href   = url;
+    a.download = 'pi-menu-export-' + new Date().toISOString().split('T')[0] + '.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    showExportStatus('✅ ' + STR.exported, 'success');
+}
 
-        if (recipes.length === 0) {
-            showExportStatus('Ingen oppskrifter å eksportere', 'error');
+function showExportStatus(msg, type) {
+    var el = document.getElementById('exportStatus');
+    el.textContent = msg;
+    el.style.display = 'block';
+    el.style.background = type === 'success' ? '#d4edda' : '#f8d7da';
+    el.style.color      = type === 'success' ? '#155724' : '#721c24';
+    el.style.border     = type === 'success' ? '1px solid #c3e6cb' : '1px solid #f5c6cb';
+    if (type === 'success') {
+        setTimeout(function() { el.style.display = 'none'; }, 3000);
+    }
+}
+
+function _esc(str) {
+    return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+async function loadImportedPacks() {
+    var container = document.getElementById('importedPacksContainer');
+    try {
+        var resp = await fetch('/api/recipe-packs/imported');
+        if (!resp.ok) throw new Error('HTTP ' + resp.status);
+        var result = await resp.json();
+        var packs = result.packs || [];
+
+        if (packs.length === 0) {
+            container.innerHTML = '<p style="text-align:center;color:#999;padding:20px;">No packs imported yet.</p>';
             return;
         }
 
-        const exportData = {
-            exportDate: new Date().toISOString(),
-            recipeCount: recipes.length,
-            recipes: recipes
-        };
-
-        // Create JSON file and download
-        const dataStr = JSON.stringify(exportData, null, 2);
-        const dataBlob = new Blob([dataStr], { type: 'application/json' });
-        const url = URL.createObjectURL(dataBlob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = `pi-menu-export-${new Date().toISOString().split('T')[0]}.json`;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        URL.revokeObjectURL(url);
-
-        showExportStatus(`Eksportert ${recipes.length} oppskrifter!`, 'success');
-    } catch (error) {
-        console.error('Export error:', error);
-        showExportStatus('Feil ved eksport', 'error');
+        container.innerHTML = '';
+        packs.forEach(function(pack) {
+            var card = document.createElement('div');
+            card.className = 'imported-pack-card';
+            card.innerHTML =
+                '<div style="display:flex;justify-content:space-between;align-items:center;gap:12px;">' +
+                    '<div>' +
+                        '<span style="font-size:1.2em;margin-right:8px;">' + _esc(pack.icon) + '</span>' +
+                        '<strong>' + _esc(pack.category_name) + '</strong>' +
+                        '<span style="color:#999;margin-left:12px;">(' + pack.recipe_count + ' ' + STR.recipes_in_pack + ')</span>' +
+                    '</div>' +
+                    '<button onclick="removeImportedPack(\'' + _esc(pack.category_name) + '\')" class="btn btn-danger" style="white-space:nowrap;">🗑️ Remove</button>' +
+                '</div>';
+            container.appendChild(card);
+        });
+    } catch(err) {
+        console.error('Pack load error:', err);
+        container.innerHTML = '<p style="color:red;">' + STR.error_loading + '</p>';
     }
 }
 
-function showExportStatus(message, type) {
-    const status = document.getElementById('exportStatus');
-    status.textContent = message;
-    status.style.display = 'block';
-    status.style.background = type === 'success' ? '#d4edda' : '#f8d7da';
-    status.style.color = type === 'success' ? '#155724' : '#721c24';
-    status.style.border = type === 'success' ? '1px solid #c3e6cb' : '1px solid #f5c6cb';
+function removeImportedPack(categoryName) {
+    pmConfirm('🗑️', 'Remove Pack?', 'Remove ' + categoryName + ' and all its recipes? This cannot be undone.', 'Remove', 'pm-btn-danger')
+        .then(function(confirmed) {
+            if (!confirmed) return;
 
-    if (type === 'success') {
-        setTimeout(() => {
-            status.style.display = 'none';
-        }, 3000);
-    }
+            fetch('/api/recipe-packs/remove', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ category: categoryName })
+            })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.success) {
+                    showExportStatus('✅ Removed ' + data.removed_count + ' recipes', 'success');
+                    setTimeout(function() { location.reload(); }, 1500);
+                } else {
+                    showExportStatus('❌ ' + (data.message || 'Failed to remove pack'), 'error');
+                }
+            })
+            .catch(function(err) {
+                console.error('Remove error:', err);
+                showExportStatus('❌ Error removing pack', 'error');
+            });
+        });
 }
 
-// Load packs on page load
-document.addEventListener('DOMContentLoaded', loadRecipePacks);
+document.addEventListener('DOMContentLoaded', function() {
+    loadImportedPacks();
+    loadAvailablePacks();
+});
 </script>
 {% endblock %}

@@ -32,6 +32,8 @@ class LanguageManager {
             const response = await fetch('/static/i18n.json');
             if (response.ok) {
                 this.translations = await response.json();
+                // Apply language to any data-i18n elements after translations load
+                this.applyLanguage();
             }
         } catch (error) {
             console.error('Failed to load translations:', error);
@@ -82,7 +84,8 @@ class LanguageManager {
     toggleLanguage() {
         const newLang = this.currentLanguage === 'no' ? 'en' : 'no';
         this.setLanguage(newLang);
-        this.applyLanguage();
+        // Set cookie so Flask picks up on next request
+        document.cookie = 'pi_language=' + newLang + '; path=/; max-age=31536000; SameSite=Lax';
         location.reload();
     }
 }

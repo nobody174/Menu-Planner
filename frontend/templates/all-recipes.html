@@ -1,71 +1,89 @@
 {% extends "base.html" %}
 
-{% block title %}Alle oppskrifter - {{ household_name }} Ukesmeny{% endblock %}
+{% block title %}{{ t.all_recipes }} - {{ household_name }}{% endblock %}
 
 {% block content %}
 <div style="display: grid; grid-template-columns: 280px 1fr; gap: 24px; padding: 20px 0;">
 
     <!-- SIDEBAR: Current Week Menu -->
     <aside class="weekly-menu-sidebar">
-        <h2 style="font-size: 1.1rem; margin: 0 0 16px 0; color: var(--color-text-primary, #1a1a1a);">📅 Denne uken</h2>
-
+        <h2 style="font-size: 1.1rem; margin: 0 0 16px 0; color: var(--color-text-primary, #1a1a1a);">📅 {{ t.this_week }}</h2>
         <div id="weekly-menu-list" style="display: flex; flex-direction: column; gap: 12px;">
-            <!-- Menu items will be loaded here by JavaScript -->
             <div style="text-align: center; color: #999; padding: 20px 10px; font-size: 0.9rem;">
-                Laster meny...
+                {{ t.loading_menu }}
             </div>
         </div>
     </aside>
 
     <!-- MAIN: All Recipes -->
     <main>
-        <h1 style="margin-top: 0;">Alle oppskrifter ({{ recipes|length }})</h1>
+        <h1 style="margin-top: 0;">{{ t.all_recipes }} ({{ recipes|length }})</h1>
 
         <div style="margin-bottom: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
-            <input type="text" id="searchInput" placeholder="Søk oppskrifter..." style="padding: 8px 12px; border: 1px solid #ddd; border-radius: 6px; flex: 1; min-width: 200px;">
+            <input type="text" id="searchInput" placeholder="{{ t.search_recipes_placeholder }}"
+                   style="padding: 8px 12px; border: 1px solid #ddd; border-radius: 6px; flex: 1; min-width: 200px;">
             <select id="categoryFilter" style="padding: 8px 12px; border: 1px solid #ddd; border-radius: 6px;">
-                <option value="">Alle kategorier</option>
-                <option value="Kjappe Middager">Kjappe Middager</option>
-                <option value="Pasta & Nudler">Pasta & Nudler</option>
-                <option value="Kyllingretter">Kyllingretter</option>
-                <option value="Kjøttdeig & Pølser">Kjøttdeig & Pølser</option>
-                <option value="Fisk & Sjømat">Fisk & Sjømat</option>
-                <option value="Taco & Tex-Mex">Taco & Tex-Mex</option>
-                <option value="Grill">Grill</option>
-                <option value="Supper & Gryter">Supper & Gryter</option>
-                <option value="Vegetar">Vegetar</option>
-                <option value="HomeMade">HomeMade</option>
+                <option value="">{{ t.all_categories }}</option>
             </select>
         </div>
 
         <div id="recipesList" style="display: grid; gap: 16px;">
             {% for recipe in recipes %}
-            <div class="recipe-card" data-title="{{ recipe.title|lower }}" data-category="{{ recipe.category }}" style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; background: #fafafa; transition: all 0.2s;">
-                <div style="display: flex; justify-content: space-between; align-items: start; gap: 16px;">
-                    <div style="flex: 1;">
-                        <h3 style="margin: 0 0 8px 0;">
-                            <a href="/recipe/{{ recipe.id }}" style="color: var(--color-primary, #d97706); text-decoration: none;">
-                                {{ recipe.title }}
-                            </a>
-                        </h3>
-                        <div style="display: flex; gap: 16px; font-size: 0.9rem; color: #666; margin-bottom: 8px;">
-                            <span>📁 {{ recipe.category }}</span>
-                            <span>⏱️ {{ recipe.time_minutes }} min</span>
-                            <span>📊 {{ recipe.difficulty }}</span>
+            <div class="recipe-card"
+                 data-title="{{ recipe.title|lower }}"
+                 data-category="{{ recipe.category }}"
+                 style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; background: #fafafa; transition: all 0.2s;">
+                <div style="display: flex; flex-direction: column; gap: 0;">
+                    <div style="display: flex; justify-content: space-between; align-items: start; gap: 16px;">
+                        <div style="flex: 1;">
+                            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                                <h3 style="margin: 0;">
+                                    <a href="/recipe/{{ recipe.id }}" style="color: var(--color-primary, #d97706); text-decoration: none;">
+                                        {{ recipe.title }}
+                                    </a>
+                                </h3>
+                                {% if recipe.packIcon %}
+                                <span title="{{ recipe.category }}" style="font-size: 1.2rem;">{{ recipe.packIcon }}</span>
+                                {% endif %}
+                            </div>
+                            <div style="display: flex; gap: 16px; font-size: 0.9rem; color: #666; margin-bottom: 8px; flex-wrap: wrap;">
+                                <span class="category-badge">{{ recipe.category }}</span>
+                                <span>⏱️ {{ recipe.time_minutes }} {{ t.minutes }}</span>
+                                <span>📊 {{ recipe.difficulty }}</span>
+                            </div>
+                            {% if recipe.description %}
+                            <p style="margin: 0; color: #555; font-size: 0.9rem;">{{ recipe.description[:100] }}...</p>
+                            {% endif %}
                         </div>
-                        <p style="margin: 0; color: #555; font-size: 0.9rem;">{{ recipe.description[:100] }}...</p>
-                    </div>
 
-                    <div style="display: flex; flex-direction: column; gap: 8px;">
-                        <select class="swap-dropdown" data-recipe-id="{{ recipe.id }}" data-recipe-title="{{ recipe.title }}" style="padding: 6px 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 0.85rem;">
-                            <option value="">Bytt dag</option>
-                            <option value="Mandag">Mandag</option>
-                            <option value="Tirsdag">Tirsdag</option>
-                            <option value="Onsdag">Onsdag</option>
-                            <option value="Torsdag">Torsdag</option>
-                            <option value="Fredag">Fredag</option>
-                            <option value="Lørdag">Lørdag</option>
-                        </select>
+                        <div style="display: flex; flex-direction: column; gap: 8px; align-items: flex-end;">
+                            <button class="favorite-star-btn"
+                                    data-recipe-id="{{ recipe.id }}"
+                                    onclick="toggleFavoriteFromAllRecipes('{{ recipe.id }}', event)"
+                                    title="{{ t.favorite_add }}"
+                                    style="background: none; border: 1px solid #ddd; border-radius: 4px; padding: 5px 8px; cursor: pointer; font-size: 1rem; transition: all 0.2s;">
+                                ☆
+                            </button>
+                            <select class="swap-dropdown"
+                                    data-recipe-id="{{ recipe.id }}"
+                                    data-recipe-title="{{ recipe.title }}"
+                                    style="padding: 6px 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 0.85rem;">
+                                <option value="">{{ t.swap_day }}</option>
+                                <option value="Monday">{{ t.monday }}</option>
+                                <option value="Tuesday">{{ t.tuesday }}</option>
+                                <option value="Wednesday">{{ t.wednesday }}</option>
+                                <option value="Thursday">{{ t.thursday }}</option>
+                                <option value="Friday">{{ t.friday }}</option>
+                                <option value="Saturday">{{ t.saturday }}</option>
+                            </select>
+                            <button class="delete-recipe-btn"
+                                    data-recipe-id="{{ recipe.id }}"
+                                    data-recipe-title="{{ recipe.title }}"
+                                    onclick="confirmDeleteRecipe('{{ recipe.id }}', '{{ recipe.title|replace("'", "\\'") }}')"
+                                    style="background: none; border: 1px solid #fca5a5; border-radius: 4px; padding: 5px 10px; cursor: pointer; font-size: 0.8rem; color: #dc2626; transition: all 0.2s;">
+                                {{ t.delete_label }}
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -84,7 +102,6 @@
     position: sticky;
     top: 80px;
 }
-
 .menu-day-item {
     padding: 12px;
     background: var(--color-bg, white);
@@ -92,13 +109,11 @@
     border-radius: 6px;
     transition: all 0.2s;
 }
-
 .menu-day-item:hover {
     background: var(--color-hover-bg, #f5f5f5);
     border-color: var(--color-primary, #d97706);
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
-
 .menu-day-label {
     font-weight: 600;
     font-size: 0.8rem;
@@ -107,7 +122,6 @@
     letter-spacing: 0.5px;
     margin-bottom: 4px;
 }
-
 .menu-day-title {
     font-size: 0.85rem;
     color: var(--color-text-primary, #1a1a1a);
@@ -120,45 +134,18 @@
     overflow: hidden;
     max-height: 2.6em;
 }
-
 .menu-day-time {
     font-size: 0.75rem;
     color: var(--color-text-secondary, #888);
     margin-top: 4px;
 }
-
 @media (max-width: 1024px) {
-    div[style*="grid-template-columns: 280px"] {
-        grid-template-columns: 220px 1fr;
-        gap: 16px;
-    }
-
-    .weekly-menu-sidebar {
-        padding: 12px;
-    }
-
-    .menu-day-item {
-        padding: 10px;
-    }
-
-    .menu-day-label {
-        font-size: 0.7rem;
-    }
-
-    .menu-day-title {
-        font-size: 0.8rem;
-    }
-
-    .menu-day-time {
-        font-size: 0.7rem;
-    }
+    div[style*="grid-template-columns: 280px"] { grid-template-columns: 220px 1fr; gap: 16px; }
+    .weekly-menu-sidebar { padding: 12px; }
+    .menu-day-item { padding: 10px; }
 }
-
 @media (max-width: 768px) {
-    div[style*="grid-template-columns: 280px"] {
-        grid-template-columns: 1fr;
-    }
-
+    div[style*="grid-template-columns: 280px"] { grid-template-columns: 1fr; }
     .weekly-menu-sidebar {
         position: static;
         margin-bottom: 20px;
@@ -166,96 +153,97 @@
         grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
         gap: 12px;
     }
-
-    .weekly-menu-sidebar h2 {
-        grid-column: 1 / -1;
-    }
-
-    .menu-day-item {
-        padding: 8px;
-    }
-
-    .menu-day-label {
-        font-size: 0.65rem;
-    }
-
-    .menu-day-title {
-        font-size: 0.75rem;
-        -webkit-line-clamp: 2;
-    }
-
-    .menu-day-time {
-        font-size: 0.65rem;
-    }
+    .weekly-menu-sidebar h2 { grid-column: 1 / -1; }
 }
 </style>
 
 <script>
-// Load current week's menu
+var LANG = '{{ lang }}';
+var STR_COULD_NOT_LOAD = '{{ t.could_not_load_menu }}';
+var STR_MINUTES = '{{ t.minutes }}';
+var STR_SWAPPED = '{{ t.recipe_swapped }}';
+var STR_ADDED_TO = '{{ t.added_to_day }}';
+var STR_COULD_NOT_SWAP = '{{ t.could_not_swap }}';
+var STR_SERVER_ERROR = '{{ t.server_error }}';
+var STR_SERVER_ERROR_MSG = '{{ t.server_error_msg }}';
+var STR_DELETE_CONFIRM_TITLE = '{{ t.delete_recipe_confirm_title }}';
+var STR_DELETE_CONFIRM_MSG = '{{ t.delete_recipe_confirm_msg }}';
+var STR_DELETED_TITLE = '{{ t.recipe_deleted_title }}';
+var STR_DELETED_MSG = '{{ t.recipe_deleted_msg }}';
+var STR_COULD_NOT_DELETE = '{{ t.could_not_delete }}';
+var STR_FAV_ADD = '{{ t.favorite_add }}';
+var STR_FAV_REMOVE = '{{ t.favorite_remove }}';
+
 async function loadWeeklyMenu() {
     try {
-        const response = await fetch('/api/menu');
-        const menu = await response.json();
-
-        const listEl = document.getElementById('weekly-menu-list');
+        var resp = await fetch('/api/menu');
+        if (!resp.ok) throw new Error('HTTP ' + resp.status);
+        var menu = await resp.json();
+        var listEl = document.getElementById('weekly-menu-list');
         listEl.innerHTML = '';
-
-        menu.dinners.forEach(dinner => {
-            const dayEl = document.createElement('div');
+        (menu.dinners || []).forEach(function(dinner) {
+            var dayEl = document.createElement('div');
             dayEl.className = 'menu-day-item';
-            dayEl.innerHTML = `
-                <div class="menu-day-label">${dinner.day}</div>
-                <a href="/recipe/${dinner.recipe_id}" style="text-decoration: none; cursor: pointer;">
-                    <p class="menu-day-title">${dinner.title}</p>
-                </a>
-                <div class="menu-day-time">⏱️ ${dinner.time_minutes} min</div>
-            `;
+            dayEl.innerHTML =
+                '<div class="menu-day-label">' + _esc(dinner.day) + '</div>' +
+                '<a href="/recipe/' + _esc(dinner.recipe_id) + '" style="text-decoration:none;cursor:pointer;">' +
+                    '<p class="menu-day-title">' + _esc(dinner.title) + '</p>' +
+                '</a>' +
+                '<div class="menu-day-time">⏱️ ' + dinner.time_minutes + ' ' + STR_MINUTES + '</div>';
             listEl.appendChild(dayEl);
         });
-    } catch (error) {
-        console.error('Error loading menu:', error);
+    } catch(err) {
         document.getElementById('weekly-menu-list').innerHTML =
-            '<div style="color: #999; font-size: 0.9rem;">Kunne ikke laste meny</div>';
+            '<div style="color:#999;font-size:0.9rem;">' + STR_COULD_NOT_LOAD + '</div>';
     }
 }
 
-// Load menu on page load
-document.addEventListener('DOMContentLoaded', loadWeeklyMenu);
+async function loadCategoryFilter() {
+    try {
+        var resp = await fetch('/api/categories');
+        if (!resp.ok) throw new Error('HTTP ' + resp.status);
+        var cats = await resp.json();
+        var select = document.getElementById('categoryFilter');
+        (cats || []).forEach(function(cat) {
+            var opt = document.createElement('option');
+            opt.value = cat.name_en || cat.name || '';
+            opt.textContent = (cat.icon || '') + ' ' + (cat.name || '');
+            select.appendChild(opt);
+        });
+    } catch(err) {
+        console.error('Error loading categories:', err);
+    }
+}
 
-document.getElementById('searchInput').addEventListener('keyup', function() {
-    filterRecipes();
+document.addEventListener('DOMContentLoaded', function() {
+    loadWeeklyMenu();
+    loadCategoryFilter();
+    restoreFavoriteStars();
 });
 
-document.getElementById('categoryFilter').addEventListener('change', function() {
-    filterRecipes();
-});
+document.getElementById('searchInput').addEventListener('keyup', filterRecipes);
+document.getElementById('categoryFilter').addEventListener('change', filterRecipes);
 
 function filterRecipes() {
-    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-    const categoryTerm = document.getElementById('categoryFilter').value;
-    const cards = document.querySelectorAll('.recipe-card');
-
-    cards.forEach(card => {
-        const title = card.getAttribute('data-title');
-        const category = card.getAttribute('data-category');
-
-        const matchesSearch = searchTerm === '' || title.includes(searchTerm);
-        const matchesCategory = categoryTerm === '' || category === categoryTerm;
-
-        card.style.display = (matchesSearch && matchesCategory) ? 'block' : 'none';
+    var searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    var categoryTerm = document.getElementById('categoryFilter').value;
+    document.querySelectorAll('.recipe-card').forEach(function(card) {
+        var title    = card.getAttribute('data-title') || '';
+        var category = card.getAttribute('data-category') || '';
+        var matchSearch   = searchTerm === '' || title.includes(searchTerm);
+        var matchCategory = categoryTerm === '' || category === categoryTerm;
+        card.style.display = (matchSearch && matchCategory) ? 'block' : 'none';
     });
 }
 
-document.querySelectorAll('.swap-dropdown').forEach(dropdown => {
+document.querySelectorAll('.swap-dropdown').forEach(function(dropdown) {
     dropdown.addEventListener('change', function() {
-        const day = this.value;
-        const recipeId = this.getAttribute('data-recipe-id');
-        const recipeTitle = this.getAttribute('data-recipe-title');
-
-        if (day === '') return;
-
+        var day = this.value;
+        var recipeId    = this.getAttribute('data-recipe-id');
+        var recipeTitle = this.getAttribute('data-recipe-title');
+        if (!day) return;
         swapRecipeForDay(recipeId, recipeTitle, day);
-        this.value = ''; // Reset dropdown
+        this.value = '';
     });
 });
 
@@ -263,25 +251,94 @@ function swapRecipeForDay(recipeId, recipeTitle, day) {
     fetch('/api/swap-recipe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            recipe_id: recipeId,
-            recipe_title: recipeTitle,
-            day: day
-        })
+        body: JSON.stringify({ recipe_id: recipeId, recipe_title: recipeTitle, day: day })
     })
-    .then(r => r.json())
-    .then(data => {
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
         if (data.status === 'success') {
-            pmAlert('✅', 'Oppskrift byttet!', `${recipeTitle} er lagt til ${day}.`).then(() => {
-                loadWeeklyMenu(); // Reload sidebar
+            pmAlert('✅', STR_SWAPPED, recipeTitle + ' ' + STR_ADDED_TO + ' ' + day + '.').then(function() {
+                loadWeeklyMenu();
                 location.reload();
             });
         } else {
-            pmAlert('❌', 'Feil', data.message || 'Kunne ikke bytte oppskriften');
+            pmAlert('❌', STR_SERVER_ERROR, data.message || STR_COULD_NOT_SWAP);
         }
     })
-    .catch(err => {
-        pmAlert('❌', 'Serverfeil', 'Kunne ikke kontakte serveren');
+    .catch(function() {
+        pmAlert('❌', STR_SERVER_ERROR, STR_SERVER_ERROR_MSG);
+    });
+}
+
+function _esc(str) {
+    return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// ---- Favorites ----
+function restoreFavoriteStars() {
+    var favorites = JSON.parse(localStorage.getItem('pi-menu-favorites') || '[]');
+    document.querySelectorAll('.favorite-star-btn').forEach(function(btn) {
+        var id = btn.getAttribute('data-recipe-id');
+        if (favorites.includes(id)) {
+            btn.textContent = '★';
+            btn.title = STR_FAV_REMOVE;
+            btn.style.color = '#d97706';
+            btn.style.borderColor = '#d97706';
+        }
+    });
+}
+
+function toggleFavoriteFromAllRecipes(recipeId, event) {
+    event.stopPropagation();
+    var favorites = JSON.parse(localStorage.getItem('pi-menu-favorites') || '[]');
+    var btn = event.currentTarget;
+    var idx = favorites.indexOf(recipeId);
+    if (idx === -1) {
+        favorites.push(recipeId);
+        btn.textContent = '★';
+        btn.title = STR_FAV_REMOVE;
+        btn.style.color = '#d97706';
+        btn.style.borderColor = '#d97706';
+    } else {
+        favorites.splice(idx, 1);
+        btn.textContent = '☆';
+        btn.title = STR_FAV_ADD;
+        btn.style.color = '';
+        btn.style.borderColor = '#ddd';
+    }
+    localStorage.setItem('pi-menu-favorites', JSON.stringify(favorites));
+}
+
+// ---- Delete ----
+function confirmDeleteRecipe(recipeId, recipeTitle) {
+    var msg = STR_DELETE_CONFIRM_MSG.replace('%s', recipeTitle);
+    pmConfirm('🗑️', STR_DELETE_CONFIRM_TITLE, msg).then(function(confirmed) {
+        if (confirmed) deleteRecipe(recipeId, recipeTitle);
+    });
+}
+
+function deleteRecipe(recipeId, recipeTitle) {
+    fetch('/api/delete-recipe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ recipe_id: recipeId })
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+        if (data.status === 'success') {
+            // Remove from favorites if present
+            var favorites = JSON.parse(localStorage.getItem('pi-menu-favorites') || '[]');
+            var idx = favorites.indexOf(recipeId);
+            if (idx !== -1) { favorites.splice(idx, 1); localStorage.setItem('pi-menu-favorites', JSON.stringify(favorites)); }
+
+            pmAlert('✅', STR_DELETED_TITLE, '"' + recipeTitle + '" ' + STR_DELETED_MSG).then(function() {
+                location.reload();
+            });
+        } else {
+            pmAlert('❌', STR_SERVER_ERROR, data.message || STR_COULD_NOT_DELETE);
+        }
+    })
+    .catch(function() {
+        pmAlert('❌', STR_SERVER_ERROR, STR_COULD_NOT_DELETE);
     });
 }
 </script>

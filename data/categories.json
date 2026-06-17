@@ -1,14 +1,5 @@
 [
   {
-    "code": "familie",
-    "name_no": "Familie",
-    "name_en": "Family",
-    "description_no": "Familievennlige middager som hele familien liker",
-    "description_en": "Family-friendly dinners that everyone loves",
-    "icon": "👨‍👩‍👧‍👦",
-    "color": "#FF6B6B"
-  },
-  {
     "code": "rask",
     "name_no": "Rask Middag",
     "name_en": "Quick Dinner",

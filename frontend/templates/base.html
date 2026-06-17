@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ lang }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,7 @@
     <meta name="theme-color" content="#d97706">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Ukesmeny">
+    <meta name="apple-mobile-web-app-title" content="Pi-Menu">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='themes/theme-switcher.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='themes/theme-terracotta.css') }}">
@@ -16,58 +16,49 @@
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <a href="/" class="nav-logo">{{ household_name }} Weekly Menu</a>
+            <a href="/" class="nav-logo">{{ household_name }} {{ t.weekly_menu }}</a>
             <ul class="nav-menu">
                 <li class="nav-item">
-                    <a href="/" class="nav-link">Menu</a>
+                    <a href="/" class="nav-link">{{ t.menu }}</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/shopping" class="nav-link">Shopping List</a>
+                    <a href="/shopping" class="nav-link">{{ t.shopping_list }}</a>
                 </li>
                 <li class="nav-item nav-category-selector">
                     <div class="category-dropdown-wrapper" id="categoryDropdownWrapper">
                         <button class="category-dropdown-btn" onclick="toggleCategoryDropdown(event)">
-                            Categories <span class="dropdown-arrow">▾</span>
+                            {{ t.categories }} <span class="dropdown-arrow">▾</span>
                         </button>
                         <div class="category-dropdown-menu" id="categoryDropdownMenu">
-                            <label><input type="checkbox" value="Favorites"> ⭐ Favorites</label>
-                            <label><input type="checkbox" value="Quick Dinners" checked> Quick Dinners</label>
-                            <label><input type="checkbox" value="Pasta & Noodles" checked> Pasta & Noodles</label>
-                            <label><input type="checkbox" value="Chicken" checked> Chicken</label>
-                            <label><input type="checkbox" value="Ground Meat & Sausages" checked> Ground Meat & Sausages</label>
-                            <label><input type="checkbox" value="Fish & Seafood" checked> Fish & Seafood</label>
-                            <label><input type="checkbox" value="Taco & Tex-Mex"> Taco & Tex-Mex</label>
-                            <label><input type="checkbox" value="Grill"> Grill</label>
-                            <label><input type="checkbox" value="Soups & Stews"> Soups & Stews</label>
-                            <label><input type="checkbox" value="Vegetarian"> Vegetarian</label>
-                            <label><input type="checkbox" value="Homemade"> Homemade</label>
+                            <label><input type="checkbox" value="Favorites"> ⭐ {{ t.favorites }}</label>
+                            <div id="dynamicCategoriesList"></div>
                             <div class="dropdown-actions">
-                                <button onclick="applyCategories()" class="btn-apply">Apply</button>
+                                <button onclick="applyCategories()" class="btn-apply">{{ t.apply }}</button>
                             </div>
                         </div>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="#" onclick="refreshMenu()" class="nav-link">Generate Menu</a>
+                    <a href="#" onclick="refreshMenu()" class="nav-link">{{ t.generate_menu }}</a>
                 </li>
                 <li class="nav-item">
                     <div class="nav-settings-menu">
-                        <button id="settings-btn" class="settings-btn" aria-label="Settings" title="Settings" onclick="toggleSettingsMenu(event)">⚙️</button>
+                        <button id="settings-btn" class="settings-btn" aria-label="{{ t.settings }}" title="{{ t.settings }}" onclick="toggleSettingsMenu(event)">⚙️</button>
                         <div id="settings-dropdown" class="settings-dropdown">
                             <div class="settings-section">
-                                <div class="settings-section-title">Language</div>
+                                <div class="settings-section-title">{{ t.language }}</div>
                                 <button class="settings-item" onclick="switchLanguage('no')" style="text-align: left;">
-                                    <span id="lang-no-btn">🇳🇴 Norsk</span>
+                                    <span id="lang-no-btn">🇳🇴 {{ t.norwegian }}</span>
                                 </button>
                                 <button class="settings-item" onclick="switchLanguage('en')" style="text-align: left;">
-                                    <span id="lang-en-btn">🇬🇧 English</span>
+                                    <span id="lang-en-btn">🇬🇧 {{ t.english }}</span>
                                 </button>
                             </div>
                             <div class="settings-divider"></div>
                             <div class="settings-section">
-                                <div class="settings-section-title">Theme</div>
+                                <div class="settings-section-title">{{ t.theme }}</div>
                                 <a href="#" class="settings-submenu-item" onclick="openThemeMenu(event)">
-                                    Choose Theme <span class="submenu-arrow">›</span>
+                                    {{ t.choose_theme }} <span class="submenu-arrow">›</span>
                                 </a>
                                 <div id="theme-submenu" class="theme-submenu" style="display:none;">
                                     <div class="theme-option" data-theme="warm-modern" onclick="switchTheme('warm-modern', event)">
@@ -109,14 +100,14 @@
                                 </div>
                             </div>
                             <div class="settings-divider"></div>
-                            <a href="/settings" class="settings-item">Settings</a>
-                            <a href="/all-recipes" class="settings-item">All Recipes</a>
-                            <a href="/add-recipe" class="settings-item">+ Add Recipe</a>
+                            <a href="/settings" class="settings-item">{{ t.settings }}</a>
+                            <a href="/all-recipes" class="settings-item">{{ t.all_recipes }}</a>
+                            <a href="/add-recipe" class="settings-item">+ {{ t.add_recipe }}</a>
                             <div class="settings-divider"></div>
                             <div id="nav-auth-section" style="display:none;">
-                                <a href="/login" id="nav-login-item" class="settings-item" style="display:none;">Login (To Do)</a>
+                                <a href="/login" id="nav-login-item" class="settings-item" style="display:none;">{{ t.login }}</a>
                                 <span id="nav-user-display-settings" style="display:none; font-size:0.85rem; color:var(--color-text-secondary,#888); padding:8px 16px; display:block;"></span>
-                                <a href="/logout" id="nav-logout-item" class="settings-item settings-logout" style="display:none;">Logout</a>
+                                <a href="/logout" id="nav-logout-item" class="settings-item settings-logout" style="display:none;">{{ t.logout }}</a>
                             </div>
                         </div>
                     </div>
@@ -141,9 +132,37 @@
 
     <footer class="footer">
         <p>Pi-Menu &copy; 2026 | Created by <a href="{{ github_url }}" target="_blank">{{ creator }}</a></p>
-        <p style="font-size: 0.8em; margin-top: 4px;"><a href="{{ patreon_url }}" target="_blank">Support on Patreon</a> • Built with Claude Code</p>
+        <p style="font-size: 0.8em; margin-top: 4px;"><a href="{{ patreon_url }}" target="_blank">{{ t.support_patreon }}</a> • Built with Claude Code</p>
     </footer>
 
+    <script>
+    // Server-rendered i18n strings available synchronously before app.js loads.
+    // _t() in app.js checks window.T as its primary fast-path, languageManager as fallback.
+    window.T = {
+        cancel: {{ t.cancel|tojson }},
+        confirm: {{ t.confirm|tojson }},
+        ok: 'OK',
+        error: {{ t.error|tojson }},
+        success: {{ t.success|tojson }},
+        loading: {{ t.loading|tojson }},
+        close: {{ t.close|tojson }},
+        generate_confirm_title: {{ t.generate_confirm_title|tojson }},
+        generate_confirm_msg: {{ t.generate_confirm_msg|tojson }},
+        generate_label: {{ t.generate_label|tojson }},
+        generating: {{ t.generating|tojson }},
+        menu_ready: {{ t.menu_ready|tojson }},
+        menu_updated: {{ t.menu_updated|tojson }},
+        generation_failed: {{ t.generation_failed|tojson }},
+        generation_error: {{ t.generation_error|tojson }},
+        no_category_title: {{ t.no_category_title|tojson }},
+        no_category_msg: {{ t.no_category_msg|tojson }},
+        categories_saved_title: {{ t.categories_saved_title|tojson }},
+        categories_saved_msg: {{ t.categories_saved_msg|tojson }},
+        generate_menu: {{ t.generate_menu|tojson }},
+        server_error: {{ t.server_error|tojson }},
+        server_error_msg: {{ t.server_error_msg|tojson }}
+    };
+    </script>
     <script src="{{ url_for('static', filename='language-manager.js') }}"></script>
     <script src="{{ url_for('static', filename='measurements.js') }}"></script>
     <script src="{{ url_for('static', filename='themes/theme-colors.js') }}"></script>
@@ -151,9 +170,16 @@
     <script src="{{ url_for('static', filename='app.js') }}"></script>
 
     <script>
+    // Sync the language cookie from localStorage on every page load.
+    // This ensures Flask reads the correct language on the NEXT request.
+    (function() {
+        var stored = localStorage.getItem('pi-menu-language');
+        if (stored) {
+            document.cookie = 'pi_language=' + stored + '; path=/; max-age=31536000; SameSite=Lax';
+        }
+    })();
+
     // ── Dynamic Preview Theme Loader ────────────────────────────────────────
-    // Fetches theme-registry.json and appends preview theme options to the
-    // existing dropdown. Runs after ThemeManager has already initialised.
     document.addEventListener('DOMContentLoaded', function () {
         var REGISTRY_URL = '/static/themes/previews/theme-registry.json';
         var dropdown = document.getElementById('theme-dropdown');
@@ -161,10 +187,7 @@
 
         fetch(REGISTRY_URL)
             .then(function (res) {
-                if (!res.ok) {
-                    // No registry yet (extract_themes.py hasn't been run) — fail silently
-                    return null;
-                }
+                if (!res.ok) return null;
                 return res.json();
             })
             .then(function (themes) {
@@ -177,11 +200,10 @@
                     option.innerHTML =
                         '<div class="theme-option-content">' +
                             '<span class="theme-option-name">' + _escapeHtml(theme.name) + '</span>' +
-                            '<span class="theme-option-desc">Preview tema</span>' +
+                            '<span class="theme-option-desc">Preview</span>' +
                         '</div>' +
                         '<span class="theme-preview-swatch" style="background:' + _escapeHtml(theme.preview_color) + ';"></span>';
 
-                    // Wire up click handler to match existing options
                     option.addEventListener('click', function () {
                         var name = option.dataset.theme;
                         if (window.themeManager) {
@@ -195,15 +217,11 @@
                     dropdown.appendChild(option);
                 });
 
-                // Re-run active marking so the current theme is highlighted
-                // even if it's one of the newly appended preview options
                 if (window.themeManager) {
                     window.themeManager.markActiveTheme();
                 }
             })
-            .catch(function () {
-                // Network error or malformed JSON — fail silently
-            });
+            .catch(function () {});
 
         function _escapeHtml(str) {
             return String(str)
@@ -218,22 +236,20 @@
     fetch('/api/user')
         .then(function(r){ return r.json(); })
         .then(function(data){
-            var loginBtn  = document.getElementById('nav-login-btn');
-            var logoutBtn = document.getElementById('nav-logout-btn');
-            var userDisp  = document.getElementById('nav-user-display');
-            if (!loginBtn) return;
+            var loginItem  = document.getElementById('nav-login-item');
+            var logoutItem = document.getElementById('nav-logout-item');
+            var userDisp   = document.getElementById('nav-user-display-settings');
+            var authSec    = document.getElementById('nav-auth-section');
+            if (!authSec) return;
+            authSec.style.display = '';
             if (data.authenticated) {
-                userDisp.textContent = data.name || data.email || '';
-                userDisp.style.display = '';
-                logoutBtn.style.display = '';
+                if (userDisp) { userDisp.textContent = data.name || data.email || ''; userDisp.style.display = 'block'; }
+                if (logoutItem) logoutItem.style.display = '';
             } else {
-                loginBtn.style.display = '';
+                if (loginItem) loginItem.style.display = '';
             }
         })
-        .catch(function(){
-            var loginBtn = document.getElementById('nav-login-btn');
-            if (loginBtn) loginBtn.style.display = '';
-        });
+        .catch(function(){});
 
     // ── Service Worker (PWA) ───────────────────────────────────────────────
     if ('serviceWorker' in navigator) {
