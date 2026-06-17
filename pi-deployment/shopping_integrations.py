@@ -263,35 +263,44 @@ def sync_ticktick(items_by_category: dict, api_token: str, list_name: str = "Pi-
     Sync shopping list to TickTick.
 
     Required API token from user's TickTick account:
-    - Get from: https://ticktick.com/user/myprofile
+    - Get from: https://ticktick.com/webapp/#q/all/completed?modalType=settings
     """
     try:
         headers = {
             "Authorization": f"Bearer {api_token}",
             "Content-Type": "application/json"
         }
-        base_url = "https://api.ticktick.com/v2"
+        base_url = "https://api.ticktick.com/open/v1"
 
-        # Get or create list
-        resp = requests.get(f"{base_url}/lists", headers=headers, timeout=10)
+        # Get or create project (list)
+        resp = requests.get(f"{base_url}/project", headers=headers, timeout=10)
+        if resp.status_code != 200:
+            logger.error(f"TickTick API error: {resp.status_code} - {resp.text}")
         resp.raise_for_status()
-        lists = resp.json().get("resources", [])
+        projects = resp.json() if isinstance(resp.json(), list) else resp.json().get("data", [])
 
-        list_id = None
-        for lst in lists:
-            if lst.get("name") == list_name:
-                list_id = lst["id"]
+        project_id = None
+        for proj in projects:
+            if proj.get("name") == list_name:
+                project_id = proj["id"]
                 break
 
-        if not list_id:
+        if not project_id:
             resp = requests.post(
-                f"{base_url}/lists",
+                f"{base_url}/project",
                 headers=headers,
-                json={"name": list_name},
+                json={"name": list_name, "kind": "TASK"},
                 timeout=10
             )
             resp.raise_for_status()
-            list_id = resp.json()["id"]
+            project_id = resp.json().get("id") or resp.json().get("data", {}).get("id")
+
+        # Delete existing tasks for this project (deduplication)
+        resp = requests.get(f"{base_url}/task", params={"projectId": project_id}, headers=headers, timeout=10)
+        if resp.status_code == 200:
+            existing_tasks = resp.json() if isinstance(resp.json(), list) else resp.json().get("data", [])
+            for task in existing_tasks:
+                requests.delete(f"{base_url}/task/{task['id']}", headers=headers, timeout=10)
 
         # Add tasks
         added = 0
@@ -303,10 +312,10 @@ def sync_ticktick(items_by_category: dict, api_token: str, list_name: str = "Pi-
                     resp = requests.post(
                         f"{base_url}/task",
                         headers=headers,
-                        json={"title": formatted, "listId": list_id, "tags": [category]},
+                        json={"title": formatted, "projectId": project_id, "tags": [category]},
                         timeout=10
                     )
-                    if resp.status_code == 200:
+                    if resp.status_code in (200, 201):
                         added += 1
                     else:
                         errors.append(f"{item.get('ingredient')}: {resp.status_code}")
