@@ -202,7 +202,8 @@ def sync_todoist(items_by_category: dict, api_token: str, project_name: str = "P
             logger.error(f"Todoist API error: {resp.status_code} - {resp.text}")
         resp.raise_for_status()
         data = resp.json()
-        projects = data if isinstance(data, list) else data.get("projects", [])
+        # Handle Todoist API v1 response format with 'results' key
+        projects = data.get("results", []) if isinstance(data, dict) else data
 
         project_id = None
         for proj in projects:
@@ -223,13 +224,14 @@ def sync_todoist(items_by_category: dict, api_token: str, project_name: str = "P
         # Clear existing tasks in the project
         resp = requests.get(f"{base_url}/tasks", headers=headers, params={"project_id": project_id}, timeout=10)
         if resp.status_code == 200:
-            tasks = resp.json()
-            if isinstance(tasks, list):
-                for task in tasks:
-                    try:
-                        requests.delete(f"{base_url}/tasks/{task['id']}", headers=headers, timeout=10)
-                    except Exception as e:
-                        logger.warning(f"Failed to delete old task: {e}")
+            data = resp.json()
+            # Handle Todoist API v1 response format with 'results' key
+            tasks = data.get("results", []) if isinstance(data, dict) else data
+            for task in tasks:
+                try:
+                    requests.delete(f"{base_url}/tasks/{task['id']}", headers=headers, timeout=10)
+                except Exception as e:
+                    logger.warning(f"Failed to delete old task: {e}")
 
         # Add new tasks
         added = 0
