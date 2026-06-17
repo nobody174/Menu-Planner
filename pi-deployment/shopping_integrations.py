@@ -194,16 +194,19 @@ def sync_todoist(items_by_category: dict, api_token: str, project_name: str = "P
     """
     try:
         headers = {"Authorization": f"Bearer {api_token}"}
-        base_url = "https://api.todoist.com/rest/v2"
+        base_url = "https://api.todoist.com/api/v1"
 
         # Get or create project
         resp = requests.get(f"{base_url}/projects", headers=headers, timeout=10)
+        if resp.status_code != 200:
+            logger.error(f"Todoist API error: {resp.status_code} - {resp.text}")
         resp.raise_for_status()
-        projects = resp.json()
+        data = resp.json()
+        projects = data if isinstance(data, list) else data.get("projects", [])
 
         project_id = None
         for proj in projects:
-            if proj.get("name") == project_name:
+            if isinstance(proj, dict) and proj.get("name") == project_name:
                 project_id = proj["id"]
                 break
 

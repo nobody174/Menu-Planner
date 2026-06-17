@@ -1,7 +1,7 @@
 {
   "week_start": "2026-06-22",
   "week_end": "2026-06-27",
-  "generated_at": "2026-06-17T21:29:47.812954",
+  "generated_at": "2026-06-17T21:54:55.084693",
   "selected_categories": [
     "Family",
     "European Classics",
@@ -13,177 +13,159 @@
   "dinners": [
     {
       "day": "Monday",
-      "recipe_id": "no_007",
+      "recipe_id": "sum_006",
       "title": {
-        "no": "Kålsuppe",
-        "en": "Cabbage Soup"
+        "no": "Grillet Oksekjøtt-Stav",
+        "en": "Grilled Beef Skewer"
       },
-      "title_no": "Kålsuppe",
-      "title_en": "Cabbage Soup",
-      "time_minutes": 45,
-      "difficulty": "easy",
-      "protein": "other",
-      "subtitle_no": "Varmende norsk suppe med kål og kjøtt",
-      "subtitle_en": "Warming Norwegian soup with cabbage and meat"
+      "title_no": "Grillet Oksekjøtt-Stav",
+      "title_en": "Grilled Beef Skewer",
+      "time_minutes": 30,
+      "difficulty": "medium",
+      "protein": "beef",
+      "subtitle_no": "Aromatisk og deilig grillet kjøtt",
+      "subtitle_en": "Aromatic and delicious grilled meat"
     },
     {
       "day": "Tuesday",
-      "recipe_id": "no_008",
+      "recipe_id": "eu_012",
       "title": {
-        "no": "Skilpaddesuppe",
-        "en": "Turtle Soup (Beef & Vegetable)"
+        "no": "Crème Brûlée",
+        "en": "Crème Brûlée"
       },
-      "title_no": "Skilpaddesuppe",
-      "title_en": "Turtle Soup (Beef & Vegetable)",
+      "title_no": "Crème Brûlée",
+      "title_en": "Crème Brûlée",
       "time_minutes": 90,
       "difficulty": "medium",
-      "protein": "beef",
-      "subtitle_no": "Norsk spesialsuppe med okse og grønnsaker",
-      "subtitle_en": "Norwegian specialty soup with beef and vegetables"
+      "protein": "other",
+      "subtitle_no": "Fransk kullglassert fløte-dessert",
+      "subtitle_en": "French caramelized cream dessert"
     },
     {
       "day": "Wednesday",
-      "recipe_id": "no_009",
+      "recipe_id": "sum_003",
       "title": {
-        "no": "Klippfisk",
-        "en": "Salted Dried Fish"
+        "no": "Kylling-Salat med Mango",
+        "en": "Chicken Salad with Mango"
       },
-      "title_no": "Klippfisk",
-      "title_en": "Salted Dried Fish",
-      "time_minutes": 120,
-      "difficulty": "medium",
-      "protein": "fish",
-      "subtitle_no": "Tradisjonell norsk fiskérett",
-      "subtitle_en": "Traditional Norwegian salted fish dish"
+      "title_no": "Kylling-Salat med Mango",
+      "title_en": "Chicken Salad with Mango",
+      "time_minutes": 30,
+      "difficulty": "easy",
+      "protein": "chicken",
+      "subtitle_no": "Frisk og tropisk sommersalat",
+      "subtitle_en": "Fresh and tropical summer salad"
     },
     {
       "day": "Thursday",
-      "recipe_id": "no_003",
+      "recipe_id": "hol_002",
       "title": {
-        "no": "Kjøttkaker",
-        "en": "Meatballs"
+        "no": "Juleglogg",
+        "en": "Christmas Mulled Wine"
       },
-      "title_no": "Kjøttkaker",
-      "title_en": "Meatballs",
+      "title_no": "Juleglogg",
+      "title_en": "Christmas Mulled Wine",
       "time_minutes": 30,
       "difficulty": "easy",
       "protein": "other",
-      "subtitle_no": "Klassiske norske kjøttkaker med brun saus",
-      "subtitle_en": "Classic Norwegian meatballs with brown gravy"
+      "subtitle_no": "Tradisjonell varm juldrink",
+      "subtitle_en": "Traditional warm Christmas drink"
     },
     {
       "day": "Friday",
-      "recipe_id": "no_001",
+      "recipe_id": "sum_007",
       "title": {
-        "no": "Fårikål",
-        "en": "Lamb and Cabbage Stew"
+        "no": "Grillet Kylling med Sitron",
+        "en": "Grilled Chicken with Lemon"
       },
-      "title_no": "Fårikål",
-      "title_en": "Lamb and Cabbage Stew",
-      "time_minutes": 90,
+      "title_no": "Grillet Kylling med Sitron",
+      "title_en": "Grilled Chicken with Lemon",
+      "time_minutes": 35,
       "difficulty": "easy",
-      "protein": "lamb",
-      "subtitle_no": "Klassisk norsk kjøttstuing med kål og løk",
-      "subtitle_en": "Classic Norwegian meat stew with cabbage and onion"
+      "protein": "chicken",
+      "subtitle_no": "Lett og smakfull grillet kylling",
+      "subtitle_en": "Light and flavorful grilled chicken"
     },
     {
       "day": "Saturday",
-      "recipe_id": "no_010",
+      "recipe_id": "nd_002",
       "title": {
-        "no": "Lutefisk",
-        "en": "Lye-Cured Fish"
+        "no": "Gravlax",
+        "en": "Gravlax"
       },
-      "title_no": "Lutefisk",
-      "title_en": "Lye-Cured Fish",
-      "time_minutes": 60,
+      "title_no": "Gravlax",
+      "title_en": "Gravlax",
+      "time_minutes": 1440,
       "difficulty": "medium",
-      "protein": "fish",
-      "subtitle_no": "Klassisk norsk juléérett",
-      "subtitle_en": "Classic Norwegian Christmas dish"
+      "protein": "other",
+      "subtitle_no": "Skandinavisk gravlaks med urter",
+      "subtitle_en": "Scandinavian cured salmon with herbs"
     }
   ],
   "shopping_list": {
     "Proteins": [
       {
-        "ingredient": "Beef (Cubes)",
-        "quantity": 700,
+        "ingredient": "Beef (Fillet Pieces)",
+        "quantity": 800,
         "unit": "g",
         "allergens": []
       },
       {
-        "ingredient": "Beef Broth",
-        "quantity": 2.0,
-        "unit": "l",
+        "ingredient": "Chicken Breast",
+        "quantity": 500,
+        "unit": "g",
         "allergens": []
       },
       {
-        "ingredient": "Egg",
-        "quantity": 1,
-        "unit": "piece",
-        "allergens": []
-      },
-      {
-        "ingredient": "Eggs (Boiled And Chopped)",
-        "quantity": 2,
+        "ingredient": "Chicken Thighs",
+        "quantity": 8,
         "unit": "pieces",
         "allergens": []
       },
       {
-        "ingredient": "Klippfisk (Salted Fish)",
-        "quantity": 800,
-        "unit": "g",
+        "ingredient": "Egg Yolks",
+        "quantity": 5,
+        "unit": "pieces",
         "allergens": []
       },
       {
-        "ingredient": "Lamb (Meat Chunks)",
-        "quantity": 800,
-        "unit": "g",
+        "ingredient": "Salmon (Fresh, Fillets)",
+        "quantity": 1.0,
+        "unit": "kg",
         "allergens": []
       }
     ],
     "Vegetables": [
       {
-        "ingredient": "Carrots",
-        "quantity": 200,
-        "unit": "g",
-        "allergens": []
-      },
-      {
-        "ingredient": "Onion",
-        "quantity": 7,
+        "ingredient": "Red Bell Pepper",
+        "quantity": 2,
         "unit": "pieces",
         "allergens": []
       },
       {
-        "ingredient": "Onion (Minced)",
-        "quantity": 1,
+        "ingredient": "Red Onion",
+        "quantity": 0.5,
         "unit": "medium",
         "allergens": []
       },
       {
-        "ingredient": "Potatoes",
-        "quantity": 2.2,
-        "unit": "kg",
+        "ingredient": "Red Onion (Large)",
+        "quantity": 1,
+        "unit": "piece",
         "allergens": []
       },
       {
-        "ingredient": "Yellow Peas (Dried)",
-        "quantity": 400,
-        "unit": "g",
+        "ingredient": "Tomato",
+        "quantity": 2,
+        "unit": "medium",
         "allergens": []
       }
     ],
     "Dairy": [
       {
-        "ingredient": "Cream",
-        "quantity": 200,
+        "ingredient": "Cream (Heavy)",
+        "quantity": 400,
         "unit": "ml",
-        "allergens": []
-      },
-      {
-        "ingredient": "Cream Sauce",
-        "quantity": 1,
-        "unit": "to taste",
         "allergens": []
       },
       {
@@ -193,74 +175,158 @@
         "allergens": []
       }
     ],
-    "Pantry": [
+    "Pantry": [],
+    "Herbs & Spices": [
       {
-        "ingredient": "Bread (Crumbled)",
+        "ingredient": "Cilantro (Fresh)",
+        "quantity": 20,
+        "unit": "leaves",
+        "allergens": []
+      },
+      {
+        "ingredient": "Dill (Fresh)",
+        "quantity": 50,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Thyme",
+        "quantity": 2,
+        "unit": "sprigs",
+        "allergens": []
+      }
+    ],
+    "Other": [
+      {
+        "ingredient": "Anise Or Fennel Seeds",
+        "quantity": 5,
+        "unit": "tsp",
+        "allergens": []
+      },
+      {
+        "ingredient": "Black Pepper",
+        "quantity": 5,
+        "unit": "tsp",
+        "allergens": []
+      },
+      {
+        "ingredient": "Cardamom",
+        "quantity": 3,
+        "unit": "pieces",
+        "allergens": []
+      },
+      {
+        "ingredient": "Cinnamon Stick",
+        "quantity": 2,
+        "unit": "pieces",
+        "allergens": []
+      },
+      {
+        "ingredient": "Cloves",
+        "quantity": 6,
+        "unit": "pieces",
+        "allergens": []
+      },
+      {
+        "ingredient": "Garlic",
+        "quantity": 5,
+        "unit": "cloves",
+        "allergens": []
+      },
+      {
+        "ingredient": "Ginger (Fresh)",
+        "quantity": 20,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Lemon",
+        "quantity": 2,
+        "unit": "pieces",
+        "allergens": []
+      },
+      {
+        "ingredient": "Lime (Juice)",
+        "quantity": 2,
+        "unit": "pieces",
+        "allergens": []
+      },
+      {
+        "ingredient": "Mango",
+        "quantity": 2,
+        "unit": "medium",
+        "allergens": []
+      },
+      {
+        "ingredient": "Olive Oil",
+        "quantity": 165,
+        "unit": "tbsp",
+        "allergens": []
+      },
+      {
+        "ingredient": "Orange",
+        "quantity": 2,
+        "unit": "pieces",
+        "allergens": []
+      },
+      {
+        "ingredient": "Red Wine",
+        "quantity": 1.0,
+        "unit": "l",
+        "allergens": []
+      },
+      {
+        "ingredient": "Rosemary (Fresh)",
+        "quantity": 2,
+        "unit": "sprigs",
+        "allergens": []
+      },
+      {
+        "ingredient": "Salad (Mixed)",
+        "quantity": 300,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Salt",
+        "quantity": 30,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Salt And Pepper",
+        "quantity": 1,
+        "unit": "to taste",
+        "allergens": []
+      },
+      {
+        "ingredient": "Spirits (Or Aquavit)",
+        "quantity": 150,
+        "unit": "ml",
+        "allergens": []
+      },
+      {
+        "ingredient": "Sugar",
+        "quantity": 95,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Sugar (For Crusting)",
+        "quantity": 20,
+        "unit": "tsp",
+        "allergens": []
+      },
+      {
+        "ingredient": "Sugar (White)",
         "quantity": 100,
         "unit": "g",
         "allergens": []
       },
       {
-        "ingredient": "Flour",
-        "quantity": 30,
-        "unit": "tbsp",
-        "allergens": []
-      }
-    ],
-    "Herbs & Spices": [],
-    "Other": [
-      {
-        "ingredient": "Broth",
-        "quantity": 1.5,
-        "unit": "l",
-        "allergens": []
-      },
-      {
-        "ingredient": "Butter",
-        "quantity": 150,
-        "unit": "g",
-        "allergens": []
-      },
-      {
-        "ingredient": "Cabbage (White)",
-        "quantity": 601,
-        "unit": "g",
-        "allergens": []
-      },
-      {
-        "ingredient": "Ground Meat",
-        "quantity": 500,
-        "unit": "g",
-        "allergens": []
-      },
-      {
-        "ingredient": "Lutefisk (Pre-Treated)",
-        "quantity": 1.0,
-        "unit": "kg",
-        "allergens": []
-      },
-      {
-        "ingredient": "Meat (Cubes)",
-        "quantity": 400,
-        "unit": "g",
-        "allergens": []
-      },
-      {
-        "ingredient": "Salt (For Cooking Water)",
-        "quantity": 30,
-        "unit": "tbsp",
-        "allergens": []
-      },
-      {
-        "ingredient": "Salt And Pepper",
-        "quantity": 4,
-        "unit": "to taste",
-        "allergens": []
-      },
-      {
-        "ingredient": "Water",
-        "quantity": 1.0,
-        "unit": "l",
+        "ingredient": "Vanilla Extract",
+        "quantity": 5,
+        "unit": "tsp",
         "allergens": []
       }
     ]

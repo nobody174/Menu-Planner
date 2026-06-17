@@ -52,5 +52,41 @@
     "description_en": "Popular Norwegian Recipes",
     "icon": "🌅",
     "color": "#BA0C2F"
+  },
+  {
+    "code": "european_classics",
+    "name_no": "European Classics",
+    "name_en": "European Classics",
+    "description_no": "European Classics",
+    "description_en": "European Classics",
+    "icon": "🌍",
+    "color": "#4B7BA7"
+  },
+  {
+    "code": "nordic_classics",
+    "name_no": "Nordic Classics",
+    "name_en": "Nordic Classics",
+    "description_no": "Nordic Classics",
+    "description_en": "Nordic Classics",
+    "icon": "❄️",
+    "color": "#1E90FF"
+  },
+  {
+    "code": "holiday_recipes",
+    "name_no": "Holiday Recipes",
+    "name_en": "Holiday Recipes",
+    "description_no": "Holiday Recipes",
+    "description_en": "Holiday Recipes",
+    "icon": "🎄",
+    "color": "#C41E3A"
+  },
+  {
+    "code": "summer_recipes",
+    "name_no": "Summer Recipes",
+    "name_en": "Summer Recipes",
+    "description_no": "Summer Recipes",
+    "description_en": "Summer Recipes",
+    "icon": "☀️",
+    "color": "#FFD700"
   }
 ]

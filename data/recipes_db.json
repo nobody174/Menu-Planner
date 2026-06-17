@@ -1706,5 +1706,7369 @@
     },
     "packIcon": "🌅",
     "time_minutes": 60
+  },
+  {
+    "id": "eu_001",
+    "title": {
+      "no": "Spaghetti Bolognese",
+      "en": "Spaghetti Bolognese"
+    },
+    "subtitle": {
+      "no": "Italiensk klassiker med kjøttsaus",
+      "en": "Italian classic with meat sauce"
+    },
+    "difficulty": "easy",
+    "cookTimeMinutes": 60,
+    "servings": 4,
+    "category": "European Classics",
+    "tags": [
+      "italian",
+      "pasta",
+      "comfort-food",
+      "classic"
+    ],
+    "allergens": [
+      "gluten"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Kjøttdeig",
+          "en": "Ground meat"
+        },
+        "amount": 500,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Tomat (konservert)",
+          "en": "Tomato (canned)"
+        },
+        "amount": 800,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Løk",
+          "en": "Onion"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "medium",
+          "en": "medium"
+        }
+      },
+      {
+        "name": {
+          "no": "Hvitløk",
+          "en": "Garlic"
+        },
+        "amount": 3,
+        "unit": {
+          "no": "fedd",
+          "en": "cloves"
+        }
+      },
+      {
+        "name": {
+          "no": "Spaghetti",
+          "en": "Spaghetti"
+        },
+        "amount": 400,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Olivenolje",
+          "en": "Olive oil"
+        },
+        "amount": 3,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Salt og pepper",
+          "en": "Salt and pepper"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "etter smak",
+          "en": "to taste"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Heat olivenolje i en stekepanne.",
+        "2. Steik løk og hvitløk til det dufter.",
+        "3. Tilsett kjøttdeigen og steik til den er brun.",
+        "4. Hell på tomaten og la det småkoke i 30 minutter.",
+        "5. Kok spaghettien etter anvisning.",
+        "6. Bland sausen med pastaen eller server ved siden av.",
+        "7. Smak til med salt og pepper."
+      ],
+      "en": [
+        "1. Heat olive oil in a pan.",
+        "2. Fry onion and garlic until fragrant.",
+        "3. Add ground meat and brown it.",
+        "4. Pour in tomato and simmer for 30 minutes.",
+        "5. Cook spaghetti according to instructions.",
+        "6. Mix sauce with pasta or serve on the side.",
+        "7. Season with salt and pepper."
+      ]
+    },
+    "packIcon": "🌍",
+    "time_minutes": 60
+  },
+  {
+    "id": "eu_002",
+    "title": {
+      "no": "Risotto",
+      "en": "Risotto"
+    },
+    "subtitle": {
+      "no": "Italiensk creme-risotto med saffran",
+      "en": "Italian creamy saffron risotto"
+    },
+    "difficulty": "medium",
+    "cookTimeMinutes": 40,
+    "servings": 4,
+    "category": "European Classics",
+    "tags": [
+      "italian",
+      "rice",
+      "creamy",
+      "elegant"
+    ],
+    "allergens": [
+      "dairy",
+      "saffron"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Arborio-ris",
+          "en": "Arborio rice"
+        },
+        "amount": 300,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Buljong (varmt)",
+          "en": "Broth (warm)"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "liter",
+          "en": "liter"
+        }
+      },
+      {
+        "name": {
+          "no": "Hvitløk",
+          "en": "Garlic"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "fedd",
+          "en": "cloves"
+        }
+      },
+      {
+        "name": {
+          "no": "Løk",
+          "en": "Onion"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "medium",
+          "en": "medium"
+        }
+      },
+      {
+        "name": {
+          "no": "Hvitvín",
+          "en": "White wine"
+        },
+        "amount": 100,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      },
+      {
+        "name": {
+          "no": "Saffran",
+          "en": "Saffron"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "g",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Parmesan-ost",
+          "en": "Parmesan cheese"
+        },
+        "amount": 100,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Smør",
+          "en": "Butter"
+        },
+        "amount": 50,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Olivenolje",
+          "en": "Olive oil"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Heat olivenolje og steik løk og hvitløk.",
+        "2. Tilsett risen og rør i 2 minutter.",
+        "3. Hell på hvitvin og rør til det er absorbert.",
+        "4. Tilsett saffran til buljongen.",
+        "5. Tilsett buljong en liten del om gangen, og rør konstant.",
+        "6. Kok til risen er kremete og al dente, ca. 18-20 minutter.",
+        "7. Fjern fra varmen og rør inn smør og parmesan.",
+        "8. Server umiddelbart."
+      ],
+      "en": [
+        "1. Heat olive oil and fry onion and garlic.",
+        "2. Add rice and stir for 2 minutes.",
+        "3. Pour in white wine and stir until absorbed.",
+        "4. Add saffron to broth.",
+        "5. Add broth a little at a time, stirring constantly.",
+        "6. Cook until rice is creamy and al dente, about 18-20 minutes.",
+        "7. Remove from heat and stir in butter and parmesan.",
+        "8. Serve immediately."
+      ]
+    },
+    "packIcon": "🌍",
+    "time_minutes": 40
+  },
+  {
+    "id": "eu_003",
+    "title": {
+      "no": "Bouillabaisse",
+      "en": "Bouillabaisse"
+    },
+    "subtitle": {
+      "no": "Fransk fisksuppe fra Provence",
+      "en": "French fish soup from Provence"
+    },
+    "difficulty": "medium",
+    "cookTimeMinutes": 60,
+    "servings": 4,
+    "category": "European Classics",
+    "tags": [
+      "french",
+      "seafood",
+      "soup",
+      "classic"
+    ],
+    "allergens": [
+      "fish",
+      "shellfish",
+      "saffron"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Blandede fisker",
+          "en": "Mixed fish"
+        },
+        "amount": 800,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Blåskjell",
+          "en": "Mussels"
+        },
+        "amount": 500,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Tomat (frisk eller konservert)",
+          "en": "Tomato (fresh or canned)"
+        },
+        "amount": 600,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Løk",
+          "en": "Onion"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "medium",
+          "en": "medium"
+        }
+      },
+      {
+        "name": {
+          "no": "Hvitløk",
+          "en": "Garlic"
+        },
+        "amount": 4,
+        "unit": {
+          "no": "fedd",
+          "en": "cloves"
+        }
+      },
+      {
+        "name": {
+          "no": "Saffran",
+          "en": "Saffron"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "g",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Buljong (fisk)",
+          "en": "Fish broth"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "liter",
+          "en": "liter"
+        }
+      },
+      {
+        "name": {
+          "no": "Fennikkel",
+          "en": "Fennel"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "stengel",
+          "en": "stalk"
+        }
+      },
+      {
+        "name": {
+          "no": "Olivenolje",
+          "en": "Olive oil"
+        },
+        "amount": 3,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Heat olivenolje og steik løk, hvitløk og fennikkel.",
+        "2. Tilsett tomater og la det koke i 10 minutter.",
+        "3. Hell på fiskbuljongen og saffran.",
+        "4. Tilsett fiskene og la det koke i 15 minutter.",
+        "5. Tilsett blåskjellene og kok til de åpner seg.",
+        "6. Smak til med salt og pepper.",
+        "7. Server i dype skåler med brød og rouille."
+      ],
+      "en": [
+        "1. Heat olive oil and fry onion, garlic and fennel.",
+        "2. Add tomatoes and let simmer for 10 minutes.",
+        "3. Pour in fish broth and saffron.",
+        "4. Add fish and cook for 15 minutes.",
+        "5. Add mussels and cook until they open.",
+        "6. Season with salt and pepper.",
+        "7. Serve in deep bowls with bread and rouille."
+      ]
+    },
+    "packIcon": "🌍",
+    "time_minutes": 60
+  },
+  {
+    "id": "eu_004",
+    "title": {
+      "no": "Paella",
+      "en": "Paella"
+    },
+    "subtitle": {
+      "no": "Spansk ris med sjømat og kjøtt",
+      "en": "Spanish rice with seafood and meat"
+    },
+    "difficulty": "medium",
+    "cookTimeMinutes": 60,
+    "servings": 6,
+    "category": "European Classics",
+    "tags": [
+      "spanish",
+      "rice",
+      "seafood",
+      "festive"
+    ],
+    "allergens": [
+      "shellfish",
+      "saffron"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Paella-ris (kortkorn)",
+          "en": "Paella rice (short grain)"
+        },
+        "amount": 400,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Kylling (kuber)",
+          "en": "Chicken (cubes)"
+        },
+        "amount": 400,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Rekér",
+          "en": "Shrimp"
+        },
+        "amount": 300,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Røde paprika",
+          "en": "Red bell pepper"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "stk",
+          "en": "pieces"
+        }
+      },
+      {
+        "name": {
+          "no": "Erter (friske eller frosne)",
+          "en": "Peas (fresh or frozen)"
+        },
+        "amount": 200,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Løk",
+          "en": "Onion"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "medium",
+          "en": "medium"
+        }
+      },
+      {
+        "name": {
+          "no": "Hvitløk",
+          "en": "Garlic"
+        },
+        "amount": 3,
+        "unit": {
+          "no": "fedd",
+          "en": "cloves"
+        }
+      },
+      {
+        "name": {
+          "no": "Saffran",
+          "en": "Saffron"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "g",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Buljong (varm)",
+          "en": "Broth (warm)"
+        },
+        "amount": 900,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      },
+      {
+        "name": {
+          "no": "Olivenolje",
+          "en": "Olive oil"
+        },
+        "amount": 4,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Heat olivenolje i en stor paella-panne.",
+        "2. Steik kyllingbiter til de er brune.",
+        "3. Tilsett løk, hvitløk og paprika, steik 3 minutter.",
+        "4. Tilsett risen og rør i 2 minutter.",
+        "5. Hell på buljongen med saffran.",
+        "6. La det koke uten å røre i 20 minutter.",
+        "7. Tilsett rekene og ertene, kok 10 minutter til.",
+        "8. Server direkte fra pannen."
+      ],
+      "en": [
+        "1. Heat olive oil in a large paella pan.",
+        "2. Brown chicken pieces.",
+        "3. Add onion, garlic and bell pepper, cook 3 minutes.",
+        "4. Add rice and stir for 2 minutes.",
+        "5. Pour in broth with saffron.",
+        "6. Let cook without stirring for 20 minutes.",
+        "7. Add shrimp and peas, cook 10 more minutes.",
+        "8. Serve directly from the pan."
+      ]
+    },
+    "packIcon": "🌍",
+    "time_minutes": 60
+  },
+  {
+    "id": "eu_005",
+    "title": {
+      "no": "Moussaka",
+      "en": "Moussaka"
+    },
+    "subtitle": {
+      "no": "Gresk aubergine og kjøtt-lag",
+      "en": "Greek eggplant and meat layers"
+    },
+    "difficulty": "hard",
+    "cookTimeMinutes": 90,
+    "servings": 6,
+    "category": "European Classics",
+    "tags": [
+      "greek",
+      "eggplant",
+      "layered",
+      "comfort-food"
+    ],
+    "allergens": [
+      "dairy",
+      "gluten"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Aubergine",
+          "en": "Eggplant"
+        },
+        "amount": 1000,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Kjøttdeig",
+          "en": "Ground meat"
+        },
+        "amount": 500,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Tomat (konservert)",
+          "en": "Tomato (canned)"
+        },
+        "amount": 400,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Løk",
+          "en": "Onion"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "large",
+          "en": "large"
+        }
+      },
+      {
+        "name": {
+          "no": "Hvitløk",
+          "en": "Garlic"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "fedd",
+          "en": "cloves"
+        }
+      },
+      {
+        "name": {
+          "no": "Hvit saus (béchamel)",
+          "en": "White sauce (béchamel)"
+        },
+        "amount": 500,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      },
+      {
+        "name": {
+          "no": "Ost (riven)",
+          "en": "Cheese (grated)"
+        },
+        "amount": 150,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Olivenolje",
+          "en": "Olive oil"
+        },
+        "amount": 5,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Skjær auberginen i lange skiver og steik dem i oljenolje.",
+        "2. Lag kjøttsausen: steik løk, hvitløk og kjøttdeigen.",
+        "3. Tilsett tomat og la det småkoke.",
+        "4. Smak til med salt, pepper og oregano.",
+        "5. Lag béchamel-sausen.",
+        "6. I en ildfast form: aubergine, kjøttsaus, aubergine osv.",
+        "7. Hell béchamel over og strø ost på toppen.",
+        "8. Bak på 180°C i 45 minutter."
+      ],
+      "en": [
+        "1. Slice eggplant and fry in olive oil.",
+        "2. Make meat sauce: fry onion, garlic and ground meat.",
+        "3. Add tomato and simmer.",
+        "4. Season with salt, pepper and oregano.",
+        "5. Make béchamel sauce.",
+        "6. In a baking dish: eggplant, meat sauce, eggplant etc.",
+        "7. Pour béchamel over and sprinkle cheese on top.",
+        "8. Bake at 180°C for 45 minutes."
+      ]
+    },
+    "packIcon": "🌍",
+    "time_minutes": 90
+  },
+  {
+    "id": "eu_006",
+    "title": {
+      "no": "Coq au Vin",
+      "en": "Coq au Vin"
+    },
+    "subtitle": {
+      "no": "Fransk kylling i rødvin",
+      "en": "French chicken in red wine"
+    },
+    "difficulty": "medium",
+    "cookTimeMinutes": 90,
+    "servings": 4,
+    "category": "European Classics",
+    "tags": [
+      "french",
+      "chicken",
+      "wine",
+      "classic"
+    ],
+    "allergens": [],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Kylling (hele eller deler)",
+          "en": "Chicken (whole or parts)"
+        },
+        "amount": 1200,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Rødvin",
+          "en": "Red wine"
+        },
+        "amount": 500,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      },
+      {
+        "name": {
+          "no": "Spek",
+          "en": "Bacon"
+        },
+        "amount": 200,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Løk",
+          "en": "Onion"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "medium",
+          "en": "medium"
+        }
+      },
+      {
+        "name": {
+          "no": "Hvitløk",
+          "en": "Garlic"
+        },
+        "amount": 3,
+        "unit": {
+          "no": "fedd",
+          "en": "cloves"
+        }
+      },
+      {
+        "name": {
+          "no": "Brun sopp",
+          "en": "Brown mushroom"
+        },
+        "amount": 300,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Buljong",
+          "en": "Broth"
+        },
+        "amount": 250,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      },
+      {
+        "name": {
+          "no": "Tomat-puré",
+          "en": "Tomato paste"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Steik speket til det er sprøtt, ta det ut.",
+        "2. Steik kylingen til den er gylden.",
+        "3. Tilsett løk, hvitløk og tomat-puré.",
+        "4. Hell på rødvin og buljong.",
+        "5. Tilsett speket og la det småkoke i 45 minutter.",
+        "6. Tilsett sopp og kok 15 minutter til.",
+        "7. Smak til med salt og pepper.",
+        "8. Server med poteter eller brød."
+      ],
+      "en": [
+        "1. Fry bacon until crispy, remove it.",
+        "2. Brown the chicken.",
+        "3. Add onion, garlic and tomato paste.",
+        "4. Pour in red wine and broth.",
+        "5. Add bacon and simmer for 45 minutes.",
+        "6. Add mushrooms and cook 15 more minutes.",
+        "7. Season with salt and pepper.",
+        "8. Serve with potatoes or bread."
+      ]
+    },
+    "packIcon": "🌍",
+    "time_minutes": 90
+  },
+  {
+    "id": "eu_007",
+    "title": {
+      "no": "Penne all'Arrabbiata",
+      "en": "Penne all'Arrabbiata"
+    },
+    "subtitle": {
+      "no": "Italiensk pasta med tomat og chilì",
+      "en": "Italian pasta with tomato and chili"
+    },
+    "difficulty": "easy",
+    "cookTimeMinutes": 30,
+    "servings": 4,
+    "category": "European Classics",
+    "tags": [
+      "italian",
+      "pasta",
+      "vegetarian",
+      "spicy"
+    ],
+    "allergens": [
+      "gluten"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Penne",
+          "en": "Penne"
+        },
+        "amount": 400,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Tomat (konservert)",
+          "en": "Tomato (canned)"
+        },
+        "amount": 800,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Hvitløk",
+          "en": "Garlic"
+        },
+        "amount": 4,
+        "unit": {
+          "no": "fedd",
+          "en": "cloves"
+        }
+      },
+      {
+        "name": {
+          "no": "Chilì (tørket)",
+          "en": "Chili (dried)"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "stk",
+          "en": "pieces"
+        }
+      },
+      {
+        "name": {
+          "no": "Olivenolje",
+          "en": "Olive oil"
+        },
+        "amount": 5,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Salt",
+          "en": "Salt"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "ts",
+          "en": "tsp"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Kok penneen etter anvisning.",
+        "2. Heat olivenolje og tilsett finhakket hvitløk og chilì.",
+        "3. Rør forsiktig i 1-2 minutter.",
+        "4. Tilsett konserverte tomater og salt.",
+        "5. La det småkoke i 10-15 minutter.",
+        "6. Bland pastaen med sausen.",
+        "7. Server umiddelbart med frisk persille."
+      ],
+      "en": [
+        "1. Cook penne according to instructions.",
+        "2. Heat olive oil and add minced garlic and chili.",
+        "3. Stir gently for 1-2 minutes.",
+        "4. Add canned tomatoes and salt.",
+        "5. Simmer for 10-15 minutes.",
+        "6. Mix pasta with sauce.",
+        "7. Serve immediately with fresh parsley."
+      ]
+    },
+    "packIcon": "🌍",
+    "time_minutes": 30
+  },
+  {
+    "id": "eu_008",
+    "title": {
+      "no": "Frikadellettar",
+      "en": "Swedish Meatballs"
+    },
+    "subtitle": {
+      "no": "Svenske kjøttboller med fløte",
+      "en": "Swedish meatballs with cream"
+    },
+    "difficulty": "easy",
+    "cookTimeMinutes": 40,
+    "servings": 4,
+    "category": "European Classics",
+    "tags": [
+      "swedish",
+      "meatballs",
+      "cream",
+      "comfort-food"
+    ],
+    "allergens": [
+      "gluten",
+      "dairy"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Kjøttdeig",
+          "en": "Ground meat"
+        },
+        "amount": 600,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Brød (fint formolket)",
+          "en": "Bread (crumbled)"
+        },
+        "amount": 100,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Melk",
+          "en": "Milk"
+        },
+        "amount": 100,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      },
+      {
+        "name": {
+          "no": "Egg",
+          "en": "Egg"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "stk",
+          "en": "piece"
+        }
+      },
+      {
+        "name": {
+          "no": "Løk",
+          "en": "Onion"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "small",
+          "en": "small"
+        }
+      },
+      {
+        "name": {
+          "no": "Fløte",
+          "en": "Cream"
+        },
+        "amount": 300,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      },
+      {
+        "name": {
+          "no": "Smør",
+          "en": "Butter"
+        },
+        "amount": 50,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Bløtlegg brødet i melk.",
+        "2. Bland kjøttdeig, brød, egg, finhakket løk, salt og pepper.",
+        "3. Form små kuler.",
+        "4. Steik kullene i smør til de er brune.",
+        "5. Fjern kullene fra pannen.",
+        "6. Tilsett fløten til pannen og tilsett kullene.",
+        "7. La det småkoke i 10 minutter.",
+        "8. Smak til med salt og pepper.",
+        "9. Server med lingonbær-syltetøy og poteter."
+      ],
+      "en": [
+        "1. Soak bread in milk.",
+        "2. Mix ground meat, bread, egg, minced onion, salt and pepper.",
+        "3. Form small balls.",
+        "4. Fry balls in butter until brown.",
+        "5. Remove balls from pan.",
+        "6. Add cream to pan and return balls.",
+        "7. Simmer for 10 minutes.",
+        "8. Season with salt and pepper.",
+        "9. Serve with lingonberry jam and potatoes."
+      ]
+    },
+    "packIcon": "🌍",
+    "time_minutes": 40
+  },
+  {
+    "id": "eu_009",
+    "title": {
+      "no": "Gazpacho",
+      "en": "Gazpacho"
+    },
+    "subtitle": {
+      "no": "Spansk kald tomat-suppe",
+      "en": "Spanish cold tomato soup"
+    },
+    "difficulty": "easy",
+    "cookTimeMinutes": 30,
+    "servings": 4,
+    "category": "European Classics",
+    "tags": [
+      "spanish",
+      "cold-soup",
+      "vegetarian",
+      "summer"
+    ],
+    "allergens": [],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Tomat (frisk)",
+          "en": "Tomato (fresh)"
+        },
+        "amount": 1000,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Agurk",
+          "en": "Cucumber"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "medium",
+          "en": "medium"
+        }
+      },
+      {
+        "name": {
+          "no": "Rødt paprika",
+          "en": "Red bell pepper"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "stk",
+          "en": "piece"
+        }
+      },
+      {
+        "name": {
+          "no": "Hvitløk",
+          "en": "Garlic"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "fedd",
+          "en": "cloves"
+        }
+      },
+      {
+        "name": {
+          "no": "Brød (gammelt)",
+          "en": "Bread (stale)"
+        },
+        "amount": 100,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Rødvin-eddiksyre",
+          "en": "Red wine vinegar"
+        },
+        "amount": 3,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Olivenolje",
+          "en": "Olive oil"
+        },
+        "amount": 4,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Salt",
+          "en": "Salt"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "ts",
+          "en": "tsp"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Hakk tomater, agurk, paprika og hvitløk grovt.",
+        "2. Tilsett brød, rødvin-eddiksyre, olivenolje og salt.",
+        "3. Bland i en food processor eller miksmaster til ønsket tekstur.",
+        "4. Kjøl i minst 2 timer.",
+        "5. Rør om før servering.",
+        "6. Server med toppinger: hakket agurk, paprika, egg og croutons.",
+        "7. Server kald som appetitt-suppe på varme dager."
+      ],
+      "en": [
+        "1. Chop tomatoes, cucumber, bell pepper and garlic coarsely.",
+        "2. Add bread, red wine vinegar, olive oil and salt.",
+        "3. Blend in a food processor to desired texture.",
+        "4. Chill for at least 2 hours.",
+        "5. Stir before serving.",
+        "6. Serve with toppings: chopped cucumber, pepper, egg and croutons.",
+        "7. Serve cold as an appetizer on warm days."
+      ]
+    },
+    "packIcon": "🌍",
+    "time_minutes": 30
+  },
+  {
+    "id": "eu_010",
+    "title": {
+      "no": "Ratatouille",
+      "en": "Ratatouille"
+    },
+    "subtitle": {
+      "no": "Fransk grønnsakstuing",
+      "en": "French vegetable stew"
+    },
+    "difficulty": "easy",
+    "cookTimeMinutes": 45,
+    "servings": 4,
+    "category": "European Classics",
+    "tags": [
+      "french",
+      "vegetable",
+      "vegetarian",
+      "healthy"
+    ],
+    "allergens": [],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Aubergine",
+          "en": "Eggplant"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "large",
+          "en": "large"
+        }
+      },
+      {
+        "name": {
+          "no": "Zucchini",
+          "en": "Zucchini"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "medium",
+          "en": "medium"
+        }
+      },
+      {
+        "name": {
+          "no": "Rødt paprika",
+          "en": "Red bell pepper"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "stk",
+          "en": "pieces"
+        }
+      },
+      {
+        "name": {
+          "no": "Tomat (frisk)",
+          "en": "Tomato (fresh)"
+        },
+        "amount": 500,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Løk",
+          "en": "Onion"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "medium",
+          "en": "medium"
+        }
+      },
+      {
+        "name": {
+          "no": "Hvitløk",
+          "en": "Garlic"
+        },
+        "amount": 3,
+        "unit": {
+          "no": "fedd",
+          "en": "cloves"
+        }
+      },
+      {
+        "name": {
+          "no": "Oregano (frisk eller tørket)",
+          "en": "Oregano (fresh or dried)"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "ts",
+          "en": "tsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Olivenolje",
+          "en": "Olive oil"
+        },
+        "amount": 4,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Kutt alle grønnsakene i terninger.",
+        "2. Heat olivenolje og steik løk og hvitløk.",
+        "3. Tilsett auberginen og zucchini, steik i 5 minutter.",
+        "4. Tilsett paprika og tomater.",
+        "5. Tilsett oregano, salt og pepper.",
+        "6. La det småkoke i 25-30 minutter.",
+        "7. Grønnsakene bør bli myke men ikke muslete.",
+        "8. Server varmt eller kaldt."
+      ],
+      "en": [
+        "1. Dice all vegetables.",
+        "2. Heat olive oil and fry onion and garlic.",
+        "3. Add eggplant and zucchini, cook 5 minutes.",
+        "4. Add bell pepper and tomatoes.",
+        "5. Add oregano, salt and pepper.",
+        "6. Simmer for 25-30 minutes.",
+        "7. Vegetables should be soft but not mushy.",
+        "8. Serve hot or cold."
+      ]
+    },
+    "packIcon": "🌍",
+    "time_minutes": 45
+  },
+  {
+    "id": "eu_011",
+    "title": {
+      "no": "Schnitzel",
+      "en": "Schnitzel"
+    },
+    "subtitle": {
+      "no": "Tysk og østeuropeisk flatslått kjøtt",
+      "en": "German and Eastern European breaded meat"
+    },
+    "difficulty": "easy",
+    "cookTimeMinutes": 20,
+    "servings": 4,
+    "category": "European Classics",
+    "tags": [
+      "german",
+      "fried",
+      "quick",
+      "classic"
+    ],
+    "allergens": [
+      "gluten",
+      "dairy",
+      "eggs"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Svinekotelett (eller kylling)",
+          "en": "Pork cutlet (or chicken)"
+        },
+        "amount": 4,
+        "unit": {
+          "no": "stk",
+          "en": "pieces"
+        }
+      },
+      {
+        "name": {
+          "no": "Mel",
+          "en": "Flour"
+        },
+        "amount": 100,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Egg",
+          "en": "Eggs"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "stk",
+          "en": "pieces"
+        }
+      },
+      {
+        "name": {
+          "no": "Brødkrumler (eller panko)",
+          "en": "Breadcrumbs (or panko)"
+        },
+        "amount": 150,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Smør (til steking)",
+          "en": "Butter (for frying)"
+        },
+        "amount": 100,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Salt og pepper",
+          "en": "Salt and pepper"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "etter smak",
+          "en": "to taste"
+        }
+      },
+      {
+        "name": {
+          "no": "Sitron",
+          "en": "Lemon"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "stk",
+          "en": "piece"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Legg kjøttet mellom plastfolie og slå det flatt med en kjøtthammer.",
+        "2. Sett mel, visp egg og brødkrumler i tre separate små boller.",
+        "3. Gjennomtreng hvert kjøttstykke med mel, egg og brødkrumler.",
+        "4. Heat smør i en stekepanne.",
+        "5. Steik schnitzelene 3-4 minutter på hver side til de er gylne.",
+        "6. Server med sitronskiver og poteter.",
+        "7. Tradisjonelt serveres med sitron-saus eller syltetøy."
+      ],
+      "en": [
+        "1. Place meat between plastic wrap and pound with a meat mallet.",
+        "2. Set flour, beaten egg and breadcrumbs in three separate bowls.",
+        "3. Coat each piece with flour, egg and breadcrumbs.",
+        "4. Heat butter in a frying pan.",
+        "5. Fry schnitzel 3-4 minutes on each side until golden.",
+        "6. Serve with lemon slices and potatoes.",
+        "7. Traditionally served with lemon sauce or jam."
+      ]
+    },
+    "packIcon": "🌍",
+    "time_minutes": 20
+  },
+  {
+    "id": "eu_012",
+    "title": {
+      "no": "Crème Brûlée",
+      "en": "Crème Brûlée"
+    },
+    "subtitle": {
+      "no": "Fransk kullglassert fløte-dessert",
+      "en": "French caramelized cream dessert"
+    },
+    "difficulty": "medium",
+    "cookTimeMinutes": 90,
+    "servings": 4,
+    "category": "European Classics",
+    "tags": [
+      "french",
+      "dessert",
+      "elegant",
+      "creamy"
+    ],
+    "allergens": [
+      "dairy",
+      "eggs"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Fløte (tykk)",
+          "en": "Cream (heavy)"
+        },
+        "amount": 400,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      },
+      {
+        "name": {
+          "no": "Melk",
+          "en": "Milk"
+        },
+        "amount": 100,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      },
+      {
+        "name": {
+          "no": "Eggeplommer",
+          "en": "Egg yolks"
+        },
+        "amount": 5,
+        "unit": {
+          "no": "stk",
+          "en": "pieces"
+        }
+      },
+      {
+        "name": {
+          "no": "Sukker (hvitt)",
+          "en": "Sugar (white)"
+        },
+        "amount": 100,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Vaniljeekstrakt",
+          "en": "Vanilla extract"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "ts",
+          "en": "tsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Sukker (til crusting)",
+          "en": "Sugar (for crusting)"
+        },
+        "amount": 4,
+        "unit": {
+          "no": "ts",
+          "en": "tsp"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Heat fløten og melk til det er varmt men ikke kokende.",
+        "2. Visp eggeplommer med sukker til det er lett og gult.",
+        "3. Hell fløten langsomt i eggeplommen mens du rører konstant.",
+        "4. Tilsett vaniljeekstrakt.",
+        "5. Sil blandingen gjennom en fin sil.",
+        "6. Hell i små ramekiner eller kopjer.",
+        "7. Stelle them i et vannbad på 160°C i 25-30 minutter.",
+        "8. Kjøl i minst 4 timer.",
+        "9. Rett før servering, sprinkle sukker på toppen og kullglasér med en brenner."
+      ],
+      "en": [
+        "1. Heat cream and milk until warm but not boiling.",
+        "2. Whisk egg yolks with sugar until light and pale.",
+        "3. Slowly pour cream into yolks while stirring constantly.",
+        "4. Add vanilla extract.",
+        "5. Strain mixture through a fine sieve.",
+        "6. Pour into small ramekins or cups.",
+        "7. Bake in a water bath at 160°C for 25-30 minutes.",
+        "8. Chill for at least 4 hours.",
+        "9. Just before serving, sprinkle sugar on top and caramelize with a torch."
+      ]
+    },
+    "packIcon": "🌍",
+    "time_minutes": 90
+  },
+  {
+    "id": "eu_013",
+    "title": {
+      "no": "Tiramisu",
+      "en": "Tiramisu"
+    },
+    "subtitle": {
+      "no": "Italiensk lagdessert med kaffe og mascarpone",
+      "en": "Italian layered dessert with coffee and mascarpone"
+    },
+    "difficulty": "medium",
+    "cookTimeMinutes": 60,
+    "servings": 6,
+    "category": "European Classics",
+    "tags": [
+      "italian",
+      "dessert",
+      "layered",
+      "coffee"
+    ],
+    "allergens": [
+      "dairy",
+      "eggs",
+      "gluten"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Mascarpone",
+          "en": "Mascarpone"
+        },
+        "amount": 500,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Sukker",
+          "en": "Sugar"
+        },
+        "amount": 100,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Egg (eller pasteuriserte)",
+          "en": "Eggs (or pasteurized)"
+        },
+        "amount": 4,
+        "unit": {
+          "no": "stk",
+          "en": "pieces"
+        }
+      },
+      {
+        "name": {
+          "no": "Kaffe (sterk)",
+          "en": "Coffee (strong)"
+        },
+        "amount": 300,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      },
+      {
+        "name": {
+          "no": "Kakao-pulver",
+          "en": "Cocoa powder"
+        },
+        "amount": 30,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Savoiardi-kaker",
+          "en": "Savoiardi cookies"
+        },
+        "amount": 400,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Likør (valgfritt)",
+          "en": "Liqueur (optional)"
+        },
+        "amount": 3,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Visp eggeplommer med sukker til det er kremete.",
+        "2. Fold in mascarpone forsiktig.",
+        "3. Visp eggehviter stivt og fold inn i blandingen.",
+        "4. Bland kaffen sammen med likør hvis brukt.",
+        "5. Dipp savoiardi-kakene raskt i kaffeblanden.",
+        "6. Lag lag: savoiardi, mascarpone-creme, savoiardi, mascarpone-creme.",
+        "7. Kjøl i minst 6 timer (bedre over natten).",
+        "8. Strø kakao-pulver på toppen rett før servering."
+      ],
+      "en": [
+        "1. Whisk egg yolks with sugar until creamy.",
+        "2. Fold in mascarpone carefully.",
+        "3. Beat egg whites stiff and fold into mixture.",
+        "4. Combine coffee with liqueur if using.",
+        "5. Quickly dip savoiardi cookies in coffee mixture.",
+        "6. Layer: savoiardi, mascarpone cream, savoiardi, mascarpone cream.",
+        "7. Chill for at least 6 hours (better overnight).",
+        "8. Dust with cocoa powder just before serving."
+      ]
+    },
+    "packIcon": "🌍",
+    "time_minutes": 60
+  },
+  {
+    "id": "eu_014",
+    "title": {
+      "no": "Spätzle",
+      "en": "Spätzle"
+    },
+    "subtitle": {
+      "no": "Tysk egg-pasta med ost",
+      "en": "German egg pasta with cheese"
+    },
+    "difficulty": "easy",
+    "cookTimeMinutes": 30,
+    "servings": 4,
+    "category": "European Classics",
+    "tags": [
+      "german",
+      "pasta",
+      "cheese",
+      "comfort-food"
+    ],
+    "allergens": [
+      "gluten",
+      "dairy",
+      "eggs"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Hvetemel",
+          "en": "Wheat flour"
+        },
+        "amount": 300,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Egg",
+          "en": "Eggs"
+        },
+        "amount": 4,
+        "unit": {
+          "no": "stk",
+          "en": "pieces"
+        }
+      },
+      {
+        "name": {
+          "no": "Melk",
+          "en": "Milk"
+        },
+        "amount": 150,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      },
+      {
+        "name": {
+          "no": "Salt",
+          "en": "Salt"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "ts",
+          "en": "tsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Muskatnøtt",
+          "en": "Nutmeg"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "ts",
+          "en": "tsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Ost (riven)",
+          "en": "Cheese (grated)"
+        },
+        "amount": 200,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Løk (steikt)",
+          "en": "Onion (fried)"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "medium",
+          "en": "medium"
+        }
+      },
+      {
+        "name": {
+          "no": "Smør",
+          "en": "Butter"
+        },
+        "amount": 50,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Bland mel, egg, melk, salt og muskatnøtt.",
+        "2. Deigen skal være tykk og elastisk.",
+        "3. Kok vann i en stor gryte.",
+        "4. Bruk en spätzle-press eller grov rivejern for å presse deigen gjennom.",
+        "5. Kok pastaen til den flyter opp og 1 minutt til.",
+        "6. Steik løk i smør til den er gylden.",
+        "7. Bland spätzle med smør, ost og steikt løk.",
+        "8. Server varmt."
+      ],
+      "en": [
+        "1. Mix flour, eggs, milk, salt and nutmeg.",
+        "2. Dough should be thick and elastic.",
+        "3. Boil water in a large pot.",
+        "4. Use a spätzle press or coarse grater to push dough through.",
+        "5. Cook pasta until it floats and 1 minute more.",
+        "6. Fry onion in butter until golden.",
+        "7. Mix spätzle with butter, cheese and fried onion.",
+        "8. Serve hot."
+      ]
+    },
+    "packIcon": "🌍",
+    "time_minutes": 30
+  },
+  {
+    "id": "eu_015",
+    "title": {
+      "no": "Cassoulet",
+      "en": "Cassoulet"
+    },
+    "subtitle": {
+      "no": "Fransk vit bønn-stuing med andekjøtt",
+      "en": "French white bean stew with duck"
+    },
+    "difficulty": "hard",
+    "cookTimeMinutes": 180,
+    "servings": 6,
+    "category": "European Classics",
+    "tags": [
+      "french",
+      "beans",
+      "slow-cooked",
+      "hearty"
+    ],
+    "allergens": [],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Hvite bønner (tørret)",
+          "en": "White beans (dried)"
+        },
+        "amount": 500,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Andekjøtt (konservert eller fersk)",
+          "en": "Duck (canned or fresh)"
+        },
+        "amount": 400,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Svinespek",
+          "en": "Pork belly"
+        },
+        "amount": 200,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Løk",
+          "en": "Onion"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "medium",
+          "en": "medium"
+        }
+      },
+      {
+        "name": {
+          "no": "Hvitløk",
+          "en": "Garlic"
+        },
+        "amount": 4,
+        "unit": {
+          "no": "fedd",
+          "en": "cloves"
+        }
+      },
+      {
+        "name": {
+          "no": "Tomat-puré",
+          "en": "Tomato paste"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Buljong",
+          "en": "Broth"
+        },
+        "amount": 1.5,
+        "unit": {
+          "no": "liter",
+          "en": "liter"
+        }
+      },
+      {
+        "name": {
+          "no": "Timen",
+          "en": "Thyme"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "ts",
+          "en": "tsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Laurblad",
+          "en": "Bay leaf"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "stk",
+          "en": "pieces"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Bløtlegg bønnene over natten.",
+        "2. Kok bønnene i friskt vann i ca. 1 time til de er halvkjøpt.",
+        "3. Steik speken til det er sprøtt.",
+        "4. Steik løk og hvitløk i samme panne.",
+        "5. Tilsett tomat-puré og bland godt.",
+        "6. Hell på buljongen langsomt.",
+        "7. Tilsett bønnene, speken, and-kjøttet, timen og laurbladet.",
+        "8. La det småkoke sakte i 1-2 timer.",
+        "9. Smak til med salt og pepper.",
+        "10. Server i dype skåler varmt."
+      ],
+      "en": [
+        "1. Soak beans overnight.",
+        "2. Cook beans in fresh water for about 1 hour until half-cooked.",
+        "3. Fry bacon until crispy.",
+        "4. Fry onion and garlic in same pan.",
+        "5. Add tomato paste and mix well.",
+        "6. Pour in broth slowly.",
+        "7. Add beans, bacon, duck meat, thyme and bay leaf.",
+        "8. Simmer slowly for 1-2 hours.",
+        "9. Season with salt and pepper.",
+        "10. Serve in deep bowls hot."
+      ]
+    },
+    "packIcon": "🌍",
+    "time_minutes": 180
+  },
+  {
+    "id": "nd_001",
+    "title": {
+      "no": "Kjøttkaker (Svenske)",
+      "en": "Swedish Meatballs"
+    },
+    "subtitle": {
+      "no": "Svenske kjøttkaker med fløte-saus",
+      "en": "Swedish meatballs with cream sauce"
+    },
+    "difficulty": "easy",
+    "cookTimeMinutes": 35,
+    "servings": 4,
+    "category": "Nordic Classics",
+    "tags": [
+      "swedish",
+      "meatballs",
+      "cream",
+      "classic"
+    ],
+    "allergens": [
+      "gluten",
+      "dairy"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Kjøttdeig",
+          "en": "Ground meat"
+        },
+        "amount": 600,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Brødkrumler",
+          "en": "Breadcrumbs"
+        },
+        "amount": 75,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Melk",
+          "en": "Milk"
+        },
+        "amount": 75,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      },
+      {
+        "name": {
+          "no": "Egg",
+          "en": "Egg"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "stk",
+          "en": "piece"
+        }
+      },
+      {
+        "name": {
+          "no": "Løk (finhakket)",
+          "en": "Onion (minced)"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "small",
+          "en": "small"
+        }
+      },
+      {
+        "name": {
+          "no": "Fløte (syrnet)",
+          "en": "Sour cream"
+        },
+        "amount": 300,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      },
+      {
+        "name": {
+          "no": "Smør",
+          "en": "Butter"
+        },
+        "amount": 50,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Lingonbær-syltetøy",
+          "en": "Lingonberry jam"
+        },
+        "amount": 150,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Bløtlegg brødkrumler i melk.",
+        "2. Bland kjøttdeigen med brødkrumler, egg, løk, salt og pepper.",
+        "3. Form til 20-24 små kuler.",
+        "4. Steik kullene i smør til de er brune.",
+        "5. Tilsett den syrlige fløten til pannen.",
+        "6. La kullene småkoke i sausen i 10 minutter.",
+        "7. Server med potetmos og lingonbær-syltetøy."
+      ],
+      "en": [
+        "1. Soak breadcrumbs in milk.",
+        "2. Mix ground meat with breadcrumbs, egg, onion, salt and pepper.",
+        "3. Form into 20-24 small balls.",
+        "4. Fry balls in butter until brown.",
+        "5. Add sour cream to pan.",
+        "6. Let balls simmer in sauce for 10 minutes.",
+        "7. Serve with mashed potatoes and lingonberry jam."
+      ]
+    },
+    "packIcon": "❄️",
+    "time_minutes": 35
+  },
+  {
+    "id": "nd_002",
+    "title": {
+      "no": "Gravlax",
+      "en": "Gravlax"
+    },
+    "subtitle": {
+      "no": "Skandinavisk gravlaks med urter",
+      "en": "Scandinavian cured salmon with herbs"
+    },
+    "difficulty": "medium",
+    "cookTimeMinutes": 1440,
+    "servings": 8,
+    "category": "Nordic Classics",
+    "tags": [
+      "scandinavian",
+      "salmon",
+      "cured",
+      "elegant"
+    ],
+    "allergens": [
+      "fish"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Laks (fersk, filéer)",
+          "en": "Salmon (fresh, fillets)"
+        },
+        "amount": 1000,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Salt",
+          "en": "Salt"
+        },
+        "amount": 30,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Sukker",
+          "en": "Sugar"
+        },
+        "amount": 20,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Dill (frisk)",
+          "en": "Dill (fresh)"
+        },
+        "amount": 50,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Pepper (sort)",
+          "en": "Black pepper"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "ts",
+          "en": "tsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Anis eller fennikelfrø",
+          "en": "Anise or fennel seeds"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "ts",
+          "en": "tsp"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Pat laksen tørt med papirtøy.",
+        "2. Bland salt, sukker, pepper, dill, anis og fennikelfrø.",
+        "3. Legg laksen på folie, hud-siden ned.",
+        "4. Påfør half av blandingen på laksen.",
+        "5. Legg den andre laksefileten på toppen, hud-siden opp.",
+        "6. Påfør resten av blandingen på toppen.",
+        "7. Pakk inn og legg i kjøleskapet.",
+        "8. Legg en plate på toppen med vekt.",
+        "9. La det kurere i 24-48 timer, vend hver 12. time.",
+        "10. Skjær i tynne skiver og server på brød med rømme, løk og agurk."
+      ],
+      "en": [
+        "1. Pat salmon dry with paper towels.",
+        "2. Mix salt, sugar, pepper, dill, anise and fennel seeds.",
+        "3. Place salmon on foil, skin side down.",
+        "4. Apply half mixture to salmon.",
+        "5. Place other salmon fillet on top, skin side up.",
+        "6. Apply remaining mixture on top.",
+        "7. Wrap and place in refrigerator.",
+        "8. Place a plate on top with weight.",
+        "9. Let cure 24-48 hours, turn every 12 hours.",
+        "10. Slice thinly and serve on bread with sour cream, onion and cucumber."
+      ]
+    },
+    "packIcon": "❄️",
+    "time_minutes": 1440
+  },
+  {
+    "id": "nd_003",
+    "title": {
+      "no": "Smørrebrød",
+      "en": "Smørrebrød"
+    },
+    "subtitle": {
+      "no": "Dansk åpent smørbrød med pålegg",
+      "en": "Danish open sandwich with toppings"
+    },
+    "difficulty": "easy",
+    "cookTimeMinutes": 20,
+    "servings": 2,
+    "category": "Nordic Classics",
+    "tags": [
+      "danish",
+      "sandwich",
+      "lunch",
+      "quick"
+    ],
+    "allergens": [
+      "gluten",
+      "fish",
+      "dairy"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Rugbrød (dansk)",
+          "en": "Rye bread (Danish)"
+        },
+        "amount": 4,
+        "unit": {
+          "no": "skivor",
+          "en": "slices"
+        }
+      },
+      {
+        "name": {
+          "no": "Smør",
+          "en": "Butter"
+        },
+        "amount": 50,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Gravlaks eller røkt fisk",
+          "en": "Gravlax or smoked fish"
+        },
+        "amount": 150,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Rømme eller kremost",
+          "en": "Sour cream or cream cheese"
+        },
+        "amount": 100,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Løk (tynne skiver)",
+          "en": "Onion (thin slices)"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "small",
+          "en": "small"
+        }
+      },
+      {
+        "name": {
+          "no": "Agurk (tynne skiver)",
+          "en": "Cucumber (thin slices)"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "stk",
+          "en": "piece"
+        }
+      },
+      {
+        "name": {
+          "no": "Citron",
+          "en": "Lemon"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "halv",
+          "en": "half"
+        }
+      },
+      {
+        "name": {
+          "no": "Dill (frisk)",
+          "en": "Dill (fresh)"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "knippe",
+          "en": "bunch"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Smør brødskivene.",
+        "2. Påfør et tynt lag rømme eller kremost.",
+        "3. Legg gravlaks eller røkt fisk på toppen.",
+        "4. Toppes med løk- og agurkskiver.",
+        "5. Garnering med dill og sitron.",
+        "6. Server umiddelbart som et elegant lunsjtilbud."
+      ],
+      "en": [
+        "1. Butter the bread slices.",
+        "2. Spread a thin layer of sour cream or cream cheese.",
+        "3. Top with gravlax or smoked fish.",
+        "4. Top with onion and cucumber slices.",
+        "5. Garnish with dill and lemon.",
+        "6. Serve immediately as an elegant lunch option."
+      ]
+    },
+    "packIcon": "❄️",
+    "time_minutes": 20
+  },
+  {
+    "id": "nd_004",
+    "title": {
+      "no": "Plokkfisk",
+      "en": "Plokkfisk"
+    },
+    "subtitle": {
+      "no": "Islandsk fiskérett",
+      "en": "Icelandic fish dish"
+    },
+    "difficulty": "easy",
+    "cookTimeMinutes": 45,
+    "servings": 4,
+    "category": "Nordic Classics",
+    "tags": [
+      "icelandic",
+      "fish",
+      "comfort-food"
+    ],
+    "allergens": [
+      "fish",
+      "dairy"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Fiskefiléer",
+          "en": "Fish fillets"
+        },
+        "amount": 800,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Poteter",
+          "en": "Potatoes"
+        },
+        "amount": 600,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Løk",
+          "en": "Onion"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "medium",
+          "en": "medium"
+        }
+      },
+      {
+        "name": {
+          "no": "Smør",
+          "en": "Butter"
+        },
+        "amount": 75,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Mel",
+          "en": "Flour"
+        },
+        "amount": 3,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Melk",
+          "en": "Milk"
+        },
+        "amount": 300,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      },
+      {
+        "name": {
+          "no": "Salt og pepper",
+          "en": "Salt and pepper"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "etter smak",
+          "en": "to taste"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Kok poteter til halvkjøpt, kutt i terninger.",
+        "2. Kok fiskefilene lett og bli av med beinen.",
+        "3. Lag sausen: smelt smør, tilsett mel og rør til det er glatt.",
+        "4. Tilsett melk langsomt mens du rører.",
+        "5. Bland poteter, fisk og løk i sausen.",
+        "6. La det småkoke i 15 minutter.",
+        "7. Smak til med salt og pepper.",
+        "8. Server varmt som en komfortrett."
+      ],
+      "en": [
+        "1. Boil potatoes until half-cooked, dice them.",
+        "2. Boil fish fillets lightly and remove bones.",
+        "3. Make sauce: melt butter, add flour and stir until smooth.",
+        "4. Add milk slowly while stirring.",
+        "5. Mix potatoes, fish and onion in sauce.",
+        "6. Simmer for 15 minutes.",
+        "7. Season with salt and pepper.",
+        "8. Serve hot as a comfort dish."
+      ]
+    },
+    "packIcon": "❄️",
+    "time_minutes": 45
+  },
+  {
+    "id": "nd_005",
+    "title": {
+      "no": "Prinsessekake",
+      "en": "Princess Cake"
+    },
+    "subtitle": {
+      "no": "Svensk festkake med grønn fondant",
+      "en": "Swedish celebration cake with green fondant"
+    },
+    "difficulty": "hard",
+    "cookTimeMinutes": 120,
+    "servings": 8,
+    "category": "Nordic Classics",
+    "tags": [
+      "swedish",
+      "cake",
+      "elegant",
+      "celebration"
+    ],
+    "allergens": [
+      "gluten",
+      "dairy",
+      "eggs"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Biskvi-kake (ferdig bakket)",
+          "en": "Sponge cake (pre-baked)"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "stk",
+          "en": "piece"
+        }
+      },
+      {
+        "name": {
+          "no": "Fløte (tykk)",
+          "en": "Cream (heavy)"
+        },
+        "amount": 500,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      },
+      {
+        "name": {
+          "no": "Stivelse eller pudringssukker",
+          "en": "Cornstarch or powdered sugar"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Sukker",
+          "en": "Sugar"
+        },
+        "amount": 50,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Vaniljeekstrakt",
+          "en": "Vanilla extract"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "ts",
+          "en": "tsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Fondant (grønn)",
+          "en": "Fondant (green)"
+        },
+        "amount": 400,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Syltetøy (for midt-lag)",
+          "en": "Jam (for middle layer)"
+        },
+        "amount": 200,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Rosenbär (til toppen)",
+          "en": "Marzipan rose"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "stk",
+          "en": "piece"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Del kaken i tre lag horisontalt.",
+        "2. Visp fløten stivt med stivelse, sukker og vaniljeekstrakt.",
+        "3. Lag lag med kake, syltetøy, og fløtecreme.",
+        "4. Dekk hele kaken med det siste laget av fløtecreme.",
+        "5. Rull ut fondanten og dekk kaken på samme måte som en baldakin.",
+        "6. Garner toppen med en rosenbær og en lite palmeblad.",
+        "7. Kjøl i minst 2 timer før servering.",
+        "8. Server som en klassisk svensk festkake."
+      ],
+      "en": [
+        "1. Slice cake into three horizontal layers.",
+        "2. Whip cream stiff with cornstarch, sugar and vanilla extract.",
+        "3. Layer cake, jam, and whipped cream.",
+        "4. Cover entire cake with final layer of whipped cream.",
+        "5. Roll out fondant and cover cake like a dome.",
+        "6. Garnish top with a marzipan rose and a small palm leaf.",
+        "7. Chill for at least 2 hours before serving.",
+        "8. Serve as a classic Swedish celebration cake."
+      ]
+    },
+    "packIcon": "❄️",
+    "time_minutes": 120
+  },
+  {
+    "id": "nd_006",
+    "title": {
+      "no": "Mørbrad med jordbær og flødeskum",
+      "en": "Pork Tenderloin with Strawberries and Whipped Cream"
+    },
+    "subtitle": {
+      "no": "Skandinavisk elegant rett",
+      "en": "Scandinavian elegant dish"
+    },
+    "difficulty": "medium",
+    "cookTimeMinutes": 40,
+    "servings": 4,
+    "category": "Nordic Classics",
+    "tags": [
+      "scandinavian",
+      "elegant",
+      "summer"
+    ],
+    "allergens": [
+      "dairy"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Mørbrad (gris)",
+          "en": "Pork tenderloin"
+        },
+        "amount": 700,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Smør",
+          "en": "Butter"
+        },
+        "amount": 50,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Jordbær (friske)",
+          "en": "Strawberries (fresh)"
+        },
+        "amount": 300,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Fløte (tykk)",
+          "en": "Cream (heavy)"
+        },
+        "amount": 200,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      },
+      {
+        "name": {
+          "no": "Hvit vin",
+          "en": "White wine"
+        },
+        "amount": 100,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      },
+      {
+        "name": {
+          "no": "Salt og pepper",
+          "en": "Salt and pepper"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "etter smak",
+          "en": "to taste"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Sesr mørbradstykket lett og smak til med salt og pepper.",
+        "2. Heat smør i en stekepanne.",
+        "3. Steik mørbradstykket på høy varme 3-4 minutter på hver side.",
+        "4. Legg på en varmt stell.",
+        "5. Hell hvit vin i pannen og la det redusere.",
+        "6. Tilsett fløten og la det småkoke i 5 minutter.",
+        "7. Tilsett jordbærene til sausen.",
+        "8. Skjær mørbradstykket i skiver og arrange på en tallerken.",
+        "9. Hell jordebærsausen over og server varmt."
+      ],
+      "en": [
+        "1. Season tenderloin lightly and taste with salt and pepper.",
+        "2. Heat butter in a frying pan.",
+        "3. Fry tenderloin on high heat 3-4 minutes on each side.",
+        "4. Place on warm plate.",
+        "5. Pour white wine in pan and let reduce.",
+        "6. Add cream and simmer for 5 minutes.",
+        "7. Add strawberries to sauce.",
+        "8. Slice tenderloin and arrange on plate.",
+        "9. Pour strawberry sauce over and serve hot."
+      ]
+    },
+    "packIcon": "❄️",
+    "time_minutes": 40
+  },
+  {
+    "id": "nd_007",
+    "title": {
+      "no": "Frikadellettar (Danmark)",
+      "en": "Danish Meatballs"
+    },
+    "subtitle": {
+      "no": "Danske møkkert-stilk kjøttboller",
+      "en": "Danish meatballs"
+    },
+    "difficulty": "easy",
+    "cookTimeMinutes": 40,
+    "servings": 4,
+    "category": "Nordic Classics",
+    "tags": [
+      "danish",
+      "meatballs",
+      "comfort-food"
+    ],
+    "allergens": [
+      "gluten",
+      "dairy"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Kjøttdeig (blandet)",
+          "en": "Ground meat (mixed)"
+        },
+        "amount": 600,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Løk (finhakket)",
+          "en": "Onion (minced)"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "medium",
+          "en": "medium"
+        }
+      },
+      {
+        "name": {
+          "no": "Egg",
+          "en": "Egg"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "stk",
+          "en": "piece"
+        }
+      },
+      {
+        "name": {
+          "no": "Brødkrumler",
+          "en": "Breadcrumbs"
+        },
+        "amount": 75,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Melk",
+          "en": "Milk"
+        },
+        "amount": 75,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      },
+      {
+        "name": {
+          "no": "Smør",
+          "en": "Butter"
+        },
+        "amount": 50,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Brunsaus",
+          "en": "Brown sauce"
+        },
+        "amount": 200,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Bløtlegg brødkrumler i melk.",
+        "2. Bland kjøttdeig, brødkrumler, egg, løk, salt og pepper.",
+        "3. Form små kuler.",
+        "4. Steik kullene i smør til de er brune.",
+        "5. Fjern kullene og tilsett brunsausen til pannen.",
+        "6. Tilbakesett kullene og la det småkoke i 10 minutter.",
+        "7. Server med potetmos, grønnsaker og syltetøy."
+      ],
+      "en": [
+        "1. Soak breadcrumbs in milk.",
+        "2. Mix ground meat, breadcrumbs, egg, onion, salt and pepper.",
+        "3. Form small balls.",
+        "4. Fry balls in butter until brown.",
+        "5. Remove balls and add brown sauce to pan.",
+        "6. Return balls and simmer for 10 minutes.",
+        "7. Serve with mashed potatoes, vegetables and jam."
+      ]
+    },
+    "packIcon": "❄️",
+    "time_minutes": 40
+  },
+  {
+    "id": "nd_008",
+    "title": {
+      "no": "Rødgrød med fløde",
+      "en": "Red Fruit Compote with Cream"
+    },
+    "subtitle": {
+      "no": "Dansk dessert med bær og fløte",
+      "en": "Danish dessert with berries and cream"
+    },
+    "difficulty": "easy",
+    "cookTimeMinutes": 30,
+    "servings": 4,
+    "category": "Nordic Classics",
+    "tags": [
+      "danish",
+      "dessert",
+      "berries",
+      "summer"
+    ],
+    "allergens": [
+      "dairy"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Jordbær",
+          "en": "Strawberries"
+        },
+        "amount": 300,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Kirsebær",
+          "en": "Cherries"
+        },
+        "amount": 200,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Rabarber",
+          "en": "Rhubarb"
+        },
+        "amount": 300,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Sukker",
+          "en": "Sugar"
+        },
+        "amount": 100,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Vann",
+          "en": "Water"
+        },
+        "amount": 300,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      },
+      {
+        "name": {
+          "no": "Stivelse (maiskorn)",
+          "en": "Cornstarch"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Fløte",
+          "en": "Cream"
+        },
+        "amount": 300,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Kutt rabaraberen i biter.",
+        "2. Kok fruktene med vann og sukker i ca. 10 minutter.",
+        "3. Bland stivelsen med litt kaldt vann.",
+        "4. Tilsett stivelsespasta til det kokte frukten.",
+        "5. Rør godt og kok et minutt til for å la det stivne.",
+        "6. Sil blandingen hvis du ønsker en glatt tekstur.",
+        "7. Kjøl før servering.",
+        "8. Server i glass eller skål med kald fløte på toppen."
+      ],
+      "en": [
+        "1. Cut rhubarb into pieces.",
+        "2. Cook fruits with water and sugar for about 10 minutes.",
+        "3. Mix cornstarch with a little cold water.",
+        "4. Add starch paste to cooked fruit.",
+        "5. Stir well and cook one more minute to thicken.",
+        "6. Strain mixture if smooth texture is desired.",
+        "7. Chill before serving.",
+        "8. Serve in glass or bowl with cold cream on top."
+      ]
+    },
+    "packIcon": "❄️",
+    "time_minutes": 30
+  },
+  {
+    "id": "nd_009",
+    "title": {
+      "no": "Janteloven Brød",
+      "en": "Jante Law Bread"
+    },
+    "subtitle": {
+      "no": "Skandinavisk tradisjonelt brød",
+      "en": "Scandinavian traditional bread"
+    },
+    "difficulty": "medium",
+    "cookTimeMinutes": 240,
+    "servings": 2,
+    "category": "Nordic Classics",
+    "tags": [
+      "scandinavian",
+      "bread",
+      "traditional"
+    ],
+    "allergens": [
+      "gluten"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Rugmel",
+          "en": "Rye flour"
+        },
+        "amount": 300,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Hvetemel",
+          "en": "Wheat flour"
+        },
+        "amount": 200,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Gjær",
+          "en": "Yeast"
+        },
+        "amount": 25,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Vann",
+          "en": "Water"
+        },
+        "amount": 350,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      },
+      {
+        "name": {
+          "no": "Salt",
+          "en": "Salt"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "ts",
+          "en": "tsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Honning (valgfritt)",
+          "en": "Honey (optional)"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Bland rugmel, hvetemel og salt.",
+        "2. Løs gjæren i lunkken vann.",
+        "3. Bland gjærblandingen med melblanden.",
+        "4. Trill deigen godt i 10 minutter.",
+        "5. La deigen heve i 2-3 timer under et handklæ.",
+        "6. Form til brødboller eller flat brød.",
+        "7. La det heve i ytterligere 1 time.",
+        "8. Bak på 200°C i 35-40 minutter.",
+        "9. Brødet skal være gyllent brunt når det er ferdig."
+      ],
+      "en": [
+        "1. Mix rye flour, wheat flour and salt.",
+        "2. Dissolve yeast in lukewarm water.",
+        "3. Mix yeast mixture with flour mixture.",
+        "4. Knead dough well for 10 minutes.",
+        "5. Let dough rise 2-3 hours under towel.",
+        "6. Shape into bread rolls or flat bread.",
+        "7. Let rise another 1 hour.",
+        "8. Bake at 200°C for 35-40 minutes.",
+        "9. Bread should be golden brown when done."
+      ]
+    },
+    "packIcon": "❄️",
+    "time_minutes": 240
+  },
+  {
+    "id": "nd_010",
+    "title": {
+      "no": "Sild (Røkt eller Saltpotet)",
+      "en": "Herring (Smoked or Pickled)"
+    },
+    "subtitle": {
+      "no": "Skandinavisk sild-tradisjon",
+      "en": "Scandinavian herring tradition"
+    },
+    "difficulty": "easy",
+    "cookTimeMinutes": 20,
+    "servings": 4,
+    "category": "Nordic Classics",
+    "tags": [
+      "scandinavian",
+      "seafood",
+      "traditional"
+    ],
+    "allergens": [
+      "fish"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Sild (røkt eller saltet)",
+          "en": "Herring (smoked or pickled)"
+        },
+        "amount": 400,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Løk (rød)",
+          "en": "Red onion"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "medium",
+          "en": "medium"
+        }
+      },
+      {
+        "name": {
+          "no": "Rugbrød",
+          "en": "Rye bread"
+        },
+        "amount": 4,
+        "unit": {
+          "no": "skivor",
+          "en": "slices"
+        }
+      },
+      {
+        "name": {
+          "no": "Smør",
+          "en": "Butter"
+        },
+        "amount": 50,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Rømme",
+          "en": "Sour cream"
+        },
+        "amount": 100,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Dill (frisk)",
+          "en": "Dill (fresh)"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "knippe",
+          "en": "bunch"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Skjær silden i biter.",
+        "2. Skjær løken i tynne ringer.",
+        "3. Smør brødskivene.",
+        "4. Påfør et tynt lag rømme.",
+        "5. Legg sildbiter på toppen.",
+        "6. Garner med løk-ringer og frisk dill.",
+        "7. Server som en klassisk skandinavisk lunsj."
+      ],
+      "en": [
+        "1. Cut herring into pieces.",
+        "2. Slice onion into thin rings.",
+        "3. Butter bread slices.",
+        "4. Spread thin layer of sour cream.",
+        "5. Place herring pieces on top.",
+        "6. Garnish with onion rings and fresh dill.",
+        "7. Serve as a classic Scandinavian lunch."
+      ]
+    },
+    "packIcon": "❄️",
+    "time_minutes": 20
+  },
+  {
+    "id": "nd_011",
+    "title": {
+      "no": "Kransekake",
+      "en": "Kransekake"
+    },
+    "subtitle": {
+      "no": "Skandinavisk festkake med mands og rom",
+      "en": "Scandinavian celebration cake with almond and rum"
+    },
+    "difficulty": "hard",
+    "cookTimeMinutes": 120,
+    "servings": 10,
+    "category": "Nordic Classics",
+    "tags": [
+      "scandinavian",
+      "cake",
+      "celebration"
+    ],
+    "allergens": [
+      "nuts",
+      "dairy",
+      "eggs"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Mandelmel",
+          "en": "Almond flour"
+        },
+        "amount": 300,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Egg",
+          "en": "Eggs"
+        },
+        "amount": 5,
+        "unit": {
+          "no": "stk",
+          "en": "pieces"
+        }
+      },
+      {
+        "name": {
+          "no": "Sukker (puddringssukker)",
+          "en": "Sugar (powdered)"
+        },
+        "amount": 300,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Rom eller likør",
+          "en": "Rum or liqueur"
+        },
+        "amount": 3,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Hvitløk eller vaniljeekstrakt",
+          "en": "Zest or vanilla"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "ts",
+          "en": "tsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Sjokolade (til dekorasjon)",
+          "en": "Chocolate (for decoration)"
+        },
+        "amount": 100,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Visp egg og sukker til det er luftig og lyst.",
+        "2. Fold in mandelmel.",
+        "3. Tilsett rom og vaniljeekstrakt.",
+        "4. Fordel deigen i forskjellige sirkulære ringer.",
+        "5. Bak på 175°C i ca. 10-12 minutter per ring.",
+        "6. La ringene kjøle helt.",
+        "7. Stable ringene på hverandre med de største på bunnen.",
+        "8. Dekorér toppen med smeltet sjokolade og små flagg.",
+        "9. Serve som en klassisk skandinavisk festkake."
+      ],
+      "en": [
+        "1. Whisk eggs and sugar until fluffy and pale.",
+        "2. Fold in almond flour.",
+        "3. Add rum and vanilla extract.",
+        "4. Divide dough into different circular rings.",
+        "5. Bake at 175°C for about 10-12 minutes per ring.",
+        "6. Let rings cool completely.",
+        "7. Stack rings on top of each other with largest at bottom.",
+        "8. Decorate top with melted chocolate and small flags.",
+        "9. Serve as a classic Scandinavian celebration cake."
+      ]
+    },
+    "packIcon": "❄️",
+    "time_minutes": 120
+  },
+  {
+    "id": "nd_012",
+    "title": {
+      "no": "Søt-Suppe",
+      "en": "Sweet Fruit Soup"
+    },
+    "subtitle": {
+      "no": "Nordisk dessert-suppe med frukter",
+      "en": "Nordic dessert soup with fruit"
+    },
+    "difficulty": "easy",
+    "cookTimeMinutes": 30,
+    "servings": 4,
+    "category": "Nordic Classics",
+    "tags": [
+      "scandinavian",
+      "soup",
+      "dessert",
+      "fruit"
+    ],
+    "allergens": [],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Tørket frukt (blandede)",
+          "en": "Dried fruit (mixed)"
+        },
+        "amount": 400,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Sukker",
+          "en": "Sugar"
+        },
+        "amount": 50,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Vann",
+          "en": "Water"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "liter",
+          "en": "liter"
+        }
+      },
+      {
+        "name": {
+          "no": "Kanelstang",
+          "en": "Cinnamon stick"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "stk",
+          "en": "piece"
+        }
+      },
+      {
+        "name": {
+          "no": "Nellik",
+          "en": "Cloves"
+        },
+        "amount": 3,
+        "unit": {
+          "no": "stk",
+          "en": "pieces"
+        }
+      },
+      {
+        "name": {
+          "no": "Sitron (saft og skall)",
+          "en": "Lemon (juice and zest)"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "stk",
+          "en": "piece"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Kok tørket frukt i vann med sukker i 20 minutter.",
+        "2. Tilsett kanelstang, nellik og sitronskall.",
+        "3. Kok ytterligere 5 minutter.",
+        "4. Fjern kanelstang og nellik.",
+        "5. Tilsett sitrojus.",
+        "6. Server varmt eller kaldt etter smak.",
+        "7. Kan serveres som dessert-suppe eller brennevin."
+      ],
+      "en": [
+        "1. Boil dried fruit in water with sugar for 20 minutes.",
+        "2. Add cinnamon stick, cloves and lemon zest.",
+        "3. Cook another 5 minutes.",
+        "4. Remove cinnamon stick and cloves.",
+        "5. Add lemon juice.",
+        "6. Serve hot or cold to taste.",
+        "7. Can be served as dessert soup or as a compote."
+      ]
+    },
+    "packIcon": "❄️",
+    "time_minutes": 30
+  },
+  {
+    "id": "nd_013",
+    "title": {
+      "no": "Fiskeboller",
+      "en": "Fish Balls"
+    },
+    "subtitle": {
+      "no": "Skandinavisk fisk-spesialet",
+      "en": "Scandinavian fish specialty"
+    },
+    "difficulty": "medium",
+    "cookTimeMinutes": 45,
+    "servings": 4,
+    "category": "Nordic Classics",
+    "tags": [
+      "scandinavian",
+      "fish",
+      "comfort-food"
+    ],
+    "allergens": [
+      "fish",
+      "dairy",
+      "gluten"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Fisk (finhakket)",
+          "en": "Fish (minced)"
+        },
+        "amount": 600,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Melk",
+          "en": "Milk"
+        },
+        "amount": 100,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      },
+      {
+        "name": {
+          "no": "Brødkrumler",
+          "en": "Breadcrumbs"
+        },
+        "amount": 75,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Egg",
+          "en": "Egg"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "stk",
+          "en": "piece"
+        }
+      },
+      {
+        "name": {
+          "no": "Løk (finhakket)",
+          "en": "Onion (minced)"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "small",
+          "en": "small"
+        }
+      },
+      {
+        "name": {
+          "no": "Dill (frisk)",
+          "en": "Dill (fresh)"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Smør",
+          "en": "Butter"
+        },
+        "amount": 50,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Buljong (fisk)",
+          "en": "Fish broth"
+        },
+        "amount": 500,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Bløtlegg brødkrumler i melk.",
+        "2. Bland fisk, brødkrumler, egg, løk, dill, salt og pepper.",
+        "3. Form små kuler.",
+        "4. Steik kullene i smør til de er lett brune.",
+        "5. Hell fiskbuljongen i pannen.",
+        "6. La kullene småkoke i ca. 15 minutter.",
+        "7. Server med poteter og grønnsaker."
+      ],
+      "en": [
+        "1. Soak breadcrumbs in milk.",
+        "2. Mix fish, breadcrumbs, egg, onion, dill, salt and pepper.",
+        "3. Form small balls.",
+        "4. Fry balls in butter until lightly brown.",
+        "5. Pour fish broth in pan.",
+        "6. Let balls simmer for about 15 minutes.",
+        "7. Serve with potatoes and vegetables."
+      ]
+    },
+    "packIcon": "❄️",
+    "time_minutes": 45
+  },
+  {
+    "id": "nd_014",
+    "title": {
+      "no": "Frikadellettar (Island)",
+      "en": "Icelandic Meatballs"
+    },
+    "subtitle": {
+      "no": "Islandsk kjøtt-spesialet",
+      "en": "Icelandic meat specialty"
+    },
+    "difficulty": "easy",
+    "cookTimeMinutes": 35,
+    "servings": 4,
+    "category": "Nordic Classics",
+    "tags": [
+      "icelandic",
+      "meatballs",
+      "comfort-food"
+    ],
+    "allergens": [
+      "gluten",
+      "dairy"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Kjøttdeig",
+          "en": "Ground meat"
+        },
+        "amount": 600,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Løk (finhakket)",
+          "en": "Onion (minced)"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "medium",
+          "en": "medium"
+        }
+      },
+      {
+        "name": {
+          "no": "Egg",
+          "en": "Egg"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "stk",
+          "en": "piece"
+        }
+      },
+      {
+        "name": {
+          "no": "Brødkrumler",
+          "en": "Breadcrumbs"
+        },
+        "amount": 75,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Melk",
+          "en": "Milk"
+        },
+        "amount": 75,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      },
+      {
+        "name": {
+          "no": "Smør",
+          "en": "Butter"
+        },
+        "amount": 50,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Brunsaus",
+          "en": "Brown sauce"
+        },
+        "amount": 200,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Bløtlegg brødkrumler i melk.",
+        "2. Bland kjøttdeig, brødkrumler, egg, løk, salt og pepper.",
+        "3. Form små kuler.",
+        "4. Steik kullene i smør til de er brune.",
+        "5. Fjern kullene fra pannen.",
+        "6. Tilsett brunsausen til pannen.",
+        "7. Tilbakesett kullene og la det småkoke 10 minutter.",
+        "8. Server med potetmos og grønnsaker."
+      ],
+      "en": [
+        "1. Soak breadcrumbs in milk.",
+        "2. Mix ground meat, breadcrumbs, egg, onion, salt and pepper.",
+        "3. Form small balls.",
+        "4. Fry balls in butter until brown.",
+        "5. Remove balls from pan.",
+        "6. Add brown sauce to pan.",
+        "7. Return balls and simmer 10 minutes.",
+        "8. Serve with mashed potatoes and vegetables."
+      ]
+    },
+    "packIcon": "❄️",
+    "time_minutes": 35
+  },
+  {
+    "id": "nd_015",
+    "title": {
+      "no": "Serinakake",
+      "en": "Serina Cake"
+    },
+    "subtitle": {
+      "no": "Islandsk lagkake",
+      "en": "Icelandic layer cake"
+    },
+    "difficulty": "medium",
+    "cookTimeMinutes": 60,
+    "servings": 8,
+    "category": "Nordic Classics",
+    "tags": [
+      "icelandic",
+      "cake",
+      "layered"
+    ],
+    "allergens": [
+      "gluten",
+      "dairy",
+      "eggs"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Hvetemel",
+          "en": "Wheat flour"
+        },
+        "amount": 300,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Smør",
+          "en": "Butter"
+        },
+        "amount": 200,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Sukker",
+          "en": "Sugar"
+        },
+        "amount": 200,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Egg",
+          "en": "Eggs"
+        },
+        "amount": 3,
+        "unit": {
+          "no": "stk",
+          "en": "pieces"
+        }
+      },
+      {
+        "name": {
+          "no": "Bakepulver",
+          "en": "Baking powder"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "ts",
+          "en": "tsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Melk",
+          "en": "Milk"
+        },
+        "amount": 100,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      },
+      {
+        "name": {
+          "no": "Syltetøy",
+          "en": "Jam"
+        },
+        "amount": 300,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Fløte (tykk)",
+          "en": "Cream (heavy)"
+        },
+        "amount": 500,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Lag to kaker: blend smør og sukker, visp inn egg, tilsett mel, bakepulver og melk.",
+        "2. Fordel i to bakeplater.",
+        "3. Bak på 180°C i ca. 25-30 minutter.",
+        "4. La kakene kjøle helt.",
+        "5. Spreik kaken horisontalt.",
+        "6. Bland syltetøy mellom lagene.",
+        "7. Visp fløten stivt og bruk som topping.",
+        "8. Dekorasjon med frukter eller konfekt."
+      ],
+      "en": [
+        "1. Make two cakes: cream butter and sugar, whisk in eggs, add flour, baking powder and milk.",
+        "2. Divide into two baking pans.",
+        "3. Bake at 180°C for about 25-30 minutes.",
+        "4. Let cakes cool completely.",
+        "5. Split cake horizontally.",
+        "6. Spread jam between layers.",
+        "7. Whip cream stiff and use as topping.",
+        "8. Decorate with fruit or candies."
+      ]
+    },
+    "packIcon": "❄️",
+    "time_minutes": 60
+  },
+  {
+    "id": "hol_001",
+    "title": {
+      "no": "Julemiddag: Stekt Kalkun",
+      "en": "Christmas Dinner: Roasted Turkey"
+    },
+    "subtitle": {
+      "no": "Klassisk julemiddag med helstekt kalkun",
+      "en": "Classic Christmas dinner with whole roasted turkey"
+    },
+    "difficulty": "hard",
+    "cookTimeMinutes": 180,
+    "servings": 8,
+    "category": "Holiday Recipes",
+    "tags": [
+      "christmas",
+      "turkey",
+      "holiday",
+      "festive"
+    ],
+    "allergens": [],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Kalkun (hel)",
+          "en": "Turkey (whole)"
+        },
+        "amount": 4500,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Smør (mykt)",
+          "en": "Butter (soft)"
+        },
+        "amount": 200,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Salt og pepper",
+          "en": "Salt and pepper"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "etter smak",
+          "en": "to taste"
+        }
+      },
+      {
+        "name": {
+          "no": "Timen",
+          "en": "Thyme"
+        },
+        "amount": 5,
+        "unit": {
+          "no": "stengel",
+          "en": "sprigs"
+        }
+      },
+      {
+        "name": {
+          "no": "Laurbær",
+          "en": "Bay leaf"
+        },
+        "amount": 3,
+        "unit": {
+          "no": "stk",
+          "en": "leaves"
+        }
+      },
+      {
+        "name": {
+          "no": "Sitron",
+          "en": "Lemon"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "stk",
+          "en": "pieces"
+        }
+      },
+      {
+        "name": {
+          "no": "Buljong (varm)",
+          "en": "Broth (warm)"
+        },
+        "amount": 500,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Tørk kalkunen på innsiden og utsiden.",
+        "2. Fyll kalkuinen med frynsede sitronskiver, timen og laurbær.",
+        "3. Bind lårene sammen med norgekortnorsk snor.",
+        "4. Gnid smør over hele kalkunen, salt og pepper.",
+        "5. Legg kalkunen brystkant opp på en roastingsplatter.",
+        "6. Bak på 180°C i ca. 2,5-3 timer (15 minutter per 500g + 20 minutter).",
+        "7. Vann kalkunen hvert 30. minutt med pannesaft.",
+        "8. Kontroller temperaturen innvendig: 75°C når lårene og brystet er rørt.",
+        "9. La kalkunen hvile i 20 minutter før servering.",
+        "10. Lag saus fra pansaften."
+      ],
+      "en": [
+        "1. Pat turkey dry inside and outside.",
+        "2. Fill turkey with sliced lemon, thyme and bay leaf.",
+        "3. Tie legs together with string.",
+        "4. Rub butter over whole turkey, salt and pepper.",
+        "5. Place turkey breast up on a roasting pan.",
+        "6. Roast at 180°C for about 2.5-3 hours (15 min per 500g + 20 min).",
+        "7. Baste turkey every 30 minutes with pan juices.",
+        "8. Check internal temperature: 75°C when legs and breast are pierced.",
+        "9. Let turkey rest 20 minutes before serving.",
+        "10. Make gravy from pan juices."
+      ]
+    },
+    "packIcon": "🎄",
+    "time_minutes": 180
+  },
+  {
+    "id": "hol_002",
+    "title": {
+      "no": "Juleglogg",
+      "en": "Christmas Mulled Wine"
+    },
+    "subtitle": {
+      "no": "Tradisjonell varm juldrink",
+      "en": "Traditional warm Christmas drink"
+    },
+    "difficulty": "easy",
+    "cookTimeMinutes": 30,
+    "servings": 8,
+    "category": "Holiday Recipes",
+    "tags": [
+      "christmas",
+      "drink",
+      "warm",
+      "festive"
+    ],
+    "allergens": [],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Rødvin",
+          "en": "Red wine"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "liter",
+          "en": "liter"
+        }
+      },
+      {
+        "name": {
+          "no": "Brennevin (eller aquavit)",
+          "en": "Spirits (or aquavit)"
+        },
+        "amount": 150,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      },
+      {
+        "name": {
+          "no": "Sukker",
+          "en": "Sugar"
+        },
+        "amount": 75,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Kanelstang",
+          "en": "Cinnamon stick"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "stk",
+          "en": "pieces"
+        }
+      },
+      {
+        "name": {
+          "no": "Nellik",
+          "en": "Cloves"
+        },
+        "amount": 6,
+        "unit": {
+          "no": "stk",
+          "en": "pieces"
+        }
+      },
+      {
+        "name": {
+          "no": "Kardemomme",
+          "en": "Cardamom"
+        },
+        "amount": 3,
+        "unit": {
+          "no": "stk",
+          "en": "pieces"
+        }
+      },
+      {
+        "name": {
+          "no": "Ingefær (frisk)",
+          "en": "Ginger (fresh)"
+        },
+        "amount": 20,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Appelsin",
+          "en": "Orange"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "stk",
+          "en": "pieces"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Hell rødvin i en gryte.",
+        "2. Tilsett sukker, kanelstang, nellik, kardemomme og frisk ingefær.",
+        "3. Skjær appelsinene i tynne skiver og legg dem til.",
+        "4. Varm opp til ca. 65-70°C (ikke kok).",
+        "5. La det småsimre i 15-20 minutter.",
+        "6. Fjern fra varmen og tilsett brennevinen.",
+        "7. Server varmt i små kopper.",
+        "8. Tradisjonelt serveres med rosiner og mandler."
+      ],
+      "en": [
+        "1. Pour red wine into a pot.",
+        "2. Add sugar, cinnamon stick, cloves, cardamom and fresh ginger.",
+        "3. Slice oranges and add them.",
+        "4. Heat to about 65-70°C (do not boil).",
+        "5. Let simmer for 15-20 minutes.",
+        "6. Remove from heat and add spirits.",
+        "7. Serve hot in small cups.",
+        "8. Traditionally served with raisins and almonds."
+      ]
+    },
+    "packIcon": "🎄",
+    "time_minutes": 30
+  },
+  {
+    "id": "hol_003",
+    "title": {
+      "no": "Risengrynssgrytt",
+      "en": "Rice Pudding"
+    },
+    "subtitle": {
+      "no": "Tradisjonell juledessert",
+      "en": "Traditional Christmas pudding"
+    },
+    "difficulty": "easy",
+    "cookTimeMinutes": 45,
+    "servings": 6,
+    "category": "Holiday Recipes",
+    "tags": [
+      "christmas",
+      "pudding",
+      "dessert",
+      "traditional"
+    ],
+    "allergens": [
+      "dairy"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Risengryns",
+          "en": "Short grain rice"
+        },
+        "amount": 200,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Melk",
+          "en": "Milk"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "liter",
+          "en": "liter"
+        }
+      },
+      {
+        "name": {
+          "no": "Sukker",
+          "en": "Sugar"
+        },
+        "amount": 50,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Salt",
+          "en": "Salt"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "ts",
+          "en": "tsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Vaniljeekstrakt",
+          "en": "Vanilla extract"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "ts",
+          "en": "tsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Mandler (hakket)",
+          "en": "Almonds (chopped)"
+        },
+        "amount": 50,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Rosiner",
+          "en": "Raisins"
+        },
+        "amount": 75,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Fløte",
+          "en": "Cream"
+        },
+        "amount": 200,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Kok melk i en gryte.",
+        "2. Tilsett risen og salt, la det småkoke i 25-30 minutter.",
+        "3. Rør av og til så risen ikke setter seg på bunnen.",
+        "4. Når risen er myk, tilsett sukker og vaniljeekstrakt.",
+        "5. Tilsett mandler og rosiner.",
+        "6. La det kjøle.",
+        "7. Visp fløten og fold den inn like før servering.",
+        "8. Server med rød syltør eller jordbær-syltetøy."
+      ],
+      "en": [
+        "1. Boil milk in a pot.",
+        "2. Add rice and salt, let simmer 25-30 minutes.",
+        "3. Stir occasionally so rice doesn't stick to bottom.",
+        "4. When rice is soft, add sugar and vanilla extract.",
+        "5. Add almonds and raisins.",
+        "6. Let cool.",
+        "7. Whip cream and fold in just before serving.",
+        "8. Serve with red jam or strawberry jam."
+      ]
+    },
+    "packIcon": "🎄",
+    "time_minutes": 45
+  },
+  {
+    "id": "hol_004",
+    "title": {
+      "no": "Julerollekake",
+      "en": "Christmas Roll Cake"
+    },
+    "subtitle": {
+      "no": "Norsk julerullet med fløte og jam",
+      "en": "Norwegian Christmas roll with cream and jam"
+    },
+    "difficulty": "medium",
+    "cookTimeMinutes": 60,
+    "servings": 8,
+    "category": "Holiday Recipes",
+    "tags": [
+      "christmas",
+      "cake",
+      "roll",
+      "festive"
+    ],
+    "allergens": [
+      "gluten",
+      "dairy",
+      "eggs"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Egg",
+          "en": "Eggs"
+        },
+        "amount": 4,
+        "unit": {
+          "no": "stk",
+          "en": "pieces"
+        }
+      },
+      {
+        "name": {
+          "no": "Sukker",
+          "en": "Sugar"
+        },
+        "amount": 100,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Hvetemel",
+          "en": "Wheat flour"
+        },
+        "amount": 100,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Bakepulver",
+          "en": "Baking powder"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "ts",
+          "en": "tsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Fløte (tykk)",
+          "en": "Cream (heavy)"
+        },
+        "amount": 400,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      },
+      {
+        "name": {
+          "no": "Syltetøy (til mitt)",
+          "en": "Jam (for filling)"
+        },
+        "amount": 200,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Pudringssukker",
+          "en": "Powdered sugar"
+        },
+        "amount": 50,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Visp egg og sukker til det er luftig og lyst.",
+        "2. Bland mel og bakepulver, fold inn i eggeblandingen.",
+        "3. Hell på en bakeplaat dekket med bakepapir.",
+        "4. Bak på 200°C i ca. 10-12 minutter.",
+        "5. Legg kaken ut på et nytt bakepapir mens det er varmt.",
+        "6. Spredt syltetøy på kaken.",
+        "7. Rull sammen mens den er varm.",
+        "8. Visp fløten med litt sukker.",
+        "9. Spredt fløte på hele rollen.",
+        "10. Frysing med pudringssukker.",
+        "11. Kjøl før servering."
+      ],
+      "en": [
+        "1. Whisk eggs and sugar until fluffy and pale.",
+        "2. Mix flour and baking powder, fold into egg mixture.",
+        "3. Spread on baking sheet lined with parchment.",
+        "4. Bake at 200°C for about 10-12 minutes.",
+        "5. Turn cake out on new parchment while hot.",
+        "6. Spread jam on cake.",
+        "7. Roll together while hot.",
+        "8. Whip cream with a bit of sugar.",
+        "9. Spread cream on entire roll.",
+        "10. Dust with powdered sugar.",
+        "11. Chill before serving."
+      ]
+    },
+    "packIcon": "🎄",
+    "time_minutes": 60
+  },
+  {
+    "id": "hol_005",
+    "title": {
+      "no": "Påskekrim",
+      "en": "Easter Lamb"
+    },
+    "subtitle": {
+      "no": "Påske-tradisjonell stekt lamb",
+      "en": "Easter traditional roasted lamb"
+    },
+    "difficulty": "medium",
+    "cookTimeMinutes": 120,
+    "servings": 6,
+    "category": "Holiday Recipes",
+    "tags": [
+      "easter",
+      "lamb",
+      "holiday",
+      "festive"
+    ],
+    "allergens": [],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Lammekjøtt (ribben)",
+          "en": "Lamb (rack)"
+        },
+        "amount": 1500,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Smør",
+          "en": "Butter"
+        },
+        "amount": 75,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Hvitløk",
+          "en": "Garlic"
+        },
+        "amount": 3,
+        "unit": {
+          "no": "fedd",
+          "en": "cloves"
+        }
+      },
+      {
+        "name": {
+          "no": "Rosmarin (frisk)",
+          "en": "Rosemary (fresh)"
+        },
+        "amount": 3,
+        "unit": {
+          "no": "stengel",
+          "en": "sprigs"
+        }
+      },
+      {
+        "name": {
+          "no": "Timen (frisk)",
+          "en": "Thyme (fresh)"
+        },
+        "amount": 3,
+        "unit": {
+          "no": "stengel",
+          "en": "sprigs"
+        }
+      },
+      {
+        "name": {
+          "no": "Salt og pepper",
+          "en": "Salt and pepper"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "etter smak",
+          "en": "to taste"
+        }
+      },
+      {
+        "name": {
+          "no": "Buljong (varmt)",
+          "en": "Broth (warm)"
+        },
+        "amount": 300,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Ta lammeribben ut av kjøleskapet 30 minutter før tilberedelse.",
+        "2. Gnid med salt, pepper og pressede hvitløkfedd.",
+        "3. Gnid med smør og tilsett rosmarin og timen.",
+        "4. Legg på en roastingsplatter.",
+        "5. Bak på 200°C i ca. 45-60 minutter (tilleggstime for middels rosé).",
+        "6. Hell over noe buljong i pannen.",
+        "7. La lammen hvile i 15 minutter før servering.",
+        "8. Server med sprøllet hull og nye poteter."
+      ],
+      "en": [
+        "1. Take lamb rack out of refrigerator 30 minutes before cooking.",
+        "2. Rub with salt, pepper and crushed garlic.",
+        "3. Rub with butter and add rosemary and thyme.",
+        "4. Place on roasting pan.",
+        "5. Roast at 200°C for about 45-60 minutes (longer for medium-rare).",
+        "6. Pour some broth in the pan.",
+        "7. Let lamb rest 15 minutes before serving.",
+        "8. Serve with crispy potatoes and new potatoes."
+      ]
+    },
+    "packIcon": "🎄",
+    "time_minutes": 120
+  },
+  {
+    "id": "hol_006",
+    "title": {
+      "no": "Påskebrød (Panartonone)",
+      "en": "Easter Bread"
+    },
+    "subtitle": {
+      "no": "Italiensk påske-panettone",
+      "en": "Italian Easter panettone"
+    },
+    "difficulty": "hard",
+    "cookTimeMinutes": 240,
+    "servings": 8,
+    "category": "Holiday Recipes",
+    "tags": [
+      "easter",
+      "bread",
+      "holiday",
+      "italian"
+    ],
+    "allergens": [
+      "gluten",
+      "dairy",
+      "eggs",
+      "nuts"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Mel",
+          "en": "Flour"
+        },
+        "amount": 500,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Gjær",
+          "en": "Yeast"
+        },
+        "amount": 50,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Sukker",
+          "en": "Sugar"
+        },
+        "amount": 200,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Egg",
+          "en": "Eggs"
+        },
+        "amount": 4,
+        "unit": {
+          "no": "stk",
+          "en": "pieces"
+        }
+      },
+      {
+        "name": {
+          "no": "Smør",
+          "en": "Butter"
+        },
+        "amount": 200,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Rosiner",
+          "en": "Raisins"
+        },
+        "amount": 300,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Candita frukter",
+          "en": "Candied fruits"
+        },
+        "amount": 150,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Mandler (hele)",
+          "en": "Almonds (whole)"
+        },
+        "amount": 100,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Vaniljeekstrakt",
+          "en": "Vanilla extract"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "ts",
+          "en": "tsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Sitronskall",
+          "en": "Lemon zest"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "stk",
+          "en": "piece"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Løs gjæren i lunkken vann med litt sukker.",
+        "2. Bland mel, gjær-blandingen, resten av sukker, egg og smør.",
+        "3. Trill deigen godt i 15 minutter.",
+        "4. La deigen heve i 2 timer under et handklæ.",
+        "5. Fold in rosiner, candita frukter, mandler, vaniljekstrakt og sitronskall.",
+        "6. La deigen heve igjen i 1 time.",
+        "7. Fordel i høye bakeplater.",
+        "8. Bak på 180°C i ca. 50-60 minutter.",
+        "9. Brødet skal være gyllent brunt når det er ferdig."
+      ],
+      "en": [
+        "1. Dissolve yeast in lukewarm water with a bit of sugar.",
+        "2. Mix flour, yeast mixture, remaining sugar, eggs and butter.",
+        "3. Knead dough well for 15 minutes.",
+        "4. Let dough rise 2 hours under towel.",
+        "5. Fold in raisins, candied fruits, almonds, vanilla extract and lemon zest.",
+        "6. Let dough rise again 1 hour.",
+        "7. Divide into tall baking pans.",
+        "8. Bake at 180°C for about 50-60 minutes.",
+        "9. Bread should be golden brown when done."
+      ]
+    },
+    "packIcon": "🎄",
+    "time_minutes": 240
+  },
+  {
+    "id": "hol_007",
+    "title": {
+      "no": "Grillet Fisk med Sommerkrydder",
+      "en": "Grilled Fish with Summer Herbs"
+    },
+    "subtitle": {
+      "no": "Sommerfest-klassiker",
+      "en": "Summer celebration classic"
+    },
+    "difficulty": "easy",
+    "cookTimeMinutes": 30,
+    "servings": 4,
+    "category": "Holiday Recipes",
+    "tags": [
+      "summer",
+      "grilled",
+      "fish",
+      "festive"
+    ],
+    "allergens": [
+      "fish"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Fiskéfiléer (torsk/sei)",
+          "en": "Fish fillets (cod/pollock)"
+        },
+        "amount": 800,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Olivenolje",
+          "en": "Olive oil"
+        },
+        "amount": 4,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Dill (frisk)",
+          "en": "Dill (fresh)"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "knippe",
+          "en": "bunches"
+        }
+      },
+      {
+        "name": {
+          "no": "Persille (frisk)",
+          "en": "Parsley (fresh)"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "knippe",
+          "en": "bunch"
+        }
+      },
+      {
+        "name": {
+          "no": "Sitron",
+          "en": "Lemon"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "stk",
+          "en": "pieces"
+        }
+      },
+      {
+        "name": {
+          "no": "Salt og pepper",
+          "en": "Salt and pepper"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "etter smak",
+          "en": "to taste"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Varme opp grillen til medium-høy varme.",
+        "2. Gnid fisken med olivenolje, salt og pepper.",
+        "3. Legg dill og persille på grillen eller inne i fisken.",
+        "4. Grill fisken 4-5 minutter på hver side.",
+        "5. Server varmt med sitronskiver.",
+        "6. Garner med ferske krydder."
+      ],
+      "en": [
+        "1. Preheat grill to medium-high heat.",
+        "2. Rub fish with olive oil, salt and pepper.",
+        "3. Place dill and parsley on grill or inside fish.",
+        "4. Grill fish 4-5 minutes on each side.",
+        "5. Serve hot with lemon slices.",
+        "6. Garnish with fresh herbs."
+      ]
+    },
+    "packIcon": "🎄",
+    "time_minutes": 30
+  },
+  {
+    "id": "hol_008",
+    "title": {
+      "no": "Nyårsaften: Flott Stekt Oksebiff",
+      "en": "New Year's Eve: Beautiful Roasted Beef"
+    },
+    "subtitle": {
+      "no": "Elegant New Year's dinner",
+      "en": "Elegant New Year's dinner"
+    },
+    "difficulty": "hard",
+    "cookTimeMinutes": 90,
+    "servings": 6,
+    "category": "Holiday Recipes",
+    "tags": [
+      "newyear",
+      "beef",
+      "elegant",
+      "festive"
+    ],
+    "allergens": [],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Oksebiff (beste kutt)",
+          "en": "Beef roast (best cut)"
+        },
+        "amount": 1500,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Smør",
+          "en": "Butter"
+        },
+        "amount": 100,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Hvitløk",
+          "en": "Garlic"
+        },
+        "amount": 4,
+        "unit": {
+          "no": "fedd",
+          "en": "cloves"
+        }
+      },
+      {
+        "name": {
+          "no": "Rosmarin (frisk)",
+          "en": "Rosemary (fresh)"
+        },
+        "amount": 3,
+        "unit": {
+          "no": "stengel",
+          "en": "sprigs"
+        }
+      },
+      {
+        "name": {
+          "no": "Salt og pepper",
+          "en": "Salt and pepper"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "etter smak",
+          "en": "to taste"
+        }
+      },
+      {
+        "name": {
+          "no": "Rødvin",
+          "en": "Red wine"
+        },
+        "amount": 200,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      },
+      {
+        "name": {
+          "no": "Buljong (okse)",
+          "en": "Beef broth"
+        },
+        "amount": 250,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Ta kjøttet ut av kjøleskapet 1 time før tilberedelse.",
+        "2. Salt og pepper det godt.",
+        "3. Heat smør i en stor gryte på høy varme.",
+        "4. Brun kjøttet på alle sider.",
+        "5. Fjern kjøttet og steik hvitløk og rosmarin.",
+        "6. Hell på rødvin og buljong.",
+        "7. Tilbakesett kjøttet og dekk.",
+        "8. Bak på 160°C i ca. 45-60 minutter for medium-rare.",
+        "9. La kjøttet hvile i 15 minutter.",
+        "10. Server med sprøllet hull, grønnsaker og saus fra pannen."
+      ],
+      "en": [
+        "1. Remove meat from refrigerator 1 hour before cooking.",
+        "2. Salt and pepper it well.",
+        "3. Heat butter in a large pot on high heat.",
+        "4. Brown meat on all sides.",
+        "5. Remove meat and fry garlic and rosemary.",
+        "6. Pour in red wine and broth.",
+        "7. Return meat and cover.",
+        "8. Bake at 160°C for about 45-60 minutes for medium-rare.",
+        "9. Let meat rest 15 minutes.",
+        "10. Serve with roasted vegetables and gravy from pan."
+      ]
+    },
+    "packIcon": "🎄",
+    "time_minutes": 90
+  },
+  {
+    "id": "hol_009",
+    "title": {
+      "no": "Forrett: Gravlaks med Sennepssaus",
+      "en": "Starter: Gravlax with Mustard Sauce"
+    },
+    "subtitle": {
+      "no": "Elegant starter for festmåltider",
+      "en": "Elegant starter for festive meals"
+    },
+    "difficulty": "medium",
+    "cookTimeMinutes": 1440,
+    "servings": 8,
+    "category": "Holiday Recipes",
+    "tags": [
+      "starter",
+      "fish",
+      "elegant",
+      "holiday"
+    ],
+    "allergens": [
+      "fish"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Laks (ferskt filéer)",
+          "en": "Salmon (fresh fillets)"
+        },
+        "amount": 800,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Salt",
+          "en": "Salt"
+        },
+        "amount": 25,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Sukker",
+          "en": "Sugar"
+        },
+        "amount": 15,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Dill (frisk)",
+          "en": "Dill (fresh)"
+        },
+        "amount": 40,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Pepper (sort)",
+          "en": "Black pepper"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "ts",
+          "en": "tsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Sennepe (Dijon)",
+          "en": "Mustard (Dijon)"
+        },
+        "amount": 3,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Honning",
+          "en": "Honey"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Olivenolje",
+          "en": "Olive oil"
+        },
+        "amount": 3,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Bland salt, sukker, dill og pepper.",
+        "2. Gnid blandingen inn i laksefilené.",
+        "3. Pakk inn og legg i kjøleskapet.",
+        "4. La det kurere i 24-48 timer.",
+        "5. For sausen: bland sennepe, honning og olivenolje.",
+        "6. Skjær gravlaksen i tynne skiver.",
+        "7. Server med brød og sennepssausen.",
+        "8. Garner med frisk dill."
+      ],
+      "en": [
+        "1. Mix salt, sugar, dill and pepper.",
+        "2. Rub mixture into salmon fillet.",
+        "3. Wrap and place in refrigerator.",
+        "4. Let cure 24-48 hours.",
+        "5. For sauce: mix mustard, honey and olive oil.",
+        "6. Slice gravlax thinly.",
+        "7. Serve with bread and mustard sauce.",
+        "8. Garnish with fresh dill."
+      ]
+    },
+    "packIcon": "🎄",
+    "time_minutes": 1440
+  },
+  {
+    "id": "hol_010",
+    "title": {
+      "no": "Dessert: Sjokolade Mousse",
+      "en": "Dessert: Chocolate Mousse"
+    },
+    "subtitle": {
+      "no": "Elegant og lys sjokolade-mousse",
+      "en": "Elegant light chocolate mousse"
+    },
+    "difficulty": "easy",
+    "cookTimeMinutes": 30,
+    "servings": 4,
+    "category": "Holiday Recipes",
+    "tags": [
+      "dessert",
+      "chocolate",
+      "elegant",
+      "holiday"
+    ],
+    "allergens": [
+      "dairy",
+      "eggs"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Sjokolade (mørk)",
+          "en": "Chocolate (dark)"
+        },
+        "amount": 200,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Egg (eller pasteurisert)",
+          "en": "Eggs (or pasteurized)"
+        },
+        "amount": 4,
+        "unit": {
+          "no": "stk",
+          "en": "pieces"
+        }
+      },
+      {
+        "name": {
+          "no": "Fløte (tykk)",
+          "en": "Cream (heavy)"
+        },
+        "amount": 300,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      },
+      {
+        "name": {
+          "no": "Sukker",
+          "en": "Sugar"
+        },
+        "amount": 50,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Kaffe (svak)",
+          "en": "Coffee (strong)"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Vaniljeekstrakt",
+          "en": "Vanilla extract"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "ts",
+          "en": "tsp"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Smelt sjokoladen i en bolle over dampbad.",
+        "2. Del egg: eggeplommer i en bolle, egg-hviter i en annen.",
+        "3. Visp eggeplommer med sukker til det er kremete.",
+        "4. Fold in smeltet sjokolade.",
+        "5. Tilsett kaffe og vaniljeekstrakt.",
+        "6. Visp egg-hviter stivt og fold forsiktig inn.",
+        "7. Visp fløten stivt og fold forsiktig inn.",
+        "8. Fordel i glass eller skåler.",
+        "9. Kjøl minst 2 timer.",
+        "10. Server med kakaopulver eller sjokoladeflak."
+      ],
+      "en": [
+        "1. Melt chocolate in a bowl over double boiler.",
+        "2. Separate eggs: yolks in one bowl, whites in another.",
+        "3. Whisk yolks with sugar until creamy.",
+        "4. Fold in melted chocolate.",
+        "5. Add coffee and vanilla extract.",
+        "6. Beat egg whites stiff and fold in carefully.",
+        "7. Whip cream stiff and fold in carefully.",
+        "8. Divide into glasses or bowls.",
+        "9. Chill at least 2 hours.",
+        "10. Serve with cocoa powder or chocolate flakes."
+      ]
+    },
+    "packIcon": "🎄",
+    "time_minutes": 30
+  },
+  {
+    "id": "hol_011",
+    "title": {
+      "no": "Juletradisjon: Pepper Nuts",
+      "en": "Christmas Tradition: Pepper Nuts"
+    },
+    "subtitle": {
+      "no": "Tradisjonelle små krydderkaker",
+      "en": "Traditional small spice cookies"
+    },
+    "difficulty": "easy",
+    "cookTimeMinutes": 90,
+    "servings": 30,
+    "category": "Holiday Recipes",
+    "tags": [
+      "christmas",
+      "cookies",
+      "spice",
+      "traditional"
+    ],
+    "allergens": [
+      "gluten",
+      "nuts"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Hvetemel",
+          "en": "Wheat flour"
+        },
+        "amount": 250,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Smør",
+          "en": "Butter"
+        },
+        "amount": 100,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Brunsukkert",
+          "en": "Brown sugar"
+        },
+        "amount": 150,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Egg",
+          "en": "Eggs"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "stk",
+          "en": "pieces"
+        }
+      },
+      {
+        "name": {
+          "no": "Anise-frø",
+          "en": "Anise seeds"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "ts",
+          "en": "tsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Kanelstang (pulver)",
+          "en": "Cinnamon (powder)"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "ts",
+          "en": "tsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Pepper (sort, malt)",
+          "en": "Black pepper (ground)"
+        },
+        "amount": 0.5,
+        "unit": {
+          "no": "ts",
+          "en": "tsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Nellik (pulver)",
+          "en": "Cloves (powder)"
+        },
+        "amount": 0.5,
+        "unit": {
+          "no": "ts",
+          "en": "tsp"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Blend smør og brunsukkert.",
+        "2. Visp inn egg.",
+        "3. Bland mel, anise-frø, kanel, pepper og nellik.",
+        "4. Tilsett til smørblanden.",
+        "5. Form små kuler.",
+        "6. Legg på en bakeplatt.",
+        "7. Bak på 170°C i ca. 10-12 minutter.",
+        "8. La dem kjøle på pannen før de flyttes.",
+        "9. Store i en hermetisk beholder."
+      ],
+      "en": [
+        "1. Cream butter and brown sugar.",
+        "2. Whisk in eggs.",
+        "3. Mix flour, anise seeds, cinnamon, pepper and cloves.",
+        "4. Add to butter mixture.",
+        "5. Form small balls.",
+        "6. Place on baking sheet.",
+        "7. Bake at 170°C for about 10-12 minutes.",
+        "8. Let cool on pan before moving.",
+        "9. Store in an airtight container."
+      ]
+    },
+    "packIcon": "🎄",
+    "time_minutes": 90
+  },
+  {
+    "id": "hol_012",
+    "title": {
+      "no": "Julebakst: Gingerbread House",
+      "en": "Christmas Baking: Gingerbread House"
+    },
+    "subtitle": {
+      "no": "Tradisjonell leikateklubb",
+      "en": "Traditional gingerbread house"
+    },
+    "difficulty": "hard",
+    "cookTimeMinutes": 240,
+    "servings": 8,
+    "category": "Holiday Recipes",
+    "tags": [
+      "christmas",
+      "gingerbread",
+      "building",
+      "festive"
+    ],
+    "allergens": [
+      "gluten",
+      "dairy",
+      "eggs"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Hvetemel",
+          "en": "Wheat flour"
+        },
+        "amount": 500,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Smør",
+          "en": "Butter"
+        },
+        "amount": 200,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Brunsukkert",
+          "en": "Brown sugar"
+        },
+        "amount": 200,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Egg",
+          "en": "Eggs"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "stk",
+          "en": "pieces"
+        }
+      },
+      {
+        "name": {
+          "no": "Ingefær (malt)",
+          "en": "Ginger (ground)"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "ts",
+          "en": "tsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Kanel",
+          "en": "Cinnamon"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "ts",
+          "en": "tsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Nellik (malt)",
+          "en": "Cloves (ground)"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "ts",
+          "en": "tsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Glasur (til dekorasjon)",
+          "en": "Icing (for decoration)"
+        },
+        "amount": 500,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Godteri (til dekorasjon)",
+          "en": "Candies (for decoration)"
+        },
+        "amount": 200,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Blend smør og brunsukkert.",
+        "2. Visp inn egg.",
+        "3. Bland mel, ingefær, kanel og nellik.",
+        "4. Tilsett tørre ingredienser til smørblanden.",
+        "5. La deigen kjøle i minst 1 time.",
+        "6. Rull ut deigen på bakepapir.",
+        "7. Skjær hus-delene (vegger, tak, dør, vinduer).",
+        "8. Bak på 180°C i ca. 10-12 minutter.",
+        "9. La delene kjøle helt.",
+        "10. Bruk hvit glasur til å samle og dekorere huset.",
+        "11. Dekoré med godteri og andre detaljer.",
+        "12. La glasuren herdes før servering."
+      ],
+      "en": [
+        "1. Cream butter and brown sugar.",
+        "2. Whisk in eggs.",
+        "3. Mix flour, ginger, cinnamon and cloves.",
+        "4. Add dry ingredients to butter mixture.",
+        "5. Let dough cool for at least 1 hour.",
+        "6. Roll out dough on parchment paper.",
+        "7. Cut house pieces (walls, roof, door, windows).",
+        "8. Bake at 180°C for about 10-12 minutes.",
+        "9. Let pieces cool completely.",
+        "10. Use white icing to assemble and decorate house.",
+        "11. Decorate with candies and other details.",
+        "12. Let icing harden before serving."
+      ]
+    },
+    "packIcon": "🎄",
+    "time_minutes": 240
+  },
+  {
+    "id": "sum_001",
+    "title": {
+      "no": "Gresk Salat",
+      "en": "Greek Salad"
+    },
+    "subtitle": {
+      "no": "Klassisk sommerslat med feta og oliven",
+      "en": "Classic summer salad with feta and olives"
+    },
+    "difficulty": "easy",
+    "cookTimeMinutes": 15,
+    "servings": 4,
+    "category": "Summer Recipes",
+    "tags": [
+      "salad",
+      "greek",
+      "vegetarian",
+      "summer"
+    ],
+    "allergens": [
+      "dairy"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Tomat",
+          "en": "Tomato"
+        },
+        "amount": 4,
+        "unit": {
+          "no": "medium",
+          "en": "medium"
+        }
+      },
+      {
+        "name": {
+          "no": "Agurk",
+          "en": "Cucumber"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "large",
+          "en": "large"
+        }
+      },
+      {
+        "name": {
+          "no": "Rød løk",
+          "en": "Red onion"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "medium",
+          "en": "medium"
+        }
+      },
+      {
+        "name": {
+          "no": "Oliven",
+          "en": "Olives"
+        },
+        "amount": 150,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Feta-ost",
+          "en": "Feta cheese"
+        },
+        "amount": 200,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Olivenolje",
+          "en": "Olive oil"
+        },
+        "amount": 5,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Rødvineddik",
+          "en": "Red wine vinegar"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Oregano",
+          "en": "Oregano"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "ts",
+          "en": "tsp"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Hakk tomater, agurk og løk i biter.",
+        "2. Legg dem i en stor salat-bolle.",
+        "3. Tilsett oliven og knust feta-ost.",
+        "4. Bland olivenolje, rødvineddik og oregano.",
+        "5. Hell dressingen over salaten.",
+        "6. Rør godt og la den hvile i 10 minutter.",
+        "7. Server kald som en ideal sommermåltid eller forrett."
+      ],
+      "en": [
+        "1. Chop tomatoes, cucumber and onion into chunks.",
+        "2. Place them in a large salad bowl.",
+        "3. Add olives and crumbled feta cheese.",
+        "4. Mix olive oil, red wine vinegar and oregano.",
+        "5. Pour dressing over salad.",
+        "6. Toss well and let rest 10 minutes.",
+        "7. Serve cold as an ideal summer meal or starter."
+      ]
+    },
+    "packIcon": "☀️",
+    "time_minutes": 15
+  },
+  {
+    "id": "sum_002",
+    "title": {
+      "no": "Caprese Salat",
+      "en": "Caprese Salad"
+    },
+    "subtitle": {
+      "no": "Italiensk tomat, mozzarella og basilikum",
+      "en": "Italian tomato, mozzarella and basil"
+    },
+    "difficulty": "easy",
+    "cookTimeMinutes": 10,
+    "servings": 4,
+    "category": "Summer Recipes",
+    "tags": [
+      "salad",
+      "italian",
+      "fresh",
+      "summer"
+    ],
+    "allergens": [
+      "dairy"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Tomat (moden)",
+          "en": "Tomato (ripe)"
+        },
+        "amount": 4,
+        "unit": {
+          "no": "medium",
+          "en": "medium"
+        }
+      },
+      {
+        "name": {
+          "no": "Mozzarella (fersk)",
+          "en": "Mozzarella (fresh)"
+        },
+        "amount": 300,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Basilikum (frisk)",
+          "en": "Basil (fresh)"
+        },
+        "amount": 20,
+        "unit": {
+          "no": "blader",
+          "en": "leaves"
+        }
+      },
+      {
+        "name": {
+          "no": "Olivenolje",
+          "en": "Olive oil"
+        },
+        "amount": 4,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Balsamico-eddiksyre",
+          "en": "Balsamic vinegar"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Salt og pepper",
+          "en": "Salt and pepper"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "etter smak",
+          "en": "to taste"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Skjær tomatene i tynne skiver.",
+        "2. Skjær mozzarellaen i tynne skiver.",
+        "3. Arrange tomat og mozzarella på en tallerken.",
+        "4. Legg basilikumblader mellom skivene.",
+        "5. Dryss med salt og pepper.",
+        "6. Hell olivenolje og balsamico-eddiksyre over.",
+        "7. Server umiddelbart som en enkel og elegant forrett."
+      ],
+      "en": [
+        "1. Slice tomatoes thinly.",
+        "2. Slice mozzarella thinly.",
+        "3. Arrange tomato and mozzarella on a plate.",
+        "4. Place basil leaves between the slices.",
+        "5. Sprinkle with salt and pepper.",
+        "6. Drizzle with olive oil and balsamic vinegar.",
+        "7. Serve immediately as a simple and elegant starter."
+      ]
+    },
+    "packIcon": "☀️",
+    "time_minutes": 10
+  },
+  {
+    "id": "sum_003",
+    "title": {
+      "no": "Kylling-Salat med Mango",
+      "en": "Chicken Salad with Mango"
+    },
+    "subtitle": {
+      "no": "Frisk og tropisk sommersalat",
+      "en": "Fresh and tropical summer salad"
+    },
+    "difficulty": "easy",
+    "cookTimeMinutes": 30,
+    "servings": 4,
+    "category": "Summer Recipes",
+    "tags": [
+      "salad",
+      "chicken",
+      "tropical",
+      "summer"
+    ],
+    "allergens": [],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Kyllingbryst",
+          "en": "Chicken breast"
+        },
+        "amount": 500,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Mango",
+          "en": "Mango"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "medium",
+          "en": "medium"
+        }
+      },
+      {
+        "name": {
+          "no": "Salat (blandet)",
+          "en": "Salad (mixed)"
+        },
+        "amount": 300,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Rød løk",
+          "en": "Red onion"
+        },
+        "amount": 0.5,
+        "unit": {
+          "no": "medium",
+          "en": "medium"
+        }
+      },
+      {
+        "name": {
+          "no": "Lime (saft)",
+          "en": "Lime (juice)"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "stk",
+          "en": "pieces"
+        }
+      },
+      {
+        "name": {
+          "no": "Olivenolje",
+          "en": "Olive oil"
+        },
+        "amount": 3,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Koriander (frisk)",
+          "en": "Cilantro (fresh)"
+        },
+        "amount": 20,
+        "unit": {
+          "no": "blader",
+          "en": "leaves"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Kok eller grill kyllingbrystet til det er gjennomstekt.",
+        "2. La det kjøle og skjær i biter.",
+        "3. Skrell og skjær mangoen i biter.",
+        "4. Legg salaten på en tallerken.",
+        "5. Topp med kylling, mango og løk.",
+        "6. Bland lime-saft, olivenolje og salt.",
+        "7. Hell dressingen over og garner med koriander.",
+        "8. Server frisk og kald."
+      ],
+      "en": [
+        "1. Boil or grill chicken breast until cooked through.",
+        "2. Let cool and cut into pieces.",
+        "3. Peel and cut mango into chunks.",
+        "4. Place salad on a plate.",
+        "5. Top with chicken, mango and onion.",
+        "6. Mix lime juice, olive oil and salt.",
+        "7. Pour dressing over and garnish with cilantro.",
+        "8. Serve fresh and cold."
+      ]
+    },
+    "packIcon": "☀️",
+    "time_minutes": 30
+  },
+  {
+    "id": "sum_004",
+    "title": {
+      "no": "Potet-og-Agurk Salat",
+      "en": "Potato and Cucumber Salad"
+    },
+    "subtitle": {
+      "no": "Klassisk nordisk sommersalat",
+      "en": "Classic Nordic summer salad"
+    },
+    "difficulty": "easy",
+    "cookTimeMinutes": 25,
+    "servings": 4,
+    "category": "Summer Recipes",
+    "tags": [
+      "salad",
+      "potato",
+      "summer",
+      "nordic"
+    ],
+    "allergens": [
+      "dairy"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Poteter (kokt)",
+          "en": "Potatoes (cooked)"
+        },
+        "amount": 800,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Agurk",
+          "en": "Cucumber"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "medium",
+          "en": "medium"
+        }
+      },
+      {
+        "name": {
+          "no": "Rød løk",
+          "en": "Red onion"
+        },
+        "amount": 0.5,
+        "unit": {
+          "no": "medium",
+          "en": "medium"
+        }
+      },
+      {
+        "name": {
+          "no": "Rømme",
+          "en": "Sour cream"
+        },
+        "amount": 200,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      },
+      {
+        "name": {
+          "no": "Eddik",
+          "en": "Vinegar"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Dill (frisk)",
+          "en": "Dill (fresh)"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Salt og pepper",
+          "en": "Salt and pepper"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "etter smak",
+          "en": "to taste"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. La de kokte potetene kjøle.",
+        "2. Skjær potetene i terninger.",
+        "3. Skjær agurken og løken i små biter.",
+        "4. Bland rømmen, eddiken, dill, salt og pepper.",
+        "5. Tilsett poteter, agurk og løk.",
+        "6. Rør godt.",
+        "7. La det hvile i kjøleskapet før servering.",
+        "8. Server kald som en perfekt grillsalat."
+      ],
+      "en": [
+        "1. Let cooked potatoes cool.",
+        "2. Dice the potatoes.",
+        "3. Cut cucumber and onion into small pieces.",
+        "4. Mix sour cream, vinegar, dill, salt and pepper.",
+        "5. Add potatoes, cucumber and onion.",
+        "6. Toss well.",
+        "7. Let rest in refrigerator before serving.",
+        "8. Serve cold as a perfect grill salad."
+      ]
+    },
+    "packIcon": "☀️",
+    "time_minutes": 25
+  },
+  {
+    "id": "sum_005",
+    "title": {
+      "no": "Jordbær-og-Spinat Salat",
+      "en": "Strawberry and Spinach Salad"
+    },
+    "subtitle": {
+      "no": "Søt og frisk sommersalat",
+      "en": "Sweet and fresh summer salad"
+    },
+    "difficulty": "easy",
+    "cookTimeMinutes": 15,
+    "servings": 4,
+    "category": "Summer Recipes",
+    "tags": [
+      "salad",
+      "strawberry",
+      "summer",
+      "sweet"
+    ],
+    "allergens": [
+      "nuts"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Spinat (fersk)",
+          "en": "Spinach (fresh)"
+        },
+        "amount": 300,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Jordbær",
+          "en": "Strawberries"
+        },
+        "amount": 300,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Mandler (slisert)",
+          "en": "Almonds (sliced)"
+        },
+        "amount": 75,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Rød løk",
+          "en": "Red onion"
+        },
+        "amount": 0.25,
+        "unit": {
+          "no": "medium",
+          "en": "medium"
+        }
+      },
+      {
+        "name": {
+          "no": "Olivenolje",
+          "en": "Olive oil"
+        },
+        "amount": 3,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Balsamico-eddiksyre",
+          "en": "Balsamic vinegar"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Honning",
+          "en": "Honey"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "ts",
+          "en": "tsp"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Legg spinaten i en salat-bolle.",
+        "2. Skjær jordbærene i halver.",
+        "3. Tilsett jordbærene og sliserte mandler.",
+        "4. Tilsett tynne skiver rød løk.",
+        "5. Bland olivenolje, balsamico-eddiksyre og honning.",
+        "6. Hell dressingen over og rør lett.",
+        "7. Server umiddelbart som en elegant salat."
+      ],
+      "en": [
+        "1. Place spinach in a salad bowl.",
+        "2. Cut strawberries in half.",
+        "3. Add strawberries and sliced almonds.",
+        "4. Add thin slices of red onion.",
+        "5. Mix olive oil, balsamic vinegar and honey.",
+        "6. Pour dressing over and toss gently.",
+        "7. Serve immediately as an elegant salad."
+      ]
+    },
+    "packIcon": "☀️",
+    "time_minutes": 15
+  },
+  {
+    "id": "sum_006",
+    "title": {
+      "no": "Grillet Oksekjøtt-Stav",
+      "en": "Grilled Beef Skewer"
+    },
+    "subtitle": {
+      "no": "Aromatisk og deilig grillet kjøtt",
+      "en": "Aromatic and delicious grilled meat"
+    },
+    "difficulty": "medium",
+    "cookTimeMinutes": 30,
+    "servings": 4,
+    "category": "Summer Recipes",
+    "tags": [
+      "grill",
+      "beef",
+      "skewer",
+      "summer"
+    ],
+    "allergens": [],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Oksekjøtt (filéstykke)",
+          "en": "Beef (fillet pieces)"
+        },
+        "amount": 800,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Rød paprika",
+          "en": "Red bell pepper"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "stk",
+          "en": "pieces"
+        }
+      },
+      {
+        "name": {
+          "no": "Løk (stort)",
+          "en": "Red onion (large)"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "stk",
+          "en": "piece"
+        }
+      },
+      {
+        "name": {
+          "no": "Tomat",
+          "en": "Tomato"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "medium",
+          "en": "medium"
+        }
+      },
+      {
+        "name": {
+          "no": "Olivenolje",
+          "en": "Olive oil"
+        },
+        "amount": 4,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Hvitløk",
+          "en": "Garlic"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "fedd",
+          "en": "cloves"
+        }
+      },
+      {
+        "name": {
+          "no": "Rosmarin (frisk)",
+          "en": "Rosemary (fresh)"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "stengel",
+          "en": "sprigs"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Kutt kjøttet i terninger på ca. 4x4 cm.",
+        "2. Kutt paprika, løk og tomat i like store stykker.",
+        "3. Steik kjøttet i en panne med olivenolje og hvitløk.",
+        "4. Thread kjøtt og grønnsaker alternativt på spidder.",
+        "5. Varme opp grillen til medium-høy.",
+        "6. Grill spidderne 8-10 minutter, vend ofte.",
+        "7. Garner med frisk rosmarin.",
+        "8. Server varmt med poteter eller brød."
+      ],
+      "en": [
+        "1. Cut meat into 4x4 cm cubes.",
+        "2. Cut bell pepper, onion and tomato into equal pieces.",
+        "3. Brown meat in a pan with olive oil and garlic.",
+        "4. Thread meat and vegetables alternately on skewers.",
+        "5. Preheat grill to medium-high.",
+        "6. Grill skewers 8-10 minutes, turning frequently.",
+        "7. Garnish with fresh rosemary.",
+        "8. Serve hot with potatoes or bread."
+      ]
+    },
+    "packIcon": "☀️",
+    "time_minutes": 30
+  },
+  {
+    "id": "sum_007",
+    "title": {
+      "no": "Grillet Kylling med Sitron",
+      "en": "Grilled Chicken with Lemon"
+    },
+    "subtitle": {
+      "no": "Lett og smakfull grillet kylling",
+      "en": "Light and flavorful grilled chicken"
+    },
+    "difficulty": "easy",
+    "cookTimeMinutes": 35,
+    "servings": 4,
+    "category": "Summer Recipes",
+    "tags": [
+      "grill",
+      "chicken",
+      "lemon",
+      "summer"
+    ],
+    "allergens": [],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Kyllingbiler",
+          "en": "Chicken thighs"
+        },
+        "amount": 8,
+        "unit": {
+          "no": "stk",
+          "en": "pieces"
+        }
+      },
+      {
+        "name": {
+          "no": "Sitron",
+          "en": "Lemon"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "stk",
+          "en": "pieces"
+        }
+      },
+      {
+        "name": {
+          "no": "Olivenolje",
+          "en": "Olive oil"
+        },
+        "amount": 4,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Hvitløk",
+          "en": "Garlic"
+        },
+        "amount": 3,
+        "unit": {
+          "no": "fedd",
+          "en": "cloves"
+        }
+      },
+      {
+        "name": {
+          "no": "Timen",
+          "en": "Thyme"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "stengel",
+          "en": "sprigs"
+        }
+      },
+      {
+        "name": {
+          "no": "Salt og pepper",
+          "en": "Salt and pepper"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "efter smak",
+          "en": "to taste"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Blend olivenolje med pressede hvitløk og timen.",
+        "2. Tilsett juice fra en sitron.",
+        "3. Marinér kyllingbilene i 30 minutter.",
+        "4. Varme opp grillen til medium-høy.",
+        "5. Grill kyllingbilene 6-8 minutter på hver side.",
+        "6. Sjekk at kjøttet er gjennomstekt.",
+        "7. Serve med sitronskiver og frisk salat."
+      ],
+      "en": [
+        "1. Mix olive oil with crushed garlic and thyme.",
+        "2. Add juice from one lemon.",
+        "3. Marinate chicken thighs for 30 minutes.",
+        "4. Preheat grill to medium-high.",
+        "5. Grill chicken 6-8 minutes on each side.",
+        "6. Check that meat is cooked through.",
+        "7. Serve with lemon slices and fresh salad."
+      ]
+    },
+    "packIcon": "☀️",
+    "time_minutes": 35
+  },
+  {
+    "id": "sum_008",
+    "title": {
+      "no": "Rekesalat",
+      "en": "Shrimp Salad"
+    },
+    "subtitle": {
+      "no": "Lett og elegante rekesalat",
+      "en": "Light and elegant shrimp salad"
+    },
+    "difficulty": "easy",
+    "cookTimeMinutes": 20,
+    "servings": 4,
+    "category": "Summer Recipes",
+    "tags": [
+      "salad",
+      "shrimp",
+      "seafood",
+      "summer"
+    ],
+    "allergens": [
+      "shellfish"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Rekér (kokt)",
+          "en": "Shrimp (cooked)"
+        },
+        "amount": 500,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Salat (blandet)",
+          "en": "Salad (mixed)"
+        },
+        "amount": 300,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Agurk",
+          "en": "Cucumber"
+        },
+        "amount": 0.5,
+        "unit": {
+          "no": "stk",
+          "en": "piece"
+        }
+      },
+      {
+        "name": {
+          "no": "Tomat (kjertel)",
+          "en": "Tomato (cherry)"
+        },
+        "amount": 200,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Dill (frisk)",
+          "en": "Dill (fresh)"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Sitron",
+          "en": "Lemon"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "stk",
+          "en": "piece"
+        }
+      },
+      {
+        "name": {
+          "no": "Olivenolje",
+          "en": "Olive oil"
+        },
+        "amount": 3,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Legg salaten på en tallerken.",
+        "2. Topp med rekene.",
+        "3. Tilsett agurkskiver og kjersel-tomat.",
+        "4. Dryss med dill.",
+        "5. Bland olivenolje med sitron-saft.",
+        "6. Hell dressingen over.",
+        "7. Server kald og frisk."
+      ],
+      "en": [
+        "1. Place salad on a plate.",
+        "2. Top with shrimp.",
+        "3. Add cucumber slices and cherry tomatoes.",
+        "4. Sprinkle with dill.",
+        "5. Mix olive oil with lemon juice.",
+        "6. Pour dressing over.",
+        "7. Serve cold and fresh."
+      ]
+    },
+    "packIcon": "☀️",
+    "time_minutes": 20
+  },
+  {
+    "id": "sum_009",
+    "title": {
+      "no": "Grillet Laks",
+      "en": "Grilled Salmon"
+    },
+    "subtitle": {
+      "no": "Delikat grillet laks med dill",
+      "en": "Delicate grilled salmon with dill"
+    },
+    "difficulty": "easy",
+    "cookTimeMinutes": 25,
+    "servings": 4,
+    "category": "Summer Recipes",
+    "tags": [
+      "grill",
+      "salmon",
+      "seafood",
+      "summer"
+    ],
+    "allergens": [
+      "fish"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Laksefiléer",
+          "en": "Salmon fillets"
+        },
+        "amount": 800,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Olivenolje",
+          "en": "Olive oil"
+        },
+        "amount": 4,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Sitron",
+          "en": "Lemon"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "stk",
+          "en": "pieces"
+        }
+      },
+      {
+        "name": {
+          "no": "Dill (frisk)",
+          "en": "Dill (fresh)"
+        },
+        "amount": 3,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Salt og pepper",
+          "en": "Salt and pepper"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "etter smak",
+          "en": "to taste"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Varme opp grillen til medium-høy.",
+        "2. Gnid laksen med olivenolje, salt og pepper.",
+        "3. Legg sitronskiver på grillen.",
+        "4. Grill laksen hud-siden ned i 5-6 minutter.",
+        "5. Vend og grill 4-5 minutter til.",
+        "6. Laksen skal være myk og rosa innvendig.",
+        "7. Serve med sitronskiver og frisk dill."
+      ],
+      "en": [
+        "1. Preheat grill to medium-high.",
+        "2. Rub salmon with olive oil, salt and pepper.",
+        "3. Place lemon slices on grill.",
+        "4. Grill salmon skin side down for 5-6 minutes.",
+        "5. Turn and grill 4-5 more minutes.",
+        "6. Salmon should be soft and pink inside.",
+        "7. Serve with lemon slices and fresh dill."
+      ]
+    },
+    "packIcon": "☀️",
+    "time_minutes": 25
+  },
+  {
+    "id": "sum_010",
+    "title": {
+      "no": "Krabbe-Salat",
+      "en": "Crab Salad"
+    },
+    "subtitle": {
+      "no": "Luksøs og frisk krabbe-salat",
+      "en": "Luxurious and fresh crab salad"
+    },
+    "difficulty": "easy",
+    "cookTimeMinutes": 15,
+    "servings": 4,
+    "category": "Summer Recipes",
+    "tags": [
+      "salad",
+      "crab",
+      "seafood",
+      "luxury"
+    ],
+    "allergens": [
+      "shellfish"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Krabbe-kjøtt (kokt)",
+          "en": "Crab meat (cooked)"
+        },
+        "amount": 400,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Salat (blandet)",
+          "en": "Salad (mixed)"
+        },
+        "amount": 300,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Avokado",
+          "en": "Avocado"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "stk",
+          "en": "pieces"
+        }
+      },
+      {
+        "name": {
+          "no": "Sitron",
+          "en": "Lemon"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "stk",
+          "en": "piece"
+        }
+      },
+      {
+        "name": {
+          "no": "Mayo (lett)",
+          "en": "Mayonnaise (light)"
+        },
+        "amount": 100,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      },
+      {
+        "name": {
+          "no": "Dill (frisk)",
+          "en": "Dill (fresh)"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Salt og pepper",
+          "en": "Salt and pepper"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "etter smak",
+          "en": "to taste"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Legg salaten på en tallerken.",
+        "2. Skjær avokadoen i halver og fjern steinen.",
+        "3. Bland krabbe-kjøttet med mayo og dill.",
+        "4. Smak til med salt, pepper og sitron-saft.",
+        "5. Topp salaten med krabbe-blandingen.",
+        "6. Serve med avokado-halvene.",
+        "7. Garnering med sitronskiver."
+      ],
+      "en": [
+        "1. Place salad on a plate.",
+        "2. Slice avocado in half and remove pit.",
+        "3. Mix crab meat with mayo and dill.",
+        "4. Season with salt, pepper and lemon juice.",
+        "5. Top salad with crab mixture.",
+        "6. Serve with avocado halves.",
+        "7. Garnish with lemon slices."
+      ]
+    },
+    "packIcon": "☀️",
+    "time_minutes": 15
+  },
+  {
+    "id": "sum_011",
+    "title": {
+      "no": "Torskefiléer (Grillet)",
+      "en": "Cod Fillets (Grilled)"
+    },
+    "subtitle": {
+      "no": "Enkel og smakfull grillet torsk",
+      "en": "Simple and flavorful grilled cod"
+    },
+    "difficulty": "easy",
+    "cookTimeMinutes": 20,
+    "servings": 4,
+    "category": "Summer Recipes",
+    "tags": [
+      "grill",
+      "fish",
+      "cod",
+      "summer"
+    ],
+    "allergens": [
+      "fish"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Torskefiléer",
+          "en": "Cod fillets"
+        },
+        "amount": 800,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Olivenolje",
+          "en": "Olive oil"
+        },
+        "amount": 3,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Sitron",
+          "en": "Lemon"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "stk",
+          "en": "piece"
+        }
+      },
+      {
+        "name": {
+          "no": "Hvitløk",
+          "en": "Garlic"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "fedd",
+          "en": "cloves"
+        }
+      },
+      {
+        "name": {
+          "no": "Salt og pepper",
+          "en": "Salt and pepper"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "efter smak",
+          "en": "to taste"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Varme opp grillen til medium.",
+        "2. Gnid fiskne med olivenolje, salt og pepper.",
+        "3. Grill filen 4-5 minutter på hver side.",
+        "4. Fisken skal være hvit og lett å flke.",
+        "5. Serve med sitronskiver og hvitløk.",
+        "6. Garner med friske krydder."
+      ],
+      "en": [
+        "1. Preheat grill to medium.",
+        "2. Rub fish with olive oil, salt and pepper.",
+        "3. Grill fillet 4-5 minutes on each side.",
+        "4. Fish should be white and flake easily.",
+        "5. Serve with lemon slices and garlic.",
+        "6. Garnish with fresh herbs."
+      ]
+    },
+    "packIcon": "☀️",
+    "time_minutes": 20
+  },
+  {
+    "id": "sum_012",
+    "title": {
+      "no": "Blåskjell (Grillet)",
+      "en": "Mussels (Grilled)"
+    },
+    "subtitle": {
+      "no": "Delikate grillte blåskjell",
+      "en": "Delicate grilled mussels"
+    },
+    "difficulty": "medium",
+    "cookTimeMinutes": 15,
+    "servings": 4,
+    "category": "Summer Recipes",
+    "tags": [
+      "grill",
+      "mussels",
+      "seafood",
+      "summer"
+    ],
+    "allergens": [
+      "shellfish"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Blåskjell (ferskt)",
+          "en": "Mussels (fresh)"
+        },
+        "amount": 1000,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Hvitløk",
+          "en": "Garlic"
+        },
+        "amount": 4,
+        "unit": {
+          "no": "fedd",
+          "en": "cloves"
+        }
+      },
+      {
+        "name": {
+          "no": "Olivenolje",
+          "en": "Olive oil"
+        },
+        "amount": 5,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Sitron",
+          "en": "Lemon"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "stk",
+          "en": "piece"
+        }
+      },
+      {
+        "name": {
+          "no": "Persille (frisk)",
+          "en": "Parsley (fresh)"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Salt og pepper",
+          "en": "Salt and pepper"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "efter smak",
+          "en": "to taste"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Rens og sjekk blåskjellene, fjern skadede.",
+        "2. Blend olivenolje med pressede hvitløk, salt og pepper.",
+        "3. Varme opp grillen til medium-høy.",
+        "4. Grill blåskjellene i ca. 5-8 minutter til de åpner seg.",
+        "5. Fjern alle som ikke åpner seg.",
+        "6. Dryss med persille og sitron-saft.",
+        "7. Serve varmt som en elegant forrett."
+      ],
+      "en": [
+        "1. Clean and check mussels, remove damaged ones.",
+        "2. Mix olive oil with crushed garlic, salt and pepper.",
+        "3. Preheat grill to medium-high.",
+        "4. Grill mussels for about 5-8 minutes until they open.",
+        "5. Remove any that don't open.",
+        "6. Sprinkle with parsley and lemon juice.",
+        "7. Serve hot as an elegant starter."
+      ]
+    },
+    "packIcon": "☀️",
+    "time_minutes": 15
+  },
+  {
+    "id": "sum_013",
+    "title": {
+      "no": "Rette med Ørret",
+      "en": "Trout Dish"
+    },
+    "subtitle": {
+      "no": "Hel grillet ørret med urter",
+      "en": "Whole grilled trout with herbs"
+    },
+    "difficulty": "medium",
+    "cookTimeMinutes": 30,
+    "servings": 4,
+    "category": "Summer Recipes",
+    "tags": [
+      "grill",
+      "trout",
+      "fish",
+      "summer"
+    ],
+    "allergens": [
+      "fish"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Ørret (hele fisk)",
+          "en": "Trout (whole fish)"
+        },
+        "amount": 4,
+        "unit": {
+          "no": "stk",
+          "en": "pieces"
+        }
+      },
+      {
+        "name": {
+          "no": "Olivenolje",
+          "en": "Olive oil"
+        },
+        "amount": 4,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Dill (frisk)",
+          "en": "Dill (fresh)"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "knippe",
+          "en": "bunches"
+        }
+      },
+      {
+        "name": {
+          "no": "Sitron",
+          "en": "Lemon"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "stk",
+          "en": "pieces"
+        }
+      },
+      {
+        "name": {
+          "no": "Salt og pepper",
+          "en": "Salt and pepper"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "efter smak",
+          "en": "to taste"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Rens ørretene innsiden og utsiden.",
+        "2. Fylt med dill og sitron-skiver.",
+        "3. Gnid utsiden med olivenolje, salt og pepper.",
+        "4. Varme opp grillen til medium-høy.",
+        "5. Grill ørreten 5-6 minutter på hver side.",
+        "6. Ørreten skal være gjennomstekt.",
+        "7. Serve varmt som en klassisk sommerrett."
+      ],
+      "en": [
+        "1. Clean trout inside and outside.",
+        "2. Fill with dill and lemon slices.",
+        "3. Rub outside with olive oil, salt and pepper.",
+        "4. Preheat grill to medium-high.",
+        "5. Grill trout 5-6 minutes on each side.",
+        "6. Trout should be cooked through.",
+        "7. Serve hot as a classic summer dish."
+      ]
+    },
+    "packIcon": "☀️",
+    "time_minutes": 30
+  },
+  {
+    "id": "sum_014",
+    "title": {
+      "no": "Cobb Salat",
+      "en": "Cobb Salad"
+    },
+    "subtitle": {
+      "no": "Amerikansk klassiker med kjøtt, egg og avokado",
+      "en": "American classic with meat, egg and avocado"
+    },
+    "difficulty": "easy",
+    "cookTimeMinutes": 25,
+    "servings": 4,
+    "category": "Summer Recipes",
+    "tags": [
+      "salad",
+      "american",
+      "hearty",
+      "summer"
+    ],
+    "allergens": [
+      "dairy",
+      "eggs"
+    ],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Salat (blandet)",
+          "en": "Salad (mixed)"
+        },
+        "amount": 400,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Kyllingbryst (kokt)",
+          "en": "Chicken breast (cooked)"
+        },
+        "amount": 300,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Bacon (stekt)",
+          "en": "Bacon (cooked)"
+        },
+        "amount": 150,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Egg (kokt)",
+          "en": "Egg (boiled)"
+        },
+        "amount": 3,
+        "unit": {
+          "no": "stk",
+          "en": "pieces"
+        }
+      },
+      {
+        "name": {
+          "no": "Avokado",
+          "en": "Avocado"
+        },
+        "amount": 1,
+        "unit": {
+          "no": "medium",
+          "en": "medium"
+        }
+      },
+      {
+        "name": {
+          "no": "Tomat (kjertel)",
+          "en": "Tomato (cherry)"
+        },
+        "amount": 200,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Ost (riven)",
+          "en": "Cheese (grated)"
+        },
+        "amount": 100,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Ranch-dressing",
+          "en": "Ranch dressing"
+        },
+        "amount": 150,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Legg salaten på en tallerken.",
+        "2. Arrange alle ingrediensene i rader på salaten.",
+        "3. Kutt kyllingbrystet i biter.",
+        "4. Kutt bacon i biter.",
+        "5. Hakk kokte egg.",
+        "6. Skjær avokado i skivor.",
+        "7. Legg alle ingrediensene på salaten.",
+        "8. Dryss med ost.",
+        "9. Hell ranch-dressing over.",
+        "10. Server umiddelbart."
+      ],
+      "en": [
+        "1. Place salad on a plate.",
+        "2. Arrange all ingredients in rows on the salad.",
+        "3. Cut chicken breast into pieces.",
+        "4. Cut bacon into pieces.",
+        "5. Chop boiled eggs.",
+        "6. Slice avocado.",
+        "7. Place all ingredients on the salad.",
+        "8. Sprinkle with cheese.",
+        "9. Pour ranch dressing over.",
+        "10. Serve immediately."
+      ]
+    },
+    "packIcon": "☀️",
+    "time_minutes": 25
+  },
+  {
+    "id": "sum_015",
+    "title": {
+      "no": "Søt og Sur Kylling",
+      "en": "Sweet and Sour Chicken"
+    },
+    "subtitle": {
+      "no": "Grillet kylling med søt og sur saus",
+      "en": "Grilled chicken with sweet and sour sauce"
+    },
+    "difficulty": "medium",
+    "cookTimeMinutes": 35,
+    "servings": 4,
+    "category": "Summer Recipes",
+    "tags": [
+      "grill",
+      "chicken",
+      "asian",
+      "summer"
+    ],
+    "allergens": [],
+    "ingredients": [
+      {
+        "name": {
+          "no": "Kyllingbiler",
+          "en": "Chicken thighs"
+        },
+        "amount": 800,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Ananassaft",
+          "en": "Pineapple juice"
+        },
+        "amount": 200,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      },
+      {
+        "name": {
+          "no": "Eddik",
+          "en": "Vinegar"
+        },
+        "amount": 100,
+        "unit": {
+          "no": "ml",
+          "en": "ml"
+        }
+      },
+      {
+        "name": {
+          "no": "Sukker",
+          "en": "Sugar"
+        },
+        "amount": 75,
+        "unit": {
+          "no": "gram",
+          "en": "g"
+        }
+      },
+      {
+        "name": {
+          "no": "Ketchup",
+          "en": "Ketchup"
+        },
+        "amount": 3,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Soyasaus",
+          "en": "Soy sauce"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "ss",
+          "en": "tbsp"
+        }
+      },
+      {
+        "name": {
+          "no": "Hvitløk",
+          "en": "Garlic"
+        },
+        "amount": 2,
+        "unit": {
+          "no": "fedd",
+          "en": "cloves"
+        }
+      }
+    ],
+    "instructions": {
+      "no": [
+        "1. Bland ananassaft, eddik, sukker, ketchup, soyasaus og hvitløk.",
+        "2. Marinér kyllingbilene i halve blandingen i 30 minutter.",
+        "3. Varme opp grillen til medium-høy.",
+        "4. Grill kyllingbilene 6-8 minutter på hver side.",
+        "5. Sjekk at kjøttet er gjennomstekt.",
+        "6. Varm den gjenværende sausen.",
+        "7. Hell sausen over kyllingen.",
+        "8. Serve varmt med ris eller noodles."
+      ],
+      "en": [
+        "1. Mix pineapple juice, vinegar, sugar, ketchup, soy sauce and garlic.",
+        "2. Marinate chicken in half mixture for 30 minutes.",
+        "3. Preheat grill to medium-high.",
+        "4. Grill chicken 6-8 minutes on each side.",
+        "5. Check that meat is cooked through.",
+        "6. Warm remaining sauce.",
+        "7. Pour sauce over chicken.",
+        "8. Serve hot with rice or noodles."
+      ]
+    },
+    "packIcon": "☀️",
+    "time_minutes": 35
   }
 ]
