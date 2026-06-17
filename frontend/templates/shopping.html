@@ -197,6 +197,16 @@ function exportFormat(format) {
         return;
     }
 
+    var modal = document.getElementById('integrationsModal');
+    var buttons = modal.querySelectorAll('.integration-btn');
+
+    // Disable buttons and show loading
+    buttons.forEach(function(btn) {
+        btn.disabled = true;
+        btn.style.opacity = '0.5';
+    });
+    pmAlert('⏳', 'Exporting...', 'Please wait while your list is being exported as ' + format.toUpperCase() + '...');
+
     fetch('/api/export-shopping-list', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -206,13 +216,20 @@ function exportFormat(format) {
     .then(function(data) {
         if (data.success) {
             downloadFile(data.content, data.filename, data.mime_type);
-            pmAlert('✅', 'Exported', format.toUpperCase() + ' file downloaded');
+            pmAlert('✅', 'Exported!', format.toUpperCase() + ' file downloaded');
         } else {
             pmAlert('❌', 'Export failed', data.error || 'Unknown error');
         }
     })
     .catch(function(e) {
         pmAlert('❌', STR.server_error, e.message);
+    })
+    .finally(function() {
+        // Re-enable buttons
+        buttons.forEach(function(btn) {
+            btn.disabled = false;
+            btn.style.opacity = '1';
+        });
     });
 }
 
@@ -251,6 +268,16 @@ function syncIntegration(service) {
     var modal = document.getElementById('integrationsModal');
     var statusEl = document.getElementById('integrationsStatus');
 
+    // Disable all buttons and show loading state
+    var buttons = modal.querySelectorAll('.integration-btn');
+    buttons.forEach(function(btn) {
+        btn.disabled = true;
+        btn.style.opacity = '0.5';
+    });
+
+    // Show loading message
+    pmAlert('⏳', 'Syncing...', 'Please wait while your items are being synced to ' + service + '...');
+
     fetch('/api/sync-shopping-list', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -259,7 +286,7 @@ function syncIntegration(service) {
     .then(function(r) { return r.json(); })
     .then(function(data) {
         if (data.success) {
-            pmAlert('✅', 'Synced', data.message || (service + ' sync successful'));
+            pmAlert('✅', 'Synced!', data.message || (service + ' sync successful'));
             setTimeout(function() { closeIntegrationsMenu(); }, 1500);
         } else if (data.requires_config) {
             pmAlert('⚙️', 'Configuration needed', data.message);
@@ -269,6 +296,13 @@ function syncIntegration(service) {
     })
     .catch(function(e) {
         pmAlert('❌', STR.server_error, e.message);
+    })
+    .finally(function() {
+        // Re-enable buttons
+        buttons.forEach(function(btn) {
+            btn.disabled = false;
+            btn.style.opacity = '1';
+        });
     });
 }
 
