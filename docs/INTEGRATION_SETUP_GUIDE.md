@@ -21,25 +21,110 @@ Complete step-by-step instructions for connecting your shopping list to various 
 
 ### ✅ What You Need
 - A Microsoft account (Outlook, Live, or work account)
-- **That's it!** No setup required.
+- Azure App Registration (one-time setup, 10 minutes)
 
 ### 🔗 Helpful Links
 - **Sign up for Microsoft account:** https://account.microsoft.com/account
+- **Azure Portal:** https://portal.azure.com
 - **Microsoft To Do app:** https://to-do.office.com/tasks/
 - **Check your synced items:** https://to-do.office.com/tasks/
 
-### 🚀 Quick Start
+### ⚙️ Important Concept
+
+**Microsoft To Do is part of Microsoft 365.** You don't need a separate "To Do account" - your Microsoft account IS your To Do account. But to let Pi-Menu access your To Do, you need to:
+
+1. Register an **Azure App** (tells Microsoft it's okay)
+2. Get credentials from Azure (CLIENT_ID, TENANT_ID, CLIENT_SECRET)
+3. Add them to your `.env` file
+4. Sign in once - that's it!
+
+### 📝 Step-by-Step Setup
+
+#### Step 1: Register an Azure App
+
+1. Go to **https://portal.azure.com**
+2. **Sign in** with your Microsoft account
+3. **Search for "App registrations"** in the top search bar
+4. Click **"New registration"**
+5. Fill in the form:
+   - **Name:** `Pi-Menu`
+   - **Supported account types:** Select "Accounts in any organizational directory and personal Microsoft accounts"
+6. Click **"Register"**
+   ![App Registration](screenshots/microsoft-todo/01-app-registration.png)
+
+#### Step 2: Copy Your Credentials
+
+You're now on the app overview page. **Copy these 3 values** (you'll need them):
+
+1. **Application (client) ID** - Copy this
+   ![Client ID](screenshots/microsoft-todo/02-client-id.png)
+2. **Directory (tenant) ID** - Copy this
+   ![Tenant ID](screenshots/microsoft-todo/03-tenant-id.png)
+3. **Client Secret** (need to create it):
+   - Click **"Certificates & secrets"** on the left menu
+   - Click **"New client secret"**
+   - Give it a description: `Pi-Menu`
+   - Click **"Add"**
+   - **Copy the secret value immediately** (it only shows once!)
+   ![Client Secret](screenshots/microsoft-todo/04-client-secret.png)
+
+#### Step 3: Add Redirect URL
+
+1. Click **"Authentication"** on the left menu
+2. Click **"Add a platform"** → select **"Web"**
+3. Add this Redirect URI:
+   ```
+   http://localhost:5000/callback
+   ```
+4. Click **"Configure"**
+   ![Redirect URI](screenshots/microsoft-todo/05-redirect-uri.png)
+
+#### Step 4: Add Credentials to Pi-Menu
+
+1. Find your `.env` file (in the Pi-Menu main folder)
+   - If you don't have one, copy `.env.template` and rename to `.env`
+2. Find these lines:
+   ```
+   AZURE_CLIENT_ID=
+   AZURE_CLIENT_SECRET=
+   AZURE_TENANT_ID=
+   ```
+3. Paste your values:
+   ```
+   AZURE_CLIENT_ID=abc123def456...
+   AZURE_CLIENT_SECRET=xyzABC123def456...
+   AZURE_TENANT_ID=def456ghi789...
+   ```
+4. Save the file
+5. **Restart Flask**
+
+#### Step 5: Sign In
 
 1. **Open Pi-Menu** in your browser
 2. **Go to Shopping List** page
-3. **Click "📤 Export & Sync"** button
-4. **Click "🔵 Microsoft To Do"**
-5. **Sign in** with your Microsoft account (first time only)
-   ![Microsoft Sign In](screenshots/microsoft-todo/01-signin.png)
-6. **Grant permissions** when prompted
-   ![Grant Permissions](screenshots/microsoft-todo/02-permissions.png)
-7. **Done!** Items will sync automatically
-   ![Success](screenshots/microsoft-todo/03-success.png)
+3. Click **"📤 Export & Sync"** button
+4. Click **"🔵 Microsoft To Do"** (first time)
+5. **You'll be redirected to Microsoft login**
+   ![Microsoft Sign In](screenshots/microsoft-todo/06-signin.png)
+6. **Sign in** with your Microsoft account
+7. **Grant permissions** when prompted
+   ![Grant Permissions](screenshots/microsoft-todo/07-permissions.png)
+8. **Done!** You'll be redirected back to Pi-Menu
+   ![Success](screenshots/microsoft-todo/08-success.png)
+
+#### Step 6: Test It
+
+1. Go back to shopping list
+2. Uncheck a few items (the ones you want to sync)
+3. Click "📤 Export & Sync" → "🔵 Microsoft To Do"
+4. Items should sync!
+5. Check at **https://to-do.office.com/tasks/** - your items are in the "Pi-Menu Handleliste" list
+
+### 🔄 Sync Again Later
+
+- Just click the "🔵 Microsoft To Do" button again
+- No additional login needed
+- Your credentials are cached locally
 
 ### ⚙️ How It Works
 - Items are added to a list called "Pi-Menu Handleliste"
@@ -55,9 +140,13 @@ Complete step-by-step instructions for connecting your shopping list to various 
 ### ❓ Troubleshooting
 | Problem | Solution |
 |---------|----------|
-| "Not signed in" message | Click the button again and sign in |
-| Items not appearing | Check https://to-do.office.com/tasks/ to see the list |
-| Old items still there | They're marked complete, not deleted |
+| "Configuration needed" error | Check that AZURE_CLIENT_ID, AZURE_CLIENT_SECRET, and AZURE_TENANT_ID are filled in `.env`, then restart Flask |
+| "Not signed in" message | Click "🔵 Microsoft To Do" button → you'll be redirected to sign in |
+| Items not appearing | Check https://to-do.office.com/tasks/ to see if items are there |
+| Old items still there | They're marked complete, not deleted - you can delete them in To Do |
+| Can't find credentials in Azure | Double-check you copied from the correct page - you need Overview page (IDs) and Certificates & secrets page (secret) |
+| Redirect URI error | Make sure you added `http://localhost:5000/callback` to Authentication → Redirect URIs |
+| Token expired | Generate a new Client Secret in Azure, update `.env`, restart Flask |
 
 ---
 
