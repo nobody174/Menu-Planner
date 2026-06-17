@@ -1,7 +1,7 @@
 {
   "week_start": "2026-06-22",
   "week_end": "2026-06-27",
-  "generated_at": "2026-06-17T19:36:49.396981",
+  "generated_at": "2026-06-17T21:29:47.812954",
   "selected_categories": [
     "Family",
     "European Classics",
@@ -13,6 +13,36 @@
   "dinners": [
     {
       "day": "Monday",
+      "recipe_id": "no_007",
+      "title": {
+        "no": "Kålsuppe",
+        "en": "Cabbage Soup"
+      },
+      "title_no": "Kålsuppe",
+      "title_en": "Cabbage Soup",
+      "time_minutes": 45,
+      "difficulty": "easy",
+      "protein": "other",
+      "subtitle_no": "Varmende norsk suppe med kål og kjøtt",
+      "subtitle_en": "Warming Norwegian soup with cabbage and meat"
+    },
+    {
+      "day": "Tuesday",
+      "recipe_id": "no_008",
+      "title": {
+        "no": "Skilpaddesuppe",
+        "en": "Turtle Soup (Beef & Vegetable)"
+      },
+      "title_no": "Skilpaddesuppe",
+      "title_en": "Turtle Soup (Beef & Vegetable)",
+      "time_minutes": 90,
+      "difficulty": "medium",
+      "protein": "beef",
+      "subtitle_no": "Norsk spesialsuppe med okse og grønnsaker",
+      "subtitle_en": "Norwegian specialty soup with beef and vegetables"
+    },
+    {
+      "day": "Wednesday",
       "recipe_id": "no_009",
       "title": {
         "no": "Klippfisk",
@@ -27,22 +57,22 @@
       "subtitle_en": "Traditional Norwegian salted fish dish"
     },
     {
-      "day": "Tuesday",
-      "recipe_id": "no_014",
+      "day": "Thursday",
+      "recipe_id": "no_003",
       "title": {
-        "no": "Sjokoladekake",
-        "en": "Chocolate Cake"
+        "no": "Kjøttkaker",
+        "en": "Meatballs"
       },
-      "title_no": "Sjokoladekake",
-      "title_en": "Chocolate Cake",
-      "time_minutes": 45,
+      "title_no": "Kjøttkaker",
+      "title_en": "Meatballs",
+      "time_minutes": 30,
       "difficulty": "easy",
       "protein": "other",
-      "subtitle_no": "Klassisk norsk sjokoladekake",
-      "subtitle_en": "Classic Norwegian chocolate cake"
+      "subtitle_no": "Klassiske norske kjøttkaker med brun saus",
+      "subtitle_en": "Classic Norwegian meatballs with brown gravy"
     },
     {
-      "day": "Wednesday",
+      "day": "Friday",
       "recipe_id": "no_001",
       "title": {
         "no": "Fårikål",
@@ -57,22 +87,7 @@
       "subtitle_en": "Classic Norwegian meat stew with cabbage and onion"
     },
     {
-      "day": "Thursday",
-      "recipe_id": "no_006",
-      "title": {
-        "no": "Brunost-og-vafler",
-        "en": "Brown Cheese Waffles"
-      },
-      "title_no": "Brunost-og-vafler",
-      "title_en": "Brown Cheese Waffles",
-      "time_minutes": 30,
-      "difficulty": "easy",
-      "protein": "other",
-      "subtitle_no": "Tradisjonelle norske vafler med brunost",
-      "subtitle_en": "Traditional Norwegian waffles with brown cheese"
-    },
-    {
-      "day": "Friday",
+      "day": "Saturday",
       "recipe_id": "no_010",
       "title": {
         "no": "Lutefisk",
@@ -85,25 +100,22 @@
       "protein": "fish",
       "subtitle_no": "Klassisk norsk juléérett",
       "subtitle_en": "Classic Norwegian Christmas dish"
-    },
-    {
-      "day": "Saturday",
-      "recipe_id": "no_003",
-      "title": {
-        "no": "Kjøttkaker",
-        "en": "Meatballs"
-      },
-      "title_no": "Kjøttkaker",
-      "title_en": "Meatballs",
-      "time_minutes": 30,
-      "difficulty": "easy",
-      "protein": "other",
-      "subtitle_no": "Klassiske norske kjøttkaker med brun saus",
-      "subtitle_en": "Classic Norwegian meatballs with brown gravy"
     }
   ],
   "shopping_list": {
     "Proteins": [
+      {
+        "ingredient": "Beef (Cubes)",
+        "quantity": 700,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Beef Broth",
+        "quantity": 2.0,
+        "unit": "l",
+        "allergens": []
+      },
       {
         "ingredient": "Egg",
         "quantity": 1,
@@ -111,8 +123,8 @@
         "allergens": []
       },
       {
-        "ingredient": "Eggs",
-        "quantity": 6,
+        "ingredient": "Eggs (Boiled And Chopped)",
+        "quantity": 2,
         "unit": "pieces",
         "allergens": []
       },
@@ -131,8 +143,14 @@
     ],
     "Vegetables": [
       {
+        "ingredient": "Carrots",
+        "quantity": 200,
+        "unit": "g",
+        "allergens": []
+      },
+      {
         "ingredient": "Onion",
-        "quantity": 5,
+        "quantity": 7,
         "unit": "pieces",
         "allergens": []
       },
@@ -144,7 +162,7 @@
       },
       {
         "ingredient": "Potatoes",
-        "quantity": 1.5,
+        "quantity": 2.2,
         "unit": "kg",
         "allergens": []
       },
@@ -156,12 +174,6 @@
       }
     ],
     "Dairy": [
-      {
-        "ingredient": "Brown Cheese (Grated)",
-        "quantity": 100,
-        "unit": "g",
-        "allergens": []
-      },
       {
         "ingredient": "Cream",
         "quantity": 200,
@@ -176,18 +188,12 @@
       },
       {
         "ingredient": "Milk",
-        "quantity": 800,
+        "quantity": 100,
         "unit": "ml",
         "allergens": []
       }
     ],
     "Pantry": [
-      {
-        "ingredient": "Baking Powder",
-        "quantity": 12.5,
-        "unit": "tsp",
-        "allergens": []
-      },
       {
         "ingredient": "Bread (Crumbled)",
         "quantity": 100,
@@ -195,41 +201,29 @@
         "allergens": []
       },
       {
-        "ingredient": "Butter (Melted)",
-        "quantity": 100,
-        "unit": "g",
-        "allergens": []
-      },
-      {
         "ingredient": "Flour",
-        "quantity": 300,
-        "unit": "g",
-        "allergens": []
-      },
-      {
-        "ingredient": "Wheat Flour",
-        "quantity": 300,
-        "unit": "g",
+        "quantity": 30,
+        "unit": "tbsp",
         "allergens": []
       }
     ],
     "Herbs & Spices": [],
     "Other": [
       {
+        "ingredient": "Broth",
+        "quantity": 1.5,
+        "unit": "l",
+        "allergens": []
+      },
+      {
         "ingredient": "Butter",
-        "quantity": 300,
+        "quantity": 150,
         "unit": "g",
         "allergens": []
       },
       {
         "ingredient": "Cabbage (White)",
-        "quantity": 1,
-        "unit": "head",
-        "allergens": []
-      },
-      {
-        "ingredient": "Cocoa (Unsweetened)",
-        "quantity": 50,
+        "quantity": 601,
         "unit": "g",
         "allergens": []
       },
@@ -246,6 +240,12 @@
         "allergens": []
       },
       {
+        "ingredient": "Meat (Cubes)",
+        "quantity": 400,
+        "unit": "g",
+        "allergens": []
+      },
+      {
         "ingredient": "Salt (For Cooking Water)",
         "quantity": 30,
         "unit": "tbsp",
@@ -253,20 +253,8 @@
       },
       {
         "ingredient": "Salt And Pepper",
-        "quantity": 3,
+        "quantity": 4,
         "unit": "to taste",
-        "allergens": []
-      },
-      {
-        "ingredient": "Sugar",
-        "quantity": 230,
-        "unit": "g",
-        "allergens": []
-      },
-      {
-        "ingredient": "Vanilla Extract",
-        "quantity": 5,
-        "unit": "tsp",
         "allergens": []
       },
       {

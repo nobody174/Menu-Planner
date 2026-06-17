@@ -171,7 +171,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-DATA_DIR = Path('data')
+DATA_DIR = Path(__file__).parent.parent / 'data'
 MENU_FILE = DATA_DIR / 'weekly_menu.json'
 RECIPES_DB_FILE = DATA_DIR / 'recipes_db.json'
 CACHE_DIR = DATA_DIR / 'recipes_cache'

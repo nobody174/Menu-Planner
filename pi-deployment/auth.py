@@ -14,11 +14,21 @@ from dotenv import load_dotenv
 import sys
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
-load_dotenv(Path(__file__).parent.parent / '.env')
 
-AZURE_CLIENT_ID = os.getenv("AZURE_CLIENT_ID", "")
-AZURE_CLIENT_SECRET = os.getenv("AZURE_CLIENT_SECRET", "")
-AZURE_TENANT_ID = os.getenv("AZURE_TENANT_ID", "")
+# Load .env files - try both locations
+root_env = Path(__file__).parent.parent / '.env'
+local_env = Path(__file__).parent / '.env'
+
+# Load local first, then root (root wins if both exist)
+if local_env.exists():
+    load_dotenv(local_env, override=False)
+if root_env.exists():
+    load_dotenv(root_env, override=True)
+
+# Get credentials from environment
+AZURE_CLIENT_ID = os.getenv("AZURE_CLIENT_ID", "").strip()
+AZURE_CLIENT_SECRET = os.getenv("AZURE_CLIENT_SECRET", "").strip()
+AZURE_TENANT_ID = os.getenv("AZURE_TENANT_ID", "").strip()
 
 GRAPH_ENDPOINT = "https://graph.microsoft.com/v1.0"
 SCOPES = ["https://graph.microsoft.com/Tasks.ReadWrite", "User.Read"]
