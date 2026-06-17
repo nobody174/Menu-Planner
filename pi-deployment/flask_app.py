@@ -640,7 +640,7 @@ def api_sync_shopping_list():
                 return jsonify({
                     'success': False,
                     'requires_config': True,
-                    'message': 'Please sign in with Microsoft To Do first via /login'
+                    'message': 'Microsoft To Do not configured. Follow the setup guide: Read docs/INTEGRATION_SETUP_GUIDE.md section "Microsoft To Do" and add AZURE_CLIENT_ID, AZURE_CLIENT_SECRET, and AZURE_TENANT_ID to your .env file, then restart Flask.'
                 }), 401
             result = sync_shopping_list_to_todo(token, filtered)
             return jsonify({
@@ -685,7 +685,7 @@ def api_sync_shopping_list():
                     'message': f"Synced {result.get('added', 0)} items to TickTick ✓"
                 })
             else:
-                return jsonify({'success': False, 'error': result.get('error'), 'requires_config': True}), 500
+                return jsonify({'success': False, 'error': result.get('error'), 'requires_config': True, 'message': 'TickTick sync failed. Verify your API token is correct.'}), 500
 
         elif service == 'anydo':
             api_token = os.getenv('ANYDO_API_TOKEN') or ''
@@ -702,7 +702,7 @@ def api_sync_shopping_list():
                     'message': f"Synced {result.get('added', 0)} items to Any.do ✓"
                 })
             else:
-                return jsonify({'success': False, 'error': result.get('error'), 'requires_config': True}), 500
+                return jsonify({'success': False, 'error': result.get('error'), 'requires_config': True, 'message': 'Any.do sync failed. Verify your API token is correct.'}), 500
 
         elif service == 'trello':
             api_key = os.getenv('TRELLO_API_KEY') or ''
@@ -720,7 +720,7 @@ def api_sync_shopping_list():
                     'message': f"Synced {result.get('added', 0)} items to Trello ✓"
                 })
             else:
-                return jsonify({'success': False, 'error': result.get('error'), 'requires_config': True}), 500
+                return jsonify({'success': False, 'error': result.get('error'), 'requires_config': True, 'message': 'Trello sync failed. Verify your API key and token are correct.'}), 500
 
         elif service == 'notion':
             api_token = os.getenv('NOTION_API_TOKEN') or ''
@@ -738,7 +738,7 @@ def api_sync_shopping_list():
                     'message': f"Synced {result.get('added', 0)} items to Notion ✓"
                 })
             else:
-                return jsonify({'success': False, 'error': result.get('error'), 'requires_config': True}), 500
+                return jsonify({'success': False, 'error': result.get('error'), 'requires_config': True, 'message': 'Notion sync failed. Verify your API token and database ID are correct, and that you shared the database with your integration.'}), 500
 
         elif service == 'keep':
             email = os.getenv('GOOGLE_KEEP_EMAIL') or ''
@@ -746,7 +746,7 @@ def api_sync_shopping_list():
                 return jsonify({
                     'success': False,
                     'requires_config': True,
-                    'message': 'Google Keep email not configured. Set GOOGLE_KEEP_EMAIL in .env'
+                    'message': 'Google Keep email not configured. Read docs/INTEGRATION_SETUP_GUIDE.md section "Google Keep" and add GOOGLE_KEEP_EMAIL to your .env file.'
                 }), 401
             # For now, just return success as email sync requires SMTP setup
             return jsonify({
