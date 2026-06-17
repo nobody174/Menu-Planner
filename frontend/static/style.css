@@ -287,33 +287,33 @@ a:hover {
 .hero {
   background: linear-gradient(135deg, var(--color-primary) 0%, #3d5a7f 100%);
   color: white;
-  padding: var(--spacing-4xl) var(--spacing-xl);
+  padding: var(--spacing-2xl) var(--spacing-xl);
   border-radius: var(--radius-lg);
-  margin-bottom: var(--spacing-2xl);
+  margin-bottom: var(--spacing-lg);
   text-align: center;
 }
 
 .hero h1 {
   font-family: var(--font-primary);
-  font-size: var(--font-size-3xl);
+  font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-bold);
   color: white;
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
   letter-spacing: 0.5px;
 }
 
 .week-range {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-base);
   opacity: 0.92;
   color: rgba(255,255,255,0.9);
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-sm);
 }
 
 .categories-info {
   font-size: var(--font-size-sm);
   opacity: 0.8;
   color: rgba(255,255,255,0.85);
-  margin-top: var(--spacing-sm);
+  margin-top: var(--spacing-xs);
 }
 
 /* ── Menu Grid ── */
@@ -348,6 +348,18 @@ a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.card-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.card-header-icon {
+  font-size: 1.8rem;
+  opacity: 0.85;
+  flex-shrink: 0;
 }
 
 .day-name {

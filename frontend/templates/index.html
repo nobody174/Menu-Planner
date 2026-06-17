@@ -20,8 +20,27 @@
       {% for dinner in menu.dinners %}
       <div class="menu-card">
           <div class="card-header">
-              <h2 class="day-name">{{ dinner.day }}</h2>
-              <span class="meal-time">{{ dinner.time_minutes }} {{ t.minutes }}</span>
+              <div class="card-header-left">
+                  <h2 class="day-name">{{ dinner.day }}</h2>
+                  <span class="meal-time">{{ dinner.time_minutes }} {{ t.minutes }}</span>
+              </div>
+              <div class="card-header-icon">
+                  {%- if dinner.protein == 'chicken' -%}
+                  🍗
+                  {%- elif dinner.protein == 'beef' -%}
+                  🥩
+                  {%- elif dinner.protein == 'fish' -%}
+                  🐟
+                  {%- elif dinner.protein == 'pork' -%}
+                  🍖
+                  {%- elif dinner.protein == 'lamb' -%}
+                  🐑
+                  {%- elif dinner.protein == 'vegetarian' -%}
+                  🥗
+                  {%- else -%}
+                  🍽️
+                  {%- endif -%}
+              </div>
           </div>
           <div class="card-body">
               <h3 class="recipe-title">{{ dinner.title }}</h3>
@@ -92,12 +111,25 @@
     <div class="tc-card tc-card-anim tc-card-delay-{{ loop.index }}" data-day-index="{{ loop.index0 }}">
       <div class="tc-card-img-wrap">
         {% if dinner.image_url %}
-        <img src="{{ dinner.image_url }}" alt="{{ dinner.title }}" class="tc-card-img">
-        {% else %}
-        <div class="tc-card-img-placeholder">
-          <span class="tc-placeholder-icon">{{ ['🍝','🥗','🐟','🍗','🥩','🥦','🍜','🍛'][loop.index0 % 8] }}</span>
-        </div>
+        <img src="{{ dinner.image_url }}" alt="{{ dinner.title }}" class="tc-card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
         {% endif %}
+        <div class="tc-card-img-placeholder" {% if dinner.image_url %}style="display:none;"{% endif %}>
+          {%- if dinner.protein == 'chicken' -%}
+          <span class="tc-placeholder-icon">🍗</span>
+          {%- elif dinner.protein == 'beef' -%}
+          <span class="tc-placeholder-icon">🥩</span>
+          {%- elif dinner.protein == 'fish' -%}
+          <span class="tc-placeholder-icon">🐟</span>
+          {%- elif dinner.protein == 'pork' -%}
+          <span class="tc-placeholder-icon">🍖</span>
+          {%- elif dinner.protein == 'lamb' -%}
+          <span class="tc-placeholder-icon">🐑</span>
+          {%- elif dinner.protein == 'vegetarian' -%}
+          <span class="tc-placeholder-icon">🥗</span>
+          {%- else -%}
+          <span class="tc-placeholder-icon">🍽️</span>
+          {%- endif -%}
+        </div>
         <div class="tc-card-img-overlay">
           <span class="tc-day-badge">📅 {{ dinner.day }}</span>
           <span class="tc-time-badge">🕐 {{ dinner.time_minutes }} {{ t.minutes }}</span>

@@ -49,6 +49,15 @@ PROTEIN_KEYWORDS = {
     'lamb': ['lam', 'lamb'],
 }
 
+PROTEIN_IMAGES = {
+    'chicken': '/static/images/meal-chicken.jpg',
+    'beef': '/static/images/meal-beef.jpg',
+    'fish': '/static/images/meal-fish.jpg',
+    'pork': '/static/images/meal-pork.jpg',
+    'vegetarian': '/static/images/meal-vegetarian.jpg',
+    'lamb': '/static/images/meal-lamb.jpg',
+}
+
 
 class MenuGenerator:
     def __init__(self, seed: Optional[int] = None, selected_categories: Optional[List[str]] = None):
@@ -264,6 +273,7 @@ class MenuGenerator:
             # Use English title for protein detection
             protein_title = title_en or title_no or ''
 
+            protein_type = self.get_protein_type(protein_title)
             dinners.append({
                 'day': DAYS[i],
                 'recipe_id': recipe['id'],
@@ -272,9 +282,10 @@ class MenuGenerator:
                 'title_en': title_en,
                 'time_minutes': recipe.get('time_minutes', 0),
                 'difficulty': recipe.get('difficulty', ''),
-                'protein': self.get_protein_type(protein_title),
+                'protein': protein_type,
                 'subtitle_no': subtitle_no,
-                'subtitle_en': subtitle_en
+                'subtitle_en': subtitle_en,
+                'image_url': PROTEIN_IMAGES.get(protein_type, PROTEIN_IMAGES.get('vegetarian'))
             })
 
         menu = {
