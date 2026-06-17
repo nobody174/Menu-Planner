@@ -195,13 +195,17 @@ This only needs to be done once. Pi-Menu caches your token locally.
 
 #### Step 4: Test It
 1. Go to Pi-Menu shopping list
-2. Click "📤 Export & Sync"
-3. Click "🔶 Todoist"
-4. Items should appear in Todoist under "Pi-Menu Shopping" project
+2. Uncheck the items you want to sync
+3. Click "📤 Export & Sync" button
+4. Click "🔶 Todoist"
+5. Wait for the "Syncing..." message to complete
+6. Items appear in your Todoist account
+
+**Important:** The first sync creates the "Pi-Menu Shopping" project. Syncing again will update the same project and replace old items with new ones.
 
 ### 📱 View Your Items
-1. Open https://todoist.com
-2. Look for **"Pi-Menu Shopping"** project on the left
+1. Open https://todoist.com/app/today
+2. Find the **"Pi-Menu Shopping"** project
 3. All your items will be listed there with category labels
 
 ### 🔄 Sync Multiple Times
