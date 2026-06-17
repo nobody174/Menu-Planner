@@ -160,14 +160,14 @@ This only needs to be done once. Pi-Menu caches your token locally.
 - Your API token (2-minute setup)
 
 ### 🔗 Helpful Links
-- **Sign up:** https://todoist.com/auth/signin
+- **Sign up/Login:** https://todoist.com/app/today
 - **Get API token:** https://todoist.com/app/settings/integrations/developer
-- **View your tasks:** https://todoist.com/app/inbox
+- **View your tasks:** https://todoist.com/app/today
 
 ### 📝 Step-by-Step Setup
 
 #### Step 1: Create a Todoist Account
-1. Go to https://todoist.com/auth/signin
+1. Go to https://todoist.com/app/today
 2. Click **"Sign up"** (or sign in if you already have an account)
 3. Enter your email and password
 4. Verify your email
