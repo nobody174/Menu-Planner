@@ -1,333 +1,363 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap');
+/* ============================================================
+   THEME: Nordic Pantry
+   ID: nordic-pantry
+   Identity: Scandinavian kitchen pantry. Light wood textures
+   via CSS gradients, warm whites and beiges, Playfair Display
+   for headings, simple farmhouse atmosphere. Homey and serene.
+   ============================================================ */
 
-/* ── Pi-Menu Preview Theme: kjøkkenhylle ── */
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap');
 
-[data-theme="kjøkkenhylle"] {
-            --bg: #E8E0D4;
-            --surface: #FDFBF7;
-            --primary: #2C4A3E;
-            --accent: #C0623A;
-            --secondary: #D4A853;
-            --text: #1F1C18;
-            --muted: #8A8378;
-            --border: #D1C9BC;
-        }
+/* --- Root / Body --- */
+[data-theme="nordic-pantry"] {
+  font-family: 'Karla', sans-serif;
+  background-color: #F8F5EE;
+  color: #2A1F14;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  /* Subtle wood grain texture via repeating gradient */
+  background-image:
+    repeating-linear-gradient(
+      92deg,
+      transparent 0px,
+      transparent 38px,
+      rgba(122,92,66,0.025) 38px,
+      rgba(122,92,66,0.025) 40px
+    ),
+    repeating-linear-gradient(
+      180deg,
+      transparent 0px,
+      transparent 28px,
+      rgba(122,92,66,0.015) 28px,
+      rgba(122,92,66,0.015) 29px
+    );
+}
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+/* --- Navbar --- */
+[data-theme="nordic-pantry"] .navbar {
+  background-color: #4A3728;
+  border-bottom: none;
+  padding: 0.85rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.18);
+}
 
-        body {
-            font-family: 'DM Sans', sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            background-image: repeating-linear-gradient(
-                90deg,
-                transparent,
-                transparent 40px,
-                rgba(0, 0, 0, 0.015) 40px,
-                rgba(0, 0, 0, 0.015) 41px
-            );
-            min-height: 100vh;
-            padding: 2rem 1rem;
-        }
+[data-theme="nordic-pantry"] .nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #F0E8D8;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
+[data-theme="nordic-pantry"] .nav-link {
+  font-family: 'Karla', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: rgba(240, 232, 216, 0.72);
+  text-decoration: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.18s ease, color 0.18s ease;
+}
 
-        /* --- HEADER --- */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-bottom: 3rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 2px solid var(--secondary);
-        }
+[data-theme="nordic-pantry"] .nav-link:hover {
+  color: #F0E8D8;
+  background-color: rgba(240,232,216,0.1);
+}
 
-        .header-left h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            line-height: 1;
-        }
+[data-theme="nordic-pantry"] .theme-toggle-btn {
+  font-family: 'Karla', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: rgba(240, 232, 216, 0.65);
+  background: none;
+  border: 1px solid rgba(240,232,216,0.2);
+  padding: 0.28rem 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
 
-        .header-left p {
-            font-size: 1.1rem;
-            color: var(--muted);
-            margin-top: 0.5rem;
-        }
+[data-theme="nordic-pantry"] .theme-toggle-btn:hover {
+  background-color: rgba(240,232,216,0.1);
+  border-color: rgba(240,232,216,0.35);
+  color: #F0E8D8;
+}
 
-        .header-right {
-            display: flex;
-            gap: 0.75rem;
-        }
+[data-theme="nordic-pantry"] .category-dropdown-btn {
+  font-family: 'Karla', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: rgba(240, 232, 216, 0.72);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.18s ease, color 0.18s ease;
+}
 
-        button {
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 600;
-            padding: 0.6rem 1.2rem;
-            border-radius: 6px;
-            border: 2px solid transparent;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
+[data-theme="nordic-pantry"] .category-dropdown-btn:hover {
+  color: #F0E8D8;
+  background-color: rgba(240,232,216,0.1);
+}
 
-        .btn-primary {
-            background-color: var(--primary);
-            color: var(--surface);
-        }
+/* --- Hero --- */
+[data-theme="nordic-pantry"] .hero {
+  background: linear-gradient(135deg, #4A3728 0%, #5E4636 45%, #7A5C42 100%);
+  border-radius: 8px;
+  margin: 2rem auto;
+  max-width: 920px;
+  padding: 3.25rem 2.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.14);
+}
 
-        .btn-primary:hover {
-            background-color: var(--accent);
-        }
+/* Wood plank line texture on hero */
+[data-theme="nordic-pantry"] .hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 98px,
+      rgba(0,0,0,0.06) 98px,
+      rgba(0,0,0,0.06) 100px
+    );
+  pointer-events: none;
+}
 
-        .btn-secondary {
-            background-color: var(--surface);
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
+/* Warm highlight top center */
+[data-theme="nordic-pantry"] .hero::after {
+  content: '';
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 150px;
+  background: radial-gradient(ellipse, rgba(240,232,216,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
 
-        .btn-secondary:hover {
-            background-color: var(--primary);
-            color: var(--surface);
-        }
+[data-theme="nordic-pantry"] .hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #F0E8D8;
+  margin: 0 0 0.5rem;
+  line-height: 1.25;
+  position: relative;
+  z-index: 1;
+}
 
-        .icon-btn {
-            background: var(--surface);
-            border: 2px solid var(--border);
-            color: var(--muted);
-            padding: 0.6rem;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+[data-theme="nordic-pantry"] .week-range {
+  font-family: 'Karla', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(240, 232, 216, 0.7);
+  margin-bottom: 0.75rem;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
 
-        .icon-btn:hover {
-            border-color: var(--secondary);
-            color: var(--text);
-        }
+[data-theme="nordic-pantry"] .categories-info {
+  font-family: 'Karla', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: rgba(240, 232, 216, 0.5);
+  position: relative;
+  z-index: 1;
+  letter-spacing: 0.06em;
+}
 
-        /* --- PANTRY SHELF SYSTEM --- */
-        .pantry-shelf {
-            position: relative;
-            display: flex;
-            gap: 1.5rem;
-            padding: 0 2rem;
-            padding-bottom: 1.5rem;
-            margin-bottom: 3rem;
-            overflow-x: auto;
-        }
+/* --- Menu Grid --- */
+[data-theme="nordic-pantry"] .menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
+  gap: 1.25rem;
+  max-width: 1100px;
+  margin: 0 auto 2rem;
+  padding: 0 1.75rem;
+}
 
-        .pantry-shelf::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 12px;
-            background-color: var(--primary);
-            border-radius: 2px;
-            box-shadow:
-                0 4px 8px rgba(0,0,0,0.15),
-                inset 0 -2px 4px rgba(0,0,0,0.2);
-        }
+/* --- Menu Card --- */
+[data-theme="nordic-pantry"] .menu-card {
+  background-color: #FFFDF8;
+  border: 1px solid #E0D5C5;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 8px rgba(74,55,40,0.07), 0 1px 3px rgba(74,55,40,0.05);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
 
-        .pantry-shelf::before {
-            content: '';
-            position: absolute;
-            bottom: -20px;
-            left: 20px;
-            width: 30px;
-            height: 30px;
-            border-left: 4px solid var(--secondary);
-            border-bottom: 4px solid var(--secondary);
-            border-radius: 0 0 0 4px;
-        }
+[data-theme="nordic-pantry"] .menu-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(74,55,40,0.13), 0 2px 6px rgba(74,55,40,0.07);
+}
 
-        .shelf-bracket-right {
-            position: absolute;
-            bottom: -20px;
-            right: 20px;
-            width: 30px;
-            height: 30px;
-            border-right: 4px solid var(--secondary);
-            border-bottom: 4px solid var(--secondary);
-            border-radius: 0 0 4px 0;
-            pointer-events: none;
-        }
+/* --- Card Header --- */
+[data-theme="nordic-pantry"] .card-header {
+  background-color: #4A3728;
+  padding: 1rem 1.2rem 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-        /* --- RECIPE JAR CARD --- */
-        .jar-card {
-            flex: 1;
-            min-width: 220px;
-            background-color: var(--surface);
-            border-radius: 0 0 16px 16px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            align-self: flex-end;
-        }
+[data-theme="nordic-pantry"] .card-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
 
-        .jar-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 20px rgba(0,0,0,0.15);
-        }
+[data-theme="nordic-pantry"] .day-name {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #F0E8D8;
+  line-height: 1;
+}
 
-        .jar-lid {
-            height: 8px;
-            background-color: var(--primary);
-            border-bottom: 1px solid rgba(0,0,0,0.2);
-        }
+[data-theme="nordic-pantry"] .meal-time {
+  font-family: 'Karla', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(240, 232, 216, 0.5);
+}
 
-        .jar-lid::after {
-            content: '';
-            position: absolute;
-            top: -5px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 10px;
-            height: 10px;
-            background-color: var(--secondary);
-            border-radius: 50%;
-            border: 1px solid rgba(0,0,0,0.2);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
+[data-theme="nordic-pantry"] .card-header-icon {
+  font-size: 1.15rem;
+  opacity: 0.6;
+}
 
-        .jar-content {
-            padding: 1.25rem;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
+/* --- Card Body --- */
+[data-theme="nordic-pantry"] .card-body {
+  padding: 1.1rem 1.2rem 0.8rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
 
-        .day-label {
-            font-family: 'Playfair Display', serif;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.5rem;
-        }
+[data-theme="nordic-pantry"] .recipe-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #2A1F14;
+  line-height: 1.35;
+  margin: 0;
+}
 
-        .recipe-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.35rem;
-            font-weight: 700;
-            color: var(--text);
-            line-height: 1.2;
-            margin-bottom: 0.75rem;
-        }
+[data-theme="nordic-pantry"] .difficulty {
+  font-family: 'Karla', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: #9A8878;
+  letter-spacing: 0.06em;
+}
 
-        .recipe-desc {
-            font-size: 0.9rem;
-            color: var(--muted);
-            line-height: 1.5;
-            margin-bottom: 1.5rem;
-            flex-grow: 1;
-        }
+/* --- Card Footer --- */
+[data-theme="nordic-pantry"] .card-footer {
+  padding: 0.7rem 1.2rem 0.95rem;
+  border-top: 1px solid #EDE5D8;
+  background-color: #FAF7F2;
+}
 
-        .jar-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: auto;
-            padding-top: 1rem;
-            border-top: 1px dashed var(--border);
-        }
+[data-theme="nordic-pantry"] .btn-primary {
+  display: inline-block;
+  font-family: 'Karla', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  background-color: #7A5C42;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+  border-radius: 4px;
+}
 
-        .meta-tags {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
+[data-theme="nordic-pantry"] .btn-primary:hover {
+  background-color: #4A3728;
+  transform: translateY(-1px);
+}
 
-        .tag {
-            font-size: 0.75rem;
-            font-weight: 600;
-            padding: 0.25rem 0.6rem;
-            border-radius: 4px;
-            background-color: rgba(44, 74, 62, 0.1);
-            color: var(--primary);
-        }
+/* --- Actions --- */
+[data-theme="nordic-pantry"] .actions {
+  max-width: 1100px;
+  margin: 0 auto 3rem;
+  padding: 0 1.75rem;
+  display: flex;
+  justify-content: center;
+}
 
-        .tag.time {
-            background-color: rgba(212, 168, 83, 0.15);
-            color: #8a6d2b;
-        }
+[data-theme="nordic-pantry"] .btn-secondary {
+  display: inline-block;
+  font-family: 'Karla', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  background-color: #9E7B5A;
+  border: none;
+  padding: 0.7rem 2rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+  border-radius: 4px;
+  box-shadow: 0 3px 10px rgba(74,55,40,0.18);
+}
 
-        .view-recipe {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--accent);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-            transition: gap 0.2s ease;
-        }
+[data-theme="nordic-pantry"] .btn-secondary:hover {
+  background-color: #7A5C42;
+  transform: translateY(-1px);
+}
 
-        .view-recipe:hover {
-            gap: 0.6rem;
-            color: var(--primary);
-        }
+/* --- Responsive --- */
+@media (max-width: 640px) {
+  [data-theme="nordic-pantry"] .hero {
+    margin: 1rem;
+    padding: 2.25rem 1.25rem;
+    border-radius: 6px;
+  }
 
-        /* --- RESPONSIVE --- */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1.5rem;
-            }
-            .pantry-shelf {
-                gap: 1rem;
-            }
-            .jar-card {
-                min-width: 180px;
-            }
-        }
+  [data-theme="nordic-pantry"] .hero h1 {
+    font-size: 1.65rem;
+  }
 
-        @media (max-width: 640px) {
-            body {
-                padding: 1rem 0.5rem;
-            }
-            .header-left h1 {
-                font-size: 1.8rem;
-            }
-            .header-right {
-                width: 100%;
-                flex-wrap: wrap;
-            }
-            .btn-secondary {
-                flex: 1;
-                justify-content: center;
-            }
-            .btn-primary {
-                flex: 1;
-                justify-content: center;
-            }
-            .pantry-shelf {
-                flex-direction: column;
-                align-items: center;
-                padding-bottom: 1.5rem;
-            }
-            .jar-card {
-                width: 100%;
-                max-width: 350px;
-            }
-        }
+  [data-theme="nordic-pantry"] .menu-grid {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+    gap: 1rem;
+  }
+
+  [data-theme="nordic-pantry"] .actions {
+    padding: 0 1rem;
+  }
+
+  [data-theme="nordic-pantry"] .navbar {
+    padding: 0.65rem 1rem;
+  }
+}

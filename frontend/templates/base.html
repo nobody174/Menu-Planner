@@ -61,42 +61,7 @@
                                     {{ t.choose_theme }} <span class="submenu-arrow">›</span>
                                 </a>
                                 <div id="theme-submenu" class="theme-submenu" style="display:none;">
-                                    <div class="theme-option" data-theme="warm-modern" onclick="switchTheme('warm-modern', event)">
-                                        <span class="theme-option-name">Warm &amp; Modern</span>
-                                        <span class="theme-preview-swatch" style="background:#d97706;"></span>
-                                    </div>
-                                    <div class="theme-option" data-theme="warm-terracotta" onclick="switchTheme('warm-terracotta', event)">
-                                        <span class="theme-option-name">Terracotta &amp; Sage</span>
-                                        <span class="theme-preview-swatch" style="background:#d97b36;"></span>
-                                    </div>
-                                    <div class="theme-option" data-theme="apple-fitness" onclick="switchTheme('apple-fitness', event)">
-                                        <span class="theme-option-name">Apple Fitness</span>
-                                        <span class="theme-preview-swatch" style="background:#30D158;"></span>
-                                    </div>
-                                    <div class="theme-option" data-theme="brutalist" onclick="switchTheme('brutalist', event)">
-                                        <span class="theme-option-name">Brutalist</span>
-                                        <span class="theme-preview-swatch" style="background:#000000;"></span>
-                                    </div>
-                                    <div class="theme-option" data-theme="chalkboard-bistro" onclick="switchTheme('chalkboard-bistro', event)">
-                                        <span class="theme-option-name">Chalkboard Bistro</span>
-                                        <span class="theme-preview-swatch" style="background:#E8C547;"></span>
-                                    </div>
-                                    <div class="theme-option" data-theme="coastal-kitchen" onclick="switchTheme('coastal-kitchen', event)">
-                                        <span class="theme-option-name">Coastal Kitchen</span>
-                                        <span class="theme-preview-swatch" style="background:#2C5F5A;"></span>
-                                    </div>
-                                    <div class="theme-option" data-theme="forest-forager" onclick="switchTheme('forest-forager', event)">
-                                        <span class="theme-option-name">Forest Forager</span>
-                                        <span class="theme-preview-swatch" style="background:#7BA05B;"></span>
-                                    </div>
-                                    <div class="theme-option" data-theme="kjøkkenhylle" onclick="switchTheme('kjøkkenhylle', event)">
-                                        <span class="theme-option-name">Kjøkkenhylle</span>
-                                        <span class="theme-preview-swatch" style="background:#2C4A3E;"></span>
-                                    </div>
-                                    <div class="theme-option" data-theme="pop-art-diner" onclick="switchTheme('pop-art-diner', event)">
-                                        <span class="theme-option-name">Pop Art Diner</span>
-                                        <span class="theme-preview-swatch" style="background:#D32F2F;"></span>
-                                    </div>
+                                    <!-- Populated dynamically from theme-registry.json -->
                                 </div>
                             </div>
                             <div class="settings-divider"></div>
@@ -182,7 +147,7 @@
     // ── Dynamic Preview Theme Loader ────────────────────────────────────────
     document.addEventListener('DOMContentLoaded', function () {
         var REGISTRY_URL = '/static/themes/previews/theme-registry.json';
-        var dropdown = document.getElementById('theme-dropdown');
+        var dropdown = document.getElementById('theme-submenu');
         if (!dropdown) return;
 
         fetch(REGISTRY_URL)
@@ -204,14 +169,8 @@
                         '</div>' +
                         '<span class="theme-preview-swatch" style="background:' + _escapeHtml(theme.preview_color) + ';"></span>';
 
-                    option.addEventListener('click', function () {
-                        var name = option.dataset.theme;
-                        if (window.themeManager) {
-                            window.themeManager.applyTheme(name);
-                            localStorage.setItem('pi-menu-theme', name);
-                            window.themeManager.markActiveTheme();
-                        }
-                        dropdown.classList.remove('open');
+                    option.addEventListener('click', function (e) {
+                        switchTheme(option.dataset.theme, e);
                     });
 
                     dropdown.appendChild(option);

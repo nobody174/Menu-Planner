@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+/* ══════════════════════════════════════════════
+   THEME: Warm & Modern
+   Scandinavian boutique hotel — warm sand tones,
+   generous whitespace, rounded softness.
+   ══════════════════════════════════════════════ */
+
+[data-theme="warm-modern"] {
+  --wm-sand:      #F5EFE6;
+  --wm-cream:     #FAF7F2;
+  --wm-warm-white:#FFFDF9;
+  --wm-amber:     #C8873A;
+  --wm-amber-light:#E5A85C;
+  --wm-stone:     #8C7B6B;
+  --wm-dark:      #2A2318;
+  --wm-mid:       #5C4F3D;
+  --wm-radius:    20px;
+  --wm-radius-sm: 12px;
+  --wm-shadow:    0 2px 16px rgba(44,35,24,0.08);
+  --wm-shadow-hover: 0 8px 32px rgba(44,35,24,0.14);
+  --wm-font:      'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+[data-theme="warm-modern"] body {
+  background: var(--wm-cream);
+  font-family: var(--wm-font);
+  color: var(--wm-dark);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Navbar ── */
+[data-theme="warm-modern"] .navbar {
+  background: var(--wm-warm-white);
+  border-bottom: 1px solid rgba(140,123,107,0.15);
+  box-shadow: 0 1px 8px rgba(44,35,24,0.05);
+}
+[data-theme="warm-modern"] .nav-logo {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--wm-dark);
+  letter-spacing: -0.02em;
+}
+[data-theme="warm-modern"] .nav-link {
+  color: var(--wm-mid);
+  font-weight: 500;
+  font-size: 0.88rem;
+  border-radius: var(--wm-radius-sm);
+  padding: 6px 14px;
+  transition: background 0.2s, color 0.2s;
+}
+[data-theme="warm-modern"] .nav-link:hover {
+  background: var(--wm-sand);
+  color: var(--wm-dark);
+}
+
+/* ── Hero ── */
+[data-theme="warm-modern"] .hero {
+  background: linear-gradient(135deg, #3D2B1F 0%, #6B4C35 60%, #8C6240 100%);
+  border-radius: var(--wm-radius);
+  padding: 40px 48px;
+  margin-bottom: 32px;
+  position: relative;
+  overflow: hidden;
+}
+[data-theme="warm-modern"] .hero::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 240px; height: 240px;
+  background: radial-gradient(circle, rgba(200,135,58,0.25) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+[data-theme="warm-modern"] .hero h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #FFF8F0;
+  letter-spacing: -0.03em;
+  margin-bottom: 6px;
+}
+[data-theme="warm-modern"] .week-range {
+  color: rgba(255,240,220,0.75);
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+[data-theme="warm-modern"] .categories-info {
+  color: rgba(255,240,220,0.6);
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
+
+/* ── Menu Grid ── */
+[data-theme="warm-modern"] .menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+/* ── Menu Card ── */
+[data-theme="warm-modern"] .menu-card {
+  background: var(--wm-warm-white);
+  border-radius: var(--wm-radius);
+  border: 1px solid rgba(140,123,107,0.12);
+  box-shadow: var(--wm-shadow);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+[data-theme="warm-modern"] .menu-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--wm-shadow-hover);
+}
+
+/* ── Card Header ── */
+[data-theme="warm-modern"] .card-header {
+  background: var(--wm-sand);
+  padding: 16px 20px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(140,123,107,0.1);
+}
+[data-theme="warm-modern"] .card-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+[data-theme="warm-modern"] .day-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--wm-dark);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+[data-theme="warm-modern"] .meal-time {
+  font-size: 0.72rem;
+  color: var(--wm-stone);
+  font-weight: 500;
+  background: rgba(140,123,107,0.12);
+  padding: 2px 8px;
+  border-radius: 20px;
+  display: inline-block;
+  width: fit-content;
+}
+[data-theme="warm-modern"] .card-header-icon {
+  font-size: 1.4rem;
+  opacity: 0.8;
+}
+
+/* ── Card Body ── */
+[data-theme="warm-modern"] .card-body {
+  padding: 18px 20px 14px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+[data-theme="warm-modern"] .recipe-title {
+  font-size: 0.97rem;
+  font-weight: 600;
+  color: var(--wm-dark);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+[data-theme="warm-modern"] .difficulty {
+  font-size: 0.72rem;
+  color: var(--wm-amber);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ── Card Footer ── */
+[data-theme="warm-modern"] .card-footer {
+  padding: 12px 20px;
+  background: transparent;
+  border-top: 1px solid rgba(140,123,107,0.08);
+}
+[data-theme="warm-modern"] .btn-primary {
+  background: var(--wm-amber);
+  color: #fff;
+  border: none;
+  border-radius: var(--wm-radius-sm);
+  font-family: var(--wm-font);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 8px 18px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s, transform 0.15s;
+  letter-spacing: 0.01em;
+}
+[data-theme="warm-modern"] .btn-primary:hover {
+  background: #B5763A;
+  transform: translateY(-1px);
+}
+
+/* ── Actions ── */
+[data-theme="warm-modern"] .actions {
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 20px;
+}
+[data-theme="warm-modern"] .btn-secondary {
+  background: transparent;
+  color: var(--wm-mid);
+  border: 1.5px solid rgba(140,123,107,0.35);
+  border-radius: var(--wm-radius-sm);
+  font-family: var(--wm-font);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 10px 28px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s, border-color 0.2s;
+}
+[data-theme="warm-modern"] .btn-secondary:hover {
+  background: var(--wm-sand);
+  border-color: var(--wm-stone);
+}
+
+@media (max-width: 640px) {
+  [data-theme="warm-modern"] .hero { padding: 28px 24px; }
+  [data-theme="warm-modern"] .menu-grid { grid-template-columns: 1fr; }
+}

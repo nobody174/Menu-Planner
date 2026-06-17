@@ -1,9 +1,11 @@
 [
+  {"id": "warm-modern", "name": "Warm & Modern", "file": "theme-warm-modern.css", "preview_color": "#C8873A"},
+  {"id": "warm-terracotta", "name": "Terracotta & Sage", "file": "theme-warm-terracotta.css", "preview_color": "#C4622D"},
   {"id": "apple-fitness", "name": "Apple Fitness", "file": "theme-apple-fitness.css", "preview_color": "#30D158"},
   {"id": "brutalist", "name": "Brutalist", "file": "theme-brutalist.css", "preview_color": "#000000"},
   {"id": "chalkboard-bistro", "name": "Chalkboard Bistro", "file": "theme-chalkboard-bistro.css", "preview_color": "#E8C547"},
-  {"id": "coastal-kitchen", "name": "Coastal Kitchen", "file": "theme-coastal-kitchen.css", "preview_color": "#2C5F5A"},
-  {"id": "forest-forager", "name": "Forest Forager", "file": "theme-forest-forager.css", "preview_color": "#7BA05B"},
-  {"id": "nordic-pantry", "name": "Nordic Pantry", "file": "theme-nordic-pantry.css", "preview_color": "#2C4A3E"},
+  {"id": "coastal-kitchen", "name": "Coastal Kitchen", "file": "theme-coastal-kitchen.css", "preview_color": "#2E7DB5"},
+  {"id": "forest-forager", "name": "Forest Forager", "file": "theme-forest-forager.css", "preview_color": "#4A5E2F"},
+  {"id": "nordic-pantry", "name": "Nordic Pantry", "file": "theme-nordic-pantry.css", "preview_color": "#7A5C42"},
   {"id": "pop-art-diner", "name": "Pop Art Diner", "file": "theme-pop-art-diner.css", "preview_color": "#D32F2F"}
 ]

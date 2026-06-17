@@ -1,306 +1,363 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,400&display=swap');
+/* ============================================================
+   THEME: Forest Forager
+   ID: forest-forager
+   Identity: Deep earthy nature theme. Moss greens, bark browns,
+   warm cream. Nordic cottagecore forest vibe with organic
+   shapes, Fraunces serif headings, and gentle wood-grain texture.
+   ============================================================ */
 
-/* ── Pi-Menu Preview Theme: forest-forager ── */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=DM+Sans:wght@400;500;600&display=swap');
 
+/* --- Root / Body --- */
 [data-theme="forest-forager"] {
-  --bg:      #1A2018;
-  --surface: #242820;
-  --primary: #C8D5B0;
-  --accent:  #7BA05B;
-  --secondary: #8B6914;
-  --text:    #C8D5B0;
-  --muted:   rgba(200,213,176,0.6);
-  --border:  rgba(200,213,176,0.15);
-  --radius:  10px;
-  --shadow:  0 4px 24px rgba(0,0,0,0.35);
-}
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  font-family: 'Source Sans 3', sans-serif;
-  background: var(--bg);
-  /* wood-grain texture: repeating diagonal gradients */
-  background-image:
-    repeating-linear-gradient(
-      -35deg,
-      transparent 0px,
-      transparent 8px,
-      rgba(200,213,176,0.018) 8px,
-      rgba(200,213,176,0.018) 9px
-    ),
-    repeating-linear-gradient(
-      -55deg,
-      transparent 0px,
-      transparent 18px,
-      rgba(200,213,176,0.012) 18px,
-      rgba(200,213,176,0.012) 19px
-    );
-  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  background-color: #F2EDE4;
+  color: #2C2018;
   min-height: 100vh;
-  padding: 0 0 3rem;
-}
-
-/* ── HEADER ── */
-.site-header {
-  position: relative;
-  overflow: hidden;
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
-  padding: 2.75rem 1.5rem 2.25rem;
-  text-align: center;
-}
-/* fog effect via radial gradients */
-.site-header::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(123,160,91,0.18) 0%, transparent 65%),
-    radial-gradient(ellipse 60% 40% at 20% 110%, rgba(139,105,20,0.12) 0%, transparent 60%);
-  pointer-events: none;
-}
-.site-header h1 {
-  position: relative;
-  font-family: 'Lora', serif;
-  font-size: clamp(1.7rem, 5vw, 2.6rem);
-  font-weight: 600;
-  color: var(--primary);
-  letter-spacing: 0.04em;
-}
-.site-header h1 em {
-  display: block;
-  font-family: 'Source Sans 3', sans-serif;
-  font-size: 0.72rem;
-  font-style: normal;
-  font-weight: 300;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 0.45rem;
-}
-.week-badge {
-  position: relative;
-  display: inline-block;
-  margin-top: 1rem;
-  font-family: 'Source Sans 3', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 400;
-  color: var(--muted);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 0.28rem 1.1rem;
-  letter-spacing: 0.1em;
-}
-
-/* ── ACTIONS ── */
-.actions {
-  display: flex;
-  gap: 0.75rem;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 1.75rem 1.5rem 0;
-}
-.btn {
-  font-family: 'Source Sans 3', sans-serif;
-  font-size: 0.88rem;
-  font-weight: 600;
-  cursor: pointer;
-  border-radius: 24px;
-  padding: 0.6rem 1.5rem;
-  transition: all 0.2s ease;
-  letter-spacing: 0.05em;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-.btn-primary {
-  background: var(--accent);
-  color: #1A2018;
-  border: 1.5px solid var(--accent);
-  box-shadow: 0 3px 14px rgba(123,160,91,0.25);
-}
-.btn-primary:hover { background: #6a8f4e; }
-.btn-outline {
-  background: transparent;
-  color: var(--primary);
-  border: 1.5px solid var(--border);
-}
-.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
-
-/* ── MAIN ── */
-main {
-  max-width: 680px;
-  margin: 2rem auto 0;
-  padding: 0 1.25rem;
-}
-.section-label {
-  font-family: 'Source Sans 3', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 300;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-.section-label::before,
-.section-label::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--border);
-}
-
-/* ── CARD ── */
-.card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--accent);
-  border-radius: var(--radius);
-  padding: 1.75rem 1.75rem 1.5rem;
-  box-shadow: var(--shadow), -1px 0 0 rgba(123,160,91,0.1);
-  position: relative;
-  overflow: hidden;
-}
-/* subtle wood grain on card */
-.card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
+  -webkit-font-smoothing: antialiased;
+  /* Subtle wood grain texture */
   background-image:
     repeating-linear-gradient(
       -30deg,
       transparent 0px,
-      transparent 12px,
-      rgba(200,213,176,0.025) 12px,
-      rgba(200,213,176,0.025) 13px
+      transparent 14px,
+      rgba(74,62,36,0.025) 14px,
+      rgba(74,62,36,0.025) 15px
+    ),
+    repeating-linear-gradient(
+      -60deg,
+      transparent 0px,
+      transparent 22px,
+      rgba(74,62,36,0.018) 22px,
+      rgba(74,62,36,0.018) 23px
     );
-  pointer-events: none;
-  border-radius: var(--radius);
-}
-.card-day {
-  font-family: 'Source Sans 3', sans-serif;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 0.4rem;
-  position: relative;
-}
-.card-title {
-  font-family: 'Lora', serif;
-  font-size: clamp(1.35rem, 3.5vw, 1.8rem);
-  font-weight: 600;
-  color: var(--primary);
-  line-height: 1.25;
-  margin-bottom: 0.55rem;
-  position: relative;
-}
-.card-desc {
-  font-family: 'Source Sans 3', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 300;
-  color: var(--muted);
-  line-height: 1.7;
-  margin-bottom: 1.1rem;
-  font-style: italic;
-  position: relative;
-}
-.card-meta {
-  display: flex;
-  align-items: center;
-  gap: 1.1rem;
-  margin-bottom: 1rem;
-  flex-wrap: wrap;
-  position: relative;
-}
-.meta-item {
-  font-family: 'Source Sans 3', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 400;
-  color: var(--muted);
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-}
-.meta-item strong { color: var(--primary); font-weight: 600; }
-.tags {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-  position: relative;
-}
-.tag {
-  font-family: 'Source Sans 3', sans-serif;
-  font-size: 0.7rem;
-  font-weight: 600;
-  padding: 0.25rem 0.75rem;
-  border-radius: 12px;
-  letter-spacing: 0.06em;
-}
-.tag-moss {
-  background: rgba(123,160,91,0.15);
-  color: var(--accent);
-  border: 1px solid rgba(123,160,91,0.35);
-}
-.tag-gold {
-  background: rgba(139,105,20,0.2);
-  color: var(--secondary);
-  border: 1px solid rgba(139,105,20,0.4);
-}
-.card-divider {
-  border: none;
-  border-top: 1px solid var(--border);
-  margin: 1.25rem 0;
-  position: relative;
-}
-.card-action {
-  display: flex;
-  justify-content: flex-end;
-  position: relative;
 }
 
-/* ── SHOPPING CTA ── */
-.shopping-cta {
-  margin-top: 2rem;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-top: 2px solid var(--accent);
-  border-radius: var(--radius);
-  padding: 1.5rem 1.75rem;
+/* --- Navbar --- */
+[data-theme="forest-forager"] .navbar {
+  background-color: #2C3A1E;
+  border-bottom: none;
+  padding: 0.85rem 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
   flex-wrap: wrap;
-  box-shadow: var(--shadow);
-}
-.shopping-cta-text h3 {
-  font-family: 'Lora', serif;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--primary);
-}
-.shopping-cta-text p {
-  font-family: 'Source Sans 3', sans-serif;
-  font-size: 0.82rem;
-  font-weight: 300;
-  color: var(--muted);
-  margin-top: 0.2rem;
-  font-style: italic;
+  gap: 0.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.2);
 }
 
-/* ── RESPONSIVE ── */
-@media (max-width: 640px) {
-  .site-header { padding: 1.75rem 1rem 1.5rem; }
-  .card { padding: 1.25rem 1rem 1.25rem 1.25rem; }
-  .shopping-cta { flex-direction: column; align-items: flex-start; }
+[data-theme="forest-forager"] .nav-logo {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #D4C9A8;
+  text-decoration: none;
+  letter-spacing: 0.03em;
 }
-@media (max-width: 768px) {
-  main { padding: 0 1rem; }
+
+[data-theme="forest-forager"] .nav-link {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: rgba(212, 201, 168, 0.7);
+  text-decoration: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.18s ease, color 0.18s ease;
+}
+
+[data-theme="forest-forager"] .nav-link:hover {
+  color: #D4C9A8;
+  background-color: rgba(123,160,91,0.18);
+}
+
+[data-theme="forest-forager"] .theme-toggle-btn {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: rgba(212, 201, 168, 0.65);
+  background: none;
+  border: 1px solid rgba(212,201,168,0.22);
+  padding: 0.28rem 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+[data-theme="forest-forager"] .theme-toggle-btn:hover {
+  background-color: rgba(123,160,91,0.18);
+  border-color: rgba(123,160,91,0.4);
+  color: #D4C9A8;
+}
+
+[data-theme="forest-forager"] .category-dropdown-btn {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: rgba(212, 201, 168, 0.7);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.18s ease, color 0.18s ease;
+}
+
+[data-theme="forest-forager"] .category-dropdown-btn:hover {
+  color: #D4C9A8;
+  background-color: rgba(123,160,91,0.18);
+}
+
+/* --- Hero --- */
+[data-theme="forest-forager"] .hero {
+  background: linear-gradient(145deg, #2C3A1E 0%, #3A4E28 40%, #4A5E2F 100%);
+  border-radius: 12px;
+  margin: 2rem auto;
+  max-width: 920px;
+  padding: 3.25rem 2.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+}
+
+/* Misty forest light from top */
+[data-theme="forest-forager"] .hero::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 160px;
+  background: radial-gradient(ellipse at 50% 0%, rgba(212,201,168,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Organic leaf-like shadow bottom left */
+[data-theme="forest-forager"] .hero::after {
+  content: '';
+  position: absolute;
+  bottom: -50px;
+  left: -50px;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(123,160,91,0.18) 0%, transparent 65%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+[data-theme="forest-forager"] .hero h1 {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 2rem;
+  font-weight: 500;
+  color: #F2EDE4;
+  margin: 0 0 0.5rem;
+  line-height: 1.25;
+  position: relative;
+  z-index: 1;
+}
+
+[data-theme="forest-forager"] .week-range {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #7BA05B;
+  margin-bottom: 0.75rem;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+[data-theme="forest-forager"] .categories-info {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: rgba(212, 201, 168, 0.55);
+  position: relative;
+  z-index: 1;
+  letter-spacing: 0.06em;
+}
+
+/* --- Menu Grid --- */
+[data-theme="forest-forager"] .menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
+  gap: 1.25rem;
+  max-width: 1100px;
+  margin: 0 auto 2rem;
+  padding: 0 1.75rem;
+}
+
+/* --- Menu Card --- */
+[data-theme="forest-forager"] .menu-card {
+  background-color: #FBF8F3;
+  border: 1px solid rgba(123,100,60,0.15);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 10px rgba(44,56,30,0.08);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+[data-theme="forest-forager"] .menu-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(44,56,30,0.15);
+}
+
+/* --- Card Header --- */
+[data-theme="forest-forager"] .card-header {
+  background: linear-gradient(135deg, #2C3A1E 0%, #4A5E2F 100%);
+  padding: 1rem 1.2rem 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+[data-theme="forest-forager"] .card-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+[data-theme="forest-forager"] .day-name {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #D4C9A8;
+  line-height: 1;
+}
+
+[data-theme="forest-forager"] .meal-time {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(212, 201, 168, 0.55);
+}
+
+[data-theme="forest-forager"] .card-header-icon {
+  font-size: 1.15rem;
+  opacity: 0.65;
+}
+
+/* --- Card Body --- */
+[data-theme="forest-forager"] .card-body {
+  padding: 1.1rem 1.2rem 0.8rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  border-left: 3px solid #7BA05B;
+}
+
+[data-theme="forest-forager"] .recipe-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #2C2018;
+  line-height: 1.3;
+  margin: 0;
+}
+
+[data-theme="forest-forager"] .difficulty {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: #8B6914;
+  letter-spacing: 0.06em;
+}
+
+/* --- Card Footer --- */
+[data-theme="forest-forager"] .card-footer {
+  padding: 0.7rem 1.2rem 0.95rem;
+  border-top: 1px solid rgba(123,100,60,0.12);
+  background-color: #F7F2EB;
+}
+
+[data-theme="forest-forager"] .btn-primary {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  background-color: #7BA05B;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+  border-radius: 6px;
+}
+
+[data-theme="forest-forager"] .btn-primary:hover {
+  background-color: #6A8F4E;
+  transform: translateY(-1px);
+}
+
+/* --- Actions --- */
+[data-theme="forest-forager"] .actions {
+  max-width: 1100px;
+  margin: 0 auto 3rem;
+  padding: 0 1.75rem;
+  display: flex;
+  justify-content: center;
+}
+
+[data-theme="forest-forager"] .btn-secondary {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #F2EDE4;
+  background-color: #4A5E2F;
+  border: none;
+  padding: 0.7rem 2rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+  border-radius: 6px;
+  box-shadow: 0 3px 12px rgba(44,56,30,0.22);
+}
+
+[data-theme="forest-forager"] .btn-secondary:hover {
+  background-color: #2C3A1E;
+  transform: translateY(-1px);
+}
+
+/* --- Responsive --- */
+@media (max-width: 640px) {
+  [data-theme="forest-forager"] .hero {
+    margin: 1rem;
+    padding: 2.25rem 1.25rem;
+    border-radius: 10px;
+  }
+
+  [data-theme="forest-forager"] .hero h1 {
+    font-size: 1.65rem;
+  }
+
+  [data-theme="forest-forager"] .menu-grid {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+    gap: 1rem;
+  }
+
+  [data-theme="forest-forager"] .actions {
+    padding: 0 1rem;
+  }
+
+  [data-theme="forest-forager"] .navbar {
+    padding: 0.65rem 1rem;
+  }
 }

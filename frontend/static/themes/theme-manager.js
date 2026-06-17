@@ -1,9 +1,8 @@
 // Themes that use the "rich" full-layout index (images, day-nav, summary bar)
 const RICH_LAYOUT_THEMES = new Set(['warm-terracotta']);
 
-// The 1 built-in theme whose CSS variables are driven entirely by theme-colors.js
-// (no separate CSS file is needed for this)
-const BUILTIN_THEMES = new Set(['warm-modern']);
+// No hardcoded builtin themes — all themes load from CSS files in previews/
+const BUILTIN_THEMES = new Set([]);
 
 class ThemeManager {
   constructor() {
