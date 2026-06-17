@@ -229,26 +229,32 @@ This only needs to be done once. Pi-Menu caches your token locally.
 - Your API token (3-minute setup)
 
 ### 🔗 Helpful Links
-- **Sign up:** https://ticktick.com/signup
-- **Get API token:** https://ticktick.com/user/myprofile
-- **View your tasks:** https://ticktick.com/web/inbox
+- **Sign up/Login:** https://ticktick.com
+- **Get API token:** https://ticktick.com/webapp/#q/all/completed?modalType=settings
+- **View your tasks:** https://ticktick.com
 
 ### 📝 Step-by-Step Setup
 
 #### Step 1: Create a TickTick Account
-1. Go to https://ticktick.com/signup
+1. Go to https://ticktick.com
 2. Click **"Sign up"** (or sign in if you have an account)
 3. Enter your email and password
 4. Verify your email
 5. Complete setup
 
 #### Step 2: Get Your API Token
-1. Go to https://ticktick.com/user/myprofile
-2. Click **"Settings"** (gear icon)
-3. Go to **"Integrations"** or **"API"** section
-4. Look for **"API Token"** or **"Developer"** section
-5. **Copy** your API token
-6. Keep it private!
+1. Go to https://ticktick.com/webapp/#q/all/completed?modalType=settings
+2. Click your **profile name** in the top left
+3. Click **"Settings"**
+4. Click **"Account"** tab on the left
+5. On the right side, find **"API Keys"** section
+6. Click **"Manage"**
+7. Click **"Enable Key"** button
+8. Give it a name (e.g., "Shopping list")
+9. Click **"Add"**
+10. A window appears showing your API key
+11. Click the **"Copy"** button next to the key
+12. Keep it private!
 
 #### Step 3: Add Token to Pi-Menu
 1. Open your `.env` file (in the Pi-Menu main folder)
