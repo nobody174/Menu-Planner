@@ -23,6 +23,11 @@ Complete step-by-step instructions for connecting your shopping list to various 
 - A Microsoft account (Outlook, Live, or work account)
 - **That's it!** No setup required.
 
+### 🔗 Helpful Links
+- **Sign up for Microsoft account:** https://account.microsoft.com/account
+- **Microsoft To Do app:** https://todo.microsoft.com
+- **Check your synced items:** https://todo.microsoft.com
+
 ### 🚀 Quick Start
 
 1. **Open Pi-Menu** in your browser
@@ -30,8 +35,11 @@ Complete step-by-step instructions for connecting your shopping list to various 
 3. **Click "📤 Export & Sync"** button
 4. **Click "🔵 Microsoft To Do"**
 5. **Sign in** with your Microsoft account (first time only)
+   ![Microsoft Sign In](screenshots/microsoft-todo/01-signin.png)
 6. **Grant permissions** when prompted
+   ![Grant Permissions](screenshots/microsoft-todo/02-permissions.png)
 7. **Done!** Items will sync automatically
+   ![Success](screenshots/microsoft-todo/03-success.png)
 
 ### ⚙️ How It Works
 - Items are added to a list called "Pi-Menu Handleliste"
@@ -59,10 +67,15 @@ Complete step-by-step instructions for connecting your shopping list to various 
 - A Todoist account (free or paid)
 - Your API token (2-minute setup)
 
+### 🔗 Helpful Links
+- **Sign up:** https://todoist.com/users/sign_up
+- **Get API token:** https://todoist.com/app/settings/integrations/developer
+- **View your tasks:** https://todoist.com/app/today
+
 ### 📝 Step-by-Step Setup
 
 #### Step 1: Create a Todoist Account
-1. Go to https://todoist.com
+1. Go to https://todoist.com/users/sign_up
 2. Click **"Sign up"** (or sign in if you have an account)
 3. Enter your email and password
 4. Verify your email
@@ -119,10 +132,15 @@ Complete step-by-step instructions for connecting your shopping list to various 
 - A TickTick account (free or paid)
 - Your API token (3-minute setup)
 
+### 🔗 Helpful Links
+- **Sign up:** https://ticktick.com/signup
+- **Get API token:** https://ticktick.com/user/myprofile
+- **View your tasks:** https://ticktick.com/web/inbox
+
 ### 📝 Step-by-Step Setup
 
 #### Step 1: Create a TickTick Account
-1. Go to https://ticktick.com
+1. Go to https://ticktick.com/signup
 2. Click **"Sign up"** (or sign in if you have an account)
 3. Enter your email and password
 4. Verify your email
@@ -176,10 +194,15 @@ Complete step-by-step instructions for connecting your shopping list to various 
 - An Any.do account (free plan works)
 - Your API token (3-minute setup)
 
+### 🔗 Helpful Links
+- **Sign up:** https://www.any.do/en/signup
+- **Get API token:** https://www.any.do/en/settings/account
+- **View your tasks:** https://www.any.do/en/lists
+
 ### 📝 Step-by-Step Setup
 
 #### Step 1: Create Any.do Account
-1. Go to https://www.any.do
+1. Go to https://www.any.do/en/signup
 2. Click **"Sign up"**
 3. Enter email and password
 4. Verify your email
@@ -221,10 +244,15 @@ Complete step-by-step instructions for connecting your shopping list to various 
 - A Trello account (free plan works)
 - API Key + Token (5-minute setup)
 
+### 🔗 Helpful Links
+- **Sign up:** https://trello.com/signup
+- **Get API key & token:** https://trello.com/app-key
+- **View your boards:** https://trello.com/app/boards
+
 ### 📝 Step-by-Step Setup
 
 #### Step 1: Create Trello Account
-1. Go to https://trello.com
+1. Go to https://trello.com/signup
 2. Click **"Sign up"**
 3. Enter email and password
 4. Complete setup
@@ -280,10 +308,15 @@ Complete step-by-step instructions for connecting your shopping list to various 
 - Notion API Token (5-minute setup)
 - A Notion database (created automatically)
 
+### 🔗 Helpful Links
+- **Sign up:** https://notion.so/signup
+- **Create integration:** https://www.notion.so/my-integrations
+- **View your workspace:** https://notion.so
+
 ### 📝 Step-by-Step Setup
 
 #### Step 1: Create Notion Account
-1. Go to https://notion.so
+1. Go to https://notion.so/signup
 2. Click **"Sign up"**
 3. Enter email and create password
 4. Verify email and complete setup
@@ -351,10 +384,15 @@ Complete step-by-step instructions for connecting your shopping list to various 
 - A Google account (Gmail)
 - Your Google Keep email address (2-minute setup)
 
+### 🔗 Helpful Links
+- **Gmail settings:** https://mail.google.com/mail/u/0/#settings
+- **Google Keep app:** https://keep.google.com
+- **Forwarding settings:** https://mail.google.com/mail/u/0/#settings/fwdandpop
+
 ### 📝 Step-by-Step Setup
 
 #### Step 1: Find Your Keep Email
-1. Go to https://mail.google.com
+1. Go to https://keep.google.com
 2. Click **"Settings"** (gear icon) → **"See all settings"**
 3. Go to **"Forwarding and POP/IMAP"** tab
 4. Look for your **"Forwarding address"** or go to **"Labels"**
