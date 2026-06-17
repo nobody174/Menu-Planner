@@ -25,8 +25,8 @@ Complete step-by-step instructions for connecting your shopping list to various 
 
 ### 🔗 Helpful Links
 - **Sign up for Microsoft account:** https://account.microsoft.com/account
-- **Microsoft To Do app:** https://todo.microsoft.com
-- **Check your synced items:** https://todo.microsoft.com
+- **Microsoft To Do app:** https://to-do.office.com/tasks/
+- **Check your synced items:** https://to-do.office.com/tasks/
 
 ### 🚀 Quick Start
 
@@ -56,7 +56,7 @@ Complete step-by-step instructions for connecting your shopping list to various 
 | Problem | Solution |
 |---------|----------|
 | "Not signed in" message | Click the button again and sign in |
-| Items not appearing | Check https://todo.microsoft.com to see the list |
+| Items not appearing | Check https://to-do.office.com/tasks/ to see the list |
 | Old items still there | They're marked complete, not deleted |
 
 ---
