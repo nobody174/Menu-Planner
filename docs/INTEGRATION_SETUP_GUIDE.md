@@ -7,9 +7,10 @@ Complete step-by-step instructions for syncing your shopping list to various tas
 ## 📋 Table of Contents
 
 1. [Export Formats](#export-formats) - CSV, JSON, Text, ICS
-2. [Todoist](#todoist) - Popular task manager
-3. [TickTick](#ticktick) - Powerful task management
-4. [Apple Reminders](#apple-reminders) - Native iOS/macOS
+2. [Microsoft To Do](#microsoft-to-do) - Built-in task manager
+3. [Todoist](#todoist) - Popular task manager
+4. [TickTick](#ticktick) - Powerful task management
+5. [Apple Reminders](#apple-reminders) - Native iOS/macOS
 
 ---
 
@@ -36,6 +37,113 @@ All of these can be downloaded directly from the "Export & Sync" menu:
 ### ✅ All Formats Fully Supported
 
 No setup needed - just select and download!
+
+---
+
+## Microsoft To Do
+
+### ✅ What You Need
+- A Microsoft account (Outlook, Live, or work account)
+- Azure App Registration (one-time setup, 10 minutes)
+
+### 🔗 Helpful Links
+- **Sign up for Microsoft account:** https://account.microsoft.com/account
+- **Azure Portal:** https://portal.azure.com
+- **Microsoft To Do app:** https://to-do.office.com/tasks/
+- **Check your synced items:** https://to-do.office.com/tasks/
+
+### 📝 Step-by-Step Setup
+
+#### Step 1: Register an Azure App
+
+1. Go to **https://portal.azure.com**
+2. **Sign in** with your Microsoft account
+3. **Search for "App registrations"** in the top search bar
+4. Click **"New registration"**
+5. Fill in the form:
+   - **Name:** `Pi-Menu`
+   - **Supported account types:** Select "Accounts in any organizational directory and personal Microsoft accounts"
+6. Click **"Register"**
+
+#### Step 2: Copy Your Credentials
+
+You're now on the app overview page. **Copy these 3 values** (you'll need them):
+
+1. **Application (client) ID** - Copy this
+2. **Directory (tenant) ID** - Copy this
+3. **Client Secret** (need to create it):
+   - Click **"Certificates & secrets"** on the left menu
+   - Click **"New client secret"**
+   - Give it a description: `Pi-Menu`
+   - Click **"Add"**
+   - **Copy the secret value immediately** (it only shows once!)
+
+#### Step 3: Add Redirect URL
+
+1. Click **"Authentication"** on the left menu
+2. Click **"Add a platform"** → select **"Web"**
+3. Add this Redirect URI:
+   ```
+   http://localhost:5000/callback
+   ```
+4. Click **"Configure"**
+
+#### Step 4: Add Credentials to Pi-Menu
+
+1. Find your `.env` file (in the Pi-Menu main folder)
+   - If you don't have one, copy `.env.template` and rename to `.env`
+2. Find these lines:
+   ```
+   AZURE_CLIENT_ID=
+   AZURE_CLIENT_SECRET=
+   AZURE_TENANT_ID=
+   ```
+3. Paste your values:
+   ```
+   AZURE_CLIENT_ID=abc123def456...
+   AZURE_CLIENT_SECRET=xyzABC123def456...
+   AZURE_TENANT_ID=def456ghi789...
+   ```
+4. Save the file
+5. **Restart Flask**
+
+#### Step 5: First-Time Authorization
+
+**Important:** The first time you use Microsoft To Do, you need to authorize Pi-Menu:
+
+1. **Go to:** `http://localhost:5000/callback` (or your Pi's address)
+2. **Sign in** with your Microsoft account
+3. **Grant permissions** when prompted
+4. **You'll be redirected back** - authorization is complete!
+
+This only needs to be done once. Pi-Menu caches your token locally.
+
+#### Step 6: Use It!
+
+1. **Open Pi-Menu** in your browser
+2. **Go to Shopping List** page
+3. Click **"📤 Export & Sync"** button
+4. Click **"🔵 Microsoft To Do"**
+5. **Items sync automatically!** 🎉
+
+#### Step 7: Verify It Works
+
+1. Go to **https://to-do.office.com/tasks/**
+2. Look for a list called **"Pi-Menu Handleliste"**
+3. You should see your synced items there! ✅
+
+### 🔄 Sync Again Later
+
+- Just click the "🔵 Microsoft To Do" button again
+- No additional login needed
+- Your credentials are cached locally
+
+### ❓ Troubleshooting
+| Problem | Solution |
+|---------|----------|
+| "Configuration needed" error | Check that AZURE_CLIENT_ID, AZURE_CLIENT_SECRET, and AZURE_TENANT_ID are filled in `.env`, then restart Flask |
+| "Not signed in" message | Click "🔵 Microsoft To Do" button → you'll be redirected to sign in |
+| Items not appearing | Check https://to-do.office.com/tasks/ to see if items are there |
 
 ---
 
