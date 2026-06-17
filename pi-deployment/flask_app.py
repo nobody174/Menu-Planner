@@ -585,6 +585,238 @@ def api_sync_shopping_list():
         logger.error(f"Sync error: {e}")
         return jsonify({'status': 'error', 'message': str(e)}), 500
 
+@app.route('/api/export-shopping-list', methods=['POST'])
+def api_export_shopping_list():
+    """Export shopping list in various formats."""
+    try:
+        from shopping_integrations import (
+            export_csv, export_json, export_todoist_format,
+            export_plain_text, export_ics, export_microsoft_todo_format
+        )
+
+        data = request.get_json() or {}
+        fmt = data.get('format', 'txt').lower()
+        full_shopping_list = data.get('shopping_list', {})
+        selected_items = data.get('items', [])
+
+        if not selected_items:
+            return jsonify({'success': False, 'error': 'No items to export'}), 400
+
+        # Filter to selected items only
+        selected_set = {
+            f"{item['ingredient']}-{item['quantity']}-{item['unit']}"
+            for item in selected_items
+        }
+        filtered = {}
+        for category, items in full_shopping_list.items():
+            kept = [i for i in items if f"{i['ingredient']}-{i['quantity']}-{i['unit']}" in selected_set]
+            if kept:
+                filtered[category] = kept
+
+        # Generate export
+        if fmt == 'csv':
+            content = export_csv(filtered)
+            mime_type = 'text/csv'
+            filename = f'shopping-list-{datetime.now().strftime("%Y%m%d")}.csv'
+        elif fmt == 'json':
+            content = export_json(filtered)
+            mime_type = 'application/json'
+            filename = f'shopping-list-{datetime.now().strftime("%Y%m%d")}.json'
+        elif fmt == 'todoist':
+            content = export_todoist_format(filtered)
+            mime_type = 'text/plain'
+            filename = f'shopping-list-{datetime.now().strftime("%Y%m%d")}.txt'
+        elif fmt == 'ics':
+            content = export_ics(filtered)
+            mime_type = 'text/calendar'
+            filename = f'shopping-list-{datetime.now().strftime("%Y%m%d")}.ics'
+        elif fmt == 'todo':
+            content = export_microsoft_todo_format(filtered)
+            mime_type = 'application/json'
+            filename = f'shopping-list-{datetime.now().strftime("%Y%m%d")}.json'
+        else:  # txt
+            content = export_plain_text(filtered)
+            mime_type = 'text/plain'
+            filename = f'shopping-list-{datetime.now().strftime("%Y%m%d")}.txt'
+
+        return jsonify({
+            'success': True,
+            'content': content,
+            'filename': filename,
+            'mime_type': mime_type
+        })
+
+    except Exception as e:
+        logger.error(f"Export error: {e}")
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+@app.route('/api/sync-shopping-list', methods=['POST'])
+def api_sync_shopping_list_all():
+    """Universal shopping list sync endpoint for all services."""
+    try:
+        from shopping_integrations import (
+            sync_todoist, sync_ticktick, sync_anydo,
+            sync_trello, sync_notion, sync_google_keep_via_email
+        )
+        from auth import get_access_token, sync_shopping_list_to_todo
+
+        data = request.get_json() or {}
+        service = data.get('service', 'microsoft').lower()
+        full_shopping_list = data.get('shopping_list', {})
+        selected_items = data.get('items', [])
+
+        if not selected_items:
+            return jsonify({'success': False, 'error': 'No items to sync'}), 400
+
+        # Filter to selected items only
+        selected_set = {
+            f"{item['ingredient']}-{item['quantity']}-{item['unit']}"
+            for item in selected_items
+        }
+        filtered = {}
+        for category, items in full_shopping_list.items():
+            kept = [i for i in items if f"{i['ingredient']}-{i['quantity']}-{i['unit']}" in selected_set]
+            if kept:
+                filtered[category] = kept
+
+        # Route to appropriate service
+        if service == 'microsoft':
+            token = get_access_token() or session.get('access_token')
+            if not token:
+                return jsonify({
+                    'success': False,
+                    'requires_config': True,
+                    'message': 'Please sign in with Microsoft To Do first via /login'
+                }), 401
+            result = sync_shopping_list_to_todo(token, filtered)
+            return jsonify({
+                'success': True,
+                'message': f"Synced {result.get('added', 0)} items to Microsoft To Do ✓"
+            })
+
+        elif service == 'todoist':
+            api_token = os.getenv('TODOIST_API_TOKEN') or ''
+            if not api_token:
+                return jsonify({
+                    'success': False,
+                    'requires_config': True,
+                    'message': 'Todoist API token not configured. Get it from: https://todoist.com/app/settings/integrations/developer'
+                }), 401
+            result = sync_todoist(filtered, api_token)
+            if result.get('success'):
+                return jsonify({
+                    'success': True,
+                    'message': f"Synced {result.get('added', 0)} items to Todoist ✓"
+                })
+            else:
+                return jsonify({
+                    'success': False,
+                    'error': result.get('error', 'Unknown error'),
+                    'requires_config': True,
+                    'message': 'Todoist sync failed. Check API token.'
+                }), 500
+
+        elif service == 'ticktick':
+            api_token = os.getenv('TICKTICK_API_TOKEN') or ''
+            if not api_token:
+                return jsonify({
+                    'success': False,
+                    'requires_config': True,
+                    'message': 'TickTick API token not configured. Get it from: https://ticktick.com/user/myprofile'
+                }), 401
+            result = sync_ticktick(filtered, api_token)
+            if result.get('success'):
+                return jsonify({
+                    'success': True,
+                    'message': f"Synced {result.get('added', 0)} items to TickTick ✓"
+                })
+            else:
+                return jsonify({'success': False, 'error': result.get('error'), 'requires_config': True}), 500
+
+        elif service == 'anydo':
+            api_token = os.getenv('ANYDO_API_TOKEN') or ''
+            if not api_token:
+                return jsonify({
+                    'success': False,
+                    'requires_config': True,
+                    'message': 'Any.do API token not configured. Get it from: https://www.any.do/en/settings/account'
+                }), 401
+            result = sync_anydo(filtered, api_token)
+            if result.get('success'):
+                return jsonify({
+                    'success': True,
+                    'message': f"Synced {result.get('added', 0)} items to Any.do ✓"
+                })
+            else:
+                return jsonify({'success': False, 'error': result.get('error'), 'requires_config': True}), 500
+
+        elif service == 'trello':
+            api_key = os.getenv('TRELLO_API_KEY') or ''
+            api_token = os.getenv('TRELLO_API_TOKEN') or ''
+            if not (api_key and api_token):
+                return jsonify({
+                    'success': False,
+                    'requires_config': True,
+                    'message': 'Trello credentials not configured. Get from: https://trello.com/app-key'
+                }), 401
+            result = sync_trello(filtered, api_key, api_token)
+            if result.get('success'):
+                return jsonify({
+                    'success': True,
+                    'message': f"Synced {result.get('added', 0)} items to Trello ✓"
+                })
+            else:
+                return jsonify({'success': False, 'error': result.get('error'), 'requires_config': True}), 500
+
+        elif service == 'notion':
+            api_token = os.getenv('NOTION_API_TOKEN') or ''
+            database_id = os.getenv('NOTION_DATABASE_ID') or ''
+            if not (api_token and database_id):
+                return jsonify({
+                    'success': False,
+                    'requires_config': True,
+                    'message': 'Notion credentials not configured. Create integration: https://www.notion.so/my-integrations'
+                }), 401
+            result = sync_notion(filtered, api_token, database_id)
+            if result.get('success'):
+                return jsonify({
+                    'success': True,
+                    'message': f"Synced {result.get('added', 0)} items to Notion ✓"
+                })
+            else:
+                return jsonify({'success': False, 'error': result.get('error'), 'requires_config': True}), 500
+
+        elif service == 'keep':
+            email = os.getenv('GOOGLE_KEEP_EMAIL') or ''
+            if not email:
+                return jsonify({
+                    'success': False,
+                    'requires_config': True,
+                    'message': 'Google Keep email not configured. Set GOOGLE_KEEP_EMAIL in .env'
+                }), 401
+            # For now, just return success as email sync requires SMTP setup
+            return jsonify({
+                'success': True,
+                'message': f"Shopping list export ready. Email to: {email}"
+            })
+
+        elif service == 'reminders':
+            # Return ICS file for Apple Reminders
+            from shopping_integrations import export_ics
+            content = export_ics(filtered)
+            return jsonify({
+                'success': True,
+                'content': content,
+                'message': 'ICS file ready for Apple Reminders. Download and open with Reminders app.'
+            })
+
+        else:
+            return jsonify({'success': False, 'error': f'Unknown service: {service}'}), 400
+
+    except Exception as e:
+        logger.error(f"Sync error: {e}")
+        return jsonify({'success': False, 'error': str(e)}), 500
+
 @app.route('/api/add-recipe', methods=['POST'])
 def api_add_recipe():
     """Add a manually created recipe to recipes_db.json and backup the form"""

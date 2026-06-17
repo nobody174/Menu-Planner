@@ -9,8 +9,9 @@
     <div class="shopping-actions">
         <button onclick="window.print()" class="btn btn-secondary">{{ t.print }}</button>
         <button onclick="uncheckAll()" class="btn btn-secondary">{{ t.reset }}</button>
-        <button onclick="syncToToDo(this)" class="btn btn-primary">{{ t.send_to_todo }}</button>
+        <button onclick="openIntegrationsMenu()" class="btn btn-primary">📤 Export & Sync</button>
     </div>
+
 </div>
 
 <div class="shopping-list">
@@ -53,9 +54,99 @@
     {% endfor %}
 </div>
 
+<!-- Integrations Modal -->
+<div id="integrationsModal" class="pm-overlay">
+    <div class="pm-modal-box" style="max-width: 600px;">
+        <div class="pm-modal-header">
+            <h2>📤 Export & Sync Shopping List</h2>
+            <button class="pm-close-btn" onclick="closeIntegrationsMenu()">✕</button>
+        </div>
+        <div class="integrations-grid">
+            <!-- Export Formats -->
+            <div class="integration-section">
+                <h3>💾 Export Formats</h3>
+                <button class="integration-btn" onclick="exportFormat('csv')">📊 CSV</button>
+                <button class="integration-btn" onclick="exportFormat('json')">{ } JSON</button>
+                <button class="integration-btn" onclick="exportFormat('txt')">📝 Text</button>
+                <button class="integration-btn" onclick="exportFormat('ics')">📅 ICS (Apple)</button>
+                <button class="integration-btn" onclick="copyToClipboard()">📋 Copy to Clipboard</button>
+            </div>
+
+            <!-- Task Managers -->
+            <div class="integration-section">
+                <h3>✅ Task Managers</h3>
+                <button class="integration-btn" onclick="syncIntegration('microsoft')">🔵 Microsoft To Do</button>
+                <button class="integration-btn" onclick="syncIntegration('todoist')">🔶 Todoist</button>
+                <button class="integration-btn" onclick="syncIntegration('ticktick')">🎯 TickTick</button>
+                <button class="integration-btn" onclick="syncIntegration('anydo')">✅ Any.do</button>
+            </div>
+
+            <!-- Note Taking & Other -->
+            <div class="integration-section">
+                <h3>📝 Note Taking & Other</h3>
+                <button class="integration-btn" onclick="syncIntegration('keep')">🟨 Google Keep (Email)</button>
+                <button class="integration-btn" onclick="syncIntegration('notion')">⚫ Notion</button>
+                <button class="integration-btn" onclick="syncIntegration('trello')">🔵 Trello</button>
+                <button class="integration-btn" onclick="syncIntegration('reminders')">📅 Apple Reminders (ICS)</button>
+            </div>
+        </div>
+        <div class="pm-modal-footer">
+            <button class="btn btn-secondary" onclick="closeIntegrationsMenu()">Close</button>
+        </div>
+        <div id="integrationsStatus" class="pm-status"></div>
+    </div>
+</div>
+
 <div class="shopping-footer">
     <p class="note">{{ t.shopping_tip }}</p>
 </div>
+
+<style>
+.integrations-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin: 16px 0;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.integration-section {
+    background: var(--color-bg, #f9fafb);
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid var(--color-border, #e5e7eb);
+}
+
+.integration-section h3 {
+    margin: 0 0 10px 0;
+    font-size: 0.95rem;
+    color: var(--color-text-primary, #333);
+}
+
+.integration-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 6px 0;
+    background: var(--color-bg-secondary, white);
+    border: 1px solid var(--color-border, #ddd);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.integration-btn:hover {
+    background: var(--color-primary, #d97706);
+    color: white;
+    border-color: var(--color-primary, #d97706);
+}
+
+@media (max-width: 640px) {
+    .integrations-grid { grid-template-columns: 1fr; }
+}
+</style>
 
 <script>
 var SHOPPING_LIST = {{ shopping_list | tojson }};
@@ -71,56 +162,131 @@ var STR = {
     server_error_msg:   '{{ t.server_error_msg }}'
 };
 
-function uncheckAll() {
-    document.querySelectorAll('.item-checkbox').forEach(function(cb) { cb.checked = false; });
-}
-
-function syncToToDo(button) {
-    var itemsToSync = [];
+function getCheckedItems() {
+    var items = [];
     document.querySelectorAll('.shopping-item').forEach(function(li) {
         var cb = li.querySelector('.item-checkbox');
         if (cb && !cb.checked) {
-            itemsToSync.push({
+            items.push({
                 ingredient: li.dataset.ingredient || '',
                 quantity:   li.dataset.quantity   || '',
                 unit:       li.dataset.unit        || ''
             });
         }
     });
+    return items;
+}
 
-    if (itemsToSync.length === 0) {
-        pmAlert('✅', STR.nothing_to_send, STR.all_checked);
+function uncheckAll() {
+    document.querySelectorAll('.item-checkbox').forEach(function(cb) { cb.checked = false; });
+}
+
+function openIntegrationsMenu() {
+    document.getElementById('integrationsModal').classList.add('active');
+}
+
+function closeIntegrationsMenu() {
+    document.getElementById('integrationsModal').classList.remove('active');
+    document.getElementById('integrationsStatus').className = 'pm-status';
+}
+
+function exportFormat(format) {
+    var items = getCheckedItems();
+    if (items.length === 0) {
+        pmAlert('⚠️', 'Nothing to export', 'All items are checked off or list is empty.');
         return;
     }
 
-    var originalText = button.textContent;
-    button.disabled  = true;
-    button.textContent = STR.sending;
+    fetch('/api/export-shopping-list', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ format: format, items: items, shopping_list: SHOPPING_LIST })
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+        if (data.success) {
+            downloadFile(data.content, data.filename, data.mime_type);
+            pmAlert('✅', 'Exported', format.toUpperCase() + ' file downloaded');
+        } else {
+            pmAlert('❌', 'Export failed', data.error || 'Unknown error');
+        }
+    })
+    .catch(function(e) {
+        pmAlert('❌', STR.server_error, e.message);
+    });
+}
+
+function copyToClipboard() {
+    var items = getCheckedItems();
+    if (items.length === 0) {
+        pmAlert('⚠️', 'Nothing to copy', 'All items are checked off or list is empty.');
+        return;
+    }
+
+    fetch('/api/export-shopping-list', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ format: 'txt', items: items, shopping_list: SHOPPING_LIST })
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+        if (data.success) {
+            navigator.clipboard.writeText(data.content).then(function() {
+                pmAlert('✅', 'Copied', 'Shopping list copied to clipboard');
+            });
+        }
+    })
+    .catch(function(e) {
+        pmAlert('❌', STR.server_error, e.message);
+    });
+}
+
+function syncIntegration(service) {
+    var items = getCheckedItems();
+    if (items.length === 0) {
+        pmAlert('⚠️', 'Nothing to sync', 'All items are checked off or list is empty.');
+        return;
+    }
+
+    var modal = document.getElementById('integrationsModal');
+    var statusEl = document.getElementById('integrationsStatus');
 
     fetch('/api/sync-shopping-list', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ items: itemsToSync, shopping_list: SHOPPING_LIST })
+        body: JSON.stringify({ service: service, items: items, shopping_list: SHOPPING_LIST })
     })
-    .then(function(r) {
-        return r.json().then(function(data) { return { ok: r.ok, data: data }; });
-    })
-    .then(function(res) {
-        if (res.ok) {
-            pmAlert('📱', STR.sent, res.data.message);
-        } else if (res.data.requiresAuth) {
-            pmAlert('🔒', STR.not_connected, STR.not_connected_msg);
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+        if (data.success) {
+            pmAlert('✅', 'Synced', data.message || (service + ' sync successful'));
+            setTimeout(function() { closeIntegrationsMenu(); }, 1500);
+        } else if (data.requires_config) {
+            pmAlert('⚙️', 'Configuration needed', data.message);
         } else {
-            pmAlert('❌', STR.something_wrong, res.data.message || '');
+            pmAlert('❌', 'Sync failed', data.error || 'Unknown error');
         }
     })
-    .catch(function() {
-        pmAlert('❌', STR.server_error, STR.server_error_msg);
-    })
-    .finally(function() {
-        button.disabled = false;
-        button.textContent = originalText;
+    .catch(function(e) {
+        pmAlert('❌', STR.server_error, e.message);
     });
 }
+
+function downloadFile(content, filename, mimeType) {
+    var blob = new Blob([content], { type: mimeType });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+// Close modal when clicking outside
+document.getElementById('integrationsModal').addEventListener('click', function(e) {
+    if (e.target === this) closeIntegrationsMenu();
+});
 </script>
 {% endblock %}

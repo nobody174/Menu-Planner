@@ -1,0 +1,108 @@
+{
+  "week_start": "2026-06-22",
+  "week_end": "2026-06-27",
+  "generated_at": "2026-06-17T14:38:44.101447",
+  "selected_categories": [
+    "Popular Norwegian Recipes"
+  ],
+  "dinners": [
+    {
+      "day": "Monday",
+      "recipe_id": "no_009",
+      "title": {
+        "no": "Klippfisk",
+        "en": "Salted Dried Fish"
+      },
+      "title_no": "Klippfisk",
+      "title_en": "Salted Dried Fish",
+      "time_minutes": 120,
+      "difficulty": "medium",
+      "protein": "fish",
+      "subtitle_no": "Tradisjonell norsk fiskérett",
+      "subtitle_en": "Traditional Norwegian salted fish dish"
+    },
+    {
+      "day": "Tuesday",
+      "recipe_id": "no_004",
+      "title": {
+        "no": "Lapskaus",
+        "en": "Meat and Vegetable Stew"
+      },
+      "title_no": "Lapskaus",
+      "title_en": "Meat and Vegetable Stew",
+      "time_minutes": 60,
+      "difficulty": "easy",
+      "protein": "other",
+      "subtitle_no": "Norsk grytérett med kjøtt og grønnsaker",
+      "subtitle_en": "Norwegian pot stew with meat and vegetables"
+    },
+    {
+      "day": "Wednesday",
+      "recipe_id": "no_008",
+      "title": {
+        "no": "Skilpaddesuppe",
+        "en": "Turtle Soup (Beef & Vegetable)"
+      },
+      "title_no": "Skilpaddesuppe",
+      "title_en": "Turtle Soup (Beef & Vegetable)",
+      "time_minutes": 90,
+      "difficulty": "medium",
+      "protein": "beef",
+      "subtitle_no": "Norsk spesialsuppe med okse og grønnsaker",
+      "subtitle_en": "Norwegian specialty soup with beef and vegetables"
+    },
+    {
+      "day": "Thursday",
+      "recipe_id": "no_010",
+      "title": {
+        "no": "Lutefisk",
+        "en": "Lye-Cured Fish"
+      },
+      "title_no": "Lutefisk",
+      "title_en": "Lye-Cured Fish",
+      "time_minutes": 60,
+      "difficulty": "medium",
+      "protein": "fish",
+      "subtitle_no": "Klassisk norsk juléérett",
+      "subtitle_en": "Classic Norwegian Christmas dish"
+    },
+    {
+      "day": "Friday",
+      "recipe_id": "no_007",
+      "title": {
+        "no": "Kålsuppe",
+        "en": "Cabbage Soup"
+      },
+      "title_no": "Kålsuppe",
+      "title_en": "Cabbage Soup",
+      "time_minutes": 45,
+      "difficulty": "easy",
+      "protein": "other",
+      "subtitle_no": "Varmende norsk suppe med kål og kjøtt",
+      "subtitle_en": "Warming Norwegian soup with cabbage and meat"
+    },
+    {
+      "day": "Saturday",
+      "recipe_id": "no_001",
+      "title": {
+        "no": "Fårikål",
+        "en": "Lamb and Cabbage Stew"
+      },
+      "title_no": "Fårikål",
+      "title_en": "Lamb and Cabbage Stew",
+      "time_minutes": 90,
+      "difficulty": "easy",
+      "protein": "lamb",
+      "subtitle_no": "Klassisk norsk kjøttstuing med kål og løk",
+      "subtitle_en": "Classic Norwegian meat stew with cabbage and onion"
+    }
+  ],
+  "shopping_list": {
+    "Proteins": [],
+    "Vegetables": [],
+    "Dairy": [],
+    "Pantry": [],
+    "Herbs & Spices": [],
+    "Other": []
+  }
+}
