@@ -220,7 +220,18 @@ def sync_todoist(items_by_category: dict, api_token: str, project_name: str = "P
             resp.raise_for_status()
             project_id = resp.json()["id"]
 
-        # Add tasks
+        # Clear existing tasks in the project
+        resp = requests.get(f"{base_url}/tasks", headers=headers, params={"project_id": project_id}, timeout=10)
+        if resp.status_code == 200:
+            tasks = resp.json()
+            if isinstance(tasks, list):
+                for task in tasks:
+                    try:
+                        requests.delete(f"{base_url}/tasks/{task['id']}", headers=headers, timeout=10)
+                    except Exception as e:
+                        logger.warning(f"Failed to delete old task: {e}")
+
+        # Add new tasks
         added = 0
         errors = []
         for category, items in items_by_category.items():
