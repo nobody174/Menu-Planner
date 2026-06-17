@@ -539,52 +539,6 @@ def get_categories():
             logger.error(f"Error loading categories: {e}")
     return jsonify(categories)
 
-@app.route('/api/sync-shopping-list', methods=['POST'])
-def api_sync_shopping_list():
-    """Sync selected shopping items to Microsoft To Do using the stored refresh token."""
-    try:
-        from auth import get_access_token, sync_shopping_list_to_todo
-
-        # Try cached token first, fall back to session token (set during /callback)
-        token = get_access_token() or session.get('access_token')
-
-        if not token:
-            return jsonify({
-                'status': 'error',
-                'message': 'Pi-Menu is not connected to Microsoft To Do yet. Please sign in once via /login.',
-                'requiresAuth': True,
-                'loginUrl': '/login',
-            }), 401
-
-        data = request.get_json() or {}
-        full_shopping_list = data.get('shopping_list', {})
-        selected_items = data.get('items', [])
-
-        if not selected_items:
-            return jsonify({'status': 'error', 'message': 'No items selected'}), 400
-
-        selected_set = {
-            f"{item['ingredient']}-{item['quantity']}-{item['unit']}"
-            for item in selected_items
-        }
-        filtered = {}
-        for category, items in full_shopping_list.items():
-            kept = [i for i in items if f"{i['ingredient']}-{i['quantity']}-{i['unit']}" in selected_set]
-            if kept:
-                filtered[category] = kept
-
-        result = sync_shopping_list_to_todo(token, filtered)
-
-        logger.info(f"Synced {result['added']} items to To Do, errors: {result['errors']}")
-        msg = f"Sent {result['added']} items to To Do ✓"
-        if result['errors']:
-            msg += f" ({len(result['errors'])} errors)"
-        return jsonify({'status': 'success', 'message': msg})
-
-    except Exception as e:
-        logger.error(f"Sync error: {e}")
-        return jsonify({'status': 'error', 'message': str(e)}), 500
-
 @app.route('/api/export-shopping-list', methods=['POST'])
 def api_export_shopping_list():
     """Export shopping list in various formats."""
@@ -651,7 +605,7 @@ def api_export_shopping_list():
         return jsonify({'success': False, 'error': str(e)}), 500
 
 @app.route('/api/sync-shopping-list', methods=['POST'])
-def api_sync_shopping_list_all():
+def api_sync_shopping_list():
     """Universal shopping list sync endpoint for all services."""
     try:
         from shopping_integrations import (
