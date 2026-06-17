@@ -27,7 +27,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-DATA_DIR = Path('data')
+DATA_DIR = Path(__file__).parent.parent / 'data'
 RECIPES_DB_FILE = DATA_DIR / 'sample_recipes.json'
 RECIPES_IMPORTED_FILE = DATA_DIR / 'recipes_db.json'
 CATEGORIES_FILE = DATA_DIR / 'categories.json'

@@ -43,5 +43,14 @@
     "description_en": "Other recipes",
     "icon": "🍽️",
     "color": "#999999"
+  },
+  {
+    "code": "popular_norwegian_recipes",
+    "name_no": "Popular Norwegian Recipes",
+    "name_en": "Popular Norwegian Recipes",
+    "description_no": "Popular Norwegian Recipes",
+    "description_en": "Popular Norwegian Recipes",
+    "icon": "🌅",
+    "color": "#BA0C2F"
   }
 ]

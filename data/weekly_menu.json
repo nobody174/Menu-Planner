@@ -1,108 +1,272 @@
 {
   "week_start": "2026-06-22",
   "week_end": "2026-06-27",
-  "generated_at": "2026-06-17T14:38:44.101447",
+  "generated_at": "2026-06-17T19:36:02.612353",
   "selected_categories": [
-    "Popular Norwegian Recipes"
+    "Quick Dinners",
+    "Fish & Seafood",
+    "Vegetarian"
   ],
   "dinners": [
     {
       "day": "Monday",
-      "recipe_id": "no_009",
-      "title": {
-        "no": "Klippfisk",
-        "en": "Salted Dried Fish"
-      },
-      "title_no": "Klippfisk",
-      "title_en": "Salted Dried Fish",
-      "time_minutes": 120,
-      "difficulty": "medium",
-      "protein": "fish",
-      "subtitle_no": "Tradisjonell norsk fiskérett",
-      "subtitle_en": "Traditional Norwegian salted fish dish"
+      "recipe_id": "sample_004",
+      "title": "Chicken Tacos with Fresh Toppings",
+      "title_no": "Kyllingtaco med Friske Toppinger",
+      "title_en": "Chicken Tacos with Fresh Toppings",
+      "time_minutes": 25,
+      "difficulty": "Easy",
+      "protein": "chicken",
+      "subtitle_no": "",
+      "subtitle_en": ""
     },
     {
       "day": "Tuesday",
-      "recipe_id": "no_004",
-      "title": {
-        "no": "Lapskaus",
-        "en": "Meat and Vegetable Stew"
-      },
-      "title_no": "Lapskaus",
-      "title_en": "Meat and Vegetable Stew",
-      "time_minutes": 60,
-      "difficulty": "easy",
-      "protein": "other",
-      "subtitle_no": "Norsk grytérett med kjøtt og grønnsaker",
-      "subtitle_en": "Norwegian pot stew with meat and vegetables"
+      "recipe_id": "sample_010",
+      "title": "Fish Cakes with Remoulade",
+      "title_no": "Fiskekaker med Remoulade",
+      "title_en": "Fish Cakes with Remoulade",
+      "time_minutes": 45,
+      "difficulty": "Medium",
+      "protein": "fish",
+      "subtitle_no": "",
+      "subtitle_en": ""
     },
     {
       "day": "Wednesday",
-      "recipe_id": "no_008",
-      "title": {
-        "no": "Skilpaddesuppe",
-        "en": "Turtle Soup (Beef & Vegetable)"
-      },
-      "title_no": "Skilpaddesuppe",
-      "title_en": "Turtle Soup (Beef & Vegetable)",
-      "time_minutes": 90,
-      "difficulty": "medium",
-      "protein": "beef",
-      "subtitle_no": "Norsk spesialsuppe med okse og grønnsaker",
-      "subtitle_en": "Norwegian specialty soup with beef and vegetables"
+      "recipe_id": "sample_008",
+      "title": "Pork Tenderloin with Mushrooms",
+      "title_no": "Grisekjøtt Tenderloin med Sopp",
+      "title_en": "Pork Tenderloin with Mushrooms",
+      "time_minutes": 40,
+      "difficulty": "Medium",
+      "protein": "pork",
+      "subtitle_no": "",
+      "subtitle_en": ""
     },
     {
       "day": "Thursday",
-      "recipe_id": "no_010",
-      "title": {
-        "no": "Lutefisk",
-        "en": "Lye-Cured Fish"
-      },
-      "title_no": "Lutefisk",
-      "title_en": "Lye-Cured Fish",
-      "time_minutes": 60,
-      "difficulty": "medium",
-      "protein": "fish",
-      "subtitle_no": "Klassisk norsk juléérett",
-      "subtitle_en": "Classic Norwegian Christmas dish"
+      "recipe_id": "sample_007",
+      "title": "Chickpea Curry with Rice",
+      "title_no": "Kikertatekurry med Ris",
+      "title_en": "Chickpea Curry with Rice",
+      "time_minutes": 35,
+      "difficulty": "Medium",
+      "protein": "other",
+      "subtitle_no": "",
+      "subtitle_en": ""
     },
     {
       "day": "Friday",
-      "recipe_id": "no_007",
-      "title": {
-        "no": "Kålsuppe",
-        "en": "Cabbage Soup"
-      },
-      "title_no": "Kålsuppe",
-      "title_en": "Cabbage Soup",
-      "time_minutes": 45,
-      "difficulty": "easy",
-      "protein": "other",
-      "subtitle_no": "Varmende norsk suppe med kål og kjøtt",
-      "subtitle_en": "Warming Norwegian soup with cabbage and meat"
+      "recipe_id": "sample_002",
+      "title": "Grilled Salmon with Asparagus",
+      "title_no": "Grillet Laks med Aspargess",
+      "title_en": "Grilled Salmon with Asparagus",
+      "time_minutes": 25,
+      "difficulty": "Easy",
+      "protein": "fish",
+      "subtitle_no": "",
+      "subtitle_en": ""
     },
     {
       "day": "Saturday",
-      "recipe_id": "no_001",
-      "title": {
-        "no": "Fårikål",
-        "en": "Lamb and Cabbage Stew"
-      },
-      "title_no": "Fårikål",
-      "title_en": "Lamb and Cabbage Stew",
-      "time_minutes": 90,
-      "difficulty": "easy",
-      "protein": "lamb",
-      "subtitle_no": "Klassisk norsk kjøttstuing med kål og løk",
-      "subtitle_en": "Classic Norwegian meat stew with cabbage and onion"
+      "recipe_id": "sample_003",
+      "title": "Green Vegetable Stir-fry with Chicken",
+      "title_no": "Grønn Wok med Kylling",
+      "title_en": "Green Vegetable Stir-fry with Chicken",
+      "time_minutes": 20,
+      "difficulty": "Easy",
+      "protein": "chicken",
+      "subtitle_no": "",
+      "subtitle_en": ""
     }
   ],
   "shopping_list": {
-    "Proteins": [],
-    "Vegetables": [],
-    "Dairy": [],
-    "Pantry": [],
-    "Herbs & Spices": [],
-    "Other": []
+    "Proteins": [
+      {
+        "ingredient": "Chicken Breast",
+        "quantity": 800,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Egg",
+        "quantity": 1,
+        "unit": "stk",
+        "allergens": []
+      },
+      {
+        "ingredient": "Pork Tenderloin",
+        "quantity": 800,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Salmon Fillet",
+        "quantity": 400,
+        "unit": "g",
+        "allergens": []
+      }
+    ],
+    "Vegetables": [
+      {
+        "ingredient": "Broccoli",
+        "quantity": 200,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Chickpeas",
+        "quantity": 400,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Iceberg Lettuce",
+        "quantity": 100,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Mushrooms",
+        "quantity": 300,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Onion",
+        "quantity": 2,
+        "unit": "stk",
+        "allergens": []
+      },
+      {
+        "ingredient": "Potatoes",
+        "quantity": 300,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Tomato",
+        "quantity": 400,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Zucchini",
+        "quantity": 150,
+        "unit": "g",
+        "allergens": []
+      }
+    ],
+    "Dairy": [
+      {
+        "ingredient": "Cheese",
+        "quantity": 100,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Coconut Milk",
+        "quantity": 400,
+        "unit": "ml",
+        "allergens": []
+      },
+      {
+        "ingredient": "Heavy Cream",
+        "quantity": 200,
+        "unit": "ml",
+        "allergens": []
+      },
+      {
+        "ingredient": "Milk",
+        "quantity": 100,
+        "unit": "ml",
+        "allergens": []
+      }
+    ],
+    "Pantry": [
+      {
+        "ingredient": "Flour",
+        "quantity": 30,
+        "unit": "tbsp",
+        "allergens": []
+      },
+      {
+        "ingredient": "Rice",
+        "quantity": 250,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Tortillas",
+        "quantity": 8,
+        "unit": "stk",
+        "allergens": []
+      }
+    ],
+    "Herbs & Spices": [
+      {
+        "ingredient": "Curry Powder",
+        "quantity": 30,
+        "unit": "tbsp",
+        "allergens": []
+      },
+      {
+        "ingredient": "Parsley",
+        "quantity": 15,
+        "unit": "tbsp",
+        "allergens": []
+      }
+    ],
+    "Other": [
+      {
+        "ingredient": "Asparagus",
+        "quantity": 300,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Garlic",
+        "quantity": 3,
+        "unit": "fedd",
+        "allergens": []
+      },
+      {
+        "ingredient": "Ginger",
+        "quantity": 15,
+        "unit": "tbsp",
+        "allergens": []
+      },
+      {
+        "ingredient": "Guacamole",
+        "quantity": 150,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Lemon",
+        "quantity": 1,
+        "unit": "stk",
+        "allergens": []
+      },
+      {
+        "ingredient": "Olive Oil",
+        "quantity": 30,
+        "unit": "ml",
+        "allergens": []
+      },
+      {
+        "ingredient": "Saithe Or Haddock",
+        "quantity": 600,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Soy Sauce",
+        "quantity": 30,
+        "unit": "ml",
+        "allergens": []
+      }
+    ]
   }
 }

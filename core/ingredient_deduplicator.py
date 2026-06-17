@@ -27,8 +27,8 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-DATA_DIR = Path('data')
-PANTRY_FILE = Path('pantry_staples.json')
+DATA_DIR = Path(__file__).parent.parent / 'data'
+PANTRY_FILE = DATA_DIR / 'pantry_staples.json'
 
 UNIT_CONVERSIONS = {
     'g': {'to_base': 1, 'base': 'g'},
@@ -242,13 +242,36 @@ class IngredientDeduplicator:
 
         return categorized
 
+    def _normalize_ingredients(self, ingredients: List[Dict]) -> List[Dict]:
+        """Convert recipe pack format to standard format."""
+        normalized = []
+        for ing in ingredients:
+            if not ing:
+                continue
+            name = ing.get('name', '')
+            if isinstance(name, dict):
+                name = name.get('en') or name.get('no') or ''
+            unit = ing.get('unit', '')
+            if isinstance(unit, dict):
+                unit = unit.get('en') or unit.get('no') or ''
+            normalized.append({
+                'name': name,
+                'quantity': ing.get('amount', 0),
+                'unit': unit,
+                'category': ing.get('category', 'Other')
+            })
+        return normalized
+
     def deduplicate_from_recipes(self, recipe_ids: List[str]) -> Dict:
         all_ingredients = []
 
         for recipe_id in recipe_ids:
             recipe = next((r for r in self.recipes_db if r['id'] == recipe_id), None)
             if recipe:
-                all_ingredients.extend(recipe.get('ingredients_included', []))
+                ingredients = recipe.get('ingredients_included', [])
+                if not ingredients:
+                    ingredients = self._normalize_ingredients(recipe.get('ingredients', []))
+                all_ingredients.extend(ingredients)
 
         deduplicated = self.deduplicate_ingredients(all_ingredients)
         categorized = self.categorize_ingredients(deduplicated)
