@@ -39,7 +39,7 @@ class MenuScheduler:
 
         self.email_username = os.getenv('EMAIL_USERNAME', '')
         self.email_password = os.getenv('EMAIL_PASSWORD', '')
-        self.email_recipient = os.getenv('EMAIL_RECIPIENT', 'vartdal@gmail.com')
+        self.email_recipient = os.getenv('EMAIL_RECIPIENT', 'your-email@gmail.com')
 
     def generate_menu(self):
         try:

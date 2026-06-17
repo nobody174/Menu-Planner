@@ -75,8 +75,8 @@ class EmailNotifier:
                 <pre>{shopping_text}</pre>
 
                 <p>
-                    <a href="http://10.0.0.54:5000">Se all oppskrifter her</a> |
-                    <a href="http://10.0.0.54:5000/shopping">Se handleliste</a>
+                    <a href="http://localhost:5000">Se all oppskrifter her</a> |
+                    <a href="http://localhost:5000/shopping">Se handleliste</a>
                 </p>
 
                 <p>Handlelisten er også oppdatert i Microsoft To Do appen din.</p>
@@ -152,7 +152,7 @@ def test_email(sender_email: str, sender_password: str, recipient_email: str):
 if __name__ == '__main__':
     sender_email = os.getenv('EMAIL_USERNAME', 'your-email@gmail.com')
     sender_password = os.getenv('EMAIL_PASSWORD', 'your-app-password')
-    recipient_email = os.getenv('EMAIL_RECIPIENT', 'vartdal@gmail.com')
+    recipient_email = os.getenv('EMAIL_RECIPIENT', 'your-email@gmail.com')
 
     logger.info("Testing email notifier")
     test_email(sender_email, sender_password, recipient_email)

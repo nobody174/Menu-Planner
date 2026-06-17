@@ -56,6 +56,7 @@ logs/
 
 # Data files
 data/recipes_cache/
+data/token_cache.json
 *.db
 *.sqlite
 
