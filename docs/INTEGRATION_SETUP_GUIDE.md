@@ -98,27 +98,30 @@ You're now on the app overview page. **Copy these 3 values** (you'll need them):
 4. Save the file
 5. **Restart Flask**
 
-#### Step 5: Sign In
+#### Step 5: First-Time Authorization
+
+**Important:** The first time you use Microsoft To Do, you need to authorize Pi-Menu:
+
+1. **Go to:** `http://localhost:5001/login` (or your Pi's address)
+2. **Sign in** with your Microsoft account
+3. **Grant permissions** when prompted
+4. **You'll be redirected back** - authorization is complete!
+
+This only needs to be done once. Pi-Menu caches your token locally.
+
+#### Step 6: Use It!
 
 1. **Open Pi-Menu** in your browser
 2. **Go to Shopping List** page
 3. Click **"📤 Export & Sync"** button
-4. Click **"🔵 Microsoft To Do"** (first time)
-5. **You'll be redirected to Microsoft login**
-   ![Microsoft Sign In](screenshots/microsoft-todo/06-signin.png)
-6. **Sign in** with your Microsoft account
-7. **Grant permissions** when prompted
-   ![Grant Permissions](screenshots/microsoft-todo/07-permissions.png)
-8. **Done!** You'll be redirected back to Pi-Menu
-   ![Success](screenshots/microsoft-todo/08-success.png)
+4. Click **"🔵 Microsoft To Do"**
+5. **Items sync automatically!** 🎉
 
-#### Step 6: Test It
+#### Step 7: Verify It Works
 
-1. Go back to shopping list
-2. Uncheck a few items (the ones you want to sync)
-3. Click "📤 Export & Sync" → "🔵 Microsoft To Do"
-4. Items should sync!
-5. Check at **https://to-do.office.com/tasks/** - your items are in the "Pi-Menu Handleliste" list
+1. Go to **https://to-do.office.com/tasks/**
+2. Look for a list called **"Pi-Menu Handleliste"**
+3. You should see your synced items there! ✅
 
 ### 🔄 Sync Again Later
 
