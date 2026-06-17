@@ -609,8 +609,7 @@ def api_sync_shopping_list():
     """Universal shopping list sync endpoint for all services."""
     try:
         from shopping_integrations import (
-            sync_todoist, sync_ticktick, sync_anydo,
-            sync_trello, sync_notion, sync_google_keep_via_email
+            sync_todoist, sync_ticktick
         )
         from auth import get_access_token, sync_shopping_list_to_todo
 
@@ -690,73 +689,6 @@ def api_sync_shopping_list():
                 })
             else:
                 return jsonify({'success': False, 'error': result.get('error'), 'requires_config': True, 'message': 'TickTick sync failed. Verify your API token is correct.'}), 500
-
-        elif service == 'anydo':
-            api_token = os.getenv('ANYDO_API_TOKEN') or ''
-            if not api_token:
-                return jsonify({
-                    'success': False,
-                    'requires_config': True,
-                    'message': 'Any.do API token not configured. Get it from: https://www.any.do/en/settings/account'
-                }), 401
-            result = sync_anydo(filtered, api_token)
-            if result.get('success'):
-                return jsonify({
-                    'success': True,
-                    'message': f"Synced {result.get('added', 0)} items to Any.do ✓"
-                })
-            else:
-                return jsonify({'success': False, 'error': result.get('error'), 'requires_config': True, 'message': 'Any.do sync failed. Verify your API token is correct.'}), 500
-
-        elif service == 'trello':
-            api_key = os.getenv('TRELLO_API_KEY') or ''
-            api_token = os.getenv('TRELLO_API_TOKEN') or ''
-            if not (api_key and api_token):
-                return jsonify({
-                    'success': False,
-                    'requires_config': True,
-                    'message': 'Trello credentials not configured. Get from: https://trello.com/app-key'
-                }), 401
-            result = sync_trello(filtered, api_key, api_token)
-            if result.get('success'):
-                return jsonify({
-                    'success': True,
-                    'message': f"Synced {result.get('added', 0)} items to Trello ✓"
-                })
-            else:
-                return jsonify({'success': False, 'error': result.get('error'), 'requires_config': True, 'message': 'Trello sync failed. Verify your API key and token are correct.'}), 500
-
-        elif service == 'notion':
-            api_token = os.getenv('NOTION_API_TOKEN') or ''
-            database_id = os.getenv('NOTION_DATABASE_ID') or ''
-            if not (api_token and database_id):
-                return jsonify({
-                    'success': False,
-                    'requires_config': True,
-                    'message': 'Notion credentials not configured. Create integration: https://www.notion.so/my-integrations'
-                }), 401
-            result = sync_notion(filtered, api_token, database_id)
-            if result.get('success'):
-                return jsonify({
-                    'success': True,
-                    'message': f"Synced {result.get('added', 0)} items to Notion ✓"
-                })
-            else:
-                return jsonify({'success': False, 'error': result.get('error'), 'requires_config': True, 'message': 'Notion sync failed. Verify your API token and database ID are correct, and that you shared the database with your integration.'}), 500
-
-        elif service == 'keep':
-            email = os.getenv('GOOGLE_KEEP_EMAIL') or ''
-            if not email:
-                return jsonify({
-                    'success': False,
-                    'requires_config': True,
-                    'message': 'Google Keep email not configured. Read docs/INTEGRATION_SETUP_GUIDE.md section "Google Keep" and add GOOGLE_KEEP_EMAIL to your .env file.'
-                }), 401
-            # For now, just return success as email sync requires SMTP setup
-            return jsonify({
-                'success': True,
-                'message': f"Shopping list export ready. Email to: {email}"
-            })
 
         elif service == 'reminders':
             # Return ICS file for Apple Reminders as direct download

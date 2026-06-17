@@ -1,155 +1,41 @@
 # Pi-Menu Shopping List Integration Setup Guide
 
-Complete step-by-step instructions for connecting your shopping list to various task managers and note-taking apps.
+Complete step-by-step instructions for syncing your shopping list to various task managers and export formats.
 
 ---
 
 ## 📋 Table of Contents
 
-1. [Microsoft To Do](#microsoft-to-do) - Built-in, no setup needed
+1. [Export Formats](#export-formats) - CSV, JSON, Text, ICS
 2. [Todoist](#todoist) - Popular task manager
 3. [TickTick](#ticktick) - Powerful task management
-4. [Any.do](#anydo) - Simple task organizer
-5. [Trello](#trello) - Visual board management
-6. [Notion](#notion) - All-in-one workspace
-7. [Google Keep](#google-keep) - Quick notes
-8. [Apple Reminders](#apple-reminders) - Native iOS/macOS
+4. [Apple Reminders](#apple-reminders) - Native iOS/macOS
 
 ---
 
-## Microsoft To Do
+## Export Formats
 
-### ✅ What You Need
-- A Microsoft account (Outlook, Live, or work account)
-- Azure App Registration (one-time setup, 10 minutes)
+### 💾 Available Formats
 
-### 🔗 Helpful Links
-- **Sign up for Microsoft account:** https://account.microsoft.com/account
-- **Azure Portal:** https://portal.azure.com
-- **Microsoft To Do app:** https://to-do.office.com/tasks/
-- **Check your synced items:** https://to-do.office.com/tasks/
+All of these can be downloaded directly from the "Export & Sync" menu:
 
-### ⚙️ Important Concept
+- **CSV** - Spreadsheet format (Excel, Google Sheets)
+- **JSON** - Data format for integration with other tools
+- **Text** - Plain text format (easy to read and share)
+- **ICS** - Calendar format (Apple Calendar, Google Calendar, etc.)
+- **Clipboard** - Copy directly to paste anywhere
 
-**Microsoft To Do is part of Microsoft 365.** You don't need a separate "To Do account" - your Microsoft account IS your To Do account. But to let Pi-Menu access your To Do, you need to:
+### 📝 How to Use
 
-1. Register an **Azure App** (tells Microsoft it's okay)
-2. Get credentials from Azure (CLIENT_ID, TENANT_ID, CLIENT_SECRET)
-3. Add them to your `.env` file
-4. Sign in once - that's it!
-
-### 📝 Step-by-Step Setup
-
-#### Step 1: Register an Azure App
-
-1. Go to **https://portal.azure.com**
-2. **Sign in** with your Microsoft account
-3. **Search for "App registrations"** in the top search bar
-4. Click **"New registration"**
-5. Fill in the form:
-   - **Name:** `Pi-Menu`
-   - **Supported account types:** Select "Accounts in any organizational directory and personal Microsoft accounts"
-6. Click **"Register"**
-   ![App Registration](screenshots/microsoft-todo/01-app-registration.png)
-
-#### Step 2: Copy Your Credentials
-
-You're now on the app overview page. **Copy these 3 values** (you'll need them):
-
-1. **Application (client) ID** - Copy this
-   ![Client ID](screenshots/microsoft-todo/02-client-id.png)
-2. **Directory (tenant) ID** - Copy this
-   ![Tenant ID](screenshots/microsoft-todo/03-tenant-id.png)
-3. **Client Secret** (need to create it):
-   - Click **"Certificates & secrets"** on the left menu
-   - Click **"New client secret"**
-   - Give it a description: `Pi-Menu`
-   - Click **"Add"**
-   - **Copy the secret value immediately** (it only shows once!)
-   ![Client Secret](screenshots/microsoft-todo/04-client-secret.png)
-
-#### Step 3: Add Redirect URL
-
-1. Click **"Authentication"** on the left menu
-2. Click **"Add a platform"** → select **"Web"**
-3. Add this Redirect URI:
-   ```
-   http://localhost:5000/callback
-   ```
-4. Click **"Configure"**
-   ![Redirect URI](screenshots/microsoft-todo/05-redirect-uri.png)
-
-#### Step 4: Add Credentials to Pi-Menu
-
-1. Find your `.env` file (in the Pi-Menu main folder)
-   - If you don't have one, copy `.env.template` and rename to `.env`
-2. Find these lines:
-   ```
-   AZURE_CLIENT_ID=
-   AZURE_CLIENT_SECRET=
-   AZURE_TENANT_ID=
-   ```
-3. Paste your values:
-   ```
-   AZURE_CLIENT_ID=abc123def456...
-   AZURE_CLIENT_SECRET=xyzABC123def456...
-   AZURE_TENANT_ID=def456ghi789...
-   ```
-4. Save the file
-5. **Restart Flask**
-
-#### Step 5: First-Time Authorization
-
-**Important:** The first time you use Microsoft To Do, you need to authorize Pi-Menu:
-
-1. **Go to:** `http://localhost:5001/login` (or your Pi's address)
-2. **Sign in** with your Microsoft account
-3. **Grant permissions** when prompted
-4. **You'll be redirected back** - authorization is complete!
-
-This only needs to be done once. Pi-Menu caches your token locally.
-
-#### Step 6: Use It!
-
-1. **Open Pi-Menu** in your browser
-2. **Go to Shopping List** page
+1. Go to Pi-Menu **Shopping List** page
+2. **Uncheck items** you want to export (checked items are ignored)
 3. Click **"📤 Export & Sync"** button
-4. Click **"🔵 Microsoft To Do"**
-5. **Items sync automatically!** 🎉
+4. Select your desired format
+5. File downloads or text is copied to clipboard
 
-#### Step 7: Verify It Works
+### ✅ All Formats Fully Supported
 
-1. Go to **https://to-do.office.com/tasks/**
-2. Look for a list called **"Pi-Menu Handleliste"**
-3. You should see your synced items there! ✅
-
-### 🔄 Sync Again Later
-
-- Just click the "🔵 Microsoft To Do" button again
-- No additional login needed
-- Your credentials are cached locally
-
-### ⚙️ How It Works
-- Items are added to a list called "Pi-Menu Handleliste"
-- Each shopping category becomes a group of tasks
-- Emoji icons help identify ingredient types
-- Changes sync automatically when you click the button
-
-### 🔄 Sync Again Later
-- Just click the "🔵 Microsoft To Do" button again
-- No additional setup needed
-- Your token is saved locally
-
-### ❓ Troubleshooting
-| Problem | Solution |
-|---------|----------|
-| "Configuration needed" error | Check that AZURE_CLIENT_ID, AZURE_CLIENT_SECRET, and AZURE_TENANT_ID are filled in `.env`, then restart Flask |
-| "Not signed in" message | Click "🔵 Microsoft To Do" button → you'll be redirected to sign in |
-| Items not appearing | Check https://to-do.office.com/tasks/ to see if items are there |
-| Old items still there | They're marked complete, not deleted - you can delete them in To Do |
-| Can't find credentials in Azure | Double-check you copied from the correct page - you need Overview page (IDs) and Certificates & secrets page (secret) |
-| Redirect URI error | Make sure you added `http://localhost:5000/callback` to Authentication → Redirect URIs |
-| Token expired | Generate a new Client Secret in Azure, update `.env`, restart Flask |
+No setup needed - just select and download!
 
 ---
 
@@ -210,15 +96,15 @@ This only needs to be done once. Pi-Menu caches your token locally.
 
 ### 🔄 Sync Multiple Times
 - Just click the button again whenever you want to update
-- Items are added/updated, not deleted
+- Items are updated, not duplicated
 
 ### ❓ Troubleshooting
 | Problem | Solution |
 |---------|----------|
 | "Configuration needed" error | Check `.env` file has correct token, restart Flask |
 | Items not appearing in Todoist | Check the "Pi-Menu Shopping" project exists |
-| Token not working | Generate a new one at https://todoist.com/app/settings/integrations/developer |
-| Items appearing as duplicates | This is normal - click "Update" to merge them |
+| Token not working | Generate a new one at https://app.todoist.com/app/settings/integrations/developer |
+| 401 Unauthorized | Token is wrong or expired - get a new one |
 
 ---
 
@@ -272,9 +158,10 @@ This only needs to be done once. Pi-Menu caches your token locally.
 
 #### Step 4: Test It
 1. Go to Pi-Menu shopping list
-2. Click "📤 Export & Sync"
-3. Click "🎯 TickTick"
-4. Items appear in TickTick under "Pi-Menu Shopping" list
+2. Uncheck items you want to sync
+3. Click "📤 Export & Sync"
+4. Click "🎯 TickTick"
+5. Items appear in TickTick under "Pi-Menu Shopping" list
 
 ### 📱 View Your Items
 1. Open https://ticktick.com
@@ -284,276 +171,27 @@ This only needs to be done once. Pi-Menu caches your token locally.
 ### ❓ Troubleshooting
 | Problem | Solution |
 |---------|----------|
-| Can't find API token | Check Settings → Integrations section |
+| Can't find API token section | Check Settings → scroll to API Keys section |
 | "Configuration needed" error | Verify token is correct in `.env`, restart Flask |
 | Items not syncing | Try generating a new token |
-
----
-
-## Any.do
-
-### ✅ What You Need
-- An Any.do account (free plan works)
-- Your API token (3-minute setup)
-
-### 🔗 Helpful Links
-- **Sign up:** https://www.any.do/en/signup
-- **Get API token:** https://www.any.do/en/settings/account
-- **View your tasks:** https://www.any.do/en/lists
-
-### 📝 Step-by-Step Setup
-
-#### Step 1: Create Any.do Account
-1. Go to https://www.any.do/en/signup
-2. Click **"Sign up"**
-3. Enter email and password
-4. Verify your email
-
-#### Step 2: Get Your API Token
-1. Go to https://www.any.do/en/settings/account
-2. Look for **"Developer"** or **"API"** section
-3. **Generate** or **copy** your API token
-4. Save it securely
-
-#### Step 3: Add Token to Pi-Menu
-1. Open `.env` file (copy `.env.template` if needed)
-2. Find:
-   ```
-   ANYDO_API_TOKEN=
-   ```
-3. Add your token:
-   ```
-   ANYDO_API_TOKEN=your_token_here
-   ```
-4. Save and restart Flask
-
-#### Step 4: Test It
-1. Shopping list → "📤 Export & Sync"
-2. Click "✅ Any.do"
-3. Check https://www.any.do for "Pi-Menu Shopping" list
-
-### ❓ Troubleshooting
-| Problem | Solution |
-|---------|----------|
-| Can't find API section | Check account settings under "Developer" or "Integrations" |
-| Token doesn't work | Generate a new one |
-
----
-
-## Trello
-
-### ✅ What You Need
-- A Trello account (free plan works)
-- API Key + Token (5-minute setup)
-
-### 🔗 Helpful Links
-- **Sign up:** https://trello.com/signup
-- **Get API key & token:** https://trello.com/app-key
-- **View your boards:** https://trello.com/app/boards
-
-### 📝 Step-by-Step Setup
-
-#### Step 1: Create Trello Account
-1. Go to https://trello.com/signup
-2. Click **"Sign up"**
-3. Enter email and password
-4. Complete setup
-
-#### Step 2: Get API Key and Token
-1. Go to https://trello.com/app-key
-2. You'll see your **API Key** displayed at the top
-3. **Copy and save** the API Key
-4. On the same page, click **"Tokens"** link
-5. Click **"Create a token"**
-6. A token will be generated - **copy and save** it
-7. Keep both safe!
-
-#### Step 3: Add to Pi-Menu
-1. Open `.env` file (copy `.env.template` if needed)
-2. Find these lines:
-   ```
-   TRELLO_API_KEY=
-   TRELLO_API_TOKEN=
-   ```
-3. Add your credentials:
-   ```
-   TRELLO_API_KEY=abc123xyz...
-   TRELLO_API_TOKEN=def456uvw...
-   ```
-4. Save and restart Flask
-
-#### Step 4: Test It
-1. Shopping list → "📤 Export & Sync"
-2. Click "🔵 Trello"
-3. A new board **"Pi-Menu Shopping"** will be created automatically
-4. Check https://trello.com to see it
-
-### 📱 View Your Items
-1. Go to https://trello.com
-2. Find **"Pi-Menu Shopping"** board
-3. Each category is a separate list
-4. Items are cards you can drag around
-
-### ❓ Troubleshooting
-| Problem | Solution |
-|---------|----------|
-| Board not created | Check that both API key and token are correct |
-| Items appearing wrong | Make sure you copied both key AND token |
-| Can't find API section | Go to https://trello.com/app-key directly |
-
----
-
-## Notion
-
-### ✅ What You Need
-- A Notion account (free plan works)
-- Notion API Token (5-minute setup)
-- A Notion database (created automatically)
-
-### 🔗 Helpful Links
-- **Sign up:** https://notion.so/signup
-- **Create integration (Direct):** https://app.notion.com/developers/connections
-- **View your workspace:** https://notion.so
-
-### 📝 Step-by-Step Setup
-
-#### Step 1: Create Notion Account
-1. Go to https://notion.so/signup
-2. Click **"Sign up"**
-3. Enter email and create password
-4. Verify email and complete setup
-
-#### Step 2: Create Notion Integration (API Token)
-1. In Notion, click your **name in top left corner**
-2. Go to **"Settings"** → **"Connections"** → **"Manage"**
-3. Click **"All connections"**
-4. Find your database connection (e.g., "weekmenu-test")
-5. Click the **three dots (•••)** next to it → **"Manage connection"**
-6. Under **"Manage access token"**, click the **Copy button** next to "Access token"
-7. **Paste this token into your `.env` file** under `NOTION_API_TOKEN=`
-
-#### Step 3: Create a Database & Get Database ID
-1. In Notion, create a new page or open existing workspace
-2. Type `/database` and create a **table database**
-3. Add these columns (or use defaults):
-   - **Name** (text) - ingredient name
-   - **Category** (text or select) - ingredient category
-   - **Quantity** (text or number) - amount
-   - **Unit** (text) - g, ml, pieces, etc.
-4. Save the database
-5. Click **"Share"** button in top right → Add your **"Pi-Menu Shopping"** integration and **Connect**
-6. **Get Database ID from URL**: 
-   - When you open the database, look at the URL
-   - It looks like: `https://www.notion.so/a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6?v=...`
-   - The Database ID is the long alphanumeric string before the `?` (e.g., `a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6`)
-
-#### Step 4: Add to Pi-Menu
-1. Open `.env` file (copy `.env.template` if needed)
-2. Find:
-   ```
-   NOTION_API_TOKEN=
-   NOTION_DATABASE_ID=
-   ```
-3. Add your credentials:
-   ```
-   NOTION_API_TOKEN=secret_abc123xyz...
-   NOTION_DATABASE_ID=a1b2c3d4e5f6...
-   ```
-4. Save and restart Flask
-
-#### Step 5: Test It
-1. Shopping list → "📤 Export & Sync"
-2. Click "⚫ Notion"
-3. Items appear in your Notion database
-
-### 📱 View Your Items
-1. Go to https://notion.so
-2. Open your database
-3. All items appear as rows with automatic organization
-
-### ⚠️ Important
-- **Share your database with the integration** - it won't work without this!
-- Database ID is the long code in the URL when you open it
-
-### ❓ Troubleshooting
-| Problem | Solution |
-|---------|----------|
-| "Configuration needed" error | Check token and database ID are correct |
-| Items not appearing | Make sure you shared the database with your integration |
-| Database ID wrong | Copy it from the URL when viewing the database |
-| Integration not showing up | Refresh the page and try again |
-
----
-
-## Google Keep
-
-### ✅ What You Need
-- A Google account (Gmail)
-- Your Google Keep email address (2-minute setup)
-
-### 🔗 Helpful Links
-- **Gmail settings:** https://mail.google.com/mail/u/0/#settings
-- **Google Keep app:** https://keep.google.com
-- **Forwarding settings:** https://mail.google.com/mail/u/0/#settings/fwdandpop
-
-### 📝 Step-by-Step Setup
-
-#### Step 1: Find Your Keep Email
-1. Go to https://keep.google.com
-2. Click **"Settings"** (gear icon) → **"See all settings"**
-3. Go to **"Forwarding and POP/IMAP"** tab
-4. Look for your **"Forwarding address"** or go to **"Labels"**
-5. Alternative: Your Keep email is usually your email + "+keep" suffix
-   - Example: `john.smith+keep@gmail.com`
-6. **Copy and save** this email address
-
-#### Step 2: Add to Pi-Menu
-1. Open `.env` file (copy `.env.template` if needed)
-2. Find:
-   ```
-   GOOGLE_KEEP_EMAIL=
-   ```
-3. Add your Keep email:
-   ```
-   GOOGLE_KEEP_EMAIL=yourname+keep@gmail.com
-   ```
-4. Save and restart Flask
-
-#### Step 3: Test It
-1. Shopping list → "📤 Export & Sync"
-2. Click "🟨 Google Keep"
-3. Open Google Keep at https://keep.google.com
-4. Your shopping list appears as a new note
-
-### 📱 How It Works
-- Shopping list is sent as a text note to Google Keep
-- Keep automatically organizes it
-- You can edit, share, and access from any device
-- Voice notes and images can be added
-
-### ❓ Troubleshooting
-| Problem | Solution |
-|---------|----------|
-| Can't find Keep email | Try using `yourname+keep@gmail.com` format |
-| Note not appearing | Check that email is spelled correctly |
-| Already have notes | New note is created each time (you can merge them) |
-| SMTP error | Optional: Configure email settings for auto-send |
+| 404 Error | API token format incorrect - generate a new one |
 
 ---
 
 ## Apple Reminders
 
 ### ✅ What You Need
-- An Apple device (iPhone, iPad, Mac)
+- An Apple device (iPhone, iPad, Mac) - or just download the file
 - Nothing else! It's built-in.
 
 ### 🚀 Quick Start
 
 #### Step 1: Export as ICS
 1. Go to Pi-Menu shopping list
-2. Click "📤 Export & Sync"
-3. Click "📅 Apple Reminders (ICS)"
-4. File downloads to your computer
+2. Uncheck items you want to export
+3. Click "📤 Export & Sync"
+4. Click "🍎 Apple Reminders"
+5. File downloads to your computer
 
 #### Step 2: Open with Reminders
 1. **On Mac:** Double-click the `.ics` file → opens in Reminders
@@ -608,12 +246,8 @@ This only needs to be done once. Pi-Menu caches your token locally.
 - Commit `.env` file to git
 
 ### Token Rotation
-- **Todoist:** Can be regenerated anytime
-- **TickTick:** Can be regenerated anytime
-- **Any.do:** Can be regenerated anytime
-- **Trello:** Can create new tokens anytime
-- **Notion:** Can create new integrations anytime
-- **Microsoft:** Handled automatically
+- **Todoist:** Can be regenerated anytime at https://app.todoist.com/app/settings/integrations/developer
+- **TickTick:** Can be regenerated anytime from Settings → API Keys
 
 ---
 
@@ -631,7 +265,6 @@ This only needs to be done once. Pi-Menu caches your token locally.
 
 ## 📞 Support
 
-- For general questions: Check the main [SHOPPING_INTEGRATIONS.md](../SHOPPING_INTEGRATIONS.md)
 - For technical issues: Check the service's own support
 - For Pi-Menu bugs: Report on GitHub
 
