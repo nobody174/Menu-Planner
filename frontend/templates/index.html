@@ -37,6 +37,8 @@
                   🐑
                   {%- elif dinner.protein == 'vegetarian' -%}
                   🥗
+                  {%- elif dinner.protein == 'soup' -%}
+                  🍲
                   {%- else -%}
                   🍽️
                   {%- endif -%}
@@ -126,6 +128,8 @@
           <span class="tc-placeholder-icon">🐑</span>
           {%- elif dinner.protein == 'vegetarian' -%}
           <span class="tc-placeholder-icon">🥗</span>
+          {%- elif dinner.protein == 'soup' -%}
+          <span class="tc-placeholder-icon">🍲</span>
           {%- else -%}
           <span class="tc-placeholder-icon">🍽️</span>
           {%- endif -%}

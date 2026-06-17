@@ -320,8 +320,8 @@ a:hover {
 .menu-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--spacing-xl);
-  margin-bottom: var(--spacing-2xl);
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
 }
 
 /* ── Menu Card ── */
@@ -344,7 +344,7 @@ a:hover {
 .card-header {
   background: linear-gradient(135deg, var(--color-primary) 0%, #3d5a7f 100%);
   color: white;
-  padding: var(--spacing-lg) var(--spacing-xl);
+  padding: var(--spacing-md) var(--spacing-lg);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -357,14 +357,14 @@ a:hover {
 }
 
 .card-header-icon {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   opacity: 0.85;
   flex-shrink: 0;
 }
 
 .day-name {
   font-family: var(--font-primary);
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-lg);
   font-weight: var(--font-weight-bold);
   margin: 0;
   letter-spacing: 0.3px;
@@ -373,23 +373,23 @@ a:hover {
 
 .meal-time {
   background: rgba(255,255,255,0.22);
-  padding: var(--spacing-xs) var(--spacing-md);
+  padding: var(--spacing-xs) var(--spacing-sm);
   border-radius: var(--radius-md);
-  font-size: var(--font-size-sm);
+  font-size: 0.75rem;
   font-weight: var(--font-weight-semibold);
   white-space: nowrap;
 }
 
 .card-body {
-  padding: var(--spacing-xl);
+  padding: var(--spacing-lg);
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-md);
+  gap: var(--spacing-sm);
 }
 
 .recipe-title {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-base);
   font-weight: var(--font-weight-semibold);
   color: var(--color-text-primary);
   line-height: 1.5;
@@ -397,7 +397,7 @@ a:hover {
 }
 
 .difficulty {
-  font-size: var(--font-size-sm);
+  font-size: 0.72rem;
   color: var(--color-warning);
   margin: 0;
 }
@@ -405,9 +405,9 @@ a:hover {
 .protein-badge {
   align-self: flex-start;
   display: inline-block;
-  padding: var(--spacing-xs) var(--spacing-md);
+  padding: var(--spacing-xs) var(--spacing-sm);
   border-radius: 20px;
-  font-size: var(--font-size-sm);
+  font-size: 0.72rem;
   font-weight: var(--font-weight-semibold);
 }
 
@@ -420,7 +420,7 @@ a:hover {
 .protein-other      { background-color: #f3f4f6; color: #4b5563; }
 
 .card-footer {
-  padding: var(--spacing-lg) var(--spacing-xl);
+  padding: var(--spacing-md) var(--spacing-lg);
   border-top: 1px solid var(--color-border);
   background-color: var(--color-divider);
 }
@@ -431,10 +431,10 @@ a:hover {
   align-items: center;
   justify-content: center;
   gap: var(--spacing-sm);
-  padding: var(--spacing-md) var(--spacing-xl);
+  padding: var(--spacing-sm) var(--spacing-lg);
   border-radius: var(--radius-md);
   font-family: var(--font-body);
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
   border: none;
   cursor: pointer;
@@ -982,306 +982,9 @@ a:focus-visible {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   THEME: nordic-modern
-   Clean, spacious, Notion/Linear-inspired Scandinavian design
+   THEME-SPECIFIC OVERRIDES
+   (Bulk of theme-specific CSS moved to /previews/theme-*.css)
    ═══════════════════════════════════════════════════════════ */
-[data-theme="nordic-modern"] body {
-  font-family: 'Nunito', 'Inter', sans-serif;
-}
-[data-theme="nordic-modern"] .navbar {
-  background-color: var(--color-primary);
-  border-bottom: 1px solid var(--color-border);
-  box-shadow: none;
-}
-[data-theme="nordic-modern"] .nav-logo,
-[data-theme="nordic-modern"] .nav-link,
-[data-theme="nordic-modern"] .theme-toggle-btn {
-  color: white;
-}
-[data-theme="nordic-modern"] .hero {
-  background: linear-gradient(135deg, var(--color-primary) 0%, #1e3a5f 100%);
-  padding: 2rem 2rem;
-  border-radius: 12px;
-  text-align: left;
-}
-[data-theme="nordic-modern"] .hero h1 {
-  font-family: 'Nunito', sans-serif;
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: white;
-  margin-bottom: 4px;
-}
-[data-theme="nordic-modern"] .week-range,
-[data-theme="nordic-modern"] .categories-info {
-  color: rgba(255,255,255,0.8);
-  font-size: 0.9rem;
-}
-[data-theme="nordic-modern"] .menu-card {
-  border-radius: 20px;
-  box-shadow: 0 2px 8px rgba(15,23,42,0.06);
-  border: 1px solid var(--color-border);
-}
-[data-theme="nordic-modern"] .menu-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 32px rgba(15,23,42,0.12);
-}
-[data-theme="nordic-modern"] .card-header {
-  background: var(--color-primary);
-  border-radius: 20px 20px 0 0;
-}
-[data-theme="nordic-modern"] .day-name {
-  color: white;
-  font-family: 'Nunito', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 700;
-}
-[data-theme="nordic-modern"] .meal-time {
-  background: rgba(255,255,255,0.18);
-  font-size: 0.8rem;
-  color: white;
-}
-[data-theme="nordic-modern"] .recipe-title {
-  font-family: 'Nunito', sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
-  line-height: 1.5;
-}
-[data-theme="nordic-modern"] .difficulty {
-  font-size: 0.78rem;
-  color: var(--color-text-secondary);
-}
-[data-theme="nordic-modern"] .card-body {
-  padding: 20px;
-}
-[data-theme="nordic-modern"] .card-footer {
-  background: transparent;
-  border-top: 1px solid var(--color-border);
-  padding: 12px 20px;
-}
-[data-theme="nordic-modern"] .btn-primary {
-  background-color: var(--color-secondary);
-  border-radius: 10px;
-  font-family: 'Nunito', sans-serif;
-  font-weight: 600;
-  font-size: 0.88rem;
-}
-[data-theme="nordic-modern"] .btn-primary:hover {
-  background-color: #1e40af;
-}
-[data-theme="nordic-modern"] .category-chip {
-  border-radius: 20px;
-  font-size: 0.78rem;
-  padding: 4px 12px;
-}
-
-/* ═══════════════════════════════════════════════════════════
-   THEME: warm-terracotta
-   Terracotta & Sage — earthy, warm, appetizing
-   ═══════════════════════════════════════════════════════════ */
-[data-theme="warm-terracotta"] body {
-  font-family: 'Inter', sans-serif;
-  background-color: var(--color-background);
-  position: relative;
-}
-[data-theme="warm-terracotta"] body::before,
-[data-theme="warm-terracotta"] body::after {
-  content: '';
-  position: fixed;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.4;
-  filter: blur(100px);
-}
-[data-theme="warm-terracotta"] body::before {
-  width: 500px;
-  height: 500px;
-  background: #f5c5a3;
-  top: -100px;
-  right: -100px;
-}
-[data-theme="warm-terracotta"] body::after {
-  width: 400px;
-  height: 400px;
-  background: #b7d4ba;
-  bottom: -80px;
-  left: -80px;
-}
-/* navbar z-index handled globally above */
-[data-theme="warm-terracotta"] .navbar {
-  background-color: var(--color-primary);
-}
-[data-theme="warm-terracotta"] .nav-logo,
-[data-theme="warm-terracotta"] .nav-link,
-[data-theme="warm-terracotta"] .theme-toggle-btn {
-  color: white;
-}
-[data-theme="warm-terracotta"] .hero {
-  background: linear-gradient(135deg, var(--color-primary) 0%, #7a4030 100%);
-  border-radius: 16px;
-}
-[data-theme="warm-terracotta"] .hero h1 {
-  font-family: 'Playfair Display', serif;
-  color: white;
-  font-size: 2.4rem;
-  letter-spacing: -0.02em;
-}
-[data-theme="warm-terracotta"] .week-range,
-[data-theme="warm-terracotta"] .categories-info {
-  color: rgba(255,255,255,0.85);
-}
-[data-theme="warm-terracotta"] .menu-card {
-  border-radius: 16px;
-  border: 1px solid var(--color-border);
-  box-shadow: 0 4px 6px -1px rgba(30,27,24,0.05);
-  overflow: hidden;
-  transition: transform 0.35s ease-out, box-shadow 0.35s ease-out;
-}
-[data-theme="warm-terracotta"] .menu-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px -12px rgba(30,27,24,0.12);
-}
-[data-theme="warm-terracotta"] .card-header {
-  background: linear-gradient(135deg, var(--color-primary) 0%, #7a4030 100%);
-  border-radius: 0;
-}
-[data-theme="warm-terracotta"] .day-name {
-  color: white;
-  font-size: 1.1rem;
-  font-weight: 700;
-}
-[data-theme="warm-terracotta"] .meal-time {
-  background: var(--color-secondary);
-  color: white;
-  font-size: 0.78rem;
-  font-weight: 600;
-  padding: 4px 10px;
-  border-radius: 20px;
-}
-[data-theme="warm-terracotta"] .recipe-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.05rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  line-height: 1.5;
-}
-[data-theme="warm-terracotta"] .difficulty {
-  color: var(--color-secondary);
-  font-size: 0.78rem;
-  font-weight: 500;
-}
-[data-theme="warm-terracotta"] .card-body {
-  padding: 20px;
-}
-[data-theme="warm-terracotta"] .card-footer {
-  background: transparent;
-  border-top: 1px solid var(--color-border);
-  padding: 12px 20px;
-}
-[data-theme="warm-terracotta"] .btn-primary {
-  background-color: var(--color-secondary);
-  border-radius: 12px;
-  font-weight: 600;
-  font-size: 0.88rem;
-}
-[data-theme="warm-terracotta"] .btn-primary:hover {
-  background-color: #b45309;
-}
-@keyframes cardFadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-[data-theme="warm-terracotta"] .menu-card:nth-child(1) { animation: cardFadeUp 0.5s 0.00s both; }
-[data-theme="warm-terracotta"] .menu-card:nth-child(2) { animation: cardFadeUp 0.5s 0.08s both; }
-[data-theme="warm-terracotta"] .menu-card:nth-child(3) { animation: cardFadeUp 0.5s 0.16s both; }
-[data-theme="warm-terracotta"] .menu-card:nth-child(4) { animation: cardFadeUp 0.5s 0.24s both; }
-[data-theme="warm-terracotta"] .menu-card:nth-child(5) { animation: cardFadeUp 0.5s 0.32s both; }
-[data-theme="warm-terracotta"] .menu-card:nth-child(6) { animation: cardFadeUp 0.5s 0.40s both; }
-
-/* ═══════════════════════════════════════════════════════════
-   THEME: warm-modernist
-   Charcoal + Terracotta — rich, readable, home-cooked feel
-   ═══════════════════════════════════════════════════════════ */
-[data-theme="warm-modernist"] body {
-  font-family: 'Source Sans 3', 'Inter', sans-serif;
-  background-color: var(--color-background);
-}
-[data-theme="warm-modernist"] .navbar {
-  background-color: var(--color-primary);
-}
-[data-theme="warm-modernist"] .nav-logo,
-[data-theme="warm-modernist"] .nav-link,
-[data-theme="warm-modernist"] .theme-toggle-btn {
-  color: white;
-}
-[data-theme="warm-modernist"] .hero {
-  background: linear-gradient(135deg, var(--color-primary) 0%, #2d3748 100%);
-  border-radius: 12px;
-}
-[data-theme="warm-modernist"] .hero h1 {
-  font-family: 'Poppins', sans-serif;
-  color: white;
-  font-size: 2.5rem;
-  font-weight: 600;
-}
-[data-theme="warm-modernist"] .week-range,
-[data-theme="warm-modernist"] .categories-info {
-  color: rgba(255,255,255,0.85);
-}
-[data-theme="warm-modernist"] .menu-card {
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  border: none;
-}
-[data-theme="warm-modernist"] .menu-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.1);
-}
-[data-theme="warm-modernist"] .card-header {
-  background: linear-gradient(135deg, var(--color-primary) 0%, #2d3748 100%);
-  padding: 16px 24px;
-}
-[data-theme="warm-modernist"] .day-name {
-  color: white;
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.2rem;
-  font-weight: 600;
-}
-[data-theme="warm-modernist"] .meal-time {
-  background: rgba(255,255,255,0.2);
-  color: white;
-  font-size: 0.82rem;
-}
-[data-theme="warm-modernist"] .recipe-title {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.6;
-  color: var(--color-text-primary);
-}
-[data-theme="warm-modernist"] .difficulty {
-  font-size: 0.8rem;
-  color: #bf9005;
-  font-weight: 500;
-}
-[data-theme="warm-modernist"] .card-body {
-  padding: 24px;
-}
-[data-theme="warm-modernist"] .card-footer {
-  background: var(--color-divider);
-  border-top: 1px solid var(--color-border);
-  padding: 16px 24px;
-}
-[data-theme="warm-modernist"] .btn-primary {
-  background-color: var(--color-secondary);
-  border-radius: 8px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
-}
-[data-theme="warm-modernist"] .btn-primary:hover {
-  background-color: #8b3a2e;
-}
 
 /* ── Settings Menu (Cogwheel) ─────────────────────────────────────────────── */
 

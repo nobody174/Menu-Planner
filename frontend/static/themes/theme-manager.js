@@ -1,13 +1,13 @@
 // Themes that use the "rich" full-layout index (images, day-nav, summary bar)
 const RICH_LAYOUT_THEMES = new Set(['warm-terracotta']);
 
-// The 5 built-in themes whose CSS variables are driven entirely by theme-colors.js
-// (no separate CSS file is needed for these)
-const BUILTIN_THEMES = new Set(['warm-modern', 'default', 'nordic-modern', 'warm-terracotta', 'warm-modernist']);
+// The 1 built-in theme whose CSS variables are driven entirely by theme-colors.js
+// (no separate CSS file is needed for this)
+const BUILTIN_THEMES = new Set(['warm-modern']);
 
 class ThemeManager {
   constructor() {
-    this.currentTheme = localStorage.getItem('vartdal-theme') || 'warm-modern';
+    this.currentTheme = localStorage.getItem('pi-menu-theme') || 'warm-modern';
     this.applyTheme(this.currentTheme);
     this.setupEventListeners();
     this.markActiveTheme();
@@ -33,7 +33,7 @@ class ThemeManager {
       option.addEventListener('click', () => {
         const name = option.dataset.theme;
         this.applyTheme(name);
-        localStorage.setItem('vartdal-theme', name);
+        localStorage.setItem('pi-menu-theme', name);
         this.markActiveTheme();
         dropdown.classList.remove('open');
       });

@@ -1,78 +1,33 @@
 {
   "week_start": "2026-06-22",
   "week_end": "2026-06-27",
-  "generated_at": "2026-06-17T21:54:55.084693",
+  "generated_at": "2026-06-18T01:23:39.749530",
   "selected_categories": [
-    "Family",
+    "Popular Norwegian Recipes",
     "European Classics",
     "Nordic Classics",
     "Holiday Recipes",
-    "Popular Norwegian Recipes",
     "Summer Recipes"
   ],
   "dinners": [
     {
       "day": "Monday",
-      "recipe_id": "sum_006",
+      "recipe_id": "eu_011",
       "title": {
-        "no": "Grillet Oksekjøtt-Stav",
-        "en": "Grilled Beef Skewer"
+        "no": "Schnitzel",
+        "en": "Schnitzel"
       },
-      "title_no": "Grillet Oksekjøtt-Stav",
-      "title_en": "Grilled Beef Skewer",
-      "time_minutes": 30,
-      "difficulty": "medium",
-      "protein": "beef",
-      "subtitle_no": "Aromatisk og deilig grillet kjøtt",
-      "subtitle_en": "Aromatic and delicious grilled meat"
+      "title_no": "Schnitzel",
+      "title_en": "Schnitzel",
+      "time_minutes": 20,
+      "difficulty": "easy",
+      "protein": "other",
+      "subtitle_no": "Tysk og østeuropeisk flatslått kjøtt",
+      "subtitle_en": "German and Eastern European breaded meat",
+      "image_url": "/static/images/meal-vegetarian.jpg"
     },
     {
       "day": "Tuesday",
-      "recipe_id": "eu_012",
-      "title": {
-        "no": "Crème Brûlée",
-        "en": "Crème Brûlée"
-      },
-      "title_no": "Crème Brûlée",
-      "title_en": "Crème Brûlée",
-      "time_minutes": 90,
-      "difficulty": "medium",
-      "protein": "other",
-      "subtitle_no": "Fransk kullglassert fløte-dessert",
-      "subtitle_en": "French caramelized cream dessert"
-    },
-    {
-      "day": "Wednesday",
-      "recipe_id": "sum_003",
-      "title": {
-        "no": "Kylling-Salat med Mango",
-        "en": "Chicken Salad with Mango"
-      },
-      "title_no": "Kylling-Salat med Mango",
-      "title_en": "Chicken Salad with Mango",
-      "time_minutes": 30,
-      "difficulty": "easy",
-      "protein": "chicken",
-      "subtitle_no": "Frisk og tropisk sommersalat",
-      "subtitle_en": "Fresh and tropical summer salad"
-    },
-    {
-      "day": "Thursday",
-      "recipe_id": "hol_002",
-      "title": {
-        "no": "Juleglogg",
-        "en": "Christmas Mulled Wine"
-      },
-      "title_no": "Juleglogg",
-      "title_en": "Christmas Mulled Wine",
-      "time_minutes": 30,
-      "difficulty": "easy",
-      "protein": "other",
-      "subtitle_no": "Tradisjonell varm juldrink",
-      "subtitle_en": "Traditional warm Christmas drink"
-    },
-    {
-      "day": "Friday",
       "recipe_id": "sum_007",
       "title": {
         "no": "Grillet Kylling med Sitron",
@@ -84,38 +39,76 @@
       "difficulty": "easy",
       "protein": "chicken",
       "subtitle_no": "Lett og smakfull grillet kylling",
-      "subtitle_en": "Light and flavorful grilled chicken"
+      "subtitle_en": "Light and flavorful grilled chicken",
+      "image_url": "/static/images/meal-chicken.jpg"
+    },
+    {
+      "day": "Wednesday",
+      "recipe_id": "nd_004",
+      "title": {
+        "no": "Plokkfisk",
+        "en": "Plokkfisk"
+      },
+      "title_no": "Plokkfisk",
+      "title_en": "Plokkfisk",
+      "time_minutes": 45,
+      "difficulty": "easy",
+      "protein": "fish",
+      "subtitle_no": "Islandsk fiskérett",
+      "subtitle_en": "Icelandic fish dish",
+      "image_url": "/static/images/meal-fish.jpg"
+    },
+    {
+      "day": "Thursday",
+      "recipe_id": "eu_005",
+      "title": {
+        "no": "Moussaka",
+        "en": "Moussaka"
+      },
+      "title_no": "Moussaka",
+      "title_en": "Moussaka",
+      "time_minutes": 90,
+      "difficulty": "hard",
+      "protein": "other",
+      "subtitle_no": "Gresk aubergine og kjøtt-lag",
+      "subtitle_en": "Greek eggplant and meat layers",
+      "image_url": "/static/images/meal-vegetarian.jpg"
+    },
+    {
+      "day": "Friday",
+      "recipe_id": "nd_013",
+      "title": {
+        "no": "Fiskeboller",
+        "en": "Fish Balls"
+      },
+      "title_no": "Fiskeboller",
+      "title_en": "Fish Balls",
+      "time_minutes": 45,
+      "difficulty": "medium",
+      "protein": "fish",
+      "subtitle_no": "Skandinavisk fisk-spesialet",
+      "subtitle_en": "Scandinavian fish specialty",
+      "image_url": "/static/images/meal-fish.jpg"
     },
     {
       "day": "Saturday",
-      "recipe_id": "nd_002",
+      "recipe_id": "no_013",
       "title": {
-        "no": "Gravlax",
-        "en": "Gravlax"
+        "no": "Søteboller",
+        "en": "Sweet Buns"
       },
-      "title_no": "Gravlax",
-      "title_en": "Gravlax",
-      "time_minutes": 1440,
+      "title_no": "Søteboller",
+      "title_en": "Sweet Buns",
+      "time_minutes": 90,
       "difficulty": "medium",
       "protein": "other",
-      "subtitle_no": "Skandinavisk gravlaks med urter",
-      "subtitle_en": "Scandinavian cured salmon with herbs"
+      "subtitle_no": "Norske søte rundstykker",
+      "subtitle_en": "Norwegian sweet rolls",
+      "image_url": "/static/images/meal-vegetarian.jpg"
     }
   ],
   "shopping_list": {
     "Proteins": [
-      {
-        "ingredient": "Beef (Fillet Pieces)",
-        "quantity": 800,
-        "unit": "g",
-        "allergens": []
-      },
-      {
-        "ingredient": "Chicken Breast",
-        "quantity": 500,
-        "unit": "g",
-        "allergens": []
-      },
       {
         "ingredient": "Chicken Thighs",
         "quantity": 8,
@@ -123,70 +116,137 @@
         "allergens": []
       },
       {
-        "ingredient": "Egg Yolks",
-        "quantity": 5,
+        "ingredient": "Egg",
+        "quantity": 2,
+        "unit": "piece",
+        "allergens": []
+      },
+      {
+        "ingredient": "Eggplant",
+        "quantity": 1.0,
+        "unit": "kg",
+        "allergens": []
+      },
+      {
+        "ingredient": "Eggs",
+        "quantity": 2,
         "unit": "pieces",
         "allergens": []
       },
       {
-        "ingredient": "Salmon (Fresh, Fillets)",
-        "quantity": 1.0,
-        "unit": "kg",
+        "ingredient": "Fish (Minced)",
+        "quantity": 600,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Fish Broth",
+        "quantity": 500,
+        "unit": "ml",
+        "allergens": []
+      },
+      {
+        "ingredient": "Fish Fillets",
+        "quantity": 800,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Pork Cutlet (Or Chicken)",
+        "quantity": 4,
+        "unit": "pieces",
         "allergens": []
       }
     ],
     "Vegetables": [
       {
-        "ingredient": "Red Bell Pepper",
-        "quantity": 2,
-        "unit": "pieces",
-        "allergens": []
-      },
-      {
-        "ingredient": "Red Onion",
-        "quantity": 0.5,
+        "ingredient": "Onion",
+        "quantity": 3,
         "unit": "medium",
         "allergens": []
       },
       {
-        "ingredient": "Red Onion (Large)",
+        "ingredient": "Onion (Minced)",
         "quantity": 1,
-        "unit": "piece",
+        "unit": "small",
         "allergens": []
       },
       {
-        "ingredient": "Tomato",
-        "quantity": 2,
-        "unit": "medium",
+        "ingredient": "Potatoes",
+        "quantity": 600,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Tomato (Canned)",
+        "quantity": 400,
+        "unit": "g",
         "allergens": []
       }
     ],
     "Dairy": [
       {
-        "ingredient": "Cream (Heavy)",
+        "ingredient": "Cheese (Grated)",
+        "quantity": 150,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Milk",
         "quantity": 400,
         "unit": "ml",
         "allergens": []
       },
       {
-        "ingredient": "Milk",
-        "quantity": 100,
+        "ingredient": "Milk (Lukewarm)",
+        "quantity": 250,
         "unit": "ml",
         "allergens": []
       }
     ],
-    "Pantry": [],
-    "Herbs & Spices": [
+    "Pantry": [
       {
-        "ingredient": "Cilantro (Fresh)",
-        "quantity": 20,
-        "unit": "leaves",
+        "ingredient": "Breadcrumbs",
+        "quantity": 75,
+        "unit": "g",
         "allergens": []
       },
       {
-        "ingredient": "Dill (Fresh)",
+        "ingredient": "Breadcrumbs (Or Panko)",
+        "quantity": 150,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Flour",
+        "quantity": 145,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Wheat Flour",
+        "quantity": 500,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "White Sauce (Béchamel)",
+        "quantity": 500,
+        "unit": "ml",
+        "allergens": []
+      },
+      {
+        "ingredient": "Yeast",
         "quantity": 50,
         "unit": "g",
+        "allergens": []
+      }
+    ],
+    "Herbs & Spices": [
+      {
+        "ingredient": "Dill (Fresh)",
+        "quantity": 30,
+        "unit": "tbsp",
         "allergens": []
       },
       {
@@ -198,33 +258,15 @@
     ],
     "Other": [
       {
-        "ingredient": "Anise Or Fennel Seeds",
-        "quantity": 5,
-        "unit": "tsp",
+        "ingredient": "Butter",
+        "quantity": 175,
+        "unit": "g",
         "allergens": []
       },
       {
-        "ingredient": "Black Pepper",
-        "quantity": 5,
-        "unit": "tsp",
-        "allergens": []
-      },
-      {
-        "ingredient": "Cardamom",
-        "quantity": 3,
-        "unit": "pieces",
-        "allergens": []
-      },
-      {
-        "ingredient": "Cinnamon Stick",
-        "quantity": 2,
-        "unit": "pieces",
-        "allergens": []
-      },
-      {
-        "ingredient": "Cloves",
-        "quantity": 6,
-        "unit": "pieces",
+        "ingredient": "Butter (For Frying)",
+        "quantity": 100,
+        "unit": "g",
         "allergens": []
       },
       {
@@ -234,99 +276,39 @@
         "allergens": []
       },
       {
-        "ingredient": "Ginger (Fresh)",
-        "quantity": 20,
+        "ingredient": "Ground Meat",
+        "quantity": 500,
         "unit": "g",
         "allergens": []
       },
       {
         "ingredient": "Lemon",
-        "quantity": 2,
+        "quantity": 3,
         "unit": "pieces",
-        "allergens": []
-      },
-      {
-        "ingredient": "Lime (Juice)",
-        "quantity": 2,
-        "unit": "pieces",
-        "allergens": []
-      },
-      {
-        "ingredient": "Mango",
-        "quantity": 2,
-        "unit": "medium",
         "allergens": []
       },
       {
         "ingredient": "Olive Oil",
-        "quantity": 165,
+        "quantity": 135,
         "unit": "tbsp",
         "allergens": []
       },
       {
-        "ingredient": "Orange",
-        "quantity": 2,
-        "unit": "pieces",
-        "allergens": []
-      },
-      {
-        "ingredient": "Red Wine",
-        "quantity": 1.0,
-        "unit": "l",
-        "allergens": []
-      },
-      {
-        "ingredient": "Rosemary (Fresh)",
-        "quantity": 2,
-        "unit": "sprigs",
-        "allergens": []
-      },
-      {
-        "ingredient": "Salad (Mixed)",
-        "quantity": 300,
-        "unit": "g",
-        "allergens": []
-      },
-      {
         "ingredient": "Salt",
-        "quantity": 30,
-        "unit": "g",
+        "quantity": 5,
+        "unit": "tsp",
         "allergens": []
       },
       {
         "ingredient": "Salt And Pepper",
-        "quantity": 1,
+        "quantity": 3,
         "unit": "to taste",
         "allergens": []
       },
       {
-        "ingredient": "Spirits (Or Aquavit)",
-        "quantity": 150,
-        "unit": "ml",
-        "allergens": []
-      },
-      {
         "ingredient": "Sugar",
-        "quantity": 95,
+        "quantity": 50,
         "unit": "g",
-        "allergens": []
-      },
-      {
-        "ingredient": "Sugar (For Crusting)",
-        "quantity": 20,
-        "unit": "tsp",
-        "allergens": []
-      },
-      {
-        "ingredient": "Sugar (White)",
-        "quantity": 100,
-        "unit": "g",
-        "allergens": []
-      },
-      {
-        "ingredient": "Vanilla Extract",
-        "quantity": 5,
-        "unit": "tsp",
         "allergens": []
       }
     ]

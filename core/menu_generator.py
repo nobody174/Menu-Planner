@@ -41,12 +41,13 @@ ORANGE_KEYWORDS = [
 DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 
 PROTEIN_KEYWORDS = {
-    'chicken': ['kylling', 'chicken', 'høne'],
-    'beef': ['kjøtt', 'beef', 'steak', 'brisket', 'entrecote'],
-    'fish': ['fisk', 'fish', 'laks', 'salmon', 'torsk', 'cod', 'reke', 'shrimp'],
-    'pork': ['svin', 'pork', 'bacon', 'ribbe'],
-    'vegetarian': ['tofu', 'vegetar', 'vegan', 'bønner', 'beans', 'linser'],
+    'chicken': ['kylling', 'chicken', 'høne', 'poultry'],
+    'beef': ['kjøtt', 'beef', 'steak', 'brisket', 'entrecote', 'ground beef', 'minced beef'],
+    'fish': ['fisk', 'fish', 'laks', 'salmon', 'torsk', 'cod', 'reke', 'shrimp', 'tuna', 'trout', 'halibut', 'haddock', 'seafood'],
+    'pork': ['svin', 'pork', 'bacon', 'ribbe', 'ham', 'sausage'],
+    'vegetarian': ['tofu', 'vegetar', 'vegan', 'bønner', 'beans', 'linser', 'lentil', 'chickpea', 'hummus', 'falafel'],
     'lamb': ['lam', 'lamb'],
+    'soup': ['soup', 'suppe', 'stew', 'broth', 'bisque', 'chowder'],
 }
 
 PROTEIN_IMAGES = {
@@ -56,6 +57,7 @@ PROTEIN_IMAGES = {
     'pork': '/static/images/meal-pork.jpg',
     'vegetarian': '/static/images/meal-vegetarian.jpg',
     'lamb': '/static/images/meal-lamb.jpg',
+    'soup': '/static/images/meal-soup.jpg',
 }
 
 
@@ -183,11 +185,11 @@ class MenuGenerator:
         logger.info(f"Filtered recipes: {len(self.filtered_recipes)} (removed {len(self.recipes_db) - len(self.filtered_recipes)} with orange)")
         return len(self.filtered_recipes)
 
-    def get_protein_type(self, recipe_title: str) -> str:
-        title_lower = recipe_title.lower()
+    def get_protein_type(self, recipe_title: str, recipe_subtitle: str = '') -> str:
+        combined_text = (recipe_title + ' ' + recipe_subtitle).lower()
 
         for protein_type, keywords in PROTEIN_KEYWORDS.items():
-            if any(keyword in title_lower for keyword in keywords):
+            if any(keyword in combined_text for keyword in keywords):
                 return protein_type
 
         return 'other'
@@ -217,7 +219,12 @@ class MenuGenerator:
                     title_str = title.get('en') or title.get('no') or ''
                 else:
                     title_str = title or ''
-                protein = self.get_protein_type(title_str)
+                subtitle = recipe.get('subtitle')
+                if isinstance(subtitle, dict):
+                    subtitle_str = subtitle.get('en') or subtitle.get('no') or ''
+                else:
+                    subtitle_str = subtitle or ''
+                protein = self.get_protein_type(title_str, subtitle_str)
 
                 if last_protein and protein == last_protein:
                     continue
@@ -233,7 +240,12 @@ class MenuGenerator:
                     title_str = title.get('en') or title.get('no') or ''
                 else:
                     title_str = title or ''
-                best_protein = self.get_protein_type(title_str)
+                subtitle = best_recipe.get('subtitle')
+                if isinstance(subtitle, dict):
+                    subtitle_str = subtitle.get('en') or subtitle.get('no') or ''
+                else:
+                    subtitle_str = subtitle or ''
+                best_protein = self.get_protein_type(title_str, subtitle_str)
 
             selected_recipes.append(best_recipe)
             available_recipes.remove(best_recipe)
@@ -270,10 +282,11 @@ class MenuGenerator:
                 subtitle_en = recipe.get('subtitle_en', subtitle or '')
                 subtitle_no = recipe.get('subtitle_no', subtitle or '')
 
-            # Use English title for protein detection
+            # Use English title and subtitle for protein detection
             protein_title = title_en or title_no or ''
+            protein_subtitle = subtitle_en or subtitle_no or ''
 
-            protein_type = self.get_protein_type(protein_title)
+            protein_type = self.get_protein_type(protein_title, protein_subtitle)
             dinners.append({
                 'day': DAYS[i],
                 'recipe_id': recipe['id'],
