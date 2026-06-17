@@ -16,9 +16,9 @@ import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 load_dotenv(Path(__file__).parent.parent / '.env')
 
-AZURE_CLIENT_ID = os.getenv("AZURE_CLIENT_ID", "6a554392-f3fb-4e8e-b85c-4970711ea412")
+AZURE_CLIENT_ID = os.getenv("AZURE_CLIENT_ID", "")
 AZURE_CLIENT_SECRET = os.getenv("AZURE_CLIENT_SECRET", "")
-AZURE_TENANT_ID = os.getenv("AZURE_TENANT_ID", "d450370d-b4f6-4ee6-916c-1d3c2091d1a3")
+AZURE_TENANT_ID = os.getenv("AZURE_TENANT_ID", "")
 
 GRAPH_ENDPOINT = "https://graph.microsoft.com/v1.0"
 SCOPES = ["https://graph.microsoft.com/Tasks.ReadWrite", "User.Read"]

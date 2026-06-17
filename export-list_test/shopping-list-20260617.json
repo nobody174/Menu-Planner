@@ -1,0 +1,165 @@
+{
+  "exported_at": "2026-06-17T19:37:41.039820",
+  "shopping_list": {
+    "Dairy": [
+      {
+        "allergens": [],
+        "ingredient": "Brown Cheese (Grated)",
+        "quantity": 100,
+        "unit": "g"
+      },
+      {
+        "allergens": [],
+        "ingredient": "Cream",
+        "quantity": 200,
+        "unit": "ml"
+      },
+      {
+        "allergens": [],
+        "ingredient": "Cream Sauce",
+        "quantity": 1,
+        "unit": "to taste"
+      },
+      {
+        "allergens": [],
+        "ingredient": "Milk",
+        "quantity": 800,
+        "unit": "ml"
+      }
+    ],
+    "Other": [
+      {
+        "allergens": [],
+        "ingredient": "Butter",
+        "quantity": 300,
+        "unit": "g"
+      },
+      {
+        "allergens": [],
+        "ingredient": "Cabbage (White)",
+        "quantity": 1,
+        "unit": "head"
+      },
+      {
+        "allergens": [],
+        "ingredient": "Cocoa (Unsweetened)",
+        "quantity": 50,
+        "unit": "g"
+      },
+      {
+        "allergens": [],
+        "ingredient": "Ground Meat",
+        "quantity": 500,
+        "unit": "g"
+      },
+      {
+        "allergens": [],
+        "ingredient": "Salt (For Cooking Water)",
+        "quantity": 30,
+        "unit": "tbsp"
+      },
+      {
+        "allergens": [],
+        "ingredient": "Salt And Pepper",
+        "quantity": 3,
+        "unit": "to taste"
+      },
+      {
+        "allergens": [],
+        "ingredient": "Sugar",
+        "quantity": 230,
+        "unit": "g"
+      },
+      {
+        "allergens": [],
+        "ingredient": "Vanilla Extract",
+        "quantity": 5,
+        "unit": "tsp"
+      }
+    ],
+    "Pantry": [
+      {
+        "allergens": [],
+        "ingredient": "Baking Powder",
+        "quantity": 12.5,
+        "unit": "tsp"
+      },
+      {
+        "allergens": [],
+        "ingredient": "Bread (Crumbled)",
+        "quantity": 100,
+        "unit": "g"
+      },
+      {
+        "allergens": [],
+        "ingredient": "Butter (Melted)",
+        "quantity": 100,
+        "unit": "g"
+      },
+      {
+        "allergens": [],
+        "ingredient": "Flour",
+        "quantity": 300,
+        "unit": "g"
+      },
+      {
+        "allergens": [],
+        "ingredient": "Wheat Flour",
+        "quantity": 300,
+        "unit": "g"
+      }
+    ],
+    "Proteins": [
+      {
+        "allergens": [],
+        "ingredient": "Egg",
+        "quantity": 1,
+        "unit": "piece"
+      },
+      {
+        "allergens": [],
+        "ingredient": "Eggs",
+        "quantity": 6,
+        "unit": "pieces"
+      },
+      {
+        "allergens": [],
+        "ingredient": "Klippfisk (Salted Fish)",
+        "quantity": 800,
+        "unit": "g"
+      },
+      {
+        "allergens": [],
+        "ingredient": "Lamb (Meat Chunks)",
+        "quantity": 800,
+        "unit": "g"
+      }
+    ],
+    "Vegetables": [
+      {
+        "allergens": [],
+        "ingredient": "Onion",
+        "quantity": 5,
+        "unit": "pieces"
+      },
+      {
+        "allergens": [],
+        "ingredient": "Onion (Minced)",
+        "quantity": 1,
+        "unit": "medium"
+      },
+      {
+        "allergens": [],
+        "ingredient": "Potatoes",
+        "quantity": 1.5,
+        "unit": "kg"
+      },
+      {
+        "allergens": [],
+        "ingredient": "Yellow Peas (Dried)",
+        "quantity": 400,
+        "unit": "g"
+      }
+    ]
+  }
+}

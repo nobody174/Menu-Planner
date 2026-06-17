@@ -33,9 +33,9 @@ class MenuScheduler:
         self.scheduler = BackgroundScheduler()
         self.scheduler.daemon = True
 
-        self.client_id = os.getenv('AZURE_CLIENT_ID', '6a554392-f3fb-4e8e-b85c-4970711ea412')
+        self.client_id = os.getenv('AZURE_CLIENT_ID', '')
         self.client_secret = os.getenv('AZURE_CLIENT_SECRET', '')
-        self.tenant_id = os.getenv('AZURE_TENANT_ID', 'd450370d-b4f6-4ee6-916c-1d3c2091d1a3')
+        self.tenant_id = os.getenv('AZURE_TENANT_ID', '')
 
         self.email_username = os.getenv('EMAIL_USERNAME', '')
         self.email_password = os.getenv('EMAIL_PASSWORD', '')

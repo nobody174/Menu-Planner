@@ -1,270 +1,278 @@
 {
   "week_start": "2026-06-22",
   "week_end": "2026-06-27",
-  "generated_at": "2026-06-17T19:36:02.612353",
+  "generated_at": "2026-06-17T19:36:49.396981",
   "selected_categories": [
-    "Quick Dinners",
-    "Fish & Seafood",
-    "Vegetarian"
+    "Family",
+    "European Classics",
+    "Nordic Classics",
+    "Holiday Recipes",
+    "Popular Norwegian Recipes",
+    "Summer Recipes"
   ],
   "dinners": [
     {
       "day": "Monday",
-      "recipe_id": "sample_004",
-      "title": "Chicken Tacos with Fresh Toppings",
-      "title_no": "Kyllingtaco med Friske Toppinger",
-      "title_en": "Chicken Tacos with Fresh Toppings",
-      "time_minutes": 25,
-      "difficulty": "Easy",
-      "protein": "chicken",
-      "subtitle_no": "",
-      "subtitle_en": ""
+      "recipe_id": "no_009",
+      "title": {
+        "no": "Klippfisk",
+        "en": "Salted Dried Fish"
+      },
+      "title_no": "Klippfisk",
+      "title_en": "Salted Dried Fish",
+      "time_minutes": 120,
+      "difficulty": "medium",
+      "protein": "fish",
+      "subtitle_no": "Tradisjonell norsk fiskérett",
+      "subtitle_en": "Traditional Norwegian salted fish dish"
     },
     {
       "day": "Tuesday",
-      "recipe_id": "sample_010",
-      "title": "Fish Cakes with Remoulade",
-      "title_no": "Fiskekaker med Remoulade",
-      "title_en": "Fish Cakes with Remoulade",
+      "recipe_id": "no_014",
+      "title": {
+        "no": "Sjokoladekake",
+        "en": "Chocolate Cake"
+      },
+      "title_no": "Sjokoladekake",
+      "title_en": "Chocolate Cake",
       "time_minutes": 45,
-      "difficulty": "Medium",
-      "protein": "fish",
-      "subtitle_no": "",
-      "subtitle_en": ""
+      "difficulty": "easy",
+      "protein": "other",
+      "subtitle_no": "Klassisk norsk sjokoladekake",
+      "subtitle_en": "Classic Norwegian chocolate cake"
     },
     {
       "day": "Wednesday",
-      "recipe_id": "sample_008",
-      "title": "Pork Tenderloin with Mushrooms",
-      "title_no": "Grisekjøtt Tenderloin med Sopp",
-      "title_en": "Pork Tenderloin with Mushrooms",
-      "time_minutes": 40,
-      "difficulty": "Medium",
-      "protein": "pork",
-      "subtitle_no": "",
-      "subtitle_en": ""
+      "recipe_id": "no_001",
+      "title": {
+        "no": "Fårikål",
+        "en": "Lamb and Cabbage Stew"
+      },
+      "title_no": "Fårikål",
+      "title_en": "Lamb and Cabbage Stew",
+      "time_minutes": 90,
+      "difficulty": "easy",
+      "protein": "lamb",
+      "subtitle_no": "Klassisk norsk kjøttstuing med kål og løk",
+      "subtitle_en": "Classic Norwegian meat stew with cabbage and onion"
     },
     {
       "day": "Thursday",
-      "recipe_id": "sample_007",
-      "title": "Chickpea Curry with Rice",
-      "title_no": "Kikertatekurry med Ris",
-      "title_en": "Chickpea Curry with Rice",
-      "time_minutes": 35,
-      "difficulty": "Medium",
+      "recipe_id": "no_006",
+      "title": {
+        "no": "Brunost-og-vafler",
+        "en": "Brown Cheese Waffles"
+      },
+      "title_no": "Brunost-og-vafler",
+      "title_en": "Brown Cheese Waffles",
+      "time_minutes": 30,
+      "difficulty": "easy",
       "protein": "other",
-      "subtitle_no": "",
-      "subtitle_en": ""
+      "subtitle_no": "Tradisjonelle norske vafler med brunost",
+      "subtitle_en": "Traditional Norwegian waffles with brown cheese"
     },
     {
       "day": "Friday",
-      "recipe_id": "sample_002",
-      "title": "Grilled Salmon with Asparagus",
-      "title_no": "Grillet Laks med Aspargess",
-      "title_en": "Grilled Salmon with Asparagus",
-      "time_minutes": 25,
-      "difficulty": "Easy",
+      "recipe_id": "no_010",
+      "title": {
+        "no": "Lutefisk",
+        "en": "Lye-Cured Fish"
+      },
+      "title_no": "Lutefisk",
+      "title_en": "Lye-Cured Fish",
+      "time_minutes": 60,
+      "difficulty": "medium",
       "protein": "fish",
-      "subtitle_no": "",
-      "subtitle_en": ""
+      "subtitle_no": "Klassisk norsk juléérett",
+      "subtitle_en": "Classic Norwegian Christmas dish"
     },
     {
       "day": "Saturday",
-      "recipe_id": "sample_003",
-      "title": "Green Vegetable Stir-fry with Chicken",
-      "title_no": "Grønn Wok med Kylling",
-      "title_en": "Green Vegetable Stir-fry with Chicken",
-      "time_minutes": 20,
-      "difficulty": "Easy",
-      "protein": "chicken",
-      "subtitle_no": "",
-      "subtitle_en": ""
+      "recipe_id": "no_003",
+      "title": {
+        "no": "Kjøttkaker",
+        "en": "Meatballs"
+      },
+      "title_no": "Kjøttkaker",
+      "title_en": "Meatballs",
+      "time_minutes": 30,
+      "difficulty": "easy",
+      "protein": "other",
+      "subtitle_no": "Klassiske norske kjøttkaker med brun saus",
+      "subtitle_en": "Classic Norwegian meatballs with brown gravy"
     }
   ],
   "shopping_list": {
     "Proteins": [
       {
-        "ingredient": "Chicken Breast",
-        "quantity": 800,
-        "unit": "g",
-        "allergens": []
-      },
-      {
         "ingredient": "Egg",
         "quantity": 1,
-        "unit": "stk",
+        "unit": "piece",
         "allergens": []
       },
       {
-        "ingredient": "Pork Tenderloin",
+        "ingredient": "Eggs",
+        "quantity": 6,
+        "unit": "pieces",
+        "allergens": []
+      },
+      {
+        "ingredient": "Klippfisk (Salted Fish)",
         "quantity": 800,
         "unit": "g",
         "allergens": []
       },
       {
-        "ingredient": "Salmon Fillet",
-        "quantity": 400,
+        "ingredient": "Lamb (Meat Chunks)",
+        "quantity": 800,
         "unit": "g",
         "allergens": []
       }
     ],
     "Vegetables": [
       {
-        "ingredient": "Broccoli",
-        "quantity": 200,
-        "unit": "g",
-        "allergens": []
-      },
-      {
-        "ingredient": "Chickpeas",
-        "quantity": 400,
-        "unit": "g",
-        "allergens": []
-      },
-      {
-        "ingredient": "Iceberg Lettuce",
-        "quantity": 100,
-        "unit": "g",
-        "allergens": []
-      },
-      {
-        "ingredient": "Mushrooms",
-        "quantity": 300,
-        "unit": "g",
-        "allergens": []
-      },
-      {
         "ingredient": "Onion",
-        "quantity": 2,
-        "unit": "stk",
+        "quantity": 5,
+        "unit": "pieces",
+        "allergens": []
+      },
+      {
+        "ingredient": "Onion (Minced)",
+        "quantity": 1,
+        "unit": "medium",
         "allergens": []
       },
       {
         "ingredient": "Potatoes",
-        "quantity": 300,
-        "unit": "g",
+        "quantity": 1.5,
+        "unit": "kg",
         "allergens": []
       },
       {
-        "ingredient": "Tomato",
+        "ingredient": "Yellow Peas (Dried)",
         "quantity": 400,
-        "unit": "g",
-        "allergens": []
-      },
-      {
-        "ingredient": "Zucchini",
-        "quantity": 150,
         "unit": "g",
         "allergens": []
       }
     ],
     "Dairy": [
       {
-        "ingredient": "Cheese",
+        "ingredient": "Brown Cheese (Grated)",
         "quantity": 100,
         "unit": "g",
         "allergens": []
       },
       {
-        "ingredient": "Coconut Milk",
-        "quantity": 400,
-        "unit": "ml",
-        "allergens": []
-      },
-      {
-        "ingredient": "Heavy Cream",
+        "ingredient": "Cream",
         "quantity": 200,
         "unit": "ml",
         "allergens": []
       },
       {
+        "ingredient": "Cream Sauce",
+        "quantity": 1,
+        "unit": "to taste",
+        "allergens": []
+      },
+      {
         "ingredient": "Milk",
-        "quantity": 100,
+        "quantity": 800,
         "unit": "ml",
         "allergens": []
       }
     ],
     "Pantry": [
       {
-        "ingredient": "Flour",
-        "quantity": 30,
-        "unit": "tbsp",
+        "ingredient": "Baking Powder",
+        "quantity": 12.5,
+        "unit": "tsp",
         "allergens": []
       },
       {
-        "ingredient": "Rice",
-        "quantity": 250,
+        "ingredient": "Bread (Crumbled)",
+        "quantity": 100,
         "unit": "g",
         "allergens": []
       },
       {
-        "ingredient": "Tortillas",
-        "quantity": 8,
-        "unit": "stk",
-        "allergens": []
-      }
-    ],
-    "Herbs & Spices": [
-      {
-        "ingredient": "Curry Powder",
-        "quantity": 30,
-        "unit": "tbsp",
+        "ingredient": "Butter (Melted)",
+        "quantity": 100,
+        "unit": "g",
         "allergens": []
       },
       {
-        "ingredient": "Parsley",
-        "quantity": 15,
-        "unit": "tbsp",
-        "allergens": []
-      }
-    ],
-    "Other": [
-      {
-        "ingredient": "Asparagus",
+        "ingredient": "Flour",
         "quantity": 300,
         "unit": "g",
         "allergens": []
       },
       {
-        "ingredient": "Garlic",
-        "quantity": 3,
-        "unit": "fedd",
+        "ingredient": "Wheat Flour",
+        "quantity": 300,
+        "unit": "g",
+        "allergens": []
+      }
+    ],
+    "Herbs & Spices": [],
+    "Other": [
+      {
+        "ingredient": "Butter",
+        "quantity": 300,
+        "unit": "g",
         "allergens": []
       },
       {
-        "ingredient": "Ginger",
-        "quantity": 15,
+        "ingredient": "Cabbage (White)",
+        "quantity": 1,
+        "unit": "head",
+        "allergens": []
+      },
+      {
+        "ingredient": "Cocoa (Unsweetened)",
+        "quantity": 50,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Ground Meat",
+        "quantity": 500,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Lutefisk (Pre-Treated)",
+        "quantity": 1.0,
+        "unit": "kg",
+        "allergens": []
+      },
+      {
+        "ingredient": "Salt (For Cooking Water)",
+        "quantity": 30,
         "unit": "tbsp",
         "allergens": []
       },
       {
-        "ingredient": "Guacamole",
-        "quantity": 150,
+        "ingredient": "Salt And Pepper",
+        "quantity": 3,
+        "unit": "to taste",
+        "allergens": []
+      },
+      {
+        "ingredient": "Sugar",
+        "quantity": 230,
         "unit": "g",
         "allergens": []
       },
       {
-        "ingredient": "Lemon",
-        "quantity": 1,
-        "unit": "stk",
+        "ingredient": "Vanilla Extract",
+        "quantity": 5,
+        "unit": "tsp",
         "allergens": []
       },
       {
-        "ingredient": "Olive Oil",
-        "quantity": 30,
-        "unit": "ml",
-        "allergens": []
-      },
-      {
-        "ingredient": "Saithe Or Haddock",
-        "quantity": 600,
-        "unit": "g",
-        "allergens": []
-      },
-      {
-        "ingredient": "Soy Sauce",
-        "quantity": 30,
-        "unit": "ml",
+        "ingredient": "Water",
+        "quantity": 1.0,
+        "unit": "l",
         "allergens": []
       }
     ]
