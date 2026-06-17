@@ -1,0 +1,495 @@
+# Pi-Menu Shopping List Integration Setup Guide
+
+Complete step-by-step instructions for connecting your shopping list to various task managers and note-taking apps.
+
+---
+
+## 📋 Table of Contents
+
+1. [Microsoft To Do](#microsoft-to-do) - Built-in, no setup needed
+2. [Todoist](#todoist) - Popular task manager
+3. [TickTick](#ticktick) - Powerful task management
+4. [Any.do](#anydo) - Simple task organizer
+5. [Trello](#trello) - Visual board management
+6. [Notion](#notion) - All-in-one workspace
+7. [Google Keep](#google-keep) - Quick notes
+8. [Apple Reminders](#apple-reminders) - Native iOS/macOS
+
+---
+
+## Microsoft To Do
+
+### ✅ What You Need
+- A Microsoft account (Outlook, Live, or work account)
+- **That's it!** No setup required.
+
+### 🚀 Quick Start
+
+1. **Open Pi-Menu** in your browser
+2. **Go to Shopping List** page
+3. **Click "📤 Export & Sync"** button
+4. **Click "🔵 Microsoft To Do"**
+5. **Sign in** with your Microsoft account (first time only)
+6. **Grant permissions** when prompted
+7. **Done!** Items will sync automatically
+
+### ⚙️ How It Works
+- Items are added to a list called "Pi-Menu Handleliste"
+- Each shopping category becomes a group of tasks
+- Emoji icons help identify ingredient types
+- Changes sync automatically when you click the button
+
+### 🔄 Sync Again Later
+- Just click the "🔵 Microsoft To Do" button again
+- No additional setup needed
+- Your token is saved locally
+
+### ❓ Troubleshooting
+| Problem | Solution |
+|---------|----------|
+| "Not signed in" message | Click the button again and sign in |
+| Items not appearing | Check https://todo.microsoft.com to see the list |
+| Old items still there | They're marked complete, not deleted |
+
+---
+
+## Todoist
+
+### ✅ What You Need
+- A Todoist account (free or paid)
+- Your API token (2-minute setup)
+
+### 📝 Step-by-Step Setup
+
+#### Step 1: Create a Todoist Account
+1. Go to https://todoist.com
+2. Click **"Sign up"** (or sign in if you have an account)
+3. Enter your email and password
+4. Verify your email
+5. Done! You now have a Todoist account
+
+#### Step 2: Get Your API Token
+1. Go to https://todoist.com/app/settings/integrations/developer
+2. Under **"API token"** section, you'll see your token (long string of characters)
+3. **Copy** this token
+4. Keep it safe - don't share it!
+
+#### Step 3: Add Token to Pi-Menu
+1. Find your `.env` file (in the Pi-Menu main folder)
+   - If you don't have one, copy `.env.template` and rename to `.env`
+2. Find this line:
+   ```
+   TODOIST_API_TOKEN=
+   ```
+3. Paste your token after the `=` sign:
+   ```
+   TODOIST_API_TOKEN=abc123xyz789...
+   ```
+4. Save the file
+5. **Restart Flask** (stop and start the Flask server)
+
+#### Step 4: Test It
+1. Go to Pi-Menu shopping list
+2. Click "📤 Export & Sync"
+3. Click "🔶 Todoist"
+4. Items should appear in Todoist under "Pi-Menu Shopping" project
+
+### 📱 View Your Items
+1. Open https://todoist.com
+2. Look for **"Pi-Menu Shopping"** project on the left
+3. All your items will be listed there with category labels
+
+### 🔄 Sync Multiple Times
+- Just click the button again whenever you want to update
+- Items are added/updated, not deleted
+
+### ❓ Troubleshooting
+| Problem | Solution |
+|---------|----------|
+| "Configuration needed" error | Check `.env` file has correct token, restart Flask |
+| Items not appearing in Todoist | Check the "Pi-Menu Shopping" project exists |
+| Token not working | Generate a new one at https://todoist.com/app/settings/integrations/developer |
+| Items appearing as duplicates | This is normal - click "Update" to merge them |
+
+---
+
+## TickTick
+
+### ✅ What You Need
+- A TickTick account (free or paid)
+- Your API token (3-minute setup)
+
+### 📝 Step-by-Step Setup
+
+#### Step 1: Create a TickTick Account
+1. Go to https://ticktick.com
+2. Click **"Sign up"** (or sign in if you have an account)
+3. Enter your email and password
+4. Verify your email
+5. Complete setup
+
+#### Step 2: Get Your API Token
+1. Go to https://ticktick.com/user/myprofile
+2. Click **"Settings"** (gear icon)
+3. Go to **"Integrations"** or **"API"** section
+4. Look for **"API Token"** or **"Developer"** section
+5. **Copy** your API token
+6. Keep it private!
+
+#### Step 3: Add Token to Pi-Menu
+1. Open your `.env` file (in the Pi-Menu main folder)
+   - If missing, copy `.env.template` and rename to `.env`
+2. Find this line:
+   ```
+   TICKTICK_API_TOKEN=
+   ```
+3. Paste your token:
+   ```
+   TICKTICK_API_TOKEN=your_token_here
+   ```
+4. Save the file
+5. **Restart Flask**
+
+#### Step 4: Test It
+1. Go to Pi-Menu shopping list
+2. Click "📤 Export & Sync"
+3. Click "🎯 TickTick"
+4. Items appear in TickTick under "Pi-Menu Shopping" list
+
+### 📱 View Your Items
+1. Open https://ticktick.com
+2. Find **"Pi-Menu Shopping"** list on the left sidebar
+3. All items are there with category tags
+
+### ❓ Troubleshooting
+| Problem | Solution |
+|---------|----------|
+| Can't find API token | Check Settings → Integrations section |
+| "Configuration needed" error | Verify token is correct in `.env`, restart Flask |
+| Items not syncing | Try generating a new token |
+
+---
+
+## Any.do
+
+### ✅ What You Need
+- An Any.do account (free plan works)
+- Your API token (3-minute setup)
+
+### 📝 Step-by-Step Setup
+
+#### Step 1: Create Any.do Account
+1. Go to https://www.any.do
+2. Click **"Sign up"**
+3. Enter email and password
+4. Verify your email
+
+#### Step 2: Get Your API Token
+1. Go to https://www.any.do/en/settings/account
+2. Look for **"Developer"** or **"API"** section
+3. **Generate** or **copy** your API token
+4. Save it securely
+
+#### Step 3: Add Token to Pi-Menu
+1. Open `.env` file (copy `.env.template` if needed)
+2. Find:
+   ```
+   ANYDO_API_TOKEN=
+   ```
+3. Add your token:
+   ```
+   ANYDO_API_TOKEN=your_token_here
+   ```
+4. Save and restart Flask
+
+#### Step 4: Test It
+1. Shopping list → "📤 Export & Sync"
+2. Click "✅ Any.do"
+3. Check https://www.any.do for "Pi-Menu Shopping" list
+
+### ❓ Troubleshooting
+| Problem | Solution |
+|---------|----------|
+| Can't find API section | Check account settings under "Developer" or "Integrations" |
+| Token doesn't work | Generate a new one |
+
+---
+
+## Trello
+
+### ✅ What You Need
+- A Trello account (free plan works)
+- API Key + Token (5-minute setup)
+
+### 📝 Step-by-Step Setup
+
+#### Step 1: Create Trello Account
+1. Go to https://trello.com
+2. Click **"Sign up"**
+3. Enter email and password
+4. Complete setup
+
+#### Step 2: Get API Key and Token
+1. Go to https://trello.com/app-key
+2. You'll see your **API Key** displayed at the top
+3. **Copy and save** the API Key
+4. On the same page, click **"Tokens"** link
+5. Click **"Create a token"**
+6. A token will be generated - **copy and save** it
+7. Keep both safe!
+
+#### Step 3: Add to Pi-Menu
+1. Open `.env` file (copy `.env.template` if needed)
+2. Find these lines:
+   ```
+   TRELLO_API_KEY=
+   TRELLO_API_TOKEN=
+   ```
+3. Add your credentials:
+   ```
+   TRELLO_API_KEY=abc123xyz...
+   TRELLO_API_TOKEN=def456uvw...
+   ```
+4. Save and restart Flask
+
+#### Step 4: Test It
+1. Shopping list → "📤 Export & Sync"
+2. Click "🔵 Trello"
+3. A new board **"Pi-Menu Shopping"** will be created automatically
+4. Check https://trello.com to see it
+
+### 📱 View Your Items
+1. Go to https://trello.com
+2. Find **"Pi-Menu Shopping"** board
+3. Each category is a separate list
+4. Items are cards you can drag around
+
+### ❓ Troubleshooting
+| Problem | Solution |
+|---------|----------|
+| Board not created | Check that both API key and token are correct |
+| Items appearing wrong | Make sure you copied both key AND token |
+| Can't find API section | Go to https://trello.com/app-key directly |
+
+---
+
+## Notion
+
+### ✅ What You Need
+- A Notion account (free plan works)
+- Notion API Token (5-minute setup)
+- A Notion database (created automatically)
+
+### 📝 Step-by-Step Setup
+
+#### Step 1: Create Notion Account
+1. Go to https://notion.so
+2. Click **"Sign up"**
+3. Enter email and create password
+4. Verify email and complete setup
+
+#### Step 2: Create Notion Integration
+1. Go to https://www.notion.so/my-integrations
+2. Click **"Create new integration"**
+3. Name it: **"Pi-Menu"**
+4. Click **"Submit"**
+5. You'll see your **"Internal Integration Token"** - **copy and save** it
+
+#### Step 3: Create a Database
+1. In Notion, create a new page
+2. Type `/database` and create an **inline database**
+3. Add these columns:
+   - **Name** (text) - ingredient name
+   - **Category** (select) - ingredient category
+   - **Quantity** (number) - how much
+   - **Unit** (text) - g, ml, pieces, etc.
+4. Save the database
+5. Click **"Share"** → find your integration and **add it**
+6. Copy the **Database ID** from the URL (long alphanumeric code after `/`)
+
+#### Step 4: Add to Pi-Menu
+1. Open `.env` file (copy `.env.template` if needed)
+2. Find:
+   ```
+   NOTION_API_TOKEN=
+   NOTION_DATABASE_ID=
+   ```
+3. Add your credentials:
+   ```
+   NOTION_API_TOKEN=secret_abc123xyz...
+   NOTION_DATABASE_ID=a1b2c3d4e5f6...
+   ```
+4. Save and restart Flask
+
+#### Step 5: Test It
+1. Shopping list → "📤 Export & Sync"
+2. Click "⚫ Notion"
+3. Items appear in your Notion database
+
+### 📱 View Your Items
+1. Go to https://notion.so
+2. Open your database
+3. All items appear as rows with automatic organization
+
+### ⚠️ Important
+- **Share your database with the integration** - it won't work without this!
+- Database ID is the long code in the URL when you open it
+
+### ❓ Troubleshooting
+| Problem | Solution |
+|---------|----------|
+| "Configuration needed" error | Check token and database ID are correct |
+| Items not appearing | Make sure you shared the database with your integration |
+| Database ID wrong | Copy it from the URL when viewing the database |
+| Integration not showing up | Refresh the page and try again |
+
+---
+
+## Google Keep
+
+### ✅ What You Need
+- A Google account (Gmail)
+- Your Google Keep email address (2-minute setup)
+
+### 📝 Step-by-Step Setup
+
+#### Step 1: Find Your Keep Email
+1. Go to https://mail.google.com
+2. Click **"Settings"** (gear icon) → **"See all settings"**
+3. Go to **"Forwarding and POP/IMAP"** tab
+4. Look for your **"Forwarding address"** or go to **"Labels"**
+5. Alternative: Your Keep email is usually your email + "+keep" suffix
+   - Example: `john.smith+keep@gmail.com`
+6. **Copy and save** this email address
+
+#### Step 2: Add to Pi-Menu
+1. Open `.env` file (copy `.env.template` if needed)
+2. Find:
+   ```
+   GOOGLE_KEEP_EMAIL=
+   ```
+3. Add your Keep email:
+   ```
+   GOOGLE_KEEP_EMAIL=yourname+keep@gmail.com
+   ```
+4. Save and restart Flask
+
+#### Step 3: Test It
+1. Shopping list → "📤 Export & Sync"
+2. Click "🟨 Google Keep"
+3. Open Google Keep at https://keep.google.com
+4. Your shopping list appears as a new note
+
+### 📱 How It Works
+- Shopping list is sent as a text note to Google Keep
+- Keep automatically organizes it
+- You can edit, share, and access from any device
+- Voice notes and images can be added
+
+### ❓ Troubleshooting
+| Problem | Solution |
+|---------|----------|
+| Can't find Keep email | Try using `yourname+keep@gmail.com` format |
+| Note not appearing | Check that email is spelled correctly |
+| Already have notes | New note is created each time (you can merge them) |
+| SMTP error | Optional: Configure email settings for auto-send |
+
+---
+
+## Apple Reminders
+
+### ✅ What You Need
+- An Apple device (iPhone, iPad, Mac)
+- Nothing else! It's built-in.
+
+### 🚀 Quick Start
+
+#### Step 1: Export as ICS
+1. Go to Pi-Menu shopping list
+2. Click "📤 Export & Sync"
+3. Click "📅 Apple Reminders (ICS)"
+4. File downloads to your computer
+
+#### Step 2: Open with Reminders
+1. **On Mac:** Double-click the `.ics` file → opens in Reminders
+2. **On iPhone/iPad:**
+   - Email yourself the `.ics` file
+   - Open the email on your Apple device
+   - Tap the attachment
+   - Select "Add to Reminders"
+   - Choose which list to add to
+
+#### Step 3: Done!
+- Items appear as reminders
+- Syncs across all your Apple devices via iCloud
+
+### 📱 View Your Items
+1. Open **Reminders** app
+2. Check your selected list
+3. Items are there with emoji icons
+4. Mark as complete when done
+
+### 💡 Tips
+- Create a dedicated "Shopping" list in Reminders for easy access
+- Use Siri: "Add milk to Shopping list"
+- Get notifications for your shopping list
+- Share list with family members
+
+### ❓ Troubleshooting
+| Problem | Solution |
+|---------|----------|
+| File won't open | Make sure you have Reminders app installed |
+| Items not syncing | Restart Reminders app and check iCloud sync |
+| Multiple copies | Duplicate items can be merged in Reminders |
+
+---
+
+## 🔒 Security Best Practices
+
+### Keeping Your Credentials Safe
+
+✅ **DO:**
+- Keep API tokens private
+- Never share your `.env` file
+- Regenerate tokens if they're leaked
+- Use strong, unique passwords
+- Only add integrations you'll actually use
+
+❌ **DON'T:**
+- Post tokens on GitHub or public forums
+- Share screenshots with tokens visible
+- Use the same token across multiple services
+- Store tokens in plain text notes
+- Commit `.env` file to git
+
+### Token Rotation
+- **Todoist:** Can be regenerated anytime
+- **TickTick:** Can be regenerated anytime
+- **Any.do:** Can be regenerated anytime
+- **Trello:** Can create new tokens anytime
+- **Notion:** Can create new integrations anytime
+- **Microsoft:** Handled automatically
+
+---
+
+## 🆘 General Troubleshooting
+
+| Issue | Cause | Solution |
+|-------|-------|----------|
+| "Nothing to export" | No items unchecked | Uncheck items you want to sync |
+| "Configuration needed" | Token/credentials missing | Add token to `.env`, restart Flask |
+| 401 Unauthorized | Wrong/expired token | Generate new token, update `.env` |
+| Empty shopping list | No menu generated | Create a menu first |
+| Flask won't start | Syntax error in `.env` | Check `.env` for quote/format errors |
+
+---
+
+## 📞 Support
+
+- For general questions: Check the main [SHOPPING_INTEGRATIONS.md](../SHOPPING_INTEGRATIONS.md)
+- For technical issues: Check the service's own support
+- For Pi-Menu bugs: Report on GitHub
+
+---
+
+**Last updated:** June 2026
