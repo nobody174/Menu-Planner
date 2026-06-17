@@ -283,19 +283,47 @@ function syncIntegration(service) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ service: service, items: items, shopping_list: SHOPPING_LIST })
     })
-    .then(function(r) { return r.json(); })
-    .then(function(data) {
-        if (data.success) {
-            pmAlert('✅', 'Synced!', data.message || (service + ' sync successful'));
-            setTimeout(function() { closeIntegrationsMenu(); }, 1500);
-        } else if (data.requires_config) {
-            pmAlert('⚙️', 'Configuration needed', data.message);
+    .then(function(r) {
+        // For Apple Reminders, handle as blob (file download)
+        if (service === 'reminders') {
+            if (r.ok) {
+                return r.blob().then(function(blob) {
+                    var url = URL.createObjectURL(blob);
+                    var a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'shopping-list-' + new Date().toISOString().split('T')[0] + '.ics';
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                    pmAlert('✅', 'Downloaded!', 'ICS file downloaded. Open it with your Reminders app.');
+                    setTimeout(function() { closeIntegrationsMenu(); }, 1500);
+                });
+            } else {
+                pmAlert('❌', 'Download failed', 'Could not download ICS file');
+                throw new Error('Failed to download');
+            }
         } else {
-            pmAlert('❌', 'Sync failed', data.error || 'Unknown error');
+            // For other services, handle as JSON
+            return r.json();
+        }
+    })
+    .then(function(data) {
+        if (service !== 'reminders' && data) {
+            if (data.success) {
+                pmAlert('✅', 'Synced!', data.message || (service + ' sync successful'));
+                setTimeout(function() { closeIntegrationsMenu(); }, 1500);
+            } else if (data.requires_config) {
+                pmAlert('⚙️', 'Configuration needed', data.message);
+            } else {
+                pmAlert('❌', 'Sync failed', data.error || 'Unknown error');
+            }
         }
     })
     .catch(function(e) {
-        pmAlert('❌', STR.server_error, e.message);
+        if (service !== 'reminders') {
+            pmAlert('❌', STR.server_error, e.message);
+        }
     })
     .finally(function() {
         // Re-enable buttons

@@ -486,6 +486,8 @@ def sync_notion(items_by_category: dict, api_token: str, database_id: str) -> di
         }
         base_url = "https://api.notion.com/v1"
 
+        logger.info(f"Notion sync: token length={len(api_token)}, db_id={database_id[:10]}..., items={sum(len(v) for v in items_by_category.values())}")
+
         added = 0
         errors = []
         for category, items in items_by_category.items():
@@ -507,9 +509,10 @@ def sync_notion(items_by_category: dict, api_token: str, database_id: str) -> di
                         },
                         timeout=10
                     )
-                    if resp.status_code == 200:
+                    if resp.status_code in (200, 201):
                         added += 1
                     else:
+                        logger.error(f"Notion API error for {item.get('ingredient')}: {resp.status_code} - {resp.text}")
                         errors.append(f"{item.get('ingredient')}: {resp.status_code}")
                 except Exception as e:
                     errors.append(f"{item.get('ingredient')}: {str(e)}")

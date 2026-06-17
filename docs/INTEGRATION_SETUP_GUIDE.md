@@ -412,7 +412,7 @@ This only needs to be done once. Pi-Menu caches your token locally.
 
 ### 🔗 Helpful Links
 - **Sign up:** https://notion.so/signup
-- **Create integration:** https://www.notion.so/my-integrations
+- **Create integration (Direct):** https://app.notion.com/developers/connections
 - **View your workspace:** https://notion.so
 
 ### 📝 Step-by-Step Setup
@@ -423,24 +423,29 @@ This only needs to be done once. Pi-Menu caches your token locally.
 3. Enter email and create password
 4. Verify email and complete setup
 
-#### Step 2: Create Notion Integration
-1. Go to https://www.notion.so/my-integrations
-2. Click **"Create new integration"**
-3. Name it: **"Pi-Menu"**
-4. Click **"Submit"**
-5. You'll see your **"Internal Integration Token"** - **copy and save** it
+#### Step 2: Create Notion Integration (API Token)
+1. In Notion, click your **name in top left corner**
+2. Go to **"Settings"** → **"Connections"** → **"Manage"**
+3. Click **"All connections"**
+4. Find your database connection (e.g., "weekmenu-test")
+5. Click the **three dots (•••)** next to it → **"Manage connection"**
+6. Under **"Manage access token"**, click the **Copy button** next to "Access token"
+7. **Paste this token into your `.env` file** under `NOTION_API_TOKEN=`
 
-#### Step 3: Create a Database
-1. In Notion, create a new page
-2. Type `/database` and create an **inline database**
-3. Add these columns:
+#### Step 3: Create a Database & Get Database ID
+1. In Notion, create a new page or open existing workspace
+2. Type `/database` and create a **table database**
+3. Add these columns (or use defaults):
    - **Name** (text) - ingredient name
-   - **Category** (select) - ingredient category
-   - **Quantity** (number) - how much
+   - **Category** (text or select) - ingredient category
+   - **Quantity** (text or number) - amount
    - **Unit** (text) - g, ml, pieces, etc.
 4. Save the database
-5. Click **"Share"** → find your integration and **add it**
-6. Copy the **Database ID** from the URL (long alphanumeric code after `/`)
+5. Click **"Share"** button in top right → Add your **"Pi-Menu Shopping"** integration and **Connect**
+6. **Get Database ID from URL**: 
+   - When you open the database, look at the URL
+   - It looks like: `https://www.notion.so/a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6?v=...`
+   - The Database ID is the long alphanumeric string before the `?` (e.g., `a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6`)
 
 #### Step 4: Add to Pi-Menu
 1. Open `.env` file (copy `.env.template` if needed)

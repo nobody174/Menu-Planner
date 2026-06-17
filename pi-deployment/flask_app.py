@@ -622,6 +622,8 @@ def api_sync_shopping_list():
         if not selected_items:
             return jsonify({'success': False, 'error': 'No items to sync'}), 400
 
+        logger.info(f"Sync request: service={service}, items={len(selected_items)}, categories={len(full_shopping_list)}")
+
         # Filter to selected items only
         selected_set = {
             f"{item['ingredient']}-{item['quantity']}-{item['unit']}"
@@ -632,6 +634,8 @@ def api_sync_shopping_list():
             kept = [i for i in items if f"{i['ingredient']}-{i['quantity']}-{i['unit']}" in selected_set]
             if kept:
                 filtered[category] = kept
+
+        logger.info(f"Filtered: {len(filtered)} categories, total items: {sum(len(v) for v in filtered.values())}")
 
         # Route to appropriate service
         if service == 'microsoft':
@@ -755,14 +759,23 @@ def api_sync_shopping_list():
             })
 
         elif service == 'reminders':
-            # Return ICS file for Apple Reminders
+            # Return ICS file for Apple Reminders as direct download
             from shopping_integrations import export_ics
+            from flask import send_file
+            import io
+
             content = export_ics(filtered)
-            return jsonify({
-                'success': True,
-                'content': content,
-                'message': 'ICS file ready for Apple Reminders. Download and open with Reminders app.'
-            })
+            filename = f'shopping-list-{datetime.now().strftime("%Y%m%d")}.ics'
+
+            # Create file-like object
+            ics_file = io.BytesIO(content.encode('utf-8'))
+
+            return send_file(
+                ics_file,
+                mimetype='text/calendar',
+                as_attachment=True,
+                download_name=filename
+            )
 
         else:
             return jsonify({'success': False, 'error': f'Unknown service: {service}'}), 400
