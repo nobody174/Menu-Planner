@@ -1,0 +1,52 @@
+name: Build & Dependencies
+
+on:
+  push:
+    branches: [ master, public-release-v1, develop ]
+  pull_request:
+    branches: [ master, public-release-v1, develop ]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: ['3.9', '3.11']
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Verify Flask app imports
+      run: |
+        python -c "from pi_deployment import flask_app; print('✓ Flask app imports successfully')"
+
+    - name: Verify core modules
+      run: |
+        python -c "from core import menu_generator, ingredient_deduplicator; print('✓ Core modules import successfully')"
+
+    - name: Check required data files
+      run: |
+        python -c "
+import json
+import os
+files = ['data/sample_recipes.json', 'data/categories.json', 'frontend/static/i18n.json']
+for f in files:
+    if os.path.exists(f):
+        with open(f) as file:
+            json.load(file)
+        print(f'✓ {f} is valid JSON')
+    else:
+        print(f'✗ {f} missing')
+        exit(1)
+"

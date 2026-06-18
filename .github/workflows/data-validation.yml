@@ -1,0 +1,146 @@
+name: Data Validation
+
+on:
+  push:
+    branches: [ master, public-release-v1, develop ]
+  pull_request:
+    branches: [ master, public-release-v1, develop ]
+
+jobs:
+  data:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Validate all JSON files
+      run: |
+        python -c "
+import json
+import os
+import glob
+
+json_files = glob.glob('**/*.json', recursive=True)
+json_files = [f for f in json_files if '.github' not in f and 'node_modules' not in f]
+
+for file in json_files:
+    try:
+        with open(file) as f:
+            json.load(f)
+        print(f'✓ {file} is valid JSON')
+    except json.JSONDecodeError as e:
+        print(f'✗ {file} has JSON syntax error: {e}')
+        exit(1)
+    except Exception as e:
+        print(f'✗ {file} error: {e}')
+        exit(1)
+
+print(f'\n✓ All {len(json_files)} JSON files are valid')
+"
+
+    - name: Validate recipe data structure
+      run: |
+        python -c "
+import json
+
+# Check sample recipes
+with open('data/sample_recipes.json') as f:
+    recipes = json.load(f)
+    print(f'✓ Found {len(recipes)} sample recipes')
+
+    required_fields = ['recipe_id', 'title', 'ingredients', 'instructions']
+    for recipe in recipes:
+        if not all(field in recipe for field in required_fields):
+            print(f'✗ Recipe {recipe.get(\"recipe_id\", \"unknown\")} missing fields')
+            exit(1)
+    print('✓ All sample recipes have required fields')
+
+# Check categories
+with open('data/categories.json') as f:
+    categories = json.load(f)
+    print(f'✓ Found {len(categories)} categories')
+
+    for cat in categories:
+        if 'code' not in cat or 'name_en' not in cat or 'name_no' not in cat:
+            print(f'✗ Category {cat} missing fields')
+            exit(1)
+    print('✓ All categories have required fields')
+
+# Check pantry staples
+with open('pantry_staples.json') as f:
+    pantry = json.load(f)
+    if 'pantry_staples_english' in pantry and 'pantry_staples_norwegian' in pantry:
+        print(f'✓ Pantry staples has {len(pantry[\"pantry_staples_english\"])} English items')
+        print(f'✓ Pantry staples has {len(pantry[\"pantry_staples_norwegian\"])} Norwegian items')
+    else:
+        print('✗ Pantry staples missing language sections')
+        exit(1)
+"
+
+    - name: Validate theme registry
+      run: |
+        python -c "
+import json
+
+with open('frontend/static/themes/previews/theme-registry.json') as f:
+    registry = json.load(f)
+
+    print(f'✓ Theme registry lists {len(registry)} themes')
+
+    required_theme_fields = ['id', 'name', 'file', 'preview_color']
+    theme_ids = set()
+
+    for theme in registry:
+        if not all(field in theme for field in required_theme_fields):
+            print(f'✗ Theme missing required fields')
+            exit(1)
+
+        theme_ids.add(theme['id'])
+
+    print(f'✓ All {len(registry)} themes have required fields')
+    print(f'✓ Theme IDs: {sorted(theme_ids)}')
+"
+
+    - name: Validate i18n completeness
+      run: |
+        python -c "
+import json
+
+with open('frontend/static/i18n.json') as f:
+    i18n = json.load(f)
+
+    # Extract base keys
+    base_keys = set()
+    for key in i18n.keys():
+        if key.endswith('_en'):
+            base_keys.add(key[:-3])
+        elif key.endswith('_no'):
+            base_keys.add(key[:-3])
+
+    missing_en = []
+    missing_no = []
+
+    for key in base_keys:
+        if f'{key}_en' not in i18n:
+            missing_en.append(key)
+        if f'{key}_no' not in i18n:
+            missing_no.append(key)
+
+    if missing_en:
+        print(f'⚠ Missing English translations: {missing_en}')
+    if missing_no:
+        print(f'⚠ Missing Norwegian translations: {missing_no}')
+
+    if not (missing_en or missing_no):
+        print(f'✓ All {len(base_keys)} translation keys have both EN and NO versions')
+"

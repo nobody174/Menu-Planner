@@ -1,0 +1,55 @@
+name: Release & Deployment
+
+on:
+  push:
+    branches: [ master ]
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install build twine
+
+    - name: Validate release
+      run: |
+        python -c "
+import json
+# Quick sanity checks
+with open('frontend/static/themes/previews/theme-registry.json') as f:
+    registry = json.load(f)
+    assert len(registry) == 9, f'Expected 9 themes, got {len(registry)}'
+print('✓ Release validation passed')
+"
+
+    - name: Create GitHub Release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        body: |
+          ## Menu Planner Release
+
+          See [CHANGELOG](CHANGELOG.md) for details.
+        draft: false
+        prerelease: false
+
+    - name: Notify on successful release
+      run: |
+        echo "✓ Release ${{ github.ref }} created successfully"
