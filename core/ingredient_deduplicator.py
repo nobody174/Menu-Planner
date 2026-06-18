@@ -17,15 +17,19 @@ except ImportError:
     fuzz = None
     logging.warning("fuzzywuzzy not installed. Install with: pip install fuzzywuzzy python-Levenshtein")
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler('logs/deduplicator.log'),
-        logging.StreamHandler()
-    ]
-)
 logger = logging.getLogger(__name__)
+
+# Setup logging with safe directory creation
+log_dir = Path(__file__).parent.parent / 'logs'
+try:
+    log_dir.mkdir(parents=True, exist_ok=True)
+    file_handler = logging.FileHandler(log_dir / 'deduplicator.log')
+    file_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
+    logger.addHandler(file_handler)
+except Exception:
+    pass  # If logs dir can't be created, just use console output
+logger.addHandler(logging.StreamHandler())
+logger.setLevel(logging.INFO)
 
 DATA_DIR = Path(__file__).parent.parent / 'data'
 PANTRY_FILE = DATA_DIR / 'pantry_staples.json'
