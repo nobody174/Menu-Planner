@@ -161,15 +161,21 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 # Load .env from project root
 load_dotenv(Path(__file__).parent.parent / '.env')
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler('logs/flask_app.log'),
-        logging.StreamHandler()
-    ]
-)
 logger = logging.getLogger(__name__)
+
+# Setup logging with safe directory creation
+log_dir = Path(__file__).parent.parent / 'logs'
+try:
+    log_dir.mkdir(parents=True, exist_ok=True)
+    file_handler = logging.FileHandler(log_dir / 'flask_app.log')
+    file_handler.setFormatter(
+        logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+    )
+    logger.addHandler(file_handler)
+except Exception:
+    pass
+logger.addHandler(logging.StreamHandler())
+logger.setLevel(logging.INFO)
 
 DATA_DIR = Path(__file__).parent.parent / 'data'
 MENU_FILE = DATA_DIR / 'weekly_menu.json'
