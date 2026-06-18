@@ -505,13 +505,6 @@
   transform: translateY(-1px);
 }
 
-.pack-group-header {
-  color: white !important;
-}
-.pack-group-title {
-  color: white !important;
-}
-
 /* ── Responsive ── */
 @media (max-width: 640px) {
   .tc-header { flex-direction: column; align-items: flex-start; }
