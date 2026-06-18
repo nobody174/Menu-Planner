@@ -1,5 +1,5 @@
 #
-# Pi-Menu - Weekly Meal Planner
+# Menu Planner - Weekly Meal Planner
 # Creator: nobody174 (nobodylearn174@gmail.com)
 # GitHub: https://github.com/nobody174/Menu-Planner
 # License: MIT
@@ -19,8 +19,8 @@ from typing import Any, Dict, Optional
 
 logger = logging.getLogger(__name__)
 
-class PIMenuError(Exception):
-    """Base exception for Pi-Menu"""
+class MenuPlannerError(Exception):
+    """Base exception for Menu Planner"""
     def __init__(self, message: str, code: str = "UNKNOWN", details: Dict = None):
         self.message = message
         self.code = code
@@ -28,22 +28,22 @@ class PIMenuError(Exception):
         self.timestamp = datetime.now().isoformat()
         super().__init__(self.message)
 
-class RecipeLoadError(PIMenuError):
+class RecipeLoadError(MenuPlannerError):
     """Error loading recipes"""
     def __init__(self, message: str, details: Dict = None):
         super().__init__(message, "RECIPE_LOAD_ERROR", details)
 
-class CategoryLoadError(PIMenuError):
+class CategoryLoadError(MenuPlannerError):
     """Error loading categories"""
     def __init__(self, message: str, details: Dict = None):
         super().__init__(message, "CATEGORY_LOAD_ERROR", details)
 
-class MenuGenerationError(PIMenuError):
+class MenuGenerationError(MenuPlannerError):
     """Error generating menu"""
     def __init__(self, message: str, details: Dict = None):
         super().__init__(message, "MENU_GENERATION_ERROR", details)
 
-class ValidationError(PIMenuError):
+class ValidationError(MenuPlannerError):
     """Data validation error"""
     def __init__(self, message: str, details: Dict = None):
         super().__init__(message, "VALIDATION_ERROR", details)
