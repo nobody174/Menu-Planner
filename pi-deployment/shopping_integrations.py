@@ -1,5 +1,5 @@
 #
-# Pi-Menu - Shopping List Integrations
+# Menu Planner - Shopping List Integrations
 # Creator: nobody174 (nobodylearn174@gmail.com)
 # GitHub: https://github.com/nobody174/Menu-Planner
 # License: MIT
