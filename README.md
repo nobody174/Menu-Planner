@@ -50,7 +50,7 @@ cp .env.template .env
 nano .env  # Edit: HOUSEHOLD_NAME=Your Family
 
 # 5. Start the app
-python3 pi-deployment/app.py
+python3 pi-deployment/flask_app.py
 ```
 
 **Open browser:** http://localhost:5000

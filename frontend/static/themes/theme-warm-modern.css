@@ -54,6 +54,22 @@
   color: var(--wm-dark);
 }
 
+/* ── Category Dropdown Button ── */
+[data-theme="warm-modern"] .category-dropdown-btn {
+  background-color: transparent !important;
+  color: var(--wm-mid) !important;
+  font-weight: 500;
+  font-size: 0.88rem;
+  border: none;
+  border-radius: var(--wm-radius-sm);
+  padding: 6px 14px;
+  transition: background 0.2s, color 0.2s;
+}
+[data-theme="warm-modern"] .category-dropdown-btn:hover {
+  background-color: var(--wm-sand) !important;
+  color: var(--wm-dark) !important;
+}
+
 /* ── Hero ── */
 [data-theme="warm-modern"] .hero {
   background: linear-gradient(135deg, #3D2B1F 0%, #6B4C35 60%, #8C6240 100%);
