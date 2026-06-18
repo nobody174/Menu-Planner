@@ -19,8 +19,10 @@ from typing import Any, Dict, Optional
 
 logger = logging.getLogger(__name__)
 
+
 class MenuPlannerError(Exception):
     """Base exception for Menu Planner"""
+
     def __init__(self, message: str, code: str = "UNKNOWN", details: Dict = None):
         self.message = message
         self.code = code
@@ -28,27 +30,38 @@ class MenuPlannerError(Exception):
         self.timestamp = datetime.now().isoformat()
         super().__init__(self.message)
 
+
 class RecipeLoadError(MenuPlannerError):
     """Error loading recipes"""
+
     def __init__(self, message: str, details: Dict = None):
         super().__init__(message, "RECIPE_LOAD_ERROR", details)
 
+
 class CategoryLoadError(MenuPlannerError):
     """Error loading categories"""
+
     def __init__(self, message: str, details: Dict = None):
         super().__init__(message, "CATEGORY_LOAD_ERROR", details)
 
+
 class MenuGenerationError(MenuPlannerError):
     """Error generating menu"""
+
     def __init__(self, message: str, details: Dict = None):
         super().__init__(message, "MENU_GENERATION_ERROR", details)
 
+
 class ValidationError(MenuPlannerError):
     """Data validation error"""
+
     def __init__(self, message: str, details: Dict = None):
         super().__init__(message, "VALIDATION_ERROR", details)
 
-def handle_error(error: Exception, context: str = "", log_level: str = "error") -> Dict[str, Any]:
+
+def handle_error(
+    error: Exception, context: str = "", log_level: str = "error"
+) -> Dict[str, Any]:
     """
     Centralized error handler.
 
@@ -69,7 +82,7 @@ def handle_error(error: Exception, context: str = "", log_level: str = "error") 
             "code": error.code,
             "message": error.message,
             "details": error.details,
-            "timestamp": error.timestamp
+            "timestamp": error.timestamp,
         }
     else:
         error_msg = str(error)
@@ -79,7 +92,7 @@ def handle_error(error: Exception, context: str = "", log_level: str = "error") 
             "code": "INTERNAL_ERROR",
             "message": "An unexpected error occurred",
             "details": {"error_type": error.__class__.__name__},
-            "timestamp": datetime.now().isoformat()
+            "timestamp": datetime.now().isoformat(),
         }
 
 def validate_recipe(recipe: Dict) -> tuple[bool, Optional[str]]:
@@ -89,15 +102,16 @@ def validate_recipe(recipe: Dict) -> tuple[bool, Optional[str]]:
     Returns:
         (is_valid, error_message)
     """
-    required_fields = ['id', 'title_no', 'title_en', 'category']
+    required_fields = ["id", "title_no", "title_en", "category"]
     for field in required_fields:
         if field not in recipe or not recipe[field]:
             return False, f"Missing required field: {field}"
 
-    if not isinstance(recipe.get('ingredients_included', []), list):
+    if not isinstance(recipe.get("ingredients_included", []), list):
         return False, "ingredients_included must be a list"
 
     return True, None
+
 
 def validate_category(category: Dict) -> tuple[bool, Optional[str]]:
     """
@@ -106,12 +120,13 @@ def validate_category(category: Dict) -> tuple[bool, Optional[str]]:
     Returns:
         (is_valid, error_message)
     """
-    required_fields = ['code', 'name_no', 'name_en']
+    required_fields = ["code", "name_no", "name_en"]
     for field in required_fields:
         if field not in category or not category[field]:
             return False, f"Missing required field: {field}"
 
     return True, None
+
 
 def safe_load_json(file_path: Path, default: Any = None) -> Any:
     """
@@ -125,7 +140,7 @@ def safe_load_json(file_path: Path, default: Any = None) -> Any:
             logger.warning(f"File not found: {file_path}")
             return default
 
-        with open(file_path, 'r', encoding='utf-8') as f:
+        with open(file_path, "r", encoding="utf-8") as f:
             return json.load(f)
     except json.JSONDecodeError as e:
         logger.error(f"Invalid JSON in {file_path}: {e}")
@@ -133,6 +148,7 @@ def safe_load_json(file_path: Path, default: Any = None) -> Any:
     except Exception as e:
         logger.error(f"Error loading {file_path}: {e}")
         return default
+
 
 def safe_save_json(file_path: Path, data: Any) -> bool:
     """
@@ -143,7 +159,7 @@ def safe_save_json(file_path: Path, data: Any) -> bool:
     """
     try:
         file_path.parent.mkdir(parents=True, exist_ok=True)
-        with open(file_path, 'w', encoding='utf-8') as f:
+        with open(file_path, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
         return True
     except Exception as e:
