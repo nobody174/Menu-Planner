@@ -236,10 +236,16 @@ var STR = {
 
 // Force pack group text to stay black
 document.addEventListener('DOMContentLoaded', function() {
-  var observer = new MutationObserver(function() {
-    document.querySelectorAll('.pack-group-title').forEach(function(el) {
-      el.style.color = '#000000 !important';
+  function forceBlackText() {
+    document.querySelectorAll('.pack-group-header, .pack-group-title').forEach(function(el) {
+      el.style.color = '#000000';
+      el.style.setProperty('color', '#000000', 'important');
     });
+  }
+  forceBlackText();
+
+  var observer = new MutationObserver(function() {
+    forceBlackText();
   });
   observer.observe(document.body, { childList: true, subtree: true });
 });
