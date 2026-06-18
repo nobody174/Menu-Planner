@@ -29,7 +29,7 @@ jobs:
 
     - name: Verify Flask app imports
       run: |
-        python -c "from pi_deployment import flask_app; print('✓ Flask app imports successfully')"
+        python -c "import sys; sys.path.insert(0, 'pi-deployment'); from flask_app import app; print('✓ Flask app imports successfully')"
 
     - name: Verify core modules
       run: |

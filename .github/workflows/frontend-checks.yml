@@ -72,7 +72,7 @@ for f in required_css:
 import os
 import json
 
-theme_dir = 'frontend/static/themes/previews'
+theme_dir = 'frontend/static/themes'
 css_files = [f for f in os.listdir(theme_dir) if f.endswith('.css')]
 print(f'✓ Found {len(css_files)} theme CSS files')
 
