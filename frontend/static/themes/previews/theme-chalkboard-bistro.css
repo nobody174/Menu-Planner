@@ -16,7 +16,7 @@
 
 [data-theme="chalkboard-bistro"] body {
   font-family: 'Josefin Sans', sans-serif;
-  color: #F5F0E8;
+  color: #000000;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -265,7 +265,7 @@
   font-family: 'Caveat', cursive;
   font-size: 1.2rem;
   font-weight: 600;
-  color: #000000;
+  color: #F5F0E8;
   line-height: 1.3;
   margin: 0;
 }
