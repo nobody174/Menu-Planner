@@ -267,6 +267,9 @@
   background: var(--ck-sand-dk);
   transform: translateY(-1px);
 }
+[data-theme="coastal-kitchen"] .pack-group-title {
+  color: white;
+}
 
 @media (max-width: 640px) {
   [data-theme="coastal-kitchen"] .hero { padding: 24px 22px; }

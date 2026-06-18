@@ -250,6 +250,9 @@
   color: var(--br-accent);
   box-shadow: none;
 }
+[data-theme="brutalist"] .pack-group-title {
+  color: white;
+}
 
 @media (max-width: 900px) {
   [data-theme="brutalist"] .menu-grid { grid-template-columns: repeat(2, 1fr); }

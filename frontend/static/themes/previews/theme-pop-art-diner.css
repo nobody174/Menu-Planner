@@ -405,3 +405,7 @@
   gap: 2px !important;
 }
 
+[data-theme="pop-art-diner"] .pack-group-title {
+  color: white;
+}
+

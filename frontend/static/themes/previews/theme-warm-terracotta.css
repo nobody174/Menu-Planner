@@ -284,6 +284,10 @@
 [data-theme="warm-terracotta"] .menu-card:nth-child(5) { animation: tc-fade-up 0.45s 0.28s both; }
 [data-theme="warm-terracotta"] .menu-card:nth-child(6) { animation: tc-fade-up 0.45s 0.35s both; }
 
+[data-theme="warm-terracotta"] .pack-group-title {
+  color: white;
+}
+
 @media (max-width: 640px) {
   [data-theme="warm-terracotta"] .hero { padding: 26px 22px; }
   [data-theme="warm-terracotta"] .hero h1 { font-size: 1.5rem; }
