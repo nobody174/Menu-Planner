@@ -1,7 +1,7 @@
 #
 # Pi-Menu - Weekly Meal Planner
 # Creator: nobody174 (nobodylearn174@gmail.com)
-# GitHub: https://github.com/nobody174/Pi-Menu-Public
+# GitHub: https://github.com/nobody174/Menu-Planner
 # License: MIT
 #
 
@@ -253,7 +253,7 @@ def get_user_info(access_token: str) -> dict:
     return resp.json()
 
 
-def sync_shopping_list_to_todo(access_token: str, items_by_category: dict, list_name: str = "Pi-Menu Handleliste") -> dict:
+def sync_shopping_list_to_todo(access_token: str, items_by_category: dict, list_name: str = "Menu Planner Shopping") -> dict:
     headers = {
         "Authorization": f"Bearer {access_token}",
         "Content-Type": "application/json",

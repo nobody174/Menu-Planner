@@ -1,11 +1,11 @@
-# Pi-Menu Developer Guide
+# Menu Planner Developer Guide
 
-This guide is for developers who want to contribute to Pi-Menu or extend it with custom features.
+This guide is for developers who want to contribute to Menu Planner or extend it with custom features.
 
 ## Project Structure
 
 ```
-Pi-Menu-Public/
+Menu-Planner/
 ├── core/                     # Core application logic
 │   ├── __init__.py
 │   ├── error_handler.py      # Centralized error handling
@@ -50,8 +50,8 @@ Pi-Menu-Public/
 ### 1. Clone & Environment
 
 ```bash
-git clone https://github.com/nobody174/Pi-Menu-Public.git
-cd Pi-Menu-Public
+git clone https://github.com/nobody174/Menu-Planner.git
+cd Menu-Planner
 python3 -m venv venv
 source venv/bin/activate  # Windows: venv\Scripts\activate
 pip install -r requirements.txt

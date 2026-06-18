@@ -661,8 +661,8 @@ _switchLayout(name) {
 
 ```bash
 # 1. Clone and navigate
-git clone https://github.com/nobody174/Pi-Menu-Public.git
-cd Pi-Menu-Public
+git clone https://github.com/nobody174/Menu-Planner.git
+cd Menu-Planner
 
 # 2. Create virtual environment
 python3 -m venv venv

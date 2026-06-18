@@ -1,4 +1,4 @@
-# Pi-Menu Shopping List Integration Setup Guide
+# Menu Planner Shopping List Integration Setup Guide
 
 Complete step-by-step instructions for syncing your shopping list to various task managers and export formats.
 
@@ -28,7 +28,7 @@ All of these can be downloaded directly from the "Export & Sync" menu:
 
 ### 📝 How to Use
 
-1. Go to Pi-Menu **Shopping List** page
+1. Go to Menu Planner **Shopping List** page
 2. **Uncheck items** you want to export (checked items are ignored)
 3. Click **"📤 Export & Sync"** button
 4. Select your desired format
@@ -61,7 +61,7 @@ No setup needed - just select and download!
 3. **Search for "App registrations"** in the top search bar
 4. Click **"New registration"**
 5. Fill in the form:
-   - **Name:** `Pi-Menu`
+   - **Name:** `Menu Planner`
    - **Supported account types:** Select "Accounts in any organizational directory and personal Microsoft accounts"
 6. Click **"Register"**
 
@@ -88,9 +88,9 @@ You're now on the app overview page. **Copy these 3 values** (you'll need them):
    ```
 4. Click **"Configure"**
 
-#### Step 4: Add Credentials to Pi-Menu
+#### Step 4: Add Credentials to Menu Planner
 
-1. Find your `.env` file (in the Pi-Menu main folder)
+1. Find your `.env` file (in the Menu Planner main folder)
    - If you don't have one, copy `.env.template` and rename to `.env`
 2. Find these lines:
    ```
@@ -109,18 +109,18 @@ You're now on the app overview page. **Copy these 3 values** (you'll need them):
 
 #### Step 5: First-Time Authorization
 
-**Important:** The first time you use Microsoft To Do, you need to authorize Pi-Menu:
+**Important:** The first time you use Microsoft To Do, you need to authorize Menu Planner:
 
 1. **Go to:** `http://localhost:5000/callback` (or your Pi's address)
 2. **Sign in** with your Microsoft account
 3. **Grant permissions** when prompted
 4. **You'll be redirected back** - authorization is complete!
 
-This only needs to be done once. Pi-Menu caches your token locally.
+This only needs to be done once. Menu Planner caches your token locally.
 
 #### Step 6: Use It!
 
-1. **Open Pi-Menu** in your browser
+1. **Open Menu Planner** in your browser
 2. **Go to Shopping List** page
 3. Click **"📤 Export & Sync"** button
 4. Click **"🔵 Microsoft To Do"**
@@ -129,7 +129,7 @@ This only needs to be done once. Pi-Menu caches your token locally.
 #### Step 7: Verify It Works
 
 1. Go to **https://to-do.office.com/tasks/**
-2. Look for a list called **"Pi-Menu Handleliste"**
+2. Look for a list called **"Menu Planner Shopping"**
 3. You should see your synced items there! ✅
 
 ### 🔄 Sync Again Later
@@ -173,8 +173,8 @@ This only needs to be done once. Pi-Menu caches your token locally.
 3. **Copy** this token
 4. Keep it safe - don't share it!
 
-#### Step 3: Add Token to Pi-Menu
-1. Find your `.env` file (in the Pi-Menu main folder)
+#### Step 3: Add Token to Menu Planner
+1. Find your `.env` file (in the Menu Planner main folder)
    - If you don't have one, copy `.env.template` and rename to `.env`
 2. Find this line:
    ```
@@ -188,18 +188,18 @@ This only needs to be done once. Pi-Menu caches your token locally.
 5. **Restart Flask** (stop and start the Flask server)
 
 #### Step 4: Test It
-1. Go to Pi-Menu shopping list
+1. Go to Menu Planner shopping list
 2. Uncheck the items you want to sync
 3. Click "📤 Export & Sync" button
 4. Click "🔶 Todoist"
 5. Wait for the "Syncing..." message to complete
 6. Items appear in your Todoist account
 
-**Important:** The first sync creates the "Pi-Menu Shopping" project. Syncing again will update the same project and replace old items with new ones.
+**Important:** The first sync creates the "Menu Planner Shopping" project. Syncing again will update the same project and replace old items with new ones.
 
 ### 📱 View Your Items
 1. Open https://todoist.com/app/today
-2. Find the **"Pi-Menu Shopping"** project
+2. Find the **"Menu Planner Shopping"** project
 3. All your items will be listed there with category labels
 
 ### 🔄 Sync Multiple Times
@@ -210,7 +210,7 @@ This only needs to be done once. Pi-Menu caches your token locally.
 | Problem | Solution |
 |---------|----------|
 | "Configuration needed" error | Check `.env` file has correct token, restart Flask |
-| Items not appearing in Todoist | Check the "Pi-Menu Shopping" project exists |
+| Items not appearing in Todoist | Check the "Menu Planner Shopping" project exists |
 | Token not working | Generate a new one at https://app.todoist.com/app/settings/integrations/developer |
 | 401 Unauthorized | Token is wrong or expired - get a new one |
 
@@ -250,8 +250,8 @@ This only needs to be done once. Pi-Menu caches your token locally.
 11. Click the **"Copy"** button next to the key
 12. Keep it private!
 
-#### Step 3: Add Token to Pi-Menu
-1. Open your `.env` file (in the Pi-Menu main folder)
+#### Step 3: Add Token to Menu Planner
+1. Open your `.env` file (in the Menu Planner main folder)
    - If missing, copy `.env.template` and rename to `.env`
 2. Find this line:
    ```
@@ -265,15 +265,15 @@ This only needs to be done once. Pi-Menu caches your token locally.
 5. **Restart Flask**
 
 #### Step 4: Test It
-1. Go to Pi-Menu shopping list
+1. Go to Menu Planner shopping list
 2. Uncheck items you want to sync
 3. Click "📤 Export & Sync"
 4. Click "🎯 TickTick"
-5. Items appear in TickTick under "Pi-Menu Shopping" list
+5. Items appear in TickTick under "Menu Planner Shopping" list
 
 ### 📱 View Your Items
 1. Open https://ticktick.com
-2. Find **"Pi-Menu Shopping"** list on the left sidebar
+2. Find **"Menu Planner Shopping"** list on the left sidebar
 3. All items are there with category tags
 
 ### ❓ Troubleshooting
@@ -295,7 +295,7 @@ This only needs to be done once. Pi-Menu caches your token locally.
 ### 🚀 Quick Start
 
 #### Step 1: Export as ICS
-1. Go to Pi-Menu shopping list
+1. Go to Menu Planner shopping list
 2. Uncheck items you want to export
 3. Click "📤 Export & Sync"
 4. Click "🍎 Apple Reminders"
@@ -374,7 +374,7 @@ This only needs to be done once. Pi-Menu caches your token locally.
 ## 📞 Support
 
 - For technical issues: Check the service's own support
-- For Pi-Menu bugs: Report on GitHub
+- For Menu Planner bugs: Report on GitHub
 
 ---
 

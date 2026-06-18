@@ -1,7 +1,7 @@
 //
 // Pi-Menu - Weekly Meal Planner
 // Creator: nobody174 (nobodylearn174@gmail.com)
-// GitHub: https://github.com/nobody174/Pi-Menu-Public
+// GitHub: https://github.com/nobody174/Menu-Planner
 // License: MIT
 //
 
@@ -14,13 +14,13 @@ class LanguageManager {
     }
 
     getLanguage() {
-        const stored = localStorage.getItem('pi-menu-language');
+        const stored = localStorage.getItem('menu-planner-language');
         return stored || this.defaultLanguage;
     }
 
     setLanguage(lang) {
         if (lang === 'no' || lang === 'en') {
-            localStorage.setItem('pi-menu-language', lang);
+            localStorage.setItem('menu-planner-language', lang);
             this.currentLanguage = lang;
             return true;
         }

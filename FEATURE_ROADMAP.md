@@ -1,6 +1,6 @@
-# Pi-Menu Feature Roadmap
+# Menu Planner Feature Roadmap
 
-This document tracks feature ideas and enhancements for Pi-Menu v1.0 and beyond.
+This document tracks feature ideas and enhancements for Menu Planner v1.0 and beyond.
 
 ## How to Use This Document
 

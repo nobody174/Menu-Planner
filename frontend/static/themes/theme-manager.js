@@ -6,7 +6,7 @@ const BUILTIN_THEMES = new Set([]);
 
 class ThemeManager {
   constructor() {
-    this.currentTheme = localStorage.getItem('pi-menu-theme') || 'warm-modern';
+    this.currentTheme = localStorage.getItem('menu-planner-theme') || 'warm-modern';
     this.applyTheme(this.currentTheme);
     this.setupEventListeners();
     this.markActiveTheme();
@@ -32,7 +32,7 @@ class ThemeManager {
       option.addEventListener('click', () => {
         const name = option.dataset.theme;
         this.applyTheme(name);
-        localStorage.setItem('pi-menu-theme', name);
+        localStorage.setItem('menu-planner-theme', name);
         this.markActiveTheme();
         dropdown.classList.remove('open');
       });

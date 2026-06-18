@@ -138,7 +138,7 @@
     // Sync the language cookie from localStorage on every page load.
     // This ensures Flask reads the correct language on the NEXT request.
     (function() {
-        var stored = localStorage.getItem('pi-menu-language');
+        var stored = localStorage.getItem('menu-planner-language');
         if (stored) {
             document.cookie = 'pi_language=' + stored + '; path=/; max-age=31536000; SameSite=Lax';
         }

@@ -34,8 +34,8 @@ A Python/Flask web application for families to organize recipes, generate weekly
 
 ```bash
 # 1. Clone repository
-git clone https://github.com/nobody174/Pi-Menu-Public.git
-cd Pi-Menu-Public
+git clone https://github.com/nobody174/Menu-Planner.git
+cd Menu-Planner
 
 # 2. Create & activate virtual environment
 python3 -m venv venv
@@ -114,7 +114,7 @@ EMAIL_SEND_ENABLED=false
 
 ## Command-Line Tools
 
-Manage Pi-Menu from the terminal:
+Manage Menu Planner from the terminal:
 
 ```bash
 # List all recipes
@@ -160,5 +160,5 @@ Built with [Flask](https://flask.palletsprojects.com/) and [Claude Code](https:/
 
 ## Support
 
-- **GitHub:** [Pi-Menu-Public](https://github.com/nobody174/Pi-Menu-Public)
+- **GitHub:** [Menu-Planner](https://github.com/nobody174/Menu-Planner)
 - **Patreon:** [Support on Patreon](https://www.patreon.com/c/Nobody174)

@@ -275,7 +275,7 @@ function _esc(str) {
 
 // ---- Favorites ----
 function restoreFavoriteStars() {
-    var favorites = JSON.parse(localStorage.getItem('pi-menu-favorites') || '[]');
+    var favorites = JSON.parse(localStorage.getItem('menu-planner-favorites') || '[]');
     document.querySelectorAll('.favorite-star-btn').forEach(function(btn) {
         var id = btn.getAttribute('data-recipe-id');
         if (favorites.includes(id)) {
@@ -289,7 +289,7 @@ function restoreFavoriteStars() {
 
 function toggleFavoriteFromAllRecipes(recipeId, event) {
     event.stopPropagation();
-    var favorites = JSON.parse(localStorage.getItem('pi-menu-favorites') || '[]');
+    var favorites = JSON.parse(localStorage.getItem('menu-planner-favorites') || '[]');
     var btn = event.currentTarget;
     var idx = favorites.indexOf(recipeId);
     if (idx === -1) {
@@ -305,7 +305,7 @@ function toggleFavoriteFromAllRecipes(recipeId, event) {
         btn.style.color = '';
         btn.style.borderColor = '#ddd';
     }
-    localStorage.setItem('pi-menu-favorites', JSON.stringify(favorites));
+    localStorage.setItem('menu-planner-favorites', JSON.stringify(favorites));
 }
 
 // ---- Delete ----
@@ -326,9 +326,9 @@ function deleteRecipe(recipeId, recipeTitle) {
     .then(function(data) {
         if (data.status === 'success') {
             // Remove from favorites if present
-            var favorites = JSON.parse(localStorage.getItem('pi-menu-favorites') || '[]');
+            var favorites = JSON.parse(localStorage.getItem('menu-planner-favorites') || '[]');
             var idx = favorites.indexOf(recipeId);
-            if (idx !== -1) { favorites.splice(idx, 1); localStorage.setItem('pi-menu-favorites', JSON.stringify(favorites)); }
+            if (idx !== -1) { favorites.splice(idx, 1); localStorage.setItem('menu-planner-favorites', JSON.stringify(favorites)); }
 
             pmAlert('✅', STR_DELETED_TITLE, '"' + recipeTitle + '" ' + STR_DELETED_MSG).then(function() {
                 location.reload();

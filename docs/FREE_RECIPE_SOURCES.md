@@ -1,8 +1,8 @@
 # Free Recipe Sources
 
-A curated list of legitimate, free recipe sources for expanding your Pi-Menu recipe collection.
+A curated list of legitimate, free recipe sources for expanding your Menu Planner recipe collection.
 
-**Usage:** You can manually copy recipes from these sources into Pi-Menu using the "Legg til oppskrift" (Add Recipe) form.
+**Usage:** You can manually copy recipes from these sources into Menu Planner using the "Legg til oppskrift" (Add Recipe) form.
 
 ---
 
@@ -16,7 +16,7 @@ A curated list of legitimate, free recipe sources for expanding your Pi-Menu rec
 - **Content:** Traditional Norwegian recipes, seasonal dishes
 - **Recipe Count:** 500+
 - **Permission:** Check individual recipe for license
-- **How to Use:** Copy recipe text, add to Pi-Menu form
+- **How to Use:** Copy recipe text, add to Menu Planner form
 
 #### 2. **Naturdagsvarer.no**
 - **URL:** https://www.naturdagsvarer.no/oppskrifter
@@ -147,7 +147,7 @@ A curated list of legitimate, free recipe sources for expanding your Pi-Menu rec
 
 ### Manual Import Steps
 1. Find a recipe on one of the sources above
-2. Open Pi-Menu → Settings → "Legg til oppskrift" (Add Recipe)
+2. Open Menu Planner → Settings → "Legg til oppskrift" (Add Recipe)
 3. Copy recipe information into the form:
    - **Oppskriftens navn** (Recipe name)
    - **Kort beskrivelse** (Short description)
@@ -179,7 +179,7 @@ A curated list of legitimate, free recipe sources for expanding your Pi-Menu rec
 3. **Modifications**
    - You can modify recipes for your family
    - Adjust ingredients, steps, etc.
-   - Pi-Menu stores your modified version
+   - Menu Planner stores your modified version
 
 4. **No Commercial Use**
    - These sources are for personal/family use
@@ -237,5 +237,5 @@ Stay tuned for v1.1 release!
 ---
 
 **Last Updated:** June 16, 2026  
-**Maintained By:** Pi-Menu Community  
-**Questions?** Open an issue on GitHub: https://github.com/nobody174/Pi-Menu-Public/issues  
+**Maintained By:** Menu Planner Community  
+**Questions?** Open an issue on GitHub: https://github.com/nobody174/Menu-Planner/issues  

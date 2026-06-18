@@ -1,7 +1,7 @@
 #
 # Pi-Menu - Weekly Meal Planner
 # Creator: nobody174 (nobodylearn174@gmail.com)
-# GitHub: https://github.com/nobody174/Pi-Menu-Public
+# GitHub: https://github.com/nobody174/Menu-Planner
 # License: MIT
 #
 
@@ -205,7 +205,7 @@ def inject_config():
     return {
         'household_name': os.getenv('HOUSEHOLD_NAME', '{Family_Name}'),
         'creator': 'nobody174',
-        'github_url': 'https://github.com/nobody174/Pi-Menu-Public',
+        'github_url': 'https://github.com/nobody174/Menu-Planner',
         'patreon_url': 'https://www.patreon.com/c/Nobody174',
         'lang': lang,
         't': t,

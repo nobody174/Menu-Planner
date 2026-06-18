@@ -1,4 +1,4 @@
-# Pi-Menu Architecture
+# Menu Planner Architecture
 
 ## System Overview
 

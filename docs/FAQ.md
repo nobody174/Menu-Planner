@@ -11,13 +11,13 @@ Pi-Menu is a weekly meal planner that helps you:
 - Sync with Microsoft To Do (optional)
 - Support multiple languages
 
-### Is Pi-Menu free?
+### Is Menu Planner free?
 
-Yes! Pi-Menu is open-source and free to use. 
+Yes! Menu Planner is open-source and free to use. 
 
 Support the creator on Patreon: https://www.patreon.com/c/Nobody174
 
-### How do I run Pi-Menu on a Raspberry Pi?
+### How do I run Menu Planner on a Raspberry Pi?
 
 See [Setup Guide - Deployment to Raspberry Pi](SETUP_GUIDE.md#deployment-to-raspberry-pi)
 
@@ -130,7 +130,7 @@ Days: mon, tue, wed, thu, fri, sat, sun
 
 ### What ingredients are in the pantry staples?
 
-Edit `core/pantry_staples.json` to customize. By default, Pi-Menu filters out common pantry items (salt, oil, etc.) from shopping lists.
+Edit `core/pantry_staples.json` to customize. By default, Menu Planner filters out common pantry items (salt, oil, etc.) from shopping lists.
 
 ### How do I generate a new menu?
 
@@ -181,7 +181,7 @@ Edit `core/pantry_staples.json` to customize. By default, Pi-Menu filters out co
 
 Found a bug or want a feature?
 
-- Report on GitHub: https://github.com/nobody174/Pi-Menu-Public/issues
+- Report on GitHub: https://github.com/nobody174/Menu-Planner/issues
 - Contact creator: nobody174
 - Patreon: https://www.patreon.com/c/Nobody174
 
@@ -214,4 +214,4 @@ Copy the file to back up or migrate to another installation.
 - [Setup Guide](SETUP_GUIDE.md)
 - [Excel Template Guide](EXCEL_GUIDE.md)
 - [Categories Documentation](CATEGORIES_GUIDE.md)
-- [GitHub Issues](https://github.com/nobody174/Pi-Menu-Public/issues)
+- [GitHub Issues](https://github.com/nobody174/Menu-Planner/issues)

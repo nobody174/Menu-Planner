@@ -1,6 +1,6 @@
-# Pi-Menu Setup Guide
+# Menu Planner Setup Guide
 
-Complete step-by-step guide to set up Pi-Menu for your household.
+Complete step-by-step guide to set up Menu Planner for your household.
 
 ## Prerequisites
 
@@ -14,8 +14,8 @@ Complete step-by-step guide to set up Pi-Menu for your household.
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/nobody174/Pi-Menu-Public.git
-cd Pi-Menu-Public
+git clone https://github.com/nobody174/Menu-Planner.git
+cd Menu-Planner
 ```
 
 ### 2. Create Virtual Environment
@@ -147,7 +147,7 @@ For weekly menu email summaries:
 ### Copy to Pi
 
 ```bash
-scp -r Pi-Menu-Public pi@192.168.1.100:/home/pi/
+scp -r Menu-Planner pi@192.168.1.100:/home/pi/
 ```
 
 ### Set Up Service
@@ -162,9 +162,9 @@ After=network.target
 [Service]
 Type=simple
 User=pi
-WorkingDirectory=/home/pi/Pi-Menu-Public
-Environment="PATH=/home/pi/Pi-Menu-Public/venv/bin"
-ExecStart=/home/pi/Pi-Menu-Public/venv/bin/python3 pi-deployment/app.py
+WorkingDirectory=/home/pi/Menu-Planner
+Environment="PATH=/home/pi/Menu-Planner/venv/bin"
+ExecStart=/home/pi/Menu-Planner/venv/bin/python3 pi-deployment/app.py
 Restart=always
 RestartSec=10
 
@@ -217,10 +217,10 @@ openssl req -x509 -newkey rsa:4096 -nodes -out pi-deployment/cert.pem -keyout pi
 - [Recipe Template Guide](EXCEL_GUIDE.md)
 - [Categories Documentation](CATEGORIES_GUIDE.md)
 - [Frequently Asked Questions](FAQ.md)
-- [GitHub Repository](https://github.com/nobody174/Pi-Menu-Public)
+- [GitHub Repository](https://github.com/nobody174/Menu-Planner)
 
 ## Support
 
-- Report issues: https://github.com/nobody174/Pi-Menu-Public/issues
+- Report issues: https://github.com/nobody174/Menu-Planner/issues
 - Creator: nobody174
 - Support on Patreon: https://www.patreon.com/c/Nobody174

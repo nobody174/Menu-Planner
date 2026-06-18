@@ -1,7 +1,7 @@
 #
 # Pi-Menu - Shopping List Integrations
 # Creator: nobody174 (nobodylearn174@gmail.com)
-# GitHub: https://github.com/nobody174/Pi-Menu-Public
+# GitHub: https://github.com/nobody174/Menu-Planner
 # License: MIT
 #
 
@@ -185,7 +185,7 @@ def export_microsoft_todo_format(items_by_category: dict) -> str:
 # API INTEGRATIONS
 # ─────────────────────────────────────────────────────────────────────────────
 
-def sync_todoist(items_by_category: dict, api_token: str, project_name: str = "Pi-Menu Shopping") -> dict:
+def sync_todoist(items_by_category: dict, api_token: str, project_name: str = "Menu Planner Shopping") -> dict:
     """
     Sync shopping list to Todoist.
 
@@ -258,7 +258,7 @@ def sync_todoist(items_by_category: dict, api_token: str, project_name: str = "P
         logger.error(f"Todoist sync error: {e}")
         return {"success": False, "error": str(e)}
 
-def sync_ticktick(items_by_category: dict, api_token: str, list_name: str = "Pi-Menu Shopping") -> dict:
+def sync_ticktick(items_by_category: dict, api_token: str, list_name: str = "Menu Planner Shopping") -> dict:
     """
     Sync shopping list to TickTick.
 

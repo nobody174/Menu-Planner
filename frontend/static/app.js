@@ -236,7 +236,7 @@ function refreshMenu() {
             if (data.status === 'success') {
                 pmAlert('✅', _t('menu_ready'), _t('menu_updated')).then(function() {
                     // Ensure language cookie is synced before reload
-                    var stored = localStorage.getItem('pi-menu-language');
+                    var stored = localStorage.getItem('menu-planner-language');
                     if (stored) {
                         document.cookie = 'pi_language=' + stored + '; path=/; max-age=31536000; SameSite=Lax';
                     }
@@ -336,7 +336,7 @@ function switchTheme(theme, event) {
     }
     if (window.themeManager) {
         window.themeManager.applyTheme(theme);
-        localStorage.setItem('pi-menu-theme', theme);
+        localStorage.setItem('menu-planner-theme', theme);
         window.themeManager.markActiveTheme();
     }
     var dropdown = document.getElementById('settings-dropdown');

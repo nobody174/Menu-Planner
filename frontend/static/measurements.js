@@ -1,7 +1,7 @@
 //
 // Pi-Menu - Weekly Meal Planner
 // Creator: nobody174 (nobodylearn174@gmail.com)
-// GitHub: https://github.com/nobody174/Pi-Menu-Public
+// GitHub: https://github.com/nobody174/Menu-Planner
 // License: MIT
 //
 
@@ -28,7 +28,7 @@ const UNIT_CONVERSIONS = {
 
 class MeasurementConverter {
   constructor() {
-    this.currentLanguage = localStorage.getItem('pi-menu-language') || 'no';
+    this.currentLanguage = localStorage.getItem('menu-planner-language') || 'no';
   }
 
   setLanguage(lang) {
