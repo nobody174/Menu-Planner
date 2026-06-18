@@ -1,4 +1,6 @@
-# Pi-Menu - Weekly Meal Planner
+# Menu Planner
+
+*Originally built for Raspberry Pi — now runs anywhere Python does.*
 
 A Python/Flask web application for families to organize recipes, generate weekly menus, and create shopping lists.
 

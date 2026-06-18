@@ -1,6 +1,6 @@
 {
-  "name": "Pi-Menu",
-  "short_name": "Menu",
+  "name": "Menu Planner",
+  "short_name": "Planner",
   "description": "Weekly menu planner with intelligent shopping lists",
   "start_url": "/",
   "scope": "/",

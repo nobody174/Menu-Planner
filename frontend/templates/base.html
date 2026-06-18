@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Pi-Menu{% endblock %}</title>
+    <title>{% block title %}Menu Planner{% endblock %}</title>
     <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
     <meta name="theme-color" content="#d97706">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Pi-Menu">
+    <meta name="apple-mobile-web-app-title" content="Menu Planner">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='themes/theme-switcher.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='themes/theme-terracotta.css') }}">
@@ -96,7 +96,7 @@
     </main>
 
     <footer class="footer">
-        <p>Pi-Menu &copy; 2026 | Created by <a href="{{ github_url }}" target="_blank">{{ creator }}</a></p>
+        <p>Menu Planner &copy; 2026 | Originally built for Raspberry Pi | Created by <a href="{{ github_url }}" target="_blank">{{ creator }}</a></p>
         <p style="font-size: 0.8em; margin-top: 4px;"><a href="{{ patreon_url }}" target="_blank">{{ t.support_patreon }}</a> • Built with Claude Code</p>
     </footer>
 
