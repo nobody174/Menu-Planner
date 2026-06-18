@@ -290,3 +290,10 @@
   [data-theme="warm-terracotta"] .hero h1 { font-size: 1.5rem; }
   [data-theme="warm-terracotta"] .menu-grid { grid-template-columns: 1fr; }
 }
+
+[data-theme="warm-terracotta"] .pack-group-header {
+  color: white !important;
+}
+[data-theme="warm-terracotta"] .pack-group-title {
+  color: white !important;
+}

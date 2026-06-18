@@ -407,11 +407,9 @@
   gap: 2px !important;
 }
 
-[data-theme="chalkboard-bistro"] .pack-group-header,
-.pack-group-header {
-  color: white !important;
+[data-theme="chalkboard-bistro"] .pack-group-header {
+  color: #FFFFFF !important;
 }
-[data-theme="chalkboard-bistro"] .pack-group-title,
-.pack-group-title {
-  color: white !important;
+[data-theme="chalkboard-bistro"] .pack-group-title {
+  color: #000000 !important;
 }
