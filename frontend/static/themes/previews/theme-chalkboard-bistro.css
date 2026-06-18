@@ -407,9 +407,3 @@
   gap: 2px !important;
 }
 
-[data-theme="chalkboard-bistro"] .pack-group,
-[data-theme="chalkboard-bistro"] .pack-group-header,
-[data-theme="chalkboard-bistro"] .pack-group-header *,
-[data-theme="chalkboard-bistro"] .pack-group-title {
-  color: #000000 !important;
-}
