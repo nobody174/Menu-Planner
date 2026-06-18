@@ -284,6 +284,12 @@
   background: #2C2C34;
   transform: translateY(-1px);
 }
+[data-theme="apple-fitness"] .pack-group-header {
+  color: white !important;
+}
+[data-theme="apple-fitness"] .pack-group-title {
+  color: white !important;
+}
 
 @media (max-width: 640px) {
   [data-theme="apple-fitness"] .hero { padding: 24px 22px; }
