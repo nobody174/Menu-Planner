@@ -1,7 +1,7 @@
 {
-  "name": "Vartdals Ukesmeny",
-  "short_name": "Ukesmeny",
-  "description": "Familiens ukentlige menyplanner med handleliste",
+  "name": "Pi-Menu",
+  "short_name": "Menu",
+  "description": "Weekly menu planner with intelligent shopping lists",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
