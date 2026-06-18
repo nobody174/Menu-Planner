@@ -17,19 +17,15 @@ from dotenv import load_dotenv
 
 # ── i18n helpers ─────────────────────────────────────────────────────────────
 
-_I18N_CACHE = None
-
 def _load_i18n():
-    global _I18N_CACHE
-    if _I18N_CACHE is None:
-        i18n_path = Path(__file__).parent.parent / 'frontend' / 'static' / 'i18n.json'
-        try:
-            with open(i18n_path, 'r', encoding='utf-8') as f:
-                _I18N_CACHE = json.load(f)
-        except Exception as e:
-            _I18N_CACHE = {}
-            print(f"WARNING: Could not load i18n.json: {e}")
-    return _I18N_CACHE
+    """Load i18n translations (reload on every request to catch updates)."""
+    i18n_path = Path(__file__).parent.parent / 'frontend' / 'static' / 'i18n.json'
+    try:
+        with open(i18n_path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except Exception as e:
+        print(f"WARNING: Could not load i18n.json: {e}")
+        return {}
 
 def _get_lang():
     """Read language from cookie, fallback to 'en'."""
@@ -203,6 +199,13 @@ logger.info(f"Flask static: {app.static_folder}")
 
 # ── Context Processors ───────────────────────────────────────────────────────
 
+def _has_azure_creds():
+    """Check if Azure credentials are configured."""
+    client_id = os.getenv('AZURE_CLIENT_ID', '').strip()
+    client_secret = os.getenv('AZURE_CLIENT_SECRET', '').strip()
+    tenant_id = os.getenv('AZURE_TENANT_ID', '').strip()
+    return bool(client_id and client_secret and tenant_id)
+
 @app.context_processor
 def inject_config():
     """Inject configuration and i18n into all templates."""
@@ -215,6 +218,7 @@ def inject_config():
         'patreon_url': 'https://www.patreon.com/c/Nobody174',
         'lang': lang,
         't': t,
+        'has_azure_creds': _has_azure_creds(),
     }
 
 # ── Helpers ──────────────────────────────────────────────────────────────────
@@ -408,6 +412,11 @@ def all_recipes_page():
 @app.route('/settings')
 def settings_page():
     return render_template('settings.html')
+
+@app.route('/api/check-azure-creds')
+def check_azure_creds():
+    """API endpoint to check if Azure credentials are configured."""
+    return jsonify({'has_creds': _has_azure_creds()})
 
 # ── Auth routes ───────────────────────────────────────────────────────────────
 

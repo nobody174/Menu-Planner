@@ -1,190 +1,129 @@
 {
   "week_start": "2026-06-22",
   "week_end": "2026-06-27",
-  "generated_at": "2026-06-18T16:56:50.105376",
+  "generated_at": "2026-06-19T00:07:56.803455",
   "selected_categories": [
-    "Popular Norwegian Recipes",
-    "European Classics",
-    "Nordic Classics",
-    "Holiday Recipes",
-    "Summer Recipes"
+    "Quick Dinner",
+    "Vegetarian",
+    "Fish & Seafood",
+    "Meat",
+    "Other"
   ],
   "dinners": [
     {
       "day": "Monday",
-      "recipe_id": "sum_014",
-      "title": {
-        "no": "Cobb Salat",
-        "en": "Cobb Salad"
-      },
-      "title_no": "Cobb Salat",
-      "title_en": "Cobb Salad",
-      "time_minutes": 25,
-      "difficulty": "easy",
-      "protein": "other",
-      "subtitle_no": "Amerikansk klassiker med kjøtt, egg og avokado",
-      "subtitle_en": "American classic with meat, egg and avocado",
-      "image_url": "/static/images/meal-vegetarian.jpg"
+      "recipe_id": "sample_010",
+      "title": "Fish Cakes with Remoulade",
+      "title_no": "Fiskekaker med Remoulade",
+      "title_en": "Fish Cakes with Remoulade",
+      "time_minutes": 45,
+      "difficulty": "Medium",
+      "protein": "fish",
+      "subtitle_no": "",
+      "subtitle_en": "",
+      "image_url": "/static/images/meal-fish.jpg"
     },
     {
       "day": "Tuesday",
-      "recipe_id": "nd_013",
-      "title": {
-        "no": "Fiskeboller",
-        "en": "Fish Balls"
-      },
-      "title_no": "Fiskeboller",
-      "title_en": "Fish Balls",
-      "time_minutes": 45,
-      "difficulty": "medium",
-      "protein": "fish",
-      "subtitle_no": "Skandinavisk fisk-spesialet",
-      "subtitle_en": "Scandinavian fish specialty",
-      "image_url": "/static/images/meal-fish.jpg"
-    },
-    {
-      "day": "Wednesday",
-      "recipe_id": "no_001",
-      "title": {
-        "no": "Fårikål",
-        "en": "Lamb and Cabbage Stew"
-      },
-      "title_no": "Fårikål",
-      "title_en": "Lamb and Cabbage Stew",
-      "time_minutes": 90,
-      "difficulty": "easy",
-      "protein": "lamb",
-      "subtitle_no": "Klassisk norsk kjøttstuing med kål og løk",
-      "subtitle_en": "Classic Norwegian meat stew with cabbage and onion",
-      "image_url": "/static/images/meal-lamb.jpg"
-    },
-    {
-      "day": "Thursday",
-      "recipe_id": "sum_011",
-      "title": {
-        "no": "Torskefiléer (Grillet)",
-        "en": "Cod Fillets (Grilled)"
-      },
-      "title_no": "Torskefiléer (Grillet)",
-      "title_en": "Cod Fillets (Grilled)",
-      "time_minutes": 20,
-      "difficulty": "easy",
-      "protein": "fish",
-      "subtitle_no": "Enkel og smakfull grillet torsk",
-      "subtitle_en": "Simple and flavorful grilled cod",
-      "image_url": "/static/images/meal-fish.jpg"
-    },
-    {
-      "day": "Friday",
-      "recipe_id": "hol_004",
-      "title": {
-        "no": "Julerollekake",
-        "en": "Christmas Roll Cake"
-      },
-      "title_no": "Julerollekake",
-      "title_en": "Christmas Roll Cake",
-      "time_minutes": 60,
-      "difficulty": "medium",
-      "protein": "other",
-      "subtitle_no": "Norsk julerullet med fløte og jam",
-      "subtitle_en": "Norwegian Christmas roll with cream and jam",
+      "recipe_id": "sample_009",
+      "title": "Vegetarian Buddha Bowl",
+      "title_no": "Vegetar Buddha Bowl",
+      "title_en": "Vegetarian Buddha Bowl",
+      "time_minutes": 30,
+      "difficulty": "Easy",
+      "protein": "vegetarian",
+      "subtitle_no": "",
+      "subtitle_en": "",
       "image_url": "/static/images/meal-vegetarian.jpg"
     },
     {
-      "day": "Saturday",
-      "recipe_id": "sum_003",
-      "title": {
-        "no": "Kylling-Salat med Mango",
-        "en": "Chicken Salad with Mango"
-      },
-      "title_no": "Kylling-Salat med Mango",
-      "title_en": "Chicken Salad with Mango",
-      "time_minutes": 30,
-      "difficulty": "easy",
-      "protein": "chicken",
-      "subtitle_no": "Frisk og tropisk sommersalat",
-      "subtitle_en": "Fresh and tropical summer salad",
-      "image_url": "/static/images/meal-chicken.jpg"
+      "day": "Wednesday",
+      "recipe_id": "sample_005",
+      "title": "Baked Cod with Potatoes",
+      "title_no": "Kokt Torsk med Kartofler",
+      "title_en": "Baked Cod with Potatoes",
+      "time_minutes": 40,
+      "difficulty": "Easy",
+      "protein": "fish",
+      "subtitle_no": "",
+      "subtitle_en": "",
+      "image_url": "/static/images/meal-fish.jpg"
+    },
+    {
+      "day": "Thursday",
+      "recipe_id": "sample_007",
+      "title": "Chickpea Curry with Rice",
+      "title_no": "Kikertatekurry med Ris",
+      "title_en": "Chickpea Curry with Rice",
+      "time_minutes": 35,
+      "difficulty": "Medium",
+      "protein": "vegetarian",
+      "subtitle_no": "",
+      "subtitle_en": "",
+      "image_url": "/static/images/meal-vegetarian.jpg"
+    },
+    {
+      "day": "Friday",
+      "recipe_id": "sample_002",
+      "title": "Grilled Salmon with Asparagus",
+      "title_no": "Grillet Laks med Aspargess",
+      "title_en": "Grilled Salmon with Asparagus",
+      "time_minutes": 25,
+      "difficulty": "Easy",
+      "protein": "fish",
+      "subtitle_no": "",
+      "subtitle_en": "",
+      "image_url": "/static/images/meal-fish.jpg"
     }
   ],
   "shopping_list": {
     "Proteins": [
       {
-        "ingredient": "Chicken Breast",
-        "quantity": 500,
-        "unit": "g",
-        "allergens": []
-      },
-      {
-        "ingredient": "Chicken Breast (Cooked)",
-        "quantity": 300,
-        "unit": "g",
-        "allergens": []
-      },
-      {
-        "ingredient": "Cod Fillets",
-        "quantity": 800,
+        "ingredient": "Cod Fillet",
+        "quantity": 600,
         "unit": "g",
         "allergens": []
       },
       {
         "ingredient": "Egg",
         "quantity": 1,
-        "unit": "piece",
+        "unit": "stk",
         "allergens": []
       },
       {
-        "ingredient": "Egg (Boiled)",
-        "quantity": 3,
-        "unit": "pieces",
-        "allergens": []
-      },
-      {
-        "ingredient": "Eggs",
-        "quantity": 4,
-        "unit": "pieces",
-        "allergens": []
-      },
-      {
-        "ingredient": "Fish (Minced)",
-        "quantity": 600,
-        "unit": "g",
-        "allergens": []
-      },
-      {
-        "ingredient": "Fish Broth",
-        "quantity": 500,
-        "unit": "ml",
-        "allergens": []
-      },
-      {
-        "ingredient": "Lamb (Meat Chunks)",
-        "quantity": 800,
+        "ingredient": "Salmon Fillet",
+        "quantity": 400,
         "unit": "g",
         "allergens": []
       }
     ],
     "Vegetables": [
       {
+        "ingredient": "Chickpeas",
+        "quantity": 400,
+        "unit": "g",
+        "allergens": []
+      },
+      {
         "ingredient": "Onion",
-        "quantity": 3,
-        "unit": "pieces",
+        "quantity": 2,
+        "unit": "stk",
         "allergens": []
       },
       {
-        "ingredient": "Onion (Minced)",
-        "quantity": 1,
-        "unit": "small",
+        "ingredient": "Potatoes",
+        "quantity": 1.1,
+        "unit": "kg",
         "allergens": []
       },
       {
-        "ingredient": "Red Onion",
-        "quantity": 0.5,
-        "unit": "medium",
+        "ingredient": "Spinach",
+        "quantity": 150,
+        "unit": "g",
         "allergens": []
       },
       {
-        "ingredient": "Tomato (Cherry)",
+        "ingredient": "Tomato",
         "quantity": 200,
         "unit": "g",
         "allergens": []
@@ -192,13 +131,7 @@
     ],
     "Dairy": [
       {
-        "ingredient": "Cheese (Grated)",
-        "quantity": 100,
-        "unit": "g",
-        "allergens": []
-      },
-      {
-        "ingredient": "Cream (Heavy)",
+        "ingredient": "Coconut Milk",
         "quantity": 400,
         "unit": "ml",
         "allergens": []
@@ -212,33 +145,33 @@
     ],
     "Pantry": [
       {
-        "ingredient": "Baking Powder",
-        "quantity": 5,
-        "unit": "tsp",
+        "ingredient": "Flour",
+        "quantity": 30,
+        "unit": "tbsp",
         "allergens": []
       },
       {
-        "ingredient": "Breadcrumbs",
-        "quantity": 75,
+        "ingredient": "Red Lentils",
+        "quantity": 150,
         "unit": "g",
         "allergens": []
       },
       {
-        "ingredient": "Wheat Flour",
-        "quantity": 100,
+        "ingredient": "Rice",
+        "quantity": 250,
         "unit": "g",
         "allergens": []
       }
     ],
     "Herbs & Spices": [
       {
-        "ingredient": "Cilantro (Fresh)",
-        "quantity": 20,
-        "unit": "leaves",
+        "ingredient": "Curry Powder",
+        "quantity": 30,
+        "unit": "tbsp",
         "allergens": []
       },
       {
-        "ingredient": "Dill (Fresh)",
+        "ingredient": "Dill",
         "quantity": 30,
         "unit": "tbsp",
         "allergens": []
@@ -246,99 +179,51 @@
     ],
     "Other": [
       {
+        "ingredient": "Asparagus",
+        "quantity": 300,
+        "unit": "g",
+        "allergens": []
+      },
+      {
         "ingredient": "Avocado",
         "quantity": 1,
-        "unit": "medium",
+        "unit": "stk",
         "allergens": []
       },
       {
-        "ingredient": "Bacon (Cooked)",
-        "quantity": 150,
-        "unit": "g",
-        "allergens": []
-      },
-      {
-        "ingredient": "Butter",
-        "quantity": 50,
-        "unit": "g",
-        "allergens": []
-      },
-      {
-        "ingredient": "Cabbage (White)",
-        "quantity": 1,
-        "unit": "head",
-        "allergens": []
-      },
-      {
-        "ingredient": "Garlic",
-        "quantity": 2,
-        "unit": "cloves",
-        "allergens": []
-      },
-      {
-        "ingredient": "Jam (For Filling)",
-        "quantity": 200,
-        "unit": "g",
-        "allergens": []
-      },
-      {
-        "ingredient": "Lemon",
-        "quantity": 1,
-        "unit": "piece",
-        "allergens": []
-      },
-      {
-        "ingredient": "Lime (Juice)",
-        "quantity": 2,
-        "unit": "pieces",
-        "allergens": []
-      },
-      {
-        "ingredient": "Mango",
-        "quantity": 2,
-        "unit": "medium",
-        "allergens": []
-      },
-      {
-        "ingredient": "Olive Oil",
-        "quantity": 90,
-        "unit": "tbsp",
-        "allergens": []
-      },
-      {
-        "ingredient": "Powdered Sugar",
-        "quantity": 50,
-        "unit": "g",
-        "allergens": []
-      },
-      {
-        "ingredient": "Ranch Dressing",
-        "quantity": 150,
-        "unit": "ml",
-        "allergens": []
-      },
-      {
-        "ingredient": "Salad (Mixed)",
-        "quantity": 700,
-        "unit": "g",
-        "allergens": []
-      },
-      {
-        "ingredient": "Salt And Pepper",
-        "quantity": 2,
-        "unit": "to taste",
-        "allergens": []
-      },
-      {
-        "ingredient": "Sugar",
+        "ingredient": "Beet",
         "quantity": 100,
         "unit": "g",
         "allergens": []
       },
       {
-        "ingredient": "Water",
-        "quantity": 1.0,
-        "unit": "l",
+        "ingredient": "Lemon",
+        "quantity": 2,
+        "unit": "stk",
+        "allergens": []
+      },
+      {
+        "ingredient": "Olive Oil",
+        "quantity": 30,
+        "unit": "ml",
+        "allergens": []
+      },
+      {
+        "ingredient": "Quinoa",
+        "quantity": 100,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Saithe Or Haddock",
+        "quantity": 600,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Tahini",
+        "quantity": 30,
+        "unit": "tbsp",
         "allergens": []
       }
     ]

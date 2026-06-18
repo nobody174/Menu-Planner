@@ -71,9 +71,9 @@
                             <a href="/add-recipe" class="settings-item">+ {{ t.add_recipe }}</a>
                             <div class="settings-divider"></div>
                             <div id="nav-auth-section" style="display:none;">
-                                <a href="/login" id="nav-login-item" class="settings-item" style="display:none;">{{ t.login }}</a>
+                                <a href="/login" id="nav-login-item" class="settings-item" style="display:none; color: var(--color-text-primary, #333);">Connect to Microsoft To Do</a>
                                 <span id="nav-user-display-settings" style="display:none; font-size:0.85rem; color:var(--color-text-secondary,#888); padding:8px 16px; display:block;"></span>
-                                <a href="/logout" id="nav-logout-item" class="settings-item settings-logout" style="display:none;">{{ t.logout }}</a>
+                                <a href="/logout" id="nav-logout-item" class="settings-item settings-logout" style="display:none; color: var(--color-text-primary, #333);">Disconnect</a>
                             </div>
                         </div>
                     </div>
@@ -193,17 +193,25 @@
     });
 
     // ── Auth status ────────────────────────────────────────────────────────
-    fetch('/api/user')
-        .then(function(r){ return r.json(); })
-        .then(function(data){
+    Promise.all([
+        fetch('/api/user').then(function(r){ return r.json(); }),
+        fetch('/api/check-azure-creds').then(function(r){ return r.json(); })
+    ])
+        .then(function(results){
+            var userdata = results[0];
+            var credsdata = results[1];
             var loginItem  = document.getElementById('nav-login-item');
             var logoutItem = document.getElementById('nav-logout-item');
             var userDisp   = document.getElementById('nav-user-display-settings');
             var authSec    = document.getElementById('nav-auth-section');
             if (!authSec) return;
+
+            // Only show auth section if Azure credentials are configured
+            if (!credsdata.has_creds) return;
+
             authSec.style.display = '';
-            if (data.authenticated) {
-                if (userDisp) { userDisp.textContent = data.name || data.email || ''; userDisp.style.display = 'block'; }
+            if (userdata.authenticated) {
+                if (userDisp) { userDisp.textContent = userdata.name || userdata.email || ''; userDisp.style.display = 'block'; }
                 if (logoutItem) logoutItem.style.display = '';
             } else {
                 if (loginItem) loginItem.style.display = '';
