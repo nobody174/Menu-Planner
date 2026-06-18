@@ -274,9 +274,7 @@
   [data-theme="coastal-kitchen"] .menu-grid { grid-template-columns: 1fr; }
 }
 
-[data-theme="coastal-kitchen"] .pack-group-header {
   color: white !important;
 }
-[data-theme="coastal-kitchen"] .pack-group-title {
   color: white !important;
 }

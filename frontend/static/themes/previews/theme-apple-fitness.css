@@ -291,9 +291,7 @@
   [data-theme="apple-fitness"] .menu-grid { grid-template-columns: 1fr; }
 }
 
-[data-theme="apple-fitness"] .pack-group-header {
   color: white !important;
 }
-[data-theme="apple-fitness"] .pack-group-title {
   color: white !important;
 }

@@ -1,13 +1,9 @@
 {
   "week_start": "2026-06-22",
   "week_end": "2026-06-27",
-  "generated_at": "2026-06-19T00:07:56.803455",
+  "generated_at": "2026-06-19T01:31:47.915451",
   "selected_categories": [
-    "Quick Dinner",
-    "Vegetarian",
-    "Fish & Seafood",
-    "Meat",
-    "Other"
+    "Fish & Seafood"
   ],
   "dinners": [
     {
@@ -25,16 +21,16 @@
     },
     {
       "day": "Tuesday",
-      "recipe_id": "sample_009",
-      "title": "Vegetarian Buddha Bowl",
-      "title_no": "Vegetar Buddha Bowl",
-      "title_en": "Vegetarian Buddha Bowl",
-      "time_minutes": 30,
+      "recipe_id": "sample_002",
+      "title": "Grilled Salmon with Asparagus",
+      "title_no": "Grillet Laks med Aspargess",
+      "title_en": "Grilled Salmon with Asparagus",
+      "time_minutes": 25,
       "difficulty": "Easy",
-      "protein": "vegetarian",
+      "protein": "fish",
       "subtitle_no": "",
       "subtitle_en": "",
-      "image_url": "/static/images/meal-vegetarian.jpg"
+      "image_url": "/static/images/meal-fish.jpg"
     },
     {
       "day": "Wednesday",
@@ -43,32 +39,6 @@
       "title_no": "Kokt Torsk med Kartofler",
       "title_en": "Baked Cod with Potatoes",
       "time_minutes": 40,
-      "difficulty": "Easy",
-      "protein": "fish",
-      "subtitle_no": "",
-      "subtitle_en": "",
-      "image_url": "/static/images/meal-fish.jpg"
-    },
-    {
-      "day": "Thursday",
-      "recipe_id": "sample_007",
-      "title": "Chickpea Curry with Rice",
-      "title_no": "Kikertatekurry med Ris",
-      "title_en": "Chickpea Curry with Rice",
-      "time_minutes": 35,
-      "difficulty": "Medium",
-      "protein": "vegetarian",
-      "subtitle_no": "",
-      "subtitle_en": "",
-      "image_url": "/static/images/meal-vegetarian.jpg"
-    },
-    {
-      "day": "Friday",
-      "recipe_id": "sample_002",
-      "title": "Grilled Salmon with Asparagus",
-      "title_no": "Grillet Laks med Aspargess",
-      "title_en": "Grilled Salmon with Asparagus",
-      "time_minutes": 25,
       "difficulty": "Easy",
       "protein": "fish",
       "subtitle_no": "",
@@ -99,14 +69,8 @@
     ],
     "Vegetables": [
       {
-        "ingredient": "Chickpeas",
-        "quantity": 400,
-        "unit": "g",
-        "allergens": []
-      },
-      {
         "ingredient": "Onion",
-        "quantity": 2,
+        "quantity": 1,
         "unit": "stk",
         "allergens": []
       },
@@ -115,27 +79,9 @@
         "quantity": 1.1,
         "unit": "kg",
         "allergens": []
-      },
-      {
-        "ingredient": "Spinach",
-        "quantity": 150,
-        "unit": "g",
-        "allergens": []
-      },
-      {
-        "ingredient": "Tomato",
-        "quantity": 200,
-        "unit": "g",
-        "allergens": []
       }
     ],
     "Dairy": [
-      {
-        "ingredient": "Coconut Milk",
-        "quantity": 400,
-        "unit": "ml",
-        "allergens": []
-      },
       {
         "ingredient": "Milk",
         "quantity": 100,
@@ -149,27 +95,9 @@
         "quantity": 30,
         "unit": "tbsp",
         "allergens": []
-      },
-      {
-        "ingredient": "Red Lentils",
-        "quantity": 150,
-        "unit": "g",
-        "allergens": []
-      },
-      {
-        "ingredient": "Rice",
-        "quantity": 250,
-        "unit": "g",
-        "allergens": []
       }
     ],
     "Herbs & Spices": [
-      {
-        "ingredient": "Curry Powder",
-        "quantity": 30,
-        "unit": "tbsp",
-        "allergens": []
-      },
       {
         "ingredient": "Dill",
         "quantity": 30,
@@ -181,18 +109,6 @@
       {
         "ingredient": "Asparagus",
         "quantity": 300,
-        "unit": "g",
-        "allergens": []
-      },
-      {
-        "ingredient": "Avocado",
-        "quantity": 1,
-        "unit": "stk",
-        "allergens": []
-      },
-      {
-        "ingredient": "Beet",
-        "quantity": 100,
         "unit": "g",
         "allergens": []
       },
@@ -209,21 +125,9 @@
         "allergens": []
       },
       {
-        "ingredient": "Quinoa",
-        "quantity": 100,
-        "unit": "g",
-        "allergens": []
-      },
-      {
         "ingredient": "Saithe Or Haddock",
         "quantity": 600,
         "unit": "g",
-        "allergens": []
-      },
-      {
-        "ingredient": "Tahini",
-        "quantity": 30,
-        "unit": "tbsp",
         "allergens": []
       }
     ]
