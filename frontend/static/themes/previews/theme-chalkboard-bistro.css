@@ -341,7 +341,7 @@
 
 /* Force settings dropdown to not inherit theme styles */
 [data-theme="chalkboard-bistro"] .theme-submenu {
-  display: block !important;
+  
   gap: 0 !important;
   padding: 8px 0 !important;
   row-gap: 0 !important;
@@ -388,7 +388,7 @@
 
 /* Force settings dropdown to not inherit theme styles */
 [data-theme="chalkboard-bistro"] .theme-submenu {
-  display: block !important;
+  
   gap: 0 !important;
   padding: 8px 0 !important;
   row-gap: 0 !important;
