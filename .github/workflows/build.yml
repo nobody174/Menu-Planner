@@ -28,25 +28,10 @@ jobs:
         pip install -r requirements.txt
 
     - name: Verify Flask app imports
-      run: |
-        python -c "import sys; sys.path.insert(0, 'pi-deployment'); from flask_app import app; print('✓ Flask app imports successfully')"
+      run: python .github/scripts/verify_flask.py
 
     - name: Verify core modules
-      run: |
-        python -c "from core import menu_generator, ingredient_deduplicator; print('✓ Core modules import successfully')"
+      run: python .github/scripts/verify_core.py
 
     - name: Check required data files
-      run: |
-        python -c "
-import json
-import os
-files = ['data/sample_recipes.json', 'data/categories.json', 'frontend/static/i18n.json']
-for f in files:
-    if os.path.exists(f):
-        with open(f) as file:
-            json.load(file)
-        print(f'✓ {f} is valid JSON')
-    else:
-        print(f'✗ {f} missing')
-        exit(1)
-"
+      run: python .github/scripts/check_data_files.py

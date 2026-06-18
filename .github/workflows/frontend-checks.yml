@@ -19,89 +19,13 @@ jobs:
         node-version: '18'
 
     - name: Install frontend tools
-      run: |
-        npm install -g eslint
+      run: npm install -g eslint
 
     - name: Validate HTML templates
-      run: |
-        python -c "
-import os
-from html.parser import HTMLParser
-
-class HTMLValidator(HTMLParser):
-    def __init__(self):
-        super().__init__()
-        self.errors = []
-
-    def error(self, message):
-        self.errors.append(message)
-
-template_dir = 'frontend/templates'
-for file in os.listdir(template_dir):
-    if file.endswith('.html'):
-        with open(os.path.join(template_dir, file)) as f:
-            content = f.read()
-            validator = HTMLValidator()
-            try:
-                validator.feed(content)
-                print(f'✓ {file} HTML structure OK')
-            except Exception as e:
-                print(f'✗ {file} has HTML issues: {e}')
-"
+      run: python .github/scripts/validate_html.py
 
     - name: Check CSS files exist
-      run: |
-        python -c "
-import os
-required_css = [
-    'frontend/static/style.css',
-    'frontend/static/themes/theme-switcher.css',
-    'frontend/static/themes/previews/theme-registry.json'
-]
-for f in required_css:
-    if os.path.exists(f):
-        print(f'✓ {f} exists')
-    else:
-        print(f'✗ {f} missing')
-        exit(1)
-"
-
-    - name: Validate theme CSS files
-      run: |
-        python -c "
-import os
-import json
-
-theme_dir = 'frontend/static/themes'
-css_files = [f for f in os.listdir(theme_dir) if f.endswith('.css')]
-print(f'✓ Found {len(css_files)} theme CSS files')
-
-# Validate registry
-with open('frontend/static/themes/previews/theme-registry.json') as f:
-    registry = json.load(f)
-    print(f'✓ Theme registry has {len(registry)} themes')
-    for theme in registry:
-        if all(k in theme for k in ['id', 'name', 'file', 'preview_color']):
-            print(f'  ✓ {theme[\"name\"]} registered')
-        else:
-            print(f'  ✗ {theme} missing fields')
-            exit(1)
-"
+      run: python .github/scripts/check_css.py
 
     - name: Check i18n translations
-      run: |
-        python -c "
-import json
-
-with open('frontend/static/i18n.json') as f:
-    i18n = json.load(f)
-
-english_keys = [k for k in i18n.keys() if k.endswith('_en')]
-norwegian_keys = [k for k in i18n.keys() if k.endswith('_no')]
-
-print(f'✓ i18n.json has {len(english_keys)} English strings')
-print(f'✓ i18n.json has {len(norwegian_keys)} Norwegian strings')
-
-if len(english_keys) != len(norwegian_keys):
-    print('⚠ Warning: English and Norwegian translation counts differ')
-"
+      run: python .github/scripts/validate_i18n.py
