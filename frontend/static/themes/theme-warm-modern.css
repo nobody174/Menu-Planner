@@ -241,6 +241,13 @@
   border-color: var(--wm-stone);
 }
 
+[data-theme="warm-modern"] .pack-group-header {
+  color: white !important;
+}
+[data-theme="warm-modern"] .pack-group-title {
+  color: white !important;
+}
+
 @media (max-width: 640px) {
   [data-theme="warm-modern"] .hero { padding: 28px 24px; }
   [data-theme="warm-modern"] .menu-grid { grid-template-columns: 1fr; }
