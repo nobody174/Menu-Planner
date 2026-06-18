@@ -274,12 +274,6 @@
   background: var(--ff-bark-dk);
   transform: translateY(-1px);
 }
-[data-theme="forest-forager"] .pack-group-header {
-  color: white !important;
-}
-[data-theme="forest-forager"] .pack-group-title {
-  color: white !important;
-}
 
 @media (max-width: 640px) {
   [data-theme="forest-forager"] .hero { padding: 24px 22px; }
