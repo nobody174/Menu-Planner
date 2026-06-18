@@ -2,9 +2,9 @@
 
 ## General Questions
 
-### What is Pi-Menu?
+### What is Menu Planner?
 
-Pi-Menu is a weekly meal planner that helps you:
+Menu Planner is a weekly meal planner that helps you:
 - Organize your family recipes
 - Automatically generate weekly menus
 - Create shopping lists

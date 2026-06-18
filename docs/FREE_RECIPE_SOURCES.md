@@ -226,7 +226,7 @@ A curated list of legitimate, free recipe sources for expanding your Menu Planne
 
 ## 🚀 Future Enhancement
 
-Pi-Menu is planning to add "Recipe Pack Import" feature where you can:
+Menu Planner is planning to add "Recipe Pack Import" feature where you can:
 - Import multiple recipes at once (from prepared packs)
 - Browse curated recipe collections
 - Manage your personal recipe library

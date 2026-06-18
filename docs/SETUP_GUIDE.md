@@ -156,7 +156,7 @@ Create `/etc/systemd/system/pi-menu.service`:
 
 ```ini
 [Unit]
-Description=Pi-Menu Weekly Planner
+Description=Menu Planner Weekly Planner
 After=network.target
 
 [Service]

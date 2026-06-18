@@ -74,7 +74,7 @@ You're now on the app overview page. **Copy these 3 values** (you'll need them):
 3. **Client Secret** (need to create it):
    - Click **"Certificates & secrets"** on the left menu
    - Click **"New client secret"**
-   - Give it a description: `Pi-Menu`
+   - Give it a description: `Menu Planner`
    - Click **"Add"**
    - **Copy the secret value immediately** (it only shows once!)
 

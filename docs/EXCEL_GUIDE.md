@@ -1,6 +1,6 @@
 # Excel Recipe Template Guide
 
-Complete guide to using the Excel template for adding your recipes to Pi-Menu.
+Complete guide to using the Excel template for adding your recipes to Menu Planner.
 
 ## Template Overview
 
@@ -159,7 +159,7 @@ Instructions (EN):
 - Imperial units (tsp, tbsp, cup) work but don't convert
 
 ### Missing ingredients in shopping list
-- Check ingredient names match across recipes (Pi-Menu fuzzy-matches at 90%)
+- Check ingredient names match across recipes (Menu Planner fuzzy-matches at 90%)
 - Spelling variations may prevent matching
 - Use standardized ingredient names
 
