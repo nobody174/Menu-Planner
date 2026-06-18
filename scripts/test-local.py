@@ -9,7 +9,7 @@
 """
 Local Testing Suite
 
-Tests all major Pi-Menu functionality without server.
+Tests all major Menu Planner functionality without server.
 
 Usage:
     python3 test-local.py [--verbose]
@@ -146,7 +146,7 @@ def test_measurements():
 def test_error_handler():
     """Test: Error handling utilities"""
     try:
-        from core.error_handler import PIMenuError, RecipeLoadError, handle_error
+        from core.error_handler import MenuPlannerError, RecipeLoadError, handle_error
 
         error = RecipeLoadError("Test error", {"detail": "test"})
         result = handle_error(error, "test context")

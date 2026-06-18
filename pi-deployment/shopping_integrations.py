@@ -145,7 +145,7 @@ def export_ics(items_by_category: dict) -> str:
     lines = [
         "BEGIN:VCALENDAR",
         "VERSION:2.0",
-        "PRODID:-//Pi-Menu//Shopping List//EN",
+        "PRODID:-//Menu-Planner//Shopping List//EN",
         "CALSCALE:GREGORIAN",
         "METHOD:PUBLISH",
     ]

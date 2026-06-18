@@ -9,7 +9,7 @@
 """
 Interactive Category Editor
 
-Manage Pi-Menu recipe categories from command line.
+Manage Menu Planner recipe categories from command line.
 
 Usage:
     python3 category-editor.py [--list|--add|--remove|--backup]

@@ -62,7 +62,7 @@ def handle_error(error: Exception, context: str = "", log_level: str = "error") 
     """
     log_func = getattr(logger, log_level.lower(), logger.error)
 
-    if isinstance(error, PIMenuError):
+    if isinstance(error, MenuPlannerError):
         log_func(f"{context}: {error.code} - {error.message}")
         return {
             "status": "error",

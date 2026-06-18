@@ -7,9 +7,9 @@
 #
 
 """
-Pi-Menu Command-Line Interface
+Menu Planner Command-Line Interface
 
-Utility commands for managing Pi-Menu without the web interface.
+Utility commands for managing Menu Planner without the web interface.
 
 Usage:
     python3 pi-menu-cli.py <command> [options]
@@ -143,7 +143,7 @@ def menu_command(action):
 
 def validate_command():
     """Validate configuration"""
-    logger.info("Validating Pi-Menu configuration...\n")
+    logger.info("Validating Menu Planner configuration...\n")
 
     checks = {
         "config.py": PROJECT_ROOT / "config.py",

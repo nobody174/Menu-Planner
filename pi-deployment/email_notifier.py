@@ -84,7 +84,7 @@ class EmailNotifier:
                 <p>Lykke til med matlagingen!</p>
 
                 <div class="footer">
-                    <p>Denne emailen ble generert av Pi-Menu. Never too late to give up! ⚰️</p>
+                    <p>Denne emailen ble generert av Menu Planner. Never too late to give up! ⚰️</p>
                 </div>
             </body>
         </html>

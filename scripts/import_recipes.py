@@ -10,7 +10,7 @@
 Enhanced Excel Recipe Importer
 
 Reads recipes from the Excel template and converts them to JSON format
-for use by Pi-Menu.
+for use by Menu Planner.
 
 Usage:
     python3 import_recipes.py <path-to-excel-file> [--output <output-path>] [--merge]
