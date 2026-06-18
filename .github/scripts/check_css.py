@@ -10,7 +10,7 @@ required_css = [
 
 for f in required_css:
     if os.path.exists(f):
-        print(f"✓ {f} exists")
+        print(f"[OK] {f} exists")
     else:
-        print(f"✗ {f} missing")
+        print(f"[FAIL] {f} missing")
         exit(1)

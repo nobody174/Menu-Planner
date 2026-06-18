@@ -8,8 +8,8 @@ with open("frontend/static/i18n.json") as f:
     english_keys = [k for k in i18n.keys() if k.endswith("_en")]
     norwegian_keys = [k for k in i18n.keys() if k.endswith("_no")]
 
-    print(f"✓ i18n.json has {len(english_keys)} English strings")
-    print(f"✓ i18n.json has {len(norwegian_keys)} Norwegian strings")
+    print(f"[OK] i18n.json has {len(english_keys)} English strings")
+    print(f"[OK] i18n.json has {len(norwegian_keys)} Norwegian strings")
 
     if len(english_keys) != len(norwegian_keys):
-        print("⚠ Warning: English and Norwegian translation counts differ")
+        print("[WARN] Warning: English and Norwegian translation counts differ")

@@ -21,6 +21,6 @@ for file in os.listdir(template_dir):
             validator = HTMLValidator()
             try:
                 validator.feed(content)
-                print(f"✓ {file} HTML structure OK")
+                print(f"[OK] {file} HTML structure OK")
             except Exception as e:
-                print(f"✗ {file} has HTML issues: {e}")
+                print(f"[FAIL] {file} has HTML issues: {e}")

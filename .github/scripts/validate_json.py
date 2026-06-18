@@ -11,12 +11,12 @@ for file in json_files:
     try:
         with open(file) as f:
             json.load(f)
-        print(f"✓ {file} is valid JSON")
+        print(f"[OK] {file} is valid JSON")
     except json.JSONDecodeError as e:
-        print(f"✗ {file} has JSON syntax error: {e}")
+        print(f"[FAIL] {file} has JSON syntax error: {e}")
         exit(1)
     except Exception as e:
-        print(f"✗ {file} error: {e}")
+        print(f"[FAIL] {file} error: {e}")
         exit(1)
 
-print(f"\n✓ All {len(json_files)} JSON files are valid")
+print(f"\n[OK] All {len(json_files)} JSON files are valid")
