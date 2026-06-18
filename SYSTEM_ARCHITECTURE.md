@@ -2,7 +2,7 @@
 
 ## System Overview
 
-Pi-Menu is a weekly meal planning system that:
+Menu Planner is a weekly meal planning system that:
 1. Loads recipes from user-provided Excel templates
 2. Generates weekly menus with selected recipes
 3. Deduplicates ingredients for shopping lists
