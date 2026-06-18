@@ -10,10 +10,13 @@
 
 /* --- Root / Body --- */
 [data-theme="chalkboard-bistro"] {
-  font-family: 'Josefin Sans', sans-serif;
   background-color: #2A2C26;
-  color: #F5F0E8;
   min-height: 100vh;
+}
+
+[data-theme="chalkboard-bistro"] body {
+  font-family: 'Josefin Sans', sans-serif;
+  color: #F5F0E8;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -336,6 +339,27 @@
   transform: translateY(-1px);
 }
 
+/* Force settings dropdown to not inherit theme styles */
+[data-theme="chalkboard-bistro"] .theme-submenu {
+  display: block !important;
+  gap: 0 !important;
+  padding: 8px 0 !important;
+  row-gap: 0 !important;
+  column-gap: 0 !important;
+}
+
+[data-theme="chalkboard-bistro"] .theme-submenu .theme-option {
+  padding: 7px 14px !important;
+  margin: 0 !important;
+  line-height: 1.4 !important;
+  height: auto !important;
+  min-height: auto !important;
+}
+
+[data-theme="chalkboard-bistro"] .theme-submenu .theme-option-content {
+  gap: 2px !important;
+}
+
 /* --- Responsive --- */
 @media (max-width: 640px) {
   [data-theme="chalkboard-bistro"] .hero {
@@ -360,4 +384,25 @@
   [data-theme="chalkboard-bistro"] .navbar {
     padding: 0.6rem 1rem;
   }
+}
+
+/* Force settings dropdown to not inherit theme styles */
+[data-theme="chalkboard-bistro"] .theme-submenu {
+  display: block !important;
+  gap: 0 !important;
+  padding: 8px 0 !important;
+  row-gap: 0 !important;
+  column-gap: 0 !important;
+}
+
+[data-theme="chalkboard-bistro"] .theme-submenu .theme-option {
+  padding: 7px 14px !important;
+  margin: 0 !important;
+  line-height: 1.4 !important;
+  height: auto !important;
+  min-height: auto !important;
+}
+
+[data-theme="chalkboard-bistro"] .theme-submenu .theme-option-content {
+  gap: 2px !important;
 }

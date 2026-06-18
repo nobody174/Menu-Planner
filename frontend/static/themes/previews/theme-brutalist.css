@@ -1,388 +1,260 @@
-/* ============================================================
-   THEME: Brutalist
-   ID: brutalist
-   Identity: Raw anti-design. Zero border-radius everywhere.
-   Thick black borders. Black/white with red accent. Space Mono
-   monospace. Dense, harsh, deliberately ugly-beautiful.
-   Cards displayed as a vertical list, not a grid.
-   ============================================================ */
+/* THEME: Brutalist
+   Raw, blocky, high-contrast, anti-design on purpose. */
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
-
-/* --- Root / Body --- */
 [data-theme="brutalist"] {
-  font-family: 'Space Mono', monospace;
-  background-color: #FFFFFF;
-  color: #000000;
-  min-height: 100vh;
-  -webkit-font-smoothing: auto;
+  --br-bg:      #FFFFFF;
+  --br-surface: #FFFFFF;
+  --br-border:  #000000;
+  --br-accent:  #FFD600;
+  --br-text:    #000000;
+  --br-text-sub:#333333;
+  --br-radius:  0px;
+  --br-shadow:  none;
+  --br-font:    system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* --- Navbar --- */
+[data-theme="brutalist"] body {
+  background: var(--br-bg);
+  color: var(--br-text);
+  font-family: var(--br-font);
+}
+
+/* ── Navbar – thick bar ── */
 [data-theme="brutalist"] .navbar {
-  background-color: #000000;
-  border-bottom: none;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-/* Red top bar via content before the navbar flex row */
-[data-theme="brutalist"] .navbar::before {
-  content: '';
-  display: block;
-  height: 6px;
-  background-color: #FF0000;
-  flex-shrink: 0;
-}
-
-/* Inner navbar row needs to be handled via layout */
-[data-theme="brutalist"] .navbar .navbar-inner,
-[data-theme="brutalist"] .navbar > *:not(::before) {
-  padding: 0.65rem 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-[data-theme="brutalist"] .nav-logo {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: #FFFFFF;
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-}
-
-[data-theme="brutalist"] .nav-link {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.65rem;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.65);
-  text-decoration: none;
-  padding: 0.2rem 0.5rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  transition: background-color 0.1s ease, color 0.1s ease;
-  border-radius: 0;
-}
-
-[data-theme="brutalist"] .nav-link:hover {
-  background-color: #FF0000;
-  color: #FFFFFF;
-}
-
-[data-theme="brutalist"] .theme-toggle-btn {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.62rem;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.65);
-  background: none;
-  border: 1px solid rgba(255,255,255,0.25);
-  padding: 0.2rem 0.5rem;
-  cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  border-radius: 0;
-  transition: all 0.1s ease;
-}
-
-[data-theme="brutalist"] .theme-toggle-btn:hover {
-  background-color: #FF0000;
-  border-color: #FF0000;
-  color: #FFFFFF;
-}
-
-[data-theme="brutalist"] .category-dropdown-btn {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.65rem;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.65);
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.2rem 0.5rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  border-radius: 0;
-  transition: background-color 0.1s ease, color 0.1s ease;
-}
-
-[data-theme="brutalist"] .category-dropdown-btn:hover {
-  background-color: #FF0000;
-  color: #FFFFFF;
-}
-
-/* --- Hero --- */
-[data-theme="brutalist"] .hero {
-  background-color: #000000;
-  border-radius: 0;
-  border-bottom: 3px solid #000000;
-  margin: 0;
-  padding: 2.5rem 2rem 2rem;
-  text-align: left;
-  position: relative;
-  overflow: hidden;
-  max-width: 100%;
-}
-
-/* Large decorative comment marks */
-[data-theme="brutalist"] .hero::after {
-  content: '//';
-  position: absolute;
-  top: 16px;
-  right: 28px;
-  font-size: 5rem;
-  font-weight: 700;
-  font-family: 'Space Mono', monospace;
-  color: rgba(255, 0, 0, 0.12);
-  line-height: 1;
-  pointer-events: none;
-  letter-spacing: -0.05em;
-}
-
-[data-theme="brutalist"] .hero h1 {
-  font-family: 'Space Mono', monospace;
-  font-size: clamp(1.6rem, 4.5vw, 2.8rem);
-  font-weight: 700;
-  color: #FFFFFF;
-  text-transform: uppercase;
-  letter-spacing: -0.04em;
-  line-height: 1.0;
-  margin: 0 0 0.5rem;
-  position: relative;
-  z-index: 1;
-}
-
-[data-theme="brutalist"] .week-range {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.7rem;
-  font-weight: 700;
-  color: #FF0000;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  display: block;
-  position: relative;
-  z-index: 1;
-  margin-bottom: 0.25rem;
-}
-
-[data-theme="brutalist"] .categories-info {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.6rem;
-  color: rgba(255,255,255,0.4);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  position: relative;
-  z-index: 1;
-  margin-top: 0.35rem;
-}
-
-/* --- Menu Grid: rendered as a VERTICAL LIST --- */
-[data-theme="brutalist"] .menu-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  max-width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-/* --- Menu Card --- */
-[data-theme="brutalist"] .menu-card {
-  background-color: #FFFFFF;
-  border-radius: 0;
-  border: none;
-  border-bottom: 3px solid #000000;
-  border-left: 3px solid #000000;
-  border-right: 3px solid #000000;
+  background: #FFFFFF;
+  border-bottom: 3px solid #000;
   box-shadow: none;
-  display: grid;
-  grid-template-columns: 1fr;
-  transition: background-color 0.1s ease;
-  position: relative;
+}
+[data-theme="brutalist"] .nav-logo {
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #000;
+}
+[data-theme="brutalist"] .nav-link,
+[data-theme="brutalist"] .category-dropdown-btn {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  border-radius: 0;
+  border: 2px solid #000;
+  padding: 4px 8px;
+  background: var(--br-accent);
+  color: #000;
+}
+[data-theme="brutalist"] .nav-link:hover,
+[data-theme="brutalist"] .category-dropdown-btn:hover {
+  background: #000;
+  color: var(--br-accent);
+}
+/* Settings gear — keep it neutral so it doesn't fight the yellow nav buttons */
+[data-theme="brutalist"] .settings-btn {
+  background: transparent;
+  border: 2px solid #000;
+  border-radius: 0;
+  color: #000;
+  font-size: 1rem;
+  padding: 4px 8px;
+  width: auto;
+  height: auto;
+}
+[data-theme="brutalist"] .settings-btn:hover {
+  background: #000;
+  color: #FFD600;
 }
 
-[data-theme="brutalist"] .menu-card:first-child {
-  border-top: 3px solid #000000;
+/* ── Settings dropdown ── */
+[data-theme="brutalist"] .settings-dropdown {
+  background: #FFFFFF;
+  border: 3px solid #000;
+  border-radius: 0;
+  box-shadow: 6px 6px 0 #000;
 }
-
-[data-theme="brutalist"] .menu-card:hover {
-  background-color: #FFFBE5;
-  box-shadow: inset 6px 0 0 #FF0000;
-}
-
-/* --- Card Header --- */
-[data-theme="brutalist"] .card-header {
-  background-color: #000000;
-  padding: 0.65rem 1.25rem;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 1rem;
+[data-theme="brutalist"] .settings-item,
+[data-theme="brutalist"] .settings-submenu-item {
+  color: #000;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
   border-radius: 0;
 }
+[data-theme="brutalist"] .settings-item:hover,
+[data-theme="brutalist"] .settings-submenu-item:hover {
+  background: var(--br-accent);
+  color: #000;
+}
+[data-theme="brutalist"] .settings-section-title {
+  color: #666;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+}
+[data-theme="brutalist"] .settings-divider {
+  background: #000;
+  height: 2px;
+}
 
+/* ── Hero – big black block ── */
+[data-theme="brutalist"] .hero {
+  background: #000;
+  color: var(--br-accent);
+  border-radius: 0;
+  border: 3px solid #000;
+  padding: 24px 28px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+[data-theme="brutalist"] .hero h1 {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--br-accent);
+  margin-bottom: 6px;
+}
+[data-theme="brutalist"] .week-range,
+[data-theme="brutalist"] .categories-info {
+  color: #FFFFFF;
+  font-size: 0.75rem;
+}
+
+/* ── Menu grid – max 3 columns ── */
+[data-theme="brutalist"] .menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+/* ── Cards – hard rectangles ── */
+[data-theme="brutalist"] .menu-card {
+  background: var(--br-surface);
+  border-radius: 0;
+  border: 3px solid #000;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.1s;
+}
+[data-theme="brutalist"] .menu-card:hover {
+  box-shadow: 5px 5px 0 #000;
+}
+
+/* ── Card header – black bar ── */
+[data-theme="brutalist"] .card-header {
+  background: #000;
+  color: #FFF;
+  padding: 10px 12px;
+  border-bottom: 3px solid #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 [data-theme="brutalist"] .card-header-left {
   display: flex;
-  align-items: center;
-  gap: 0.75rem;
+  flex-direction: column;
+  gap: 3px;
 }
-
 [data-theme="brutalist"] .day-name {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.7rem;
-  font-weight: 700;
-  color: #FFFFFF;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  margin: 0;
-  white-space: nowrap;
-}
-
-[data-theme="brutalist"] .meal-time {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.6rem;
-  color: #FF0000;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  border-left: 2px solid #FF0000;
-  padding-left: 0.5rem;
-  background: transparent;
-  border-radius: 0;
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-[data-theme="brutalist"] .card-header-icon {
-  font-size: 1rem;
-  opacity: 0.7;
-}
-
-/* --- Card Body --- */
-[data-theme="brutalist"] .card-body {
-  padding: 0.9rem 1.25rem 0.75rem;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 1rem;
-  align-items: start;
-}
-
-[data-theme="brutalist"] .recipe-title {
-  font-family: 'Space Mono', monospace;
+  font-weight: 900;
   font-size: 0.9rem;
-  font-weight: 700;
-  color: #000000;
-  text-transform: uppercase;
-  letter-spacing: -0.01em;
-  margin: 0;
-  line-height: 1.25;
-  border-left: 4px solid #FF0000;
-  padding-left: 0.65rem;
-}
-
-[data-theme="brutalist"] .difficulty {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.58rem;
-  color: #555555;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  margin-top: 0.25rem;
-  padding-left: calc(0.65rem + 4px);
-}
-
-/* --- Card Footer --- */
-[data-theme="brutalist"] .card-footer {
-  padding: 0.6rem 1.25rem 0.75rem;
-  background: transparent;
-  border-top: 1px solid rgba(0,0,0,0.14);
-  border-radius: 0;
-}
-
-[data-theme="brutalist"] .btn-primary {
-  display: inline-block;
-  font-family: 'Space Mono', monospace;
-  font-size: 0.62rem;
-  font-weight: 700;
   color: #FFFFFF;
-  background-color: #000000;
-  border: 2px solid #000000;
-  border-radius: 0;
-  padding: 0.45rem 1rem;
-  cursor: pointer;
-  text-decoration: none;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  box-shadow: 4px 4px 0 #FF0000;
-  transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.1s ease;
-}
-
-[data-theme="brutalist"] .btn-primary:hover {
-  background-color: #FF0000;
-  border-color: #FF0000;
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 #000000;
-}
-
-/* --- Actions --- */
-[data-theme="brutalist"] .actions {
-  border-top: 3px solid #000000;
-  background-color: #000000;
-  padding: 1.5rem 2rem;
   margin: 0;
+}
+[data-theme="brutalist"] .meal-time {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: var(--br-accent);
+  color: #000;
+  padding: 2px 6px;
+  border-radius: 0;
+  display: inline-block;
+  width: fit-content;
+}
+[data-theme="brutalist"] .card-header-icon {
+  font-size: 1.2rem;
+  color: var(--br-accent);
+}
+
+/* ── Card body ── */
+[data-theme="brutalist"] .card-body {
+  padding: 10px 12px;
+  flex: 1;
   display: flex;
-  justify-content: flex-start;
+  flex-direction: column;
+  gap: 5px;
 }
-
-[data-theme="brutalist"] .btn-secondary {
-  display: inline-block;
-  font-family: 'Space Mono', monospace;
-  font-size: 0.68rem;
+[data-theme="brutalist"] .recipe-title {
+  font-weight: 800;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: #000;
+  line-height: 1.3;
+  margin: 0;
+}
+[data-theme="brutalist"] .difficulty {
+  font-size: 0.65rem;
   font-weight: 700;
-  color: #FFFFFF;
-  background-color: #FF0000;
-  border: 2px solid #FFFFFF;
-  border-radius: 0;
-  padding: 0.75rem 1.75rem;
-  cursor: pointer;
-  text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  box-shadow: 5px 5px 0 rgba(255,255,255,0.25);
-  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  color: var(--br-text-sub);
 }
 
+/* ── Card footer ── */
+[data-theme="brutalist"] .card-footer {
+  padding: 10px 12px;
+  border-top: 3px solid #000;
+}
+[data-theme="brutalist"] .btn-primary {
+  background: #000;
+  color: var(--br-accent);
+  border: 2px solid #000;
+  border-radius: 0;
+  font-weight: 800;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.1s, color 0.1s;
+  letter-spacing: 0.06em;
+}
+[data-theme="brutalist"] .btn-primary:hover {
+  background: var(--br-accent);
+  color: #000;
+}
+
+/* ── Actions ── */
+[data-theme="brutalist"] .actions {
+  text-align: center;
+  margin-bottom: 24px;
+}
+[data-theme="brutalist"] .btn-secondary {
+  background: var(--br-accent);
+  color: #000;
+  border: 3px solid #000;
+  border-radius: 0;
+  font-weight: 900;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 10px 24px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.1s, color 0.1s;
+  box-shadow: 4px 4px 0 #000;
+}
 [data-theme="brutalist"] .btn-secondary:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 7px 7px 0 rgba(255,255,255,0.4);
+  background: #000;
+  color: var(--br-accent);
+  box-shadow: none;
 }
 
-/* --- Responsive --- */
-@media (max-width: 640px) {
-  [data-theme="brutalist"] .hero {
-    padding: 1.75rem 1rem 1.5rem;
-  }
+@media (max-width: 900px) {
+  [data-theme="brutalist"] .menu-grid { grid-template-columns: repeat(2, 1fr); }
+}
 
-  [data-theme="brutalist"] .hero h1 {
-    font-size: 1.4rem;
-  }
-
-  [data-theme="brutalist"] .card-body {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
-  }
-
-  [data-theme="brutalist"] .navbar {
-    /* stacking handled naturally via flex-wrap */
-  }
-
-  [data-theme="brutalist"] .actions {
-    padding: 1.25rem 1rem;
-  }
+@media (max-width: 560px) {
+  [data-theme="brutalist"] .menu-grid { grid-template-columns: 1fr; }
 }

@@ -10,11 +10,8 @@
 
 /* --- Root / Body --- */
 [data-theme="nordic-pantry"] {
-  font-family: 'Karla', sans-serif;
   background-color: #F8F5EE;
-  color: #2A1F14;
   min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
   /* Subtle wood grain texture via repeating gradient */
   background-image:
     repeating-linear-gradient(
@@ -31,6 +28,12 @@
       rgba(122,92,66,0.015) 28px,
       rgba(122,92,66,0.015) 29px
     );
+}
+
+[data-theme="nordic-pantry"] body {
+  font-family: 'Karla', sans-serif;
+  color: #2A1F14;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* --- Navbar --- */
@@ -335,6 +338,7 @@
   transform: translateY(-1px);
 }
 
+
 /* --- Responsive --- */
 @media (max-width: 640px) {
   [data-theme="nordic-pantry"] .hero {
@@ -360,4 +364,25 @@
   [data-theme="nordic-pantry"] .navbar {
     padding: 0.65rem 1rem;
   }
+}
+
+/* Force settings dropdown to not inherit theme styles */
+[data-theme="nordic-pantry"] .theme-submenu {
+  display: block !important;
+  gap: 0 !important;
+  padding: 8px 0 !important;
+  row-gap: 0 !important;
+  column-gap: 0 !important;
+}
+
+[data-theme="nordic-pantry"] .theme-submenu .theme-option {
+  padding: 7px 14px !important;
+  margin: 0 !important;
+  line-height: 1.4 !important;
+  height: auto !important;
+  min-height: auto !important;
+}
+
+[data-theme="nordic-pantry"] .theme-submenu .theme-option-content {
+  gap: 2px !important;
 }

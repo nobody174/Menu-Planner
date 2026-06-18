@@ -10,15 +10,18 @@
 
 /* --- Root / Body --- */
 [data-theme="pop-art-diner"] {
-  font-family: 'DM Sans', sans-serif;
   background-color: #FFF8E1;
-  color: #1A1A2E;
   min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
   /* Halftone dot pattern */
   background-image:
     radial-gradient(circle, rgba(0,0,0,0.08) 1px, transparent 1px);
   background-size: 16px 16px;
+}
+
+[data-theme="pop-art-diner"] body {
+  font-family: 'DM Sans', sans-serif;
+  color: #1A1A2E;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* --- Navbar --- */
@@ -380,3 +383,25 @@
     font-size: 1.5rem;
   }
 }
+
+/* Force settings dropdown to not inherit theme styles */
+[data-theme="pop-art-diner"] .theme-submenu {
+  display: block !important;
+  gap: 0 !important;
+  padding: 8px 0 !important;
+  row-gap: 0 !important;
+  column-gap: 0 !important;
+}
+
+[data-theme="pop-art-diner"] .theme-submenu .theme-option {
+  padding: 7px 14px !important;
+  margin: 0 !important;
+  line-height: 1.4 !important;
+  height: auto !important;
+  min-height: auto !important;
+}
+
+[data-theme="pop-art-diner"] .theme-submenu .theme-option-content {
+  gap: 2px !important;
+}
+

@@ -849,6 +849,78 @@ a:hover {
   font-weight: var(--font-weight-medium);
 }
 
+/* ── Integrations modal (shopping page) ── */
+.pm-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(3px);
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.pm-overlay.active {
+  display: flex;
+}
+
+.pm-modal-box {
+  position: relative;
+  background: var(--color-bg-primary, #fff);
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  overflow: hidden;
+}
+
+.pm-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--color-border, #e5e7eb);
+}
+
+.pm-modal-header h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text-primary, #1a1a1a);
+}
+
+.pm-close-btn {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: var(--color-text-secondary, #888);
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background 0.15s;
+}
+
+.pm-close-btn:hover {
+  background: var(--color-hover-bg, rgba(0,0,0,0.06));
+}
+
+.pm-modal-body,
+.pm-modal-box > div:not(.pm-modal-header) {
+  padding: 16px 24px 20px;
+}
+
+.pm-status {
+  min-height: 24px;
+  font-size: 0.88rem;
+  text-align: center;
+  padding: 4px 0 0;
+}
+
+.pm-status.success { color: #059669; }
+.pm-status.error   { color: #dc2626; }
+.pm-status.loading { color: var(--color-text-secondary, #888); }
+
 /* ── Error page ── */
 .error-container {
   display: flex;

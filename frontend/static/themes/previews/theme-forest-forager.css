@@ -1,363 +1,282 @@
-/* ============================================================
-   THEME: Forest Forager
-   ID: forest-forager
-   Identity: Deep earthy nature theme. Moss greens, bark browns,
-   warm cream. Nordic cottagecore forest vibe with organic
-   shapes, Fraunces serif headings, and gentle wood-grain texture.
-   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Nunito:wght@400;500;600&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=DM+Sans:wght@400;500;600&display=swap');
+/* THEME: Forest Forager
+   Deep greens, bark browns, organic shapes, cottagecore forest. */
 
-/* --- Root / Body --- */
 [data-theme="forest-forager"] {
-  font-family: 'DM Sans', sans-serif;
-  background-color: #F2EDE4;
-  color: #2C2018;
-  min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
-  /* Subtle wood grain texture */
-  background-image:
-    repeating-linear-gradient(
-      -30deg,
-      transparent 0px,
-      transparent 14px,
-      rgba(74,62,36,0.025) 14px,
-      rgba(74,62,36,0.025) 15px
-    ),
-    repeating-linear-gradient(
-      -60deg,
-      transparent 0px,
-      transparent 22px,
-      rgba(74,62,36,0.018) 22px,
-      rgba(74,62,36,0.018) 23px
-    );
+  --ff-moss:     #4A6A4F;
+  --ff-moss-lt:  #7F9E80;
+  --ff-bark:     #5C3D2E;
+  --ff-bark-dk:  #3F291D;
+  --ff-cream:    #F4F2EC;
+  --ff-paper:    #FBF8F2;
+  --ff-text:     #2E3A2F;
+  --ff-text-sub: #5A6A5C;
+  --ff-radius:   20px;
+  --ff-radius-sm:12px;
+  --ff-shadow:   0 6px 18px rgba(46,58,47,0.16);
+  --ff-font-head:'DM Serif Display', serif;
+  --ff-font-body:'Nunito', system-ui, sans-serif;
 }
 
-/* --- Navbar --- */
+[data-theme="forest-forager"] body {
+  background: radial-gradient(circle at top, #E4E0D4 0%, #F4F2EC 40%, #F9F7F1 100%);
+  font-family: var(--ff-font-body);
+  color: var(--ff-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Ambient forest blobs */
+[data-theme="forest-forager"] body::before {
+  content: '';
+  position: fixed;
+  top: -100px; right: -60px;
+  width: 380px; height: 320px;
+  background: radial-gradient(circle, rgba(74,106,79,0.22) 0%, transparent 65%);
+  border-radius: 60% 40% 70% 30% / 40% 60% 30% 70%;
+  pointer-events: none;
+  z-index: 0;
+}
+[data-theme="forest-forager"] body::after {
+  content: '';
+  position: fixed;
+  bottom: -80px; left: -60px;
+  width: 320px; height: 280px;
+  background: radial-gradient(circle, rgba(92,61,46,0.18) 0%, transparent 65%);
+  border-radius: 50% 70% 40% 60% / 60% 40% 70% 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Navbar – bark bar ── */
 [data-theme="forest-forager"] .navbar {
-  background-color: #2C3A1E;
+  background: var(--ff-bark);
   border-bottom: none;
-  padding: 0.85rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  box-shadow: 0 3px 14px rgba(44,30,20,0.4);
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.2);
 }
-
 [data-theme="forest-forager"] .nav-logo {
-  font-family: 'Fraunces', serif;
-  font-style: italic;
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: #D4C9A8;
-  text-decoration: none;
-  letter-spacing: 0.03em;
+  font-family: var(--ff-font-head);
+  font-size: 1.1rem;
+  color: #FBF8F2;
 }
-
-[data-theme="forest-forager"] .nav-link {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.82rem;
-  font-weight: 500;
-  color: rgba(212, 201, 168, 0.7);
-  text-decoration: none;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  transition: background-color 0.18s ease, color 0.18s ease;
-}
-
-[data-theme="forest-forager"] .nav-link:hover {
-  color: #D4C9A8;
-  background-color: rgba(123,160,91,0.18);
-}
-
-[data-theme="forest-forager"] .theme-toggle-btn {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 500;
-  color: rgba(212, 201, 168, 0.65);
-  background: none;
-  border: 1px solid rgba(212,201,168,0.22);
-  padding: 0.28rem 0.75rem;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.18s ease;
-}
-
-[data-theme="forest-forager"] .theme-toggle-btn:hover {
-  background-color: rgba(123,160,91,0.18);
-  border-color: rgba(123,160,91,0.4);
-  color: #D4C9A8;
-}
-
+[data-theme="forest-forager"] .nav-link,
 [data-theme="forest-forager"] .category-dropdown-btn {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.82rem;
+  font-family: var(--ff-font-body);
+  font-size: 0.85rem;
   font-weight: 500;
-  color: rgba(212, 201, 168, 0.7);
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  transition: background-color 0.18s ease, color 0.18s ease;
+  color: rgba(251,248,242,0.85);
+  border-radius: 999px;
 }
-
+[data-theme="forest-forager"] .nav-link:hover,
 [data-theme="forest-forager"] .category-dropdown-btn:hover {
-  color: #D4C9A8;
-  background-color: rgba(123,160,91,0.18);
+  background: rgba(251,248,242,0.12);
+  color: #FBF8F2;
+}
+[data-theme="forest-forager"] .settings-btn {
+  color: rgba(251,248,242,0.9);
 }
 
-/* --- Hero --- */
+/* ── Settings dropdown ── */
+[data-theme="forest-forager"] .settings-dropdown {
+  background: #FBF8F2;
+  border: 1px solid rgba(74,106,79,0.2);
+  border-radius: 14px;
+  box-shadow: 0 10px 32px rgba(46,58,47,0.2);
+}
+[data-theme="forest-forager"] .settings-item,
+[data-theme="forest-forager"] .settings-submenu-item {
+  color: var(--ff-moss);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+[data-theme="forest-forager"] .settings-item:hover,
+[data-theme="forest-forager"] .settings-submenu-item:hover {
+  background: rgba(74,106,79,0.08);
+}
+[data-theme="forest-forager"] .settings-section-title {
+  color: var(--ff-text-sub);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+}
+
+/* ── Hero – mossy gradient ── */
 [data-theme="forest-forager"] .hero {
-  background: linear-gradient(145deg, #2C3A1E 0%, #3A4E28 40%, #4A5E2F 100%);
-  border-radius: 12px;
-  margin: 2rem auto;
-  max-width: 920px;
-  padding: 3.25rem 2.5rem;
-  text-align: center;
+  background: radial-gradient(circle at top left, #7F9E80 0%, #4A6A4F 40%, #2E3A2F 100%);
+  border-radius: 24px;
+  padding: 32px 40px;
+  margin-bottom: 28px;
+  color: #FBF8F2;
+  box-shadow: var(--ff-shadow);
   position: relative;
   overflow: hidden;
-  box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+  z-index: 1;
 }
-
-/* Misty forest light from top */
 [data-theme="forest-forager"] .hero::before {
   content: '';
   position: absolute;
-  top: -30px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60%;
-  height: 160px;
-  background: radial-gradient(ellipse at 50% 0%, rgba(212,201,168,0.12) 0%, transparent 70%);
+  bottom: -30px; right: -20px;
+  width: 160px; height: 160px;
+  background: rgba(251,248,242,0.12);
+  border-radius: 60% 40% 70% 30% / 40% 60% 30% 70%;
   pointer-events: none;
 }
-
-/* Organic leaf-like shadow bottom left */
-[data-theme="forest-forager"] .hero::after {
-  content: '';
-  position: absolute;
-  bottom: -50px;
-  left: -50px;
-  width: 180px;
-  height: 180px;
-  background: radial-gradient(circle, rgba(123,160,91,0.18) 0%, transparent 65%);
-  border-radius: 50%;
-  pointer-events: none;
-}
-
 [data-theme="forest-forager"] .hero h1 {
-  font-family: 'Fraunces', serif;
-  font-style: italic;
-  font-size: 2rem;
-  font-weight: 500;
-  color: #F2EDE4;
-  margin: 0 0 0.5rem;
-  line-height: 1.25;
-  position: relative;
-  z-index: 1;
+  font-family: var(--ff-font-head);
+  font-size: 1.8rem;
+  color: #FBF8F2;
+  margin-bottom: 6px;
 }
-
 [data-theme="forest-forager"] .week-range {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #7BA05B;
-  margin-bottom: 0.75rem;
-  display: block;
-  position: relative;
-  z-index: 1;
+  color: #E2D9C7;
 }
-
 [data-theme="forest-forager"] .categories-info {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 400;
-  color: rgba(212, 201, 168, 0.55);
-  position: relative;
-  z-index: 1;
-  letter-spacing: 0.06em;
+  font-size: 0.8rem;
+  color: #D0C8B6;
+  margin-top: 3px;
 }
 
-/* --- Menu Grid --- */
+/* ── Menu grid ── */
 [data-theme="forest-forager"] .menu-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
-  gap: 1.25rem;
-  max-width: 1100px;
-  margin: 0 auto 2rem;
-  padding: 0 1.75rem;
+  gap: 20px;
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 1;
 }
 
-/* --- Menu Card --- */
+/* ── Cards – organic forest panels ── */
 [data-theme="forest-forager"] .menu-card {
-  background-color: #FBF8F3;
-  border: 1px solid rgba(123,100,60,0.15);
-  border-radius: 10px;
+  background: var(--ff-paper);
+  border-radius: var(--ff-radius);
+  border: 1px solid rgba(74,106,79,0.18);
+  box-shadow: var(--ff-shadow);
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 2px 10px rgba(44,56,30,0.08);
   transition: transform 0.22s ease, box-shadow 0.22s ease;
 }
-
 [data-theme="forest-forager"] .menu-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(44,56,30,0.15);
+  box-shadow: 0 12px 30px rgba(46,58,47,0.22);
 }
 
-/* --- Card Header --- */
+/* ── Card header – deep moss ── */
 [data-theme="forest-forager"] .card-header {
-  background: linear-gradient(135deg, #2C3A1E 0%, #4A5E2F 100%);
-  padding: 1rem 1.2rem 0.95rem;
+  background: linear-gradient(135deg, #2E3A2F 0%, #4A6A4F 100%);
+  padding: 12px 16px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
-
 [data-theme="forest-forager"] .card-header-left {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 3px;
 }
-
 [data-theme="forest-forager"] .day-name {
-  font-family: 'Fraunces', serif;
-  font-style: italic;
-  font-size: 1.15rem;
-  font-weight: 500;
-  color: #D4C9A8;
-  line-height: 1;
+  font-family: var(--ff-font-head);
+  font-size: 1rem;
+  color: #FBF8F2;
+  margin: 0;
 }
-
 [data-theme="forest-forager"] .meal-time {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.68rem;
-  font-weight: 400;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(212, 201, 168, 0.55);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #E2D9C7;
+  background: rgba(251,248,242,0.18);
+  padding: 2px 8px;
+  border-radius: 999px;
+  display: inline-block;
+  width: fit-content;
 }
-
 [data-theme="forest-forager"] .card-header-icon {
-  font-size: 1.15rem;
-  opacity: 0.65;
+  font-size: 1.3rem;
+  opacity: 0.9;
 }
 
-/* --- Card Body --- */
+/* ── Card body – with moss border ── */
 [data-theme="forest-forager"] .card-body {
-  padding: 1.1rem 1.2rem 0.8rem;
+  padding: 14px 16px 10px;
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
-  border-left: 3px solid #7BA05B;
+  gap: 6px;
+  border-left: 3px solid var(--ff-moss);
 }
-
 [data-theme="forest-forager"] .recipe-title {
-  font-family: 'Fraunces', serif;
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: #2C2018;
-  line-height: 1.3;
+  font-family: var(--ff-font-head);
+  font-size: 0.95rem;
+  color: var(--ff-text);
+  line-height: 1.4;
   margin: 0;
 }
-
 [data-theme="forest-forager"] .difficulty {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 500;
-  color: #8B6914;
-  letter-spacing: 0.06em;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--ff-text-sub);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
-/* --- Card Footer --- */
+/* ── Card footer ── */
 [data-theme="forest-forager"] .card-footer {
-  padding: 0.7rem 1.2rem 0.95rem;
-  border-top: 1px solid rgba(123,100,60,0.12);
-  background-color: #F7F2EB;
+  padding: 10px 16px 12px;
+  background: var(--ff-cream);
+  border-top: 1px solid rgba(74,106,79,0.18);
 }
-
 [data-theme="forest-forager"] .btn-primary {
-  display: inline-block;
-  font-family: 'DM Sans', sans-serif;
+  background: var(--ff-moss);
+  color: #FBF8F2;
+  border-radius: var(--ff-radius-sm);
+  border: none;
+  font-family: var(--ff-font-body);
   font-size: 0.8rem;
   font-weight: 600;
-  color: #FFFFFF;
-  background-color: #7BA05B;
-  border: none;
-  padding: 0.5rem 1.2rem;
-  text-decoration: none;
+  padding: 8px 16px;
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.15s ease;
-  border-radius: 6px;
-}
-
-[data-theme="forest-forager"] .btn-primary:hover {
-  background-color: #6A8F4E;
-  transform: translateY(-1px);
-}
-
-/* --- Actions --- */
-[data-theme="forest-forager"] .actions {
-  max-width: 1100px;
-  margin: 0 auto 3rem;
-  padding: 0 1.75rem;
-  display: flex;
-  justify-content: center;
-}
-
-[data-theme="forest-forager"] .btn-secondary {
+  text-decoration: none;
   display: inline-block;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: #F2EDE4;
-  background-color: #4A5E2F;
-  border: none;
-  padding: 0.7rem 2rem;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.15s ease;
-  border-radius: 6px;
-  box-shadow: 0 3px 12px rgba(44,56,30,0.22);
+  transition: background 0.18s, transform 0.15s;
 }
-
-[data-theme="forest-forager"] .btn-secondary:hover {
-  background-color: #2C3A1E;
+[data-theme="forest-forager"] .btn-primary:hover {
+  background: #3A5440;
   transform: translateY(-1px);
 }
 
-/* --- Responsive --- */
+/* ── Actions ── */
+[data-theme="forest-forager"] .actions {
+  text-align: center;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+[data-theme="forest-forager"] .btn-secondary {
+  background: var(--ff-bark);
+  color: #FBF8F2;
+  border-radius: 999px;
+  border: none;
+  font-family: var(--ff-font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 10px 26px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.18s, transform 0.15s;
+}
+[data-theme="forest-forager"] .btn-secondary:hover {
+  background: var(--ff-bark-dk);
+  transform: translateY(-1px);
+}
+
 @media (max-width: 640px) {
-  [data-theme="forest-forager"] .hero {
-    margin: 1rem;
-    padding: 2.25rem 1.25rem;
-    border-radius: 10px;
-  }
-
-  [data-theme="forest-forager"] .hero h1 {
-    font-size: 1.65rem;
-  }
-
-  [data-theme="forest-forager"] .menu-grid {
-    grid-template-columns: 1fr;
-    padding: 0 1rem;
-    gap: 1rem;
-  }
-
-  [data-theme="forest-forager"] .actions {
-    padding: 0 1rem;
-  }
-
-  [data-theme="forest-forager"] .navbar {
-    padding: 0.65rem 1rem;
-  }
+  [data-theme="forest-forager"] .hero { padding: 24px 22px; }
+  [data-theme="forest-forager"] .hero h1 { font-size: 1.5rem; }
+  [data-theme="forest-forager"] .menu-grid { grid-template-columns: 1fr; }
 }

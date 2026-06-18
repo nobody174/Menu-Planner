@@ -122,6 +122,28 @@
   transform: scale(1.12);
 }
 
+/* ── Settings submenu context (compact list, no desc text) ── */
+.theme-submenu .theme-option {
+  padding: 7px 14px;
+  border-radius: 0;
+  gap: 10px;
+}
+
+.theme-submenu .theme-option-desc {
+  display: none;
+}
+
+.theme-submenu .theme-option.active {
+  outline: none;
+  background-color: rgba(217, 119, 6, 0.08);
+  box-shadow: inset 3px 0 0 var(--color-secondary, #d97706);
+}
+
+.theme-submenu .theme-preview-swatch {
+  width: 18px;
+  height: 18px;
+}
+
 @media (max-width: 640px) {
   .theme-dropdown {
     right: -12px;
