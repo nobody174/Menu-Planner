@@ -8,7 +8,7 @@ css_files = [f for f in os.listdir(theme_dir) if f.endswith(".css")]
 print(f"[OK] Found {len(css_files)} theme CSS files")
 
 # Validate registry
-with open("frontend/static/themes/previews/theme-registry.json") as f:
+with open("frontend/static/themes/previews/theme-registry.json", encoding="utf-8") as f:
     registry = json.load(f)
     print(f"[OK] Theme registry has {len(registry)} themes")
     for theme in registry:

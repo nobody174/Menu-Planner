@@ -16,7 +16,7 @@ class HTMLValidator(HTMLParser):
 template_dir = "frontend/templates"
 for file in os.listdir(template_dir):
     if file.endswith(".html"):
-        with open(os.path.join(template_dir, file)) as f:
+        with open(os.path.join(template_dir, file), encoding="utf-8") as f:
             content = f.read()
             validator = HTMLValidator()
             try:

@@ -2,7 +2,7 @@
 """Validate i18n translation completeness."""
 import json
 
-with open("frontend/static/i18n.json") as f:
+with open("frontend/static/i18n.json", encoding="utf-8") as f:
     i18n = json.load(f)
 
     english_keys = [k for k in i18n.keys() if k.endswith("_en")]

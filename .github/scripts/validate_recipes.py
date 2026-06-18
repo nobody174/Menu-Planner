@@ -3,7 +3,7 @@
 import json
 
 # Check sample recipes
-with open("data/sample_recipes.json") as f:
+with open("data/sample_recipes.json", encoding="utf-8") as f:
     recipes = json.load(f)
     print(f"[OK] Found {len(recipes)} sample recipes")
 
@@ -18,7 +18,7 @@ with open("data/sample_recipes.json") as f:
     print("[OK] All sample recipes have required fields")
 
 # Check categories
-with open("data/categories.json") as f:
+with open("data/categories.json", encoding="utf-8") as f:
     categories = json.load(f)
     print(f"[OK] Found {len(categories)} categories")
 
@@ -29,7 +29,7 @@ with open("data/categories.json") as f:
     print("[OK] All categories have required fields")
 
 # Check pantry staples
-with open("pantry_staples.json") as f:
+with open("pantry_staples.json", encoding="utf-8") as f:
     pantry = json.load(f)
     if "pantry_staples_english" in pantry and "pantry_staples_norwegian" in pantry:
         print(

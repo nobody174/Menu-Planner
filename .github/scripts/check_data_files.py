@@ -7,7 +7,7 @@ files = ["data/sample_recipes.json", "data/categories.json", "frontend/static/i1
 for f in files:
     if os.path.exists(f):
         try:
-            with open(f) as file:
+            with open(f, encoding="utf-8") as file:
                 json.load(file)
             print(f"[OK] {f} is valid JSON")
         except json.JSONDecodeError as e:

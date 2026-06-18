@@ -9,7 +9,7 @@ json_files = [f for f in json_files if ".github" not in f and "node_modules" not
 
 for file in json_files:
     try:
-        with open(file) as f:
+        with open(file, encoding="utf-8") as f:
             json.load(f)
         print(f"[OK] {file} is valid JSON")
     except json.JSONDecodeError as e:
