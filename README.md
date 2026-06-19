@@ -6,7 +6,7 @@ A Python/Flask web application for families to organize recipes, generate weekly
 
 **Created by:** [nobody174](https://github.com/nobody174)  
 **License:** MIT  
-**Support:** [Patreon](https://www.patreon.com/c/Nobody174)
+**Support:** [Patreon](https://www.patreon.com/Nobody174/posts/menu-planner-161473082)
 
 ## Features
 
@@ -161,4 +161,4 @@ Built with [Flask](https://flask.palletsprojects.com/) and [Claude Code](https:/
 ## Support
 
 - **GitHub:** [Menu-Planner](https://github.com/nobody174/Menu-Planner)
-- **Patreon:** [Support on Patreon](https://www.patreon.com/c/Nobody174)
+- **Patreon:** [Support on Patreon](https://www.patreon.com/Nobody174/posts/menu-planner-161473082)
