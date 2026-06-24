@@ -2,7 +2,7 @@ name: Release & Deployment
 
 on:
   push:
-    branches: [ master ]
+    branches: [ public-release-v1 ]
     tags:
       - 'v*'
 
@@ -27,14 +27,7 @@ jobs:
 
     - name: Validate release
       run: |
-        python -c "
-import json
-# Quick sanity checks
-with open('frontend/static/themes/previews/theme-registry.json') as f:
-    registry = json.load(f)
-    assert len(registry) == 9, f'Expected 9 themes, got {len(registry)}'
-print('✓ Release validation passed')
-"
+        python -c "import json; registry = json.load(open('frontend/static/themes/previews/theme-registry.json')); assert len(registry) == 9, f'Expected 9 themes, got {len(registry)}'; print('Release validation passed')"
 
     - name: Create GitHub Release
       uses: actions/create-release@v1
@@ -46,7 +39,7 @@ print('✓ Release validation passed')
         body: |
           ## Menu Planner Release
 
-          See [CHANGELOG](CHANGELOG.md) for details.
+          See [README](README.md) for installation and usage.
         draft: false
         prerelease: false
 
