@@ -454,6 +454,216 @@ def all_recipes_page():
 def settings_page():
     return render_template('settings.html')
 
+# ── Household/Team Management Routes ──────────────────────────────────────────
+
+@app.route('/household-settings')
+def household_settings():
+    """View and manage household settings."""
+    user_id = session.get('user_id')
+    if not user_id:
+        return redirect(url_for('login_page'))
+
+    from core.household_helpers import get_user_households, get_household_members, get_household
+
+    # Get all user's households
+    all_households = get_user_households(user_id)
+
+    # Try to get current household (from session or first one)
+    current_household_id = session.get('current_household_id')
+    current_household = None
+
+    if current_household_id:
+        current_household = get_household(current_household_id)
+
+    if not current_household and all_households:
+        current_household = all_households[0]
+        session['current_household_id'] = str(current_household.id)
+
+    error = request.args.get('error')
+    success = request.args.get('success')
+
+    members = []
+    owner_email = ''
+    can_manage = False
+    is_owner = False
+    other_households = []
+
+    if current_household:
+        members = get_household_members(str(current_household.id))
+
+        # Find owner email
+        for member in members:
+            if member['role'] == 'owner':
+                owner_email = member['email']
+                break
+
+        # Check permissions
+        user_member = next((m for m in members if m['user_id'] == user_id), None)
+        can_manage = user_member and user_member['role'] in ('owner', 'editor')
+        is_owner = user_member and user_member['role'] == 'owner'
+
+        # Get other households
+        other_households = [h for h in all_households if str(h.id) != str(current_household.id)]
+
+    return render_template('household-settings.html',
+                         current_household=current_household,
+                         members=members,
+                         owner_email=owner_email,
+                         can_manage=can_manage,
+                         is_owner=is_owner,
+                         other_households=other_households,
+                         error=error,
+                         success=success)
+
+@app.route('/household/create', methods=['POST'])
+def create_household_handler():
+    """Create a new household."""
+    user_id = session.get('user_id')
+    if not user_id:
+        return redirect(url_for('login_page'))
+
+    from core.household_helpers import create_household
+
+    household_name = request.form.get('household_name', '').strip()
+    success, result, household_id = create_household(user_id, household_name)
+
+    if success:
+        session['current_household_id'] = household_id
+        return redirect(url_for('household_settings', success='Household created successfully'))
+    else:
+        return redirect(url_for('household_settings', error=result))
+
+@app.route('/household/set-current', methods=['POST'])
+def set_current_household():
+    """Switch to a different household."""
+    user_id = session.get('user_id')
+    if not user_id:
+        return redirect(url_for('login_page'))
+
+    household_id = request.form.get('household_id')
+
+    from core.household_helpers import user_can_access_household
+
+    if user_can_access_household(user_id, household_id):
+        session['current_household_id'] = household_id
+        return redirect(url_for('household_settings', success='Switched household'))
+    else:
+        return redirect(url_for('household_settings', error='Access denied'))
+
+@app.route('/household/update', methods=['POST'])
+def update_household_handler():
+    """Update household details."""
+    user_id = session.get('user_id')
+    if not user_id:
+        return redirect(url_for('login_page'))
+
+    household_id = session.get('current_household_id')
+    if not household_id:
+        return redirect(url_for('household_settings', error='No household selected'))
+
+    from core.household_helpers import user_can_edit_household, update_household
+
+    if not user_can_edit_household(user_id, household_id):
+        return redirect(url_for('household_settings', error='Permission denied'))
+
+    household_name = request.form.get('household_name', '').strip()
+    success, result = update_household(household_id, name=household_name)
+
+    if success:
+        return redirect(url_for('household_settings', success='Household updated'))
+    else:
+        return redirect(url_for('household_settings', error=result))
+
+@app.route('/household/delete', methods=['POST'])
+def delete_household_handler():
+    """Delete household (owner only)."""
+    user_id = session.get('user_id')
+    if not user_id:
+        return redirect(url_for('login_page'))
+
+    household_id = session.get('current_household_id')
+    if not household_id:
+        return redirect(url_for('household_settings', error='No household selected'))
+
+    from core.household_helpers import delete_household
+
+    success, result = delete_household(household_id, user_id)
+
+    if success:
+        session.pop('current_household_id', None)
+        return redirect(url_for('household_settings', success='Household deleted'))
+    else:
+        return redirect(url_for('household_settings', error=result))
+
+@app.route('/household/add-member', methods=['POST'])
+def add_household_member():
+    """Add a member to household."""
+    user_id = session.get('user_id')
+    if not user_id:
+        return redirect(url_for('login_page'))
+
+    household_id = session.get('current_household_id')
+    if not household_id:
+        return redirect(url_for('household_settings', error='No household selected'))
+
+    from core.household_helpers import user_can_edit_household, add_household_member
+
+    if not user_can_edit_household(user_id, household_id):
+        return redirect(url_for('household_settings', error='Permission denied'))
+
+    member_email = request.form.get('member_email', '').strip()
+    role = request.form.get('role', 'viewer')
+
+    success, result, member_id = add_household_member(household_id, member_email, role)
+
+    if success:
+        return redirect(url_for('household_settings', success=f'Added {member_email}'))
+    else:
+        return redirect(url_for('household_settings', error=result))
+
+# API routes for household management
+@app.route('/api/household/remove-member', methods=['POST'])
+def api_remove_household_member():
+    """API: Remove household member."""
+    user_id = session.get('user_id')
+    if not user_id:
+        return jsonify({'error': 'Not authenticated'}), 401
+
+    household_id = session.get('current_household_id')
+    member_id = request.form.get('member_id')
+
+    from core.household_helpers import user_can_edit_household, remove_household_member
+
+    if not user_can_edit_household(user_id, household_id):
+        return jsonify({'error': 'Permission denied'}), 403
+
+    success, message = remove_household_member(household_id, member_id, user_id)
+
+    if success:
+        return jsonify({'success': True, 'message': message})
+    else:
+        return jsonify({'error': message}), 400
+
+@app.route('/api/household/update-member-role', methods=['POST'])
+def api_update_member_role():
+    """API: Update member role."""
+    user_id = session.get('user_id')
+    if not user_id:
+        return jsonify({'error': 'Not authenticated'}), 401
+
+    household_id = session.get('current_household_id')
+    member_id = request.form.get('member_id')
+    new_role = request.form.get('role')
+
+    from core.household_helpers import update_member_role
+
+    success, message = update_member_role(household_id, member_id, new_role, user_id)
+
+    if success:
+        return jsonify({'success': True, 'message': message})
+    else:
+        return jsonify({'error': message}), 403
+
 @app.route('/api/check-azure-creds')
 def check_azure_creds():
     """API endpoint to check if Azure credentials are configured."""

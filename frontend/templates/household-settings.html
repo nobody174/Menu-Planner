@@ -1,0 +1,579 @@
+{% extends "base.html" %}
+
+{% block title %}Household Settings - Menu Planner{% endblock %}
+
+{% block content %}
+<div class="household-settings">
+  <h1>{{ t.get('household', 'Household') }} {{ t.get('settings', 'Settings') }}</h1>
+
+  {% if error %}
+  <div class="alert alert-error">
+    {{ error }}
+  </div>
+  {% endif %}
+
+  {% if success %}
+  <div class="alert alert-success">
+    {{ success }}
+  </div>
+  {% endif %}
+
+  <!-- Current Household Section -->
+  {% if current_household %}
+  <div class="settings-card">
+    <h2>{{ t.get('current_household', 'Current Household') }}</h2>
+
+    <div class="household-info">
+      <div class="info-row">
+        <label>{{ t.get('name', 'Name') }}:</label>
+        <span>{{ current_household.name }}</span>
+      </div>
+      <div class="info-row">
+        <label>{{ t.get('owner', 'Owner') }}:</label>
+        <span>{{ owner_email }}</span>
+      </div>
+      <div class="info-row">
+        <label>{{ t.get('members', 'Members') }}:</label>
+        <span>{{ members|length }}</span>
+      </div>
+    </div>
+
+    <!-- Members List -->
+    <div class="members-section">
+      <h3>{{ t.get('members', 'Members') }}</h3>
+
+      <table class="members-table">
+        <thead>
+          <tr>
+            <th>{{ t.get('email', 'Email') }}</th>
+            <th>{{ t.get('role', 'Role') }}</th>
+            <th>{{ t.get('joined', 'Joined') }}</th>
+            {% if can_manage %}
+            <th>{{ t.get('actions', 'Actions') }}</th>
+            {% endif %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for member in members %}
+          <tr>
+            <td>{{ member.email }}</td>
+            <td>
+              <span class="role-badge" data-role="{{ member.role }}">
+                {{ member.role }}
+              </span>
+            </td>
+            <td>{{ member.joined_at or 'N/A' }}</td>
+            {% if can_manage and member.user_id != user_id %}
+            <td>
+              {% if is_owner %}
+              <button class="btn-small" onclick="openRoleMenu('{{ member.member_id }}', '{{ member.role }}')">
+                {{ t.get('change_role', 'Change Role') }}
+              </button>
+              {% endif %}
+              <button class="btn-small btn-danger" onclick="removeMember('{{ member.member_id }}')">
+                {{ t.get('remove', 'Remove') }}
+              </button>
+            </td>
+            {% elif member.user_id == user_id %}
+            <td><em>{{ t.get('you', 'You') }}</em></td>
+            {% endif %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Add Member Section (Owner/Editor only) -->
+    {% if can_manage %}
+    <div class="add-member-section">
+      <h3>{{ t.get('add_member', 'Add Member') }}</h3>
+
+      <form method="POST" action="{{ url_for('add_household_member') }}" class="add-member-form">
+        <div class="form-group">
+          <label for="member-email">{{ t.get('email', 'Email') }}</label>
+          <input
+            type="email"
+            id="member-email"
+            name="member_email"
+            required
+            placeholder="user@example.com"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="member-role">{{ t.get('role', 'Role') }}</label>
+          <select id="member-role" name="role">
+            <option value="viewer">{{ t.get('viewer', 'Viewer') }} ({{ t.get('view_only', 'View only') }})</option>
+            <option value="editor" {% if is_owner %}selected{% endif %}>
+              {{ t.get('editor', 'Editor') }} ({{ t.get('can_edit', 'Can edit') }})
+            </option>
+            {% if is_owner %}
+            <option value="owner">{{ t.get('owner', 'Owner') }} ({{ t.get('full_control', 'Full control') }})</option>
+            {% endif %}
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+          {{ t.get('add_member', 'Add Member') }}
+        </button>
+      </form>
+    </div>
+    {% endif %}
+
+    <!-- Household Management (Owner only) -->
+    {% if is_owner %}
+    <div class="management-section">
+      <h3>{{ t.get('household_management', 'Household Management') }}</h3>
+
+      <button class="btn btn-warning" onclick="openEditHouseholdModal()">
+        {{ t.get('rename_household', 'Rename Household') }}
+      </button>
+
+      <button class="btn btn-danger" onclick="openDeleteModal()">
+        {{ t.get('delete_household', 'Delete Household') }}
+      </button>
+    </div>
+    {% endif %}
+  </div>
+
+  <!-- Switch/Create Household Section -->
+  {% if other_households %}
+  <div class="settings-card">
+    <h2>{{ t.get('other_households', 'Other Households') }}</h2>
+
+    <div class="households-list">
+      {% for household in other_households %}
+      <div class="household-item">
+        <span class="household-name">{{ household.name }}</span>
+        <form method="POST" action="{{ url_for('set_current_household') }}" style="display:inline;">
+          <input type="hidden" name="household_id" value="{{ household.id }}" />
+          <button type="submit" class="btn-small">
+            {{ t.get('switch', 'Switch') }}
+          </button>
+        </form>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Create New Household Section -->
+  <div class="settings-card">
+    <h2>{{ t.get('create_household', 'Create Household') }}</h2>
+
+    <form method="POST" action="{{ url_for('create_household_handler') }}" class="create-household-form">
+      <div class="form-group">
+        <label for="new-household-name">{{ t.get('household_name', 'Household Name') }}</label>
+        <input
+          type="text"
+          id="new-household-name"
+          name="household_name"
+          required
+          placeholder="e.g. Smith Family, Roommates, etc."
+          maxlength="255"
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary">
+        {{ t.get('create_household', 'Create Household') }}
+      </button>
+    </form>
+  </div>
+
+  {% else %}
+  <!-- No Household Prompt -->
+  <div class="settings-card">
+    <p>{{ t.get('no_household', 'No household selected. Create one or join an existing one.') }}</p>
+
+    <form method="POST" action="{{ url_for('create_household_handler') }}" class="create-household-form">
+      <div class="form-group">
+        <label for="new-household-name">{{ t.get('household_name', 'Household Name') }}</label>
+        <input
+          type="text"
+          id="new-household-name"
+          name="household_name"
+          required
+          placeholder="e.g. Smith Family, Roommates, etc."
+          maxlength="255"
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary">
+        {{ t.get('create_household', 'Create Household') }}
+      </button>
+    </form>
+  </div>
+  {% endif %}
+</div>
+
+<!-- Edit Household Modal -->
+<div id="edit-household-modal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>{{ t.get('rename_household', 'Rename Household') }}</h2>
+      <button class="modal-close" onclick="closeEditHouseholdModal()">×</button>
+    </div>
+
+    <form method="POST" action="{{ url_for('update_household_handler') }}" class="modal-form">
+      <div class="form-group">
+        <label for="new-name">{{ t.get('new_name', 'New Name') }}</label>
+        <input
+          type="text"
+          id="new-name"
+          name="household_name"
+          required
+          placeholder="{{ current_household.name if current_household else '' }}"
+          maxlength="255"
+        />
+      </div>
+
+      <div class="modal-buttons">
+        <button type="submit" class="btn btn-primary">{{ t.get('save', 'Save') }}</button>
+        <button type="button" class="btn btn-secondary" onclick="closeEditHouseholdModal()">
+          {{ t.get('cancel', 'Cancel') }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Delete Household Modal -->
+<div id="delete-household-modal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>{{ t.get('delete_household', 'Delete Household') }}</h2>
+      <button class="modal-close" onclick="closeDeleteModal()">×</button>
+    </div>
+
+    <p>{{ t.get('delete_warning', 'Are you sure? This cannot be undone.') }}</p>
+
+    <form method="POST" action="{{ url_for('delete_household_handler') }}" class="modal-form">
+      <div class="modal-buttons">
+        <button type="submit" class="btn btn-danger">{{ t.get('delete', 'Delete') }}</button>
+        <button type="button" class="btn btn-secondary" onclick="closeDeleteModal()">
+          {{ t.get('cancel', 'Cancel') }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<style>
+  .household-settings {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .household-settings h1 {
+    margin-bottom: 30px;
+  }
+
+  .settings-card {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .settings-card h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 18px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+  }
+
+  .settings-card h3 {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-size: 16px;
+  }
+
+  .household-info {
+    margin-bottom: 20px;
+  }
+
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .info-row label {
+    font-weight: 600;
+    color: #555;
+  }
+
+  .members-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+  }
+
+  .members-table th,
+  .members-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+  }
+
+  .members-table th {
+    background: #f5f5f5;
+    font-weight: 600;
+  }
+
+  .role-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .role-badge[data-role="owner"] {
+    background: #ffe0e0;
+    color: #c00;
+  }
+
+  .role-badge[data-role="editor"] {
+    background: #e0e8ff;
+    color: #006;
+  }
+
+  .role-badge[data-role="viewer"] {
+    background: #e0f0e0;
+    color: #060;
+  }
+
+  .add-member-section,
+  .management-section {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+  }
+
+  .add-member-form,
+  .create-household-form {
+    max-width: 500px;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+  }
+
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-primary {
+    background: #667eea;
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background: #5568d3;
+  }
+
+  .btn-secondary {
+    background: #ddd;
+    color: #333;
+  }
+
+  .btn-secondary:hover {
+    background: #ccc;
+  }
+
+  .btn-warning {
+    background: #f59e0b;
+    color: white;
+    margin-right: 10px;
+  }
+
+  .btn-warning:hover {
+    background: #d97706;
+  }
+
+  .btn-danger {
+    background: #ef4444;
+    color: white;
+  }
+
+  .btn-danger:hover {
+    background: #dc2626;
+  }
+
+  .btn-small {
+    padding: 6px 12px;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+
+  .households-list {
+    margin-top: 15px;
+  }
+
+  .household-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background: #f9f9f9;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+
+  .household-name {
+    font-weight: 500;
+  }
+
+  .alert {
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+
+  .alert-error {
+    background: #fee;
+    color: #c33;
+    border: 1px solid #fcc;
+  }
+
+  .alert-success {
+    background: #efe;
+    color: #3c3;
+    border: 1px solid #cfc;
+  }
+
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .modal-content {
+    background: white;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 90%;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+  }
+
+  .modal-header h2 {
+    margin: 0;
+  }
+
+  .modal-close {
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #999;
+  }
+
+  .modal-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+</style>
+
+<script>
+  function openEditHouseholdModal() {
+    document.getElementById('edit-household-modal').style.display = 'flex';
+  }
+
+  function closeEditHouseholdModal() {
+    document.getElementById('edit-household-modal').style.display = 'none';
+  }
+
+  function openDeleteModal() {
+    if (confirm('{{ t.get("confirm_delete", "Are you sure?") }}')) {
+      document.getElementById('delete-household-modal').style.display = 'flex';
+    }
+  }
+
+  function closeDeleteModal() {
+    document.getElementById('delete-household-modal').style.display = 'none';
+  }
+
+  function removeMember(memberId) {
+    if (confirm('{{ t.get("confirm_remove", "Remove this member?") }}')) {
+      // Submit form to remove member
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = '/api/household/remove-member';
+      form.innerHTML = '<input type="hidden" name="member_id" value="' + memberId + '">';
+      document.body.appendChild(form);
+      form.submit();
+    }
+  }
+
+  function openRoleMenu(memberId, currentRole) {
+    // Simple prompt for role change (can be improved with a modal)
+    const roles = ['viewer', 'editor', 'owner'];
+    const newRole = prompt('Enter new role: ' + roles.join(', '), currentRole);
+    if (newRole && roles.includes(newRole)) {
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = '/api/household/update-member-role';
+      form.innerHTML = '<input type="hidden" name="member_id" value="' + memberId + '">' +
+                      '<input type="hidden" name="role" value="' + newRole + '">';
+      document.body.appendChild(form);
+      form.submit();
+    }
+  }
+</script>
+{% endblock %}

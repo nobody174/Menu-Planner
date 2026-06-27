@@ -1,0 +1,301 @@
+"""
+Household and membership management helpers.
+"""
+
+from database.database import SessionLocal
+from database.models import Household, HouseholdMember, User
+import uuid
+
+
+def create_household(user_id, household_name):
+    """
+    Create a new household owned by the user.
+    Returns: (success, household_or_error_msg, household_id)
+    """
+    if not household_name or not household_name.strip():
+        return False, "Household name required", None
+
+    household_name = household_name.strip()[:255]
+
+    session = SessionLocal()
+    try:
+        household = Household(
+            name=household_name,
+            owner_id=user_id
+        )
+        session.add(household)
+        session.flush()
+
+        # Add creator as owner member
+        member = HouseholdMember(
+            household_id=household.id,
+            user_id=user_id,
+            role='owner'
+        )
+        session.add(member)
+        session.commit()
+
+        household_id = str(household.id)
+        return True, household, household_id
+
+    except Exception as e:
+        session.rollback()
+        return False, f"Database error: {str(e)}", None
+    finally:
+        session.close()
+
+
+def get_household(household_id):
+    """Get household by ID."""
+    session = SessionLocal()
+    try:
+        household = session.query(Household).filter(Household.id == household_id).first()
+        return household
+    finally:
+        session.close()
+
+
+def get_user_households(user_id):
+    """Get all households the user is a member of."""
+    session = SessionLocal()
+    try:
+        members = session.query(HouseholdMember).filter(
+            HouseholdMember.user_id == user_id
+        ).all()
+
+        household_ids = [m.household_id for m in members]
+        if not household_ids:
+            return []
+
+        households = session.query(Household).filter(
+            Household.id.in_(household_ids)
+        ).all()
+
+        return households
+    finally:
+        session.close()
+
+
+def get_household_members(household_id):
+    """Get all members of a household with user info."""
+    session = SessionLocal()
+    try:
+        members = session.query(HouseholdMember).filter(
+            HouseholdMember.household_id == household_id
+        ).all()
+
+        result = []
+        for member in members:
+            user = session.query(User).filter(User.id == member.user_id).first()
+            if user:
+                result.append({
+                    'member_id': str(member.id),
+                    'user_id': str(member.user_id),
+                    'email': user.email,
+                    'role': member.role,
+                    'joined_at': member.joined_at.isoformat() if member.joined_at else None
+                })
+
+        return result
+    finally:
+        session.close()
+
+
+def update_household(household_id, name=None):
+    """Update household details."""
+    if name is not None and (not name or not name.strip()):
+        return False, "Household name required"
+
+    session = SessionLocal()
+    try:
+        household = session.query(Household).filter(Household.id == household_id).first()
+        if not household:
+            return False, "Household not found"
+
+        if name:
+            household.name = name.strip()[:255]
+
+        session.commit()
+        return True, household
+
+    except Exception as e:
+        session.rollback()
+        return False, f"Database error: {str(e)}"
+    finally:
+        session.close()
+
+
+def delete_household(household_id, owner_id):
+    """Delete household (owner only)."""
+    session = SessionLocal()
+    try:
+        household = session.query(Household).filter(Household.id == household_id).first()
+        if not household:
+            return False, "Household not found"
+
+        if household.owner_id != owner_id:
+            return False, "Only owner can delete household"
+
+        session.delete(household)
+        session.commit()
+        return True, "Household deleted"
+
+    except Exception as e:
+        session.rollback()
+        return False, f"Database error: {str(e)}"
+    finally:
+        session.close()
+
+
+def add_household_member(household_id, email, role='viewer'):
+    """
+    Add a member to household by email.
+    Returns: (success, message, member_id)
+    """
+    if role not in ('owner', 'editor', 'viewer'):
+        return False, "Invalid role", None
+
+    session = SessionLocal()
+    try:
+        # Find user by email
+        user = session.query(User).filter(User.email == email.lower()).first()
+        if not user:
+            return False, "User not found", None
+
+        # Check if already member
+        existing = session.query(HouseholdMember).filter(
+            HouseholdMember.household_id == household_id,
+            HouseholdMember.user_id == user.id
+        ).first()
+
+        if existing:
+            return False, "User is already a member", None
+
+        # Add member
+        member = HouseholdMember(
+            household_id=household_id,
+            user_id=user.id,
+            role=role
+        )
+        session.add(member)
+        session.commit()
+
+        member_id = str(member.id)
+        return True, f"Added {email} as {role}", member_id
+
+    except Exception as e:
+        session.rollback()
+        return False, f"Database error: {str(e)}", None
+    finally:
+        session.close()
+
+
+def remove_household_member(household_id, member_id, remover_id):
+    """
+    Remove a member from household (owner/editor only).
+    Returns: (success, message)
+    """
+    session = SessionLocal()
+    try:
+        # Check remover is owner/editor
+        remover_member = session.query(HouseholdMember).filter(
+            HouseholdMember.household_id == household_id,
+            HouseholdMember.user_id == remover_id
+        ).first()
+
+        if not remover_member or remover_member.role not in ('owner', 'editor'):
+            return False, "Permission denied"
+
+        # Get member to remove
+        member = session.query(HouseholdMember).filter(
+            HouseholdMember.id == member_id,
+            HouseholdMember.household_id == household_id
+        ).first()
+
+        if not member:
+            return False, "Member not found"
+
+        # Can't remove owner (must transfer first)
+        if member.role == 'owner':
+            return False, "Cannot remove owner. Transfer ownership first."
+
+        session.delete(member)
+        session.commit()
+
+        return True, "Member removed"
+
+    except Exception as e:
+        session.rollback()
+        return False, f"Database error: {str(e)}"
+    finally:
+        session.close()
+
+
+def update_member_role(household_id, member_id, new_role, updater_id):
+    """
+    Update member role (owner only).
+    Returns: (success, message)
+    """
+    if new_role not in ('owner', 'editor', 'viewer'):
+        return False, "Invalid role"
+
+    session = SessionLocal()
+    try:
+        # Check updater is owner
+        updater = session.query(HouseholdMember).filter(
+            HouseholdMember.household_id == household_id,
+            HouseholdMember.user_id == updater_id
+        ).first()
+
+        if not updater or updater.role != 'owner':
+            return False, "Only owner can change roles"
+
+        # Get member to update
+        member = session.query(HouseholdMember).filter(
+            HouseholdMember.id == member_id,
+            HouseholdMember.household_id == household_id
+        ).first()
+
+        if not member:
+            return False, "Member not found"
+
+        member.role = new_role
+        session.commit()
+
+        return True, f"Updated role to {new_role}"
+
+    except Exception as e:
+        session.rollback()
+        return False, f"Database error: {str(e)}"
+    finally:
+        session.close()
+
+
+def user_can_access_household(user_id, household_id):
+    """Check if user is member of household."""
+    session = SessionLocal()
+    try:
+        member = session.query(HouseholdMember).filter(
+            HouseholdMember.household_id == household_id,
+            HouseholdMember.user_id == user_id
+        ).first()
+        return member is not None
+    finally:
+        session.close()
+
+
+def user_can_edit_household(user_id, household_id):
+    """Check if user can edit household (owner or editor)."""
+    session = SessionLocal()
+    try:
+        member = session.query(HouseholdMember).filter(
+            HouseholdMember.household_id == household_id,
+            HouseholdMember.user_id == user_id
+        ).first()
+
+        if not member:
+            return False
+
+        return member.role in ('owner', 'editor')
+    finally:
+        session.close()
