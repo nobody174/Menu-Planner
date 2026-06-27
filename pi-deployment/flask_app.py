@@ -804,6 +804,55 @@ def api_delete_recipe():
         logger.error(f"Delete recipe error: {e}")
         return jsonify({'status': 'error', 'message': str(e)}), 500
 
+@app.route('/api/edit-recipe', methods=['POST'])
+def api_edit_recipe():
+    """Edit an existing recipe in recipes_db.json by ID"""
+    try:
+        data = request.get_json() or {}
+        recipe_id = data.get('recipe_id')
+
+        if not recipe_id:
+            return jsonify({'status': 'error', 'message': 'recipe_id is required'}), 400
+
+        # Validate required fields
+        title = data.get('title', '').strip()
+        ingredients = data.get('ingredients', [])
+
+        if not title or not ingredients:
+            return jsonify({'status': 'error', 'message': 'Title and ingredients are required'}), 400
+
+        recipes = load_recipes_db()
+        recipe_found = False
+
+        # Find and update the recipe
+        for i, recipe in enumerate(recipes):
+            if recipe.get('id') == recipe_id:
+                # Update all provided fields
+                recipes[i]['title'] = title
+                recipes[i]['description'] = data.get('description', '')
+                recipes[i]['difficulty'] = _normalize_difficulty(data.get('difficulty', 'Easy'))
+                recipes[i]['time_minutes'] = data.get('time_minutes', 30)
+                recipes[i]['category'] = data.get('category', recipe.get('category', 'HomeMade'))
+                recipes[i]['ingredients'] = ingredients
+                recipes[i]['instructions'] = data.get('instructions', [])
+                recipes[i]['comment'] = data.get('comment', '')
+                recipe_found = True
+                break
+
+        if not recipe_found:
+            return jsonify({'status': 'error', 'message': f'Recipe {recipe_id} not found'}), 404
+
+        # Save updated recipes
+        with open(RECIPES_DB_FILE, 'w', encoding='utf-8') as f:
+            json.dump(recipes, f, ensure_ascii=False, indent=2)
+
+        logger.info(f"Updated recipe: {title} (ID: {recipe_id})")
+        return jsonify({'status': 'success', 'message': f"✅ {title} updated!", 'recipe_id': recipe_id})
+
+    except Exception as e:
+        logger.error(f"Error editing recipe: {e}")
+        return jsonify({'status': 'error', 'message': str(e)}), 500
+
 @app.route('/api/swap-recipe', methods=['POST'])
 def api_swap_recipe():
     """Swap a recipe for a specific weekday in the current menu"""
