@@ -1,0 +1,187 @@
+{% extends "base.html" %}
+
+{% block title %}Login - Menu Planner{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+  <div class="auth-card">
+    <h1>{{ t.get('login', 'Login') }}</h1>
+
+    {% if error %}
+    <div class="error-message">
+      {{ error }}
+    </div>
+    {% endif %}
+
+    <form method="POST" class="auth-form">
+      <div class="form-group">
+        <label for="email">{{ t.get('email', 'Email') }}</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          placeholder="you@example.com"
+          value="{{ email or '' }}"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="password">{{ t.get('password', 'Password') }}</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          required
+          placeholder="••••••••"
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary">
+        {{ t.get('login', 'Login') }}
+      </button>
+    </form>
+
+    <div class="auth-footer">
+      <p>
+        {{ t.get('no_account', "Don't have an account?") }}
+        <a href="{{ url_for('signup') }}">{{ t.get('signup', 'Sign up') }}</a>
+      </p>
+    </div>
+
+    {% if has_azure_creds %}
+    <div class="divider">{{ t.get('or', 'or') }}</div>
+
+    <a href="{{ url_for('login_azure') }}" class="btn btn-microsoft">
+      {{ t.get('login_microsoft', 'Login with Microsoft') }}
+    </a>
+    {% endif %}
+  </div>
+</div>
+
+<style>
+  .auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+  }
+
+  .auth-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .auth-card h1 {
+    margin: 0 0 30px;
+    font-size: 28px;
+    text-align: center;
+    color: #333;
+  }
+
+  .error-message {
+    background: #fee;
+    color: #c33;
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+
+  .auth-form {
+    margin-bottom: 30px;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+    font-size: 14px;
+  }
+
+  .form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+  }
+
+  .form-group input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  }
+
+  .btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .btn-primary {
+    background: #667eea;
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background: #5568d3;
+  }
+
+  .btn-microsoft {
+    background: #0078d4;
+    color: white;
+    margin-top: 20px;
+  }
+
+  .btn-microsoft:hover {
+    background: #006cbf;
+  }
+
+  .auth-footer {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    margin-top: 20px;
+  }
+
+  .auth-footer a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .auth-footer a:hover {
+    text-decoration: underline;
+  }
+
+  .divider {
+    text-align: center;
+    margin: 30px 0 20px;
+    color: #ccc;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+</style>
+{% endblock %}

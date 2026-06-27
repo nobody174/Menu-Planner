@@ -215,6 +215,13 @@ def inject_config():
     """Inject configuration and i18n into all templates."""
     lang = _get_lang()
     t = _make_t(lang)
+
+    # Get current user info
+    user_email = session.get('user_email')
+    user_id = session.get('user_id')
+    auth_type = session.get('auth_type')
+    is_authenticated = bool(user_id and user_email) or bool(session.get('access_token'))
+
     return {
         'household_name': os.getenv('HOUSEHOLD_NAME', '{Family_Name}'),
         'creator': 'nobody174',
@@ -223,6 +230,10 @@ def inject_config():
         'lang': lang,
         't': t,
         'has_azure_creds': _has_azure_creds(),
+        'is_authenticated': is_authenticated,
+        'user_email': user_email,
+        'user_id': user_id,
+        'auth_type': auth_type,
     }
 
 # ── Helpers ──────────────────────────────────────────────────────────────────
@@ -450,19 +461,90 @@ def check_azure_creds():
 
 # ── Auth routes ───────────────────────────────────────────────────────────────
 
+# Email/Password Authentication Routes
+@app.route('/login-page')
+def login_page():
+    """Render login page."""
+    error = request.args.get('error')
+    return render_template('login.html', error=error, email=request.args.get('email', ''))
+
+@app.route('/login', methods=['POST'])
+def login_local():
+    """Handle local email/password login."""
+    from core.auth_helpers import authenticate_user
+    email = request.form.get('email', '').strip()
+    password = request.form.get('password', '')
+
+    if not email or not password:
+        return render_template('login.html', error='Email and password required', email=email), 400
+
+    success, result = authenticate_user(email, password)
+    if not success:
+        return render_template('login.html', error=result, email=email), 401
+
+    user = result
+    session['user_id'] = str(user.id)
+    session['user_email'] = user.email
+    session['auth_type'] = 'local'
+    logger.info(f"User logged in (local): {user.email}")
+    return redirect('/')
+
+@app.route('/signup')
+def signup():
+    """Render signup page."""
+    error = request.args.get('error')
+    return render_template('signup.html', error=error, email=request.args.get('email', ''))
+
+@app.route('/signup', methods=['POST'])
+def signup_local():
+    """Handle local user registration."""
+    from core.auth_helpers import create_user
+    email = request.form.get('email', '').strip()
+    password = request.form.get('password', '')
+    password_confirm = request.form.get('password_confirm', '')
+
+    if not email or not password or not password_confirm:
+        return render_template('signup.html', error='All fields required', email=email), 400
+
+    if password != password_confirm:
+        return render_template('signup.html', error='Passwords do not match', email=email), 400
+
+    success, result, user_id = create_user(email, password)
+    if not success:
+        return render_template('signup.html', error=result, email=email), 400
+
+    user = result
+    session['user_id'] = str(user.id)
+    session['user_email'] = user.email
+    session['auth_type'] = 'local'
+    logger.info(f"New user registered: {user.email}")
+    return redirect('/')
+
+# Azure/MSAL Authentication Routes
+@app.route('/login-azure')
+def login_azure():
+    """Initiate Azure/Microsoft login flow."""
+    try:
+        from auth import build_msal_app, get_auth_url
+        msal_app = build_msal_app(_redirect_uri())
+        flow = get_auth_url(msal_app, _redirect_uri())
+        session['auth_flow'] = flow
+        logger.info("User redirecting to Microsoft login")
+        return redirect(flow['auth_uri'])
+    except Exception as e:
+        logger.error(f"Azure login error: {e}")
+        return render_template('login.html', error='Azure login not configured'), 500
+
 @app.route('/login')
 def login():
-    from auth import build_msal_app, get_auth_url
-    msal_app = build_msal_app(_redirect_uri())
-    flow = get_auth_url(msal_app, _redirect_uri())
-    session['auth_flow'] = flow
-    logger.info("User redirecting to Microsoft login")
-    return redirect(flow['auth_uri'])
+    """Redirect to login page (for backward compatibility)."""
+    return redirect(url_for('login_page'))
 
 @app.route('/callback')
 def callback():
-    from auth import build_msal_app, acquire_token_by_auth_code_flow, get_user_info
+    """Handle Azure/MSAL callback."""
     try:
+        from auth import build_msal_app, acquire_token_by_auth_code_flow, get_user_info
         flow = session.get('auth_flow')
         if not flow:
             return render_template('error.html', message='Session expired. Please try logging in again.'), 400
@@ -477,6 +559,7 @@ def callback():
 
         session['access_token'] = result['access_token']
         session.pop('auth_flow', None)
+        session['auth_type'] = 'azure'
 
         try:
             user = get_user_info(result['access_token'])
@@ -486,7 +569,7 @@ def callback():
             session['user_name'] = 'User'
             session['user_email'] = ''
 
-        logger.info(f"User authenticated: {session.get('user_email')}")
+        logger.info(f"User authenticated (Azure): {session.get('user_email')}")
         return redirect('/')
 
     except Exception as e:
@@ -495,14 +578,42 @@ def callback():
 
 @app.route('/logout')
 def logout():
+    """Log out user (handles both local and Azure auth)."""
+    user_email = session.get('user_email', 'User')
+    auth_type = session.get('auth_type', 'unknown')
     session.clear()
-    logger.info("User logged out")
+    logger.info(f"User logged out ({auth_type}): {user_email}")
     return redirect('/')
 
 @app.route('/api/user')
 def api_user():
-    from auth import is_authorised
-    return jsonify({'authenticated': is_authorised()})
+    """Get current user info."""
+    user_id = session.get('user_id')
+    user_email = session.get('user_email')
+    auth_type = session.get('auth_type')
+
+    if user_id and user_email:
+        return jsonify({
+            'authenticated': True,
+            'user_id': user_id,
+            'email': user_email,
+            'auth_type': auth_type or 'unknown'
+        })
+
+    # Fallback for Azure-only sessions (legacy)
+    if session.get('access_token'):
+        try:
+            from auth import is_authorised
+            if is_authorised():
+                return jsonify({
+                    'authenticated': True,
+                    'email': session.get('user_email', ''),
+                    'auth_type': 'azure'
+                })
+        except Exception:
+            pass
+
+    return jsonify({'authenticated': False})
 
 @app.route('/api/debug-token')
 def debug_token():

@@ -70,10 +70,22 @@
                             <a href="/all-recipes" class="settings-item">{{ t.all_recipes }}</a>
                             <a href="/add-recipe" class="settings-item">+ {{ t.add_recipe }}</a>
                             <div class="settings-divider"></div>
-                            <div id="nav-auth-section" style="display:none;">
-                                <a href="/login" id="nav-login-item" class="settings-item" style="display:none; color: var(--color-text-primary, #333);">Connect to Microsoft To Do</a>
-                                <span id="nav-user-display-settings" style="display:none; font-size:0.85rem; color:var(--color-text-secondary,#888); padding:8px 16px; display:block;"></span>
-                                <a href="/logout" id="nav-logout-item" class="settings-item settings-logout" style="display:none; color: var(--color-text-primary, #333);">Disconnect</a>
+                            <div id="nav-auth-section">
+                                {% if is_authenticated %}
+                                    <span id="nav-user-display-settings" style="font-size:0.85rem; color:var(--color-text-secondary,#888); padding:8px 16px; display:block;">
+                                        {{ user_email }}
+                                    </span>
+                                    <a href="/logout" class="settings-item settings-logout" style="color: var(--color-text-primary, #333);">
+                                        {{ t.get('logout', 'Logout') }}
+                                    </a>
+                                {% else %}
+                                    <a href="{{ url_for('login_page') }}" class="settings-item" style="color: var(--color-text-primary, #333);">
+                                        {{ t.get('login', 'Login') }}
+                                    </a>
+                                    <a href="{{ url_for('signup') }}" class="settings-item" style="color: var(--color-text-primary, #333);">
+                                        {{ t.get('signup', 'Sign Up') }}
+                                    </a>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
