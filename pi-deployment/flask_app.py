@@ -190,13 +190,22 @@ app = Flask(__name__,
     template_folder=str(Path(__file__).parent.parent / 'frontend/templates'),
     static_folder=str(Path(__file__).parent.parent / 'frontend/static'))
 
+# Configuration
+FLASK_ENV = os.environ.get('FLASK_ENV', 'development')
+IS_PRODUCTION = FLASK_ENV == 'production'
+
 app.config['JSON_SORT_KEYS'] = False
-app.config['TEMPLATES_AUTO_RELOAD'] = True
+app.config['TEMPLATES_AUTO_RELOAD'] = not IS_PRODUCTION
 app.config['SECRET_KEY'] = os.environ.get('FLASK_SECRET_KEY', secrets.token_hex(32))
-app.config['SESSION_COOKIE_SECURE'] = True
+
+# Security: Use secure cookies in production
+app.config['SESSION_COOKIE_SECURE'] = IS_PRODUCTION
 app.config['SESSION_COOKIE_HTTPONLY'] = True
 app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
-app.jinja_env.cache = None
+
+# Disable Jinja2 cache in development for faster iteration
+if not IS_PRODUCTION:
+    app.jinja_env.cache = None
 
 logger.info(f"Flask templates: {app.template_folder}")
 logger.info(f"Flask static: {app.static_folder}")
@@ -273,6 +282,11 @@ _DAY_TRANSLATIONS = {
         'Thursday': 'Torsdag', 'Friday': 'Fredag', 'Saturday': 'Lørdag', 'Sunday': 'Søndag'
     }
 }
+
+@app.route('/health')
+def health_check():
+    """Health check endpoint for Railway deployment."""
+    return jsonify({'status': 'healthy', 'version': '2.0.0'}), 200
 
 @app.route('/')
 def dashboard():

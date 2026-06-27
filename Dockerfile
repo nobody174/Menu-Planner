@@ -25,19 +25,27 @@ RUN mkdir -p data logs
 ENV FLASK_APP=pi-deployment/flask_app.py
 ENV FLASK_ENV=production
 ENV PYTHONUNBUFFERED=1
+ENV PORT=5000
+
+# Create non-root user for security
+RUN useradd -m -u 1000 appuser && chown -R appuser:appuser /app
+USER appuser
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-    CMD python -c "import requests; requests.get('http://localhost:5000/health', timeout=5)" || exit 1
+    CMD curl -f http://localhost:${PORT}/health || exit 1
 
 # Expose port
-EXPOSE 5000
+EXPOSE ${PORT}
 
 # Run with gunicorn for production
-CMD ["python", "-m", "gunicorn", \
+# PORT can be overridden by Railway or Docker runtime
+CMD ["gunicorn", \
      "--bind", "0.0.0.0:5000", \
-     "--workers", "2", \
+     "--workers", "4", \
+     "--worker-class", "sync", \
      "--timeout", "120", \
      "--access-logfile", "-", \
      "--error-logfile", "-", \
+     "--log-level", "info", \
      "pi-deployment.flask_app:app"]
