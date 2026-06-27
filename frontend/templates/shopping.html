@@ -163,6 +163,73 @@ var STR = {
     server_error_msg:   '{{ t.server_error_msg }}'
 };
 
+// ── Checkbox Persistence ────────────────────────────────────────────────────
+// Store checked items in localStorage keyed by week (YYYY-WW format)
+
+function getWeekKey() {
+    // Get current week number in YYYY-WW format for localStorage key
+    var today = new Date();
+    var dayOfWeek = today.getDay();
+    var firstDayOfWeek = new Date(today.getTime() - dayOfWeek * 24 * 60 * 60 * 1000);
+    var year = firstDayOfWeek.getFullYear();
+    var weekNum = Math.floor((firstDayOfWeek.getTime() - new Date(year, 0, 1).getTime()) / (7 * 24 * 60 * 60 * 1000)) + 1;
+    return 'shopping-checked-' + year + '-W' + String(weekNum).padStart(2, '0');
+}
+
+function loadCheckedItems() {
+    // Load checked state from localStorage
+    var key = getWeekKey();
+    var stored = localStorage.getItem(key);
+    if (!stored) return new Set();
+    try {
+        return new Set(JSON.parse(stored));
+    } catch (e) {
+        return new Set();
+    }
+}
+
+function saveCheckedItems() {
+    // Save current checked state to localStorage
+    var key = getWeekKey();
+    var checked = new Set();
+    document.querySelectorAll('.shopping-item').forEach(function(li) {
+        var cb = li.querySelector('.item-checkbox');
+        if (cb && cb.checked) {
+            checked.add(li.dataset.ingredient);
+        }
+    });
+    localStorage.setItem(key, JSON.stringify(Array.from(checked)));
+}
+
+function restoreCheckedItems() {
+    // Restore checked state from localStorage on page load
+    var checkedSet = loadCheckedItems();
+    document.querySelectorAll('.shopping-item').forEach(function(li) {
+        var ingredient = li.dataset.ingredient;
+        var cb = li.querySelector('.item-checkbox');
+        if (cb && checkedSet.has(ingredient)) {
+            cb.checked = true;
+            li.style.opacity = '0.5';
+        }
+    });
+}
+
+// Attach listeners to all checkboxes
+document.addEventListener('DOMContentLoaded', function() {
+    restoreCheckedItems();
+    document.querySelectorAll('.item-checkbox').forEach(function(cb) {
+        cb.addEventListener('change', function() {
+            var li = this.closest('.shopping-item');
+            if (this.checked) {
+                li.style.opacity = '0.5';
+            } else {
+                li.style.opacity = '1';
+            }
+            saveCheckedItems();
+        });
+    });
+});
+
 function getCheckedItems() {
     var items = [];
     document.querySelectorAll('.shopping-item').forEach(function(li) {
