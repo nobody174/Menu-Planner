@@ -1,1 +1,1 @@
-# Test module initialization
+"""Menu-Planner test suite."""

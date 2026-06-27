@@ -1,0 +1,127 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, public-release-v1 ]
+  pull_request:
+    branches: [ main, public-release-v1 ]
+
+env:
+  PYTHON_VERSION: "3.11"
+
+jobs:
+  # Job 1: Test & Lint
+  test:
+    name: Test & Lint
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:15-alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: menu_planner_test
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest pytest-cov flake8 black
+
+      - name: Lint with flake8
+        run: |
+          # Stop the build if there are Python syntax errors or undefined names
+          flake8 pi-deployment core database --count --select=E9,F63,F7,F82 --show-source --statistics
+          # exit-zero treats all errors as warnings
+          flake8 pi-deployment core database --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+
+      - name: Check formatting with black
+        run: |
+          black --check pi-deployment core database || true
+
+      - name: Run database migrations
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/menu_planner_test
+        run: |
+          alembic upgrade head
+
+      - name: Run tests
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/menu_planner_test
+          FLASK_ENV: testing
+          FLASK_SECRET_KEY: test-secret-key
+        run: |
+          pytest tests/ -v --cov=pi_deployment --cov=core --cov=database --cov-report=xml --cov-report=term
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          file: ./coverage.xml
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: false
+
+      - name: Verify Flask app imports
+        run: |
+          python -c "from pi_deployment.flask_app import app; print('Flask app imported successfully')"
+
+  # Job 2: Build Docker image (for manual testing)
+  build-docker:
+    name: Build Docker Image
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: false
+          tags: menu-planner:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  # Job 3: Deploy to Railway (only on main branch, on successful test)
+  deploy:
+    name: Deploy to Railway
+    runs-on: ubuntu-latest
+    needs: test
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to Railway
+        uses: railway-app/actions@v1
+        with:
+          token: ${{ secrets.RAILWAY_TOKEN }}
+          service: ${{ secrets.RAILWAY_SERVICE_ID }}
+
+      - name: Post deployment message
+        run: |
+          echo "✅ Deployed to Railway successfully!"
+          echo "URL: https://${{ secrets.RAILWAY_DOMAIN }}"
