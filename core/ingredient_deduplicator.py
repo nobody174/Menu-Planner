@@ -12,10 +12,16 @@ from typing import List, Dict, Tuple
 from collections import defaultdict
 
 try:
-    from fuzzywuzzy import fuzz
+    from rapidfuzz import distance
+    # Wrapper to match old fuzzywuzzy API
+    class FuzzWrapper:
+        @staticmethod
+        def token_sort_ratio(a, b):
+            return distance.Levenshtein.normalized_similarity(a, b) * 100
+    fuzz = FuzzWrapper()
 except ImportError:
     fuzz = None
-    logging.warning("fuzzywuzzy not installed. Install with: pip install fuzzywuzzy python-Levenshtein")
+    logging.warning("rapidfuzz not installed. Install with: pip install rapidfuzz")
 
 logger = logging.getLogger(__name__)
 
