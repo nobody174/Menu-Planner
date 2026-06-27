@@ -157,6 +157,10 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 # Load .env from project root
 load_dotenv(Path(__file__).parent.parent / '.env')
 
+# Initialize database
+from database.database import db
+db.create_all()
+
 logger = logging.getLogger(__name__)
 
 # Setup logging with safe directory creation
