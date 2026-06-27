@@ -1,132 +1,261 @@
 {
-  "week_start": "2026-06-22",
-  "week_end": "2026-06-27",
-  "generated_at": "2026-06-19T01:48:35.477429",
+  "week_start": "2026-06-29",
+  "week_end": "2026-07-04",
+  "generated_at": "2026-06-27T11:12:00.888695",
   "selected_categories": [
-    "Fish & Seafood"
+    "Favorites",
+    "Quick Dinner",
+    "Vegetarian",
+    "Fish & Seafood",
+    "Meat",
+    "Other",
+    "Popular Norwegian Recipes",
+    "European Classics",
+    "Nordic Classics",
+    "Holiday Recipes",
+    "Summer Recipes"
   ],
   "dinners": [
     {
       "day": "Monday",
-      "recipe_id": "sample_010",
-      "title": "Fish Cakes with Remoulade",
-      "title_no": "Fiskekaker med Remoulade",
-      "title_en": "Fish Cakes with Remoulade",
+      "recipe_id": "hol_003",
+      "title": {
+        "no": "Risengrynssgrytt",
+        "en": "Rice Pudding"
+      },
+      "title_no": "Risengrynssgrytt",
+      "title_en": "Rice Pudding",
       "time_minutes": 45,
-      "difficulty": "Medium",
-      "protein": "fish",
-      "subtitle_no": "",
-      "subtitle_en": "",
-      "image_url": "/static/images/meal-fish.jpg"
+      "difficulty": "easy",
+      "protein": "other",
+      "subtitle_no": "Tradisjonell juledessert",
+      "subtitle_en": "Traditional Christmas pudding",
+      "image_url": "/static/images/meal-vegetarian.jpg"
     },
     {
       "day": "Tuesday",
-      "recipe_id": "sample_002",
-      "title": "Grilled Salmon with Asparagus",
-      "title_no": "Grillet Laks med Aspargess",
-      "title_en": "Grilled Salmon with Asparagus",
-      "time_minutes": 25,
-      "difficulty": "Easy",
-      "protein": "fish",
-      "subtitle_no": "",
-      "subtitle_en": "",
-      "image_url": "/static/images/meal-fish.jpg"
+      "recipe_id": "no_008",
+      "title": {
+        "no": "Skilpaddesuppe",
+        "en": "Turtle Soup (Beef & Vegetable)"
+      },
+      "title_no": "Skilpaddesuppe",
+      "title_en": "Turtle Soup (Beef & Vegetable)",
+      "time_minutes": 90,
+      "difficulty": "medium",
+      "protein": "beef",
+      "subtitle_no": "Norsk spesialsuppe med okse og grønnsaker",
+      "subtitle_en": "Norwegian specialty soup with beef and vegetables",
+      "image_url": "/static/images/meal-beef.jpg"
     },
     {
       "day": "Wednesday",
-      "recipe_id": "sample_005",
-      "title": "Baked Cod with Potatoes",
-      "title_no": "Kokt Torsk med Kartofler",
-      "title_en": "Baked Cod with Potatoes",
-      "time_minutes": 40,
+      "recipe_id": "no_014",
+      "title": {
+        "no": "Sjokoladekake",
+        "en": "Chocolate Cake"
+      },
+      "title_no": "Sjokoladekake",
+      "title_en": "Chocolate Cake",
+      "time_minutes": 45,
+      "difficulty": "easy",
+      "protein": "other",
+      "subtitle_no": "Klassisk norsk sjokoladekake",
+      "subtitle_en": "Classic Norwegian chocolate cake",
+      "image_url": "/static/images/meal-vegetarian.jpg"
+    },
+    {
+      "day": "Thursday",
+      "recipe_id": "sample_009",
+      "title": "Vegetarian Buddha Bowl",
+      "title_no": "Vegetar Buddha Bowl",
+      "title_en": "Vegetarian Buddha Bowl",
+      "time_minutes": 30,
       "difficulty": "Easy",
-      "protein": "fish",
+      "protein": "vegetarian",
       "subtitle_no": "",
       "subtitle_en": "",
-      "image_url": "/static/images/meal-fish.jpg"
+      "image_url": "/static/images/meal-vegetarian.jpg"
+    },
+    {
+      "day": "Friday",
+      "recipe_id": "eu_008",
+      "title": {
+        "no": "Frikadellettar",
+        "en": "Swedish Meatballs"
+      },
+      "title_no": "Frikadellettar",
+      "title_en": "Swedish Meatballs",
+      "time_minutes": 40,
+      "difficulty": "easy",
+      "protein": "other",
+      "subtitle_no": "Svenske kjøttboller med fløte",
+      "subtitle_en": "Swedish meatballs with cream",
+      "image_url": "/static/images/meal-vegetarian.jpg"
+    },
+    {
+      "day": "Saturday",
+      "recipe_id": "eu_010",
+      "title": {
+        "no": "Ratatouille",
+        "en": "Ratatouille"
+      },
+      "title_no": "Ratatouille",
+      "title_en": "Ratatouille",
+      "time_minutes": 45,
+      "difficulty": "easy",
+      "protein": "soup",
+      "subtitle_no": "Fransk grønnsakstuing",
+      "subtitle_en": "French vegetable stew",
+      "image_url": "/static/images/meal-soup.jpg"
     }
   ],
   "shopping_list": {
     "Proteins": [
       {
-        "ingredient": "Cod Fillet",
-        "quantity": 600,
+        "ingredient": "Beef (Cubes)",
+        "quantity": 700,
         "unit": "g",
         "allergens": []
       },
       {
-        "ingredient": "Egg",
+        "ingredient": "Eggplant",
         "quantity": 1,
-        "unit": "stk",
+        "unit": "large",
         "allergens": []
       },
       {
-        "ingredient": "Salmon Fillet",
-        "quantity": 400,
-        "unit": "g",
+        "ingredient": "Eggs",
+        "quantity": 4,
+        "unit": "pieces",
+        "allergens": []
+      },
+      {
+        "ingredient": "Eggs (Boiled And Chopped)",
+        "quantity": 2,
+        "unit": "pieces",
         "allergens": []
       }
     ],
     "Vegetables": [
       {
-        "ingredient": "Onion",
-        "quantity": 1,
-        "unit": "stk",
+        "ingredient": "Carrots",
+        "quantity": 200,
+        "unit": "g",
         "allergens": []
       },
       {
         "ingredient": "Potatoes",
-        "quantity": 1.1,
-        "unit": "kg",
+        "quantity": 400,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Red Bell Pepper",
+        "quantity": 2,
+        "unit": "pieces",
+        "allergens": []
+      },
+      {
+        "ingredient": "Spinach",
+        "quantity": 150,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Tomato (Fresh)",
+        "quantity": 500,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Zucchini",
+        "quantity": 2,
+        "unit": "medium",
         "allergens": []
       }
     ],
     "Dairy": [
       {
-        "ingredient": "Milk",
-        "quantity": 100,
+        "ingredient": "Cream",
+        "quantity": 500,
         "unit": "ml",
+        "allergens": []
+      },
+      {
+        "ingredient": "Milk",
+        "quantity": 1.3,
+        "unit": "l",
         "allergens": []
       }
     ],
     "Pantry": [
       {
-        "ingredient": "Flour",
-        "quantity": 30,
-        "unit": "tbsp",
-        "allergens": []
-      }
-    ],
-    "Herbs & Spices": [
-      {
-        "ingredient": "Dill",
-        "quantity": 30,
-        "unit": "tbsp",
-        "allergens": []
-      }
-    ],
-    "Other": [
-      {
-        "ingredient": "Asparagus",
-        "quantity": 300,
+        "ingredient": "Bread (Crumbled)",
+        "quantity": 100,
         "unit": "g",
         "allergens": []
       },
       {
-        "ingredient": "Lemon",
-        "quantity": 2,
-        "unit": "stk",
+        "ingredient": "Red Lentils",
+        "quantity": 150,
+        "unit": "g",
         "allergens": []
       },
       {
-        "ingredient": "Olive Oil",
-        "quantity": 30,
-        "unit": "ml",
+        "ingredient": "Short Grain Rice",
+        "quantity": 200,
+        "unit": "g",
         "allergens": []
       },
       {
-        "ingredient": "Saithe Or Haddock",
+        "ingredient": "Wheat Flour",
+        "quantity": 300,
+        "unit": "g",
+        "allergens": []
+      }
+    ],
+    "Herbs & Spices": [],
+    "Other": [
+      {
+        "ingredient": "Almonds (Chopped)",
+        "quantity": 50,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Avocado",
+        "quantity": 1,
+        "unit": "pieces",
+        "allergens": []
+      },
+      {
+        "ingredient": "Beet",
+        "quantity": 100,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Cocoa (Unsweetened)",
+        "quantity": 50,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Ground Meat",
         "quantity": 600,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Quinoa",
+        "quantity": 100,
+        "unit": "g",
+        "allergens": []
+      },
+      {
+        "ingredient": "Raisins",
+        "quantity": 75,
         "unit": "g",
         "allergens": []
       }

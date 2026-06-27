@@ -136,10 +136,31 @@ class IngredientDeduplicator:
     def is_pantry_staple(self, ingredient_name: str) -> bool:
         ingredient_lower = ingredient_name.lower().strip()
 
+        # Quick exact match first
+        if ingredient_lower in self.pantry_staples:
+            logger.info(f"✓ EXACT MATCH: '{ingredient_name}' is pantry staple")
+            return True
+
+        # Remove parenthetical notes like "(fresh or dried)" or "(optional)"
+        ingredient_clean = ingredient_lower.split('(')[0].strip()
+        if ingredient_clean in self.pantry_staples:
+            logger.info(f"✓ MATCH (cleaned): '{ingredient_name}' → '{ingredient_clean}' (pantry staple)")
+            return True
+
+        # For multi-part ingredients like "Salt and pepper", check if ANY part matches
+        # Split by common separators and check each part
+        parts = ingredient_clean.replace(' and ', '|').replace(', ', '|').split('|')
+        for part in parts:
+            part_clean = part.strip()
+            if part_clean in self.pantry_staples:
+                logger.info(f"✓ PARTIAL MATCH: '{ingredient_name}' contains '{part_clean}' (pantry staple)")
+                return True
+
+        # Fuzzy match for close variants (threshold 70)
         for staple in self.pantry_staples:
-            match, score = self.fuzzy_match(ingredient_lower, [staple])
-            if score >= self.fuzzy_threshold:
-                logger.debug(f"Matched '{ingredient_name}' to pantry staple '{staple}' (score: {score})")
+            match, score = self.fuzzy_match(ingredient_clean, [staple])
+            if score >= 70:
+                logger.info(f"✓ FUZZY MATCH: '{ingredient_name}' → '{staple}' (score: {score})")
                 return True
 
         return False
@@ -155,21 +176,23 @@ class IngredientDeduplicator:
 
     def deduplicate_ingredients(self, ingredient_list: List[Dict]) -> List[Dict]:
         ingredient_groups = defaultdict(lambda: {'quantities': [], 'units': [], 'allergens': set()})
+        logger.info(f"deduplicate_ingredients called with {len(ingredient_list)} ingredients")
 
         for ingredient in ingredient_list:
             if not ingredient.get('name'):
                 continue
 
             name = ingredient['name'].strip()
+            logger.info(f"  Checking ingredient: '{name}'")
 
             if self.is_pantry_staple(name):
-                logger.debug(f"Filtering out pantry staple: {name}")
+                logger.info(f"  ✗ Filtered out pantry staple: {name}")
                 continue
 
             name_lower = name.lower()
 
             best_key = name_lower
-            best_score = 100
+            best_score = 0
 
             if not fuzz:
                 ingredient_groups[best_key]['quantities'].append(ingredient.get('quantity', 0))
@@ -184,8 +207,11 @@ class IngredientDeduplicator:
                     best_score = score
                     best_key = existing_key
 
-            if best_score < self.fuzzy_threshold:
+            # Use lower threshold (70) to catch singular/plural variants
+            if best_score < 70:
                 best_key = name_lower
+            else:
+                logger.info(f"  ✓ Merged '{name}' with existing '{best_key}' (score: {best_score})")
 
             ingredient_groups[best_key]['quantities'].append(ingredient.get('quantity', 0))
             ingredient_groups[best_key]['units'].append(ingredient.get('unit', ''))
@@ -221,6 +247,8 @@ class IngredientDeduplicator:
                     if total_quantity >= 1000:
                         total_quantity /= 1000
                         primary_unit = 'l'
+                elif primary_unit.lower() in ['stk', 'piece', 'pieces']:
+                    primary_unit = 'pieces'
 
                 if total_quantity > 0:
                     deduplicated.append({

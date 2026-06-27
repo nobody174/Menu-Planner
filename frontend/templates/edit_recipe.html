@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block title %}{{ t.edit if t.get('edit') else 'Edit' }} - {{ recipe.title }}{% endblock %}
+
+{% block content %}
+<div class="recipe-header">
+    <h1>{{ t.edit if t.get('edit') else 'Edit' }} {{ recipe.title }}</h1>
+</div>
+
+<form id="editForm" style="max-width: 800px; margin: 0 auto;">
+    <div style="margin-bottom: 20px;">
+        <label for="title" style="display: block; font-weight: bold; margin-bottom: 8px;">{{ t.title if t.get('title') else 'Title' }} *</label>
+        <input type="text" id="title" name="title" value="{{ recipe.title }}" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
+    </div>
+
+    <div style="margin-bottom: 20px;">
+        <label for="description" style="display: block; font-weight: bold; margin-bottom: 8px;">{{ t.description if t.get('description') else 'Description' }}</label>
+        <textarea id="description" name="description" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem; min-height: 80px;">{{ recipe.description if recipe.description else '' }}</textarea>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+        <div>
+            <label for="difficulty" style="display: block; font-weight: bold; margin-bottom: 8px;">{{ t.difficulty_label if t.get('difficulty_label') else 'Difficulty' }}</label>
+            <input type="text" id="difficulty" name="difficulty" value="{{ recipe.difficulty }}" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
+        </div>
+        <div>
+            <label for="time_minutes" style="display: block; font-weight: bold; margin-bottom: 8px;">{{ t.time_label if t.get('time_label') else 'Time (minutes)' }}</label>
+            <input type="number" id="time_minutes" name="time_minutes" value="{{ recipe.time_minutes }}" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
+        </div>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+        <label for="category" style="display: block; font-weight: bold; margin-bottom: 8px;">{{ t.type_label if t.get('type_label') else 'Category' }}</label>
+        <input type="text" id="category" name="category" value="{{ recipe.category }}" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
+    </div>
+
+    <div style="margin-bottom: 20px;">
+        <label for="ingredients" style="display: block; font-weight: bold; margin-bottom: 8px;">{{ t.ingredients if t.get('ingredients') else 'Ingredients' }} *</label>
+        <textarea id="ingredients" name="ingredients" required placeholder="Enter ingredients as JSON array" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 0.9rem; font-family: monospace; min-height: 120px;">{{ ingredients_json }}</textarea>
+        <p style="font-size: 0.85rem; color: #666; margin-top: 6px;">Format: [{"name": "Flour", "quantity": 2, "unit": "cups"}, ...]</p>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+        <label for="instructions" style="display: block; font-weight: bold; margin-bottom: 8px;">{{ t.instructions if t.get('instructions') else 'Instructions' }}</label>
+        <textarea id="instructions" name="instructions" placeholder="Enter instructions (one per line or as JSON)" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 0.9rem; min-height: 120px;">{{ instructions_text }}</textarea>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+        <label for="comment" style="display: block; font-weight: bold; margin-bottom: 8px;">{{ t.tips_comment if t.get('tips_comment') else 'Notes' }}</label>
+        <textarea id="comment" name="comment" placeholder="Add any notes or tips" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem; min-height: 80px;">{{ recipe.comment if recipe.comment else '' }}</textarea>
+    </div>
+
+    <div style="display: flex; gap: 10px;">
+        <button type="submit" style="padding: 12px 24px; background: var(--color-secondary, #d97706); color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 1rem; font-weight: bold;">{{ t.save if t.get('save') else 'Save' }}</button>
+        <button type="button" onclick="window.history.back()" style="padding: 12px 24px; background: #ccc; color: #333; border: none; border-radius: 6px; cursor: pointer; font-size: 1rem;">{{ t.cancel if t.get('cancel') else 'Cancel' }}</button>
+    </div>
+
+    <div id="status" style="margin-top: 20px; font-size: 1rem;"></div>
+</form>
+
+<script>
+document.getElementById('editForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const recipeId = '{{ recipe.id }}';
+    const statusEl = document.getElementById('status');
+
+    try {
+        const ingredientsText = document.getElementById('ingredients').value.trim();
+        let ingredients = [];
+
+        if (ingredientsText.startsWith('[')) {
+            ingredients = JSON.parse(ingredientsText);
+        } else {
+            statusEl.textContent = 'Invalid ingredients format';
+            statusEl.style.color = 'red';
+            return;
+        }
+
+        const data = {
+            recipe_id: recipeId,
+            title: document.getElementById('title').value,
+            description: document.getElementById('description').value,
+            difficulty: document.getElementById('difficulty').value,
+            time_minutes: parseInt(document.getElementById('time_minutes').value) || 0,
+            category: document.getElementById('category').value,
+            ingredients: ingredients,
+            instructions: document.getElementById('instructions').value,
+            comment: document.getElementById('comment').value
+        };
+
+        statusEl.textContent = 'Saving...';
+        statusEl.style.color = '#666';
+
+        const response = await fetch('/api/edit-recipe', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+            statusEl.textContent = 'Recipe saved! Redirecting...';
+            statusEl.style.color = 'green';
+            setTimeout(() => {
+                window.location.href = `/recipe/${recipeId}`;
+            }, 1500);
+        } else {
+            statusEl.textContent = 'Error: ' + result.error;
+            statusEl.style.color = 'red';
+        }
+    } catch (err) {
+        statusEl.textContent = 'Error: ' + err.message;
+        statusEl.style.color = 'red';
+    }
+});
+</script>
+{% endblock %}

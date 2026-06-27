@@ -331,6 +331,32 @@ def recipe_detail(recipe_id):
     logger.info(f"Recipe detail accessed: {recipe_id}")
     return render_template('recipe.html', recipe=recipe)
 
+@app.route('/edit-recipe/<recipe_id>')
+def edit_recipe(recipe_id):
+    recipe = find_recipe(recipe_id)
+    if not recipe:
+        return render_template('error.html', message=f'Recipe not found: {recipe_id}'), 404
+
+    lang = _get_lang()
+    recipe = _normalize_recipe(recipe, lang)
+
+    # Format ingredients as JSON for the form
+    ingredients_list = recipe.get('ingredients_included', recipe.get('ingredients', []))
+    if ingredients_list and isinstance(ingredients_list[0], dict):
+        ingredients_json = json.dumps(ingredients_list, ensure_ascii=False, indent=2)
+    else:
+        ingredients_json = json.dumps([], ensure_ascii=False, indent=2)
+
+    # Format instructions
+    instructions = recipe.get('instructions', [])
+    if isinstance(instructions, list):
+        instructions_text = '\n'.join([str(i) for i in instructions])
+    else:
+        instructions_text = str(instructions)
+
+    logger.info(f"Edit recipe page accessed: {recipe_id}")
+    return render_template('edit_recipe.html', recipe=recipe, ingredients_json=ingredients_json, instructions_text=instructions_text)
+
 @app.route('/shopping')
 def shopping_list():
     menu = load_menu()

@@ -4,13 +4,17 @@
 
 {% block content %}
 <div class="recipe-header">
-    <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 12px;">
+    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
         <h1 style="margin: 0;">{{ recipe.title }}</h1>
         <button id="favoriteBtn" class="favorite-btn"
                 onclick="toggleFavorite('{{ recipe.id }}', this)"
                 title="{{ t.add_to_favorites }}"
                 style="background: none; border: none; font-size: 28px; cursor: pointer; padding: 4px 8px; border-radius: 8px; transition: all 0.2s;">
             ☆
+        </button>
+        <button onclick="openEditRecipe('{{ recipe.id }}')"
+                style="padding: 8px 16px; background: var(--color-secondary, #d97706); color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.9rem;">
+            ✎ {{ t.edit if t.get('edit') else 'Edit' }}
         </button>
     </div>
     {% if recipe.subtitle %}
@@ -110,10 +114,73 @@
     <button onclick="window.print()" class="btn btn-secondary">{{ t.print_recipe }}</button>
 </div>
 
-{% if recipe.comment %}
-<div class="comment-section" style="background: linear-gradient(135deg, #faf9f7 0%, #f5f1ed 100%); padding: 30px; border-radius: 12px; margin-top: 40px; border-left: 4px solid var(--color-primary, #d97706);">
-    <h2 style="margin-top: 0; color: var(--color-text-primary, #1a1a1a);">💡 {{ t.tips_comment }}</h2>
-    <p style="white-space: pre-wrap; line-height: 1.8; color: var(--color-text-secondary, #666); font-size: 1rem;">{{ recipe.comment }}</p>
+<div id="comment-section" style="background: linear-gradient(135deg, #faf9f7 0%, #f5f1ed 100%); padding: 24px; border-radius: 8px; margin-top: 40px; border-left: 4px solid var(--color-primary, #d97706);">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+        <h2 style="margin: 0; color: var(--color-text-primary, #1a1a1a);">💡 {{ t.tips_comment if t.get('tips_comment') else 'Notes' }}</h2>
+        <button id="comment-edit-btn" onclick="toggleCommentEdit('{{ recipe.id }}')" style="padding: 6px 12px; background: var(--color-secondary, #d97706); color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">{{ t.edit if t.get('edit') else 'Edit' }}</button>
+    </div>
+    <p id="comment-text" style="white-space: pre-wrap; line-height: 1.6; color: var(--color-text-secondary, #666); font-size: 0.95rem; margin: 0;">{{ recipe.comment if recipe.comment else '' }}</p>
+    <textarea id="comment-textarea" placeholder="Skriv en kommentar om oppskriften (f.eks. 'for salt', 'barna likte det', osv.)" style="width: 100%; min-height: 60px; max-height: 100px; padding: 8px; border: 1px solid #ddd; border-radius: 4px; font-family: inherit; font-size: 0.9rem; display: none; margin-top: 8px; resize: vertical;">{{ recipe.comment if recipe.comment else '' }}</textarea>
+    <div id="comment-buttons" style="display: none; margin-top: 8px; gap: 8px;">
+        <button onclick="saveComment('{{ recipe.id }}')" style="padding: 8px 16px; background: var(--color-secondary, #d97706); color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">{{ t.save if t.get('save') else 'Save' }}</button>
+        <button onclick="toggleCommentEdit('{{ recipe.id }}')" style="padding: 8px 16px; background: #ccc; color: #333; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">{{ t.cancel if t.get('cancel') else 'Cancel' }}</button>
+    </div>
+    <span id="comment-status" style="font-size: 0.8rem; color: #666; margin-top: 4px; display: block;"></span>
 </div>
-{% endif %}
+
+<script>
+function openEditRecipe(recipeId) {
+    window.location.href = `/edit-recipe/${recipeId}`;
+}
+
+function toggleCommentEdit(recipeId) {
+    const textEl = document.getElementById('comment-text');
+    const textareaEl = document.getElementById('comment-textarea');
+    const buttonsEl = document.getElementById('comment-buttons');
+
+    if (textareaEl.style.display === 'none') {
+        textEl.style.display = 'none';
+        textareaEl.style.display = 'block';
+        buttonsEl.style.display = 'flex';
+    } else {
+        textEl.style.display = 'block';
+        textareaEl.style.display = 'none';
+        buttonsEl.style.display = 'none';
+    }
+}
+
+function saveComment(recipeId) {
+    const comment = document.getElementById('comment-textarea').value;
+    const statusEl = document.getElementById('comment-status');
+
+    statusEl.textContent = 'Saving...';
+    statusEl.style.color = '#666';
+
+    fetch(`/api/edit-recipe`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            recipe_id: recipeId,
+            comment: comment
+        })
+    })
+    .then(r => r.json())
+    .then(data => {
+        if (data.success) {
+            document.getElementById('comment-text').textContent = comment;
+            toggleCommentEdit(recipeId);
+            statusEl.textContent = 'Saved!';
+            statusEl.style.color = 'green';
+            setTimeout(() => { statusEl.textContent = ''; }, 2000);
+        } else {
+            statusEl.textContent = 'Error: ' + data.error;
+            statusEl.style.color = 'red';
+        }
+    })
+    .catch(err => {
+        statusEl.textContent = 'Error saving comment';
+        statusEl.style.color = 'red';
+    });
+}
+</script>
 {% endblock %}
