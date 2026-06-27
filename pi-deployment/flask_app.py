@@ -220,6 +220,19 @@ def _has_azure_creds():
     tenant_id = os.getenv('AZURE_TENANT_ID', '').strip()
     return bool(client_id and client_secret and tenant_id)
 
+_AVATAR_PALETTE = [
+    '#F87171', '#FB923C', '#FBBF24', '#A3E635', '#34D399',
+    '#22D3EE', '#60A5FA', '#A78BFA', '#F472B6', '#94A3B8',
+]
+
+def _avatar_color(label):
+    """Deterministic background color for an initial-circle avatar from a name/email."""
+    if not label:
+        return _AVATAR_PALETTE[0]
+    return _AVATAR_PALETTE[sum(ord(c) for c in label) % len(_AVATAR_PALETTE)]
+
+app.jinja_env.globals['avatar_color'] = _avatar_color
+
 @app.context_processor
 def inject_config():
     """Inject configuration and i18n into all templates."""
@@ -252,6 +265,7 @@ def inject_config():
         'user_email': user_email,
         'user_id': user_id,
         'auth_type': auth_type,
+        'active_profile_name': session.get('active_profile_name'),
     }
 
 # ── Helpers ──────────────────────────────────────────────────────────────────
@@ -639,6 +653,88 @@ def add_household_member():
     else:
         return redirect(url_for('household_settings', error=result))
 
+@app.route('/profile-picker')
+def profile_picker():
+    """Show 'who's using this' profile picker if the current household has profiles."""
+    user_id = session.get('user_id')
+    if not user_id:
+        return redirect(url_for('login_page'))
+
+    from core.household_helpers import get_user_households, get_household_members
+
+    all_households = get_user_households(user_id)
+    current_household_id = session.get('current_household_id')
+    current_household = None
+
+    if current_household_id:
+        from core.household_helpers import get_household
+        current_household = get_household(current_household_id)
+
+    if not current_household and all_households:
+        current_household = all_households[0]
+        session['current_household_id'] = str(current_household.id)
+
+    if not current_household:
+        return redirect('/')
+
+    members = get_household_members(str(current_household.id))
+
+    if not any(m['is_profile'] for m in members):
+        return redirect('/')
+
+    return render_template('profile-picker.html', household=current_household, members=members)
+
+@app.route('/profile-picker/select', methods=['POST'])
+def select_profile():
+    """Set the active profile for this session after picking from the picker."""
+    user_id = session.get('user_id')
+    if not user_id:
+        return redirect(url_for('login_page'))
+
+    member_id = request.form.get('member_id')
+    is_account_holder = request.form.get('is_account_holder')
+
+    if is_account_holder:
+        session.pop('active_profile_id', None)
+        return redirect('/')
+
+    household_id = session.get('current_household_id')
+    from core.household_helpers import get_member_by_id
+    member = get_member_by_id(member_id, household_id)
+
+    if not member or not member.is_profile:
+        return redirect(url_for('profile_picker', error='Profile not found'))
+
+    session['active_profile_id'] = str(member.id)
+    session['active_profile_name'] = member.display_name
+    return redirect('/')
+
+@app.route('/household/add-profile', methods=['POST'])
+def add_household_profile():
+    """Add a lightweight member profile (no login of its own) to the household."""
+    user_id = session.get('user_id')
+    if not user_id:
+        return redirect(url_for('login_page'))
+
+    household_id = session.get('current_household_id')
+    if not household_id:
+        return redirect(url_for('household_settings', error='No household selected'))
+
+    from core.household_helpers import user_can_edit_household, create_profile
+
+    if not user_can_edit_household(user_id, household_id):
+        return redirect(url_for('household_settings', error='Permission denied'))
+
+    display_name = request.form.get('display_name', '').strip()
+    role = request.form.get('role', 'viewer')
+
+    success, result, member_id = create_profile(household_id, display_name, role)
+
+    if success:
+        return redirect(url_for('household_settings', success=result))
+    else:
+        return redirect(url_for('household_settings', error=result))
+
 # API routes for household management
 @app.route('/api/household/remove-member', methods=['POST'])
 def api_remove_household_member():
@@ -714,8 +810,9 @@ def login_local():
     session['user_id'] = str(user.id)
     session['user_email'] = user.email
     session['auth_type'] = 'local'
+    session.pop('active_profile_id', None)
     logger.info(f"User logged in (local): {user.email}")
-    return redirect('/')
+    return redirect(url_for('profile_picker'))
 
 @app.route('/signup')
 def signup():
@@ -745,8 +842,9 @@ def signup_local():
     session['user_id'] = str(user.id)
     session['user_email'] = user.email
     session['auth_type'] = 'local'
+    session.pop('active_profile_id', None)
     logger.info(f"New user registered: {user.email}")
-    return redirect('/')
+    return redirect(url_for('profile_picker'))
 
 # Azure/MSAL Authentication Routes
 @app.route('/login-azure')

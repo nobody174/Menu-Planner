@@ -77,7 +77,7 @@ def get_user_households(user_id):
 
 
 def get_household_members(household_id):
-    """Get all members of a household with user info."""
+    """Get all members and profiles of a household."""
     session = SessionLocal()
     try:
         members = session.query(HouseholdMember).filter(
@@ -86,17 +86,95 @@ def get_household_members(household_id):
 
         result = []
         for member in members:
-            user = session.query(User).filter(User.id == member.user_id).first()
-            if user:
+            if member.is_profile:
                 result.append({
                     'member_id': str(member.id),
-                    'user_id': str(member.user_id),
-                    'email': user.email,
+                    'user_id': None,
+                    'is_profile': True,
+                    'display_name': member.display_name,
+                    'avatar_type': member.avatar_type,
+                    'avatar_value': member.avatar_value,
+                    'email': None,
                     'role': member.role,
                     'joined_at': member.joined_at.isoformat() if member.joined_at else None
                 })
+            else:
+                user = session.query(User).filter(User.id == member.user_id).first()
+                if user:
+                    result.append({
+                        'member_id': str(member.id),
+                        'user_id': str(member.user_id),
+                        'is_profile': False,
+                        'display_name': None,
+                        'avatar_type': member.avatar_type,
+                        'avatar_value': member.avatar_value,
+                        'email': user.email,
+                        'role': member.role,
+                        'joined_at': member.joined_at.isoformat() if member.joined_at else None
+                    })
 
         return result
+    finally:
+        session.close()
+
+
+def create_profile(household_id, display_name, role='viewer', avatar_type=None, avatar_value=None):
+    """
+    Create a lightweight member profile (no email/password) under a household.
+    Returns: (success, message, member_id)
+    """
+    if role not in ('editor', 'viewer'):
+        return False, "Profiles can only be editor or viewer", None
+
+    if not display_name or not display_name.strip():
+        return False, "Profile name required", None
+
+    session = SessionLocal()
+    try:
+        member = HouseholdMember(
+            household_id=household_id,
+            user_id=None,
+            role=role,
+            is_profile=True,
+            display_name=display_name.strip()[:100],
+            avatar_type=avatar_type,
+            avatar_value=avatar_value
+        )
+        session.add(member)
+        session.commit()
+
+        member_id = str(member.id)
+        return True, f"Added profile {display_name}", member_id
+
+    except Exception as e:
+        session.rollback()
+        return False, f"Database error: {str(e)}", None
+    finally:
+        session.close()
+
+
+def get_profiles(household_id):
+    """Get all profiles (non-account members) for a household."""
+    session = SessionLocal()
+    try:
+        members = session.query(HouseholdMember).filter(
+            HouseholdMember.household_id == household_id,
+            HouseholdMember.is_profile == True
+        ).all()
+        return members
+    finally:
+        session.close()
+
+
+def get_member_by_id(member_id, household_id):
+    """Get a single household_member row by id, scoped to a household."""
+    session = SessionLocal()
+    try:
+        member = session.query(HouseholdMember).filter(
+            HouseholdMember.id == member_id,
+            HouseholdMember.household_id == household_id
+        ).first()
+        return member
     finally:
         session.close()
 

@@ -45,7 +45,8 @@
       <table class="members-table">
         <thead>
           <tr>
-            <th>{{ t.get('email', 'Email') }}</th>
+            <th></th>
+            <th>{{ t.get('name', 'Name') }}</th>
             <th>{{ t.get('role', 'Role') }}</th>
             <th>{{ t.get('joined', 'Joined') }}</th>
             {% if can_manage %}
@@ -56,7 +57,16 @@
         <tbody>
           {% for member in members %}
           <tr>
-            <td>{{ member.email }}</td>
+            <td>
+              {% set label = member.display_name if member.is_profile else member.email %}
+              <span class="avatar-circle" style="background:{{ avatar_color(label) }}">
+                {{ label[0]|upper if label else '?' }}
+              </span>
+            </td>
+            <td>
+              {{ member.display_name if member.is_profile else member.email }}
+              {% if member.is_profile %}<em class="profile-tag">{{ t.get('profile', 'Profile') }}</em>{% endif %}
+            </td>
             <td>
               <span class="role-badge" data-role="{{ member.role }}">
                 {{ member.role }}
@@ -65,7 +75,7 @@
             <td>{{ member.joined_at or 'N/A' }}</td>
             {% if can_manage and member.user_id != user_id %}
             <td>
-              {% if is_owner %}
+              {% if is_owner and not member.is_profile %}
               <button class="btn-small" onclick="openRoleMenu('{{ member.member_id }}', '{{ member.role }}')">
                 {{ t.get('change_role', 'Change Role') }}
               </button>
@@ -86,7 +96,8 @@
     <!-- Add Member Section (Owner/Editor only) -->
     {% if can_manage %}
     <div class="add-member-section">
-      <h3>{{ t.get('add_member', 'Add Member') }}</h3>
+      <h3>{{ t.get('add_member', 'Add Member by Email') }}</h3>
+      <p class="hint">{{ t.get('add_member_hint', 'Use this for people who already have their own Menu Planner account.') }}</p>
 
       <form method="POST" action="{{ url_for('add_household_member') }}" class="add-member-form">
         <div class="form-group">
@@ -115,6 +126,39 @@
 
         <button type="submit" class="btn btn-primary">
           {{ t.get('add_member', 'Add Member') }}
+        </button>
+      </form>
+    </div>
+
+    <!-- Add Profile Section (Owner/Editor only) -->
+    {% if can_manage %}
+    <div class="add-member-section">
+      <h3>{{ t.get('add_profile', 'Add Family Profile') }}</h3>
+      <p class="hint">{{ t.get('add_profile_hint', "For family members who don't need their own login - they'll appear as a profile to pick after you sign in.") }}</p>
+
+      <form method="POST" action="{{ url_for('add_household_profile') }}" class="add-member-form">
+        <div class="form-group">
+          <label for="profile-name">{{ t.get('profile_name', 'Name') }}</label>
+          <input
+            type="text"
+            id="profile-name"
+            name="display_name"
+            required
+            maxlength="100"
+            placeholder="e.g. Mom, Sam, Grandpa"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="profile-role">{{ t.get('role', 'Role') }}</label>
+          <select id="profile-role" name="role">
+            <option value="viewer">{{ t.get('viewer', 'Viewer') }} ({{ t.get('view_only', 'View only') }})</option>
+            <option value="editor">{{ t.get('editor', 'Editor') }} ({{ t.get('can_edit', 'Can edit') }})</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+          {{ t.get('add_profile', 'Add Profile') }}
         </button>
       </form>
     </div>
@@ -323,6 +367,30 @@
   .members-table th {
     background: #f5f5f5;
     font-weight: 600;
+  }
+
+  .avatar-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  .profile-tag {
+    font-size: 11px;
+    color: #888;
+    margin-left: 6px;
+  }
+
+  .hint {
+    font-size: 13px;
+    color: #777;
+    margin: -8px 0 12px;
   }
 
   .role-badge {

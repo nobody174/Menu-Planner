@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block title %}Who's cooking? - Menu Planner{% endblock %}
+
+{% block content %}
+<div class="profile-picker">
+  <h1>{{ t.get('who_is_this', "Who's planning today?") }}</h1>
+
+  {% if error %}
+  <div class="alert alert-error">{{ error }}</div>
+  {% endif %}
+
+  <div class="profile-grid">
+    <form method="POST" action="{{ url_for('select_profile') }}" class="profile-form">
+      <input type="hidden" name="is_account_holder" value="1" />
+      <button type="submit" class="profile-tile">
+        <span class="avatar-circle large" style="background:{{ avatar_color(user_email) }}">
+          {{ user_email[0]|upper if user_email else '?' }}
+        </span>
+        <span class="profile-label">{{ user_email }}</span>
+      </button>
+    </form>
+
+    {% for member in members %}
+    {% if member.is_profile %}
+    <form method="POST" action="{{ url_for('select_profile') }}" class="profile-form">
+      <input type="hidden" name="member_id" value="{{ member.member_id }}" />
+      <button type="submit" class="profile-tile">
+        <span class="avatar-circle large" style="background:{{ avatar_color(member.display_name) }}">
+          {{ member.display_name[0]|upper if member.display_name else '?' }}
+        </span>
+        <span class="profile-label">{{ member.display_name }}</span>
+      </button>
+    </form>
+    {% endif %}
+    {% endfor %}
+  </div>
+
+  <p class="picker-hint">
+    <a href="{{ url_for('household_settings') }}">{{ t.get('manage_profiles', 'Manage household profiles') }}</a>
+  </p>
+</div>
+
+<style>
+  .profile-picker {
+    max-width: 800px;
+    margin: 60px auto;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .profile-picker h1 {
+    margin-bottom: 40px;
+  }
+
+  .profile-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .profile-form {
+    margin: 0;
+  }
+
+  .profile-tile {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    transition: transform 0.15s ease;
+  }
+
+  .profile-tile:hover {
+    transform: scale(1.06);
+  }
+
+  .avatar-circle.large {
+    width: 96px;
+    height: 96px;
+    font-size: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: white;
+    font-weight: 700;
+  }
+
+  .profile-label {
+    font-size: 14px;
+    color: #444;
+    max-width: 110px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .picker-hint {
+    margin-top: 50px;
+    font-size: 13px;
+  }
+
+  .alert-error {
+    background: #fee;
+    color: #c33;
+    border: 1px solid #fcc;
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    display: inline-block;
+  }
+</style>
+{% endblock %}

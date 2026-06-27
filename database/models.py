@@ -61,16 +61,23 @@ class HouseholdMember(Base):
 
     id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
     household_id = Column(String(36), ForeignKey('households.id'), nullable=False)
-    user_id = Column(String(36), ForeignKey('users.id'), nullable=False)
+    user_id = Column(String(36), ForeignKey('users.id'), nullable=True)  # NULL for profiles (no own login)
     role = Column(String(50), default='viewer', nullable=False)  # owner, editor, viewer
     joined_at = Column(DateTime, default=datetime.utcnow)
+
+    # Profile fields (used when user_id is NULL - a "Netflix-style" profile under an account holder)
+    is_profile = Column(Boolean, default=False, nullable=False)
+    display_name = Column(String(100), nullable=True)  # shown for profiles instead of User.email
+    avatar_type = Column(String(20), nullable=True)  # 'preset', 'upload', or NULL
+    avatar_value = Column(String(500), nullable=True)  # preset filename or uploaded image path/URL
 
     # Relationships
     household = relationship('Household', back_populates='members')
     user = relationship('User', back_populates='household_members')
 
     def __repr__(self):
-        return f'<HouseholdMember {self.user_id} in {self.household_id}>'
+        label = self.display_name if self.is_profile else self.user_id
+        return f'<HouseholdMember {label} in {self.household_id}>'
 
 
 class Recipe(Base):

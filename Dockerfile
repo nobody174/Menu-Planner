@@ -21,6 +21,8 @@ COPY . .
 # Create necessary directories
 RUN mkdir -p data logs
 
+RUN chmod +x docker-entrypoint.sh
+
 # Set environment variables
 ENV FLASK_APP=pi-deployment/flask_app.py
 ENV FLASK_ENV=production
@@ -37,14 +39,5 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
 # Expose default port (informational only; Railway assigns the real one at runtime)
 EXPOSE 5000
 
-# Run with gunicorn for production
-# Shell form lets $PORT expand from Railway's injected runtime env var
-CMD gunicorn \
-    --bind 0.0.0.0:${PORT:-5000} \
-    --workers 4 \
-    --worker-class sync \
-    --timeout 120 \
-    --access-logfile - \
-    --error-logfile - \
-    --log-level info \
-    pi-deployment.flask_app:app
+# Run migrations then start gunicorn (shell form so $PORT expands at runtime)
+CMD ["./docker-entrypoint.sh"]
