@@ -88,8 +88,11 @@ class IngredientDeduplicator:
         if PANTRY_FILE.exists():
             with open(PANTRY_FILE, 'r', encoding='utf-8') as f:
                 data = json.load(f)
-                staples = [s.lower().strip() for s in data.get('pantry_staples', [])]
-                logger.info(f"Loaded {len(staples)} pantry staples")
+                # Load from both English and Norwegian pantry lists
+                en_staples = data.get('pantry_staples_english', [])
+                no_staples = data.get('pantry_staples_norwegian', [])
+                staples = [s.lower().strip() for s in en_staples + no_staples]
+                logger.info(f"Loaded {len(staples)} pantry staples (EN: {len(en_staples)}, NO: {len(no_staples)})")
                 return staples
         else:
             logger.warning(f"Pantry staples file not found: {PANTRY_FILE}")
