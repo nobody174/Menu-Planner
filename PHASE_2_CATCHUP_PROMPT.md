@@ -16,8 +16,27 @@ I'm picking up the **Menu-Planner** project for **Phase 2** (Cloud Edition - mul
 
 **Project Repo:** `d:\Claude AI Projects\projects\GitHub\Menu-Planner`
 
-Read the complete handoff here:
-`HANDOFF_PHASE_1_COMPLETE.md` (in the project root)
+### 📚 IMPORTANT: Read These Docs First
+
+Read in this order **before asking any questions:**
+
+1. **`PROJECT_CONTEXT.md`** ⭐ **START HERE** — Complete project overview
+   - What is Menu-Planner and how does it work?
+   - Architecture, data model, core features
+   - How each feature is implemented
+   - Project structure and file guide
+
+2. **`HANDOFF_PHASE_1_COMPLETE.md`** — What Phase 1 built and tested
+   - Summary of all 4 Phase 1 tasks (A0-A3)
+   - Code changes made
+   - Local development setup
+
+3. **`PHASE_2_ARCHITECTURE.md`** — Detailed Task 1 architecture (if working on database)
+   - PostgreSQL schema design
+   - Alembic migration strategy
+   - Data seeding approach
+   - Environment variables & secrets
+   - Testing during migration
 
 ---
 
