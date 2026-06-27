@@ -157,7 +157,8 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 # Load .env from project root
 load_dotenv(Path(__file__).parent.parent / '.env')
 
-# Initialize database
+# Initialize database (import models first so Base.metadata knows about all tables)
+import database.models  # noqa: F401
 from database.database import db
 db.create_all()
 
