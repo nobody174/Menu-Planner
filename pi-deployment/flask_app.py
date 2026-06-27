@@ -232,8 +232,16 @@ def inject_config():
     auth_type = session.get('auth_type')
     is_authenticated = bool(user_id and user_email) or bool(session.get('access_token'))
 
+    household_name = os.getenv('HOUSEHOLD_NAME', 'Menu Planner')
+    current_household_id = session.get('current_household_id')
+    if current_household_id:
+        from core.household_helpers import get_household
+        current_household = get_household(current_household_id)
+        if current_household:
+            household_name = current_household.name
+
     return {
-        'household_name': os.getenv('HOUSEHOLD_NAME', '{Family_Name}'),
+        'household_name': household_name,
         'creator': 'nobody174',
         'github_url': 'https://github.com/nobody174/Menu-Planner',
         'patreon_url': 'https://www.patreon.com/c/Nobody174',
