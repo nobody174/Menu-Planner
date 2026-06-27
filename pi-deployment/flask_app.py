@@ -283,11 +283,6 @@ _DAY_TRANSLATIONS = {
     }
 }
 
-@app.route('/health')
-def health_check():
-    """Health check endpoint for Railway deployment."""
-    return jsonify({'status': 'healthy', 'version': '2.0.0'}), 200
-
 @app.route('/')
 def dashboard():
     menu = load_menu()
