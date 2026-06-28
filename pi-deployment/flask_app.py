@@ -327,13 +327,26 @@ def inject_config():
     household_name = os.getenv('HOUSEHOLD_NAME', 'Menu Planner')
     household_id = session.get('current_household_id')
     is_household_owner = False
+    active_avatar_type = None
+    active_avatar_value = None
     if household_id:
-        from core.household_helpers import get_household
+        from core.household_helpers import get_household, get_household_members
         current_household = get_household(household_id)
         if current_household:
             household_name = current_household.name
         if user_id:
             is_household_owner = acting_role_is_owner()
+
+            active_profile_id = session.get('active_profile_id')
+            members = get_household_members(household_id)
+            active_member = None
+            if active_profile_id:
+                active_member = next((m for m in members if m['member_id'] == str(active_profile_id)), None)
+            else:
+                active_member = next((m for m in members if m['user_id'] == str(user_id)), None)
+            if active_member:
+                active_avatar_type = active_member['avatar_type']
+                active_avatar_value = active_member['avatar_value']
 
     return {
         'household_name': household_name,
@@ -349,6 +362,8 @@ def inject_config():
         'auth_type': auth_type,
         'active_profile_name': session.get('active_profile_name'),
         'is_household_owner': is_household_owner,
+        'active_avatar_type': active_avatar_type,
+        'active_avatar_value': active_avatar_value,
     }
 
 # ── Helpers ──────────────────────────────────────────────────────────────────
@@ -628,6 +643,12 @@ def all_recipes_page():
 
 @app.route('/settings')
 def settings_page():
+    """Owner-only: account/referral details and the activity log live here, so
+    non-owner profiles (kids, viewers, editors) have no business seeing this page."""
+    household_id_for_check = session.get('current_household_id')
+    if household_id_for_check and not acting_role_is_owner():
+        return redirect(url_for('dashboard'))
+
     activity_log = []
     household_id = current_household_id()
     if household_id and session.get('user_id') and acting_role_is_owner():
@@ -817,7 +838,7 @@ def profile_picker():
         session['current_household_id'] = str(current_household.id)
 
     if not current_household:
-        return redirect('/')
+        return redirect(url_for('household_settings', error='Create a household to get started'))
 
     members = get_household_members(str(current_household.id))
 
@@ -1036,12 +1057,19 @@ def login_local():
     logger.info(f"User logged in (local): {user.email}")
     return redirect(url_for('profile_picker'))
 
+@app.route('/welcome')
+def welcome():
+    """Promo/demo landing page shown to referral-link visitors before they hit the signup form."""
+    return render_template('welcome.html', ref=request.args.get('ref', ''))
+
 @app.route('/signup')
 def signup():
     """Render signup page."""
     error = request.args.get('error')
-    return render_template('signup.html', error=error, email=request.args.get('email', ''),
-                            ref=request.args.get('ref', ''))
+    ref = request.args.get('ref', '')
+    if ref and not request.args.get('from_welcome'):
+        return redirect(url_for('welcome', ref=ref))
+    return render_template('signup.html', error=error, email=request.args.get('email', ''), ref=ref)
 
 @app.route('/signup', methods=['POST'])
 def signup_local():

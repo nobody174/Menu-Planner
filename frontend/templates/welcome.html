@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% block title %}Menu Planner - Weekly Meal Planning Made Easy{% endblock %}
+
+{% block content %}
+<div class="welcome-container">
+  <div class="welcome-hero">
+    <h1>Menu Planner</h1>
+    <p class="welcome-tagline">Plan your week's meals, generate a shopping list, and stop wondering what's for dinner.</p>
+
+    <video class="welcome-loop" autoplay loop muted playsinline>
+      <source src="{{ url_for('static', filename='media/demo-loop.mp4') }}" type="video/mp4">
+    </video>
+
+    <a href="{{ url_for('signup', ref=ref, from_welcome=1) }}" class="btn btn-primary welcome-cta">
+      Sign Up Free
+    </a>
+  </div>
+
+  <div class="welcome-demo">
+    <h2>See it in action</h2>
+    <video class="welcome-full-demo" controls preload="none" poster="">
+      <source src="{{ url_for('static', filename='media/demo-full.mp4') }}" type="video/mp4">
+    </video>
+  </div>
+
+  <div class="welcome-footer">
+    <a href="{{ url_for('signup', ref=ref, from_welcome=1) }}" class="btn btn-primary welcome-cta">
+      Sign Up Free
+    </a>
+    <p>
+      Already have an account?
+      <a href="{{ url_for('login_page') }}">Login</a>
+    </p>
+  </div>
+</div>
+
+<style>
+  .welcome-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+    text-align: center;
+  }
+
+  .welcome-hero h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+
+  .welcome-tagline {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 30px;
+  }
+
+  .welcome-loop {
+    width: 100%;
+    max-width: 640px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    margin-bottom: 30px;
+  }
+
+  .welcome-demo {
+    margin-top: 60px;
+  }
+
+  .welcome-demo h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  .welcome-full-demo {
+    width: 100%;
+    max-width: 720px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .welcome-footer {
+    margin-top: 60px;
+  }
+
+  .welcome-footer p {
+    margin-top: 16px;
+    color: #666;
+  }
+
+  .welcome-footer a:not(.btn) {
+    color: #667eea;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .welcome-footer a:not(.btn):hover {
+    text-decoration: underline;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 14px 32px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .btn-primary {
+    background: #667eea;
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background: #5568d3;
+  }
+</style>
+{% endblock %}

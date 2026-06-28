@@ -5,7 +5,7 @@ repos:
     hooks:
       - id: detect-private-key
       - id: check-added-large-files
-        args: ['--maxkb=1000']
+        args: ['--maxkb=11000']
       - id: check-case-conflict
       - id: check-json
       - id: check-yaml

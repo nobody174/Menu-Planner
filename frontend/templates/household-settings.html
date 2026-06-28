@@ -630,13 +630,10 @@
 
   function removeMember(memberId) {
     if (confirm('{{ t.get("confirm_remove", "Remove this member?") }}')) {
-      // Submit form to remove member
-      const form = document.createElement('form');
-      form.method = 'POST';
-      form.action = '/api/household/remove-member';
-      form.innerHTML = '<input type="hidden" name="member_id" value="' + memberId + '">';
-      document.body.appendChild(form);
-      form.submit();
+      const formData = new FormData();
+      formData.append('member_id', memberId);
+      fetch('/api/household/remove-member', { method: 'POST', body: formData })
+        .then(() => location.reload());
     }
   }
 
@@ -664,13 +661,11 @@
   function renameMember(memberId, currentName) {
     const newName = prompt('{{ t.get("enter_new_name", "Enter new name") }}', currentName);
     if (newName && newName.trim()) {
-      const form = document.createElement('form');
-      form.method = 'POST';
-      form.action = '/api/household/rename-member';
-      form.innerHTML = '<input type="hidden" name="member_id" value="' + memberId + '">' +
-                      '<input type="hidden" name="display_name" value="' + newName.trim().replace(/"/g, '&quot;') + '">';
-      document.body.appendChild(form);
-      form.submit();
+      const formData = new FormData();
+      formData.append('member_id', memberId);
+      formData.append('display_name', newName.trim());
+      fetch('/api/household/rename-member', { method: 'POST', body: formData })
+        .then(() => location.reload());
     }
   }
 
@@ -679,13 +674,11 @@
     const roles = ['viewer', 'editor', 'co-owner', 'owner'];
     const newRole = prompt('Enter new role: ' + roles.join(', '), currentRole);
     if (newRole && roles.includes(newRole)) {
-      const form = document.createElement('form');
-      form.method = 'POST';
-      form.action = '/api/household/update-member-role';
-      form.innerHTML = '<input type="hidden" name="member_id" value="' + memberId + '">' +
-                      '<input type="hidden" name="role" value="' + newRole + '">';
-      document.body.appendChild(form);
-      form.submit();
+      const formData = new FormData();
+      formData.append('member_id', memberId);
+      formData.append('role', newRole);
+      fetch('/api/household/update-member-role', { method: 'POST', body: formData })
+        .then(() => location.reload());
     }
   }
 </script>

@@ -36,6 +36,9 @@ MANIFEST
 # Recipe cache
 data/recipes_cache/
 
+# Per-household runtime data (seeded/generated locally, not source-controlled)
+data/households/
+
 # Virtual environments
 venv/
 ENV/
