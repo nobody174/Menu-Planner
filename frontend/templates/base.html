@@ -18,6 +18,11 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="/" class="nav-logo">{{ household_name }} {{ t.weekly_menu }}</a>
+            {% if is_authenticated %}
+            <span class="avatar-circle nav-current-user" title="{{ active_profile_name or user_email }}" style="width:28px;height:28px;font-size:13px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;color:white;font-weight:700;background:{{ avatar_color(active_profile_name or user_email) }};margin-left:10px;">
+                {{ (active_profile_name or user_email)[0]|upper if (active_profile_name or user_email) else '?' }}
+            </span>
+            {% endif %}
             <ul class="nav-menu">
                 <li class="nav-item">
                     <a href="/" class="nav-link">{{ t.menu }}</a>
@@ -66,7 +71,7 @@
                                 </div>
                             </div>
                             <div class="settings-divider"></div>
-                            {% if is_authenticated %}
+                            {% if is_authenticated and is_household_owner %}
                             <a href="{{ url_for('household_settings') }}" class="settings-item">{{ t.get('household', 'Household') }}</a>
                             {% endif %}
                             <a href="/settings" class="settings-item">{{ t.settings }}</a>
@@ -75,14 +80,15 @@
                             <div class="settings-divider"></div>
                             <div id="nav-auth-section">
                                 {% if is_authenticated %}
-                                    <span id="nav-user-display-settings" style="font-size:0.85rem; color:var(--color-text-secondary,#888); padding:8px 16px; display:block;">
+                                    <span id="nav-user-display-settings" style="font-size:0.85rem; color:var(--color-text-secondary,#888); padding:8px 16px; display:flex; align-items:center; gap:8px;">
+                                        <span class="avatar-circle" style="width:24px;height:24px;font-size:12px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;color:white;font-weight:700;background:{{ avatar_color(active_profile_name or user_email) }}">
+                                            {{ (active_profile_name or user_email)[0]|upper if (active_profile_name or user_email) else '?' }}
+                                        </span>
                                         {{ active_profile_name or user_email }}
                                     </span>
-                                    {% if active_profile_name %}
                                     <a href="{{ url_for('profile_picker') }}" class="settings-item" style="color: var(--color-text-primary, #333);">
                                         {{ t.get('switch_profile', 'Switch Profile') }}
                                     </a>
-                                    {% endif %}
                                     <a href="/logout" class="settings-item settings-logout" style="color: var(--color-text-primary, #333);">
                                         {{ t.get('logout', 'Logout') }}
                                     </a>

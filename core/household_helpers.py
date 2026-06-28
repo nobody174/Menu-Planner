@@ -105,7 +105,7 @@ def get_household_members(household_id):
                         'member_id': str(member.id),
                         'user_id': str(member.user_id),
                         'is_profile': False,
-                        'display_name': None,
+                        'display_name': member.display_name or user.email,
                         'avatar_type': member.avatar_type,
                         'avatar_value': member.avatar_value,
                         'email': user.email,
@@ -121,10 +121,13 @@ def get_household_members(household_id):
 def create_profile(household_id, display_name, role='viewer', avatar_type=None, avatar_value=None):
     """
     Create a lightweight member profile (no email/password) under a household.
+    'co-owner' grants the same rights as 'owner' (see acting_role_is_owner in
+    flask_app.py) but without a separate login - for a spouse/partner who needs
+    full control without a separate email-invite account.
     Returns: (success, message, member_id)
     """
-    if role not in ('editor', 'viewer'):
-        return False, "Profiles can only be editor or viewer", None
+    if role not in ('editor', 'viewer', 'co-owner'):
+        return False, "Invalid role for profile", None
 
     if not display_name or not display_name.strip():
         return False, "Profile name required", None
@@ -375,5 +378,89 @@ def user_can_edit_household(user_id, household_id):
             return False
 
         return member.role in ('owner', 'editor')
+    finally:
+        session.close()
+
+
+def user_is_household_owner(user_id, household_id):
+    """Check if the ACCOUNT is the owner of the household. Does not account for an
+    active profile - use [[acting_role_is_owner]] for permission checks, since a
+    profile (e.g. 'Wife') can be active under the owner's account but should not
+    inherit owner privileges."""
+    session = SessionLocal()
+    try:
+        member = session.query(HouseholdMember).filter(
+            HouseholdMember.household_id == household_id,
+            HouseholdMember.user_id == user_id
+        ).first()
+
+        if not member:
+            return False
+
+        return member.role == 'owner'
+    finally:
+        session.close()
+
+
+def set_member_avatar(member_id, household_id, emoji):
+    """Set a member's emoji avatar (works for both profiles and the account row)."""
+    session = SessionLocal()
+    try:
+        member = session.query(HouseholdMember).filter(
+            HouseholdMember.id == member_id,
+            HouseholdMember.household_id == household_id
+        ).first()
+
+        if not member:
+            return False, "Member not found"
+
+        member.avatar_type = 'emoji'
+        member.avatar_value = emoji
+        session.commit()
+        return True, "Avatar updated"
+    except Exception as e:
+        session.rollback()
+        return False, f"Database error: {str(e)}"
+    finally:
+        session.close()
+
+
+def rename_member(member_id, household_id, new_name):
+    """Rename a household member's display name. Works for both profiles
+    (e.g. 'Wife') and the owner's own account row (overrides the email-based
+    display fallback). Owner-only, enforced by the caller."""
+    new_name = (new_name or '').strip()[:100]
+    if not new_name:
+        return False, "Name required"
+
+    session = SessionLocal()
+    try:
+        member = session.query(HouseholdMember).filter(
+            HouseholdMember.id == member_id,
+            HouseholdMember.household_id == household_id
+        ).first()
+
+        if not member:
+            return False, "Member not found"
+
+        member.display_name = new_name
+        session.commit()
+        return True, "Renamed"
+    except Exception as e:
+        session.rollback()
+        return False, f"Database error: {str(e)}"
+    finally:
+        session.close()
+
+
+def get_profile_role(member_id, household_id):
+    """Look up the role of a specific profile (HouseholdMember row) by id."""
+    session = SessionLocal()
+    try:
+        member = session.query(HouseholdMember).filter(
+            HouseholdMember.id == member_id,
+            HouseholdMember.household_id == household_id
+        ).first()
+        return member.role if member else None
     finally:
         session.close()

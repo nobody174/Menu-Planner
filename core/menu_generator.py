@@ -62,11 +62,23 @@ PROTEIN_IMAGES = {
 
 
 class MenuGenerator:
-    def __init__(self, seed: Optional[int] = None, selected_categories: Optional[List[str]] = None):
+    def __init__(self, seed: Optional[int] = None, selected_categories: Optional[List[str]] = None,
+                 household_id: Optional[str] = None):
         self.seed = seed
         if seed:
             random.seed(seed)
             logger.info(f"Seeded with: {seed}")
+
+        self.household_id = household_id
+        if household_id:
+            from core.household_paths import recipes_db_file, categories_file, menu_file
+            self.recipes_imported_file = recipes_db_file(household_id)
+            self.categories_file = categories_file(household_id)
+            self.menu_output_file = menu_file(household_id)
+        else:
+            self.recipes_imported_file = RECIPES_IMPORTED_FILE
+            self.categories_file = CATEGORIES_FILE
+            self.menu_output_file = MENU_OUTPUT_FILE
 
         self.categories = self.load_categories()
         self.selected_categories = selected_categories or ['Quick Dinners', 'Fish & Seafood', 'Vegetarian']
@@ -76,9 +88,9 @@ class MenuGenerator:
 
     def load_categories(self) -> List[Dict]:
         """Load categories from JSON file"""
-        if CATEGORIES_FILE.exists():
+        if self.categories_file.exists():
             try:
-                with open(CATEGORIES_FILE, 'r', encoding='utf-8') as f:
+                with open(self.categories_file, 'r', encoding='utf-8') as f:
                     return json.load(f)
             except Exception as e:
                 logger.warning(f"Could not load categories: {e}")
@@ -86,11 +98,11 @@ class MenuGenerator:
         return []
 
     def load_recipes(self) -> bool:
-        """Load recipes from sample_recipes.json and recipes_db.json, filter by selected categories."""
+        """Load recipes from the shared base sample_recipes.json plus this household's imported recipes, filter by selected categories."""
         self.recipes_db = []
         all_recipes = []
 
-        # Load base sample recipes
+        # Load base sample recipes (shared starter content across all households)
         if RECIPES_DB_FILE.exists():
             try:
                 with open(RECIPES_DB_FILE, 'r', encoding='utf-8') as f:
@@ -98,13 +110,13 @@ class MenuGenerator:
             except Exception as e:
                 logger.error(f"Error loading {RECIPES_DB_FILE}: {e}")
 
-        # Also load imported pack recipes
-        if RECIPES_IMPORTED_FILE.exists():
+        # Also load this household's imported pack recipes
+        if self.recipes_imported_file.exists():
             try:
-                with open(RECIPES_IMPORTED_FILE, 'r', encoding='utf-8') as f:
+                with open(self.recipes_imported_file, 'r', encoding='utf-8') as f:
                     all_recipes.extend(json.load(f))
             except Exception as e:
-                logger.error(f"Error loading {RECIPES_IMPORTED_FILE}: {e}")
+                logger.error(f"Error loading {self.recipes_imported_file}: {e}")
 
         if not all_recipes:
             logger.error("No recipes found in any database file.")
@@ -327,12 +339,12 @@ class MenuGenerator:
             logger.error("Menu is empty. Cannot save.")
             return False
 
-        DATA_DIR.mkdir(parents=True, exist_ok=True)
+        self.menu_output_file.parent.mkdir(parents=True, exist_ok=True)
 
-        with open(MENU_OUTPUT_FILE, 'w', encoding='utf-8') as f:
+        with open(self.menu_output_file, 'w', encoding='utf-8') as f:
             json.dump(menu, f, ensure_ascii=False, indent=2)
 
-        logger.info(f"Menu saved to {MENU_OUTPUT_FILE}")
+        logger.info(f"Menu saved to {self.menu_output_file}")
         return True
 
     def run(self, num_dinners: int = 6, save: bool = True) -> Dict:

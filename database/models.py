@@ -28,6 +28,11 @@ class User(Base):
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
+    # Referral tracking (attribution only - no reward logic yet)
+    referral_code = Column(String(12), unique=True, nullable=False, index=True)
+    referred_by_user_id = Column(String(36), ForeignKey('users.id'), nullable=True)
+    referred_by_code = Column(String(12), nullable=True)  # raw code, survives referrer deletion
+
     # Relationships
     households = relationship('Household', back_populates='owner')
     household_members = relationship('HouseholdMember', back_populates='user')

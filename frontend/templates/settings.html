@@ -7,6 +7,41 @@
     <h1>{{ t.settings_title }}</h1>
 
     <div class="settings-container">
+        {% if is_authenticated %}
+        <section class="settings-section" style="display:flex; align-items:center; gap:14px;">
+            <span class="avatar-circle" style="width:48px;height:48px;font-size:20px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;color:white;font-weight:700;background:{{ avatar_color(active_profile_name or user_email) }}">
+                {{ (active_profile_name or user_email)[0]|upper if (active_profile_name or user_email) else '?' }}
+            </span>
+            <p class="settings-info" style="margin:0;">
+                Signed in as <strong>{{ active_profile_name or user_email }}</strong>
+                {% if active_profile_name and active_profile_name != user_email %}<span style="color: var(--color-text-secondary, #888);">({{ user_email }})</span>{% endif %}
+            </p>
+        </section>
+        {% endif %}
+
+        {% if referral_code %}
+        <section class="settings-section">
+            <h2>{{ t.get('refer_a_friend', 'Refer a Friend') }}</h2>
+            <p>{{ t.get('refer_a_friend_desc', 'Like using this? Share your link - friends who sign up get their own separate household, and we keep track of who invited whom.') }}</p>
+            <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+                <input type="text" id="referral-link" readonly value="{{ request.url_root.rstrip('/') }}{{ url_for('signup') }}?ref={{ referral_code }}"
+                       style="flex:1; min-width:240px; padding:8px; border:1px solid var(--color-border,#ddd); border-radius:4px; font-size:0.85em;" />
+                <button type="button" class="btn btn-secondary" onclick="copyReferralLink()">{{ t.get('copy_link', 'Copy Link') }}</button>
+            </div>
+            <p id="referral-copied-msg" class="settings-info" style="display:none; font-size:0.85em; color:var(--color-success,#3c3);">{{ t.get('link_copied', 'Link copied!') }}</p>
+        </section>
+        <script>
+        function copyReferralLink() {
+            var input = document.getElementById('referral-link');
+            navigator.clipboard.writeText(input.value).then(function() {
+                var msg = document.getElementById('referral-copied-msg');
+                msg.style.display = 'block';
+                setTimeout(function() { msg.style.display = 'none'; }, 2000);
+            });
+        }
+        </script>
+        {% endif %}
+
         <!-- Language Settings -->
         <section class="settings-section">
             <h2>{{ t.language_section }}</h2>
@@ -82,6 +117,27 @@
             </div>
         </section>
 
+        {% if is_household_owner %}
+        <!-- Activity Log (owner only) -->
+        <section class="settings-section">
+            <h2>Activity Log</h2>
+            <p>Who did what in this household's menu, recipes, and pantry.</p>
+            {% if activity_log %}
+            <div class="activity-log">
+                {% for entry in activity_log %}
+                <div class="activity-log-entry">
+                    <span class="activity-log-time">{{ entry.timestamp[:16].replace('T', ' ') }}</span>
+                    <span class="activity-log-actor">{{ entry.actor }}</span>
+                    <span class="activity-log-action">{{ entry.action }}</span>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <p class="settings-info" style="font-size:0.9em;">No activity recorded yet. Edits, recipe imports, pantry changes, and menu regenerations will show up here.</p>
+            {% endif %}
+        </section>
+        {% endif %}
+
         <!-- About -->
         <section class="settings-section">
             <h2>{{ t.about_section }}</h2>
@@ -132,6 +188,28 @@
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
+}
+.activity-log {
+    max-height: 320px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.activity-log-entry {
+    display: flex;
+    gap: 10px;
+    font-size: 0.9em;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--color-border, #e5e7eb);
+}
+.activity-log-time {
+    color: var(--color-text-secondary, #888);
+    flex-shrink: 0;
+}
+.activity-log-actor {
+    font-weight: 600;
+    flex-shrink: 0;
 }
 .theme-grid {
     display: grid;

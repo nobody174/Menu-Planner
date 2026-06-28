@@ -10,16 +10,14 @@
   <div class="alert alert-error">{{ error }}</div>
   {% endif %}
 
+  {% set owner_member = members|selectattr('user_id', 'equalto', user_id)|first %}
   <div class="profile-grid">
-    <form method="POST" action="{{ url_for('select_profile') }}" class="profile-form">
-      <input type="hidden" name="is_account_holder" value="1" />
-      <button type="submit" class="profile-tile">
-        <span class="avatar-circle large" style="background:{{ avatar_color(user_email) }}">
-          {{ user_email[0]|upper if user_email else '?' }}
-        </span>
-        <span class="profile-label">{{ user_email }}</span>
-      </button>
-    </form>
+    <button type="button" class="profile-tile" onclick="document.getElementById('owner-password-modal').style.display='flex'">
+      <span class="avatar-circle large" style="background:{{ avatar_color(user_email) }}">
+        {{ avatar_display(user_email, owner_member.avatar_type if owner_member else None, owner_member.avatar_value if owner_member else None) }}
+      </span>
+      <span class="profile-label">{{ t.get('owner', 'Owner') }}</span>
+    </button>
 
     {% for member in members %}
     {% if member.is_profile %}
@@ -27,7 +25,7 @@
       <input type="hidden" name="member_id" value="{{ member.member_id }}" />
       <button type="submit" class="profile-tile">
         <span class="avatar-circle large" style="background:{{ avatar_color(member.display_name) }}">
-          {{ member.display_name[0]|upper if member.display_name else '?' }}
+          {{ avatar_display(member.display_name, member.avatar_type, member.avatar_value) }}
         </span>
         <span class="profile-label">{{ member.display_name }}</span>
       </button>
@@ -39,6 +37,21 @@
   <p class="picker-hint">
     <a href="{{ url_for('household_settings') }}">{{ t.get('manage_profiles', 'Manage household profiles') }}</a>
   </p>
+
+  <div id="owner-password-modal" class="owner-password-overlay">
+    <form method="POST" action="{{ url_for('select_profile') }}" class="owner-password-box">
+      <input type="hidden" name="is_account_holder" value="1" />
+      <h3>{{ t.get('confirm_owner_password', 'Confirm password to act as Owner') }}</h3>
+      {% if owner_password_error %}
+      <div class="alert alert-error">{{ owner_password_error }}</div>
+      {% endif %}
+      <input type="password" name="owner_password" placeholder="{{ t.get('password', 'Password') }}" required autofocus />
+      <div class="owner-password-actions">
+        <button type="submit" class="btn btn-primary">{{ t.get('confirm', 'Confirm') }}</button>
+        <button type="button" class="btn btn-secondary" onclick="document.getElementById('owner-password-modal').style.display='none'">{{ t.get('cancel', 'Cancel') }}</button>
+      </div>
+    </form>
+  </div>
 </div>
 
 <style>
@@ -115,6 +128,43 @@
     border-radius: 4px;
     margin-bottom: 20px;
     display: inline-block;
+  }
+
+  .owner-password-overlay {
+    display: {% if owner_password_error %}flex{% else %}none{% endif %};
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+
+  .owner-password-box {
+    background: white;
+    padding: 28px;
+    border-radius: 12px;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .owner-password-box h3 {
+    margin: 0;
+    font-size: 1.1em;
+  }
+
+  .owner-password-box input[type="password"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1em;
+  }
+
+  .owner-password-actions {
+    display: flex;
+    gap: 10px;
   }
 </style>
 {% endblock %}

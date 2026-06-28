@@ -6,6 +6,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from database.database import SessionLocal
 from database.models import User
 import re
+import secrets
+import string
 
 
 def is_valid_email(email):
@@ -50,9 +52,31 @@ def get_user_by_email(email):
         session.close()
 
 
-def create_user(email, password):
+def _generate_referral_code(session):
+    """8-char uppercase alphanumeric code, unique among existing users."""
+    alphabet = string.ascii_uppercase + string.digits
+    while True:
+        code = ''.join(secrets.choice(alphabet) for _ in range(8))
+        if not session.query(User).filter(User.referral_code == code).first():
+            return code
+
+
+def get_user_by_referral_code(code):
+    """Look up a user by their referral code (for linking new signups)."""
+    if not code:
+        return None
+    session = SessionLocal()
+    try:
+        return session.query(User).filter(User.referral_code == code.strip().upper()).first()
+    finally:
+        session.close()
+
+
+def create_user(email, password, referred_by_code=None):
     """
     Create a new user in the database.
+    referred_by_code: optional referral code of the user who referred this signup.
+    Attribution only - no reward logic exists yet.
     Returns: (success, user_or_error_msg, user_id)
     """
     email = email.lower().strip()
@@ -74,7 +98,23 @@ def create_user(email, password):
     session = SessionLocal()
     try:
         password_hash = hash_password(password)
-        user = User(email=email, password_hash=password_hash)
+        referral_code = _generate_referral_code(session)
+
+        referred_by_user_id = None
+        referred_by_code_clean = None
+        if referred_by_code:
+            referrer = session.query(User).filter(User.referral_code == referred_by_code.strip().upper()).first()
+            if referrer:
+                referred_by_user_id = referrer.id
+                referred_by_code_clean = referrer.referral_code
+
+        user = User(
+            email=email,
+            password_hash=password_hash,
+            referral_code=referral_code,
+            referred_by_user_id=referred_by_user_id,
+            referred_by_code=referred_by_code_clean
+        )
         session.add(user)
         session.commit()
         user_id = str(user.id)

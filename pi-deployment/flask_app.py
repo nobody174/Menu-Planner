@@ -179,9 +179,8 @@ logger.addHandler(logging.StreamHandler())
 logger.setLevel(logging.INFO)
 
 DATA_DIR = Path(__file__).parent.parent / 'data'
-MENU_FILE = DATA_DIR / 'weekly_menu.json'
-RECIPES_DB_FILE = DATA_DIR / 'recipes_db.json'
 CACHE_DIR = DATA_DIR / 'recipes_cache'
+PROFILE_COOKIE_MAX_AGE = 60 * 60 * 24 * 365  # 1 year
 
 # Certificate paths (relative to pi-deployment dir where the service runs from)
 CERT_FILE = Path(__file__).parent / 'cert.pem'
@@ -233,6 +232,86 @@ def _avatar_color(label):
 
 app.jinja_env.globals['avatar_color'] = _avatar_color
 
+MAX_PROFILES_PER_HOUSEHOLD = 6
+
+AVATAR_EMOJI_CHOICES = [
+    '🧑', '👩', '👨', '👧', '👦', '🧓', '👴', '👵',
+    '🧑‍🍳', '🦸', '🦸‍♀️', '🧙', '🐶', '🐱', '🦊', '🐻',
+    '🐼', '🐨', '🦁', '🐸', '🐧', '🦄', '🐙', '🍕',
+]
+
+app.jinja_env.globals['avatar_emoji_choices'] = AVATAR_EMOJI_CHOICES
+
+def _avatar_display(label, avatar_type=None, avatar_value=None):
+    """Either the member's chosen emoji, or an upper-case initial, for circle avatars."""
+    if avatar_type == 'emoji' and avatar_value:
+        return avatar_value
+    return (label[0].upper() if label else '?')
+
+app.jinja_env.globals['avatar_display'] = _avatar_display
+
+@app.before_request
+def _restore_remembered_profile():
+    """If this device previously picked a profile and the session lost it
+    (new login, expired session), silently restore it from the device cookie
+    instead of forcing the picker again."""
+    if session.get('user_id') and not session.get('active_profile_id'):
+        remembered_id = request.cookies.get('remembered_profile_id')
+        if remembered_id:
+            household_id = session.get('current_household_id')
+            if household_id:
+                from core.household_helpers import get_member_by_id
+                member = get_member_by_id(remembered_id, household_id)
+                if member and member.is_profile:
+                    session['active_profile_id'] = str(member.id)
+                    session['active_profile_name'] = member.display_name
+
+def current_household_id():
+    """Resolve the active household id for this request, picking the user's
+    first household if none is set in session yet."""
+    user_id = session.get('user_id')
+    if not user_id:
+        return None
+
+    household_id = session.get('current_household_id')
+    if household_id:
+        return household_id
+
+    from core.household_helpers import get_user_households
+    households = get_user_households(user_id)
+    if households:
+        household_id = str(households[0].id)
+        session['current_household_id'] = household_id
+        return household_id
+
+    return None
+
+def current_actor_name():
+    """Name to attribute edits/actions to: active profile if one is picked,
+    otherwise the logged-in account's email."""
+    return session.get('active_profile_name') or session.get('user_email') or 'Unknown'
+
+def acting_role_is_owner():
+    """True only if the CURRENTLY ACTING identity is the owner. If a non-owner
+    profile is active (e.g. 'Wife', 'Kid'), this is False even though the underlying
+    account is the owner - profiles must explicitly re-select 'Owner' (with a password
+    check) to act with owner privileges."""
+    user_id = session.get('user_id')
+    if not user_id:
+        return False
+
+    household_id = session.get('current_household_id')
+    if not household_id:
+        return False
+
+    active_profile_id = session.get('active_profile_id')
+    if active_profile_id:
+        from core.household_helpers import get_profile_role
+        return get_profile_role(active_profile_id, household_id) in ('owner', 'co-owner')
+
+    from core.household_helpers import user_is_household_owner
+    return user_is_household_owner(user_id, household_id)
+
 @app.context_processor
 def inject_config():
     """Inject configuration and i18n into all templates."""
@@ -246,12 +325,15 @@ def inject_config():
     is_authenticated = bool(user_id and user_email) or bool(session.get('access_token'))
 
     household_name = os.getenv('HOUSEHOLD_NAME', 'Menu Planner')
-    current_household_id = session.get('current_household_id')
-    if current_household_id:
+    household_id = session.get('current_household_id')
+    is_household_owner = False
+    if household_id:
         from core.household_helpers import get_household
-        current_household = get_household(current_household_id)
+        current_household = get_household(household_id)
         if current_household:
             household_name = current_household.name
+        if user_id:
+            is_household_owner = acting_role_is_owner()
 
     return {
         'household_name': household_name,
@@ -266,24 +348,42 @@ def inject_config():
         'user_id': user_id,
         'auth_type': auth_type,
         'active_profile_name': session.get('active_profile_name'),
+        'is_household_owner': is_household_owner,
     }
 
 # ── Helpers ──────────────────────────────────────────────────────────────────
 
 def load_menu():
-    if MENU_FILE.exists():
-        with open(MENU_FILE, 'r', encoding='utf-8') as f:
+    from core.household_paths import menu_file
+    household_id = current_household_id()
+    if not household_id:
+        return None
+    path = menu_file(household_id)
+    if path.exists():
+        with open(path, 'r', encoding='utf-8') as f:
             return json.load(f)
     return None
 
 def load_recipes_db():
-    if RECIPES_DB_FILE.exists():
-        with open(RECIPES_DB_FILE, 'r', encoding='utf-8') as f:
+    from core.household_paths import recipes_db_file
+    household_id = current_household_id()
+    if not household_id:
+        return []
+    path = recipes_db_file(household_id)
+    if path.exists():
+        with open(path, 'r', encoding='utf-8') as f:
             return json.load(f)
     return []
 
+def save_recipes_db(recipes):
+    from core.household_paths import recipes_db_file
+    household_id = current_household_id()
+    path = recipes_db_file(household_id)
+    with open(path, 'w', encoding='utf-8') as f:
+        json.dump(recipes, f, ensure_ascii=False, indent=2)
+
 def find_recipe(recipe_id):
-    # Search recipes_db.json first, then sample_recipes.json
+    # Search household recipes_db.json first, then global sample_recipes.json
     all_recipes = load_recipes_db()
     sample_path = DATA_DIR / 'sample_recipes.json'
     if sample_path.exists():
@@ -415,9 +515,10 @@ def shopping_list():
         # Rebuild shopping list ingredient names in Norwegian from the recipe data
         shopping = {}
         recipe_ids = [d['recipe_id'] for d in menu.get('dinners', [])]
+        from core.household_paths import recipes_db_file
         all_recipes_raw = []
         # Load from all sources: sample recipes, imported recipes, and recipe packs
-        for db_path in (DATA_DIR / 'sample_recipes.json', DATA_DIR / 'recipes_db.json'):
+        for db_path in (DATA_DIR / 'sample_recipes.json', recipes_db_file(current_household_id())):
             if db_path.exists():
                 try:
                     with open(db_path, 'r', encoding='utf-8') as f:
@@ -470,7 +571,50 @@ def shopping_list():
     else:
         shopping = menu['shopping_list']
 
-    return render_template('shopping.html', shopping_list=shopping)
+    from core.household_paths import load_pantry
+    pantry = set(load_pantry(current_household_id()))
+    for category, items in shopping.items():
+        for item in items:
+            item['in_pantry'] = item.get('ingredient', '').strip().lower() in pantry
+
+    return render_template('shopping.html', shopping_list=shopping, pantry=sorted(pantry))
+
+@app.route('/api/pantry', methods=['GET'])
+def api_get_pantry():
+    from core.household_paths import load_pantry
+    return jsonify({'success': True, 'pantry': load_pantry(current_household_id())})
+
+@app.route('/api/pantry/add', methods=['POST'])
+def api_add_pantry_item():
+    from core.household_paths import load_pantry, save_pantry, append_activity
+    data = request.get_json() or {}
+    item = (data.get('item') or '').strip().lower()
+    if not item:
+        return jsonify({'success': False, 'message': 'No item provided'}), 400
+
+    household_id = current_household_id()
+    pantry = load_pantry(household_id)
+    if item not in pantry:
+        pantry.append(item)
+        save_pantry(household_id, pantry)
+        append_activity(household_id, current_actor_name(), f"Added '{item}' to pantry")
+
+    return jsonify({'success': True, 'pantry': sorted(pantry)})
+
+@app.route('/api/pantry/remove', methods=['POST'])
+def api_remove_pantry_item():
+    from core.household_paths import load_pantry, save_pantry, append_activity
+    data = request.get_json() or {}
+    item = (data.get('item') or '').strip().lower()
+    if not item:
+        return jsonify({'success': False, 'message': 'No item provided'}), 400
+
+    household_id = current_household_id()
+    pantry = [p for p in load_pantry(household_id) if p != item]
+    save_pantry(household_id, pantry)
+    append_activity(household_id, current_actor_name(), f"Removed '{item}' from pantry")
+
+    return jsonify({'success': True, 'pantry': sorted(pantry)})
 
 @app.route('/add-recipe')
 def add_recipe_page():
@@ -484,18 +628,37 @@ def all_recipes_page():
 
 @app.route('/settings')
 def settings_page():
-    return render_template('settings.html')
+    activity_log = []
+    household_id = current_household_id()
+    if household_id and session.get('user_id') and acting_role_is_owner():
+        from core.household_paths import load_activity
+        activity_log = load_activity(household_id)[:50]
+
+    referral_code = None
+    user_id = session.get('user_id')
+    if user_id:
+        from core.auth_helpers import get_user_by_email
+        user = get_user_by_email(session.get('user_email', ''))
+        if user:
+            referral_code = user.referral_code
+
+    return render_template('settings.html', activity_log=activity_log, referral_code=referral_code)
 
 # ── Household/Team Management Routes ──────────────────────────────────────────
 
 @app.route('/household-settings')
 def household_settings():
-    """View and manage household settings."""
+    """View and manage household settings. Owner-only: this is a dinner-planning app,
+    not a playground, so non-owner members have no business here even to look."""
     user_id = session.get('user_id')
     if not user_id:
         return redirect(url_for('login_page'))
 
     from core.household_helpers import get_user_households, get_household_members, get_household
+
+    household_id_for_check = session.get('current_household_id')
+    if household_id_for_check and not acting_role_is_owner():
+        return redirect(url_for('settings_page', error='Only the household owner can access household settings'))
 
     # Get all user's households
     all_households = get_user_households(user_id)
@@ -529,13 +692,16 @@ def household_settings():
                 owner_email = member['email']
                 break
 
-        # Check permissions
+        # Check permissions - keyed off the ACTING identity, not just the account,
+        # so a co-owner profile gets the same management rights as the owner.
+        is_owner = acting_role_is_owner()
         user_member = next((m for m in members if m['user_id'] == user_id), None)
-        can_manage = user_member and user_member['role'] in ('owner', 'editor')
-        is_owner = user_member and user_member['role'] == 'owner'
+        can_manage = is_owner or (user_member and user_member['role'] == 'editor')
 
         # Get other households
         other_households = [h for h in all_households if str(h.id) != str(current_household.id)]
+
+    profile_count = sum(1 for m in members if m['is_profile'])
 
     return render_template('household-settings.html',
                          current_household=current_household,
@@ -544,6 +710,8 @@ def household_settings():
                          can_manage=can_manage,
                          is_owner=is_owner,
                          other_households=other_households,
+                         profile_count=profile_count,
+                         max_profiles=MAX_PROFILES_PER_HOUSEHOLD,
                          error=error,
                          success=success)
 
@@ -593,9 +761,9 @@ def update_household_handler():
     if not household_id:
         return redirect(url_for('household_settings', error='No household selected'))
 
-    from core.household_helpers import user_can_edit_household, update_household
+    from core.household_helpers import update_household
 
-    if not user_can_edit_household(user_id, household_id):
+    if not acting_role_is_owner():
         return redirect(url_for('household_settings', error='Permission denied'))
 
     household_name = request.form.get('household_name', '').strip()
@@ -624,32 +792,6 @@ def delete_household_handler():
     if success:
         session.pop('current_household_id', None)
         return redirect(url_for('household_settings', success='Household deleted'))
-    else:
-        return redirect(url_for('household_settings', error=result))
-
-@app.route('/household/add-member', methods=['POST'])
-def add_household_member():
-    """Add a member to household."""
-    user_id = session.get('user_id')
-    if not user_id:
-        return redirect(url_for('login_page'))
-
-    household_id = session.get('current_household_id')
-    if not household_id:
-        return redirect(url_for('household_settings', error='No household selected'))
-
-    from core.household_helpers import user_can_edit_household, add_household_member
-
-    if not user_can_edit_household(user_id, household_id):
-        return redirect(url_for('household_settings', error='Permission denied'))
-
-    member_email = request.form.get('member_email', '').strip()
-    role = request.form.get('role', 'viewer')
-
-    success, result, member_id = add_household_member(household_id, member_email, role)
-
-    if success:
-        return redirect(url_for('household_settings', success=f'Added {member_email}'))
     else:
         return redirect(url_for('household_settings', error=result))
 
@@ -682,7 +824,9 @@ def profile_picker():
     if not any(m['is_profile'] for m in members):
         return redirect('/')
 
-    return render_template('profile-picker.html', household=current_household, members=members)
+    owner_password_error = request.args.get('owner_password_error')
+    return render_template('profile-picker.html', household=current_household, members=members,
+                            owner_password_error=owner_password_error)
 
 @app.route('/profile-picker/select', methods=['POST'])
 def select_profile():
@@ -695,8 +839,25 @@ def select_profile():
     is_account_holder = request.form.get('is_account_holder')
 
     if is_account_holder:
+        password = request.form.get('owner_password', '')
+        from core.auth_helpers import authenticate_user
+        success, _ = authenticate_user(session.get('user_email', ''), password)
+        if not success:
+            return redirect(url_for('profile_picker', owner_password_error='Incorrect password'))
+
+        household_id = session.get('current_household_id')
+        from core.household_helpers import get_household_members
+        owner_name = session.get('user_email')
+        if household_id:
+            owner_member = next((m for m in get_household_members(household_id) if m['user_id'] == user_id), None)
+            if owner_member:
+                owner_name = owner_member['display_name']
+
         session.pop('active_profile_id', None)
-        return redirect('/')
+        session['active_profile_name'] = owner_name
+        response = redirect('/')
+        response.delete_cookie('remembered_profile_id')
+        return response
 
     household_id = session.get('current_household_id')
     from core.household_helpers import get_member_by_id
@@ -707,7 +868,11 @@ def select_profile():
 
     session['active_profile_id'] = str(member.id)
     session['active_profile_name'] = member.display_name
-    return redirect('/')
+
+    response = redirect('/')
+    response.set_cookie('remembered_profile_id', str(member.id),
+                         max_age=PROFILE_COOKIE_MAX_AGE, httponly=True, samesite='Lax')
+    return response
 
 @app.route('/household/add-profile', methods=['POST'])
 def add_household_profile():
@@ -720,10 +885,13 @@ def add_household_profile():
     if not household_id:
         return redirect(url_for('household_settings', error='No household selected'))
 
-    from core.household_helpers import user_can_edit_household, create_profile
+    from core.household_helpers import create_profile, get_profiles
 
-    if not user_can_edit_household(user_id, household_id):
+    if not acting_role_is_owner():
         return redirect(url_for('household_settings', error='Permission denied'))
+
+    if len(get_profiles(household_id)) >= MAX_PROFILES_PER_HOUSEHOLD:
+        return redirect(url_for('household_settings', error=f'This household already has the maximum of {MAX_PROFILES_PER_HOUSEHOLD} profiles'))
 
     display_name = request.form.get('display_name', '').strip()
     role = request.form.get('role', 'viewer')
@@ -746,9 +914,9 @@ def api_remove_household_member():
     household_id = session.get('current_household_id')
     member_id = request.form.get('member_id')
 
-    from core.household_helpers import user_can_edit_household, remove_household_member
+    from core.household_helpers import remove_household_member
 
-    if not user_can_edit_household(user_id, household_id):
+    if not acting_role_is_owner():
         return jsonify({'error': 'Permission denied'}), 403
 
     success, message = remove_household_member(household_id, member_id, user_id)
@@ -757,6 +925,60 @@ def api_remove_household_member():
         return jsonify({'success': True, 'message': message})
     else:
         return jsonify({'error': message}), 400
+
+@app.route('/api/profile/set-avatar', methods=['POST'])
+def api_set_avatar():
+    """Set an emoji avatar for a member. Allowed for: the owner managing any member,
+    or the currently active identity setting its own avatar (low-stakes, no permission gate needed)."""
+    user_id = session.get('user_id')
+    if not user_id:
+        return jsonify({'error': 'Not authenticated'}), 401
+
+    household_id = session.get('current_household_id')
+    member_id = request.form.get('member_id')
+    emoji = request.form.get('emoji', '')
+
+    if emoji not in AVATAR_EMOJI_CHOICES:
+        return jsonify({'error': 'Invalid avatar choice'}), 400
+
+    is_own_active_identity = member_id == session.get('active_profile_id')
+    if not is_own_active_identity and not acting_role_is_owner():
+        return jsonify({'error': 'Permission denied'}), 403
+
+    from core.household_helpers import set_member_avatar
+    success, message = set_member_avatar(member_id, household_id, emoji)
+
+    if success:
+        return jsonify({'success': True, 'avatar': emoji})
+    else:
+        return jsonify({'error': message}), 400
+
+@app.route('/api/household/rename-member', methods=['POST'])
+def api_rename_member():
+    """API: Rename a household member (profile or the owner's own display name)."""
+    user_id = session.get('user_id')
+    if not user_id:
+        return jsonify({'error': 'Not authenticated'}), 401
+
+    if not acting_role_is_owner():
+        return jsonify({'error': 'Permission denied'}), 403
+
+    household_id = session.get('current_household_id')
+    member_id = request.form.get('member_id')
+    display_name = request.form.get('display_name', '')
+
+    from core.household_helpers import rename_member, get_member_by_id
+    success, message = rename_member(member_id, household_id, display_name)
+
+    if success:
+        member = get_member_by_id(member_id, household_id)
+        if member and member.is_profile and session.get('active_profile_id') == str(member.id):
+            session['active_profile_name'] = member.display_name
+        elif member and not member.is_profile and member.user_id == user_id:
+            session['active_profile_name'] = member.display_name
+        return redirect(url_for('household_settings', success='Renamed'))
+    else:
+        return redirect(url_for('household_settings', error=message))
 
 @app.route('/api/household/update-member-role', methods=['POST'])
 def api_update_member_role():
@@ -818,7 +1040,8 @@ def login_local():
 def signup():
     """Render signup page."""
     error = request.args.get('error')
-    return render_template('signup.html', error=error, email=request.args.get('email', ''))
+    return render_template('signup.html', error=error, email=request.args.get('email', ''),
+                            ref=request.args.get('ref', ''))
 
 @app.route('/signup', methods=['POST'])
 def signup_local():
@@ -827,16 +1050,17 @@ def signup_local():
     email = request.form.get('email', '').strip()
     password = request.form.get('password', '')
     password_confirm = request.form.get('password_confirm', '')
+    ref = request.form.get('ref', '').strip()
 
     if not email or not password or not password_confirm:
-        return render_template('signup.html', error='All fields required', email=email), 400
+        return render_template('signup.html', error='All fields required', email=email, ref=ref), 400
 
     if password != password_confirm:
-        return render_template('signup.html', error='Passwords do not match', email=email), 400
+        return render_template('signup.html', error='Passwords do not match', email=email, ref=ref), 400
 
-    success, result, user_id = create_user(email, password)
+    success, result, user_id = create_user(email, password, referred_by_code=ref or None)
     if not success:
-        return render_template('signup.html', error=result, email=email), 400
+        return render_template('signup.html', error=result, email=email, ref=ref), 400
 
     user = result
     session['user_id'] = str(user.id)
@@ -991,8 +1215,12 @@ def api_regenerate():
         data = request.get_json() or {}
         selected_categories = data.get('categories') or data.get('selected_categories') or ['Quick Dinners', 'Fish & Seafood', 'Vegetarian']
         logger.info(f"Generating menu with categories: {selected_categories}")
-        generator = MenuGenerator(selected_categories=selected_categories)
+        generator = MenuGenerator(selected_categories=selected_categories, household_id=current_household_id())
         menu = generator.run(num_dinners=6, save=True)
+
+        from core.household_paths import append_activity
+        append_activity(current_household_id(), current_actor_name(), "Regenerated the weekly menu")
+
         logger.info("Menu regenerated via API")
         return jsonify({'status': 'success', 'menu': menu})
     except Exception as e:
@@ -1234,10 +1462,10 @@ def api_add_recipe():
         # Save to recipes database
         recipes = load_recipes_db()
         recipes.append(recipe)
+        save_recipes_db(recipes)
 
-        recipes_file = RECIPES_DB_FILE
-        with open(recipes_file, 'w', encoding='utf-8') as f:
-            json.dump(recipes, f, ensure_ascii=False, indent=2)
+        from core.household_paths import append_activity
+        append_activity(current_household_id(), current_actor_name(), f"Added recipe '{recipe['title']}'")
 
         logger.info(f"Added recipe: {recipe['title']} (ID: {recipe['id']})")
         return jsonify({'status': 'success', 'message': f"✅ {recipe['title']} saved!", 'recipe_id': recipe['id']})
@@ -1262,8 +1490,10 @@ def api_delete_recipe():
         if len(recipes) == original_count:
             return jsonify({'status': 'error', 'message': f'Recipe {recipe_id} not found'}), 404
 
-        with open(RECIPES_DB_FILE, 'w', encoding='utf-8') as f:
-            json.dump(recipes, f, ensure_ascii=False, indent=2)
+        save_recipes_db(recipes)
+
+        from core.household_paths import append_activity
+        append_activity(current_household_id(), current_actor_name(), f"Deleted recipe '{recipe_id}'")
 
         logger.info(f"Deleted recipe: {recipe_id}")
         return jsonify({'status': 'success', 'message': f'Recipe {recipe_id} deleted'})
@@ -1310,8 +1540,10 @@ def api_edit_recipe():
             return jsonify({'status': 'error', 'message': f'Recipe {recipe_id} not found'}), 404
 
         # Save updated recipes
-        with open(RECIPES_DB_FILE, 'w', encoding='utf-8') as f:
-            json.dump(recipes, f, ensure_ascii=False, indent=2)
+        save_recipes_db(recipes)
+
+        from core.household_paths import append_activity
+        append_activity(current_household_id(), current_actor_name(), f"Edited recipe '{title}'")
 
         logger.info(f"Updated recipe: {title} (ID: {recipe_id})")
         return jsonify({'status': 'success', 'message': f"✅ {title} updated!", 'recipe_id': recipe_id})
@@ -1356,8 +1588,11 @@ def api_swap_recipe():
             return jsonify({'status': 'error', 'message': f'Day {day} not found in menu'}), 404
 
         # Save the updated menu
-        with open(MENU_FILE, 'w', encoding='utf-8') as f:
+        from core.household_paths import menu_file, append_activity
+        with open(menu_file(current_household_id()), 'w', encoding='utf-8') as f:
             json.dump(menu, f, ensure_ascii=False, indent=2)
+
+        append_activity(current_household_id(), current_actor_name(), f"Swapped {day}'s dinner to '{recipe['title']}'")
 
         logger.info(f"Swapped recipe for {day}: {recipe['title']}")
         return jsonify({'status': 'success', 'message': f'Recipe swapped for {day}'})
@@ -1371,8 +1606,6 @@ def health_check():
     return jsonify({
         'status': 'healthy',
         'timestamp': datetime.now().isoformat(),
-        'menu_available': MENU_FILE.exists(),
-        'recipes_available': RECIPES_DB_FILE.exists(),
         'https': CERT_FILE.exists(),
     })
 
@@ -1489,12 +1722,15 @@ def api_recipe_packs_import():
                 imported_count += 1
 
         # Save updated database
-        with open(RECIPES_DB_FILE, 'w', encoding='utf-8') as f:
-            json.dump(existing_recipes, f, ensure_ascii=False, indent=2)
+        save_recipes_db(existing_recipes)
+
+        from core.household_paths import append_activity
+        append_activity(current_household_id(), current_actor_name(), f"Imported {imported_count} recipes from {len(pack_ids)} pack(s)")
 
         # Add new categories to categories.json if they don't exist
         if new_categories:
-            categories_file = DATA_DIR / 'categories.json'
+            from core.household_paths import categories_file as _categories_file
+            categories_file = _categories_file(current_household_id())
             existing_cats = []
             if categories_file.exists():
                 try:
@@ -1536,20 +1772,17 @@ def api_get_imported_packs():
     """Get list of imported packs (detected by their categories in recipes_db.json)"""
     try:
         imported_packs = {}
-        recipes_db_file = DATA_DIR / 'recipes_db.json'
-        if recipes_db_file.exists():
-            with open(recipes_db_file, 'r', encoding='utf-8') as f:
-                recipes = json.load(f)
-                for recipe in recipes:
-                    cat = recipe.get('category', '')
-                    if cat and cat not in imported_packs:
-                        imported_packs[cat] = {
-                            'category_name': cat,
-                            'recipe_count': 0,
-                            'icon': recipe.get('packIcon', '📦')
-                        }
-                    if cat in imported_packs:
-                        imported_packs[cat]['recipe_count'] += 1
+        recipes = load_recipes_db()
+        for recipe in recipes:
+            cat = recipe.get('category', '')
+            if cat and cat not in imported_packs:
+                imported_packs[cat] = {
+                    'category_name': cat,
+                    'recipe_count': 0,
+                    'icon': recipe.get('packIcon', '📦')
+                }
+            if cat in imported_packs:
+                imported_packs[cat]['recipe_count'] += 1
 
         return jsonify({
             'success': True,
@@ -1569,25 +1802,25 @@ def api_remove_imported_pack():
         if not pack_category:
             return jsonify({'success': False, 'message': 'No category specified'}), 400
 
-        recipes_db_file = DATA_DIR / 'recipes_db.json'
+        recipes = load_recipes_db()
         removed_count = 0
 
-        if recipes_db_file.exists():
-            with open(recipes_db_file, 'r', encoding='utf-8') as f:
-                recipes = json.load(f)
-
+        if recipes:
             # Filter out recipes from this category
             filtered_recipes = [r for r in recipes if r.get('category', '') != pack_category]
             removed_count = len(recipes) - len(filtered_recipes)
 
             # Save updated recipes
-            with open(recipes_db_file, 'w', encoding='utf-8') as f:
-                json.dump(filtered_recipes, f, ensure_ascii=False, indent=2)
+            save_recipes_db(filtered_recipes)
+
+            from core.household_paths import append_activity
+            append_activity(current_household_id(), current_actor_name(), f"Removed pack '{pack_category}' ({removed_count} recipes)")
 
             logger.info(f"Removed {removed_count} recipes from pack category '{pack_category}'")
 
         # Remove category from categories.json if it matches the pack name
-        categories_file = DATA_DIR / 'categories.json'
+        from core.household_paths import categories_file as _categories_file
+        categories_file = _categories_file(current_household_id())
         if categories_file.exists():
             try:
                 with open(categories_file, 'r', encoding='utf-8') as f:
@@ -1664,8 +1897,10 @@ def api_recipes_import():
                 imported_count += 1
 
         # Save updated database
-        with open(RECIPES_DB_FILE, 'w', encoding='utf-8') as f:
-            json.dump(existing_recipes, f, ensure_ascii=False, indent=2)
+        save_recipes_db(existing_recipes)
+
+        from core.household_paths import append_activity
+        append_activity(current_household_id(), current_actor_name(), f"Imported {imported_count} recipes from file")
 
         logger.info(f"Imported {imported_count} recipes from user file")
         return jsonify({
@@ -1696,4 +1931,4 @@ if __name__ == '__main__':
     logger.info(f"Running from: {__file__}")
 
     # HTTP only — local home network use, no "Not Secure" warning
-    app.run(host='0.0.0.0', port=5000, debug=False)
+    app.run(host='0.0.0.0', port=5000, debug=True)

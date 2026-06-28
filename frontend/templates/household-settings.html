@@ -59,8 +59,8 @@
           <tr>
             <td>
               {% set label = member.display_name if member.is_profile else member.email %}
-              <span class="avatar-circle" style="background:{{ avatar_color(label) }}">
-                {{ label[0]|upper if label else '?' }}
+              <span class="avatar-circle" style="background:{{ avatar_color(label) }}; cursor:pointer;" onclick="openAvatarPicker('{{ member.member_id }}')" title="{{ t.get('change_avatar', 'Change avatar') }}">
+                {{ avatar_display(label, member.avatar_type, member.avatar_value) }}
               </span>
             </td>
             <td>
@@ -80,12 +80,20 @@
                 {{ t.get('change_role', 'Change Role') }}
               </button>
               {% endif %}
+              <button class="btn-small" onclick="renameMember('{{ member.member_id }}', '{{ member.display_name if member.is_profile else member.email }}')">
+                {{ t.get('rename', 'Rename') }}
+              </button>
               <button class="btn-small btn-danger" onclick="removeMember('{{ member.member_id }}')">
                 {{ t.get('remove', 'Remove') }}
               </button>
             </td>
             {% elif member.user_id == user_id %}
-            <td><em>{{ t.get('you', 'You') }}</em></td>
+            <td>
+              <em>{{ t.get('you', 'You') }}</em>
+              <button class="btn-small" onclick="renameMember('{{ member.member_id }}', '{{ member.email }}')">
+                {{ t.get('rename', 'Rename') }}
+              </button>
+            </td>
             {% endif %}
           </tr>
           {% endfor %}
@@ -93,50 +101,14 @@
       </table>
     </div>
 
-    <!-- Add Member Section (Owner/Editor only) -->
-    {% if can_manage %}
-    <div class="add-member-section">
-      <h3>{{ t.get('add_member', 'Add Member by Email') }}</h3>
-      <p class="hint">{{ t.get('add_member_hint', 'Use this for people who already have their own Menu Planner account.') }}</p>
-
-      <form method="POST" action="{{ url_for('add_household_member') }}" class="add-member-form">
-        <div class="form-group">
-          <label for="member-email">{{ t.get('email', 'Email') }}</label>
-          <input
-            type="email"
-            id="member-email"
-            name="member_email"
-            required
-            placeholder="user@example.com"
-          />
-        </div>
-
-        <div class="form-group">
-          <label for="member-role">{{ t.get('role', 'Role') }}</label>
-          <select id="member-role" name="role">
-            <option value="viewer">{{ t.get('viewer', 'Viewer') }} ({{ t.get('view_only', 'View only') }})</option>
-            <option value="editor" {% if is_owner %}selected{% endif %}>
-              {{ t.get('editor', 'Editor') }} ({{ t.get('can_edit', 'Can edit') }})
-            </option>
-            {% if is_owner %}
-            <option value="owner">{{ t.get('owner', 'Owner') }} ({{ t.get('full_control', 'Full control') }})</option>
-            {% endif %}
-          </select>
-        </div>
-
-        <button type="submit" class="btn btn-primary">
-          {{ t.get('add_member', 'Add Member') }}
-        </button>
-      </form>
-    </div>
-    {% endif %}
-
     <!-- Add Profile Section (Owner/Editor only) -->
     {% if can_manage %}
     <div class="add-member-section">
       <h3>{{ t.get('add_profile', 'Add Family Profile') }}</h3>
-      <p class="hint">{{ t.get('add_profile_hint', "For family members who don't need their own login - they'll appear as a profile to pick after you sign in.") }}</p>
+      <p class="hint">{{ t.get('add_profile_hint', "For family members who don't need their own login - they'll appear as a profile to pick after you sign in.") }}
+        ({{ profile_count }}/{{ max_profiles }})</p>
 
+      {% if profile_count < max_profiles %}
       <form method="POST" action="{{ url_for('add_household_profile') }}" class="add-member-form">
         <div class="form-group">
           <label for="profile-name">{{ t.get('profile_name', 'Name') }}</label>
@@ -155,6 +127,9 @@
           <select id="profile-role" name="role">
             <option value="viewer">{{ t.get('viewer', 'Viewer') }} ({{ t.get('view_only', 'View only') }})</option>
             <option value="editor">{{ t.get('editor', 'Editor') }} ({{ t.get('can_edit', 'Can edit') }})</option>
+            {% if is_owner %}
+            <option value="co-owner">{{ t.get('co_owner', 'Co-Owner') }} ({{ t.get('full_control', 'Full control') }})</option>
+            {% endif %}
           </select>
         </div>
 
@@ -162,6 +137,9 @@
           {{ t.get('add_profile', 'Add Profile') }}
         </button>
       </form>
+      {% else %}
+      <p class="hint">{{ t.get('profile_limit_reached', 'Maximum number of profiles reached for this household.') }}</p>
+      {% endif %}
     </div>
     {% endif %}
 
@@ -202,9 +180,10 @@
   </div>
   {% endif %}
 
-  <!-- Create New Household Section -->
+  <!-- Create an Additional Household Section -->
   <div class="settings-card">
-    <h2>{{ t.get('create_household', 'Create Household') }}</h2>
+    <h2>{{ t.get('create_another_household', 'Create Another Household') }}</h2>
+    <p class="hint">{{ t.get('create_another_household_hint', "This won't change your current household — it adds a separate one (e.g. for a second home or a different group) that you can switch to above.") }}</p>
 
     <form method="POST" action="{{ url_for('create_household_handler') }}" class="create-household-form">
       <div class="form-group">
@@ -219,7 +198,7 @@
         />
       </div>
 
-      <button type="submit" class="btn btn-primary">
+      <button type="submit" class="btn btn-secondary">
         {{ t.get('create_household', 'Create Household') }}
       </button>
     </form>
@@ -303,7 +282,37 @@
   </div>
 </div>
 
+<div id="avatar-picker-modal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>{{ t.get('choose_avatar', 'Choose an avatar') }}</h2>
+      <button class="modal-close" onclick="closeAvatarPicker()">×</button>
+    </div>
+    <div class="avatar-grid">
+      {% for emoji in avatar_emoji_choices %}
+      <button type="button" class="avatar-grid-item" onclick="pickAvatar('{{ emoji }}')">{{ emoji }}</button>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
 <style>
+  .avatar-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+  }
+  .avatar-grid-item {
+    font-size: 28px;
+    background: var(--color-bg-secondary, #f3f4f6);
+    border: 1px solid var(--color-border, #e5e7eb);
+    border-radius: 8px;
+    padding: 8px;
+    cursor: pointer;
+  }
+  .avatar-grid-item:hover {
+    background: var(--color-bg-tertiary, #e5e7eb);
+  }
   .household-settings {
     max-width: 800px;
     margin: 0 auto;
@@ -403,7 +412,8 @@
     text-transform: uppercase;
   }
 
-  .role-badge[data-role="owner"] {
+  .role-badge[data-role="owner"],
+  .role-badge[data-role="co-owner"] {
     background: #ffe0e0;
     color: #c00;
   }
@@ -630,9 +640,43 @@
     }
   }
 
+  var _avatarPickerMemberId = null;
+
+  function openAvatarPicker(memberId) {
+    _avatarPickerMemberId = memberId;
+    document.getElementById('avatar-picker-modal').style.display = 'flex';
+  }
+
+  function closeAvatarPicker() {
+    document.getElementById('avatar-picker-modal').style.display = 'none';
+  }
+
+  function pickAvatar(emoji) {
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = '/api/profile/set-avatar';
+    form.innerHTML = '<input type="hidden" name="member_id" value="' + _avatarPickerMemberId + '">' +
+                    '<input type="hidden" name="emoji" value="' + emoji + '">';
+    document.body.appendChild(form);
+    fetch(form.action, { method: 'POST', body: new FormData(form) }).then(() => location.reload());
+  }
+
+  function renameMember(memberId, currentName) {
+    const newName = prompt('{{ t.get("enter_new_name", "Enter new name") }}', currentName);
+    if (newName && newName.trim()) {
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = '/api/household/rename-member';
+      form.innerHTML = '<input type="hidden" name="member_id" value="' + memberId + '">' +
+                      '<input type="hidden" name="display_name" value="' + newName.trim().replace(/"/g, '&quot;') + '">';
+      document.body.appendChild(form);
+      form.submit();
+    }
+  }
+
   function openRoleMenu(memberId, currentRole) {
     // Simple prompt for role change (can be improved with a modal)
-    const roles = ['viewer', 'editor', 'owner'];
+    const roles = ['viewer', 'editor', 'co-owner', 'owner'];
     const newRole = prompt('Enter new role: ' + roles.join(', '), currentRole);
     if (newRole && roles.includes(newRole)) {
       const form = document.createElement('form');
