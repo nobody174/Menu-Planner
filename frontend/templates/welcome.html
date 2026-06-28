@@ -8,9 +8,11 @@
     <h1>Menu Planner</h1>
     <p class="welcome-tagline">Plan your week's meals, generate a shopping list, and stop wondering what's for dinner.</p>
 
-    <video class="welcome-loop" autoplay loop muted playsinline>
-      <source src="{{ url_for('static', filename='media/demo-loop.mp4') }}" type="video/mp4">
-    </video>
+    <div class="welcome-loop-wrap">
+      <iframe class="welcome-loop"
+              src="https://www.youtube.com/embed/-xqUCibymDY?autoplay=1&mute=1&loop=1&playlist=-xqUCibymDY&controls=0&modestbranding=1&rel=0"
+              frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
 
     <a href="{{ url_for('signup', ref=ref, from_welcome=1) }}" class="btn btn-primary welcome-cta">
       Sign Up Free
@@ -19,9 +21,11 @@
 
   <div class="welcome-demo">
     <h2>See it in action</h2>
-    <video class="welcome-full-demo" controls preload="none" poster="">
-      <source src="{{ url_for('static', filename='media/demo-full.mp4') }}" type="video/mp4">
-    </video>
+    <div class="welcome-full-demo-wrap">
+      <iframe class="welcome-full-demo"
+              src="https://www.youtube.com/embed/iMi4vtJlH7c?modestbranding=1&rel=0"
+              frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
+    </div>
   </div>
 
   <div class="welcome-footer">
@@ -55,12 +59,24 @@
     margin-bottom: 30px;
   }
 
-  .welcome-loop {
+  .welcome-loop-wrap {
+    position: relative;
     width: 100%;
     max-width: 640px;
+    aspect-ratio: 16 / 9;
+    margin: 0 auto 30px;
     border-radius: 8px;
+    overflow: hidden;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    margin-bottom: 30px;
+  }
+
+  .welcome-loop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
   }
 
   .welcome-demo {
@@ -73,11 +89,24 @@
     margin-bottom: 20px;
   }
 
-  .welcome-full-demo {
+  .welcome-full-demo-wrap {
+    position: relative;
     width: 100%;
     max-width: 720px;
+    aspect-ratio: 16 / 9;
+    margin: 0 auto;
     border-radius: 8px;
+    overflow: hidden;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .welcome-full-demo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
   }
 
   .welcome-footer {
