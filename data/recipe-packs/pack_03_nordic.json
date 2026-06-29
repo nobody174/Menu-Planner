@@ -10,7 +10,7 @@
   },
   "packImage": "❄️",
   "packColor": "#1E90FF",
-  "recipeCount": 15,
+  "recipeCount": 67,
   "estimatedCookTime": "30-120 minutes",
   "difficulty": "medium",
   "recipes": [
@@ -28,48 +28,104 @@
       "cookTimeMinutes": 35,
       "servings": 4,
       "category": "Meat",
-      "tags": ["swedish", "meatballs", "cream", "classic"],
-      "allergens": ["gluten", "dairy"],
+      "tags": [
+        "swedish",
+        "meatballs",
+        "cream",
+        "classic"
+      ],
+      "allergens": [
+        "gluten",
+        "dairy"
+      ],
       "ingredients": [
         {
-          "name": {"no": "Kjøttdeig", "en": "Ground meat"},
+          "name": {
+            "no": "Kjøttdeig",
+            "en": "Ground meat"
+          },
           "amount": 600,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Brødkrumler", "en": "Breadcrumbs"},
+          "name": {
+            "no": "Brødkrumler",
+            "en": "Breadcrumbs"
+          },
           "amount": 75,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Melk", "en": "Milk"},
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
           "amount": 75,
-          "unit": {"no": "ml", "en": "ml"}
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
         },
         {
-          "name": {"no": "Egg", "en": "Egg"},
+          "name": {
+            "no": "Egg",
+            "en": "Egg"
+          },
           "amount": 1,
-          "unit": {"no": "stk", "en": "piece"}
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
         },
         {
-          "name": {"no": "Løk (finhakket)", "en": "Onion (minced)"},
+          "name": {
+            "no": "Løk (finhakket)",
+            "en": "Onion (minced)"
+          },
           "amount": 1,
-          "unit": {"no": "small", "en": "small"}
+          "unit": {
+            "no": "small",
+            "en": "small"
+          }
         },
         {
-          "name": {"no": "Fløte (syrnet)", "en": "Sour cream"},
+          "name": {
+            "no": "Fløte (syrnet)",
+            "en": "Sour cream"
+          },
           "amount": 300,
-          "unit": {"no": "ml", "en": "ml"}
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
         },
         {
-          "name": {"no": "Smør", "en": "Butter"},
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
           "amount": 50,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Lingonbær-syltetøy", "en": "Lingonberry jam"},
+          "name": {
+            "no": "Lingonbær-syltetøy",
+            "en": "Lingonberry jam"
+          },
           "amount": 150,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         }
       ],
       "instructions": {
@@ -107,38 +163,81 @@
       "cookTimeMinutes": 1440,
       "servings": 8,
       "category": "Fish",
-      "tags": ["scandinavian", "salmon", "cured", "elegant"],
-      "allergens": ["fish"],
+      "tags": [
+        "scandinavian",
+        "salmon",
+        "cured",
+        "elegant"
+      ],
+      "allergens": [
+        "fish"
+      ],
       "ingredients": [
         {
-          "name": {"no": "Laks (fersk, filéer)", "en": "Salmon (fresh, fillets)"},
+          "name": {
+            "no": "Laks (fersk, filéer)",
+            "en": "Salmon (fresh, fillets)"
+          },
           "amount": 1000,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Salt", "en": "Salt"},
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
           "amount": 30,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Sukker", "en": "Sugar"},
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
           "amount": 20,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Dill (frisk)", "en": "Dill (fresh)"},
+          "name": {
+            "no": "Dill (frisk)",
+            "en": "Dill (fresh)"
+          },
           "amount": 50,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Pepper (sort)", "en": "Black pepper"},
+          "name": {
+            "no": "Pepper (sort)",
+            "en": "Black pepper"
+          },
           "amount": 1,
-          "unit": {"no": "ts", "en": "tsp"}
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
         },
         {
-          "name": {"no": "Anis eller fennikelfrø", "en": "Anise or fennel seeds"},
+          "name": {
+            "no": "Anis eller fennikelfrø",
+            "en": "Anise or fennel seeds"
+          },
           "amount": 1,
-          "unit": {"no": "ts", "en": "tsp"}
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
         }
       ],
       "instructions": {
@@ -182,48 +281,105 @@
       "cookTimeMinutes": 20,
       "servings": 2,
       "category": "Other",
-      "tags": ["danish", "sandwich", "lunch", "quick"],
-      "allergens": ["gluten", "fish", "dairy"],
+      "tags": [
+        "danish",
+        "sandwich",
+        "lunch",
+        "quick"
+      ],
+      "allergens": [
+        "gluten",
+        "fish",
+        "dairy"
+      ],
       "ingredients": [
         {
-          "name": {"no": "Rugbrød (dansk)", "en": "Rye bread (Danish)"},
+          "name": {
+            "no": "Rugbrød (dansk)",
+            "en": "Rye bread (Danish)"
+          },
           "amount": 4,
-          "unit": {"no": "skivor", "en": "slices"}
+          "unit": {
+            "no": "skivor",
+            "en": "slices"
+          }
         },
         {
-          "name": {"no": "Smør", "en": "Butter"},
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
           "amount": 50,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Gravlaks eller røkt fisk", "en": "Gravlax or smoked fish"},
+          "name": {
+            "no": "Gravlaks eller røkt fisk",
+            "en": "Gravlax or smoked fish"
+          },
           "amount": 150,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Rømme eller kremost", "en": "Sour cream or cream cheese"},
+          "name": {
+            "no": "Rømme eller kremost",
+            "en": "Sour cream or cream cheese"
+          },
           "amount": 100,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Løk (tynne skiver)", "en": "Onion (thin slices)"},
+          "name": {
+            "no": "Løk (tynne skiver)",
+            "en": "Onion (thin slices)"
+          },
           "amount": 1,
-          "unit": {"no": "small", "en": "small"}
+          "unit": {
+            "no": "small",
+            "en": "small"
+          }
         },
         {
-          "name": {"no": "Agurk (tynne skiver)", "en": "Cucumber (thin slices)"},
+          "name": {
+            "no": "Agurk (tynne skiver)",
+            "en": "Cucumber (thin slices)"
+          },
           "amount": 1,
-          "unit": {"no": "stk", "en": "piece"}
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
         },
         {
-          "name": {"no": "Citron", "en": "Lemon"},
+          "name": {
+            "no": "Citron",
+            "en": "Lemon"
+          },
           "amount": 1,
-          "unit": {"no": "halv", "en": "half"}
+          "unit": {
+            "no": "halv",
+            "en": "half"
+          }
         },
         {
-          "name": {"no": "Dill (frisk)", "en": "Dill (fresh)"},
+          "name": {
+            "no": "Dill (frisk)",
+            "en": "Dill (fresh)"
+          },
           "amount": 1,
-          "unit": {"no": "knippe", "en": "bunch"}
+          "unit": {
+            "no": "knippe",
+            "en": "bunch"
+          }
         }
       ],
       "instructions": {
@@ -259,43 +415,92 @@
       "cookTimeMinutes": 45,
       "servings": 4,
       "category": "Fish",
-      "tags": ["icelandic", "fish", "comfort-food"],
-      "allergens": ["fish", "dairy"],
+      "tags": [
+        "icelandic",
+        "fish",
+        "comfort-food"
+      ],
+      "allergens": [
+        "fish",
+        "dairy"
+      ],
       "ingredients": [
         {
-          "name": {"no": "Fiskefiléer", "en": "Fish fillets"},
+          "name": {
+            "no": "Fiskefiléer",
+            "en": "Fish fillets"
+          },
           "amount": 800,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Poteter", "en": "Potatoes"},
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
           "amount": 600,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Løk", "en": "Onion"},
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
           "amount": 2,
-          "unit": {"no": "medium", "en": "medium"}
+          "unit": {
+            "no": "medium",
+            "en": "medium"
+          }
         },
         {
-          "name": {"no": "Smør", "en": "Butter"},
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
           "amount": 75,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Mel", "en": "Flour"},
+          "name": {
+            "no": "Mel",
+            "en": "Flour"
+          },
           "amount": 3,
-          "unit": {"no": "ss", "en": "tbsp"}
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
         },
         {
-          "name": {"no": "Melk", "en": "Milk"},
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
           "amount": 300,
-          "unit": {"no": "ml", "en": "ml"}
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
         },
         {
-          "name": {"no": "Salt og pepper", "en": "Salt and pepper"},
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
           "amount": 1,
-          "unit": {"no": "etter smak", "en": "to taste"}
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
         }
       ],
       "instructions": {
@@ -335,48 +540,105 @@
       "cookTimeMinutes": 120,
       "servings": 8,
       "category": "Other",
-      "tags": ["swedish", "cake", "elegant", "celebration"],
-      "allergens": ["gluten", "dairy", "eggs"],
+      "tags": [
+        "swedish",
+        "cake",
+        "elegant",
+        "celebration"
+      ],
+      "allergens": [
+        "gluten",
+        "dairy",
+        "eggs"
+      ],
       "ingredients": [
         {
-          "name": {"no": "Biskvi-kake (ferdig bakket)", "en": "Sponge cake (pre-baked)"},
+          "name": {
+            "no": "Biskvi-kake (ferdig bakket)",
+            "en": "Sponge cake (pre-baked)"
+          },
           "amount": 1,
-          "unit": {"no": "stk", "en": "piece"}
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
         },
         {
-          "name": {"no": "Fløte (tykk)", "en": "Cream (heavy)"},
+          "name": {
+            "no": "Fløte (tykk)",
+            "en": "Cream (heavy)"
+          },
           "amount": 500,
-          "unit": {"no": "ml", "en": "ml"}
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
         },
         {
-          "name": {"no": "Stivelse eller pudringssukker", "en": "Cornstarch or powdered sugar"},
+          "name": {
+            "no": "Stivelse eller pudringssukker",
+            "en": "Cornstarch or powdered sugar"
+          },
           "amount": 2,
-          "unit": {"no": "ss", "en": "tbsp"}
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
         },
         {
-          "name": {"no": "Sukker", "en": "Sugar"},
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
           "amount": 50,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Vaniljeekstrakt", "en": "Vanilla extract"},
+          "name": {
+            "no": "Vaniljeekstrakt",
+            "en": "Vanilla extract"
+          },
           "amount": 1,
-          "unit": {"no": "ts", "en": "tsp"}
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
         },
         {
-          "name": {"no": "Fondant (grønn)", "en": "Fondant (green)"},
+          "name": {
+            "no": "Fondant (grønn)",
+            "en": "Fondant (green)"
+          },
           "amount": 400,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Syltetøy (for midt-lag)", "en": "Jam (for middle layer)"},
+          "name": {
+            "no": "Syltetøy (for midt-lag)",
+            "en": "Jam (for middle layer)"
+          },
           "amount": 200,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Rosenbär (til toppen)", "en": "Marzipan rose"},
+          "name": {
+            "no": "Rosenbär (til toppen)",
+            "en": "Marzipan rose"
+          },
           "amount": 1,
-          "unit": {"no": "stk", "en": "piece"}
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
         }
       ],
       "instructions": {
@@ -416,38 +678,80 @@
       "cookTimeMinutes": 40,
       "servings": 4,
       "category": "Meat",
-      "tags": ["scandinavian", "elegant", "summer"],
-      "allergens": ["dairy"],
+      "tags": [
+        "scandinavian",
+        "elegant",
+        "summer"
+      ],
+      "allergens": [
+        "dairy"
+      ],
       "ingredients": [
         {
-          "name": {"no": "Mørbrad (gris)", "en": "Pork tenderloin"},
+          "name": {
+            "no": "Mørbrad (gris)",
+            "en": "Pork tenderloin"
+          },
           "amount": 700,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Smør", "en": "Butter"},
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
           "amount": 50,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Jordbær (friske)", "en": "Strawberries (fresh)"},
+          "name": {
+            "no": "Jordbær (friske)",
+            "en": "Strawberries (fresh)"
+          },
           "amount": 300,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Fløte (tykk)", "en": "Cream (heavy)"},
+          "name": {
+            "no": "Fløte (tykk)",
+            "en": "Cream (heavy)"
+          },
           "amount": 200,
-          "unit": {"no": "ml", "en": "ml"}
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
         },
         {
-          "name": {"no": "Hvit vin", "en": "White wine"},
+          "name": {
+            "no": "Hvit vin",
+            "en": "White wine"
+          },
           "amount": 100,
-          "unit": {"no": "ml", "en": "ml"}
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
         },
         {
-          "name": {"no": "Salt og pepper", "en": "Salt and pepper"},
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
           "amount": 1,
-          "unit": {"no": "etter smak", "en": "to taste"}
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
         }
       ],
       "instructions": {
@@ -489,43 +793,92 @@
       "cookTimeMinutes": 40,
       "servings": 4,
       "category": "Meat",
-      "tags": ["danish", "meatballs", "comfort-food"],
-      "allergens": ["gluten", "dairy"],
+      "tags": [
+        "danish",
+        "meatballs",
+        "comfort-food"
+      ],
+      "allergens": [
+        "gluten",
+        "dairy"
+      ],
       "ingredients": [
         {
-          "name": {"no": "Kjøttdeig (blandet)", "en": "Ground meat (mixed)"},
+          "name": {
+            "no": "Kjøttdeig (blandet)",
+            "en": "Ground meat (mixed)"
+          },
           "amount": 600,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Løk (finhakket)", "en": "Onion (minced)"},
+          "name": {
+            "no": "Løk (finhakket)",
+            "en": "Onion (minced)"
+          },
           "amount": 1,
-          "unit": {"no": "medium", "en": "medium"}
+          "unit": {
+            "no": "medium",
+            "en": "medium"
+          }
         },
         {
-          "name": {"no": "Egg", "en": "Egg"},
+          "name": {
+            "no": "Egg",
+            "en": "Egg"
+          },
           "amount": 1,
-          "unit": {"no": "stk", "en": "piece"}
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
         },
         {
-          "name": {"no": "Brødkrumler", "en": "Breadcrumbs"},
+          "name": {
+            "no": "Brødkrumler",
+            "en": "Breadcrumbs"
+          },
           "amount": 75,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Melk", "en": "Milk"},
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
           "amount": 75,
-          "unit": {"no": "ml", "en": "ml"}
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
         },
         {
-          "name": {"no": "Smør", "en": "Butter"},
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
           "amount": 50,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Brunsaus", "en": "Brown sauce"},
+          "name": {
+            "no": "Brunsaus",
+            "en": "Brown sauce"
+          },
           "amount": 200,
-          "unit": {"no": "ml", "en": "ml"}
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
         }
       ],
       "instructions": {
@@ -563,43 +916,92 @@
       "cookTimeMinutes": 30,
       "servings": 4,
       "category": "Other",
-      "tags": ["danish", "dessert", "berries", "summer"],
-      "allergens": ["dairy"],
+      "tags": [
+        "danish",
+        "dessert",
+        "berries",
+        "summer"
+      ],
+      "allergens": [
+        "dairy"
+      ],
       "ingredients": [
         {
-          "name": {"no": "Jordbær", "en": "Strawberries"},
+          "name": {
+            "no": "Jordbær",
+            "en": "Strawberries"
+          },
           "amount": 300,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Kirsebær", "en": "Cherries"},
+          "name": {
+            "no": "Kirsebær",
+            "en": "Cherries"
+          },
           "amount": 200,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Rabarber", "en": "Rhubarb"},
+          "name": {
+            "no": "Rabarber",
+            "en": "Rhubarb"
+          },
           "amount": 300,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Sukker", "en": "Sugar"},
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
           "amount": 100,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Vann", "en": "Water"},
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
           "amount": 300,
-          "unit": {"no": "ml", "en": "ml"}
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
         },
         {
-          "name": {"no": "Stivelse (maiskorn)", "en": "Cornstarch"},
+          "name": {
+            "no": "Stivelse (maiskorn)",
+            "en": "Cornstarch"
+          },
           "amount": 2,
-          "unit": {"no": "ss", "en": "tbsp"}
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
         },
         {
-          "name": {"no": "Fløte", "en": "Cream"},
+          "name": {
+            "no": "Fløte",
+            "en": "Cream"
+          },
           "amount": 300,
-          "unit": {"no": "ml", "en": "ml"}
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
         }
       ],
       "instructions": {
@@ -639,38 +1041,80 @@
       "cookTimeMinutes": 240,
       "servings": 2,
       "category": "Other",
-      "tags": ["scandinavian", "bread", "traditional"],
-      "allergens": ["gluten"],
+      "tags": [
+        "scandinavian",
+        "bread",
+        "traditional"
+      ],
+      "allergens": [
+        "gluten"
+      ],
       "ingredients": [
         {
-          "name": {"no": "Rugmel", "en": "Rye flour"},
+          "name": {
+            "no": "Rugmel",
+            "en": "Rye flour"
+          },
           "amount": 300,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Hvetemel", "en": "Wheat flour"},
+          "name": {
+            "no": "Hvetemel",
+            "en": "Wheat flour"
+          },
           "amount": 200,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Gjær", "en": "Yeast"},
+          "name": {
+            "no": "Gjær",
+            "en": "Yeast"
+          },
           "amount": 25,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Vann", "en": "Water"},
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
           "amount": 350,
-          "unit": {"no": "ml", "en": "ml"}
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
         },
         {
-          "name": {"no": "Salt", "en": "Salt"},
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
           "amount": 1,
-          "unit": {"no": "ts", "en": "tsp"}
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
         },
         {
-          "name": {"no": "Honning (valgfritt)", "en": "Honey (optional)"},
+          "name": {
+            "no": "Honning (valgfritt)",
+            "en": "Honey (optional)"
+          },
           "amount": 1,
-          "unit": {"no": "ss", "en": "tbsp"}
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
         }
       ],
       "instructions": {
@@ -712,38 +1156,80 @@
       "cookTimeMinutes": 20,
       "servings": 4,
       "category": "Fish",
-      "tags": ["scandinavian", "seafood", "traditional"],
-      "allergens": ["fish"],
+      "tags": [
+        "scandinavian",
+        "seafood",
+        "traditional"
+      ],
+      "allergens": [
+        "fish"
+      ],
       "ingredients": [
         {
-          "name": {"no": "Sild (røkt eller saltet)", "en": "Herring (smoked or pickled)"},
+          "name": {
+            "no": "Sild (røkt eller saltet)",
+            "en": "Herring (smoked or pickled)"
+          },
           "amount": 400,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Løk (rød)", "en": "Red onion"},
+          "name": {
+            "no": "Løk (rød)",
+            "en": "Red onion"
+          },
           "amount": 1,
-          "unit": {"no": "medium", "en": "medium"}
+          "unit": {
+            "no": "medium",
+            "en": "medium"
+          }
         },
         {
-          "name": {"no": "Rugbrød", "en": "Rye bread"},
+          "name": {
+            "no": "Rugbrød",
+            "en": "Rye bread"
+          },
           "amount": 4,
-          "unit": {"no": "skivor", "en": "slices"}
+          "unit": {
+            "no": "skivor",
+            "en": "slices"
+          }
         },
         {
-          "name": {"no": "Smør", "en": "Butter"},
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
           "amount": 50,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Rømme", "en": "Sour cream"},
+          "name": {
+            "no": "Rømme",
+            "en": "Sour cream"
+          },
           "amount": 100,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Dill (frisk)", "en": "Dill (fresh)"},
+          "name": {
+            "no": "Dill (frisk)",
+            "en": "Dill (fresh)"
+          },
           "amount": 1,
-          "unit": {"no": "knippe", "en": "bunch"}
+          "unit": {
+            "no": "knippe",
+            "en": "bunch"
+          }
         }
       ],
       "instructions": {
@@ -781,38 +1267,82 @@
       "cookTimeMinutes": 120,
       "servings": 10,
       "category": "Other",
-      "tags": ["scandinavian", "cake", "celebration"],
-      "allergens": ["nuts", "dairy", "eggs"],
+      "tags": [
+        "scandinavian",
+        "cake",
+        "celebration"
+      ],
+      "allergens": [
+        "nuts",
+        "dairy",
+        "eggs"
+      ],
       "ingredients": [
         {
-          "name": {"no": "Mandelmel", "en": "Almond flour"},
+          "name": {
+            "no": "Mandelmel",
+            "en": "Almond flour"
+          },
           "amount": 300,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Egg", "en": "Eggs"},
+          "name": {
+            "no": "Egg",
+            "en": "Eggs"
+          },
           "amount": 5,
-          "unit": {"no": "stk", "en": "pieces"}
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
         },
         {
-          "name": {"no": "Sukker (puddringssukker)", "en": "Sugar (powdered)"},
+          "name": {
+            "no": "Sukker (puddringssukker)",
+            "en": "Sugar (powdered)"
+          },
           "amount": 300,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Rom eller likør", "en": "Rum or liqueur"},
+          "name": {
+            "no": "Rom eller likør",
+            "en": "Rum or liqueur"
+          },
           "amount": 3,
-          "unit": {"no": "ss", "en": "tbsp"}
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
         },
         {
-          "name": {"no": "Hvitløk eller vaniljeekstrakt", "en": "Zest or vanilla"},
+          "name": {
+            "no": "Hvitløk eller vaniljeekstrakt",
+            "en": "Zest or vanilla"
+          },
           "amount": 1,
-          "unit": {"no": "ts", "en": "tsp"}
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
         },
         {
-          "name": {"no": "Sjokolade (til dekorasjon)", "en": "Chocolate (for decoration)"},
+          "name": {
+            "no": "Sjokolade (til dekorasjon)",
+            "en": "Chocolate (for decoration)"
+          },
           "amount": 100,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         }
       ],
       "instructions": {
@@ -854,38 +1384,79 @@
       "cookTimeMinutes": 30,
       "servings": 4,
       "category": "Other",
-      "tags": ["scandinavian", "soup", "dessert", "fruit"],
+      "tags": [
+        "scandinavian",
+        "soup",
+        "dessert",
+        "fruit"
+      ],
       "allergens": [],
       "ingredients": [
         {
-          "name": {"no": "Tørket frukt (blandede)", "en": "Dried fruit (mixed)"},
+          "name": {
+            "no": "Tørket frukt (blandede)",
+            "en": "Dried fruit (mixed)"
+          },
           "amount": 400,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Sukker", "en": "Sugar"},
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
           "amount": 50,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Vann", "en": "Water"},
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
           "amount": 1,
-          "unit": {"no": "liter", "en": "liter"}
+          "unit": {
+            "no": "liter",
+            "en": "liter"
+          }
         },
         {
-          "name": {"no": "Kanelstang", "en": "Cinnamon stick"},
+          "name": {
+            "no": "Kanelstang",
+            "en": "Cinnamon stick"
+          },
           "amount": 1,
-          "unit": {"no": "stk", "en": "piece"}
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
         },
         {
-          "name": {"no": "Nellik", "en": "Cloves"},
+          "name": {
+            "no": "Nellik",
+            "en": "Cloves"
+          },
           "amount": 3,
-          "unit": {"no": "stk", "en": "pieces"}
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
         },
         {
-          "name": {"no": "Sitron (saft og skall)", "en": "Lemon (juice and zest)"},
+          "name": {
+            "no": "Sitron (saft og skall)",
+            "en": "Lemon (juice and zest)"
+          },
           "amount": 1,
-          "unit": {"no": "stk", "en": "piece"}
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
         }
       ],
       "instructions": {
@@ -923,48 +1494,104 @@
       "cookTimeMinutes": 45,
       "servings": 4,
       "category": "Fish",
-      "tags": ["scandinavian", "fish", "comfort-food"],
-      "allergens": ["fish", "dairy", "gluten"],
+      "tags": [
+        "scandinavian",
+        "fish",
+        "comfort-food"
+      ],
+      "allergens": [
+        "fish",
+        "dairy",
+        "gluten"
+      ],
       "ingredients": [
         {
-          "name": {"no": "Fisk (finhakket)", "en": "Fish (minced)"},
+          "name": {
+            "no": "Fisk (finhakket)",
+            "en": "Fish (minced)"
+          },
           "amount": 600,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Melk", "en": "Milk"},
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
           "amount": 100,
-          "unit": {"no": "ml", "en": "ml"}
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
         },
         {
-          "name": {"no": "Brødkrumler", "en": "Breadcrumbs"},
+          "name": {
+            "no": "Brødkrumler",
+            "en": "Breadcrumbs"
+          },
           "amount": 75,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Egg", "en": "Egg"},
+          "name": {
+            "no": "Egg",
+            "en": "Egg"
+          },
           "amount": 1,
-          "unit": {"no": "stk", "en": "piece"}
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
         },
         {
-          "name": {"no": "Løk (finhakket)", "en": "Onion (minced)"},
+          "name": {
+            "no": "Løk (finhakket)",
+            "en": "Onion (minced)"
+          },
           "amount": 1,
-          "unit": {"no": "small", "en": "small"}
+          "unit": {
+            "no": "small",
+            "en": "small"
+          }
         },
         {
-          "name": {"no": "Dill (frisk)", "en": "Dill (fresh)"},
+          "name": {
+            "no": "Dill (frisk)",
+            "en": "Dill (fresh)"
+          },
           "amount": 2,
-          "unit": {"no": "ss", "en": "tbsp"}
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
         },
         {
-          "name": {"no": "Smør", "en": "Butter"},
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
           "amount": 50,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Buljong (fisk)", "en": "Fish broth"},
+          "name": {
+            "no": "Buljong (fisk)",
+            "en": "Fish broth"
+          },
           "amount": 500,
-          "unit": {"no": "ml", "en": "ml"}
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
         }
       ],
       "instructions": {
@@ -1002,43 +1629,92 @@
       "cookTimeMinutes": 35,
       "servings": 4,
       "category": "Meat",
-      "tags": ["icelandic", "meatballs", "comfort-food"],
-      "allergens": ["gluten", "dairy"],
+      "tags": [
+        "icelandic",
+        "meatballs",
+        "comfort-food"
+      ],
+      "allergens": [
+        "gluten",
+        "dairy"
+      ],
       "ingredients": [
         {
-          "name": {"no": "Kjøttdeig", "en": "Ground meat"},
+          "name": {
+            "no": "Kjøttdeig",
+            "en": "Ground meat"
+          },
           "amount": 600,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Løk (finhakket)", "en": "Onion (minced)"},
+          "name": {
+            "no": "Løk (finhakket)",
+            "en": "Onion (minced)"
+          },
           "amount": 1,
-          "unit": {"no": "medium", "en": "medium"}
+          "unit": {
+            "no": "medium",
+            "en": "medium"
+          }
         },
         {
-          "name": {"no": "Egg", "en": "Egg"},
+          "name": {
+            "no": "Egg",
+            "en": "Egg"
+          },
           "amount": 1,
-          "unit": {"no": "stk", "en": "piece"}
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
         },
         {
-          "name": {"no": "Brødkrumler", "en": "Breadcrumbs"},
+          "name": {
+            "no": "Brødkrumler",
+            "en": "Breadcrumbs"
+          },
           "amount": 75,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Melk", "en": "Milk"},
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
           "amount": 75,
-          "unit": {"no": "ml", "en": "ml"}
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
         },
         {
-          "name": {"no": "Smør", "en": "Butter"},
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
           "amount": 50,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Brunsaus", "en": "Brown sauce"},
+          "name": {
+            "no": "Brunsaus",
+            "en": "Brown sauce"
+          },
           "amount": 200,
-          "unit": {"no": "ml", "en": "ml"}
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
         }
       ],
       "instructions": {
@@ -1078,48 +1754,104 @@
       "cookTimeMinutes": 60,
       "servings": 8,
       "category": "Other",
-      "tags": ["icelandic", "cake", "layered"],
-      "allergens": ["gluten", "dairy", "eggs"],
+      "tags": [
+        "icelandic",
+        "cake",
+        "layered"
+      ],
+      "allergens": [
+        "gluten",
+        "dairy",
+        "eggs"
+      ],
       "ingredients": [
         {
-          "name": {"no": "Hvetemel", "en": "Wheat flour"},
+          "name": {
+            "no": "Hvetemel",
+            "en": "Wheat flour"
+          },
           "amount": 300,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Smør", "en": "Butter"},
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
           "amount": 200,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Sukker", "en": "Sugar"},
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
           "amount": 200,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Egg", "en": "Eggs"},
+          "name": {
+            "no": "Egg",
+            "en": "Eggs"
+          },
           "amount": 3,
-          "unit": {"no": "stk", "en": "pieces"}
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
         },
         {
-          "name": {"no": "Bakepulver", "en": "Baking powder"},
+          "name": {
+            "no": "Bakepulver",
+            "en": "Baking powder"
+          },
           "amount": 2,
-          "unit": {"no": "ts", "en": "tsp"}
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
         },
         {
-          "name": {"no": "Melk", "en": "Milk"},
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
           "amount": 100,
-          "unit": {"no": "ml", "en": "ml"}
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
         },
         {
-          "name": {"no": "Syltetøy", "en": "Jam"},
+          "name": {
+            "no": "Syltetøy",
+            "en": "Jam"
+          },
           "amount": 300,
-          "unit": {"no": "gram", "en": "g"}
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
         },
         {
-          "name": {"no": "Fløte (tykk)", "en": "Cream (heavy)"},
+          "name": {
+            "no": "Fløte (tykk)",
+            "en": "Cream (heavy)"
+          },
           "amount": 500,
-          "unit": {"no": "ml", "en": "ml"}
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
         }
       ],
       "instructions": {
@@ -1142,6 +1874,6151 @@
           "6. Spread jam between layers.",
           "7. Whip cream stiff and use as topping.",
           "8. Decorate with fruit or candies."
+        ]
+      }
+    },
+    {
+      "id": "nd_016",
+      "title": {
+        "no": "Köttbullar",
+        "en": "Swedish Meatballs"
+      },
+      "subtitle": {
+        "no": "Svenske kjøttboller i kremet sky med tyttebær",
+        "en": "Swedish meatballs in creamy gravy with lingonberry jam"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 45,
+      "servings": 4,
+      "category": "Meat",
+      "tags": [
+        "traditional",
+        "nordic",
+        "comfort-food"
+      ],
+      "allergens": [
+        "dairy",
+        "egg",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kjøttdeig (blanding av svin og kjøtt)",
+            "en": "Ground meat (pork and beef mix)"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk, finhakket",
+            "en": "Onion, finely chopped"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Brødsmuler",
+            "en": "Breadcrumbs"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Egg"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Kjøttkraft",
+            "en": "Beef stock"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Kremfløte",
+            "en": "Heavy cream"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Soyasaus",
+            "en": "Soy sauce"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Tyttebærsyltetøy",
+            "en": "Lingonberry jam"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bløtlegg brødsmuler i melk i noen minutter til de svulmer opp.",
+          "2. Bland kjøttdeig, løk, egg og brødsmulemassen godt sammen, og krydre med salt og pepper.",
+          "3. Form små runde kjøttboller med fuktede hender.",
+          "4. Stek kjøttbollene i smør på middels varme til de er gyldenbrune på alle sider og gjennomstekt.",
+          "5. Ta kjøttbollene ut og lag sausen i samme panne med kjøttkraft, kremfløte og soyasaus.",
+          "6. Kok sausen til den tykner litt, legg kjøttbollene tilbake og varm gjennom.",
+          "7. Server med tyttebærsyltetøy og potetmos eller kokte poteter."
+        ],
+        "en": [
+          "1. Soak the breadcrumbs in milk for a few minutes until softened.",
+          "2. Mix the ground meat, onion, egg and the breadcrumb mixture thoroughly, and season with salt and pepper.",
+          "3. Shape small round meatballs with damp hands.",
+          "4. Fry the meatballs in butter over medium heat until golden brown on all sides and cooked through.",
+          "5. Remove the meatballs and make the gravy in the same pan with beef stock, cream and soy sauce.",
+          "6. Simmer the gravy until slightly thickened, return the meatballs and heat through.",
+          "7. Serve with lingonberry jam and mashed or boiled potatoes."
+        ]
+      }
+    },
+    {
+      "id": "nd_017",
+      "title": {
+        "no": "Frikadeller",
+        "en": "Danish Pan-Fried Meat Patties"
+      },
+      "subtitle": {
+        "no": "Danske møre kjøttkaker stekt i smør",
+        "en": "Tender Danish meat patties fried in butter"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Meat",
+      "tags": [
+        "traditional",
+        "nordic",
+        "comfort-food"
+      ],
+      "allergens": [
+        "dairy",
+        "egg",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kjøttdeig (svin og kjøtt)",
+            "en": "Ground meat (pork and beef)"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk, finrevet",
+            "en": "Onion, finely grated"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvetemel",
+            "en": "Wheat flour"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Egg"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør til steking",
+            "en": "Butter for frying"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Rør sammen kjøttdeig, mel og egg til en jevn farse.",
+          "2. Tilsett melk gradvis mens du rører, til farsen blir luftig og smidig.",
+          "3. Bland inn revet løk, salt og pepper.",
+          "4. La farsen trekke kaldt i kjøleskap i 15-20 minutter.",
+          "5. Form ovale kaker med en skje dyppet i vann.",
+          "6. Stek frikadellene i smør på middels varme i 4-5 minutter på hver side til de er gyldne og gjennomstekt.",
+          "7. Server med kokte poteter og brun eller hvit sjysås."
+        ],
+        "en": [
+          "1. Mix the ground meat, flour and egg into a smooth batter.",
+          "2. Gradually add the milk while stirring until the mixture becomes light and pliable.",
+          "3. Fold in the grated onion, salt and pepper.",
+          "4. Let the mixture rest in the fridge for 15-20 minutes.",
+          "5. Shape oval patties using a spoon dipped in water.",
+          "6. Fry the patties in butter over medium heat for 4-5 minutes per side until golden and cooked through.",
+          "7. Serve with boiled potatoes and brown or white gravy."
+        ]
+      }
+    },
+    {
+      "id": "nd_018",
+      "title": {
+        "no": "Karjalanpaisti",
+        "en": "Karelian Stew"
+      },
+      "subtitle": {
+        "no": "Finsk langtidsstekt gryte med blandet kjøtt",
+        "en": "Finnish slow-baked stew with mixed meats"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 180,
+      "servings": 4,
+      "category": "Meat",
+      "tags": [
+        "traditional",
+        "nordic",
+        "slow-cooked",
+        "comfort-food"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kjøttbiter av svin",
+            "en": "Pork, cubed"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kjøttbiter av kjøtt (oksekjøtt)",
+            "en": "Beef, cubed"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Lammekjøtt, biter",
+            "en": "Lamb, cubed"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Gulrot",
+            "en": "Carrot"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Hele pepperkorn",
+            "en": "Whole peppercorns"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Forvarm stekeovnen til 150°C.",
+          "2. Skjær kjøttet i jevne biter og legg det i en gryte med lokk.",
+          "3. Skjær gulrøtter og løk i grove biter og legg over kjøttet.",
+          "4. Tilsett pepperkorn, salt og vann.",
+          "5. Sett gryten med lokk i ovnen og la den småkoke i 3-4 timer til kjøttet er mørt.",
+          "6. Rør om en gang i løpet av steketiden og sjekk vannivået.",
+          "7. Server varm med kokte poteter eller rugbrød."
+        ],
+        "en": [
+          "1. Preheat the oven to 150°C.",
+          "2. Cut the meat into even chunks and place in a covered casserole dish.",
+          "3. Cut the carrots and onions into rough pieces and layer over the meat.",
+          "4. Add the peppercorns, salt and water.",
+          "5. Place the covered casserole in the oven and let it simmer for 3-4 hours until the meat is tender.",
+          "6. Stir once during cooking and check the water level.",
+          "7. Serve hot with boiled potatoes or rye bread."
+        ]
+      }
+    },
+    {
+      "id": "nd_019",
+      "title": {
+        "no": "Ärtsoppa",
+        "en": "Swedish Yellow Split Pea Soup"
+      },
+      "subtitle": {
+        "no": "Varmende ertesuppe med flesk og urter",
+        "en": "Warming split pea soup with salted pork and herbs"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 90,
+      "servings": 4,
+      "category": "Other",
+      "tags": [
+        "traditional",
+        "nordic",
+        "soup",
+        "comfort-food"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Gule erter (tørkede)",
+            "en": "Yellow split peas (dried)"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Saltflesk eller bacon",
+            "en": "Salted pork or bacon"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Timian",
+            "en": "Thyme"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
+          "amount": 1500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Sennep til servering",
+            "en": "Mustard for serving"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skyll de gule ertene og legg dem i vann i flere timer eller over natten.",
+          "2. Kok ertene opp i ferskt vann og skum av skummet som dannes på toppen.",
+          "3. Tilsett løk i hele eller halve biter og det salte flesket.",
+          "4. La suppen koke sakte i 1-1,5 time til ertene er møre og suppen er tykk.",
+          "5. Fjern fleskbitene, skjær dem i mindre stykker og legg tilbake i suppen.",
+          "6. Smak til med timian, salt og pepper.",
+          "7. Server varm med sennep og eventuelt tynne pannekaker til dessert."
+        ],
+        "en": [
+          "1. Rinse the split peas and soak them in water for several hours or overnight.",
+          "2. Bring the peas to a boil in fresh water, skimming off the foam that forms on top.",
+          "3. Add the onion in whole or halved pieces along with the salted pork.",
+          "4. Let the soup simmer gently for 1-1.5 hours until the peas are soft and the soup has thickened.",
+          "5. Remove the pork pieces, cut into smaller chunks and return to the soup.",
+          "6. Season with thyme, salt and pepper to taste.",
+          "7. Serve hot with mustard, traditionally followed by thin pancakes for dessert."
+        ]
+      }
+    },
+    {
+      "id": "nd_020",
+      "title": {
+        "no": "Smørrebrød",
+        "en": "Danish Open Sandwiches"
+      },
+      "subtitle": {
+        "no": "Rugbrødsmørbrød med variert pålegg",
+        "en": "Rye bread open sandwiches with varied toppings"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 20,
+      "servings": 4,
+      "category": "Other",
+      "tags": [
+        "traditional",
+        "nordic",
+        "light-meal"
+      ],
+      "allergens": [
+        "gluten",
+        "fish",
+        "egg"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Rugbrød, skiver",
+            "en": "Rye bread, slices"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "skiver",
+            "en": "slices"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Røkt makrell eller sild",
+            "en": "Smoked mackerel or herring"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kokt egg, skåret i skiver",
+            "en": "Boiled egg, sliced"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Roastbiff, tynne skiver",
+            "en": "Roast beef, thin slices"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Reddiker, skiver",
+            "en": "Radishes, sliced"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Karse eller persille til garnityr",
+            "en": "Cress or parsley for garnish"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "bunt",
+            "en": "bunch"
+          }
+        },
+        {
+          "name": {
+            "no": "Remoulade",
+            "en": "Remoulade sauce"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Smør rugbrødskivene tynt med smør helt ut til kantene.",
+          "2. Legg den røkte fisken på en av skivene og garnér med karse.",
+          "3. Legg eggeskiver på en annen skive og topp med litt remoulade.",
+          "4. Legg roastbiff på den tredje skiven og garnér med reddikskiver.",
+          "5. Fortsett å variere pålegg etter smak på resten av brødskivene.",
+          "6. Pynt alle smørrebrødene med urter eller en skive sitron.",
+          "7. Server umiddelbart, åpne og uten lokk, på et fat."
+        ],
+        "en": [
+          "1. Spread the rye bread slices thinly with butter all the way to the edges.",
+          "2. Place the smoked fish on one slice and garnish with cress.",
+          "3. Arrange sliced egg on another slice and top with a little remoulade.",
+          "4. Lay roast beef on the third slice and garnish with sliced radishes.",
+          "5. Continue varying the toppings to taste on the remaining slices.",
+          "6. Garnish all the sandwiches with herbs or a lemon slice.",
+          "7. Serve immediately, open-faced, arranged on a platter."
+        ]
+      }
+    },
+    {
+      "id": "nd_021",
+      "title": {
+        "no": "Gravlax",
+        "en": "Cured Salmon"
+      },
+      "subtitle": {
+        "no": "Saltet og sukret laks med sennepssaus",
+        "en": "Salt and sugar cured salmon with mustard-dill sauce"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 30,
+      "servings": 6,
+      "category": "Fish",
+      "tags": [
+        "traditional",
+        "nordic",
+        "fish",
+        "cured"
+      ],
+      "allergens": [
+        "fish",
+        "mustard"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Laksefilet med skinn",
+            "en": "Salmon fillet with skin"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvit pepper",
+            "en": "White pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Fersk dill",
+            "en": "Fresh dill"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "bunt",
+            "en": "bunch"
+          }
+        },
+        {
+          "name": {
+            "no": "Sennep (dijon)",
+            "en": "Mustard (dijon)"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Honning",
+            "en": "Honey"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Olje",
+            "en": "Oil"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland salt, sukker og pepper, og gni blandingen jevnt over laksefileten på begge sider.",
+          "2. Legg laksen i et fat, dekk rikelig med hakket dill og pakk tett inn i plastfolie.",
+          "3. Legg en lett vekt på toppen og sett i kjøleskap i 24-48 timer, og vend laksen et par ganger.",
+          "4. Skrap av marinaden og dilllaget før servering, og skjær laksen i tynne skiver.",
+          "5. Lag sennepssausen ved å piske sammen sennep, honning og olje til en jevn emulsjon.",
+          "6. Tilsett finhakket dill i sausen og smak til med salt og pepper.",
+          "7. Server de tynne laksskivene med sennepssausen og rugbrød eller poteter."
+        ],
+        "en": [
+          "1. Mix salt, sugar and pepper, and rub the mixture evenly over both sides of the salmon fillet.",
+          "2. Place the salmon in a dish, cover generously with chopped dill and wrap tightly in plastic film.",
+          "3. Place a light weight on top and refrigerate for 24-48 hours, turning the salmon a couple of times.",
+          "4. Scrape off the marinade and dill before serving, and slice the salmon thinly.",
+          "5. Make the mustard sauce by whisking together mustard, honey and oil until smoothly emulsified.",
+          "6. Stir finely chopped dill into the sauce and season with salt and pepper to taste.",
+          "7. Serve the thin salmon slices with the mustard-dill sauce and rye bread or potatoes."
+        ]
+      }
+    },
+    {
+      "id": "nd_022",
+      "title": {
+        "no": "Janssons Frestelse",
+        "en": "Jansson's Temptation"
+      },
+      "subtitle": {
+        "no": "Kremet potetgrateng med ansjos",
+        "en": "Creamy potato and anchovy casserole"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 75,
+      "servings": 4,
+      "category": "Fish",
+      "tags": [
+        "traditional",
+        "nordic",
+        "casserole",
+        "comfort-food"
+      ],
+      "allergens": [
+        "fish",
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Poteter, skåret i staver",
+            "en": "Potatoes, cut into strips"
+          },
+          "amount": 1000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk, tynt skåret",
+            "en": "Onion, thinly sliced"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Ansjosfileter i olje",
+            "en": "Anchovy fillets in oil"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kremfløte",
+            "en": "Heavy cream"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Brødsmuler",
+            "en": "Breadcrumbs"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Forvarm stekeovnen til 200°C og smør en ildfast form.",
+          "2. Stek løken lett i smør til den er blank, uten å bli brun.",
+          "3. Legg lag av potetstaver, løk og ansjosfileter etter tur i formen, og avslutt med et lag poteter.",
+          "4. Bland kremfløte og melk og hell over grateng-en til den nesten dekker potetene.",
+          "5. Strø brødsmuler og noen klatter smør på toppen.",
+          "6. Stek i ovnen i 50-60 minutter til potetene er møre og toppen er gyllen.",
+          "7. La gratengen stå noen minutter før servering."
+        ],
+        "en": [
+          "1. Preheat the oven to 200°C and butter an ovenproof dish.",
+          "2. Lightly sauté the onion in butter until translucent, without browning it.",
+          "3. Layer the potato strips, onion and anchovy fillets in turns in the dish, finishing with a layer of potatoes.",
+          "4. Mix the cream and milk and pour over the casserole until it almost covers the potatoes.",
+          "5. Sprinkle breadcrumbs and a few dabs of butter on top.",
+          "6. Bake for 50-60 minutes until the potatoes are tender and the top is golden.",
+          "7. Let the casserole rest a few minutes before serving."
+        ]
+      }
+    },
+    {
+      "id": "nd_023",
+      "title": {
+        "no": "Plokkfiskur",
+        "en": "Icelandic Fish and Potato Mash"
+      },
+      "subtitle": {
+        "no": "Islandsk fiske- og potetmos med løk",
+        "en": "Icelandic mashed fish and potatoes with onion"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 40,
+      "servings": 4,
+      "category": "Fish",
+      "tags": [
+        "traditional",
+        "nordic",
+        "fish",
+        "comfort-food"
+      ],
+      "allergens": [
+        "fish",
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Hvit fisk (torsk eller hyse), kokt",
+            "en": "White fish (cod or haddock), cooked"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk, finhakket",
+            "en": "Onion, finely chopped"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvetemel",
+            "en": "Wheat flour"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Karri (valgfritt)",
+            "en": "Curry powder (optional)"
+          },
+          "amount": 0.5,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok potetene møre i saltet vann, og mos dem deretter grovt.",
+          "2. Mykgjør løken i smør i en stekepanne til den er blank.",
+          "3. Rør inn melet og spe gradvis med melk for å lage en jevn, lett saus.",
+          "4. Smak til sausen med karri, salt og pepper etter ønske.",
+          "5. Flak opp den kokte fisken og bland den forsiktig sammen med løksausen.",
+          "6. Vend inn de moste potetene slik at alt blandes til en jevn rett.",
+          "7. Server varm, gjerne med rugbrød og smør til."
+        ],
+        "en": [
+          "1. Boil the potatoes in salted water until tender, then mash them coarsely.",
+          "2. Soften the onion in butter in a frying pan until translucent.",
+          "3. Stir in the flour and gradually add milk to make a smooth, light sauce.",
+          "4. Season the sauce with curry powder, salt and pepper to taste.",
+          "5. Flake the cooked fish and gently fold it into the onion sauce.",
+          "6. Fold in the mashed potatoes so everything combines into an even dish.",
+          "7. Serve hot, traditionally with rye bread and butter on the side."
+        ]
+      }
+    },
+    {
+      "id": "nd_024",
+      "title": {
+        "no": "Stegt Flæsk med Persillesovs",
+        "en": "Fried Pork Belly with Parsley Sauce"
+      },
+      "subtitle": {
+        "no": "Dansk nasjonalrett med sprøtt flesk og persillesaus",
+        "en": "Danish national dish with crispy pork belly and parsley sauce"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 50,
+      "servings": 4,
+      "category": "Meat",
+      "tags": [
+        "traditional",
+        "nordic",
+        "comfort-food"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Svineribbe, tynne skiver",
+            "en": "Pork belly, thinly sliced"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvetemel",
+            "en": "Wheat flour"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Fersk persille, hakket",
+            "en": "Fresh parsley, chopped"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "bunt",
+            "en": "bunch"
+          }
+        },
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Legg de tynne fleskskivene i en kald stekepanne og stek dem på middels varme til de blir sprø og gyldenbrune.",
+          "2. Ta flesket ut og la det dryppe av på papir, og behold litt av fettet i pannen til sausen.",
+          "3. Smelt smør i fettet, rør inn mel og la det surre i et minutt.",
+          "4. Spe gradvis med melk under konstant røring til sausen er jevn og tykner.",
+          "5. La sausen koke sakte i 5-10 minutter, smak til med salt og pepper.",
+          "6. Rør inn rikelig med hakket persille like før servering.",
+          "7. Server det sprøstekte flesket med persillesausen og kokte poteter."
+        ],
+        "en": [
+          "1. Place the thin pork belly slices in a cold frying pan and fry over medium heat until crispy and golden brown.",
+          "2. Remove the pork and let it drain on paper, keeping some of the fat in the pan for the sauce.",
+          "3. Melt butter in the fat, stir in flour and let it cook for a minute.",
+          "4. Gradually whisk in the milk while stirring constantly until the sauce is smooth and thickens.",
+          "5. Let the sauce simmer gently for 5-10 minutes, seasoning with salt and pepper.",
+          "6. Stir in plenty of chopped parsley just before serving.",
+          "7. Serve the crispy fried pork belly with the parsley sauce and boiled potatoes."
+        ]
+      }
+    },
+    {
+      "id": "nd_025",
+      "title": {
+        "no": "Lihapullat",
+        "en": "Finnish Meatballs"
+      },
+      "subtitle": {
+        "no": "Finske kjøttboller servert med tyttebær",
+        "en": "Finnish meatballs served with lingonberries"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 40,
+      "servings": 4,
+      "category": "Meat",
+      "tags": [
+        "traditional",
+        "nordic",
+        "comfort-food"
+      ],
+      "allergens": [
+        "dairy",
+        "egg",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kjøttdeig (blanding)",
+            "en": "Ground meat (mixed)"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk, finhakket",
+            "en": "Onion, finely chopped"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Havregryn eller brødsmuler",
+            "en": "Rolled oats or breadcrumbs"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Egg"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Allehånde",
+            "en": "Allspice"
+          },
+          "amount": 0.5,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør til steking",
+            "en": "Butter for frying"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Tyttebær, hele eller syltetøy",
+            "en": "Lingonberries, whole or jam"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bløtlegg havregryn eller brødsmuler i melk til de svulmer opp.",
+          "2. Bland kjøttdeig, løk, egg, allehånde og den bløtlagte massen til en jevn farse.",
+          "3. Krydre med salt og pepper og bland godt.",
+          "4. Form farsen til små, jevne kjøttboller.",
+          "5. Stek kjøttbollene i smør på middels varme til de er gyldenbrune og gjennomstekt.",
+          "6. Rist pannen lett mens de steker, slik at de får en rund form.",
+          "7. Server varme med tyttebær og potetmos eller kokte poteter."
+        ],
+        "en": [
+          "1. Soak the rolled oats or breadcrumbs in milk until softened.",
+          "2. Mix the ground meat, onion, egg, allspice and the soaked mixture into a smooth batter.",
+          "3. Season with salt and pepper and mix well.",
+          "4. Shape the mixture into small, even meatballs.",
+          "5. Fry the meatballs in butter over medium heat until golden brown and cooked through.",
+          "6. Gently shake the pan while frying so the meatballs keep a round shape.",
+          "7. Serve hot with lingonberries and mashed or boiled potatoes."
+        ]
+      }
+    },
+    {
+      "id": "nd_026",
+      "title": {
+        "no": "Fiskeboller",
+        "en": "Nordic Fish Balls in White Sauce"
+      },
+      "subtitle": {
+        "no": "Lyse fiskeboller i kremet hvit saus",
+        "en": "Pale fish balls simmered in creamy white sauce"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 35,
+      "servings": 4,
+      "category": "Fish",
+      "tags": [
+        "traditional",
+        "nordic",
+        "fish",
+        "comfort-food"
+      ],
+      "allergens": [
+        "fish",
+        "dairy",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Hvit fisk, filet (torsk eller sei)",
+            "en": "White fish fillet (cod or pollock)"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Potetmel",
+            "en": "Potato starch"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Egg"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvetemel",
+            "en": "Wheat flour"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Fiskekraft",
+            "en": "Fish stock"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Muskat",
+            "en": "Nutmeg"
+          },
+          "amount": 0.25,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kjør fiskefilet, potetmel, egg og litt melk i en foodprosessor til en glatt farse.",
+          "2. Smak til farsen med salt, pepper og muskat.",
+          "3. Form farsen til små boller med to skjeer.",
+          "4. Kok opp fiskekraften og la fiskebollene sive forsiktig i 8-10 minutter til de flyter og er gjennomkokt.",
+          "5. Ta opp bollene og sil kraften, behold den til sausen.",
+          "6. Smelt smør i en kjele, rør inn mel og spe med den varme kraften til en jevn hvit saus.",
+          "7. Legg fiskebollene tilbake i sausen og server med kokte poteter og gulrøtter."
+        ],
+        "en": [
+          "1. Blend the fish fillet, potato starch, egg and a little milk in a food processor until smooth.",
+          "2. Season the mixture with salt, pepper and nutmeg.",
+          "3. Shape the mixture into small balls using two spoons.",
+          "4. Bring the fish stock to a gentle simmer and poach the fish balls for 8-10 minutes until they float and are cooked through.",
+          "5. Remove the balls and strain the stock, reserving it for the sauce.",
+          "6. Melt butter in a saucepan, stir in flour, and gradually add the hot stock to make a smooth white sauce.",
+          "7. Return the fish balls to the sauce and serve with boiled potatoes and carrots."
+        ]
+      }
+    },
+    {
+      "id": "nd_027",
+      "title": {
+        "no": "Kalops",
+        "en": "Swedish Beef Stew"
+      },
+      "subtitle": {
+        "no": "Svensk langtidskokt biffgryte med løk og lauerbær",
+        "en": "Swedish slow-cooked beef stew with onion and bay leaf"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 150,
+      "servings": 4,
+      "category": "Meat",
+      "tags": [
+        "traditional",
+        "nordic",
+        "slow-cooked",
+        "comfort-food"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Oksekjøtt til gryte, i biter",
+            "en": "Beef stewing meat, cubed"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk, i skiver",
+            "en": "Onion, sliced"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Gulrot, i skiver",
+            "en": "Carrot, sliced"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Lauerbærblad",
+            "en": "Bay leaves"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Allehånde, hele korn",
+            "en": "Allspice berries, whole"
+          },
+          "amount": 6,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Kjøttkraft",
+            "en": "Beef stock"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvetemel",
+            "en": "Wheat flour"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Brun kjøttbitene godt i smør i en gryte på høy varme i flere omganger.",
+          "2. Tilsett løk og fortsett å steke til løken blir blank.",
+          "3. Strø mel over kjøttet og løken og rør godt for å dekke alt.",
+          "4. Hell på kraften, tilsett lauerbærblad og allehånde, og kok opp.",
+          "5. Sett varmen ned og la gryten putre med lokk på i 2-2,5 timer til kjøttet er mørt.",
+          "6. Tilsett gulrøttene de siste 30 minuttene av koketiden.",
+          "7. Smak til med salt og pepper, og server med kokte poteter eller potetmos."
+        ],
+        "en": [
+          "1. Brown the meat well in butter in a pot over high heat, working in batches.",
+          "2. Add the onion and continue cooking until translucent.",
+          "3. Sprinkle flour over the meat and onion and stir well to coat everything.",
+          "4. Pour in the stock, add the bay leaves and allspice, and bring to a boil.",
+          "5. Lower the heat and let the stew simmer covered for 2-2.5 hours until the meat is tender.",
+          "6. Add the carrots during the last 30 minutes of cooking.",
+          "7. Season with salt and pepper, and serve with boiled potatoes or mashed potatoes."
+        ]
+      }
+    },
+    {
+      "id": "nd_028",
+      "title": {
+        "no": "Kalakukko",
+        "en": "Finnish Fish and Pork Rye Pie"
+      },
+      "subtitle": {
+        "no": "Finsk rugdeigpai fylt med fisk og flesk",
+        "en": "Finnish rye-crusted pie filled with fish and pork"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 240,
+      "servings": 6,
+      "category": "Fish",
+      "tags": [
+        "traditional",
+        "nordic",
+        "fish",
+        "baked"
+      ],
+      "allergens": [
+        "fish",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Rugmel",
+            "en": "Rye flour"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvetemel",
+            "en": "Wheat flour"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
+          "amount": 250,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Liten hel fisk (abbor eller sik), renset",
+            "en": "Small whole fish (perch or whitefish), cleaned"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt flesk, i skiver",
+            "en": "Salted pork, sliced"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør til pensling",
+            "en": "Butter for brushing"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland rugmel, hvetemel, salt og vann til en fast deig, og kjevle den ut til en stor sirkel.",
+          "2. Legg fiskefiletene og flesket lagvis i midten av deigen, og krydre med salt og pepper.",
+          "3. Brett deigkanten opp og over fyllet, og kna kantene godt sammen til en tett, lukket pakke.",
+          "4. Form pakken til en avrundet, hevet pai og legg den på en stekeplate.",
+          "5. Stek i ovnen på 175°C i 2,5-3 timer til skallet er mørkt og fast.",
+          "6. Pensle skallet med smeltet smør halvveis gjennom stekingen for å holde det smidig.",
+          "7. La paien avkjøles litt, skjær i skiver og server varm eller romtemperert."
+        ],
+        "en": [
+          "1. Mix rye flour, wheat flour, salt and water into a firm dough, and roll it out into a large circle.",
+          "2. Layer the fish fillets and pork slices in the center of the dough, seasoning with salt and pepper.",
+          "3. Fold the dough edges up and over the filling, pressing the seams firmly together into a sealed parcel.",
+          "4. Shape the parcel into a rounded, domed pie and place it on a baking sheet.",
+          "5. Bake at 175°C for 2.5-3 hours until the crust is dark and firm.",
+          "6. Brush the crust with melted butter halfway through baking to keep it from drying out.",
+          "7. Let the pie cool slightly, slice, and serve warm or at room temperature."
+        ]
+      }
+    },
+    {
+      "id": "nd_029",
+      "title": {
+        "no": "Raspeballer",
+        "en": "Norwegian Potato Dumplings"
+      },
+      "subtitle": {
+        "no": "Potetraspeballer kokt med saltet flesk",
+        "en": "Grated potato dumplings boiled with salted pork"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 90,
+      "servings": 4,
+      "category": "Meat",
+      "tags": [
+        "traditional",
+        "nordic",
+        "comfort-food"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Rå poteter, revet",
+            "en": "Raw potatoes, grated"
+          },
+          "amount": 1000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kokte poteter, moste",
+            "en": "Boiled potatoes, mashed"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvetemel",
+            "en": "Wheat flour"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Saltet flesk eller bacon, i biter",
+            "en": "Salted pork or bacon, cubed"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør til servering",
+            "en": "Butter for serving"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Riv de rå potetene fint og press ut overflødig vann gjennom et klede.",
+          "2. Bland de revne potetene med moste kokte poteter, mel og salt til en fast deig.",
+          "3. Press en liten klump flesk inn i midten av en håndfull deig og form til en jevn ball.",
+          "4. Fortsett til all deig og flesk er brukt opp.",
+          "5. Kok opp en stor gryte med lettsaltet vann og legg raspeballene forsiktig i.",
+          "6. La dem koke i 45-60 minutter til de er gjennomkokt og flyter til overflaten.",
+          "7. Server varme med smeltet smør, eventuelt sammen med kålrabistuing eller flesk."
+        ],
+        "en": [
+          "1. Finely grate the raw potatoes and press out excess water through a cloth.",
+          "2. Mix the grated potatoes with the mashed boiled potatoes, flour and salt into a firm dough.",
+          "3. Press a small piece of pork into the center of a handful of dough and shape into an even ball.",
+          "4. Continue until all the dough and pork have been used.",
+          "5. Bring a large pot of lightly salted water to a boil and gently add the dumplings.",
+          "6. Let them boil for 45-60 minutes until fully cooked and floating to the surface.",
+          "7. Serve hot with melted butter, optionally alongside mashed rutabaga or pork."
+        ]
+      }
+    },
+    {
+      "id": "nd_030",
+      "title": {
+        "no": "Pytt i Panna",
+        "en": "Swedish Hash with Fried Egg"
+      },
+      "subtitle": {
+        "no": "Svensk pannerett av terninger kjøtt og potet, toppet med egg",
+        "en": "Swedish skillet hash of diced meat and potato, topped with a fried egg"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 35,
+      "servings": 4,
+      "category": "Meat",
+      "tags": [
+        "traditional",
+        "nordic",
+        "leftovers",
+        "comfort-food"
+      ],
+      "allergens": [
+        "egg"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kokte poteter, i terninger",
+            "en": "Boiled potatoes, diced"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Rester av kjøtt (roastbiff eller pølse), i terninger",
+            "en": "Leftover meat (roast beef or sausage), diced"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk, i terninger",
+            "en": "Onion, diced"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Eggs"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Rødbeter, syltede",
+            "en": "Pickled beetroot"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Persille til garnityr",
+            "en": "Parsley for garnish"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Stek potetterningene i smør i en stor stekepanne til de er gyldne og sprø på utsiden.",
+          "2. Ta potetene ut og stek løken i samme panne til den er blank.",
+          "3. Tilsett kjøttterningene og stek til de er gyllenbrune og varme gjennom.",
+          "4. Bland potetene tilbake i pannen sammen med kjøtt og løk, og smak til med salt og pepper.",
+          "5. Stek alt sammen et par minutter til slik at smakene blander seg.",
+          "6. Stek eggene separat i en annen panne til eggeplommen fortsatt er rennende.",
+          "7. Server pytt i panna i porsjoner med et stekt egg på toppen og syltede rødbeter til."
+        ],
+        "en": [
+          "1. Fry the diced potatoes in butter in a large frying pan until golden and crisp on the outside.",
+          "2. Remove the potatoes and fry the onion in the same pan until translucent.",
+          "3. Add the diced meat and fry until golden brown and heated through.",
+          "4. Return the potatoes to the pan with the meat and onion, and season with salt and pepper.",
+          "5. Fry everything together for a couple more minutes so the flavors combine.",
+          "6. Fry the eggs separately in another pan until the yolk is still runny.",
+          "7. Serve the hash in portions topped with a fried egg, with pickled beetroot on the side."
+        ]
+      }
+    },
+    {
+      "id": "nd_069",
+      "title": {
+        "no": "Isbjørnkake",
+        "en": "Polar Bear Cake"
+      },
+      "subtitle": {
+        "no": "Sjokoladekake med marshmallow og kokos",
+        "en": "Chocolate cake with marshmallow and coconut"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 45,
+      "servings": 8,
+      "category": "Other",
+      "tags": [
+        "dessert",
+        "chocolate",
+        "celebration"
+      ],
+      "allergens": [
+        "wheat",
+        "eggs",
+        "milk",
+        "nuts"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Mel",
+            "en": "Flour"
+          },
+          "amount": 250,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kakao",
+            "en": "Cocoa powder"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Eggs"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Baking powder",
+            "en": "Baking powder"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "teskje",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Marshmallow",
+            "en": "Marshmallow fluff"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kokosnøtt",
+            "en": "Shredded coconut"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Smelt smør og bland med sukker",
+          "2. Pisk inn egg en om gangen",
+          "3. Bland mel, kakao og baking powder",
+          "4. Vekslende påfør melk og tørstoff",
+          "5. Hell i form og bak på 175°C i 30 minutter",
+          "6. Kjøl kaken, påfør marshmallow og kokosnøtt på toppen"
+        ],
+        "en": [
+          "1. Melt butter and mix with sugar",
+          "2. Whisk in eggs one at a time",
+          "3. Combine flour, cocoa and baking powder",
+          "4. Alternately add milk and dry ingredients",
+          "5. Pour into pan and bake at 175°C for 30 minutes",
+          "6. Cool cake, spread marshmallow and coconut on top"
+        ]
+      }
+    },
+    {
+      "id": "nd_070",
+      "title": {
+        "no": "Svartpølse",
+        "en": "Black Pudding"
+      },
+      "subtitle": {
+        "no": "Tradisjonell dansk blodpølse",
+        "en": "Traditional Danish blood sausage"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 60,
+      "servings": 6,
+      "category": "Meat",
+      "tags": [
+        "sausage",
+        "traditional",
+        "savory"
+      ],
+      "allergens": [
+        "meat",
+        "grains"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Grissblod",
+            "en": "Pig blood"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Fett",
+            "en": "Pork fat"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Rugmel",
+            "en": "Rye flour"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Krydder",
+            "en": "Spices"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "teskje",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Pølsehylse",
+            "en": "Sausage casing"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "meter",
+            "en": "m"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Hakk fett og løk fint",
+          "2. Bland blod, fett, rugmel, løk og krydder",
+          "3. Fylt pølsehylsen forsiktig med blandingen",
+          "4. Kok pølsen i 45 minutter ved 75°C",
+          "5. La avkjøle og server med løk og stekt mel"
+        ],
+        "en": [
+          "1. Finely chop fat and onion",
+          "2. Mix blood, fat, rye flour, onion and spices",
+          "3. Carefully fill sausage casing with mixture",
+          "4. Cook sausage for 45 minutes at 75°C",
+          "5. Cool and serve with onion and fried flour"
+        ]
+      }
+    },
+    {
+      "id": "nd_071",
+      "title": {
+        "no": "Rullepølse",
+        "en": "Rolled Sausage"
+      },
+      "subtitle": {
+        "no": "Sprø pølse rullet i stekt mel",
+        "en": "Crispy sausage rolled in fried flour"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 40,
+      "servings": 4,
+      "category": "Meat",
+      "tags": [
+        "pork",
+        "sausage",
+        "comfort food"
+      ],
+      "allergens": [
+        "meat",
+        "wheat"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Pølsekjøtt",
+            "en": "Ground pork"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Mel",
+            "en": "Flour"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Eggs"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Krydder",
+            "en": "Seasonings"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "teskje",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Olje",
+            "en": "Oil"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "spsk",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland kjøtt, egg, hakket løk og krydder",
+          "2. Former til en lang, tynn rulle",
+          "3. Walcer mel på en plate",
+          "4. Rull kjøtten i melet på alle sider",
+          "5. Sterk pølsen i olje på 6-7 minutter per side"
+        ],
+        "en": [
+          "1. Mix meat, eggs, chopped onion and seasonings",
+          "2. Form into a long, thin roll",
+          "3. Spread flour on a plate",
+          "4. Roll meat in flour on all sides",
+          "5. Fry sausage in oil for 6-7 minutes per side"
+        ]
+      }
+    },
+    {
+      "id": "nd_072",
+      "title": {
+        "no": "Spegepølse",
+        "en": "Cured Sausage"
+      },
+      "subtitle": {
+        "no": "Lufttørket porkkjøtt pølse",
+        "en": "Air-dried pork sausage"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 1440,
+      "servings": 8,
+      "category": "Meat",
+      "tags": [
+        "cured",
+        "traditional",
+        "charcuterie"
+      ],
+      "allergens": [
+        "meat",
+        "nuts"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Svinekjøtt",
+            "en": "Pork shoulder"
+          },
+          "amount": 1000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Nitratsalt",
+            "en": "Nitrate salt"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Karve",
+            "en": "Caraway seeds"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Krydderpepperkorner",
+            "en": "Peppercorns"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Hakk kjøttet og bland med salt, sukker og nitratsalt",
+          "2. Tilsett karve og pepperkorner",
+          "3. Fylt i pølsehylse og bind tett",
+          "4. Henges å tørke på kjøl plass i 14-21 dager",
+          "5. Server skåret tynn direkte eller lett stekt"
+        ],
+        "en": [
+          "1. Chop meat and mix with salt, sugar and nitrate salt",
+          "2. Add caraway seeds and peppercorns",
+          "3. Fill sausage casing and tie securely",
+          "4. Hang to dry in cool place for 14-21 days",
+          "5. Serve sliced thin fresh or lightly fried"
+        ]
+      }
+    },
+    {
+      "id": "nd_073",
+      "title": {
+        "no": "Romkugler",
+        "en": "Rum Balls"
+      },
+      "subtitle": {
+        "no": "Sjokoladekugler med rom og kokosnøtt",
+        "en": "Chocolate balls with rum and coconut"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 24,
+      "category": "Other",
+      "tags": [
+        "dessert",
+        "chocolate",
+        "no-bake"
+      ],
+      "allergens": [
+        "chocolate",
+        "coconut",
+        "alcohol"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Sjokoladekalkes",
+            "en": "Chocolate cake crumbs"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Powdered sugar"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Rom",
+            "en": "Rum"
+          },
+          "amount": 60,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 75,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kakao",
+            "en": "Cocoa powder"
+          },
+          "amount": 25,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kokosnøtt",
+            "en": "Shredded coconut"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland kakebrødet med pulverisert sukker",
+          "2. Bland inn smør og rom",
+          "3. Former små kugler",
+          "4. Rull halvparten i kakao, halvparten i kokosnøtt",
+          "5. Kjøl før servering"
+        ],
+        "en": [
+          "1. Mix cake crumbs with powdered sugar",
+          "2. Mix in butter and rum",
+          "3. Form small balls",
+          "4. Roll half in cocoa, half in coconut",
+          "5. Chill before serving"
+        ]
+      }
+    },
+    {
+      "id": "nd_074",
+      "title": {
+        "no": "Troll Krem",
+        "en": "Troll Cream"
+      },
+      "subtitle": {
+        "no": "Lys og luftig sjokoladedesert",
+        "en": "Light and airy chocolate dessert"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 20,
+      "servings": 6,
+      "category": "Other",
+      "tags": [
+        "dessert",
+        "chocolate",
+        "mousse"
+      ],
+      "allergens": [
+        "chocolate",
+        "eggs",
+        "milk"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Mørk sjokolade",
+            "en": "Dark chocolate"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Fløte",
+            "en": "Heavy cream"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Egg yolks"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Eggehviter",
+            "en": "Egg whites"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Smelt sjokoladen over varmtvann",
+          "2. Pisk eggehviter til stiv skum",
+          "3. Pisk fløte til halvstiv",
+          "4. Bland sjokolade med eggeplommer og sukker",
+          "5. Fold i eggehviter og fløte forsiktig",
+          "6. Server på glass eller kopper"
+        ],
+        "en": [
+          "1. Melt chocolate over hot water",
+          "2. Whip egg whites until stiff",
+          "3. Whip cream until semi-stiff",
+          "4. Mix chocolate with egg yolks and sugar",
+          "5. Gently fold in egg whites and cream",
+          "6. Serve in glasses or cups"
+        ]
+      }
+    },
+    {
+      "id": "nd_075",
+      "title": {
+        "no": "Piskekrem",
+        "en": "Whipped Cream"
+      },
+      "subtitle": {
+        "no": "Klassisk nordisk dessert med bær",
+        "en": "Classic Nordic dessert with berries"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 15,
+      "servings": 4,
+      "category": "Other",
+      "tags": [
+        "dessert",
+        "cream",
+        "berries"
+      ],
+      "allergens": [
+        "milk"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Fløte",
+            "en": "Heavy cream"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Vaniljestang",
+            "en": "Vanilla pod"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Blåbær",
+            "en": "Blueberries"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Jordbær",
+            "en": "Strawberries"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skrap frø fra vaniljestangen",
+          "2. Pisk fløte med sukker og vaniljefrø",
+          "3. Pisk til den blir luftig og stiv",
+          "4. Del bær i skåler",
+          "5. Topp med piskekrem og server straks"
+        ],
+        "en": [
+          "1. Scrape seeds from vanilla pod",
+          "2. Whip cream with sugar and vanilla seeds",
+          "3. Whip until fluffy and stiff",
+          "4. Divide berries into bowls",
+          "5. Top with whipped cream and serve immediately"
+        ]
+      }
+    },
+    {
+      "id": "nd_076",
+      "title": {
+        "no": "Boller med Sukker",
+        "en": "Sugar Buns"
+      },
+      "subtitle": {
+        "no": "Myk søt bolle med sukker og smør",
+        "en": "Soft sweet roll with sugar and butter"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 50,
+      "servings": 12,
+      "category": "Other",
+      "tags": [
+        "bread",
+        "sweet",
+        "breakfast"
+      ],
+      "allergens": [
+        "wheat",
+        "milk",
+        "eggs"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Mel",
+            "en": "Flour"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 250,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Gjær",
+            "en": "Yeast"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Egg"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Varm melk og bland med gjær og sukker",
+          "2. Bland mel og salt, lage en krater i midten",
+          "3. Helle gjærblandingen i krater",
+          "4. Knead deigen og arbeide inn smør",
+          "5. La deigen heve i 1 time",
+          "6. Former til boller, hev igjen og bak på 200°C i 20 minutter"
+        ],
+        "en": [
+          "1. Warm milk and mix with yeast and sugar",
+          "2. Mix flour and salt, make a well in center",
+          "3. Pour yeast mixture into well",
+          "4. Knead dough and work in butter",
+          "5. Let dough rise for 1 hour",
+          "6. Shape into buns, rise again and bake at 200°C for 20 minutes"
+        ]
+      }
+    },
+    {
+      "id": "nd_077",
+      "title": {
+        "no": "Frøsnapper",
+        "en": "Seed Snaps"
+      },
+      "subtitle": {
+        "no": "Sprø kjeks med sesam og frø",
+        "en": "Crispy cookies with sesame and seeds"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 25,
+      "servings": 20,
+      "category": "Other",
+      "tags": [
+        "cookies",
+        "seeds",
+        "crispy"
+      ],
+      "allergens": [
+        "wheat",
+        "sesame",
+        "nuts"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Mel",
+            "en": "Flour"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sesamfrø",
+            "en": "Sesame seeds"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Solsikkekjerner",
+            "en": "Sunflower seeds"
+          },
+          "amount": 40,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland smør og sukker",
+          "2. Tilsett mel, sesamfrø, solsikkekjerner og salt",
+          "3. Former små baller",
+          "4. Plasser på bakepapir og flat dem",
+          "5. Bak på 180°C i 12-15 minutter"
+        ],
+        "en": [
+          "1. Mix butter and sugar",
+          "2. Add flour, sesame seeds, sunflower seeds and salt",
+          "3. Form small balls",
+          "4. Place on baking paper and flatten",
+          "5. Bake at 180°C for 12-15 minutes"
+        ]
+      }
+    },
+    {
+      "id": "nd_078",
+      "title": {
+        "no": "Rugbrød",
+        "en": "Rye Bread"
+      },
+      "subtitle": {
+        "no": "Mørkt rugbrød med frø",
+        "en": "Dark rye bread with seeds"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 120,
+      "servings": 10,
+      "category": "Other",
+      "tags": [
+        "bread",
+        "rye",
+        "traditional"
+      ],
+      "allergens": [
+        "wheat",
+        "rye",
+        "seeds"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Rugmel",
+            "en": "Rye flour"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvetemel",
+            "en": "Wheat flour"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
+          "amount": 450,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Gjær",
+            "en": "Yeast"
+          },
+          "amount": 7,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sesamfrø",
+            "en": "Sesame seeds"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland rugmel, hvetemel, salt og gjær",
+          "2. Tilsett vann gradvis og bland godt",
+          "3. La deigen heve i 30 minutter",
+          "4. Helle deigen i en brødform",
+          "5. Påstrø sesamfrø på toppen",
+          "6. La heve igjen i 30 minutter",
+          "7. Bak på 200°C i 40 minutter"
+        ],
+        "en": [
+          "1. Mix rye flour, wheat flour, salt and yeast",
+          "2. Add water gradually and mix well",
+          "3. Let dough rise for 30 minutes",
+          "4. Pour dough into bread pan",
+          "5. Sprinkle sesame seeds on top",
+          "6. Let rise again for 30 minutes",
+          "7. Bake at 200°C for 40 minutes"
+        ]
+      }
+    },
+    {
+      "id": "nd_079",
+      "title": {
+        "no": "Kartoffelsuppe",
+        "en": "Potato Soup"
+      },
+      "subtitle": {
+        "no": "Varm og mettende potetsuppe",
+        "en": "Warm and hearty potato soup"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 35,
+      "servings": 4,
+      "category": "Other",
+      "tags": [
+        "soup",
+        "potatoes",
+        "comfort food"
+      ],
+      "allergens": [
+        "milk"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Klippløk",
+            "en": "Chives"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Kjøttbuljong",
+            "en": "Beef broth"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 40,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "porsjon",
+            "en": "portion"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kutt poteter og løk i små terninger",
+          "2. Smelt smør i en gryte",
+          "3. Sauté løk i 3-4 minutter",
+          "4. Tilsett poteter og kjøttbuljong",
+          "5. Kok i 15-20 minutter til poteter er møre",
+          "6. Tilsett melk og klippløk",
+          "7. Krydre med salt og pepper"
+        ],
+        "en": [
+          "1. Cut potatoes and onion into small cubes",
+          "2. Melt butter in a pot",
+          "3. Sauté onion for 3-4 minutes",
+          "4. Add potatoes and beef broth",
+          "5. Cook for 15-20 minutes until potatoes are tender",
+          "6. Add milk and chives",
+          "7. Season with salt and pepper"
+        ]
+      }
+    },
+    {
+      "id": "nd_080",
+      "title": {
+        "no": "Dansk Rugbrød",
+        "en": "Danish Rye Bread"
+      },
+      "subtitle": {
+        "no": "Tradisjonell dansk mørkt rugbrød",
+        "en": "Traditional Danish dark rye bread"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 180,
+      "servings": 12,
+      "category": "Other",
+      "tags": [
+        "bread",
+        "rye",
+        "danish"
+      ],
+      "allergens": [
+        "rye",
+        "wheat"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Rugmel",
+            "en": "Rye flour"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvetemel",
+            "en": "Wheat flour"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Gjær",
+            "en": "Yeast"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 12,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Honning",
+            "en": "Honey"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Karvefrø",
+            "en": "Caraway seeds"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Oppløs gjær i varmt vann",
+          "2. Bland rugmel, hvetemel, salt og karvefrø",
+          "3. Tilsett gjærblandingen og honning",
+          "4. Bland godt til en tung deig",
+          "5. La heve i 2 timer",
+          "6. Press deigen inn i et brødform",
+          "7. La heve igjen i 1 time",
+          "8. Bak på 180°C i 45-50 minutter"
+        ],
+        "en": [
+          "1. Dissolve yeast in warm water",
+          "2. Mix rye flour, wheat flour, salt and caraway seeds",
+          "3. Add yeast mixture and honey",
+          "4. Mix well to a heavy dough",
+          "5. Let rise for 2 hours",
+          "6. Press dough into bread pan",
+          "7. Let rise again for 1 hour",
+          "8. Bake at 180°C for 45-50 minutes"
+        ]
+      }
+    },
+    {
+      "id": "nd_081",
+      "title": {
+        "no": "Kokosboller",
+        "en": "Coconut Buns"
+      },
+      "subtitle": {
+        "no": "Søte boller med kokosfyll",
+        "en": "Sweet buns with coconut filling"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 45,
+      "servings": 12,
+      "category": "Other",
+      "tags": [
+        "bread",
+        "sweet",
+        "coconut"
+      ],
+      "allergens": [
+        "wheat",
+        "milk",
+        "eggs",
+        "coconut"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Mel",
+            "en": "Flour"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Gjær",
+            "en": "Yeast"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 80,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 75,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kokosnøtt",
+            "en": "Shredded coconut"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Varm melk og bland med gjær og 20g sukker",
+          "2. Bland mel og salt, lag krater",
+          "3. Helle gjærblandingen i krater",
+          "4. Knead og arbeid inn 50g smør",
+          "5. La heve i 1 time",
+          "6. Bland kokosnøtt med gjenværende sukker og smør",
+          "7. Rull deigen flat og fordel kokosfyllet",
+          "8. Roll opp og skjær i stykker",
+          "9. La heve og bak på 200°C i 20 minutter"
+        ],
+        "en": [
+          "1. Warm milk and mix with yeast and 20g sugar",
+          "2. Mix flour and salt, make a well",
+          "3. Pour yeast mixture into well",
+          "4. Knead and work in 50g butter",
+          "5. Let rise for 1 hour",
+          "6. Mix coconut with remaining sugar and butter",
+          "7. Roll out dough and spread coconut filling",
+          "8. Roll up and cut into pieces",
+          "9. Let rise and bake at 200°C for 20 minutes"
+        ]
+      }
+    },
+    {
+      "id": "nd_082",
+      "title": {
+        "no": "Chokoladeboller",
+        "en": "Chocolate Buns"
+      },
+      "subtitle": {
+        "no": "Flaskepostboller med sjokoladeglasur",
+        "en": "Chocolate-glazed pastry buns"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 50,
+      "servings": 12,
+      "category": "Other",
+      "tags": [
+        "pastry",
+        "chocolate",
+        "sweet"
+      ],
+      "allergens": [
+        "wheat",
+        "milk",
+        "eggs",
+        "chocolate"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Mel",
+            "en": "Flour"
+          },
+          "amount": 350,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Gjær",
+            "en": "Yeast"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 60,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sjokolade",
+            "en": "Chocolate"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Varm melk og bland med gjær og sukker",
+          "2. Bland mel og salt, lag krater",
+          "3. Helle gjærblandingen i krater",
+          "4. Knead og arbeid inn 50g smør",
+          "5. La heve i 1 time",
+          "6. Hakk sjokoladen og bland med 50g smør",
+          "7. Rull deigen flat og fordel sjokoladefyllet",
+          "8. Roll opp og skjær i stykker",
+          "9. La heve og bak på 200°C i 20 minutter"
+        ],
+        "en": [
+          "1. Warm milk and mix with yeast and sugar",
+          "2. Mix flour and salt, make a well",
+          "3. Pour yeast mixture into well",
+          "4. Knead and work in 50g butter",
+          "5. Let rise for 1 hour",
+          "6. Chop chocolate and mix with 50g butter",
+          "7. Roll out dough and spread chocolate filling",
+          "8. Roll up and cut into pieces",
+          "9. Let rise and bake at 200°C for 20 minutes"
+        ]
+      }
+    },
+    {
+      "id": "nd_083",
+      "title": {
+        "no": "Brunsviger",
+        "en": "Brunsviger Cake"
+      },
+      "subtitle": {
+        "no": "Søt kakestykker med karamell topping",
+        "en": "Sweet cake with caramel topping"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 45,
+      "servings": 8,
+      "category": "Other",
+      "tags": [
+        "cake",
+        "caramel",
+        "traditional"
+      ],
+      "allergens": [
+        "wheat",
+        "milk",
+        "eggs"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Mel",
+            "en": "Flour"
+          },
+          "amount": 250,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Eggs"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Baking powder",
+            "en": "Baking powder"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "teskje",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Mandler",
+            "en": "Almonds"
+          },
+          "amount": 75,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Smelt 100g smør og bland med 100g sukker",
+          "2. Pisk inn egg",
+          "3. Bland mel og baking powder",
+          "4. Vekslende påfør melk og mel",
+          "5. Hell i form og bak på 175°C i 25 minutter",
+          "6. Smelt 50g smør med 100g sukker og mandler",
+          "7. Påfør karamellblandingen på kaken",
+          "8. Bak videre til toppen er gyllen"
+        ],
+        "en": [
+          "1. Melt 100g butter and mix with 100g sugar",
+          "2. Whisk in eggs",
+          "3. Mix flour and baking powder",
+          "4. Alternately add milk and flour",
+          "5. Pour into pan and bake at 175°C for 25 minutes",
+          "6. Melt 50g butter with 100g sugar and almonds",
+          "7. Spread caramel mixture on cake",
+          "8. Bake until topping is golden"
+        ]
+      }
+    },
+    {
+      "id": "nd_084",
+      "title": {
+        "no": "Wienerbrød",
+        "en": "Danish Pastry"
+      },
+      "subtitle": {
+        "no": "Sprø pasteikaker med fyll",
+        "en": "Crispy pastry with filling"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 90,
+      "servings": 12,
+      "category": "Other",
+      "tags": [
+        "pastry",
+        "danish",
+        "breakfast"
+      ],
+      "allergens": [
+        "wheat",
+        "milk",
+        "eggs"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Mel",
+            "en": "Flour"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 250,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Gjær",
+            "en": "Yeast"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Egg"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Varm melk og bland med gjær og sukker",
+          "2. Bland mel og salt, lag krater",
+          "3. Helle gjærblandingen i krater, tilsett egg",
+          "4. Knead deigen",
+          "5. Flat ut deigen og lag lamellert struktur med smør ved å fold",
+          "6. La heve og fold igjen flere ganger",
+          "7. Kjøl før du former og fyller",
+          "8. Bak på 200°C i 20-25 minutter"
+        ],
+        "en": [
+          "1. Warm milk and mix with yeast and sugar",
+          "2. Mix flour and salt, make a well",
+          "3. Pour yeast mixture into well, add egg",
+          "4. Knead dough",
+          "5. Flatten dough and create laminated structure with butter by folding",
+          "6. Let rise and fold again several times",
+          "7. Chill before shaping and filling",
+          "8. Bake at 200°C for 20-25 minutes"
+        ]
+      }
+    },
+    {
+      "id": "nd_085",
+      "title": {
+        "no": "Chokoladekake",
+        "en": "Chocolate Cake"
+      },
+      "subtitle": {
+        "no": "Rik og mørk sjokoladekake",
+        "en": "Rich and dark chocolate cake"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 50,
+      "servings": 8,
+      "category": "Other",
+      "tags": [
+        "cake",
+        "chocolate",
+        "celebration"
+      ],
+      "allergens": [
+        "wheat",
+        "milk",
+        "eggs",
+        "chocolate"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Mel",
+            "en": "Flour"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kakao",
+            "en": "Cocoa powder"
+          },
+          "amount": 75,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Eggs"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Baking powder",
+            "en": "Baking powder"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "teskje",
+            "en": "tsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Smelt smør og bland med sukker",
+          "2. Pisk inn egg en om gangen",
+          "3. Bland mel og baking powder",
+          "4. Vekslende påfør melk og tørstoff",
+          "5. Hell i form og bak på 175°C i 35-40 minutter",
+          "6. Kjøl og dekorer etter ønske"
+        ],
+        "en": [
+          "1. Melt butter and mix with sugar",
+          "2. Whisk in eggs one at a time",
+          "3. Mix flour and baking powder",
+          "4. Alternately add milk and dry ingredients",
+          "5. Pour into pan and bake at 175°C for 35-40 minutes",
+          "6. Cool and decorate as desired"
+        ]
+      }
+    },
+    {
+      "id": "nd_086",
+      "title": {
+        "no": "Mazarin",
+        "en": "Mazarin Cake"
+      },
+      "subtitle": {
+        "no": "Mandelkake med sjokolade glasur",
+        "en": "Almond cake with chocolate glaze"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 40,
+      "servings": 8,
+      "category": "Other",
+      "tags": [
+        "cake",
+        "almond",
+        "chocolate"
+      ],
+      "allergens": [
+        "wheat",
+        "eggs",
+        "nuts",
+        "chocolate"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Mandelmel",
+            "en": "Almond flour"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Eggs"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Mel",
+            "en": "Flour"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sjokolade",
+            "en": "Dark chocolate"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Baking powder",
+            "en": "Baking powder"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "teskje",
+            "en": "tsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Smelt smør og bland med sukker",
+          "2. Pisk inn egg",
+          "3. Bland mandelmel, mel og baking powder",
+          "4. Fold inn tørstoffer forsiktig",
+          "5. Hell i form og bak på 175°C i 30 minutter",
+          "6. Smelt sjokladen over varmtvann",
+          "7. Påfør sjokoladeglasuren når kaken er kjølt"
+        ],
+        "en": [
+          "1. Melt butter and mix with sugar",
+          "2. Whisk in eggs",
+          "3. Mix almond flour, flour and baking powder",
+          "4. Gently fold in dry ingredients",
+          "5. Pour into pan and bake at 175°C for 30 minutes",
+          "6. Melt chocolate over hot water",
+          "7. Apply chocolate glaze when cake has cooled"
+        ]
+      }
+    },
+    {
+      "id": "nd_087",
+      "title": {
+        "no": "Hindbærsnitter",
+        "en": "Raspberry Slices"
+      },
+      "subtitle": {
+        "no": "Smørbrød stykker med bringebær",
+        "en": "Butter cookie slices with raspberry"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 45,
+      "servings": 12,
+      "category": "Other",
+      "tags": [
+        "cookies",
+        "raspberry",
+        "jam"
+      ],
+      "allergens": [
+        "wheat",
+        "milk",
+        "eggs"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Mel",
+            "en": "Flour"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Egg yolk"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Bringebærmarmelade",
+            "en": "Raspberry jam"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kokosnøtt",
+            "en": "Shredded coconut"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland smør og sukker",
+          "2. Tilsett eggeplommen og mel",
+          "3. Press deigen inn i en form",
+          "4. Bak på 180°C i 15 minutter",
+          "5. Påfør marmelade på baken",
+          "6. Topp med kokosnøtt",
+          "7. Bak videre i 15 minutter",
+          "8. Kjøl og skjør i stykker"
+        ],
+        "en": [
+          "1. Mix butter and sugar",
+          "2. Add egg yolk and flour",
+          "3. Press dough into pan",
+          "4. Bake at 180°C for 15 minutes",
+          "5. Spread jam on base",
+          "6. Top with coconut",
+          "7. Bake for another 15 minutes",
+          "8. Cool and cut into slices"
+        ]
+      }
+    },
+    {
+      "id": "nd_088",
+      "title": {
+        "no": "Jordbaerskiver",
+        "en": "Strawberry Jam Tarts"
+      },
+      "subtitle": {
+        "no": "Smål tarte med jordbærmarmelade",
+        "en": "Small tarts with strawberry jam"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 35,
+      "servings": 12,
+      "category": "Other",
+      "tags": [
+        "tart",
+        "strawberry",
+        "jam"
+      ],
+      "allergens": [
+        "wheat",
+        "milk",
+        "eggs"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Mel",
+            "en": "Flour"
+          },
+          "amount": 250,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 120,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 75,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Egg"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Jordbaermarmelade",
+            "en": "Strawberry jam"
+          },
+          "amount": 250,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Vaniljestang",
+            "en": "Vanilla pod"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland smør og sukker",
+          "2. Tilsett egg og mel",
+          "3. Kjøl deigen i 30 minutter",
+          "4. Press deigen inn i små tartformer",
+          "5. Fylt hver tart med marmelade",
+          "6. Bak på 180°C i 20-25 minutter",
+          "7. Kjøl før serving"
+        ],
+        "en": [
+          "1. Mix butter and sugar",
+          "2. Add egg and flour",
+          "3. Chill dough for 30 minutes",
+          "4. Press dough into small tart pans",
+          "5. Fill each tart with jam",
+          "6. Bake at 180°C for 20-25 minutes",
+          "7. Cool before serving"
+        ]
+      }
+    },
+    {
+      "id": "nd_089",
+      "title": {
+        "no": "Æbleskiver",
+        "en": "Æbleskiver Pancakes"
+      },
+      "subtitle": {
+        "no": "Runde pannekaker med epler",
+        "en": "Round pancakes with apples"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Other",
+      "tags": [
+        "pancake",
+        "apple",
+        "breakfast"
+      ],
+      "allergens": [
+        "wheat",
+        "milk",
+        "eggs"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Mel",
+            "en": "Flour"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Eggs"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 25,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Baking powder",
+            "en": "Baking powder"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "teskje",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Epler",
+            "en": "Apples"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland mel, sukker og baking powder",
+          "2. Pisk egg og melk",
+          "3. Bland våt og tørr ingredienser",
+          "4. Hakk epler i små stykker",
+          "5. Fold inn epler i deigen",
+          "6. Bruk æbleskivepanne og fyll halvparten",
+          "7. Sterk i smør på begge sider til gyllen"
+        ],
+        "en": [
+          "1. Mix flour, sugar and baking powder",
+          "2. Whisk eggs and milk",
+          "3. Combine wet and dry ingredients",
+          "4. Chop apples into small pieces",
+          "5. Fold apples into batter",
+          "6. Use æbleskiver pan and fill halfway",
+          "7. Fry in butter on both sides until golden"
+        ]
+      }
+    },
+    {
+      "id": "nd_090",
+      "title": {
+        "no": "Pandekager",
+        "en": "Pancakes"
+      },
+      "subtitle": {
+        "no": "Tynne søte pannekaker",
+        "en": "Thin sweet pancakes"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 20,
+      "servings": 4,
+      "category": "Other",
+      "tags": [
+        "pancake",
+        "breakfast",
+        "sweet"
+      ],
+      "allergens": [
+        "wheat",
+        "milk",
+        "eggs"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Mel",
+            "en": "Flour"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Eggs"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland mel og salt",
+          "2. Lage krater og tilsett egg",
+          "3. Gradvis tilsett melk",
+          "4. Bland til glattt deig",
+          "5. Sterk små mengder på varmt smør",
+          "6. Sterk hver side til lys gyllen",
+          "7. Server med syltetøy eller sjokolade"
+        ],
+        "en": [
+          "1. Mix flour and salt",
+          "2. Make a well and add eggs",
+          "3. Gradually add milk",
+          "4. Mix to smooth batter",
+          "5. Fry small amounts on hot butter",
+          "6. Fry each side until light golden",
+          "7. Serve with jam or chocolate"
+        ]
+      }
+    },
+    {
+      "id": "nd_091",
+      "title": {
+        "no": "Drømmekiks",
+        "en": "Dream Cookies"
+      },
+      "subtitle": {
+        "no": "Sprø kjeks med karameltopping",
+        "en": "Crispy cookies with caramel topping"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 40,
+      "servings": 16,
+      "category": "Other",
+      "tags": [
+        "cookies",
+        "caramel",
+        "crispy"
+      ],
+      "allergens": [
+        "wheat",
+        "milk",
+        "eggs"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Mel",
+            "en": "Flour"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Egg"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Karamell",
+            "en": "Caramel"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kokos",
+            "en": "Coconut"
+          },
+          "amount": 75,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland smør og 50g sukker",
+          "2. Tilsett egg og mel",
+          "3. Hell i form og bak på 180°C i 12 minutter",
+          "4. Bland 50g sukker, melk og kokos",
+          "5. Påfør blandingen på halvbakete deigen",
+          "6. Bak videre til toppen er gyllen",
+          "7. Kjøl og påfør smeltet karamell på toppen"
+        ],
+        "en": [
+          "1. Mix butter and 50g sugar",
+          "2. Add egg and flour",
+          "3. Pour into pan and bake at 180°C for 12 minutes",
+          "4. Mix 50g sugar, milk and coconut",
+          "5. Spread mixture on partially baked dough",
+          "6. Bake until topping is golden",
+          "7. Cool and drizzle melted caramel on top"
+        ]
+      }
+    },
+    {
+      "id": "nd_092",
+      "title": {
+        "no": "Vanillekrans",
+        "en": "Vanilla Wreath"
+      },
+      "subtitle": {
+        "no": "Kringle formet vaniljekjeks",
+        "en": "Vanilla cookies shaped like wreaths"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 35,
+      "servings": 20,
+      "category": "Other",
+      "tags": [
+        "cookies",
+        "vanilla",
+        "shaped"
+      ],
+      "allergens": [
+        "wheat",
+        "milk",
+        "eggs"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Mel",
+            "en": "Flour"
+          },
+          "amount": 250,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Egg"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Vaniljestang",
+            "en": "Vanilla pod"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skrap frø fra vaniljestangen",
+          "2. Bland smør og sukker",
+          "3. Tilsett egg og vaniljefrø",
+          "4. Bland mel og salt",
+          "5. Fold inn mel i smørblandingen",
+          "6. Kjøl deigen i 30 minutter",
+          "7. Press deigen gjennom posedekortett til kringler",
+          "8. Bak på 180°C i 12-15 minutter"
+        ],
+        "en": [
+          "1. Scrape seeds from vanilla pod",
+          "2. Mix butter and sugar",
+          "3. Add egg and vanilla seeds",
+          "4. Mix flour and salt",
+          "5. Fold flour into butter mixture",
+          "6. Chill dough for 30 minutes",
+          "7. Press dough through piping bag into wreaths",
+          "8. Bake at 180°C for 12-15 minutes"
+        ]
+      }
+    },
+    {
+      "id": "nd_093",
+      "title": {
+        "no": "Appelsinsnitter",
+        "en": "Orange Slices"
+      },
+      "subtitle": {
+        "no": "Appelsinsmak kakor med glasur",
+        "en": "Orange-flavored cake slices with glaze"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 40,
+      "servings": 12,
+      "category": "Other",
+      "tags": [
+        "cake",
+        "orange",
+        "glaze"
+      ],
+      "allergens": [
+        "wheat",
+        "milk",
+        "eggs"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Mel",
+            "en": "Flour"
+          },
+          "amount": 250,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Eggs"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Appelsinzest",
+            "en": "Orange zest"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Appelsinfjuice",
+            "en": "Orange juice"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Baking powder",
+            "en": "Baking powder"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "teskje",
+            "en": "tsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland smør og sukker",
+          "2. Pisk inn egg",
+          "3. Tilsett appelsinzest",
+          "4. Vekslende påfør mel og appelsinfjuice",
+          "5. Tilsett baking powder",
+          "6. Hell i form og bak på 180°C i 30 minutter",
+          "7. Kjøl og påfør appelsinglasur"
+        ],
+        "en": [
+          "1. Mix butter and sugar",
+          "2. Whisk in eggs",
+          "3. Add orange zest",
+          "4. Alternately add flour and orange juice",
+          "5. Add baking powder",
+          "6. Pour into pan and bake at 180°C for 30 minutes",
+          "7. Cool and apply orange glaze"
+        ]
+      }
+    },
+    {
+      "id": "nd_094",
+      "title": {
+        "no": "Kokosnødder",
+        "en": "Coconut Pyramids"
+      },
+      "subtitle": {
+        "no": "Pyramideformete kokoskaker",
+        "en": "Pyramid-shaped coconut cakes"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 25,
+      "servings": 12,
+      "category": "Other",
+      "tags": [
+        "coconut",
+        "no-bake",
+        "sweet"
+      ],
+      "allergens": [
+        "coconut",
+        "milk"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kokosnøtt",
+            "en": "Shredded coconut"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Condensed milk"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 75,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sjokolade",
+            "en": "Dark chocolate"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland kokosnøtt med melk og sukker",
+          "2. Former små pyramider",
+          "3. Kjøl i fryseren i 2 timer",
+          "4. Smelt sjokoladen",
+          "5. Dypp pyramidene halvveis ned i sjokoladen",
+          "6. La sjokoladen tørke"
+        ],
+        "en": [
+          "1. Mix coconut with condensed milk and sugar",
+          "2. Form small pyramids",
+          "3. Chill in freezer for 2 hours",
+          "4. Melt chocolate",
+          "5. Dip pyramids halfway into chocolate",
+          "6. Let chocolate set"
+        ]
+      }
+    },
+    {
+      "id": "nd_095",
+      "title": {
+        "no": "Shortbread Cookies",
+        "en": "Shortbread Cookies"
+      },
+      "subtitle": {
+        "no": "Smørrike og sprø kjeks",
+        "en": "Buttery and crispy cookies"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 25,
+      "servings": 16,
+      "category": "Other",
+      "tags": [
+        "cookies",
+        "shortbread",
+        "butter"
+      ],
+      "allergens": [
+        "wheat",
+        "milk"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Mel",
+            "en": "Flour"
+          },
+          "amount": 250,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland smør og sukker til lys og luftig",
+          "2. Tilsett mel og salt",
+          "3. Knead deigen til den blir glatt",
+          "4. Rull ut på bakepapir",
+          "5. Skjær i ønskete former",
+          "6. Bak på 160°C i 15-20 minutter"
+        ],
+        "en": [
+          "1. Mix butter and sugar until light and fluffy",
+          "2. Add flour and salt",
+          "3. Knead dough until smooth",
+          "4. Roll out on baking paper",
+          "5. Cut into desired shapes",
+          "6. Bake at 160°C for 15-20 minutes"
+        ]
+      }
+    },
+    {
+      "id": "nd_096",
+      "title": {
+        "no": "Gløgg",
+        "en": "Glögg"
+      },
+      "subtitle": {
+        "no": "Varm fruktdrikk med vin og krydder",
+        "en": "Warm fruit drink with wine and spices"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 8,
+      "category": "Other",
+      "tags": [
+        "drink",
+        "warm",
+        "spiced",
+        "holiday"
+      ],
+      "allergens": [
+        "alcohol",
+        "nuts"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Rødt vin",
+            "en": "Red wine"
+          },
+          "amount": 750,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Kanelstang",
+            "en": "Cinnamon stick"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Nellik",
+            "en": "Cloves"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Kardesamom",
+            "en": "Cardamom"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Rosiner",
+            "en": "Raisins"
+          },
+          "amount": 75,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Mandler",
+            "en": "Almonds"
+          },
+          "amount": 75,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kombiner vin, vann og sukker i en kjele",
+          "2. Tilsett kanelstang, nellik og kardesamom",
+          "3. Heat sakte til det blir varmt, ikke kokt",
+          "4. Sil bort krydderne",
+          "5. Tilsett rosiner og mandler",
+          "6. Serv varm i kopper"
+        ],
+        "en": [
+          "1. Combine wine, water and sugar in a pot",
+          "2. Add cinnamon stick, cloves and cardamom",
+          "3. Heat slowly until warm, do not boil",
+          "4. Strain out spices",
+          "5. Add raisins and almonds",
+          "6. Serve warm in cups"
+        ]
+      }
+    },
+    {
+      "id": "nd_097",
+      "title": {
+        "no": "Rødgrød med Fløde",
+        "en": "Red Fruit Dessert"
+      },
+      "subtitle": {
+        "no": "Klassisk dansk rødfruktgrøt med krem",
+        "en": "Classic Danish red berry pudding with cream"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 25,
+      "servings": 4,
+      "category": "Other",
+      "tags": [
+        "dessert",
+        "berries",
+        "traditional"
+      ],
+      "allergens": [
+        "milk"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Jordbær",
+            "en": "Strawberries"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Bringebær",
+            "en": "Raspberries"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Maisstivelse",
+            "en": "Cornstarch"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Fløte",
+            "en": "Heavy cream"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kokk bær med sukker og vann i 10 minutter",
+          "2. Sil fruktkjøttet",
+          "3. Mix maisstivelse med litt kaldt vann",
+          "4. Helle maisstivelseblandingen i varmen fruktjuice",
+          "5. Kok til det blir tykkere",
+          "6. La kjøle ned",
+          "7. Server med piskekrem på topp"
+        ],
+        "en": [
+          "1. Cook berries with sugar and water for 10 minutes",
+          "2. Strain through sieve",
+          "3. Mix cornstarch with cold water",
+          "4. Pour cornstarch mixture into warm fruit juice",
+          "5. Cook until thickened",
+          "6. Cool down",
+          "7. Serve with whipped cream on top"
+        ]
+      }
+    },
+    {
+      "id": "nd_098",
+      "title": {
+        "no": "Kartoffel og Blomkål",
+        "en": "Potatoes and Cauliflower"
+      },
+      "subtitle": {
+        "no": "Stekt kjøttstykker med kartoffel og blomkål",
+        "en": "Roasted meat with potatoes and cauliflower"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 50,
+      "servings": 4,
+      "category": "Meat",
+      "tags": [
+        "vegetables",
+        "comfort food",
+        "traditional"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Svinekjøtt",
+            "en": "Pork chops"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Blomkål",
+            "en": "Cauliflower"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 40,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "porsjon",
+            "en": "portion"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skjær poteter i kuber og kok i saltet vann",
+          "2. Del blomkål i buketter og kok sammen med poteter",
+          "3. Brun svinekjøttet i et pannelett",
+          "4. Dren potetene og blomkålen",
+          "5. Server kjøttet med grønnsaker og smør"
+        ],
+        "en": [
+          "1. Cut potatoes into cubes and boil in salted water",
+          "2. Divide cauliflower into florets and cook with potatoes",
+          "3. Brown pork chops in a skillet",
+          "4. Drain potatoes and cauliflower",
+          "5. Serve meat with vegetables and butter"
+        ]
+      }
+    },
+    {
+      "id": "nd_099",
+      "title": {
+        "no": "Mushroom Stew",
+        "en": "Mushroom Stew"
+      },
+      "subtitle": {
+        "no": "Varmrätt med sopp og grønsaker",
+        "en": "Warm stew with mushrooms and vegetables"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 40,
+      "servings": 4,
+      "category": "Other",
+      "tags": [
+        "vegetarian",
+        "comfort food",
+        "stew"
+      ],
+      "allergens": [
+        "milk"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Champignon",
+            "en": "Button mushrooms"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Heavy cream"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Grønnsaksbuljong",
+            "en": "Vegetable broth"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Timian",
+            "en": "Thyme"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Hakk løk og hvitløk",
+          "2. Skjær soppen i stykker",
+          "3. Smelt smør og sauté løk og hvitløk",
+          "4. Tilsett soppen og kok i 10 minutter",
+          "5. Helle inn buljongen og melk",
+          "6. Tilsett timian",
+          "7. Kok til deigen er mykt, omkring 20 minutter"
+        ],
+        "en": [
+          "1. Chop onion and garlic",
+          "2. Slice mushrooms",
+          "3. Melt butter and sauté onion and garlic",
+          "4. Add mushrooms and cook for 10 minutes",
+          "5. Pour in broth and cream",
+          "6. Add thyme",
+          "7. Cook until vegetables are soft, about 20 minutes"
+        ]
+      }
+    },
+    {
+      "id": "nd_100",
+      "title": {
+        "no": "Herb Butter Vegetables",
+        "en": "Herb Butter Vegetables"
+      },
+      "subtitle": {
+        "no": "Stekt grønsaker med urte smør",
+        "en": "Sautéed vegetables with herb butter"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 25,
+      "servings": 4,
+      "category": "Other",
+      "tags": [
+        "vegetables",
+        "side dish",
+        "healthy"
+      ],
+      "allergens": [
+        "milk"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Brokkoli",
+            "en": "Broccoli"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Gulrot",
+            "en": "Carrots"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Persille",
+            "en": "Parsley"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Dill",
+            "en": "Dill"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "porsjon",
+            "en": "portion"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kutt brokkoli i buketter og gulrot i stenger",
+          "2. Kok grønnsakene til de er møre men sprø",
+          "3. Hakk frisk urter og hvitløk",
+          "4. Bland urtene med smør",
+          "5. Dren grønnsakene",
+          "6. Topp med urte smøret og server varmt"
+        ],
+        "en": [
+          "1. Cut broccoli into florets and carrots into sticks",
+          "2. Cook vegetables until tender but crisp",
+          "3. Chop fresh herbs and garlic",
+          "4. Mix herbs with butter",
+          "5. Drain vegetables",
+          "6. Top with herb butter and serve warm"
+        ]
+      }
+    },
+    {
+      "id": "nd_101",
+      "title": {
+        "no": "Root Vegetable Purée",
+        "en": "Root Vegetable Purée"
+      },
+      "subtitle": {
+        "no": "Rotkartoffel mos",
+        "en": "Creamed root vegetables"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Other",
+      "tags": [
+        "vegetables",
+        "side dish",
+        "puree"
+      ],
+      "allergens": [
+        "milk"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kålrabi",
+            "en": "Rutabaga"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Gulrot",
+            "en": "Carrots"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Selleri",
+            "en": "Celery root"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 40,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "porsjon",
+            "en": "portion"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kutt alle rotgrønnsaker i mindre biter",
+          "2. Kok i saltet vann til de er møre",
+          "3. Dren og mos med smør og melk",
+          "4. Krydre med salt og pepper",
+          "5. Server varmt som sidesett"
+        ],
+        "en": [
+          "1. Cut all root vegetables into small pieces",
+          "2. Cook in salted water until tender",
+          "3. Drain and mash with butter and milk",
+          "4. Season with salt and pepper",
+          "5. Serve warm as a side dish"
+        ]
+      }
+    },
+    {
+      "id": "nd_102",
+      "title": {
+        "no": "Turnip Mash",
+        "en": "Turnip Mash"
+      },
+      "subtitle": {
+        "no": "Mos av kålrot",
+        "en": "Creamed rutabaga"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 35,
+      "servings": 4,
+      "category": "Other",
+      "tags": [
+        "vegetables",
+        "side dish",
+        "traditional"
+      ],
+      "allergens": [
+        "milk"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kålrot",
+            "en": "Rutabaga"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 250,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Pepperkorn",
+            "en": "Black pepper"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skrell og kutt kålroten i små biter",
+          "2. Kok i saltet vann til møre",
+          "3. Dren godt",
+          "4. Mos med smør og melk",
+          "5. Krydre med salt og pepper",
+          "6. Server varmt"
+        ],
+        "en": [
+          "1. Peel and cut rutabaga into small pieces",
+          "2. Cook in salted water until tender",
+          "3. Drain well",
+          "4. Mash with butter and milk",
+          "5. Season with salt and pepper",
+          "6. Serve warm"
+        ]
+      }
+    },
+    {
+      "id": "nd_103",
+      "title": {
+        "no": "Steikt Blomkål",
+        "en": "Roasted Cauliflower"
+      },
+      "subtitle": {
+        "no": "Stekt blomkål med urter",
+        "en": "Roasted cauliflower with herbs"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Other",
+      "tags": [
+        "vegetables",
+        "roasted",
+        "healthy"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Blomkål",
+            "en": "Cauliflower"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Olje",
+            "en": "Olive oil"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "spsk",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 15,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Rosmarin",
+            "en": "Rosemary"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "porsjon",
+            "en": "portion"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Del blomkål i buketter",
+          "2. Bland med olje, hakket hvitløk og rosmarin",
+          "3. Fordel på en bakeplett",
+          "4. Sterk på 200°C i 25 minutter",
+          "5. Krydre med salt og pepper"
+        ],
+        "en": [
+          "1. Divide cauliflower into florets",
+          "2. Toss with oil, chopped garlic and rosemary",
+          "3. Spread on a baking sheet",
+          "4. Roast at 200°C for 25 minutes",
+          "5. Season with salt and pepper"
+        ]
+      }
+    },
+    {
+      "id": "nd_104",
+      "title": {
+        "no": "Stekt Brokkoli",
+        "en": "Sautéed Broccoli"
+      },
+      "subtitle": {
+        "no": "Grønn brokkoli med smør og salt",
+        "en": "Green broccoli with butter and garlic"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 20,
+      "servings": 4,
+      "category": "Other",
+      "tags": [
+        "vegetables",
+        "side dish",
+        "quick"
+      ],
+      "allergens": [
+        "milk"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Brokkoli",
+            "en": "Broccoli"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic cloves"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Pepper",
+            "en": "Black pepper"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Del brokkoli i små buketter",
+          "2. Kok i saltet vann til sprø men møre",
+          "3. Smelt smør i en panne",
+          "4. Hakk hvitløk og sauté i smør",
+          "5. Dren brokkoli og tilsett pannen",
+          "6. Server straks"
+        ],
+        "en": [
+          "1. Divide broccoli into small florets",
+          "2. Boil in salted water until tender crisp",
+          "3. Melt butter in a pan",
+          "4. Chop garlic and sauté in butter",
+          "5. Drain broccoli and add to pan",
+          "6. Serve immediately"
+        ]
+      }
+    },
+    {
+      "id": "nd_105",
+      "title": {
+        "no": "Grønnsaksstuing",
+        "en": "Mixed Vegetable Stew"
+      },
+      "subtitle": {
+        "no": "Blandet grønnsaksstuing med tomatssaus",
+        "en": "Mixed vegetables in tomato sauce"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 45,
+      "servings": 4,
+      "category": "Other",
+      "tags": [
+        "vegetables",
+        "stew",
+        "comfort food"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomat",
+            "en": "Tomatoes"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Gulrot",
+            "en": "Carrots"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 250,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Paprika",
+            "en": "Bell pepper"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Grønnsaksbuljong",
+            "en": "Vegetable broth"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Olje",
+            "en": "Oil"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "spsk",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Urter",
+            "en": "Herbs"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Hakk løk og sauté i olje",
+          "2. Kutt alle grønnsakene i små stykker",
+          "3. Tilsett tomat og buljongen",
+          "4. Tilsett alle grønnsakene",
+          "5. Kok i 30 minutter til grønnsakene er møre",
+          "6. Krydre med urter, salt og pepper"
+        ],
+        "en": [
+          "1. Chop onion and sauté in oil",
+          "2. Cut all vegetables into small pieces",
+          "3. Add tomato and broth",
+          "4. Add all vegetables",
+          "5. Cook for 30 minutes until vegetables are tender",
+          "6. Season with herbs, salt and pepper"
         ]
       }
     }
