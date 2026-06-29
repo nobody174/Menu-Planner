@@ -106,12 +106,12 @@ Before pushing, run tests locally:
 pytest tests/ -v --cov=core
 
 # Run linting
-flake8 core/ pi-deployment/
-black --check core/ pi-deployment/
-pylint core/ pi-deployment/
+flake8 core/ deployment/
+black --check core/ deployment/
+pylint core/ deployment/
 
 # Security check
-bandit -r core/ pi-deployment/
+bandit -r core/ deployment/
 safety check
 
 # Validate data
@@ -153,6 +153,6 @@ If you add integrations later:
 
 ---
 
-**Created:** June 18, 2026  
-**Workflows Status:** Ready (not yet triggered)  
+**Created:** June 18, 2026
+**Workflows Status:** Ready (not yet triggered)
 **Manual Trigger:** Available in Actions tab

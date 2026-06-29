@@ -25,8 +25,8 @@ jobs:
 
     - name: Run Bandit security scan
       run: |
-        bandit -r core/ pi-deployment/ -f json -o bandit-report.json || true
-        bandit -r core/ pi-deployment/ || true
+        bandit -r core/ deployment/ -f json -o bandit-report.json || true
+        bandit -r core/ deployment/ || true
 
     - name: Check dependencies for vulnerabilities
       run: |

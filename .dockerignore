@@ -31,5 +31,5 @@ LICENSE
 README.md
 docs/
 tests/
-pi-deployment/logs/
+deployment/logs/
 node_modules/

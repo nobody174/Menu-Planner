@@ -38,6 +38,6 @@ echo    Press Ctrl+C to stop
 echo.
 
 REM Run the app
-python pi-deployment/flask_app.py
+python deployment/flask_app.py
 
 pause

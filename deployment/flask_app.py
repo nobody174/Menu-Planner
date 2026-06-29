@@ -9,6 +9,7 @@ import json
 import os
 import logging
 import secrets
+import requests
 from pathlib import Path
 from flask import Flask, render_template, jsonify, request, session, redirect, url_for
 from datetime import datetime
@@ -182,7 +183,7 @@ DATA_DIR = Path(__file__).parent.parent / 'data'
 CACHE_DIR = DATA_DIR / 'recipes_cache'
 PROFILE_COOKIE_MAX_AGE = 60 * 60 * 24 * 365  # 1 year
 
-# Certificate paths (relative to pi-deployment dir where the service runs from)
+# Certificate paths (relative to the deployment dir where the service runs from)
 CERT_FILE = Path(__file__).parent / 'cert.pem'
 KEY_FILE = Path(__file__).parent / 'key.pem'
 
@@ -193,6 +194,11 @@ app = Flask(__name__,
 # Configuration
 FLASK_ENV = os.environ.get('FLASK_ENV', 'development')
 IS_PRODUCTION = FLASK_ENV == 'production'
+
+# The app's own developer/admin - NOT a household owner. Gates the in-app
+# feedback list specifically to this one account, regardless of which
+# household(s) it owns or what role it holds in any of them.
+ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL', '').strip().lower()
 
 app.config['JSON_SORT_KEYS'] = False
 app.config['TEMPLATES_AUTO_RELOAD'] = not IS_PRODUCTION
@@ -218,6 +224,43 @@ def _has_azure_creds():
     client_secret = os.getenv('AZURE_CLIENT_SECRET', '').strip()
     tenant_id = os.getenv('AZURE_TENANT_ID', '').strip()
     return bool(client_id and client_secret and tenant_id)
+
+def _notify_admin_of_feedback(entry):
+    """Email ADMIN_EMAIL via Resend when new feedback is submitted, so the
+    developer doesn't have to manually check data/feedback.json or dig
+    through Railway's dashboard to notice a new tester report. No-ops
+    silently (just logs) if RESEND_API_KEY isn't configured yet - this must
+    never block or break the actual feedback submission."""
+    api_key = os.getenv('RESEND_API_KEY', '').strip()
+    if not api_key:
+        logger.info("RESEND_API_KEY not set - skipping feedback email notification")
+        return
+
+    from_addr = os.getenv('RESEND_FROM_EMAIL', 'feedback@menuplanner.app').strip()
+    body = (
+        f"New feedback submitted in Menu Planner:\n\n"
+        f"Type: {entry['type']}\n"
+        f"Title: {entry['title']}\n"
+        f"Description: {entry['description']}\n\n"
+        f"From: {entry['submitted_by']}\n"
+        f"Household: {entry.get('household_id') or 'none'}\n"
+        f"Time: {entry['timestamp']}"
+    )
+    resp = requests.post(
+        'https://api.resend.com/emails',
+        headers={'Authorization': f'Bearer {api_key}', 'Content-Type': 'application/json'},
+        json={
+            'from': from_addr,
+            'to': [ADMIN_EMAIL],
+            'subject': f"New feedback: {entry['title']}",
+            'text': body,
+        },
+        timeout=10,
+    )
+    if resp.status_code >= 300:
+        logger.error(f"Resend feedback notification failed: {resp.status_code} {resp.text}")
+    else:
+        logger.info(f"Feedback notification emailed to {ADMIN_EMAIL} (Resend id: {resp.json().get('id')})")
 
 _AVATAR_PALETTE = [
     '#F87171', '#FB923C', '#FBBF24', '#A3E635', '#34D399',
@@ -312,6 +355,29 @@ def acting_role_is_owner():
     from core.household_helpers import user_is_household_owner
     return user_is_household_owner(user_id, household_id)
 
+def acting_role_can_edit():
+    """True if the CURRENTLY ACTING identity can make changes (regenerate the menu,
+    add/edit recipes, etc.) - i.e. anything other than 'viewer'. A 'viewer' profile
+    (e.g. a kid) can look at the menu but shouldn't be able to wipe it out by
+    regenerating, since that overwrites what the household already shopped for."""
+    user_id = session.get('user_id')
+    if not user_id:
+        return False
+
+    household_id = session.get('current_household_id')
+    if not household_id:
+        return False
+
+    active_profile_id = session.get('active_profile_id')
+    if active_profile_id:
+        from core.household_helpers import get_profile_role
+        role = get_profile_role(active_profile_id, household_id)
+    else:
+        from core.household_helpers import get_account_holder_role
+        role = get_account_holder_role(user_id, household_id)
+
+    return role in ('owner', 'co-owner', 'editor')
+
 @app.context_processor
 def inject_config():
     """Inject configuration and i18n into all templates."""
@@ -327,6 +393,8 @@ def inject_config():
     household_name = os.getenv('HOUSEHOLD_NAME', 'Menu Planner')
     household_id = session.get('current_household_id')
     is_household_owner = False
+    can_edit_menu = True
+    is_app_admin = bool(ADMIN_EMAIL and user_email and user_email.strip().lower() == ADMIN_EMAIL)
     active_avatar_type = None
     active_avatar_value = None
     if household_id:
@@ -336,6 +404,7 @@ def inject_config():
             household_name = current_household.name
         if user_id:
             is_household_owner = acting_role_is_owner()
+            can_edit_menu = acting_role_can_edit()
 
             active_profile_id = session.get('active_profile_id')
             members = get_household_members(household_id)
@@ -362,6 +431,8 @@ def inject_config():
         'auth_type': auth_type,
         'active_profile_name': session.get('active_profile_name'),
         'is_household_owner': is_household_owner,
+        'can_edit_menu': can_edit_menu,
+        'is_app_admin': is_app_admin,
         'active_avatar_type': active_avatar_type,
         'active_avatar_value': active_avatar_value,
     }
@@ -502,22 +573,38 @@ def edit_recipe(recipe_id):
     lang = _get_lang()
     recipe = _normalize_recipe(recipe, lang)
 
-    # Format ingredients as JSON for the form
+    # Format ingredients as one readable line per ingredient (matching the
+    # plain-text style Add Recipe already uses), instead of dumping the raw
+    # {name, quantity, unit} structure as JSON for someone to hand-edit.
     ingredients_list = recipe.get('ingredients_included', recipe.get('ingredients', []))
-    if ingredients_list and isinstance(ingredients_list[0], dict):
-        ingredients_json = json.dumps(ingredients_list, ensure_ascii=False, indent=2)
-    else:
-        ingredients_json = json.dumps([], ensure_ascii=False, indent=2)
+    ingredient_lines = []
+    for ing in ingredients_list:
+        if isinstance(ing, dict):
+            qty = ing.get('quantity', '')
+            unit = ing.get('unit', '')
+            name = ing.get('name', '')
+            prefix = ' '.join(str(p) for p in (qty, unit) if p)
+            ingredient_lines.append(f"{prefix} {name}".strip() if prefix else name)
+        else:
+            ingredient_lines.append(str(ing))
+    ingredients_text = '\n'.join(ingredient_lines)
 
-    # Format instructions
+    # Format instructions - _normalize_recipe() above already flattened these
+    # to a list of {'step': N, 'description': '...'} dicts, so pull out the
+    # plain text rather than str()-ing the dicts themselves (which used to
+    # dump raw Python dict literals like "{'step': 1, 'description': '...'}"
+    # straight into the textarea).
     instructions = recipe.get('instructions', [])
-    if isinstance(instructions, list):
-        instructions_text = '\n'.join([str(i) for i in instructions])
-    else:
-        instructions_text = str(instructions)
+    lines = []
+    for i, step in enumerate(instructions):
+        if isinstance(step, dict):
+            lines.append(str(step.get('description', '')))
+        else:
+            lines.append(str(step))
+    instructions_text = '\n'.join(lines)
 
     logger.info(f"Edit recipe page accessed: {recipe_id}")
-    return render_template('edit_recipe.html', recipe=recipe, ingredients_json=ingredients_json, instructions_text=instructions_text)
+    return render_template('edit_recipe.html', recipe=recipe, ingredients_text=ingredients_text, instructions_text=instructions_text)
 
 @app.route('/shopping')
 def shopping_list():
@@ -596,12 +683,25 @@ def shopping_list():
 
 @app.route('/api/pantry', methods=['GET'])
 def api_get_pantry():
-    from core.household_paths import load_pantry
-    return jsonify({'success': True, 'pantry': load_pantry(current_household_id())})
+    """Pantry items in the CURRENT display language only - items that exist
+    in both languages identically (e.g. 'salt') always show; items unique to
+    the other language are hidden, even though they're still stored (adding
+    'lemon' in English also silently stores 'sitron' so it's there if the
+    household switches to Norwegian later)."""
+    from core.household_paths import load_pantry, pantry_item_language
+    lang = _get_lang()
+    pantry = load_pantry(current_household_id())
+    visible = [p for p in pantry if pantry_item_language(p) in (lang, 'both')]
+    return jsonify({'success': True, 'pantry': sorted(visible)})
 
 @app.route('/api/pantry/add', methods=['POST'])
 def api_add_pantry_item():
-    from core.household_paths import load_pantry, save_pantry, append_activity
+    """Adding a known staple also adds its translation in the other language
+    (e.g. adding 'lemon' silently also stores 'sitron'), so the pantry stays
+    in sync no matter which language the household views it in later. Items
+    with no known translation (anything custom the household typed) are just
+    stored as-is."""
+    from core.household_paths import load_pantry, save_pantry, append_activity, pantry_item_translation
     data = request.get_json() or {}
     item = (data.get('item') or '').strip().lower()
     if not item:
@@ -609,27 +709,276 @@ def api_add_pantry_item():
 
     household_id = current_household_id()
     pantry = load_pantry(household_id)
+    added = False
     if item not in pantry:
         pantry.append(item)
+        added = True
+    translation = pantry_item_translation(item)
+    if translation and translation not in pantry:
+        pantry.append(translation)
+        added = True
+    if added:
         save_pantry(household_id, pantry)
         append_activity(household_id, current_actor_name(), f"Added '{item}' to pantry")
 
-    return jsonify({'success': True, 'pantry': sorted(pantry)})
+    lang = _get_lang()
+    from core.household_paths import pantry_item_language
+    visible = [p for p in pantry if pantry_item_language(p) in (lang, 'both')]
+    return jsonify({'success': True, 'pantry': sorted(visible)})
 
 @app.route('/api/pantry/remove', methods=['POST'])
 def api_remove_pantry_item():
-    from core.household_paths import load_pantry, save_pantry, append_activity
+    """Removing a known staple also removes its translation in the other
+    language, so e.g. removing 'sugar' also removes 'sukker'."""
+    from core.household_paths import load_pantry, save_pantry, append_activity, pantry_item_translation
     data = request.get_json() or {}
     item = (data.get('item') or '').strip().lower()
     if not item:
         return jsonify({'success': False, 'message': 'No item provided'}), 400
 
     household_id = current_household_id()
-    pantry = [p for p in load_pantry(household_id) if p != item]
+    translation = pantry_item_translation(item)
+    to_remove = {item}
+    if translation:
+        to_remove.add(translation)
+    pantry = [p for p in load_pantry(household_id) if p not in to_remove]
     save_pantry(household_id, pantry)
     append_activity(household_id, current_actor_name(), f"Removed '{item}' from pantry")
 
-    return jsonify({'success': True, 'pantry': sorted(pantry)})
+    lang = _get_lang()
+    from core.household_paths import pantry_item_language
+    visible = [p for p in pantry if pantry_item_language(p) in (lang, 'both')]
+    return jsonify({'success': True, 'pantry': sorted(visible)})
+
+def _load_household_categories(household_id):
+    from core.household_paths import categories_file
+    path = categories_file(household_id)
+    if not path.exists():
+        return []
+    with open(path, 'r', encoding='utf-8') as f:
+        return json.load(f)
+
+def _save_household_categories(household_id, categories):
+    from core.household_paths import categories_file
+    path = categories_file(household_id)
+    with open(path, 'w', encoding='utf-8') as f:
+        json.dump(categories, f, ensure_ascii=False, indent=2)
+
+@app.route('/api/categories/add', methods=['POST'])
+def api_add_category():
+    """Owner-only: add a custom category to this household's category list."""
+    if not acting_role_is_owner():
+        return jsonify({'success': False, 'message': 'Permission denied'}), 403
+
+    household_id = current_household_id()
+    if not household_id:
+        return jsonify({'success': False, 'message': 'No household selected'}), 400
+
+    data = request.get_json() or {}
+    name = (data.get('name') or '').strip()
+    icon = (data.get('icon') or '🍽️').strip()
+    if not name:
+        return jsonify({'success': False, 'message': 'Category name required'}), 400
+
+    categories = _load_household_categories(household_id)
+    code = name.lower().replace(' ', '_')
+    if any(c.get('code') == code for c in categories):
+        return jsonify({'success': False, 'message': 'Category already exists'}), 400
+
+    categories.append({
+        'code': code,
+        'name_no': name,
+        'name_en': name,
+        'description_no': '',
+        'description_en': '',
+        'icon': icon,
+        'color': '#999999',
+    })
+    _save_household_categories(household_id, categories)
+    from core.household_paths import append_activity
+    append_activity(household_id, current_actor_name(), f"Added category '{name}'")
+
+    return jsonify({'success': True, 'categories': _sort_categories(categories)})
+
+@app.route('/api/categories/rename', methods=['POST'])
+def api_rename_category():
+    """Owner-only: rename a category in this household's category list."""
+    if not acting_role_is_owner():
+        return jsonify({'success': False, 'message': 'Permission denied'}), 403
+
+    household_id = current_household_id()
+    if not household_id:
+        return jsonify({'success': False, 'message': 'No household selected'}), 400
+
+    data = request.get_json() or {}
+    code = (data.get('code') or '').strip()
+    new_name = (data.get('name') or '').strip()
+    if not code or not new_name:
+        return jsonify({'success': False, 'message': 'Category code and new name required'}), 400
+
+    categories = _load_household_categories(household_id)
+    found = False
+    for c in categories:
+        if c.get('code') == code:
+            c['name_no'] = new_name
+            c['name_en'] = new_name
+            found = True
+            break
+
+    if not found:
+        return jsonify({'success': False, 'message': 'Category not found'}), 404
+
+    _save_household_categories(household_id, categories)
+    from core.household_paths import append_activity
+    append_activity(household_id, current_actor_name(), f"Renamed category to '{new_name}'")
+
+    return jsonify({'success': True, 'categories': _sort_categories(categories)})
+
+@app.route('/api/categories/remove', methods=['POST'])
+def api_remove_category():
+    """Owner-only: remove a category from this household's category list."""
+    if not acting_role_is_owner():
+        return jsonify({'success': False, 'message': 'Permission denied'}), 403
+
+    household_id = current_household_id()
+    if not household_id:
+        return jsonify({'success': False, 'message': 'No household selected'}), 400
+
+    data = request.get_json() or {}
+    code = (data.get('code') or '').strip()
+    if not code:
+        return jsonify({'success': False, 'message': 'Category code required'}), 400
+
+    categories = _load_household_categories(household_id)
+    remaining = [c for c in categories if c.get('code') != code]
+    if len(remaining) == len(categories):
+        return jsonify({'success': False, 'message': 'Category not found'}), 404
+
+    _save_household_categories(household_id, remaining)
+    from core.household_paths import append_activity, mark_category_removed
+    mark_category_removed(household_id, code)
+    append_activity(household_id, current_actor_name(), f"Removed category '{code}'")
+
+    return jsonify({'success': True, 'categories': _sort_categories(remaining)})
+
+@app.route('/api/categories/merge', methods=['POST'])
+def api_merge_category():
+    """Owner-only: move any recipes tagged with `from_code` over to
+    `into_code`'s name (in whichever language each recipe's category string
+    happens to be in), then remove the now-empty `from_code` category."""
+    if not acting_role_is_owner():
+        return jsonify({'success': False, 'message': 'Permission denied'}), 403
+
+    household_id = current_household_id()
+    if not household_id:
+        return jsonify({'success': False, 'message': 'No household selected'}), 400
+
+    data = request.get_json() or {}
+    from_code = (data.get('from_code') or '').strip()
+    into_code = (data.get('into_code') or '').strip()
+    if not from_code or not into_code:
+        return jsonify({'success': False, 'message': 'Both categories required'}), 400
+    if from_code == into_code:
+        return jsonify({'success': False, 'message': 'Cannot merge a category into itself'}), 400
+
+    categories = _load_household_categories(household_id)
+    from_cat = next((c for c in categories if c.get('code') == from_code), None)
+    into_cat = next((c for c in categories if c.get('code') == into_code), None)
+    if not from_cat or not into_cat:
+        return jsonify({'success': False, 'message': 'Category not found'}), 404
+
+    from_names = {from_cat.get('name_en', ''), from_cat.get('name_no', '')}
+    target_lang = _get_lang()
+    target_name = into_cat.get(f'name_{target_lang}') or into_cat.get('name_en') or into_cat['code']
+
+    recipes = load_recipes_db()
+    moved = 0
+    for r in recipes:
+        if r.get('category') in from_names:
+            r['category'] = target_name
+            moved += 1
+    if moved:
+        save_recipes_db(recipes)
+
+    remaining = [c for c in categories if c.get('code') != from_code]
+    _save_household_categories(household_id, remaining)
+    from core.household_paths import append_activity, mark_category_removed
+    mark_category_removed(household_id, from_code)
+    append_activity(household_id, current_actor_name(),
+                     f"Merged category '{from_cat.get('name_en')}' into '{into_cat.get('name_en')}' ({moved} recipe(s) moved)")
+
+    return jsonify({'success': True, 'categories': _sort_categories(remaining), 'moved': moved})
+
+@app.route('/feedback')
+def feedback_page():
+    """Simple feedback form for trial testers - any logged-in user can report."""
+    if not session.get('user_id'):
+        return redirect(url_for('login_page'))
+    return render_template('feedback.html', success=request.args.get('success'))
+
+@app.route('/api/feedback', methods=['POST'])
+def api_submit_feedback():
+    """Save feedback to a single append-only JSON file - simple enough for a
+    handful of trial testers; not meant to scale past that without revisiting."""
+    if not session.get('user_id'):
+        return jsonify({'success': False, 'message': 'Not authenticated'}), 401
+
+    data = request.get_json() or {}
+    feedback_type = (data.get('type') or 'other').strip()
+    title = (data.get('title') or '').strip()
+    description = (data.get('description') or '').strip()
+    if not title or not description:
+        return jsonify({'success': False, 'message': 'Title and description required'}), 400
+
+    from datetime import datetime
+    entry = {
+        'timestamp': datetime.now().isoformat(),
+        'type': feedback_type,
+        'title': title,
+        'description': description,
+        'submitted_by': session.get('user_email', 'unknown'),
+        'household_id': session.get('current_household_id'),
+    }
+
+    feedback_file = DATA_DIR / 'feedback.json'
+    entries = []
+    if feedback_file.exists():
+        try:
+            with open(feedback_file, 'r', encoding='utf-8') as f:
+                entries = json.load(f)
+        except Exception:
+            entries = []
+    entries.append(entry)
+    with open(feedback_file, 'w', encoding='utf-8') as f:
+        json.dump(entries, f, ensure_ascii=False, indent=2)
+
+    if ADMIN_EMAIL:
+        try:
+            _notify_admin_of_feedback(entry)
+        except Exception as e:
+            logger.error(f"Feedback admin notification failed: {e}")
+
+    return jsonify({'success': True})
+
+@app.route('/feedback/list')
+def feedback_list_page():
+    """App-developer-only view of all submitted feedback, newest first. Gated
+    by ADMIN_EMAIL specifically - NOT the same thing as being a household
+    owner, which is a per-household role any signed-up user can hold."""
+    user_email = (session.get('user_email') or '').strip().lower()
+    if not ADMIN_EMAIL or user_email != ADMIN_EMAIL:
+        return render_template('error.html', message='Not authorized'), 403
+
+    feedback_file = DATA_DIR / 'feedback.json'
+    entries = []
+    if feedback_file.exists():
+        try:
+            with open(feedback_file, 'r', encoding='utf-8') as f:
+                entries = json.load(f)
+        except Exception:
+            entries = []
+    entries.reverse()  # newest first
+    return render_template('feedback_list.html', entries=entries)
 
 @app.route('/add-recipe')
 def add_recipe_page():
@@ -663,7 +1012,60 @@ def settings_page():
         if user:
             referral_code = user.referral_code
 
-    return render_template('settings.html', activity_log=activity_log, referral_code=referral_code)
+    categories = []
+    if household_id:
+        from core.household_paths import categories_file
+        path = categories_file(household_id)
+        if path.exists():
+            with open(path, 'r', encoding='utf-8') as f:
+                raw_cats = json.load(f)
+            lang = _get_lang()
+            for cat in raw_cats:
+                translated = dict(cat)
+                translated['name'] = cat.get(f'name_{lang}') or cat.get('name_en') or cat.get('code')
+                categories.append(translated)
+            categories = _sort_categories(categories)
+
+    has_pin = False
+    if user_id:
+        from core.auth_helpers import get_user_by_email as _get_user_by_email
+        _user = _get_user_by_email(session.get('user_email', ''))
+        has_pin = bool(_user and _user.pin_hash)
+
+    pantry = []
+    if household_id:
+        from core.household_paths import load_pantry, pantry_item_language
+        lang = _get_lang()
+        pantry = sorted(p for p in load_pantry(household_id) if pantry_item_language(p) in (lang, 'both'))
+
+    return render_template('settings.html', activity_log=activity_log, referral_code=referral_code,
+                            categories=categories, has_pin=has_pin, pantry=pantry)
+
+@app.route('/api/account/set-pin', methods=['POST'])
+def api_set_pin():
+    """Owner-only: set or change the shared-device PIN used by the profile picker."""
+    user_id = session.get('user_id')
+    if not user_id:
+        return jsonify({'success': False, 'message': 'Not authenticated'}), 401
+
+    data = request.get_json() or {}
+    pin = (data.get('pin') or '').strip()
+
+    from core.auth_helpers import set_pin
+    success, message = set_pin(user_id, pin)
+    status = 200 if success else 400
+    return jsonify({'success': success, 'message': message}), status
+
+@app.route('/api/account/clear-pin', methods=['POST'])
+def api_clear_pin():
+    """Owner-only: remove the PIN, falling back to the full account password."""
+    user_id = session.get('user_id')
+    if not user_id:
+        return jsonify({'success': False, 'message': 'Not authenticated'}), 401
+
+    from core.auth_helpers import clear_pin
+    success, message = clear_pin(user_id)
+    return jsonify({'success': success, 'message': message})
 
 # ── Household/Team Management Routes ──────────────────────────────────────────
 
@@ -846,8 +1248,11 @@ def profile_picker():
         return redirect('/')
 
     owner_password_error = request.args.get('owner_password_error')
+    from core.auth_helpers import get_user_by_email
+    owner_account = get_user_by_email(session.get('user_email', ''))
+    owner_has_pin = bool(owner_account and owner_account.pin_hash)
     return render_template('profile-picker.html', household=current_household, members=members,
-                            owner_password_error=owner_password_error)
+                            owner_password_error=owner_password_error, owner_has_pin=owner_has_pin)
 
 @app.route('/profile-picker/select', methods=['POST'])
 def select_profile():
@@ -860,11 +1265,18 @@ def select_profile():
     is_account_holder = request.form.get('is_account_holder')
 
     if is_account_holder:
-        password = request.form.get('owner_password', '')
-        from core.auth_helpers import authenticate_user
-        success, _ = authenticate_user(session.get('user_email', ''), password)
-        if not success:
-            return redirect(url_for('profile_picker', owner_password_error='Incorrect password'))
+        from core.auth_helpers import get_user_by_email, verify_pin, authenticate_user
+        user = get_user_by_email(session.get('user_email', ''))
+
+        if user and user.pin_hash:
+            pin = request.form.get('owner_pin', '')
+            if not verify_pin(user_id, pin):
+                return redirect(url_for('profile_picker', owner_password_error='Incorrect PIN'))
+        else:
+            password = request.form.get('owner_password', '')
+            success, _ = authenticate_user(session.get('user_email', ''), password)
+            if not success:
+                return redirect(url_for('profile_picker', owner_password_error='Incorrect password'))
 
         household_id = session.get('current_household_id')
         from core.household_helpers import get_household_members
@@ -1238,6 +1650,9 @@ def api_menu():
 
 @app.route('/api/regenerate', methods=['POST'])
 def api_regenerate():
+    if not acting_role_can_edit():
+        return jsonify({'status': 'error', 'message': 'Viewers cannot regenerate the menu'}), 403
+
     try:
         from core.menu_generator import MenuGenerator
         data = request.get_json() or {}
@@ -1257,11 +1672,23 @@ def api_regenerate():
         logger.error(traceback.format_exc())
         return jsonify({'status': 'error', 'message': str(e)}), 500
 
+def _sort_categories(categories):
+    """Imported recipe-pack categories always sort to the bottom; everything
+    else is alphabetical by display name. ('Favorites' isn't a real category
+    in this data - it's a separate hardcoded always-first entry in the nav
+    dropdown, so it doesn't need handling here.)"""
+    return sorted(categories, key=lambda c: (bool(c.get('imported')), c.get('name', c.get('name_en', '')).lower()))
+
 @app.route('/api/categories')
 def get_categories():
-    """Get all available categories from categories.json, translated to current language"""
+    """Get all available categories from this household's categories.json, translated to current language"""
     lang = _get_lang()
-    categories_file = Path(__file__).parent.parent / 'data' / 'categories.json'
+    household_id = current_household_id()
+    if household_id:
+        from core.household_paths import categories_file as _categories_file
+        categories_file = _categories_file(household_id)
+    else:
+        categories_file = Path(__file__).parent.parent / 'data' / 'categories.json'
     categories = []
     if categories_file.exists():
         try:
@@ -1275,7 +1702,7 @@ def get_categories():
                     categories.append(translated)
         except Exception as e:
             logger.error(f"Error loading categories: {e}")
-    return jsonify(categories)
+    return jsonify(_sort_categories(categories))
 
 @app.route('/api/export-shopping-list', methods=['POST'])
 def api_export_shopping_list():
@@ -1777,7 +2204,8 @@ def api_recipe_packs_import():
                         'description_no': cat_name,
                         'description_en': cat_name,
                         'icon': cat_meta.get('icon', '📦'),
-                        'color': cat_meta.get('color', '#999999')
+                        'color': cat_meta.get('color', '#999999'),
+                        'imported': True
                     })
                     existing_cat_codes.add(cat_code)
             with open(categories_file, 'w', encoding='utf-8') as f:

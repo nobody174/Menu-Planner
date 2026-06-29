@@ -164,10 +164,10 @@ cp .env.example .env
 alembic upgrade head
 
 # Start Flask dev server
-python pi-deployment/flask_app.py
+python deployment/flask_app.py
 
 # Or run with Gunicorn (mimics production):
-gunicorn --workers 1 --bind 0.0.0.0:5000 pi_deployment.flask_app:app
+gunicorn --workers 1 --bind 0.0.0.0:5000 deployment.flask_app:app
 ```
 
 ---

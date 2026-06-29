@@ -25,16 +25,16 @@ jobs:
 
     - name: Check code formatting with Black
       run: |
-        black --check --diff core/ pi-deployment/ scripts/ || true
+        black --check --diff core/ deployment/ scripts/ || true
 
     - name: Run Flake8 linting
       run: |
-        flake8 core/ pi-deployment/ scripts/ --max-line-length=120 --ignore=E203,W503 || true
+        flake8 core/ deployment/ scripts/ --max-line-length=120 --ignore=E203,W503 || true
 
     - name: Run Pylint
       run: |
-        pylint core/ pi-deployment/ --fail-under=7.0 || true
+        pylint core/ deployment/ --fail-under=7.0 || true
 
     - name: Check import sorting with isort
       run: |
-        isort --check-only --diff core/ pi-deployment/ scripts/ || true
+        isort --check-only --diff core/ deployment/ scripts/ || true

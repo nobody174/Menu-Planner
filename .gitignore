@@ -39,6 +39,14 @@ data/recipes_cache/
 # Per-household runtime data (seeded/generated locally, not source-controlled)
 data/households/
 
+# User-submitted feedback (contains real emails - not for the public repo)
+data/feedback.json
+
+# Local-dev self-signed TLS cert/key (not used by Railway, never belonged in
+# a public repo - was tracked since the original Raspberry Pi setup)
+deployment/cert.pem
+deployment/key.pem
+
 # Virtual environments
 venv/
 ENV/

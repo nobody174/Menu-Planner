@@ -175,7 +175,7 @@ A **weekly meal planning web application** built with Flask that helps household
 
 ```
 Menu-Planner/
-├── pi-deployment/
+├── deployment/
 │   ├── flask_app.py              # Main Flask app (all routes)
 │   └── __init__.py
 ├── core/
@@ -280,7 +280,7 @@ docker run -p 5000:5000 menu-planner:latest
    - **Phase 2 Task 5 (CI/CD):** (to be created)
 
 3. **Code files to understand:**
-   - `pi-deployment/flask_app.py` - All routes + Flask config
+   - `deployment/flask_app.py` - All routes + Flask config
    - `core/menu_generator.py` - Menu generation logic
    - `core/ingredient_deduplicator.py` - Deduplication + pantry filter
    - `frontend/static/app.js` - Client-side logic
@@ -448,7 +448,7 @@ SECRET_KEY=your-secret-key
 **A:** `frontend/static/theme-manager.js` + 8 CSS theme files in `frontend/static/themes/`
 
 ### Q: Where are the Flask routes?
-**A:** All in `pi-deployment/flask_app.py` (single file, ~850 lines)
+**A:** All in `deployment/flask_app.py` (single file, ~850 lines)
 
 ### Q: How to add a new recipe?
 **A:** Edit `data/recipes_db.json` (Phase 1) or use admin UI (Phase 2)

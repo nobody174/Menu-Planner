@@ -18,13 +18,20 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy application code
 COPY . .
 
+# Keep a pristine copy of the baked-in seed data files separate from /app/data
+# itself - a Railway persistent volume mounted at /app/data will shadow
+# whatever was baked into that path at image-build time, so the entrypoint
+# script needs an untouched source to restore missing seed files from on
+# first boot against an empty/new volume.
+RUN mkdir -p /app/data-seed && cp -r data/. /app/data-seed/
+
 # Create necessary directories
 RUN mkdir -p data logs
 
 RUN chmod +x docker-entrypoint.sh
 
 # Set environment variables
-ENV FLASK_APP=pi-deployment/flask_app.py
+ENV FLASK_APP=deployment/flask_app.py
 ENV FLASK_ENV=production
 ENV PYTHONUNBUFFERED=1
 

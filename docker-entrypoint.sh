@@ -1,6 +1,14 @@
 #!/bin/sh
 set -e
 
+# Restore seed data files into the (possibly empty, if this is a fresh
+# Railway persistent volume) /app/data directory. Only copies files that
+# don't already exist there, so real data from a previous boot is never
+# overwritten - this only fills in what's genuinely missing.
+if [ -d /app/data-seed ]; then
+    cp -rn /app/data-seed/. /app/data/ 2>/dev/null || true
+fi
+
 python3 - <<'PYEOF'
 import os
 import sqlalchemy as sa
@@ -35,4 +43,4 @@ exec gunicorn \
     --access-logfile - \
     --error-logfile - \
     --log-level info \
-    pi-deployment.flask_app:app
+    deployment.flask_app:app

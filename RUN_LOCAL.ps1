@@ -37,4 +37,4 @@ Write-Host "   Press Ctrl+C to stop" -ForegroundColor Green
 Write-Host ""
 
 # Run the app
-python pi-deployment/flask_app.py
+python deployment/flask_app.py

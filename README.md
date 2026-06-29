@@ -4,23 +4,23 @@
 
 A Python/Flask web application for families to organize recipes, generate weekly menus, and create shopping lists.
 
-**Created by:** [nobody174](https://github.com/nobody174)  
-**License:** MIT  
+**Created by:** [nobody174](https://github.com/nobody174)
+**License:** MIT
 **Support:** [Patreon](https://www.patreon.com/Nobody174/posts/menu-planner-161473082)
 
 ## Features
 
-✅ **Recipe Management** - Add your own recipes via web form or import from Excel  
-✅ **Sample Recipes** - 10 bilingual sample recipes included to get started  
-✅ **Menu Generation** - Automatically generate weekly menus from your recipes  
-✅ **Shopping Lists** - Automatically deduplicated ingredient lists  
-✅ **Bilingual Support** - Norwegian & English with one-click toggle  
-✅ **Categories** - Organize recipes (Family, Quick, Vegetarian, Fish, Meat, Other)  
-✅ **Microsoft To Do Sync** - Push shopping lists to To Do lists (optional)  
-✅ **Email Notifications** - Weekly menu summaries via email (optional)  
-✅ **Responsive Design** - Works on desktop, tablet, and mobile  
-✅ **Multiple Themes** - 9+ beautiful themes to choose from  
-✅ **Open Source** - 100% free, no tracking, no accounts needed  
+✅ **Recipe Management** - Add your own recipes via web form or import from Excel
+✅ **Sample Recipes** - 10 bilingual sample recipes included to get started
+✅ **Menu Generation** - Automatically generate weekly menus from your recipes
+✅ **Shopping Lists** - Automatically deduplicated ingredient lists
+✅ **Bilingual Support** - Norwegian & English with one-click toggle
+✅ **Categories** - Organize recipes (Family, Quick, Vegetarian, Fish, Meat, Other)
+✅ **Microsoft To Do Sync** - Push shopping lists to To Do lists (optional)
+✅ **Email Notifications** - Weekly menu summaries via email (optional)
+✅ **Responsive Design** - Works on desktop, tablet, and mobile
+✅ **Multiple Themes** - 9+ beautiful themes to choose from
+✅ **Open Source** - 100% free, no tracking, no accounts needed
 
 ## Quick Start
 
@@ -50,7 +50,7 @@ cp .env.template .env
 nano .env  # Edit: HOUSEHOLD_NAME=Your Family
 
 # 5. Start the app
-python3 pi-deployment/flask_app.py
+python3 deployment/flask_app.py
 ```
 
 **Open browser:** http://localhost:5000

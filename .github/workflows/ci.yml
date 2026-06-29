@@ -49,13 +49,13 @@ jobs:
       - name: Lint with flake8
         run: |
           # Stop the build if there are Python syntax errors or undefined names
-          flake8 pi-deployment core database --count --select=E9,F63,F7,F82 --show-source --statistics
+          flake8 deployment core database --count --select=E9,F63,F7,F82 --show-source --statistics
           # exit-zero treats all errors as warnings
-          flake8 pi-deployment core database --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+          flake8 deployment core database --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
       - name: Check formatting with black
         run: |
-          black --check pi-deployment core database || true
+          black --check deployment core database || true
 
       - name: Run database migrations
         env:
@@ -69,7 +69,7 @@ jobs:
           FLASK_ENV: testing
           FLASK_SECRET_KEY: test-secret-key
         run: |
-          pytest tests/ -v --cov=pi_deployment --cov=core --cov=database --cov-report=xml --cov-report=term
+          pytest tests/ -v --cov=deployment --cov=core --cov=database --cov-report=xml --cov-report=term
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
@@ -81,7 +81,7 @@ jobs:
 
       - name: Verify Flask app imports
         run: |
-          python -c "from pi_deployment.flask_app import app; print('Flask app imported successfully')"
+          python -c "from deployment.flask_app import app; print('Flask app imported successfully')"
 
   # Job 2: Build Docker image (for manual testing)
   build-docker:

@@ -3,7 +3,7 @@
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path("pi-deployment")))
+sys.path.insert(0, str(Path("deployment")))
 try:
     from flask_app import app
     print("[OK] Flask app imports successfully")

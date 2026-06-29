@@ -76,7 +76,7 @@ python3 scripts/import_recipes.py my_recipes.xlsx
 ### 6. Start the Application
 
 ```bash
-python3 pi-deployment/app.py
+python3 deployment/flask_app.py
 ```
 
 Visit: `http://localhost:5000`
@@ -164,7 +164,7 @@ Type=simple
 User=pi
 WorkingDirectory=/home/pi/Menu-Planner
 Environment="PATH=/home/pi/Menu-Planner/venv/bin"
-ExecStart=/home/pi/Menu-Planner/venv/bin/python3 pi-deployment/app.py
+ExecStart=/home/pi/Menu-Planner/venv/bin/python3 deployment/flask_app.py
 Restart=always
 RestartSec=10
 
@@ -192,7 +192,7 @@ pip install -r requirements.txt
 
 ### Port already in use
 
-Change port in `pi-deployment/flask_app.py`:
+Change port in `deployment/flask_app.py`:
 
 ```python
 app.run(host='0.0.0.0', port=5001)  # Use 5001 instead of 5000
@@ -203,7 +203,7 @@ app.run(host='0.0.0.0', port=5001)  # Use 5001 instead of 5000
 Generate self-signed certificates:
 
 ```bash
-openssl req -x509 -newkey rsa:4096 -nodes -out pi-deployment/cert.pem -keyout pi-deployment/key.pem -days 365
+openssl req -x509 -newkey rsa:4096 -nodes -out deployment/cert.pem -keyout deployment/key.pem -days 365
 ```
 
 ### To Do sync not working

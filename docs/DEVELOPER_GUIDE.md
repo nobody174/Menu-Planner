@@ -13,9 +13,8 @@ Menu-Planner/
 │   ├── menu_generator.py
 │   ├── pantry_staples.json
 │   └── todo_sync.py
-├── pi-deployment/            # Flask web application
-│   ├── app.py               # Entry point
-│   ├── flask_app.py         # Routes & API endpoints
+├── deployment/               # Flask web application
+│   ├── flask_app.py         # Entry point, routes & API endpoints
 │   ├── auth.py              # Microsoft authentication
 │   ├── email_notifier.py
 │   └── scheduler.py
@@ -67,7 +66,7 @@ cp .env.template .env
 ### 3. Run Locally
 
 ```bash
-python3 pi-deployment/app.py
+python3 deployment/flask_app.py
 # Open http://localhost:5000
 ```
 
@@ -94,7 +93,7 @@ python3 pi-deployment/app.py
 ```
 Frontend (HTML/JS)
      ↓
-Flask Routes (pi-deployment/flask_app.py)
+Flask Routes (deployment/flask_app.py)
      ↓
 Core Logic (core/)
      ↓
@@ -157,7 +156,7 @@ const converted = window.measurementConverter.convertUnit(
 
 ### Add a New API Endpoint
 
-1. Add route in `pi-deployment/flask_app.py`:
+1. Add route in `deployment/flask_app.py`:
 
 ```python
 @app.route('/api/my-endpoint')
@@ -293,7 +292,7 @@ python3 scripts/pi-menu-cli.py menu generate
 
 ### Enable Debug Mode
 
-Edit `pi-deployment/flask_app.py`:
+Edit `deployment/flask_app.py`:
 
 ```python
 app.config['DEBUG'] = True
@@ -360,7 +359,7 @@ Press F12 to open developer tools and check:
 
 ### Development
 ```bash
-python3 pi-deployment/app.py
+python3 deployment/flask_app.py
 ```
 
 ### Production (Raspberry Pi)

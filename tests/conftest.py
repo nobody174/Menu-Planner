@@ -7,10 +7,12 @@ import os
 from pathlib import Path
 import sys
 
-# Add project root to path
+# Add project root to path so 'deployment' (and 'core', 'database') import
+# as normal packages - this used to need a workaround when the folder was
+# named 'pi-deployment' (a hyphen isn't valid in a Python package name).
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from pi_deployment.flask_app import app
+from deployment.flask_app import app
 from database.database import db, SessionLocal
 from database.models import Base
 

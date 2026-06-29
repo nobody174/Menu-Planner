@@ -326,4 +326,3 @@ def sync_ticktick(items_by_category: dict, api_token: str, list_name: str = "Men
     except Exception as e:
         logger.error(f"TickTick sync error: {e}")
         return {"success": False, "error": str(e)}
-
