@@ -141,3 +141,55 @@ def authenticate_user(email, password):
         return False, "Invalid password"
 
     return True, user
+
+
+def set_pin(user_id, pin):
+    """Set or change the account's shared-device PIN. 4 digits only, hashed
+    the same way as the account password - never stored in clear text even
+    though it's short. Returns: (success, message)."""
+    if not pin or not pin.isdigit() or len(pin) != 4:
+        return False, "PIN must be exactly 4 digits"
+
+    session = SessionLocal()
+    try:
+        user = session.query(User).filter(User.id == user_id).first()
+        if not user:
+            return False, "User not found"
+        user.pin_hash = hash_password(pin)
+        session.commit()
+        return True, "PIN updated"
+    except Exception as e:
+        session.rollback()
+        return False, f"Database error: {str(e)}"
+    finally:
+        session.close()
+
+
+def clear_pin(user_id):
+    """Remove the account's PIN, falling back to requiring the full password again."""
+    session = SessionLocal()
+    try:
+        user = session.query(User).filter(User.id == user_id).first()
+        if not user:
+            return False, "User not found"
+        user.pin_hash = None
+        session.commit()
+        return True, "PIN removed"
+    except Exception as e:
+        session.rollback()
+        return False, f"Database error: {str(e)}"
+    finally:
+        session.close()
+
+
+def verify_pin(user_id, pin):
+    """Check a PIN against the account's stored pin_hash. Returns False if no
+    PIN has ever been set (caller should fall back to full-password auth)."""
+    session = SessionLocal()
+    try:
+        user = session.query(User).filter(User.id == user_id).first()
+        if not user or not user.pin_hash:
+            return False
+        return verify_password(user.pin_hash, pin)
+    finally:
+        session.close()

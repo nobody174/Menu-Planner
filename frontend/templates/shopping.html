@@ -14,6 +14,7 @@
 
 </div>
 
+
 <div class="shopping-list">
     {% set category_keys = {
         'Proteins': 'proteins',
@@ -30,7 +31,7 @@
             <h2 class="category-title">{{ t[category_keys.get(category, 'other_category')] if category_keys.get(category) else category }}</h2>
             <ul class="category-items">
                 {% for item in items %}
-                <li class="shopping-item"
+                <li class="shopping-item{% if item.in_pantry %} in-pantry{% endif %}"
                     data-ingredient="{{ item.ingredient }}"
                     data-quantity="{{ item.quantity }}"
                     data-unit="{{ item.unit }}">
@@ -38,6 +39,7 @@
                         <input type="checkbox" class="item-checkbox">
                         <span class="item-name">{{ item.ingredient }}</span>
                         <span class="item-qty">{{ item.quantity }}{{ item.unit }}</span>
+                        {% if item.in_pantry %}<span class="pantry-have-badge" title="{{ t.get('already_in_pantry', 'Already in your pantry') }}">✓ {{ t.get('have_it', 'have it') }}</span>{% endif %}
                     </label>
                     {% if item.allergens %}
                     <div class="item-allergens">
@@ -95,6 +97,17 @@
 
 
 <style>
+.pantry-have-badge {
+    font-size: 0.75rem;
+    color: var(--color-success, #3c3);
+    margin-left: 8px;
+    white-space: nowrap;
+}
+
+.shopping-item.in-pantry .item-name {
+    color: var(--color-text-secondary, #888);
+}
+
 .integrations-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -144,6 +157,7 @@
 @media (max-width: 640px) {
     .integrations-grid { grid-template-columns: 1fr; }
 }
+
 </style>
 
 <script>
@@ -415,5 +429,6 @@ function downloadFile(content, filename, mimeType) {
 document.getElementById('integrationsModal').addEventListener('click', function(e) {
     if (e.target === this) closeIntegrationsMenu();
 });
+
 </script>
 {% endblock %}

@@ -4,6 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Menu Planner{% endblock %}</title>
+    <script>
+        // Set the user's chosen theme BEFORE any CSS loads, so the page never
+        // paints with the default theme for a frame before flipping to the
+        // real one (the "flicker on every navigation" bug). Mirrors
+        // ThemeManager.applyTheme()'s preview-theme logic, just synchronously
+        // and earlier - ThemeManager itself still runs later and takes over.
+        // Every theme (including warm-modern/warm-terracotta) is loaded from
+        // previews/ - theme-manager.js's BUILTIN_THEMES set is intentionally
+        // empty, there is no separate "builtin, no CSS file" tier anymore.
+        (function() {
+            var theme = localStorage.getItem('menu-planner-theme') || 'warm-modern';
+            document.documentElement.setAttribute('data-theme', theme);
+            var link = document.createElement('link');
+            link.id = 'preview-theme-css';
+            link.rel = 'stylesheet';
+            link.href = '/static/themes/previews/theme-' + theme + '.css';
+            document.head.appendChild(link);
+        })();
+    </script>
     <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
     <meta name="theme-color" content="#d97706">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -44,9 +63,11 @@
                         </div>
                     </div>
                 </li>
+                {% if can_edit_menu %}
                 <li class="nav-item">
                     <a href="#" onclick="refreshMenu()" class="nav-link">{{ t.generate_menu }}</a>
                 </li>
+                {% endif %}
                 <li class="nav-item">
                     <div class="nav-settings-menu">
                         <button id="settings-btn" class="settings-btn" aria-label="{{ t.settings }}" title="{{ t.settings }}" onclick="toggleSettingsMenu(event)">⚙️</button>
@@ -77,6 +98,12 @@
                             {% endif %}
                             <a href="/all-recipes" class="settings-item">{{ t.all_recipes }}</a>
                             <a href="/add-recipe" class="settings-item">+ {{ t.add_recipe }}</a>
+                            {% if is_authenticated %}
+                            <a href="/feedback" class="settings-item">💬 {{ t.get('send_feedback', 'Send Feedback') }}</a>
+                            {% if is_app_admin %}
+                            <a href="/feedback/list" class="settings-item">📋 View Feedback</a>
+                            {% endif %}
+                            {% endif %}
                             <div class="settings-divider"></div>
                             <div id="nav-auth-section">
                                 {% if is_authenticated %}

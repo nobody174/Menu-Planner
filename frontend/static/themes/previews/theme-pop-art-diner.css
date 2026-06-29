@@ -386,7 +386,6 @@
 
 /* Force settings dropdown to not inherit theme styles */
 [data-theme="pop-art-diner"] .theme-submenu {
-  display: block !important;
   gap: 0 !important;
   padding: 8px 0 !important;
   row-gap: 0 !important;
@@ -403,11 +402,4 @@
 
 [data-theme="pop-art-diner"] .theme-submenu .theme-option-content {
   gap: 2px !important;
-}
-
-
-
-  color: white !important;
-}
-  color: white !important;
 }

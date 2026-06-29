@@ -91,6 +91,39 @@ function pmConfirm(icon, title, message, okLabel, okClass) {
     });
 }
 
+// Themed replacement for the browser's native prompt(). Resolves with the
+// entered text, or null if cancelled - same contract as window.prompt(), so
+// existing `var x = prompt(...); if (x) {...}` call sites only need to
+// become `pmPrompt(...).then(function(x) { if (x) {...} })`.
+function pmPrompt(icon, title, message, defaultValue, okLabel) {
+    _ensureModal();
+    var cancelLabel = _t('cancel');
+    document.getElementById('pm-modal-icon').textContent  = icon;
+    document.getElementById('pm-modal-title').textContent = title;
+    document.getElementById('pm-modal-msg').textContent   = message || '';
+    document.getElementById('pm-modal-msg').style.display = message ? '' : 'none';
+    var btns = document.getElementById('pm-modal-btns');
+    btns.innerHTML = [
+        '<input type="text" id="pm-prompt-input" value="" autocomplete="off"',
+        '  style="width:100%;padding:10px 12px;border:1px solid #ddd;border-radius:9px;font-size:.95rem;margin-bottom:14px;box-sizing:border-box;order:-1;flex-basis:100%;">',
+        '<button class="pm-btn pm-btn-secondary" id="pm-cancel">' + cancelLabel + '</button>',
+        '<button class="pm-btn pm-btn-primary" id="pm-ok">' + (okLabel || 'OK') + '</button>'
+    ].join('');
+    var input = document.getElementById('pm-prompt-input');
+    input.value = defaultValue || '';
+    document.getElementById('pm-modal').style.display = 'flex';
+    input.focus();
+    input.select();
+
+    return new Promise(function(resolve) {
+        _modalResolve = resolve;
+        function submit() { _closeModal(input.value); }
+        document.getElementById('pm-ok').onclick     = submit;
+        document.getElementById('pm-cancel').onclick = function() { _closeModal(null); };
+        input.onkeydown = function(e) { if (e.key === 'Enter') submit(); };
+    });
+}
+
 // ── Terracotta theme: day selector ────────────────────────────────────────────
 
 function tcSelectDay(index) {
@@ -200,8 +233,6 @@ function applyCategories() {
 
     var menu = document.getElementById('categoryDropdownMenu');
     if (menu) menu.classList.remove('open');
-
-    pmAlert('✅', _t('categories_saved_title'), _t('categories_saved_msg'));
 }
 
 // ── Menu generation ───────────────────────────────────────────────────────────

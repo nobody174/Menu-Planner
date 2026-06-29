@@ -1,14 +1,5 @@
 [
   {
-    "code": "rask",
-    "name_no": "Rask Middag",
-    "name_en": "Quick Dinner",
-    "description_no": "Middager som lages på under 30 minutter",
-    "description_en": "Meals prepared in under 30 minutes",
-    "icon": "⚡",
-    "color": "#4ECDC4"
-  },
-  {
     "code": "vegetar",
     "name_no": "Vegetar",
     "name_en": "Vegetarian",
@@ -51,7 +42,8 @@
     "description_no": "Popular Norwegian Recipes",
     "description_en": "Popular Norwegian Recipes",
     "icon": "🌅",
-    "color": "#BA0C2F"
+    "color": "#BA0C2F",
+    "imported": true
   },
   {
     "code": "european_classics",
@@ -60,7 +52,8 @@
     "description_no": "European Classics",
     "description_en": "European Classics",
     "icon": "🌍",
-    "color": "#4B7BA7"
+    "color": "#4B7BA7",
+    "imported": true
   },
   {
     "code": "nordic_classics",
@@ -69,7 +62,8 @@
     "description_no": "Nordic Classics",
     "description_en": "Nordic Classics",
     "icon": "❄️",
-    "color": "#1E90FF"
+    "color": "#1E90FF",
+    "imported": true
   },
   {
     "code": "holiday_recipes",
@@ -78,7 +72,8 @@
     "description_no": "Holiday Recipes",
     "description_en": "Holiday Recipes",
     "icon": "🎄",
-    "color": "#C41E3A"
+    "color": "#C41E3A",
+    "imported": true
   },
   {
     "code": "summer_recipes",
@@ -87,6 +82,79 @@
     "description_no": "Summer Recipes",
     "description_en": "Summer Recipes",
     "icon": "☀️",
-    "color": "#FFD700"
+    "color": "#FFD700",
+    "imported": true
+  },
+  {
+    "code": "homemade",
+    "name_no": "Hjemmelaget",
+    "name_en": "Homemade",
+    "description_no": "Egne oppskrifter lagt til av deg",
+    "description_en": "Your own recipes added by you",
+    "icon": "🏠",
+    "color": "#8D6E63"
+  },
+  {
+    "code": "quick_dinners",
+    "name_no": "Rask Middag",
+    "name_en": "Quick Dinners",
+    "description_no": "Middager som lages på under 30 minutter",
+    "description_en": "Meals prepared in under 30 minutes",
+    "icon": "⚡",
+    "color": "#4ECDC4"
+  },
+  {
+    "code": "pasta_noodles",
+    "name_no": "Pasta & Nudler",
+    "name_en": "Pasta & Noodles",
+    "description_no": "Pasta- og nudelmiddager",
+    "description_en": "Pasta and noodle meals",
+    "icon": "🍝",
+    "color": "#F4A460"
+  },
+  {
+    "code": "chicken",
+    "name_no": "Kylling",
+    "name_en": "Chicken",
+    "description_no": "Kyllingmiddager",
+    "description_en": "Chicken dishes",
+    "icon": "🍗",
+    "color": "#E2A93B"
+  },
+  {
+    "code": "ground_meat",
+    "name_no": "Kjøttdeig & Pølser",
+    "name_en": "Ground Meat & Sausages",
+    "description_no": "Middager med kjøttdeig og pølser",
+    "description_en": "Meals with ground meat and sausages",
+    "icon": "🌭",
+    "color": "#A0522D"
+  },
+  {
+    "code": "taco_texmex",
+    "name_no": "Taco & Tex-Mex",
+    "name_en": "Taco & Tex-Mex",
+    "description_no": "Taco og Tex-Mex middager",
+    "description_en": "Taco and Tex-Mex meals",
+    "icon": "🌮",
+    "color": "#D2691E"
+  },
+  {
+    "code": "grill",
+    "name_no": "Grill",
+    "name_en": "Grill",
+    "description_no": "Grillmiddager",
+    "description_en": "Grilled meals",
+    "icon": "🔥",
+    "color": "#B22222"
+  },
+  {
+    "code": "soups_stews",
+    "name_no": "Supper & Gryter",
+    "name_en": "Soups & Stews",
+    "description_no": "Supper og gryteretter",
+    "description_en": "Soups and stews",
+    "icon": "🍲",
+    "color": "#CD853F"
   }
 ]

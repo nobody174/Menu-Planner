@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}{{ t.get('send_feedback', 'Send Feedback') }} - {{ household_name }}{% endblock %}
+
+{% block content %}
+<div class="recipe-header">
+    <h1>💬 {{ t.get('send_feedback', 'Send Feedback') }}</h1>
+    <p class="settings-info">{{ t.get('feedback_hint', "Found a bug, have an idea, or just want to say something? Let us know - this goes straight to the developer.") }}</p>
+</div>
+
+<form id="feedbackForm" style="max-width: 600px; margin: 0 auto;">
+    <div style="margin-bottom: 20px;">
+        <label for="type" style="display: block; font-weight: bold; margin-bottom: 8px;">{{ t.get('feedback_type', 'Type') }}</label>
+        <select id="type" name="type" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
+            <option value="bug">{{ t.get('feedback_bug', 'Bug') }}</option>
+            <option value="feature">{{ t.get('feedback_feature', 'Feature Request') }}</option>
+            <option value="improvement">{{ t.get('feedback_improvement', 'Change / Improvement') }}</option>
+            <option value="other">{{ t.get('feedback_other', 'Other') }}</option>
+        </select>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+        <label for="title" style="display: block; font-weight: bold; margin-bottom: 8px;">{{ t.get('feedback_title_label', 'Title') }} *</label>
+        <input type="text" id="title" name="title" required placeholder="{{ t.get('feedback_title_placeholder', 'Short summary') }}" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
+    </div>
+
+    <div style="margin-bottom: 20px;">
+        <label for="description" style="display: block; font-weight: bold; margin-bottom: 8px;">{{ t.get('feedback_description_label', 'Description') }} *</label>
+        <textarea id="description" name="description" required placeholder="{{ t.get('feedback_description_placeholder', 'What happened, or what would you like to see?') }}" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem; min-height: 140px;"></textarea>
+    </div>
+
+    <div style="display: flex; gap: 10px;">
+        <button type="submit" style="padding: 12px 24px; background: var(--color-secondary, #d97706); color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 1rem; font-weight: bold;">{{ t.get('feedback_submit', 'Send') }}</button>
+    </div>
+
+    <div id="status" style="margin-top: 20px; font-size: 1rem;"></div>
+</form>
+
+<script>
+document.getElementById('feedbackForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    var statusEl = document.getElementById('status');
+
+    var data = {
+        type: document.getElementById('type').value,
+        title: document.getElementById('title').value.trim(),
+        description: document.getElementById('description').value.trim()
+    };
+
+    statusEl.textContent = '{{ t.get("sending", "Sending...") }}';
+    statusEl.style.color = '#666';
+
+    try {
+        var response = await fetch('/api/feedback', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+        var result = await response.json();
+        if (result.success) {
+            statusEl.textContent = '{{ t.get("feedback_thanks", "Thanks! Your feedback was sent.") }}';
+            statusEl.style.color = 'var(--color-success, #16a34a)';
+            document.getElementById('feedbackForm').reset();
+        } else {
+            statusEl.textContent = '{{ t.get("server_error", "Something went wrong") }}: ' + (result.message || '');
+            statusEl.style.color = 'red';
+        }
+    } catch (err) {
+        statusEl.textContent = '{{ t.get("server_error", "Something went wrong") }}: ' + err.message;
+        statusEl.style.color = 'red';
+    }
+});
+</script>
+{% endblock %}

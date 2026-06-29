@@ -81,7 +81,9 @@
     </div>
     <div class="tc-header-actions">
       <a href="/shopping" class="tc-btn-outline">🛒 {{ t.shopping_list }}</a>
+      {% if can_edit_menu %}
       <a href="#" onclick="refreshMenu(); return false;" class="tc-btn-primary">↻ {{ t.new_menu }}</a>
+      {% endif %}
     </div>
   </div>
 

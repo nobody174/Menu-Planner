@@ -19,6 +19,47 @@
         </section>
         {% endif %}
 
+        {% if is_household_owner %}
+        <section class="settings-section">
+            <h2>{{ t.get('owner_pin', 'Owner PIN') }}</h2>
+            <p>{{ t.get('owner_pin_hint', 'Set a 4-digit PIN so switching back to Owner on a shared device is quick - no need to type the full account password every time.') }}</p>
+            <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+                <input type="password" inputmode="numeric" pattern="[0-9]*" maxlength="4" id="pin-input"
+                       placeholder="{{ t.get('pin', 'PIN') }}"
+                       style="width:100px; padding:8px; border:1px solid var(--color-border,#ddd); border-radius:4px;" />
+                <button type="button" class="btn btn-secondary" onclick="savePin()">{{ t.get('save_pin', 'Save PIN') }}</button>
+                {% if has_pin %}
+                <button type="button" class="btn btn-secondary" onclick="clearPin()">{{ t.get('remove_pin', 'Remove PIN') }}</button>
+                {% endif %}
+            </div>
+            <p id="pin-status-msg" class="settings-info" style="display:none; font-size:0.85em;"></p>
+        </section>
+        <script>
+        function savePin() {
+            var input = document.getElementById('pin-input');
+            var pin = input.value.trim();
+            var msg = document.getElementById('pin-status-msg');
+            fetch('/api/account/set-pin', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ pin: pin })
+            })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                msg.style.display = 'block';
+                msg.textContent = data.message;
+                msg.style.color = data.success ? 'var(--color-success,#3c3)' : 'var(--color-danger,#dc2626)';
+                if (data.success) setTimeout(function() { location.reload(); }, 1000);
+            });
+        }
+
+        function clearPin() {
+            fetch('/api/account/clear-pin', { method: 'POST' })
+                .then(function() { location.reload(); });
+        }
+        </script>
+        {% endif %}
+
         {% if referral_code %}
         <section class="settings-section">
             <h2>{{ t.get('refer_a_friend', 'Refer a Friend') }}</h2>
@@ -116,6 +157,263 @@
                 <a href="/all-recipes" class="btn btn-secondary">{{ t.view_all_recipes }}</a>
             </div>
         </section>
+
+        <!-- My Pantry -->
+        <section class="settings-section">
+            <details class="settings-collapsible">
+                <summary><h2>{{ t.get('my_pantry', 'My Pantry') }}</h2></summary>
+                <p>{{ t.get('pantry_hint', "Add items you already have at home - they'll be marked on the shopping list.") }}</p>
+                <p class="pantry-hint-click">{{ t.get('pantry_click_hint', 'Click an item to remove it.') }}</p>
+                <form id="pantry-add-form" class="pantry-add-form">
+                    <input type="text" id="pantry-add-input" placeholder="{{ t.get('add_pantry_item', 'Add item') }}" autocomplete="off" />
+                    <button type="submit" class="btn btn-secondary">+</button>
+                </form>
+                <ul id="pantry-list" class="pantry-list">
+                    {% for item in pantry %}
+                    <li class="pantry-item" data-item="{{ item }}" onclick="removePantryItem('{{ item }}')" title="{{ t.get('click_to_remove', 'Click to remove') }}">
+                        <span>{{ item }}</span>
+                    </li>
+                    {% else %}
+                    <li class="pantry-empty-msg">{{ t.get('pantry_empty', 'Your pantry is empty.') }}</li>
+                    {% endfor %}
+                </ul>
+            </details>
+        </section>
+        <script>
+        function renderPantryList(items) {
+            var list = document.getElementById('pantry-list');
+            list.innerHTML = '';
+            if (items.length === 0) {
+                var emptyLi = document.createElement('li');
+                emptyLi.className = 'pantry-empty-msg';
+                emptyLi.textContent = '{{ t.get("pantry_empty", "Your pantry is empty.") }}';
+                list.appendChild(emptyLi);
+                return;
+            }
+            items.forEach(function(item) {
+                var li = document.createElement('li');
+                li.className = 'pantry-item';
+                li.dataset.item = item;
+                li.title = '{{ t.get("click_to_remove", "Click to remove") }}';
+                li.onclick = function() { removePantryItem(item); };
+                var span = document.createElement('span');
+                span.textContent = item;
+                li.appendChild(span);
+                list.appendChild(li);
+            });
+        }
+
+        document.getElementById('pantry-add-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var input = document.getElementById('pantry-add-input');
+            var item = input.value.trim();
+            if (!item) return;
+
+            fetch('/api/pantry/add', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ item: item })
+            })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.success) {
+                    renderPantryList(data.pantry);
+                    input.value = '';
+                }
+            });
+        });
+
+        function removePantryItem(item) {
+            fetch('/api/pantry/remove', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ item: item })
+            })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.success) {
+                    renderPantryList(data.pantry);
+                }
+            });
+        }
+        </script>
+
+        <!-- Manage Categories -->
+        <section class="settings-section">
+            <details class="settings-collapsible">
+                <summary><h2>{{ t.get('manage_categories', 'Manage Categories') }}</h2></summary>
+                <p>{{ t.get('manage_categories_hint', 'Add, rename, or remove the recipe categories your household uses.') }}</p>
+                <form id="category-add-form" class="category-add-form">
+                    <input type="text" id="category-add-input" placeholder="{{ t.get('add_category', 'Add category') }}" autocomplete="off" />
+                    <button type="submit" class="btn btn-secondary">+</button>
+                </form>
+                <ul id="category-manage-list" class="category-manage-list" data-categories='{{ categories | tojson }}'>
+                    {% for cat in categories %}
+                    <li class="category-manage-item" data-code="{{ cat.code }}">
+                        <span class="category-manage-icon">{{ cat.icon }}</span>
+                        <span class="category-manage-name">{{ cat.name }}</span>
+                        <button type="button" class="btn-small" onclick="renameCategory('{{ cat.code }}', '{{ cat.name }}')">{{ t.get('rename', 'Rename') }}</button>
+                        <button type="button" class="btn-small" onclick="openMergeMenu('{{ cat.code }}')">{{ t.get('merge_into', 'Merge into...') }}</button>
+                        <button type="button" class="btn-small btn-danger" onclick="removeCategory('{{ cat.code }}')">✕</button>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </details>
+        </section>
+
+        <div id="merge-category-modal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>{{ t.get('merge_into', 'Merge into...') }}</h2>
+                    <button class="modal-close" onclick="closeMergeMenu()">×</button>
+                </div>
+                <p class="settings-info" style="font-size:0.85em;">{{ t.get('merge_category_hint', 'Recipes using this category will be moved to the one you pick. The original category will then be removed.') }}</p>
+                <div class="form-group">
+                    <select id="merge-target-select"></select>
+                </div>
+                <div class="owner-password-actions">
+                    <button type="button" class="btn btn-primary" onclick="confirmMerge()">{{ t.get('confirm', 'Confirm') }}</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeMergeMenu()">{{ t.get('cancel', 'Cancel') }}</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+        var CURRENT_LANG = '{{ lang }}';
+        var _mergeFromCode = null;
+
+        function openMergeMenu(fromCode) {
+            _mergeFromCode = fromCode;
+            var allCats = JSON.parse(document.getElementById('category-manage-list').dataset.categories);
+            var select = document.getElementById('merge-target-select');
+            select.innerHTML = '';
+            allCats.forEach(function(cat) {
+                if (cat.code === fromCode) return;
+                var opt = document.createElement('option');
+                opt.value = cat.code;
+                opt.textContent = cat['name_' + CURRENT_LANG] || cat.name_en || cat.code;
+                select.appendChild(opt);
+            });
+            document.getElementById('merge-category-modal').style.display = 'flex';
+        }
+
+        function closeMergeMenu() {
+            document.getElementById('merge-category-modal').style.display = 'none';
+            _mergeFromCode = null;
+        }
+
+        function confirmMerge() {
+            var intoCode = document.getElementById('merge-target-select').value;
+            fetch('/api/categories/merge', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ from_code: _mergeFromCode, into_code: intoCode })
+            })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.success) {
+                    renderCategoryList(data.categories);
+                    closeMergeMenu();
+                }
+            });
+        }
+
+        function renderCategoryList(categories) {
+            var list = document.getElementById('category-manage-list');
+            list.dataset.categories = JSON.stringify(categories);
+            list.innerHTML = '';
+            categories.forEach(function(cat) {
+                var name = cat['name_' + CURRENT_LANG] || cat.name_en || cat.code;
+                var li = document.createElement('li');
+                li.className = 'category-manage-item';
+                li.dataset.code = cat.code;
+
+                var icon = document.createElement('span');
+                icon.className = 'category-manage-icon';
+                icon.textContent = cat.icon;
+
+                var nameSpan = document.createElement('span');
+                nameSpan.className = 'category-manage-name';
+                nameSpan.textContent = name;
+
+                var renameBtn = document.createElement('button');
+                renameBtn.type = 'button';
+                renameBtn.className = 'btn-small';
+                renameBtn.textContent = '{{ t.get("rename", "Rename") }}';
+                renameBtn.onclick = function() { renameCategory(cat.code, name); };
+
+                var mergeBtn = document.createElement('button');
+                mergeBtn.type = 'button';
+                mergeBtn.className = 'btn-small';
+                mergeBtn.textContent = '{{ t.get("merge_into", "Merge into...") }}';
+                mergeBtn.onclick = function() { openMergeMenu(cat.code); };
+
+                var removeBtn = document.createElement('button');
+                removeBtn.type = 'button';
+                removeBtn.className = 'btn-small btn-danger';
+                removeBtn.textContent = '✕';
+                removeBtn.onclick = function() { removeCategory(cat.code); };
+
+                li.appendChild(icon);
+                li.appendChild(nameSpan);
+                li.appendChild(renameBtn);
+                li.appendChild(mergeBtn);
+                li.appendChild(removeBtn);
+                list.appendChild(li);
+            });
+        }
+
+        function renameCategory(code, currentName) {
+            pmPrompt('✏️', '{{ t.get("rename", "Rename") }}', '', currentName).then(function(newName) {
+                if (newName && newName.trim()) {
+                    fetch('/api/categories/rename', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ code: code, name: newName.trim() })
+                    })
+                    .then(function(r) { return r.json(); })
+                    .then(function(data) {
+                        if (data.success) renderCategoryList(data.categories);
+                    });
+                }
+            });
+        }
+
+        function removeCategory(code) {
+            pmConfirm('⚠️', '{{ t.get("remove", "Remove") }}', '{{ t.get("confirm_remove_category", "Remove this category?") }}',
+                      '{{ t.get("remove", "Remove") }}', 'pm-btn-danger').then(function(confirmed) {
+                if (!confirmed) return;
+                fetch('/api/categories/remove', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ code: code })
+                })
+                .then(function(r) { return r.json(); })
+                .then(function(data) {
+                    if (data.success) renderCategoryList(data.categories);
+                });
+            });
+        }
+
+        document.getElementById('category-add-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var input = document.getElementById('category-add-input');
+            var name = input.value.trim();
+            if (!name) return;
+            fetch('/api/categories/add', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name: name })
+            })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.success) {
+                    renderCategoryList(data.categories);
+                    input.value = '';
+                }
+            });
+        });
+        </script>
 
         {% if is_household_owner %}
         <!-- Activity Log (owner only) -->
@@ -376,6 +674,110 @@
     width: 18px;
     height: 18px;
     cursor: pointer;
+}
+
+.category-add-form,
+.pantry-add-form {
+    display: flex;
+    gap: 8px;
+    margin: 12px 0;
+}
+
+.pantry-add-form input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid var(--color-border, #ddd);
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.pantry-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.pantry-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    background: var(--color-bg-secondary, white);
+    border: 1px solid var(--color-border, #ddd);
+    border-radius: 16px;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.pantry-item:hover {
+    background: var(--color-danger, #dc2626);
+    color: white;
+    border-color: var(--color-danger, #dc2626);
+}
+
+.pantry-hint-click {
+    font-size: 0.8em;
+    color: var(--color-text-secondary, #888);
+    margin: -4px 0 8px;
+}
+
+.pantry-empty-msg {
+    color: var(--color-text-secondary, #888);
+    font-size: 0.9rem;
+}
+
+.settings-collapsible summary {
+    cursor: pointer;
+    list-style: none;
+}
+
+.settings-collapsible summary h2 {
+    display: inline;
+}
+
+.settings-collapsible summary::before {
+    content: '\25B8';
+    display: inline-block;
+    margin-right: 8px;
+    transition: transform 0.15s;
+}
+
+.settings-collapsible[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.category-add-form input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid var(--color-border, #ddd);
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.category-manage-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.category-manage-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    background: var(--color-bg, #f9fafb);
+    border: 1px solid var(--color-border, #e5e7eb);
+    border-radius: 6px;
+}
+
+.category-manage-name {
+    flex: 1;
 }
 </style>
 

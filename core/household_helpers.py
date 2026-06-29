@@ -314,12 +314,14 @@ def remove_household_member(household_id, member_id, remover_id):
 
 def update_member_role(household_id, member_id, new_role, updater_id):
     """
-    Update member role (owner only).
+    Update member role (owner only). Profiles may be set to editor/viewer/co-owner
+    (same roles [[create_profile]] allows at creation time) but never 'owner' -
+    that role is reserved for the actual account holder, since a profile has no
+    login of its own. Account-holder members may be set to owner/editor/viewer
+    (an account-holder is never a 'profile', so 'co-owner' doesn't apply to them -
+    that distinction exists specifically for profiles without their own login).
     Returns: (success, message)
     """
-    if new_role not in ('owner', 'editor', 'viewer'):
-        return False, "Invalid role"
-
     session = SessionLocal()
     try:
         # Check updater is owner
@@ -339,6 +341,10 @@ def update_member_role(household_id, member_id, new_role, updater_id):
 
         if not member:
             return False, "Member not found"
+
+        allowed_roles = ('editor', 'viewer', 'co-owner') if member.is_profile else ('owner', 'editor', 'viewer')
+        if new_role not in allowed_roles:
+            return False, "Invalid role"
 
         member.role = new_role
         session.commit()
@@ -378,6 +384,20 @@ def user_can_edit_household(user_id, household_id):
             return False
 
         return member.role in ('owner', 'editor')
+    finally:
+        session.close()
+
+
+def get_account_holder_role(user_id, household_id):
+    """Look up the role of the account-holder's own HouseholdMember row
+    (not a profile) - the account equivalent of [[get_profile_role]]."""
+    session = SessionLocal()
+    try:
+        member = session.query(HouseholdMember).filter(
+            HouseholdMember.household_id == household_id,
+            HouseholdMember.user_id == user_id
+        ).first()
+        return member.role if member else None
     finally:
         session.close()
 

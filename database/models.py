@@ -33,6 +33,11 @@ class User(Base):
     referred_by_user_id = Column(String(36), ForeignKey('users.id'), nullable=True)
     referred_by_code = Column(String(12), nullable=True)  # raw code, survives referrer deletion
 
+    # Optional shared-device PIN: lets the account holder re-select "Owner" from
+    # the profile picker with a short PIN instead of the full account password.
+    # NULL means no PIN set yet - falls back to requiring the full password.
+    pin_hash = Column(String(255), nullable=True)
+
     # Relationships
     households = relationship('Household', back_populates='owner')
     household_members = relationship('HouseholdMember', back_populates='user')

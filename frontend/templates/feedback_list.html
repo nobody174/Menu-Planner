@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Feedback - {{ household_name }}{% endblock %}
+
+{% block content %}
+<div class="recipe-header">
+    <h1>💬 Feedback ({{ entries|length }})</h1>
+</div>
+
+<div style="max-width: 800px; margin: 0 auto;">
+    {% if not entries %}
+    <p class="settings-info">No feedback submitted yet.</p>
+    {% endif %}
+
+    {% for entry in entries %}
+    <div style="background: var(--color-bg-secondary, white); border: 1px solid var(--color-border, #e5e7eb); border-radius: 8px; padding: 16px 20px; margin-bottom: 12px;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 6px;">
+            <strong style="font-size: 1.05rem;">{{ entry.title }}</strong>
+            <span class="role-badge" data-role="{{ entry.type }}">{{ entry.type }}</span>
+        </div>
+        <p style="margin: 8px 0; white-space: pre-wrap;">{{ entry.description }}</p>
+        <p style="font-size: 0.85rem; color: var(--color-text-secondary, #888); margin: 0;">
+            {{ entry.submitted_by }} · {{ entry.timestamp[:16].replace('T', ' ') }}
+        </p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

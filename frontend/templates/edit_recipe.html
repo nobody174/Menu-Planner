@@ -36,8 +36,8 @@
 
     <div style="margin-bottom: 20px;">
         <label for="ingredients" style="display: block; font-weight: bold; margin-bottom: 8px;">{{ t.ingredients if t.get('ingredients') else 'Ingredients' }} *</label>
-        <textarea id="ingredients" name="ingredients" required placeholder="Enter ingredients as JSON array" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 0.9rem; font-family: monospace; min-height: 120px;">{{ ingredients_json }}</textarea>
-        <p style="font-size: 0.85rem; color: #666; margin-top: 6px;">Format: [{"name": "Flour", "quantity": 2, "unit": "cups"}, ...]</p>
+        <textarea id="ingredients" name="ingredients" required placeholder="One ingredient per line" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 0.9rem; min-height: 120px;">{{ ingredients_text }}</textarea>
+        <p style="font-size: 0.85rem; color: #666; margin-top: 6px;">{{ t.get('ingredients_hint', 'One ingredient per line, e.g. "800 g Lamb"') }}</p>
     </div>
 
     <div style="margin-bottom: 20px;">
@@ -66,16 +66,19 @@ document.getElementById('editForm').addEventListener('submit', async function(e)
     const statusEl = document.getElementById('status');
 
     try {
-        const ingredientsText = document.getElementById('ingredients').value.trim();
-        let ingredients = [];
+        const ingredients = document.getElementById('ingredients').value
+            .split('\n').map(function(l) { return l.trim(); }).filter(Boolean)
+            .map(function(line) { return { quantity: '', unit: '', name: line, allergens: [] }; });
 
-        if (ingredientsText.startsWith('[')) {
-            ingredients = JSON.parse(ingredientsText);
-        } else {
-            statusEl.textContent = 'Invalid ingredients format';
+        if (ingredients.length === 0) {
+            statusEl.textContent = 'Please enter at least one ingredient';
             statusEl.style.color = 'red';
             return;
         }
+
+        const instructions = document.getElementById('instructions').value
+            .split('\n').map(function(l) { return l.trim(); }).filter(Boolean)
+            .map(function(line, idx) { return { step: idx + 1, title: 'Step ' + (idx + 1), description: line }; });
 
         const data = {
             recipe_id: recipeId,
@@ -85,7 +88,7 @@ document.getElementById('editForm').addEventListener('submit', async function(e)
             time_minutes: parseInt(document.getElementById('time_minutes').value) || 0,
             category: document.getElementById('category').value,
             ingredients: ingredients,
-            instructions: document.getElementById('instructions').value,
+            instructions: instructions,
             comment: document.getElementById('comment').value
         };
 
@@ -100,14 +103,14 @@ document.getElementById('editForm').addEventListener('submit', async function(e)
 
         const result = await response.json();
 
-        if (result.success) {
+        if (result.status === 'success') {
             statusEl.textContent = 'Recipe saved! Redirecting...';
             statusEl.style.color = 'green';
             setTimeout(() => {
                 window.location.href = `/recipe/${recipeId}`;
             }, 1500);
         } else {
-            statusEl.textContent = 'Error: ' + result.error;
+            statusEl.textContent = 'Error: ' + (result.message || 'Unknown error');
             statusEl.style.color = 'red';
         }
     } catch (err) {

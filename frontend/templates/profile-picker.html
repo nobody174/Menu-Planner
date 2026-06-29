@@ -12,7 +12,7 @@
 
   {% set owner_member = members|selectattr('user_id', 'equalto', user_id)|first %}
   <div class="profile-grid">
-    <button type="button" class="profile-tile" onclick="document.getElementById('owner-password-modal').style.display='flex'">
+    <button type="button" class="profile-tile" onclick="openOwnerAuthModal()">
       <span class="avatar-circle large" style="background:{{ avatar_color(user_email) }}">
         {{ avatar_display(user_email, owner_member.avatar_type if owner_member else None, owner_member.avatar_value if owner_member else None) }}
       </span>
@@ -41,11 +41,19 @@
   <div id="owner-password-modal" class="owner-password-overlay">
     <form method="POST" action="{{ url_for('select_profile') }}" class="owner-password-box">
       <input type="hidden" name="is_account_holder" value="1" />
+      {% if owner_has_pin %}
+      <h3>{{ t.get('confirm_owner_pin', 'Enter PIN to act as Owner') }}</h3>
+      {% if owner_password_error %}
+      <div class="alert alert-error">{{ owner_password_error }}</div>
+      {% endif %}
+      <input type="password" inputmode="numeric" pattern="[0-9]*" maxlength="4" name="owner_pin" placeholder="{{ t.get('pin', 'PIN') }}" required autofocus />
+      {% else %}
       <h3>{{ t.get('confirm_owner_password', 'Confirm password to act as Owner') }}</h3>
       {% if owner_password_error %}
       <div class="alert alert-error">{{ owner_password_error }}</div>
       {% endif %}
       <input type="password" name="owner_password" placeholder="{{ t.get('password', 'Password') }}" required autofocus />
+      {% endif %}
       <div class="owner-password-actions">
         <button type="submit" class="btn btn-primary">{{ t.get('confirm', 'Confirm') }}</button>
         <button type="button" class="btn btn-secondary" onclick="document.getElementById('owner-password-modal').style.display='none'">{{ t.get('cancel', 'Cancel') }}</button>
@@ -166,5 +174,36 @@
     display: flex;
     gap: 10px;
   }
+  .owner-password-actions .btn {
+    flex: 1;
+    width: auto;
+  }
+  .owner-password-actions .btn-primary {
+    background-color: var(--color-success, #16a34a);
+  }
+  .owner-password-actions .btn-primary:hover {
+    background-color: #15803d;
+  }
 </style>
+<script>
+  function focusOwnerAuthInput() {
+    var input = document.querySelector('#owner-password-modal input[type="password"]');
+    if (input) input.focus();
+  }
+
+  function openOwnerAuthModal() {
+    document.getElementById('owner-password-modal').style.display = 'flex';
+    focusOwnerAuthInput();
+  }
+
+  // If the modal is already shown on page load (e.g. retrying after a wrong
+  // PIN/password), the browser's native `autofocus` doesn't reliably win once
+  // the page has fully rendered - focus it explicitly to be sure.
+  document.addEventListener('DOMContentLoaded', function() {
+    var modal = document.getElementById('owner-password-modal');
+    if (modal && getComputedStyle(modal).display !== 'none') {
+      focusOwnerAuthInput();
+    }
+  });
+</script>
 {% endblock %}

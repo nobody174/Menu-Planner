@@ -58,13 +58,14 @@
           {% for member in members %}
           <tr>
             <td>
-              {% set label = member.display_name if member.is_profile else member.email %}
+              {% set label = member.display_name or member.email %}
               <span class="avatar-circle" style="background:{{ avatar_color(label) }}; cursor:pointer;" onclick="openAvatarPicker('{{ member.member_id }}')" title="{{ t.get('change_avatar', 'Change avatar') }}">
                 {{ avatar_display(label, member.avatar_type, member.avatar_value) }}
               </span>
             </td>
             <td>
-              {{ member.display_name if member.is_profile else member.email }}
+              {{ member.display_name or member.email }}
+              {% if not member.is_profile and member.display_name %}<span style="color: var(--color-text-secondary, #888);">({{ member.email }})</span>{% endif %}
               {% if member.is_profile %}<em class="profile-tag">{{ t.get('profile', 'Profile') }}</em>{% endif %}
             </td>
             <td>
@@ -75,12 +76,12 @@
             <td>{{ member.joined_at or 'N/A' }}</td>
             {% if can_manage and member.user_id != user_id %}
             <td>
-              {% if is_owner and not member.is_profile %}
-              <button class="btn-small" onclick="openRoleMenu('{{ member.member_id }}', '{{ member.role }}')">
+              {% if is_owner %}
+              <button class="btn-small" onclick="openRoleMenu('{{ member.member_id }}', '{{ member.role }}', {{ 'true' if member.is_profile else 'false' }})">
                 {{ t.get('change_role', 'Change Role') }}
               </button>
               {% endif %}
-              <button class="btn-small" onclick="renameMember('{{ member.member_id }}', '{{ member.display_name if member.is_profile else member.email }}')">
+              <button class="btn-small" onclick="renameMember('{{ member.member_id }}', '{{ member.display_name or member.email }}')">
                 {{ t.get('rename', 'Rename') }}
               </button>
               <button class="btn-small btn-danger" onclick="removeMember('{{ member.member_id }}')">
@@ -90,7 +91,8 @@
             {% elif member.user_id == user_id %}
             <td>
               <em>{{ t.get('you', 'You') }}</em>
-              <button class="btn-small" onclick="renameMember('{{ member.member_id }}', '{{ member.email }}')">
+              {{ member.display_name or '' }}
+              <button class="btn-small" onclick="renameMember('{{ member.member_id }}', '{{ member.display_name or member.email }}')">
                 {{ t.get('rename', 'Rename') }}
               </button>
             </td>
@@ -296,7 +298,42 @@
   </div>
 </div>
 
+<div id="role-picker-modal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>{{ t.get('change_role', 'Change Role') }}</h2>
+      <button class="modal-close" onclick="closeRoleMenu()">×</button>
+    </div>
+    <div class="form-group">
+      <select id="role-picker-select">
+        <option value="viewer">{{ t.get('viewer', 'Viewer') }} ({{ t.get('view_only', 'View only') }})</option>
+        <option value="editor">{{ t.get('editor', 'Editor') }} ({{ t.get('can_edit', 'Can edit') }})</option>
+        <option value="co-owner" id="role-picker-coowner-option">{{ t.get('co_owner', 'Co-Owner') }} ({{ t.get('full_control', 'Full control') }})</option>
+        <option value="owner" id="role-picker-owner-option">{{ t.get('owner', 'Owner') }}</option>
+      </select>
+    </div>
+    <div class="owner-password-actions">
+      <button type="button" class="btn btn-primary" onclick="confirmRoleChange()">{{ t.get('confirm', 'Confirm') }}</button>
+      <button type="button" class="btn btn-secondary" onclick="closeRoleMenu()">{{ t.get('cancel', 'Cancel') }}</button>
+    </div>
+  </div>
+</div>
+
 <style>
+  .owner-password-actions {
+    display: flex;
+    gap: 10px;
+  }
+  .owner-password-actions .btn {
+    flex: 1;
+    width: auto;
+  }
+  .owner-password-actions .btn-primary {
+    background-color: var(--color-success, #16a34a);
+  }
+  .owner-password-actions .btn-primary:hover {
+    background-color: #15803d;
+  }
   .avatar-grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -517,9 +554,33 @@
   }
 
   .btn-small {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-border, #e5e7eb);
+    color: var(--color-text-primary, #333);
+    border: none;
+    border-radius: var(--radius-md, 6px);
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.15s, transform 0.1s;
     padding: 6px 12px;
     font-size: 12px;
     margin-right: 8px;
+  }
+
+  .btn-small:hover {
+    background: #d1d5db;
+    transform: scale(1.03);
+  }
+
+  .btn-small.btn-danger {
+    background: #ef4444;
+    color: white;
+  }
+
+  .btn-small.btn-danger:hover {
+    background: #dc2626;
   }
 
   .households-list {
@@ -572,12 +633,13 @@
   }
 
   .modal-content {
-    background: white;
-    border-radius: 8px;
+    background: var(--color-bg-secondary, white);
+    border-radius: 16px;
     max-width: 500px;
     width: 90%;
-    padding: 20px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    padding: 24px 28px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    animation: pmSlideIn .18s ease;
   }
 
   .modal-header {
@@ -619,9 +681,9 @@
   }
 
   function openDeleteModal() {
-    if (confirm('{{ t.get("confirm_delete", "Are you sure?") }}')) {
-      document.getElementById('delete-household-modal').style.display = 'flex';
-    }
+    // The delete-household-modal itself already has its own warning + confirm/
+    // cancel, so no separate confirm() gate is needed before showing it.
+    document.getElementById('delete-household-modal').style.display = 'flex';
   }
 
   function closeDeleteModal() {
@@ -629,12 +691,14 @@
   }
 
   function removeMember(memberId) {
-    if (confirm('{{ t.get("confirm_remove", "Remove this member?") }}')) {
+    pmConfirm('⚠️', '{{ t.get("remove", "Remove") }}', '{{ t.get("confirm_remove", "Remove this member?") }}',
+              '{{ t.get("remove", "Remove") }}', 'pm-btn-danger').then(function(confirmed) {
+      if (!confirmed) return;
       const formData = new FormData();
       formData.append('member_id', memberId);
       fetch('/api/household/remove-member', { method: 'POST', body: formData })
         .then(() => location.reload());
-    }
+    });
   }
 
   var _avatarPickerMemberId = null;
@@ -659,27 +723,42 @@
   }
 
   function renameMember(memberId, currentName) {
-    const newName = prompt('{{ t.get("enter_new_name", "Enter new name") }}', currentName);
-    if (newName && newName.trim()) {
-      const formData = new FormData();
-      formData.append('member_id', memberId);
-      formData.append('display_name', newName.trim());
-      fetch('/api/household/rename-member', { method: 'POST', body: formData })
-        .then(() => location.reload());
-    }
+    pmPrompt('✏️', '{{ t.get("rename", "Rename") }}', '', currentName).then(function(newName) {
+      if (newName && newName.trim()) {
+        const formData = new FormData();
+        formData.append('member_id', memberId);
+        formData.append('display_name', newName.trim());
+        fetch('/api/household/rename-member', { method: 'POST', body: formData })
+          .then(() => location.reload());
+      }
+    });
   }
 
-  function openRoleMenu(memberId, currentRole) {
-    // Simple prompt for role change (can be improved with a modal)
-    const roles = ['viewer', 'editor', 'co-owner', 'owner'];
-    const newRole = prompt('Enter new role: ' + roles.join(', '), currentRole);
-    if (newRole && roles.includes(newRole)) {
-      const formData = new FormData();
-      formData.append('member_id', memberId);
-      formData.append('role', newRole);
-      fetch('/api/household/update-member-role', { method: 'POST', body: formData })
-        .then(() => location.reload());
-    }
+  var _roleMenuMemberId = null;
+
+  function openRoleMenu(memberId, currentRole, isProfile) {
+    // Profiles (no login of their own) can be editor/viewer/co-owner but
+    // never the literal 'owner' role - that's reserved for the real account
+    // holder. Toggle which extra option is offered to match.
+    _roleMenuMemberId = memberId;
+    document.getElementById('role-picker-coowner-option').style.display = isProfile ? '' : 'none';
+    document.getElementById('role-picker-owner-option').style.display = isProfile ? 'none' : '';
+    document.getElementById('role-picker-select').value = currentRole;
+    document.getElementById('role-picker-modal').style.display = 'flex';
+  }
+
+  function closeRoleMenu() {
+    document.getElementById('role-picker-modal').style.display = 'none';
+    _roleMenuMemberId = null;
+  }
+
+  function confirmRoleChange() {
+    const newRole = document.getElementById('role-picker-select').value;
+    const formData = new FormData();
+    formData.append('member_id', _roleMenuMemberId);
+    formData.append('role', newRole);
+    fetch('/api/household/update-member-role', { method: 'POST', body: formData })
+      .then(() => location.reload());
   }
 </script>
 {% endblock %}
