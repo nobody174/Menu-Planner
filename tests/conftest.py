@@ -13,8 +13,48 @@ import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from deployment.flask_app import app
-from database.database import db, SessionLocal
+from database.database import db, SessionLocal, DATABASE_URL
 from database.models import Base
+
+
+def _refuse_if_real_dev_database():
+    """The test suite wipes its database before every single test (see
+    _clean_database below) - if that ever ran against the real local
+    menu_planner.db (e.g. someone runs `pytest` without setting DATABASE_URL,
+    so database.py silently falls back to .env's real dev database), it
+    would permanently destroy real local data with zero warning. Fail loudly
+    and refuse to run at all rather than risk that, even once."""
+    db_url = DATABASE_URL.lower()
+    if 'menu_planner.db' in db_url or (db_url.startswith('sqlite') and ':memory:' not in db_url and 'test' not in db_url):
+        raise RuntimeError(
+            f"\n\nRefusing to run tests against DATABASE_URL={DATABASE_URL!r} - "
+            "this looks like it could be the real local dev database, and the "
+            "test suite wipes its database before every test.\n"
+            "Set DATABASE_URL to a dedicated test database first, e.g.:\n"
+            "  export DATABASE_URL=sqlite:///test.db   (bash)\n"
+            "  $env:DATABASE_URL='sqlite:///test.db'    (PowerShell)\n"
+        )
+
+
+_refuse_if_real_dev_database()
+
+
+@pytest.fixture(autouse=True)
+def _clean_database():
+    """Several tests (e.g. test_household.py's test_users fixture) call core
+    helpers like create_user() directly, with no dependency on the test_app
+    fixture below - meaning the schema was never guaranteed to exist (failed
+    outright in CI, where tests.yml has no DATABASE_URL/migrations step), and
+    even once it does exist, every test was inserting the SAME hardcoded
+    emails (owner@example.com etc.) into the SAME persistent SQLite file with
+    no cleanup between tests - so only the first test in a run ever passed,
+    every later one hit "User already exists". Dropping and recreating all
+    tables before EVERY test (not just once per session) fixes both: the
+    schema always exists, and each test starts from a guaranteed-empty
+    database regardless of what an earlier test inserted."""
+    db.drop_all()
+    db.create_all()
+    yield
 
 
 @pytest.fixture
