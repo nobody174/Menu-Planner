@@ -2313,16 +2313,15 @@ def api_recipe_packs_import():
                         r['time_minutes'] = r.get('cookTimeMinutes', 30)
                     recipes_to_import.append(r)
 
-        # Load existing recipes database
+        # Load existing recipes database.
+        # Upsert: overwrite any recipe whose ID already exists (so re-importing
+        # a pack after a category restructure gets the fresh categories, not the
+        # stale ones from the previous import).
         existing_recipes = load_recipes_db()
-        existing_ids = {r['id'] for r in existing_recipes}
-
-        # Add new recipes (avoid duplicates)
-        imported_count = 0
-        for recipe in recipes_to_import:
-            if recipe['id'] not in existing_ids:
-                existing_recipes.append(recipe)
-                imported_count += 1
+        import_ids = {r['id'] for r in recipes_to_import}
+        kept = [r for r in existing_recipes if r['id'] not in import_ids]
+        imported_count = len(recipes_to_import)
+        existing_recipes = kept + recipes_to_import
 
         # Save updated database
         save_recipes_db(existing_recipes)
