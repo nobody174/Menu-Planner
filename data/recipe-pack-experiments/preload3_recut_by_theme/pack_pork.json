@@ -1,0 +1,1855 @@
+{
+  "packId": "pack_pork",
+  "packName": {
+    "en": "Pork",
+    "no": "Svin"
+  },
+  "packDescription": {
+    "en": "Pork recipes from across all our collections",
+    "no": "Svin-oppskrifter fra alle samlingene våre"
+  },
+  "packImage": "🐖",
+  "packColor": "#999999",
+  "recipeCount": 17,
+  "estimatedCookTime": "varies",
+  "difficulty": "varies",
+  "recipes": [
+    {
+      "id": "no_070",
+      "title": {
+        "no": "Svinestek",
+        "en": "Roasted Pork"
+      },
+      "subtitle": {
+        "no": "Klassisk stekt svin",
+        "en": "Classic roasted pork"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 120,
+      "servings": 8,
+      "category": "Pork",
+      "tags": [
+        "pork",
+        "roasted",
+        "traditional",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "meat"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "svinestek",
+            "en": "pork roast"
+          },
+          "amount": 2000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "salt",
+            "en": "salt"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "pepper",
+            "en": "pepper"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "smør",
+            "en": "butter"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "vann",
+            "en": "water"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Gni steken med salt og pepper",
+          "2. Plasser på brettstein",
+          "3. Påfør smør",
+          "4. Tilsett vann",
+          "5. Bak på 160°C 2 timer",
+          "6. La hvile før serving"
+        ],
+        "en": [
+          "1. Rub roast with salt and pepper",
+          "2. Place on roasting pan",
+          "3. Brush with butter",
+          "4. Add water",
+          "5. Bake at 160°C 2 hours",
+          "6. Rest before serving"
+        ]
+      }
+    },
+    {
+      "id": "no_071",
+      "title": {
+        "no": "Ribbe",
+        "en": "Pork Ribs"
+      },
+      "subtitle": {
+        "no": "Klassisk norsk ribbe",
+        "en": "Classic Norwegian ribs"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 120,
+      "servings": 6,
+      "category": "Pork",
+      "tags": [
+        "pork",
+        "ribs",
+        "traditional",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "meat"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "svineribbe",
+            "en": "pork ribs"
+          },
+          "amount": 1500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "salt",
+            "en": "salt"
+          },
+          "amount": 15,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "pepper",
+            "en": "pepper"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "vann",
+            "en": "water"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Dryss ribbene med salt og pepper",
+          "2. Plasser hudside ned på brettstein",
+          "3. Tilsett vann",
+          "4. Dekk med folie",
+          "5. Bak på 170°C 1,5 time",
+          "6. Fjern folie og bak videre til gyllen"
+        ],
+        "en": [
+          "1. Season ribs with salt and pepper",
+          "2. Place skin side down on pan",
+          "3. Add water",
+          "4. Cover with foil",
+          "5. Bake at 170°C 1.5 hours",
+          "6. Remove foil and bake until golden"
+        ]
+      }
+    },
+    {
+      "id": "no_077",
+      "title": {
+        "no": "Spekeskinke",
+        "en": "Cured Ham"
+      },
+      "subtitle": {
+        "no": "Tradisjonell skinke",
+        "en": "Traditional ham"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 0,
+      "servings": 10,
+      "category": "Pork",
+      "tags": [
+        "cured",
+        "traditional",
+        "preservation",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "meat"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "svineskink",
+            "en": "pork ham"
+          },
+          "amount": 2000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "salt",
+            "en": "salt"
+          },
+          "amount": 120,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "sukker",
+            "en": "sugar"
+          },
+          "amount": 40,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "nitratsalt",
+            "en": "nitrate salt"
+          },
+          "amount": 15,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland salt, sukker og nitratsalt",
+          "2. Gni skinken",
+          "3. Legg i kjølskåp 3 uker",
+          "4. Drenasj daglig",
+          "5. Henges å tørke 2-3 måneder",
+          "6. Server tynn skåret"
+        ],
+        "en": [
+          "1. Mix salt, sugar and nitrate salt",
+          "2. Rub ham",
+          "3. Place in fridge 3 weeks",
+          "4. Drain daily",
+          "5. Hang to dry 2-3 months",
+          "6. Serve sliced thinly"
+        ]
+      }
+    },
+    {
+      "id": "no_099",
+      "title": {
+        "no": "Klubb",
+        "en": "Potato Dumpling"
+      },
+      "subtitle": {
+        "no": "Potetdump med flesk",
+        "en": "Potato dumpling with pork"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 60,
+      "servings": 6,
+      "category": "Pork",
+      "tags": [
+        "traditional",
+        "comfort",
+        "norwegian",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "meat",
+        "wheat"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Mel",
+            "en": "Flour"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Saltkjøtt",
+            "en": "Salted pork"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skrell og mos halvparten av potetene",
+          "2. Riv den andre halvparten",
+          "3. Bland moset poteter med mel og salt",
+          "4. Lag rund baller",
+          "5. Fyll hver ball med saltkjøtt og løk",
+          "6. Kok i lett kokende vann i 30 minutter",
+          "7. Server med potetgryte"
+        ],
+        "en": [
+          "1. Peel and mash half of the potatoes",
+          "2. Grate the other half",
+          "3. Mix mashed potatoes with flour and salt",
+          "4. Shape into round balls",
+          "5. Fill each ball with salted pork and onion",
+          "6. Cook in gently boiling water for 30 minutes",
+          "7. Serve with potato stew"
+        ]
+      }
+    },
+    {
+      "id": "no_101",
+      "title": {
+        "no": "Stekt Flesk og Løk",
+        "en": "Fried Bacon and Onion"
+      },
+      "subtitle": {
+        "no": "Stekt flesk med løk og potet",
+        "en": "Fried bacon with onion and potatoes"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 25,
+      "servings": 4,
+      "category": "Pork",
+      "tags": [
+        "traditional",
+        "comfort",
+        "quick",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "meat"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Flesk",
+            "en": "Bacon or pork belly"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Pepper",
+            "en": "Pepper"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skjær flesk i tynnе stykker",
+          "2. Sterk flesk i en panne",
+          "3. Fjern flesk og sauté løk",
+          "4. Tilsett rå potetskiver",
+          "5. Dekk og kok til poteter er møre",
+          "6. Tilsett flesk igjen",
+          "7. Krydre og server varmt"
+        ],
+        "en": [
+          "1. Cut bacon into thin pieces",
+          "2. Fry bacon in a skillet",
+          "3. Remove bacon and sauté onion",
+          "4. Add raw potato slices",
+          "5. Cover and cook until potatoes are tender",
+          "6. Return bacon",
+          "7. Season and serve hot"
+        ]
+      }
+    },
+    {
+      "id": "eu_024",
+      "title": {
+        "no": "Tartiflette",
+        "en": "Tartiflette"
+      },
+      "subtitle": {
+        "no": "Fransk potetgrating med bacon og reblochon-ost",
+        "en": "French potato bake with bacon and reblochon cheese"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 60,
+      "servings": 4,
+      "category": "Pork",
+      "tags": [
+        "french",
+        "baked",
+        "comfort-food",
+        "potatoes",
+        "cuisine:french"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Potet",
+            "en": "Potato"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "kg",
+            "en": "kg"
+          }
+        },
+        {
+          "name": {
+            "no": "Bacon (i terninger)",
+            "en": "Bacon (diced)"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Reblochon eller annen myk ost",
+            "en": "Reblochon or other soft cheese"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Crème fraîche",
+            "en": "Crème fraîche"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitvin",
+            "en": "White wine"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skrell og kok poteten i lettsaltet vann til den er nesten mør, skjær i skiver.",
+          "2. Stek bacon og løk i en panne til løken er blank og bacon sprøtt.",
+          "3. Hell i hvitvin og la det koke et minutt.",
+          "4. Legg halvparten av potetskivene i en ildfast form, fordel bacon-løkblandingen over.",
+          "5. Legg resten av poteten på toppen og fordel crème fraîche jevnt over.",
+          "6. Skjær osten i skiver og legg over toppen med skinnsiden opp.",
+          "7. Stek i ovnen på 200°C i 25-30 minutter til osten er smeltet og gyllen."
+        ],
+        "en": [
+          "1. Peel and boil the potatoes in lightly salted water until almost tender, then slice them.",
+          "2. Fry the bacon and onion in a pan until the onion is translucent and the bacon crisp.",
+          "3. Pour in the white wine and let it cook for a minute.",
+          "4. Layer half the potato slices in a baking dish and spread the bacon-onion mixture over them.",
+          "5. Add the rest of the potatoes on top and spread the crème fraîche evenly over.",
+          "6. Slice the cheese and lay it over the top, rind side up.",
+          "7. Bake at 200°C (390°F) for 25-30 minutes until the cheese is melted and golden."
+        ]
+      }
+    },
+    {
+      "id": "eu_070",
+      "title": {
+        "no": "Rouladen",
+        "en": "Rouladen"
+      },
+      "subtitle": {
+        "no": "Kjøttkjeks med sennep og bacon",
+        "en": "Meat rolls with mustard and bacon"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 60,
+      "servings": 4,
+      "category": "Pork",
+      "tags": [
+        "braised",
+        "German",
+        "comfort food",
+        "cuisine:german"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Okseknapp (tynne skiver)",
+            "en": "Beef rump (thin slices)"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Dijon sennep",
+            "en": "Dijon mustard"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "tbsp",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Bacon",
+            "en": "Bacon"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Sterk blå fløte",
+            "en": "Sour cream"
+          },
+          "amount": 250,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Kjøttbuljong",
+            "en": "Beef broth"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Olje",
+            "en": "Oil"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "tbsp",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "after taste",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bredd kjøttskivene ut på arbeidsflaten",
+          "2. Påsmør sennep på hver skive, legg bacon og løk på toppen",
+          "3. Rull kjøttet stramt og sikre med pinner",
+          "4. Brun rullene i olje i en stekepanne",
+          "5. Tilsett buljong og krem, simrer i 45-50 minutter på lav varme",
+          "6. Serv med poteter eller nudler"
+        ],
+        "en": [
+          "1. Lay out beef slices on work surface",
+          "2. Spread mustard on each slice, place bacon and onion on top",
+          "3. Roll meat tightly and secure with toothpicks",
+          "4. Brown rolls in oil in a skillet",
+          "5. Add broth and cream, simmer for 45-50 minutes on low heat",
+          "6. Serve with potatoes or noodles"
+        ]
+      }
+    },
+    {
+      "id": "eu_073",
+      "title": {
+        "no": "Schweinshaxe",
+        "en": "Schweinshaxe"
+      },
+      "subtitle": {
+        "no": "Stekt svinekjøtt med potet og sennep",
+        "en": "Roasted pork knuckle with potato and mustard"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 180,
+      "servings": 4,
+      "category": "Pork",
+      "tags": [
+        "roasted",
+        "German",
+        "hearty",
+        "cuisine:german"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Svinekjøtt (forknapp)",
+            "en": "Pork knuckle"
+          },
+          "amount": 2000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Rosemarin",
+            "en": "Rosemary"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "stk",
+            "en": "sprigs"
+          }
+        },
+        {
+          "name": {
+            "no": "Tyme",
+            "en": "Thyme"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "stk",
+            "en": "sprigs"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Olje",
+            "en": "Oil"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "tbsp",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Kjøttbuljong",
+            "en": "Beef broth"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "after taste",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Varmeovnen til 200C",
+          "2. Gnid kjøttet med olje, salt, pepper og urter",
+          "3. Brun kjøttet rundt omkring i en gryte",
+          "4. Tilsett buljong og dekk med folie",
+          "5. Bak i 2,5-3 timer til kjøttet er mørt",
+          "6. Øk temperaturen de siste 15 minuttene for å få sprø skinn",
+          "7. La kjøttet hvile 10 minutter før servering"
+        ],
+        "en": [
+          "1. Preheat oven to 200C",
+          "2. Rub meat with oil, salt, pepper and herbs",
+          "3. Brown meat all around in a pot",
+          "4. Add broth and cover with foil",
+          "5. Bake for 2.5-3 hours until meat is tender",
+          "6. Increase temperature last 15 minutes for crispy skin",
+          "7. Let meat rest 10 minutes before serving"
+        ]
+      }
+    },
+    {
+      "id": "eu_087",
+      "title": {
+        "no": "Full English Breakfast",
+        "en": "Full English Breakfast"
+      },
+      "subtitle": {
+        "no": "Engelsk frokost med egg, spekeskinke og bønner",
+        "en": "English breakfast with eggs, bacon and beans"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 30,
+      "servings": 2,
+      "category": "Pork",
+      "tags": [
+        "breakfast",
+        "full meal",
+        "British",
+        "quick",
+        "cuisine:british"
+      ],
+      "allergens": [
+        "gluten",
+        "eggs",
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Eggs"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Bacon",
+            "en": "Bacon"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Pølse",
+            "en": "Sausage"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomat",
+            "en": "Tomato"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Sopp",
+            "en": "Mushroom"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Bønner i tomat",
+            "en": "Beans in tomato"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Brød",
+            "en": "Bread"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "skiver",
+            "en": "slices"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "tbsp",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Olje",
+            "en": "Oil"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "tbsp",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Varm olje i en stor stekepanne",
+          "2. Steak bacon og pølser til de er sprø",
+          "3. Fjern fra pannen, steak tomater og sopp litt",
+          "4. Tilbake bacon og pølse kort før servering",
+          "5. I en annen panne, steak egg på ønsket måte",
+          "6. Varm bønner i en liten gryte",
+          "7. Serv alt på en tallerkenen: egg, bacon, pølse, tomat, sopp, bønner og brød med smør"
+        ],
+        "en": [
+          "1. Heat oil in a large skillet",
+          "2. Fry bacon and sausages until crispy",
+          "3. Remove from pan, fry tomatoes and mushrooms briefly",
+          "4. Return bacon and sausage shortly before serving",
+          "5. In another pan, fry eggs as desired",
+          "6. Warm beans in a small pot",
+          "7. Serve everything on a plate: eggs, bacon, sausage, tomato, mushroom, beans and buttered bread"
+        ]
+      }
+    },
+    {
+      "id": "nd_006",
+      "title": {
+        "no": "Mørbrad med jordbær og flødeskum",
+        "en": "Pork Tenderloin with Strawberries and Whipped Cream"
+      },
+      "subtitle": {
+        "no": "Skandinavisk elegant rett",
+        "en": "Scandinavian elegant dish"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 40,
+      "servings": 4,
+      "category": "Pork",
+      "tags": [
+        "scandinavian",
+        "elegant",
+        "summer",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Mørbrad (gris)",
+            "en": "Pork tenderloin"
+          },
+          "amount": 700,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Jordbær (friske)",
+            "en": "Strawberries (fresh)"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Fløte (tykk)",
+            "en": "Cream (heavy)"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvit vin",
+            "en": "White wine"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Sesr mørbradstykket lett og smak til med salt og pepper.",
+          "2. Heat smør i en stekepanne.",
+          "3. Steik mørbradstykket på høy varme 3-4 minutter på hver side.",
+          "4. Legg på en varmt stell.",
+          "5. Hell hvit vin i pannen og la det redusere.",
+          "6. Tilsett fløten og la det småkoke i 5 minutter.",
+          "7. Tilsett jordbærene til sausen.",
+          "8. Skjær mørbradstykket i skiver og arrange på en tallerken.",
+          "9. Hell jordebærsausen over og server varmt."
+        ],
+        "en": [
+          "1. Season tenderloin lightly and taste with salt and pepper.",
+          "2. Heat butter in a frying pan.",
+          "3. Fry tenderloin on high heat 3-4 minutes on each side.",
+          "4. Place on warm plate.",
+          "5. Pour white wine in pan and let reduce.",
+          "6. Add cream and simmer for 5 minutes.",
+          "7. Add strawberries to sauce.",
+          "8. Slice tenderloin and arrange on plate.",
+          "9. Pour strawberry sauce over and serve hot."
+        ]
+      }
+    },
+    {
+      "id": "nd_024",
+      "title": {
+        "no": "Stegt Flæsk med Persillesovs",
+        "en": "Fried Pork Belly with Parsley Sauce"
+      },
+      "subtitle": {
+        "no": "Dansk nasjonalrett med sprøtt flesk og persillesaus",
+        "en": "Danish national dish with crispy pork belly and parsley sauce"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 50,
+      "servings": 4,
+      "category": "Pork",
+      "tags": [
+        "traditional",
+        "nordic",
+        "comfort-food",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Svineribbe, tynne skiver",
+            "en": "Pork belly, thinly sliced"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvetemel",
+            "en": "Wheat flour"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Fersk persille, hakket",
+            "en": "Fresh parsley, chopped"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "bunt",
+            "en": "bunch"
+          }
+        },
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Legg de tynne fleskskivene i en kald stekepanne og stek dem på middels varme til de blir sprø og gyldenbrune.",
+          "2. Ta flesket ut og la det dryppe av på papir, og behold litt av fettet i pannen til sausen.",
+          "3. Smelt smør i fettet, rør inn mel og la det surre i et minutt.",
+          "4. Spe gradvis med melk under konstant røring til sausen er jevn og tykner.",
+          "5. La sausen koke sakte i 5-10 minutter, smak til med salt og pepper.",
+          "6. Rør inn rikelig med hakket persille like før servering.",
+          "7. Server det sprøstekte flesket med persillesausen og kokte poteter."
+        ],
+        "en": [
+          "1. Place the thin pork belly slices in a cold frying pan and fry over medium heat until crispy and golden brown.",
+          "2. Remove the pork and let it drain on paper, keeping some of the fat in the pan for the sauce.",
+          "3. Melt butter in the fat, stir in flour and let it cook for a minute.",
+          "4. Gradually whisk in the milk while stirring constantly until the sauce is smooth and thickens.",
+          "5. Let the sauce simmer gently for 5-10 minutes, seasoning with salt and pepper.",
+          "6. Stir in plenty of chopped parsley just before serving.",
+          "7. Serve the crispy fried pork belly with the parsley sauce and boiled potatoes."
+        ]
+      }
+    },
+    {
+      "id": "nd_029",
+      "title": {
+        "no": "Raspeballer",
+        "en": "Norwegian Potato Dumplings"
+      },
+      "subtitle": {
+        "no": "Potetraspeballer kokt med saltet flesk",
+        "en": "Grated potato dumplings boiled with salted pork"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 90,
+      "servings": 4,
+      "category": "Pork",
+      "tags": [
+        "traditional",
+        "nordic",
+        "comfort-food",
+        "cuisine:nordic"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Rå poteter, revet",
+            "en": "Raw potatoes, grated"
+          },
+          "amount": 1000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kokte poteter, moste",
+            "en": "Boiled potatoes, mashed"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvetemel",
+            "en": "Wheat flour"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Saltet flesk eller bacon, i biter",
+            "en": "Salted pork or bacon, cubed"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør til servering",
+            "en": "Butter for serving"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Riv de rå potetene fint og press ut overflødig vann gjennom et klede.",
+          "2. Bland de revne potetene med moste kokte poteter, mel og salt til en fast deig.",
+          "3. Press en liten klump flesk inn i midten av en håndfull deig og form til en jevn ball.",
+          "4. Fortsett til all deig og flesk er brukt opp.",
+          "5. Kok opp en stor gryte med lettsaltet vann og legg raspeballene forsiktig i.",
+          "6. La dem koke i 45-60 minutter til de er gjennomkokt og flyter til overflaten.",
+          "7. Server varme med smeltet smør, eventuelt sammen med kålrabistuing eller flesk."
+        ],
+        "en": [
+          "1. Finely grate the raw potatoes and press out excess water through a cloth.",
+          "2. Mix the grated potatoes with the mashed boiled potatoes, flour and salt into a firm dough.",
+          "3. Press a small piece of pork into the center of a handful of dough and shape into an even ball.",
+          "4. Continue until all the dough and pork have been used.",
+          "5. Bring a large pot of lightly salted water to a boil and gently add the dumplings.",
+          "6. Let them boil for 45-60 minutes until fully cooked and floating to the surface.",
+          "7. Serve hot with melted butter, optionally alongside mashed rutabaga or pork."
+        ]
+      }
+    },
+    {
+      "id": "hol_013",
+      "title": {
+        "no": "Juleskinke",
+        "en": "Christmas Ham"
+      },
+      "subtitle": {
+        "no": "Saltet og glasert juleskinke, en norsk juletradisjon",
+        "en": "Cured and glazed Christmas ham, a Norwegian holiday tradition"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 180,
+      "servings": 8,
+      "category": "Pork",
+      "tags": [
+        "holiday",
+        "celebration",
+        "festive",
+        "christmas",
+        "cuisine:nordic"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Skinke (saltet, med svor)",
+            "en": "Ham (cured, with rind)"
+          },
+          "amount": 3000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sennep (grov)",
+            "en": "Mustard (coarse)"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Brunt sukker",
+            "en": "Brown sugar"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Nellik (hel)",
+            "en": "Cloves (whole)"
+          },
+          "amount": 15,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "liter",
+            "en": "liter"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Legg skinken i en stor gryte med vann og kok opp.",
+          "2. Skum av urenheter og la skinken trekke på svak varme i ca. 2 timer.",
+          "3. Ta skinken ut og la den avkjøles litt, fjern svoren forsiktig med en skarp kniv.",
+          "4. Skjær rutemønster i fettlaget og press inn nellik i hvert kryss.",
+          "5. Bland sennep og brunt sukker, og smør blandingen jevnt over skinken.",
+          "6. Stek i ovnen på 200°C i 20-25 minutter til glasuren er gyllenbrun.",
+          "7. La skinken hvile i 15 minutter før den skjæres i tynne skiver."
+        ],
+        "en": [
+          "1. Place the ham in a large pot with water and bring to a boil.",
+          "2. Skim off any foam and let the ham simmer gently for about 2 hours.",
+          "3. Remove the ham and let it cool slightly, then carefully trim away the rind with a sharp knife.",
+          "4. Score a diamond pattern into the fat layer and press a clove into each intersection.",
+          "5. Mix the mustard and brown sugar and spread the mixture evenly over the ham.",
+          "6. Roast in the oven at 200°C for 20-25 minutes until the glaze turns golden brown.",
+          "7. Let the ham rest for 15 minutes before slicing thinly."
+        ]
+      }
+    },
+    {
+      "id": "hol_018",
+      "title": {
+        "no": "Prime Rib Stek",
+        "en": "Prime Rib Roast"
+      },
+      "subtitle": {
+        "no": "Saftig helstekt ribbestek av oksekjøtt med urtekrydring, perfekt til fest",
+        "en": "Juicy whole roasted beef rib roast with herb seasoning, perfect for celebrations"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 150,
+      "servings": 6,
+      "category": "Pork",
+      "tags": [
+        "holiday",
+        "celebration",
+        "festive"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Ribbestek av okse (med bein)",
+            "en": "Beef rib roast (bone-in)"
+          },
+          "amount": 2500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk (finhakket)",
+            "en": "Garlic (minced)"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør (mykt)",
+            "en": "Butter (soft)"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Rosmarin (finhakket)",
+            "en": "Rosemary (chopped)"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Ta kjøttet ut av kjøleskapet minst 1 time før steking slik at det blir romtemperert.",
+          "2. Bland smør, hvitløk, rosmarin, salt og pepper til en pasta.",
+          "3. Gni pastaen jevnt over hele kjøttstykket.",
+          "4. Stek kjøttet i ovnen på 220°C i 20 minutter for å få en god stekeskorpe.",
+          "5. Senk temperaturen til 150°C og fortsett stekingen til kjernetemperaturen viser ønsket stekegrad (ca. 54°C for rosa).",
+          "6. Ta kjøttet ut og la det hvile tildekket i minst 20 minutter.",
+          "7. Skjær i tykke skiver og server med stekesjy."
+        ],
+        "en": [
+          "1. Take the meat out of the refrigerator at least 1 hour before roasting so it reaches room temperature.",
+          "2. Mix butter, garlic, rosemary, salt, and pepper into a paste.",
+          "3. Rub the paste evenly over the entire roast.",
+          "4. Roast the meat in the oven at 220°C for 20 minutes to develop a good crust.",
+          "5. Lower the temperature to 150°C and continue roasting until the internal temperature reaches the desired level (about 54°C for medium-rare).",
+          "6. Remove the meat and let it rest covered for at least 20 minutes.",
+          "7. Slice into thick pieces and serve with the pan juices."
+        ]
+      }
+    },
+    {
+      "id": "hol_024",
+      "title": {
+        "no": "Stekt Svinekam med Sennepsskorpe",
+        "en": "Roast Pork Loin with Mustard Crust"
+      },
+      "subtitle": {
+        "no": "Saltet svinekam med en sprø skorpe av sennep og brødsmuler til jul",
+        "en": "Cured pork loin with a crispy mustard and breadcrumb crust for Christmas"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 100,
+      "servings": 6,
+      "category": "Pork",
+      "tags": [
+        "holiday",
+        "celebration",
+        "festive",
+        "christmas",
+        "cuisine:german"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Svinekam (saltet, med svor)",
+            "en": "Pork loin (cured, with rind)"
+          },
+          "amount": 2000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Dijonsennep",
+            "en": "Dijon mustard"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Brødsmuler",
+            "en": "Breadcrumbs"
+          },
+          "amount": 80,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Persille (finhakket)",
+            "en": "Parsley (finely chopped)"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør (smeltet)",
+            "en": "Butter (melted)"
+          },
+          "amount": 40,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skjær rutemønster i svoren på svinekammen med en skarp kniv.",
+          "2. Gni kjøttet med salt og pepper og stek i ovnen på 180°C i ca. 1 time.",
+          "3. Bland brødsmuler, persille og smeltet smør til en smuldrete blanding.",
+          "4. Ta kjøttet ut og pensle svoren med dijonsennep.",
+          "5. Press brødsmulerblandingen jevnt over sennepslaget.",
+          "6. Sett kjøttet tilbake i ovnen og stek videre i 20-25 minutter til skorpen er gyllen og sprø.",
+          "7. La svinekammen hvile i 10 minutter før den skjæres i skiver."
+        ],
+        "en": [
+          "1. Score a diamond pattern into the rind of the pork loin with a sharp knife.",
+          "2. Rub the meat with salt and pepper and roast in the oven at 180°C for about 1 hour.",
+          "3. Mix the breadcrumbs, parsley, and melted butter into a crumbly mixture.",
+          "4. Remove the meat and brush the rind with Dijon mustard.",
+          "5. Press the breadcrumb mixture evenly over the mustard layer.",
+          "6. Return the meat to the oven and continue roasting for 20-25 minutes until the crust is golden and crispy.",
+          "7. Let the pork loin rest for 10 minutes before slicing."
+        ]
+      }
+    },
+    {
+      "id": "hol_026",
+      "title": {
+        "no": "Juleskinke",
+        "en": "Christmas Ham"
+      },
+      "subtitle": {
+        "no": "Glassert skinke med honning og sennepe",
+        "en": "Glazed ham with honey and mustard"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 180,
+      "servings": 12,
+      "category": "Pork",
+      "tags": [
+        "holiday",
+        "traditional",
+        "celebration",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "meat",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Skinke",
+            "en": "Ham"
+          },
+          "amount": 3000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Honning",
+            "en": "Honey"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sennepe",
+            "en": "Mustard"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kryddernellik",
+            "en": "Cloves"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Brød",
+            "en": "Bread crumbs"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skrell skinken",
+          "2. Lag en glasur med honning og sennepe",
+          "3. Påfør glasuren",
+          "4. Bak på 180°C i 2 timer",
+          "5. Server varm"
+        ],
+        "en": [
+          "1. Peel ham",
+          "2. Make glaze with honey and mustard",
+          "3. Apply glaze",
+          "4. Bake at 180°C for 2 hours",
+          "5. Serve warm"
+        ]
+      }
+    },
+    {
+      "id": "hol_046",
+      "title": {
+        "no": "Ribbe",
+        "en": "Roasted Pork Ribs"
+      },
+      "subtitle": {
+        "no": "Stekt ribbe med sprø svarte",
+        "en": "Roasted ribs with crispy skin"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 180,
+      "servings": 8,
+      "category": "Pork",
+      "tags": [
+        "holiday",
+        "traditional",
+        "celebration",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "meat"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Ribbe",
+            "en": "Pork ribs"
+          },
+          "amount": 2000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Pepper",
+            "en": "Black pepper"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Karve",
+            "en": "Caraway"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Riller ribben på flere steder",
+          "2. Krydre godt",
+          "3. Hell vann i stekepanne",
+          "4. Bak på 170°C i 2-2,5 timer",
+          "5. Server varmt"
+        ],
+        "en": [
+          "1. Score the ribs in several places",
+          "2. Season well",
+          "3. Add water to roasting pan",
+          "4. Roast at 170°C for 2-2.5 hours",
+          "5. Serve hot"
+        ]
+      }
+    }
+  ]
+}

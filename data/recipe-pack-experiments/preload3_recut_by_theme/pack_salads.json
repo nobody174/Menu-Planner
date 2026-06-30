@@ -1,0 +1,3051 @@
+{
+  "packId": "pack_salads",
+  "packName": {
+    "en": "Salads",
+    "no": "Salater"
+  },
+  "packDescription": {
+    "en": "Salads recipes from across all our collections",
+    "no": "Salater-oppskrifter fra alle samlingene våre"
+  },
+  "packImage": "🥬",
+  "packColor": "#999999",
+  "recipeCount": 25,
+  "estimatedCookTime": "varies",
+  "difficulty": "varies",
+  "recipes": [
+    {
+      "id": "no_036",
+      "title": {
+        "no": "Skagenrøre Smørbrød",
+        "en": "Shrimp Salad Sandwich"
+      },
+      "subtitle": {
+        "no": "Klassisk reke smørbrød",
+        "en": "Classic shrimp sandwich"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 10,
+      "servings": 1,
+      "category": "Salads",
+      "tags": [
+        "sandwich",
+        "shrimp",
+        "traditional",
+        "quick",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "shellfish",
+        "dairy",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "brød",
+            "en": "bread"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "reker",
+            "en": "shrimp"
+          },
+          "amount": 80,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "mayonnaise",
+            "en": "mayonnaise"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "agurk",
+            "en": "cucumber"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "sitron",
+            "en": "lemon"
+          },
+          "amount": 0.5,
+          "unit": {
+            "no": "stykk",
+            "en": "piece"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland reker og mayo",
+          "2. Påsmør brød",
+          "3. Påfør rekeblandingen",
+          "4. Topp med agurk",
+          "5. Dryss sitron"
+        ],
+        "en": [
+          "1. Mix shrimp and mayo",
+          "2. Butter bread",
+          "3. Spread shrimp mixture",
+          "4. Top with cucumber",
+          "5. Drizzle lemon"
+        ]
+      }
+    },
+    {
+      "id": "no_038",
+      "title": {
+        "no": "Eggerøre Smørbrød",
+        "en": "Egg Salad Sandwich"
+      },
+      "subtitle": {
+        "no": "Klassisk egg smørbrød",
+        "en": "Classic egg sandwich"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 10,
+      "servings": 1,
+      "category": "Salads",
+      "tags": [
+        "sandwich",
+        "egg",
+        "traditional",
+        "quick",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "eggs",
+        "dairy",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "brød",
+            "en": "bread"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "egg",
+            "en": "eggs"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stykk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "mayonnaise",
+            "en": "mayonnaise"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "dill",
+            "en": "dill"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "salt og pepper",
+            "en": "salt and pepper"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok og skjær egg",
+          "2. Bland med mayo og dill",
+          "3. Påsmør brød",
+          "4. Påfør eggeblandingen",
+          "5. Krydre"
+        ],
+        "en": [
+          "1. Boil and slice eggs",
+          "2. Mix with mayo and dill",
+          "3. Butter bread",
+          "4. Spread egg mixture",
+          "5. Season"
+        ]
+      }
+    },
+    {
+      "id": "no_094",
+      "title": {
+        "no": "Italiensk Salat",
+        "en": "Italian Salad"
+      },
+      "subtitle": {
+        "no": "Klassisk italiensk grønnsakssalat",
+        "en": "Classic Italian vegetable salad"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 6,
+      "category": "Salads",
+      "tags": [
+        "salad",
+        "traditional",
+        "side",
+        "quick",
+        "cuisine:italian"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Rødkål",
+            "en": "Red cabbage"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Gulrot",
+            "en": "Carrots"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Mais",
+            "en": "Corn"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Erter",
+            "en": "Peas"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Eddik",
+            "en": "Vinegar"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skjær kål og gulrot i små biter",
+          "2. Bland alle grønnsakene",
+          "3. Lag en dressing med eddik og sukker",
+          "4. Hell dressingen over salaten",
+          "5. La stå i kjøleskapet minst 2 timer før servering"
+        ],
+        "en": [
+          "1. Cut cabbage and carrots into small pieces",
+          "2. Mix all vegetables",
+          "3. Make a dressing with vinegar and sugar",
+          "4. Pour dressing over salad",
+          "5. Let sit in refrigerator for at least 2 hours before serving"
+        ]
+      }
+    },
+    {
+      "id": "no_095",
+      "title": {
+        "no": "Potetsalat",
+        "en": "Potato Salad"
+      },
+      "subtitle": {
+        "no": "Norsk potetsalat med løk og dressing",
+        "en": "Norwegian potato salad with onion and dressing"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 40,
+      "servings": 6,
+      "category": "Salads",
+      "tags": [
+        "salad",
+        "traditional",
+        "side",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "milk"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Surmelk",
+            "en": "Sour cream"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Sennepemustart",
+            "en": "Mustard"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Dill",
+            "en": "Dill"
+          },
+          "amount": 15,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok poteter til møre",
+          "2. La kjøle og skjær i kuber",
+          "3. Hakk løk fint",
+          "4. Bland surmelk og sennep",
+          "5. Bland poteter, løk og dressing",
+          "6. Topp med dill"
+        ],
+        "en": [
+          "1. Cook potatoes until tender",
+          "2. Cool and cut into cubes",
+          "3. Chop onion finely",
+          "4. Mix sour cream and mustard",
+          "5. Mix potatoes, onion and dressing",
+          "6. Top with dill"
+        ]
+      }
+    },
+    {
+      "id": "eu_071",
+      "title": {
+        "no": "Kartoffelsalat",
+        "en": "Potato Salad"
+      },
+      "subtitle": {
+        "no": "Tysk potetsal med spekeskinke",
+        "en": "German potato salad with bacon"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 25,
+      "servings": 6,
+      "category": "Salads",
+      "tags": [
+        "salad",
+        "side dish",
+        "German",
+        "quick",
+        "cuisine:german"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 1000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Spekeskinke",
+            "en": "Bacon"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Rødløk",
+            "en": "Red onion"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Syltet agurk",
+            "en": "Pickled cucumber"
+          },
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          },
+          "amount": 100
+        },
+        {
+          "name": {
+            "no": "Kremet dressing",
+            "en": "Creamy dressing"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Dill",
+            "en": "Dill"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "tbsp",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "after taste",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Koke poteter til de er møre, kjøl og skjær i terninger",
+          "2. Steik spekeskinka til den er sprø, hakk fint",
+          "3. Hakk løk og agurk",
+          "4. Bland poteter, spekeskinke, løk og agurk",
+          "5. Tilsett dressing og dill, blanda godt",
+          "6. Serv kald eller ved romtemperatur"
+        ],
+        "en": [
+          "1. Boil potatoes until tender, cool and dice",
+          "2. Fry bacon until crispy, chop finely",
+          "3. Chop onion and cucumber",
+          "4. Mix potatoes, bacon, onion and cucumber",
+          "5. Add dressing and dill, mix well",
+          "6. Serve cold or at room temperature"
+        ]
+      }
+    },
+    {
+      "id": "eu_095",
+      "title": {
+        "no": "Horiatiki",
+        "en": "Greek Salad"
+      },
+      "subtitle": {
+        "no": "Gresk salat med tomat, agurk og feta",
+        "en": "Greek salad with tomato, cucumber and feta"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 10,
+      "servings": 4,
+      "category": "Salads",
+      "tags": [
+        "salad",
+        "Greek",
+        "fresh",
+        "quick",
+        "cuisine:greek"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Tomat",
+            "en": "Tomato"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Agurk",
+            "en": "Cucumber"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Rødløk",
+            "en": "Red onion"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Sorte oliven",
+            "en": "Black olives"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Feta ost",
+            "en": "Feta cheese"
+          },
+          "amount": 250,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Olivolje",
+            "en": "Olive oil"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Rødvineddik",
+            "en": "Red wine vinegar"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "tbsp",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Oregano",
+            "en": "Oregano"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "tsp",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "after taste",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kutt tomater i kiler",
+          "2. Kutt agurk i terninger",
+          "3. Hakk rødløk fint",
+          "4. Bland tomat, agurk, løk og oliven",
+          "5. Klype feta ost i hånd og legg over salaten",
+          "6. Bland olivolje, eddiksyre og oregano",
+          "7. Hell dressing over salaten",
+          "8. Krydre med salt og pepper",
+          "9. La salaten hvile 10 minutter før servering"
+        ],
+        "en": [
+          "1. Cut tomatoes into wedges",
+          "2. Dice cucumber",
+          "3. Chop red onion finely",
+          "4. Mix tomato, cucumber, onion and olives",
+          "5. Crumble feta cheese in hand and place over salad",
+          "6. Mix olive oil, vinegar and oregano",
+          "7. Pour dressing over salad",
+          "8. Season with salt and pepper",
+          "9. Let salad rest 10 minutes before serving"
+        ]
+      }
+    },
+    {
+      "id": "hol_052",
+      "title": {
+        "no": "Vintergrønnsakssalat",
+        "en": "Winter Vegetable Salad"
+      },
+      "subtitle": {
+        "no": "Salat med rødbeter og kål",
+        "en": "Salad with beets and cabbage"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 6,
+      "category": "Salads",
+      "tags": [
+        "holiday",
+        "salad",
+        "vegetable",
+        "quick",
+        "cuisine:nordic"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Rødbeter",
+            "en": "Beets"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kål",
+            "en": "Cabbage"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Gulrot",
+            "en": "Carrot"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Eddik",
+            "en": "Vinegar"
+          },
+          "amount": 60,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Olje",
+            "en": "Oil"
+          },
+          "amount": 60,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok rødbeter",
+          "2. Skjær alle grønnsakene",
+          "3. Lag en dressing med eddik og olje",
+          "4. Bland",
+          "5. La stå i kjøleskapet før servering"
+        ],
+        "en": [
+          "1. Cook beets",
+          "2. Cut all vegetables",
+          "3. Make dressing with vinegar and oil",
+          "4. Mix",
+          "5. Let sit in refrigerator before serving"
+        ]
+      }
+    },
+    {
+      "id": "sum_001",
+      "title": {
+        "no": "Gresk Salat",
+        "en": "Greek Salad"
+      },
+      "subtitle": {
+        "no": "Klassisk sommerslat med feta og oliven",
+        "en": "Classic summer salad with feta and olives"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 15,
+      "servings": 4,
+      "category": "Salads",
+      "tags": [
+        "salad",
+        "greek",
+        "vegetarian",
+        "summer",
+        "quick",
+        "cuisine:greek"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Tomat",
+            "en": "Tomato"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "medium",
+            "en": "medium"
+          }
+        },
+        {
+          "name": {
+            "no": "Agurk",
+            "en": "Cucumber"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "large",
+            "en": "large"
+          }
+        },
+        {
+          "name": {
+            "no": "Rød løk",
+            "en": "Red onion"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "medium",
+            "en": "medium"
+          }
+        },
+        {
+          "name": {
+            "no": "Oliven",
+            "en": "Olives"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Feta-ost",
+            "en": "Feta cheese"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Olivenolje",
+            "en": "Olive oil"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Rødvineddik",
+            "en": "Red wine vinegar"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Oregano",
+            "en": "Oregano"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Hakk tomater, agurk og løk i biter.",
+          "2. Legg dem i en stor salat-bolle.",
+          "3. Tilsett oliven og knust feta-ost.",
+          "4. Bland olivenolje, rødvineddik og oregano.",
+          "5. Hell dressingen over salaten.",
+          "6. Rør godt og la den hvile i 10 minutter.",
+          "7. Server kald som en ideal sommermåltid eller forrett."
+        ],
+        "en": [
+          "1. Chop tomatoes, cucumber and onion into chunks.",
+          "2. Place them in a large salad bowl.",
+          "3. Add olives and crumbled feta cheese.",
+          "4. Mix olive oil, red wine vinegar and oregano.",
+          "5. Pour dressing over salad.",
+          "6. Toss well and let rest 10 minutes.",
+          "7. Serve cold as an ideal summer meal or starter."
+        ]
+      }
+    },
+    {
+      "id": "sum_002",
+      "title": {
+        "no": "Caprese Salat",
+        "en": "Caprese Salad"
+      },
+      "subtitle": {
+        "no": "Italiensk tomat, mozzarella og basilikum",
+        "en": "Italian tomato, mozzarella and basil"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 10,
+      "servings": 4,
+      "category": "Salads",
+      "tags": [
+        "salad",
+        "italian",
+        "fresh",
+        "summer",
+        "quick",
+        "cuisine:italian"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Tomat (moden)",
+            "en": "Tomato (ripe)"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "medium",
+            "en": "medium"
+          }
+        },
+        {
+          "name": {
+            "no": "Mozzarella (fersk)",
+            "en": "Mozzarella (fresh)"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Basilikum (frisk)",
+            "en": "Basil (fresh)"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "blader",
+            "en": "leaves"
+          }
+        },
+        {
+          "name": {
+            "no": "Olivenolje",
+            "en": "Olive oil"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Balsamico-eddiksyre",
+            "en": "Balsamic vinegar"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skjær tomatene i tynne skiver.",
+          "2. Skjær mozzarellaen i tynne skiver.",
+          "3. Arrange tomat og mozzarella på en tallerken.",
+          "4. Legg basilikumblader mellom skivene.",
+          "5. Dryss med salt og pepper.",
+          "6. Hell olivenolje og balsamico-eddiksyre over.",
+          "7. Server umiddelbart som en enkel og elegant forrett."
+        ],
+        "en": [
+          "1. Slice tomatoes thinly.",
+          "2. Slice mozzarella thinly.",
+          "3. Arrange tomato and mozzarella on a plate.",
+          "4. Place basil leaves between the slices.",
+          "5. Sprinkle with salt and pepper.",
+          "6. Drizzle with olive oil and balsamic vinegar.",
+          "7. Serve immediately as a simple and elegant starter."
+        ]
+      }
+    },
+    {
+      "id": "sum_003",
+      "title": {
+        "no": "Kylling-Salat med Mango",
+        "en": "Chicken Salad with Mango"
+      },
+      "subtitle": {
+        "no": "Frisk og tropisk sommersalat",
+        "en": "Fresh and tropical summer salad"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Salads",
+      "tags": [
+        "salad",
+        "chicken",
+        "tropical",
+        "summer",
+        "quick",
+        "cuisine:american"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kyllingbryst",
+            "en": "Chicken breast"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Mango",
+            "en": "Mango"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "medium",
+            "en": "medium"
+          }
+        },
+        {
+          "name": {
+            "no": "Salat (blandet)",
+            "en": "Salad (mixed)"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Rød løk",
+            "en": "Red onion"
+          },
+          "amount": 0.5,
+          "unit": {
+            "no": "medium",
+            "en": "medium"
+          }
+        },
+        {
+          "name": {
+            "no": "Lime (saft)",
+            "en": "Lime (juice)"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Olivenolje",
+            "en": "Olive oil"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Koriander (frisk)",
+            "en": "Cilantro (fresh)"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "blader",
+            "en": "leaves"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok eller grill kyllingbrystet til det er gjennomstekt.",
+          "2. La det kjøle og skjær i biter.",
+          "3. Skrell og skjær mangoen i biter.",
+          "4. Legg salaten på en tallerken.",
+          "5. Topp med kylling, mango og løk.",
+          "6. Bland lime-saft, olivenolje og salt.",
+          "7. Hell dressingen over og garner med koriander.",
+          "8. Server frisk og kald."
+        ],
+        "en": [
+          "1. Boil or grill chicken breast until cooked through.",
+          "2. Let cool and cut into pieces.",
+          "3. Peel and cut mango into chunks.",
+          "4. Place salad on a plate.",
+          "5. Top with chicken, mango and onion.",
+          "6. Mix lime juice, olive oil and salt.",
+          "7. Pour dressing over and garnish with cilantro.",
+          "8. Serve fresh and cold."
+        ]
+      }
+    },
+    {
+      "id": "sum_004",
+      "title": {
+        "no": "Potet-og-Agurk Salat",
+        "en": "Potato and Cucumber Salad"
+      },
+      "subtitle": {
+        "no": "Klassisk nordisk sommersalat",
+        "en": "Classic Nordic summer salad"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 25,
+      "servings": 4,
+      "category": "Salads",
+      "tags": [
+        "salad",
+        "potato",
+        "summer",
+        "nordic",
+        "quick",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Poteter (kokt)",
+            "en": "Potatoes (cooked)"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Agurk",
+            "en": "Cucumber"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "medium",
+            "en": "medium"
+          }
+        },
+        {
+          "name": {
+            "no": "Rød løk",
+            "en": "Red onion"
+          },
+          "amount": 0.5,
+          "unit": {
+            "no": "medium",
+            "en": "medium"
+          }
+        },
+        {
+          "name": {
+            "no": "Rømme",
+            "en": "Sour cream"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Eddik",
+            "en": "Vinegar"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Dill (frisk)",
+            "en": "Dill (fresh)"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. La de kokte potetene kjøle.",
+          "2. Skjær potetene i terninger.",
+          "3. Skjær agurken og løken i små biter.",
+          "4. Bland rømmen, eddiken, dill, salt og pepper.",
+          "5. Tilsett poteter, agurk og løk.",
+          "6. Rør godt.",
+          "7. La det hvile i kjøleskapet før servering.",
+          "8. Server kald som en perfekt grillsalat."
+        ],
+        "en": [
+          "1. Let cooked potatoes cool.",
+          "2. Dice the potatoes.",
+          "3. Cut cucumber and onion into small pieces.",
+          "4. Mix sour cream, vinegar, dill, salt and pepper.",
+          "5. Add potatoes, cucumber and onion.",
+          "6. Toss well.",
+          "7. Let rest in refrigerator before serving.",
+          "8. Serve cold as a perfect grill salad."
+        ]
+      }
+    },
+    {
+      "id": "sum_005",
+      "title": {
+        "no": "Jordbær-og-Spinat Salat",
+        "en": "Strawberry and Spinach Salad"
+      },
+      "subtitle": {
+        "no": "Søt og frisk sommersalat",
+        "en": "Sweet and fresh summer salad"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 15,
+      "servings": 4,
+      "category": "Salads",
+      "tags": [
+        "salad",
+        "strawberry",
+        "summer",
+        "sweet",
+        "quick"
+      ],
+      "allergens": [
+        "nuts"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Spinat (fersk)",
+            "en": "Spinach (fresh)"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Jordbær",
+            "en": "Strawberries"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Mandler (slisert)",
+            "en": "Almonds (sliced)"
+          },
+          "amount": 75,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Rød løk",
+            "en": "Red onion"
+          },
+          "amount": 0.25,
+          "unit": {
+            "no": "medium",
+            "en": "medium"
+          }
+        },
+        {
+          "name": {
+            "no": "Olivenolje",
+            "en": "Olive oil"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Balsamico-eddiksyre",
+            "en": "Balsamic vinegar"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Honning",
+            "en": "Honey"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Legg spinaten i en salat-bolle.",
+          "2. Skjær jordbærene i halver.",
+          "3. Tilsett jordbærene og sliserte mandler.",
+          "4. Tilsett tynne skiver rød løk.",
+          "5. Bland olivenolje, balsamico-eddiksyre og honning.",
+          "6. Hell dressingen over og rør lett.",
+          "7. Server umiddelbart som en elegant salat."
+        ],
+        "en": [
+          "1. Place spinach in a salad bowl.",
+          "2. Cut strawberries in half.",
+          "3. Add strawberries and sliced almonds.",
+          "4. Add thin slices of red onion.",
+          "5. Mix olive oil, balsamic vinegar and honey.",
+          "6. Pour dressing over and toss gently.",
+          "7. Serve immediately as an elegant salad."
+        ]
+      }
+    },
+    {
+      "id": "sum_008",
+      "title": {
+        "no": "Rekesalat",
+        "en": "Shrimp Salad"
+      },
+      "subtitle": {
+        "no": "Lett og elegante rekesalat",
+        "en": "Light and elegant shrimp salad"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 20,
+      "servings": 4,
+      "category": "Salads",
+      "tags": [
+        "salad",
+        "shrimp",
+        "seafood",
+        "summer",
+        "quick"
+      ],
+      "allergens": [
+        "shellfish"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Rekér (kokt)",
+            "en": "Shrimp (cooked)"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salat (blandet)",
+            "en": "Salad (mixed)"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Agurk",
+            "en": "Cucumber"
+          },
+          "amount": 0.5,
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomat (kjertel)",
+            "en": "Tomato (cherry)"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Dill (frisk)",
+            "en": "Dill (fresh)"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Sitron",
+            "en": "Lemon"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
+        },
+        {
+          "name": {
+            "no": "Olivenolje",
+            "en": "Olive oil"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Legg salaten på en tallerken.",
+          "2. Topp med rekene.",
+          "3. Tilsett agurkskiver og kjersel-tomat.",
+          "4. Dryss med dill.",
+          "5. Bland olivenolje med sitron-saft.",
+          "6. Hell dressingen over.",
+          "7. Server kald og frisk."
+        ],
+        "en": [
+          "1. Place salad on a plate.",
+          "2. Top with shrimp.",
+          "3. Add cucumber slices and cherry tomatoes.",
+          "4. Sprinkle with dill.",
+          "5. Mix olive oil with lemon juice.",
+          "6. Pour dressing over.",
+          "7. Serve cold and fresh."
+        ]
+      }
+    },
+    {
+      "id": "sum_010",
+      "title": {
+        "no": "Krabbe-Salat",
+        "en": "Crab Salad"
+      },
+      "subtitle": {
+        "no": "Luksøs og frisk krabbe-salat",
+        "en": "Luxurious and fresh crab salad"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 15,
+      "servings": 4,
+      "category": "Salads",
+      "tags": [
+        "salad",
+        "crab",
+        "seafood",
+        "luxury",
+        "quick",
+        "cuisine:american"
+      ],
+      "allergens": [
+        "shellfish"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Krabbe-kjøtt (kokt)",
+            "en": "Crab meat (cooked)"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salat (blandet)",
+            "en": "Salad (mixed)"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Avokado",
+            "en": "Avocado"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Sitron",
+            "en": "Lemon"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
+        },
+        {
+          "name": {
+            "no": "Mayo (lett)",
+            "en": "Mayonnaise (light)"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Dill (frisk)",
+            "en": "Dill (fresh)"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Legg salaten på en tallerken.",
+          "2. Skjær avokadoen i halver og fjern steinen.",
+          "3. Bland krabbe-kjøttet med mayo og dill.",
+          "4. Smak til med salt, pepper og sitron-saft.",
+          "5. Topp salaten med krabbe-blandingen.",
+          "6. Serve med avokado-halvene.",
+          "7. Garnering med sitronskiver."
+        ],
+        "en": [
+          "1. Place salad on a plate.",
+          "2. Slice avocado in half and remove pit.",
+          "3. Mix crab meat with mayo and dill.",
+          "4. Season with salt, pepper and lemon juice.",
+          "5. Top salad with crab mixture.",
+          "6. Serve with avocado halves.",
+          "7. Garnish with lemon slices."
+        ]
+      }
+    },
+    {
+      "id": "sum_014",
+      "title": {
+        "no": "Cobb Salat",
+        "en": "Cobb Salad"
+      },
+      "subtitle": {
+        "no": "Amerikansk klassiker med kjøtt, egg og avokado",
+        "en": "American classic with meat, egg and avocado"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 25,
+      "servings": 4,
+      "category": "Salads",
+      "tags": [
+        "salad",
+        "american",
+        "hearty",
+        "summer",
+        "quick",
+        "cuisine:american"
+      ],
+      "allergens": [
+        "dairy",
+        "eggs"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Salat (blandet)",
+            "en": "Salad (mixed)"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kyllingbryst (kokt)",
+            "en": "Chicken breast (cooked)"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Bacon (stekt)",
+            "en": "Bacon (cooked)"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg (kokt)",
+            "en": "Egg (boiled)"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Avokado",
+            "en": "Avocado"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "medium",
+            "en": "medium"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomat (kjertel)",
+            "en": "Tomato (cherry)"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Ost (riven)",
+            "en": "Cheese (grated)"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Ranch-dressing",
+            "en": "Ranch dressing"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Legg salaten på en tallerken.",
+          "2. Arrange alle ingrediensene i rader på salaten.",
+          "3. Kutt kyllingbrystet i biter.",
+          "4. Kutt bacon i biter.",
+          "5. Hakk kokte egg.",
+          "6. Skjær avokado i skivor.",
+          "7. Legg alle ingrediensene på salaten.",
+          "8. Dryss med ost.",
+          "9. Hell ranch-dressing over.",
+          "10. Server umiddelbart."
+        ],
+        "en": [
+          "1. Place salad on a plate.",
+          "2. Arrange all ingredients in rows on the salad.",
+          "3. Cut chicken breast into pieces.",
+          "4. Cut bacon into pieces.",
+          "5. Chop boiled eggs.",
+          "6. Slice avocado.",
+          "7. Place all ingredients on the salad.",
+          "8. Sprinkle with cheese.",
+          "9. Pour ranch dressing over.",
+          "10. Serve immediately."
+        ]
+      }
+    },
+    {
+      "id": "sum_017",
+      "title": {
+        "no": "Caprese-salat med Grillet Kylling",
+        "en": "Caprese Salad with Grilled Chicken"
+      },
+      "subtitle": {
+        "no": "Italiensk klassiker med tomat, mozzarella og basilikum, toppet med grillet kylling",
+        "en": "Italian classic with tomato, mozzarella and basil, topped with grilled chicken"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 25,
+      "servings": 4,
+      "category": "Salads",
+      "tags": [
+        "summer",
+        "fresh",
+        "light",
+        "grilled",
+        "quick",
+        "cuisine:italian"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kyllingfilet",
+            "en": "Chicken breast"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomater (gjerne flere sorter)",
+            "en": "Tomatoes (mixed varieties preferred)"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Fersk mozzarella",
+            "en": "Fresh mozzarella"
+          },
+          "amount": 250,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Fersk basilikum",
+            "en": "Fresh basil"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "bunt",
+            "en": "bunch"
+          }
+        },
+        {
+          "name": {
+            "no": "Olivenolje (extra virgin)",
+            "en": "Extra virgin olive oil"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Balsamicoeddik",
+            "en": "Balsamic vinegar"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "spiseskje",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Krydre kyllingfiletene med salt og pepper, og grill dem 5-6 minutter på hver side til de er gjennomstekte.",
+          "2. La kyllingen hvile noen minutter før den skjæres i skiver.",
+          "3. Skjær tomater og mozzarella i skiver og legg dem vekselvis på et fat.",
+          "4. Riv eller plukk basilikumblader og fordel over tomat og mozzarella.",
+          "5. Legg den skivede kyllingen på toppen av salaten.",
+          "6. Drypp over olivenolje og balsamicoeddik, og avslutt med salt og pepper."
+        ],
+        "en": [
+          "1. Season the chicken breasts with salt and pepper and grill for 5-6 minutes per side until cooked through.",
+          "2. Let the chicken rest for a few minutes before slicing.",
+          "3. Slice the tomatoes and mozzarella and arrange them alternately on a platter.",
+          "4. Tear or pick basil leaves and scatter over the tomatoes and mozzarella.",
+          "5. Place the sliced chicken on top of the salad.",
+          "6. Drizzle with olive oil and balsamic vinegar, then finish with salt and pepper."
+        ]
+      }
+    },
+    {
+      "id": "sum_019",
+      "title": {
+        "no": "Gresk Salat med Grillet Kylling",
+        "en": "Greek Salad with Grilled Chicken"
+      },
+      "subtitle": {
+        "no": "Frisk salat med agurk, tomat, oliven og fetaost, toppet med grillet kylling",
+        "en": "Fresh salad with cucumber, tomato, olives and feta, topped with grilled chicken"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Salads",
+      "tags": [
+        "summer",
+        "fresh",
+        "light",
+        "grilled",
+        "quick",
+        "cuisine:greek"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kyllingfilet",
+            "en": "Chicken breast"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Agurk",
+            "en": "Cucumber"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomater",
+            "en": "Tomatoes"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Rødløk",
+            "en": "Red onion"
+          },
+          "amount": 0.5,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Sorte oliven",
+            "en": "Black olives"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Fetaost",
+            "en": "Feta cheese"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Olivenolje",
+            "en": "Olive oil"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Rødvinseddik",
+            "en": "Red wine vinegar"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "spiseskje",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Oregano (tørket)",
+            "en": "Oregano (dried)"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "teskje",
+            "en": "tsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Krydre kyllingfiletene med salt, pepper og litt oregano, og grill 5-6 minutter på hver side.",
+          "2. La kyllingen hvile, og skjær den deretter i skiver.",
+          "3. Kutt agurk, tomater og rødløk i grove biter, og ha i en stor bolle.",
+          "4. Tilsett oliven og smuldre fetaosten over.",
+          "5. Visp sammen olivenolje, rødvinseddik og oregano til en dressing.",
+          "6. Hell dressingen over salaten, vend lett og legg den skivede kyllingen på toppen."
+        ],
+        "en": [
+          "1. Season the chicken breasts with salt, pepper and a little oregano, then grill for 5-6 minutes per side.",
+          "2. Let the chicken rest, then slice it.",
+          "3. Cut the cucumber, tomatoes and red onion into rough chunks and place in a large bowl.",
+          "4. Add the olives and crumble the feta cheese over the top.",
+          "5. Whisk together olive oil, red wine vinegar and oregano to make a dressing.",
+          "6. Pour the dressing over the salad, toss lightly and top with the sliced chicken."
+        ]
+      }
+    },
+    {
+      "id": "sum_022",
+      "title": {
+        "no": "Kald Pastasalat med Salami",
+        "en": "Cold Pasta Salad with Salami"
+      },
+      "subtitle": {
+        "no": "Mettende pastasalat med salami, grønnsaker og en frisk dressing",
+        "en": "Filling pasta salad with salami, vegetables and a fresh dressing"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 25,
+      "servings": 4,
+      "category": "Salads",
+      "tags": [
+        "summer",
+        "fresh",
+        "light",
+        "quick",
+        "cuisine:italian"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Pasta (f.eks. fusilli)",
+            "en": "Pasta (e.g. fusilli)"
+          },
+          "amount": 350,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salami (i strimler)",
+            "en": "Salami (sliced into strips)"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Cherrytomater (halvert)",
+            "en": "Cherry tomatoes (halved)"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Agurk (i biter)",
+            "en": "Cucumber (diced)"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Sort oliven",
+            "en": "Black olives"
+          },
+          "amount": 80,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Parmesan (i flak)",
+            "en": "Parmesan (shaved)"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Olivenolje",
+            "en": "Olive oil"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitvinseddik",
+            "en": "White wine vinegar"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "spiseskje",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok pastaen etter anvisning på pakken, skyll i kaldt vann og la den renne av.",
+          "2. Bland olivenolje og hvitvinseddik til en enkel dressing.",
+          "3. Ha pasta, salami, cherrytomater, agurk og oliven i en stor bolle.",
+          "4. Hell dressingen over og bland godt.",
+          "5. Topp med parmesanflak.",
+          "6. La salaten trekke kjølig i minst 20 minutter før servering for best smak."
+        ],
+        "en": [
+          "1. Cook the pasta according to the package instructions, rinse in cold water and drain.",
+          "2. Mix olive oil and white wine vinegar into a simple dressing.",
+          "3. Combine pasta, salami, cherry tomatoes, cucumber and olives in a large bowl.",
+          "4. Pour the dressing over and mix well.",
+          "5. Top with shaved parmesan.",
+          "6. Let the salad chill for at least 20 minutes before serving for best flavor."
+        ]
+      }
+    },
+    {
+      "id": "sum_023",
+      "title": {
+        "no": "Grillet Mais- og Sortbønnesalat",
+        "en": "Grilled Corn and Black Bean Salad"
+      },
+      "subtitle": {
+        "no": "Meksikansk-inspirert salat med grillet mais, sorte bønner og lime",
+        "en": "Mexican-style salad with grilled corn, black beans and lime"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 25,
+      "servings": 4,
+      "category": "Salads",
+      "tags": [
+        "summer",
+        "fresh",
+        "light",
+        "grilled",
+        "quick",
+        "cuisine:american"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Maiskolber",
+            "en": "Corn on the cob"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Sorte bønner (kokte, avrente)",
+            "en": "Black beans (cooked, drained)"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Rød paprika (i små biter)",
+            "en": "Red bell pepper (diced)"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Rødløk (finhakket)",
+            "en": "Red onion (finely chopped)"
+          },
+          "amount": 0.5,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Fersk koriander (hakket)",
+            "en": "Fresh cilantro (chopped)"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Lime (saft)",
+            "en": "Lime (juice)"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Olivenolje",
+            "en": "Olive oil"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Spisskummen",
+            "en": "Cumin"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "teskje",
+            "en": "tsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Grill maiskolbene på middels høy varme i 10-12 minutter, vend regelmessig, til de er gyldne med litt svidde flekker.",
+          "2. La maisen kjøles litt før kornene skjæres av kolben.",
+          "3. Bland maiskorn, sorte bønner, paprika og rødløk i en stor bolle.",
+          "4. Visp sammen limesaft, olivenolje og spisskummen til en dressing.",
+          "5. Hell dressingen over salaten og bland godt.",
+          "6. Vend inn fersk koriander rett før servering."
+        ],
+        "en": [
+          "1. Grill the corn cobs over medium-high heat for 10-12 minutes, turning regularly, until golden with some charred spots.",
+          "2. Let the corn cool slightly before cutting the kernels off the cob.",
+          "3. Combine the corn kernels, black beans, bell pepper and red onion in a large bowl.",
+          "4. Whisk together lime juice, olive oil and cumin to make a dressing.",
+          "5. Pour the dressing over the salad and mix well.",
+          "6. Fold in fresh cilantro just before serving."
+        ]
+      }
+    },
+    {
+      "id": "sum_025",
+      "title": {
+        "no": "Vannmelon- og Fetasalat",
+        "en": "Watermelon and Feta Salad"
+      },
+      "subtitle": {
+        "no": "Søt og salt sommersalat med vannmelon, feta og mynte",
+        "en": "Sweet and salty summer salad with watermelon, feta and mint"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 15,
+      "servings": 4,
+      "category": "Salads",
+      "tags": [
+        "summer",
+        "fresh",
+        "light",
+        "quick",
+        "cuisine:greek"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Vannmelon (i terninger)",
+            "en": "Watermelon (cubed)"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Fetaost (i terninger)",
+            "en": "Feta cheese (cubed)"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Rødløk (tynt skivet)",
+            "en": "Red onion (thinly sliced)"
+          },
+          "amount": 0.25,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Fersk mynte (hakket)",
+            "en": "Fresh mint (chopped)"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Sorte oliven",
+            "en": "Black olives"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Olivenolje",
+            "en": "Olive oil"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Lime (saft)",
+            "en": "Lime (juice)"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skjær vannmelonen i jevne terninger og legg på et stort fat eller i en bolle.",
+          "2. Strø fetaterningene over vannmelonen.",
+          "3. Spre rødløk og oliven over salaten.",
+          "4. Drypp over olivenolje og limesaft.",
+          "5. Strø over fersk hakket mynte.",
+          "6. Server kjølig som en lett hovedrett eller stort tilbehør."
+        ],
+        "en": [
+          "1. Cut the watermelon into even cubes and place on a large platter or in a bowl.",
+          "2. Scatter the feta cubes over the watermelon.",
+          "3. Spread the red onion and olives over the salad.",
+          "4. Drizzle with olive oil and lime juice.",
+          "5. Sprinkle with fresh chopped mint.",
+          "6. Serve chilled as a light main course or generous side dish."
+        ]
+      }
+    },
+    {
+      "id": "sum_026",
+      "title": {
+        "no": "Grillet Halloumi-salat",
+        "en": "Grilled Halloumi Salad"
+      },
+      "subtitle": {
+        "no": "Varm, sprø halloumi over en frisk salat med honning-sitrondressing",
+        "en": "Warm, crispy halloumi over a fresh salad with a honey-lemon dressing"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 20,
+      "servings": 4,
+      "category": "Salads",
+      "tags": [
+        "summer",
+        "fresh",
+        "light",
+        "grilled",
+        "quick"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Halloumi",
+            "en": "Halloumi"
+          },
+          "amount": 250,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Blandet salat",
+            "en": "Mixed salad greens"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Cherrytomater (halvert)",
+            "en": "Cherry tomatoes (halved)"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Agurk (i skiver)",
+            "en": "Cucumber (sliced)"
+          },
+          "amount": 0.5,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Honning",
+            "en": "Honey"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "spiseskje",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Sitron (saft)",
+            "en": "Lemon (juice)"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Olivenolje",
+            "en": "Olive oil"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skjær halloumien i tykke skiver.",
+          "2. Grill eller stek halloumiskivene i en varm panne uten olje i 2-3 minutter per side til gylne.",
+          "3. Bland salat, cherrytomater og agurk i en bolle eller på et fat.",
+          "4. Visp sammen honning, sitronsaft og olivenolje til en dressing.",
+          "5. Hell dressingen over salaten og bland lett.",
+          "6. Legg den varme halloumien på toppen og server umiddelbart."
+        ],
+        "en": [
+          "1. Slice the halloumi into thick slices.",
+          "2. Grill or fry the halloumi slices in a hot dry pan for 2-3 minutes per side until golden.",
+          "3. Combine the salad greens, cherry tomatoes and cucumber in a bowl or on a platter.",
+          "4. Whisk together honey, lemon juice and olive oil to make a dressing.",
+          "5. Pour the dressing over the salad and toss lightly.",
+          "6. Place the warm halloumi on top and serve immediately."
+        ]
+      }
+    },
+    {
+      "id": "sum_028",
+      "title": {
+        "no": "Grillede Fisketacos",
+        "en": "Grilled Fish Tacos"
+      },
+      "subtitle": {
+        "no": "Meksikansk-inspirerte tacos med grillet fisk, kålsalat og limekrem",
+        "en": "Mexican-style tacos with grilled fish, slaw and lime cream"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 25,
+      "servings": 4,
+      "category": "Salads",
+      "tags": [
+        "summer",
+        "fresh",
+        "light",
+        "grilled",
+        "quick",
+        "cuisine:american"
+      ],
+      "allergens": [
+        "fish",
+        "dairy",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Hvit fiskefilet (f.eks. torsk)",
+            "en": "White fish fillet (e.g. cod)"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Spisskummen",
+            "en": "Cumin"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "teskje",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Paprikapulver",
+            "en": "Paprika powder"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "teskje",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Tortillalefser (myke)",
+            "en": "Soft tortillas"
+          },
+          "amount": 8,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitkål (finstrimlet)",
+            "en": "White cabbage (shredded)"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Rømme",
+            "en": "Sour cream"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Lime (saft)",
+            "en": "Lime (juice)"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Fersk koriander (hakket)",
+            "en": "Fresh cilantro (chopped)"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Krydre fisken med spisskummen, paprikapulver, salt og pepper.",
+          "2. Grill fisken 3-4 minutter på hver side til den er gjennomstekt og flaker seg lett.",
+          "3. Bland rømme med limesaft til en lett krem.",
+          "4. Del fisken i grove flak.",
+          "5. Varm tortillaene lett og fyll med kålstrimler og fiskeflak.",
+          "6. Topp med limerømme og fersk koriander før servering."
+        ],
+        "en": [
+          "1. Season the fish with cumin, paprika, salt and pepper.",
+          "2. Grill the fish for 3-4 minutes per side until cooked through and flaking easily.",
+          "3. Mix sour cream with lime juice to make a light cream sauce.",
+          "4. Break the fish into rough flakes.",
+          "5. Warm the tortillas slightly and fill with shredded cabbage and fish flakes.",
+          "6. Top with the lime cream and fresh cilantro before serving."
+        ]
+      }
+    },
+    {
+      "id": "sum_030",
+      "title": {
+        "no": "Grillet Biffsalat",
+        "en": "Grilled Steak Salad"
+      },
+      "subtitle": {
+        "no": "Mettende salat med grillet biff, ruccola og parmesan",
+        "en": "Hearty salad with grilled steak, arugula and parmesan"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 25,
+      "servings": 4,
+      "category": "Salads",
+      "tags": [
+        "summer",
+        "fresh",
+        "light",
+        "grilled",
+        "quick"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Biff (f.eks. mørbrad eller flatbiff)",
+            "en": "Steak (e.g. sirloin or flank steak)"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Ruccola",
+            "en": "Arugula"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Cherrytomater (halvert)",
+            "en": "Cherry tomatoes (halved)"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Rødløk (tynt skivet)",
+            "en": "Red onion (thinly sliced)"
+          },
+          "amount": 0.5,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Parmesan (i flak)",
+            "en": "Parmesan (shaved)"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Olivenolje",
+            "en": "Olive oil"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Balsamicoeddik",
+            "en": "Balsamic vinegar"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "spiseskje",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Krydre biffen godt med salt og pepper.",
+          "2. Grill biffen på høy varme i 3-4 minutter per side for medium stekt, juster etter ønsket stekegrad.",
+          "3. La biffen hvile i 5-10 minutter før den skjæres i tynne skiver mot fibrene.",
+          "4. Legg ruccola, cherrytomater og rødløk i en stor bolle eller på et fat.",
+          "5. Visp sammen olivenolje og balsamicoeddik til en dressing, og hell over salaten.",
+          "6. Legg biffskivene på toppen og avslutt med parmesanflak."
+        ],
+        "en": [
+          "1. Season the steak generously with salt and pepper.",
+          "2. Grill the steak over high heat for 3-4 minutes per side for medium, adjusting to your preferred doneness.",
+          "3. Let the steak rest for 5-10 minutes before slicing thinly against the grain.",
+          "4. Place the arugula, cherry tomatoes and red onion in a large bowl or on a platter.",
+          "5. Whisk together olive oil and balsamic vinegar to make a dressing, and pour over the salad.",
+          "6. Lay the sliced steak on top and finish with shaved parmesan."
+        ]
+      }
+    },
+    {
+      "id": "sum_083",
+      "title": {
+        "no": "Thaiisk Papaya-Salat Variasjoner",
+        "en": "Thai Papaya Salad Variations"
+      },
+      "subtitle": {
+        "no": "Lett og frisk papaya-salat",
+        "en": "Light and fresh papaya salad"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 15,
+      "servings": 2,
+      "category": "Salads",
+      "tags": [
+        "salad",
+        "thai",
+        "light",
+        "quick",
+        "cuisine:thai"
+      ],
+      "allergens": [
+        "gluten",
+        "shellfish"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Grøn papaya",
+            "en": "Green papaya"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomat",
+            "en": "Tomato"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Lime",
+            "en": "Lime"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Fisk-saus",
+            "en": "Fish sauce"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Chili",
+            "en": "Red chili"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Riv papaya",
+          "2. Skjær tomat i terninger",
+          "3. Bland med lime og fisk-saus",
+          "4. Tilsett hakket chili",
+          "5. Server kaldt"
+        ],
+        "en": [
+          "1. Shred papaya",
+          "2. Dice tomato",
+          "3. Mix with lime and fish sauce",
+          "4. Add chopped chili",
+          "5. Serve cold"
+        ]
+      }
+    },
+    {
+      "id": "sum_102",
+      "title": {
+        "no": "Midtøst Tabbouleh Variasjoner",
+        "en": "Middle Eastern Tabbouleh Variations"
+      },
+      "subtitle": {
+        "no": "Salat med bulgur og persille",
+        "en": "Salad with bulgur and parsley"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 20,
+      "servings": 4,
+      "category": "Salads",
+      "tags": [
+        "middle eastern",
+        "salad",
+        "light",
+        "quick",
+        "cuisine:middle_eastern"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Bulgur",
+            "en": "Bulgur wheat"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Persille",
+            "en": "Parsley"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomat",
+            "en": "Tomato"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Lime",
+            "en": "Lime"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Olje",
+            "en": "Olive oil"
+          },
+          "amount": 60,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok bulgur",
+          "2. La kjøle",
+          "3. Bland med persille, tomat",
+          "4. Dryss med lime og olje"
+        ],
+        "en": [
+          "1. Cook bulgur",
+          "2. Cool",
+          "3. Mix with parsley, tomato",
+          "4. Drizzle with lime and oil"
+        ]
+      }
+    }
+  ]
+}

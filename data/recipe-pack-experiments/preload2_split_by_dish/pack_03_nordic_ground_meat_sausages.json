@@ -1,0 +1,1151 @@
+{
+  "packId": "pack_03_nordic_ground_meat_sausages",
+  "packName": {
+    "en": "Nordic Ground Meat & Sausages",
+    "no": "Nordisk Ground Meat & Sausages"
+  },
+  "packDescription": {
+    "en": "Ground Meat & Sausages dishes from the Nordic collection",
+    "no": "Ground Meat & Sausages-retter fra Nordisk-samlingen"
+  },
+  "packImage": "🌭",
+  "packColor": "#999999",
+  "recipeCount": 9,
+  "estimatedCookTime": "varies",
+  "difficulty": "varies",
+  "recipes": [
+    {
+      "id": "nd_001",
+      "title": {
+        "no": "Kjøttkaker (Svenske)",
+        "en": "Swedish Meatballs"
+      },
+      "subtitle": {
+        "no": "Svenske kjøttkaker med fløte-saus",
+        "en": "Swedish meatballs with cream sauce"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 35,
+      "servings": 4,
+      "category": "Ground Meat & Sausages",
+      "tags": [
+        "swedish",
+        "meatballs",
+        "cream",
+        "classic",
+        "cuisine:swedish"
+      ],
+      "allergens": [
+        "gluten",
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kjøttdeig",
+            "en": "Ground meat"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Brødkrumler",
+            "en": "Breadcrumbs"
+          },
+          "amount": 75,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 75,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Egg"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk (finhakket)",
+            "en": "Onion (minced)"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "small",
+            "en": "small"
+          }
+        },
+        {
+          "name": {
+            "no": "Fløte (syrnet)",
+            "en": "Sour cream"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Lingonbær-syltetøy",
+            "en": "Lingonberry jam"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bløtlegg brødkrumler i melk.",
+          "2. Bland kjøttdeigen med brødkrumler, egg, løk, salt og pepper.",
+          "3. Form til 20-24 små kuler.",
+          "4. Steik kullene i smør til de er brune.",
+          "5. Tilsett den syrlige fløten til pannen.",
+          "6. La kullene småkoke i sausen i 10 minutter.",
+          "7. Server med potetmos og lingonbær-syltetøy."
+        ],
+        "en": [
+          "1. Soak breadcrumbs in milk.",
+          "2. Mix ground meat with breadcrumbs, egg, onion, salt and pepper.",
+          "3. Form into 20-24 small balls.",
+          "4. Fry balls in butter until brown.",
+          "5. Add sour cream to pan.",
+          "6. Let balls simmer in sauce for 10 minutes.",
+          "7. Serve with mashed potatoes and lingonberry jam."
+        ]
+      }
+    },
+    {
+      "id": "nd_007",
+      "title": {
+        "no": "Frikadellettar (Danmark)",
+        "en": "Danish Meatballs"
+      },
+      "subtitle": {
+        "no": "Danske møkkert-stilk kjøttboller",
+        "en": "Danish meatballs"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 40,
+      "servings": 4,
+      "category": "Ground Meat & Sausages",
+      "tags": [
+        "danish",
+        "meatballs",
+        "comfort-food",
+        "cuisine:danish"
+      ],
+      "allergens": [
+        "gluten",
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kjøttdeig (blandet)",
+            "en": "Ground meat (mixed)"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk (finhakket)",
+            "en": "Onion (minced)"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "medium",
+            "en": "medium"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Egg"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
+        },
+        {
+          "name": {
+            "no": "Brødkrumler",
+            "en": "Breadcrumbs"
+          },
+          "amount": 75,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 75,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Brunsaus",
+            "en": "Brown sauce"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bløtlegg brødkrumler i melk.",
+          "2. Bland kjøttdeig, brødkrumler, egg, løk, salt og pepper.",
+          "3. Form små kuler.",
+          "4. Steik kullene i smør til de er brune.",
+          "5. Fjern kullene og tilsett brunsausen til pannen.",
+          "6. Tilbakesett kullene og la det småkoke i 10 minutter.",
+          "7. Server med potetmos, grønnsaker og syltetøy."
+        ],
+        "en": [
+          "1. Soak breadcrumbs in milk.",
+          "2. Mix ground meat, breadcrumbs, egg, onion, salt and pepper.",
+          "3. Form small balls.",
+          "4. Fry balls in butter until brown.",
+          "5. Remove balls and add brown sauce to pan.",
+          "6. Return balls and simmer for 10 minutes.",
+          "7. Serve with mashed potatoes, vegetables and jam."
+        ]
+      }
+    },
+    {
+      "id": "nd_014",
+      "title": {
+        "no": "Frikadellettar (Island)",
+        "en": "Icelandic Meatballs"
+      },
+      "subtitle": {
+        "no": "Islandsk kjøtt-spesialet",
+        "en": "Icelandic meat specialty"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 35,
+      "servings": 4,
+      "category": "Ground Meat & Sausages",
+      "tags": [
+        "icelandic",
+        "meatballs",
+        "comfort-food",
+        "cuisine:icelandic"
+      ],
+      "allergens": [
+        "gluten",
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kjøttdeig",
+            "en": "Ground meat"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk (finhakket)",
+            "en": "Onion (minced)"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "medium",
+            "en": "medium"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Egg"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
+        },
+        {
+          "name": {
+            "no": "Brødkrumler",
+            "en": "Breadcrumbs"
+          },
+          "amount": 75,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 75,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Brunsaus",
+            "en": "Brown sauce"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bløtlegg brødkrumler i melk.",
+          "2. Bland kjøttdeig, brødkrumler, egg, løk, salt og pepper.",
+          "3. Form små kuler.",
+          "4. Steik kullene i smør til de er brune.",
+          "5. Fjern kullene fra pannen.",
+          "6. Tilsett brunsausen til pannen.",
+          "7. Tilbakesett kullene og la det småkoke 10 minutter.",
+          "8. Server med potetmos og grønnsaker."
+        ],
+        "en": [
+          "1. Soak breadcrumbs in milk.",
+          "2. Mix ground meat, breadcrumbs, egg, onion, salt and pepper.",
+          "3. Form small balls.",
+          "4. Fry balls in butter until brown.",
+          "5. Remove balls from pan.",
+          "6. Add brown sauce to pan.",
+          "7. Return balls and simmer 10 minutes.",
+          "8. Serve with mashed potatoes and vegetables."
+        ]
+      }
+    },
+    {
+      "id": "nd_016",
+      "title": {
+        "no": "Köttbullar",
+        "en": "Swedish Meatballs"
+      },
+      "subtitle": {
+        "no": "Svenske kjøttboller i kremet sky med tyttebær",
+        "en": "Swedish meatballs in creamy gravy with lingonberry jam"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 45,
+      "servings": 4,
+      "category": "Ground Meat & Sausages",
+      "tags": [
+        "traditional",
+        "nordic",
+        "comfort-food",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "dairy",
+        "egg",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kjøttdeig (blanding av svin og kjøtt)",
+            "en": "Ground meat (pork and beef mix)"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk, finhakket",
+            "en": "Onion, finely chopped"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Brødsmuler",
+            "en": "Breadcrumbs"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Egg"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Kjøttkraft",
+            "en": "Beef stock"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Kremfløte",
+            "en": "Heavy cream"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Soyasaus",
+            "en": "Soy sauce"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Tyttebærsyltetøy",
+            "en": "Lingonberry jam"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bløtlegg brødsmuler i melk i noen minutter til de svulmer opp.",
+          "2. Bland kjøttdeig, løk, egg og brødsmulemassen godt sammen, og krydre med salt og pepper.",
+          "3. Form små runde kjøttboller med fuktede hender.",
+          "4. Stek kjøttbollene i smør på middels varme til de er gyldenbrune på alle sider og gjennomstekt.",
+          "5. Ta kjøttbollene ut og lag sausen i samme panne med kjøttkraft, kremfløte og soyasaus.",
+          "6. Kok sausen til den tykner litt, legg kjøttbollene tilbake og varm gjennom.",
+          "7. Server med tyttebærsyltetøy og potetmos eller kokte poteter."
+        ],
+        "en": [
+          "1. Soak the breadcrumbs in milk for a few minutes until softened.",
+          "2. Mix the ground meat, onion, egg and the breadcrumb mixture thoroughly, and season with salt and pepper.",
+          "3. Shape small round meatballs with damp hands.",
+          "4. Fry the meatballs in butter over medium heat until golden brown on all sides and cooked through.",
+          "5. Remove the meatballs and make the gravy in the same pan with beef stock, cream and soy sauce.",
+          "6. Simmer the gravy until slightly thickened, return the meatballs and heat through.",
+          "7. Serve with lingonberry jam and mashed or boiled potatoes."
+        ]
+      }
+    },
+    {
+      "id": "nd_017",
+      "title": {
+        "no": "Frikadeller",
+        "en": "Danish Pan-Fried Meat Patties"
+      },
+      "subtitle": {
+        "no": "Danske møre kjøttkaker stekt i smør",
+        "en": "Tender Danish meat patties fried in butter"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Ground Meat & Sausages",
+      "tags": [
+        "traditional",
+        "nordic",
+        "comfort-food",
+        "quick",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "dairy",
+        "egg",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kjøttdeig (svin og kjøtt)",
+            "en": "Ground meat (pork and beef)"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk, finrevet",
+            "en": "Onion, finely grated"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvetemel",
+            "en": "Wheat flour"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Egg"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør til steking",
+            "en": "Butter for frying"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Rør sammen kjøttdeig, mel og egg til en jevn farse.",
+          "2. Tilsett melk gradvis mens du rører, til farsen blir luftig og smidig.",
+          "3. Bland inn revet løk, salt og pepper.",
+          "4. La farsen trekke kaldt i kjøleskap i 15-20 minutter.",
+          "5. Form ovale kaker med en skje dyppet i vann.",
+          "6. Stek frikadellene i smør på middels varme i 4-5 minutter på hver side til de er gyldne og gjennomstekt.",
+          "7. Server med kokte poteter og brun eller hvit sjysås."
+        ],
+        "en": [
+          "1. Mix the ground meat, flour and egg into a smooth batter.",
+          "2. Gradually add the milk while stirring until the mixture becomes light and pliable.",
+          "3. Fold in the grated onion, salt and pepper.",
+          "4. Let the mixture rest in the fridge for 15-20 minutes.",
+          "5. Shape oval patties using a spoon dipped in water.",
+          "6. Fry the patties in butter over medium heat for 4-5 minutes per side until golden and cooked through.",
+          "7. Serve with boiled potatoes and brown or white gravy."
+        ]
+      }
+    },
+    {
+      "id": "nd_025",
+      "title": {
+        "no": "Lihapullat",
+        "en": "Finnish Meatballs"
+      },
+      "subtitle": {
+        "no": "Finske kjøttboller servert med tyttebær",
+        "en": "Finnish meatballs served with lingonberries"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 40,
+      "servings": 4,
+      "category": "Ground Meat & Sausages",
+      "tags": [
+        "traditional",
+        "nordic",
+        "comfort-food",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "dairy",
+        "egg",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kjøttdeig (blanding)",
+            "en": "Ground meat (mixed)"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk, finhakket",
+            "en": "Onion, finely chopped"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Havregryn eller brødsmuler",
+            "en": "Rolled oats or breadcrumbs"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Egg"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Allehånde",
+            "en": "Allspice"
+          },
+          "amount": 0.5,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør til steking",
+            "en": "Butter for frying"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Tyttebær, hele eller syltetøy",
+            "en": "Lingonberries, whole or jam"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bløtlegg havregryn eller brødsmuler i melk til de svulmer opp.",
+          "2. Bland kjøttdeig, løk, egg, allehånde og den bløtlagte massen til en jevn farse.",
+          "3. Krydre med salt og pepper og bland godt.",
+          "4. Form farsen til små, jevne kjøttboller.",
+          "5. Stek kjøttbollene i smør på middels varme til de er gyldenbrune og gjennomstekt.",
+          "6. Rist pannen lett mens de steker, slik at de får en rund form.",
+          "7. Server varme med tyttebær og potetmos eller kokte poteter."
+        ],
+        "en": [
+          "1. Soak the rolled oats or breadcrumbs in milk until softened.",
+          "2. Mix the ground meat, onion, egg, allspice and the soaked mixture into a smooth batter.",
+          "3. Season with salt and pepper and mix well.",
+          "4. Shape the mixture into small, even meatballs.",
+          "5. Fry the meatballs in butter over medium heat until golden brown and cooked through.",
+          "6. Gently shake the pan while frying so the meatballs keep a round shape.",
+          "7. Serve hot with lingonberries and mashed or boiled potatoes."
+        ]
+      }
+    },
+    {
+      "id": "nd_070",
+      "title": {
+        "no": "Svartpølse",
+        "en": "Black Pudding"
+      },
+      "subtitle": {
+        "no": "Tradisjonell dansk blodpølse",
+        "en": "Traditional Danish blood sausage"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 60,
+      "servings": 6,
+      "category": "Ground Meat & Sausages",
+      "tags": [
+        "sausage",
+        "traditional",
+        "savory",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "meat",
+        "grains"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Grissblod",
+            "en": "Pig blood"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Fett",
+            "en": "Pork fat"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Rugmel",
+            "en": "Rye flour"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Krydder",
+            "en": "Spices"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "teskje",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Pølsehylse",
+            "en": "Sausage casing"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "meter",
+            "en": "m"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Hakk fett og løk fint",
+          "2. Bland blod, fett, rugmel, løk og krydder",
+          "3. Fylt pølsehylsen forsiktig med blandingen",
+          "4. Kok pølsen i 45 minutter ved 75°C",
+          "5. La avkjøle og server med løk og stekt mel"
+        ],
+        "en": [
+          "1. Finely chop fat and onion",
+          "2. Mix blood, fat, rye flour, onion and spices",
+          "3. Carefully fill sausage casing with mixture",
+          "4. Cook sausage for 45 minutes at 75°C",
+          "5. Cool and serve with onion and fried flour"
+        ]
+      }
+    },
+    {
+      "id": "nd_071",
+      "title": {
+        "no": "Rullepølse",
+        "en": "Rolled Sausage"
+      },
+      "subtitle": {
+        "no": "Sprø pølse rullet i stekt mel",
+        "en": "Crispy sausage rolled in fried flour"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 40,
+      "servings": 4,
+      "category": "Ground Meat & Sausages",
+      "tags": [
+        "pork",
+        "sausage",
+        "comfort food",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "meat",
+        "wheat"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Pølsekjøtt",
+            "en": "Ground pork"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Mel",
+            "en": "Flour"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Eggs"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Krydder",
+            "en": "Seasonings"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "teskje",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Olje",
+            "en": "Oil"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "spsk",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland kjøtt, egg, hakket løk og krydder",
+          "2. Former til en lang, tynn rulle",
+          "3. Walcer mel på en plate",
+          "4. Rull kjøtten i melet på alle sider",
+          "5. Sterk pølsen i olje på 6-7 minutter per side"
+        ],
+        "en": [
+          "1. Mix meat, eggs, chopped onion and seasonings",
+          "2. Form into a long, thin roll",
+          "3. Spread flour on a plate",
+          "4. Roll meat in flour on all sides",
+          "5. Fry sausage in oil for 6-7 minutes per side"
+        ]
+      }
+    },
+    {
+      "id": "nd_072",
+      "title": {
+        "no": "Spegepølse",
+        "en": "Cured Sausage"
+      },
+      "subtitle": {
+        "no": "Lufttørket porkkjøtt pølse",
+        "en": "Air-dried pork sausage"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 1440,
+      "servings": 8,
+      "category": "Ground Meat & Sausages",
+      "tags": [
+        "cured",
+        "traditional",
+        "charcuterie",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "meat",
+        "nuts"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Svinekjøtt",
+            "en": "Pork shoulder"
+          },
+          "amount": 1000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Nitratsalt",
+            "en": "Nitrate salt"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Karve",
+            "en": "Caraway seeds"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Krydderpepperkorner",
+            "en": "Peppercorns"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Hakk kjøttet og bland med salt, sukker og nitratsalt",
+          "2. Tilsett karve og pepperkorner",
+          "3. Fylt i pølsehylse og bind tett",
+          "4. Henges å tørke på kjøl plass i 14-21 dager",
+          "5. Server skåret tynn direkte eller lett stekt"
+        ],
+        "en": [
+          "1. Chop meat and mix with salt, sugar and nitrate salt",
+          "2. Add caraway seeds and peppercorns",
+          "3. Fill sausage casing and tie securely",
+          "4. Hang to dry in cool place for 14-21 days",
+          "5. Serve sliced thin fresh or lightly fried"
+        ]
+      }
+    }
+  ]
+}

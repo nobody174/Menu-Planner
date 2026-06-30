@@ -1,0 +1,1770 @@
+{
+  "packId": "pack_02_european_beef_red_meat",
+  "packName": {
+    "en": "European Beef & Red Meat",
+    "no": "Europeisk Beef & Red Meat"
+  },
+  "packDescription": {
+    "en": "Beef & Red Meat dishes from the European collection",
+    "no": "Beef & Red Meat-retter fra Europeisk-samlingen"
+  },
+  "packImage": "🥩",
+  "packColor": "#999999",
+  "recipeCount": 12,
+  "estimatedCookTime": "varies",
+  "difficulty": "varies",
+  "recipes": [
+    {
+      "id": "eu_005",
+      "title": {
+        "no": "Moussaka",
+        "en": "Moussaka"
+      },
+      "subtitle": {
+        "no": "Gresk aubergine og kjøtt-lag",
+        "en": "Greek eggplant and meat layers"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 90,
+      "servings": 6,
+      "category": "Beef & Red Meat",
+      "tags": [
+        "greek",
+        "eggplant",
+        "layered",
+        "comfort-food",
+        "cuisine:greek"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Aubergine",
+            "en": "Eggplant"
+          },
+          "amount": 1000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kjøttdeig",
+            "en": "Ground meat"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomat (konservert)",
+            "en": "Tomato (canned)"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "large",
+            "en": "large"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvit saus (béchamel)",
+            "en": "White sauce (béchamel)"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Ost (riven)",
+            "en": "Cheese (grated)"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Olivenolje",
+            "en": "Olive oil"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skjær auberginen i lange skiver og steik dem i oljenolje.",
+          "2. Lag kjøttsausen: steik løk, hvitløk og kjøttdeigen.",
+          "3. Tilsett tomat og la det småkoke.",
+          "4. Smak til med salt, pepper og oregano.",
+          "5. Lag béchamel-sausen.",
+          "6. I en ildfast form: aubergine, kjøttsaus, aubergine osv.",
+          "7. Hell béchamel over og strø ost på toppen.",
+          "8. Bak på 180°C i 45 minutter."
+        ],
+        "en": [
+          "1. Slice eggplant and fry in olive oil.",
+          "2. Make meat sauce: fry onion, garlic and ground meat.",
+          "3. Add tomato and simmer.",
+          "4. Season with salt, pepper and oregano.",
+          "5. Make béchamel sauce.",
+          "6. In a baking dish: eggplant, meat sauce, eggplant etc.",
+          "7. Pour béchamel over and sprinkle cheese on top.",
+          "8. Bake at 180°C for 45 minutes."
+        ]
+      }
+    },
+    {
+      "id": "eu_011",
+      "title": {
+        "no": "Schnitzel",
+        "en": "Schnitzel"
+      },
+      "subtitle": {
+        "no": "Tysk og østeuropeisk flatslått kjøtt",
+        "en": "German and Eastern European breaded meat"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 20,
+      "servings": 4,
+      "category": "Beef & Red Meat",
+      "tags": [
+        "german",
+        "fried",
+        "quick",
+        "classic",
+        "cuisine:german"
+      ],
+      "allergens": [
+        "gluten",
+        "dairy",
+        "eggs"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Svinekotelett (eller kylling)",
+            "en": "Pork cutlet (or chicken)"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Mel",
+            "en": "Flour"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Eggs"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Brødkrumler (eller panko)",
+            "en": "Breadcrumbs (or panko)"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør (til steking)",
+            "en": "Butter (for frying)"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        },
+        {
+          "name": {
+            "no": "Sitron",
+            "en": "Lemon"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Legg kjøttet mellom plastfolie og slå det flatt med en kjøtthammer.",
+          "2. Sett mel, visp egg og brødkrumler i tre separate små boller.",
+          "3. Gjennomtreng hvert kjøttstykke med mel, egg og brødkrumler.",
+          "4. Heat smør i en stekepanne.",
+          "5. Steik schnitzelene 3-4 minutter på hver side til de er gylne.",
+          "6. Server med sitronskiver og poteter.",
+          "7. Tradisjonelt serveres med sitron-saus eller syltetøy."
+        ],
+        "en": [
+          "1. Place meat between plastic wrap and pound with a meat mallet.",
+          "2. Set flour, beaten egg and breadcrumbs in three separate bowls.",
+          "3. Coat each piece with flour, egg and breadcrumbs.",
+          "4. Heat butter in a frying pan.",
+          "5. Fry schnitzel 3-4 minutes on each side until golden.",
+          "6. Serve with lemon slices and potatoes.",
+          "7. Traditionally served with lemon sauce or jam."
+        ]
+      }
+    },
+    {
+      "id": "eu_020",
+      "title": {
+        "no": "Moussaka",
+        "en": "Moussaka"
+      },
+      "subtitle": {
+        "no": "Gresk gratin med aubergine og kjøttsaus",
+        "en": "Greek baked casserole with eggplant and meat sauce"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 90,
+      "servings": 6,
+      "category": "Beef & Red Meat",
+      "tags": [
+        "greek",
+        "baked",
+        "comfort-food",
+        "gratin",
+        "cuisine:greek"
+      ],
+      "allergens": [
+        "dairy",
+        "egg"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Aubergine",
+            "en": "Eggplant"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Kjøttdeig (lam eller blanding)",
+            "en": "Ground meat (lamb or mix)"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomat (hermetisk, hakket)",
+            "en": "Tomato (canned, chopped)"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvetemel",
+            "en": "Flour"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Parmesan (revet)",
+            "en": "Parmesan (grated)"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kanel",
+            "en": "Cinnamon"
+          },
+          "amount": 0.5,
+          "unit": {
+            "no": "tsk",
+            "en": "tsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skjær aubergine i skiver, salt dem og la dem renne av seg i 20 minutter, stek dem deretter gyldne i olje.",
+          "2. Stek kjøttdeig med løk og hvitløk til kjøttet er brunet.",
+          "3. Tilsett tomat og kanel, la kjøttsausen småkoke i 15 minutter.",
+          "4. Lag en hvit saus av smør, mel og melk, kok til den tykner og rør inn halvparten av osten.",
+          "5. Legg aubergine og kjøttsaus i lag i en ildfast form.",
+          "6. Hell hvit saus over toppen og strø resten av osten over.",
+          "7. Stek i ovnen på 180°C i 35-40 minutter til gratinen er gyllen."
+        ],
+        "en": [
+          "1. Slice the eggplant, salt it and let it drain for 20 minutes, then fry it golden in oil.",
+          "2. Brown the ground meat with onion and garlic.",
+          "3. Add tomato and cinnamon, and let the meat sauce simmer for 15 minutes.",
+          "4. Make a white sauce from butter, flour and milk, cook until thickened and stir in half the cheese.",
+          "5. Layer the eggplant and meat sauce in a baking dish.",
+          "6. Pour the white sauce over the top and sprinkle with the remaining cheese.",
+          "7. Bake at 180°C (355°F) for 35-40 minutes until golden."
+        ]
+      }
+    },
+    {
+      "id": "eu_025",
+      "title": {
+        "no": "Beef Wellington",
+        "en": "Beef Wellington"
+      },
+      "subtitle": {
+        "no": "Britisk filet i butterdeig med duksjampinjong",
+        "en": "British beef fillet wrapped in puff pastry with mushroom duxelles"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 75,
+      "servings": 4,
+      "category": "Beef & Red Meat",
+      "tags": [
+        "british",
+        "baked",
+        "special-occasion",
+        "classic",
+        "cuisine:british"
+      ],
+      "allergens": [
+        "gluten",
+        "egg"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Oksefilet",
+            "en": "Beef fillet"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sjampinjong",
+            "en": "Mushroom"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sjalottløk",
+            "en": "Shallot"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Butterdeig",
+            "en": "Puff pastry"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Parmaskinke",
+            "en": "Prosciutto"
+          },
+          "amount": 8,
+          "unit": {
+            "no": "skiver",
+            "en": "slices"
+          }
+        },
+        {
+          "name": {
+            "no": "Dijonsennep",
+            "en": "Dijon mustard"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg (til pensling)",
+            "en": "Egg (for brushing)"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Brun oksefileten raskt på alle sider i en varm panne, pensle deretter med sennep og la avkjøles.",
+          "2. Finhakk sjampinjong og sjalottløk, stek dem til all væske har fordampet (duksjampinjong).",
+          "3. Legg prosciutto tett overlappende på plastfolie, smør på duksjampinjongen.",
+          "4. Legg fileten på toppen og rull det hele tett sammen med plastfolien, kjøl ned 20 minutter.",
+          "5. Pakk den kjølte rullen inn i butterdeig og pensle med sammenpisket egg.",
+          "6. Stek i forvarmet ovn på 200°C i 25-30 minutter til deigen er gyllen.",
+          "7. La kjøttet hvile 10 minutter før det skjæres i skiver."
+        ],
+        "en": [
+          "1. Quickly sear the beef fillet on all sides in a hot pan, then brush with mustard and let it cool.",
+          "2. Finely chop the mushrooms and shallots, and cook them down until all the liquid has evaporated (duxelles).",
+          "3. Lay the prosciutto slices tightly overlapping on plastic wrap, then spread the duxelles over it.",
+          "4. Place the fillet on top and roll it all tightly together using the plastic wrap, then chill for 20 minutes.",
+          "5. Wrap the chilled roll in puff pastry and brush with beaten egg.",
+          "6. Bake in a preheated oven at 200°C (390°F) for 25-30 minutes until the pastry is golden.",
+          "7. Let the meat rest for 10 minutes before slicing."
+        ]
+      }
+    },
+    {
+      "id": "eu_075",
+      "title": {
+        "no": "Tafelspitz",
+        "en": "Tafelspitz"
+      },
+      "subtitle": {
+        "no": "Kokt oksekjøtt med rotgrønnsaker",
+        "en": "Boiled beef with root vegetables"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 150,
+      "servings": 4,
+      "category": "Beef & Red Meat",
+      "tags": [
+        "boiled",
+        "Austrian",
+        "comfort food",
+        "cuisine:austrian"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Oksekjøtt (oksebryst)",
+            "en": "Beef brisket"
+          },
+          "amount": 1200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Potet",
+            "en": "Potato"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Gulrot",
+            "en": "Carrot"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Nepe",
+            "en": "Turnip"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Persille",
+            "en": "Parsley"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "bunch",
+            "en": "bunch"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "after taste",
+            "en": "to taste"
+          }
+        },
+        {
+          "name": {
+            "no": "Kjøttbuljong",
+            "en": "Beef broth"
+          },
+          "amount": 2000,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bring buljong til kokepunkt i en stor gryte",
+          "2. Legg kjøttet ned i det kokende vannet",
+          "3. Tilsett løk, salt og pepper, koke sakte i 1,5 timer",
+          "4. Legg til grønsakene og kok i ytterligere 30 minutter",
+          "5. Fisk ut kjøttet og grønsakene",
+          "6. Serv med litt kokebuljong, drysset med fersk persille"
+        ],
+        "en": [
+          "1. Bring broth to boil in a large pot",
+          "2. Place meat in the boiling water",
+          "3. Add onion, salt and pepper, simmer gently for 1.5 hours",
+          "4. Add vegetables and cook for another 30 minutes",
+          "5. Remove meat and vegetables",
+          "6. Serve with some cooking broth, sprinkled with fresh parsley"
+        ]
+      }
+    },
+    {
+      "id": "eu_082",
+      "title": {
+        "no": "Shepherd's Pie",
+        "en": "Shepherd's Pie"
+      },
+      "subtitle": {
+        "no": "Kjøttgrateng med poteter",
+        "en": "Meat casserole with potatoes"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 60,
+      "servings": 4,
+      "category": "Beef & Red Meat",
+      "tags": [
+        "casserole",
+        "comfort food",
+        "British",
+        "cuisine:british"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Lammekjøtt (hakket)",
+            "en": "Ground lamb"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Gulrot",
+            "en": "Carrot"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Erter (frossen eller tørket)",
+            "en": "Peas (frozen or dried)"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomatsaus",
+            "en": "Tomato sauce"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Kjøttbuljong",
+            "en": "Beef broth"
+          },
+          "amount": 250,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Potet",
+            "en": "Potato"
+          },
+          "amount": 1000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "after taste",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Varmeovnen til 200C",
+          "2. Brun kjøttet med løk og gulrot",
+          "3. Tilsett tomatsaus, buljong, salt og pepper, simrer 15 minutter",
+          "4. Tilsett erter",
+          "5. Koke poteter til møre, knus med smør og melk",
+          "6. Legg kjøttblanding i gratengform",
+          "7. Topp med potetmoset",
+          "8. Bak 20-25 minutter til toppen er gyllene"
+        ],
+        "en": [
+          "1. Preheat oven to 200C",
+          "2. Brown meat with onion and carrot",
+          "3. Add tomato sauce, broth, salt and pepper, simmer 15 minutes",
+          "4. Add peas",
+          "5. Boil potatoes until tender, mash with butter and milk",
+          "6. Place meat mixture in casserole dish",
+          "7. Top with mashed potatoes",
+          "8. Bake 20-25 minutes until top is golden"
+        ]
+      }
+    },
+    {
+      "id": "eu_083",
+      "title": {
+        "no": "Cottage Pie",
+        "en": "Cottage Pie"
+      },
+      "subtitle": {
+        "no": "Oksekjøtt grateng med poteter",
+        "en": "Beef casserole with potatoes"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 60,
+      "servings": 4,
+      "category": "Beef & Red Meat",
+      "tags": [
+        "casserole",
+        "comfort food",
+        "British",
+        "cuisine:british"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Oksekjøtt (hakket)",
+            "en": "Ground beef"
+          },
+          "amount": 700,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Gulrot",
+            "en": "Carrot"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Rødløk",
+            "en": "Red onion"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomat",
+            "en": "Tomato"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Erter",
+            "en": "Peas"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kjøttbuljong",
+            "en": "Beef broth"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Potet",
+            "en": "Potato"
+          },
+          "amount": 1000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør og melk",
+            "en": "Butter and milk"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram/100ml",
+            "en": "g/ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "after taste",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Varmeovnen til 200C",
+          "2. Brun kjøttet med løk, gulrot og rødløk",
+          "3. Tilsett tomat og buljong, simrer 20 minutter",
+          "4. Tilsett erter",
+          "5. Koke poteter, knus med smør og melk",
+          "6. Legg kjøttblandingen i form",
+          "7. Topp med potetmoset",
+          "8. Bak 25-30 minutter til gyllene"
+        ],
+        "en": [
+          "1. Preheat oven to 200C",
+          "2. Brown meat with onion, carrot and red onion",
+          "3. Add tomato and broth, simmer 20 minutes",
+          "4. Add peas",
+          "5. Boil potatoes, mash with butter and milk",
+          "6. Place meat mixture in dish",
+          "7. Top with mashed potatoes",
+          "8. Bake 25-30 minutes until golden"
+        ]
+      }
+    },
+    {
+      "id": "eu_088",
+      "title": {
+        "no": "Steak and Kidney Pie",
+        "en": "Steak and Kidney Pie"
+      },
+      "subtitle": {
+        "no": "Kjøtt og nyre pai",
+        "en": "Meat and kidney pie"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 150,
+      "servings": 4,
+      "category": "Beef & Red Meat",
+      "tags": [
+        "pie",
+        "British",
+        "comfort food",
+        "cuisine:british"
+      ],
+      "allergens": [
+        "gluten",
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Oksesteak",
+            "en": "Beef steak"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Nyre",
+            "en": "Kidney"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Pilssopp",
+            "en": "Mushroom"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kjøttbuljong",
+            "en": "Beef broth"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomatsaus",
+            "en": "Tomato sauce"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvetemel",
+            "en": "Wheat flour"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "tbsp",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Smørbakst (ferdig)",
+            "en": "Puff pastry (ready-made)"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg (for brsj)",
+            "en": "Egg (for brush)"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Olje",
+            "en": "Oil"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "tbsp",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kuttet kjøtt og nyre i terninger",
+          "2. Steak kjøtt og nyre i olje til mørt",
+          "3. Fjern kjøtt, steak løk og sopp i samme panne",
+          "4. Tilbake kjøtt, tilsett buljong og tomat",
+          "5. Simrer dekkert 1 time",
+          "6. La fylle kjøle seg helt",
+          "7. Varmeovnen til 200C",
+          "8. Fyll form med fylling",
+          "9. Dekk med bakst, brush med slått egg",
+          "10. Bak 30-40 minutter til baksten er gyllene"
+        ],
+        "en": [
+          "1. Dice meat and kidney",
+          "2. Fry meat and kidney in oil until tender",
+          "3. Remove meat, fry onion and mushroom in same pan",
+          "4. Return meat, add broth and tomato",
+          "5. Simmer covered for 1 hour",
+          "6. Let filling cool completely",
+          "7. Preheat oven to 200C",
+          "8. Fill dish with filling",
+          "9. Cover with pastry, brush with beaten egg",
+          "10. Bake 30-40 minutes until pastry is golden"
+        ]
+      }
+    },
+    {
+      "id": "eu_097",
+      "title": {
+        "no": "Dolmades",
+        "en": "Dolmades"
+      },
+      "subtitle": {
+        "no": "Gresk druekål med ris og kjøtt",
+        "en": "Greek grape leaves with rice and meat"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 60,
+      "servings": 4,
+      "category": "Beef & Red Meat",
+      "tags": [
+        "rolls",
+        "Greek",
+        "rice",
+        "cuisine:greek"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Druekål (i krukke)",
+            "en": "Grape leaves (in jar)"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Kjøttdeig",
+            "en": "Ground meat"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Ris",
+            "en": "Rice"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Persille og mynteblader",
+            "en": "Parsley and mint"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "tbsp",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Olivolje",
+            "en": "Olive oil"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Kjøttbuljong",
+            "en": "Broth"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Sitron",
+            "en": "Lemon"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "after taste",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland kjøtt, ris, løk, persille, mynta, salt og pepper",
+          "2. Legg druekål på arbeidsflate",
+          "3. Sett 1 tbsp fylling på hver blad",
+          "4. Rull og fold sidene inn",
+          "5. Legg rullene seam-down i kasserolle",
+          "6. Hell buljong og sitron over",
+          "7. Dekk med aluminiumsfolie",
+          "8. Kok på medium varme i 40-45 minutter",
+          "9. Serv varmt med sitronsaus"
+        ],
+        "en": [
+          "1. Mix meat, rice, onion, parsley, mint, salt and pepper",
+          "2. Place grape leaves on work surface",
+          "3. Place 1 tbsp filling on each leaf",
+          "4. Roll and fold sides in",
+          "5. Place rolls seam-down in casserole",
+          "6. Pour broth and lemon over",
+          "7. Cover with foil",
+          "8. Simmer on medium heat for 40-45 minutes",
+          "9. Serve hot with lemon sauce"
+        ]
+      }
+    },
+    {
+      "id": "eu_099",
+      "title": {
+        "no": "Sarma",
+        "en": "Sarma"
+      },
+      "subtitle": {
+        "no": "Balkansk kål rull med kjøtt",
+        "en": "Balkan cabbage roll with meat"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 90,
+      "servings": 4,
+      "category": "Beef & Red Meat",
+      "tags": [
+        "rolls",
+        "Balkan",
+        "cabbage",
+        "cuisine:balkan"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Hvitkål",
+            "en": "Cabbage"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Svinekjøtt (hakket)",
+            "en": "Ground pork"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Oksekjøtt (hakket)",
+            "en": "Ground beef"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Ris",
+            "en": "Rice"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomat",
+            "en": "Tomato"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Kjøttbuljong",
+            "en": "Broth"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "after taste",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Koke hvitkål helt til bladene løsner",
+          "2. Bland svin- og oksekjøtt, ris, løk, hvitløk, salt og pepper",
+          "3. Legg fylling på hvert kål blad",
+          "4. Rull og fold sidene",
+          "5. Legg rullene i kasserolle",
+          "6. Lage tomat buljong dressing",
+          "7. Hell over rullene",
+          "8. Dekk og simrer 1 time",
+          "9. Serv varmt"
+        ],
+        "en": [
+          "1. Boil cabbage until leaves loosen",
+          "2. Mix pork and beef, rice, onion, garlic, salt and pepper",
+          "3. Place filling on each cabbage leaf",
+          "4. Roll and fold sides",
+          "5. Place rolls in casserole",
+          "6. Make tomato broth dressing",
+          "7. Pour over rolls",
+          "8. Cover and simmer 1 hour",
+          "9. Serve hot"
+        ]
+      }
+    },
+    {
+      "id": "eu_101",
+      "title": {
+        "no": "Burek",
+        "en": "Burek"
+      },
+      "subtitle": {
+        "no": "Balkansk kjøtt og ost pai",
+        "en": "Balkan meat and cheese pie"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 90,
+      "servings": 6,
+      "category": "Beef & Red Meat",
+      "tags": [
+        "pie",
+        "Balkan",
+        "meat",
+        "cuisine:balkan"
+      ],
+      "allergens": [
+        "gluten",
+        "dairy",
+        "eggs"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Yufka-deig",
+            "en": "Yufka dough"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Svinekjøtt (hakket)",
+            "en": "Ground pork"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Feta ost",
+            "en": "Feta cheese"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Eggs"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Mjølk",
+            "en": "Milk"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Paprikapulver",
+            "en": "Paprika powder"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "tsp",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "after taste",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Varmeovnen til 180C",
+          "2. Brun kjøtt og løk",
+          "3. Bland kjøtt, feta, egg, paprika, salt og pepper",
+          "4. Smelt smør",
+          "5. Lag lag av yufka med smør mellom",
+          "6. Fordel kjøttfyllinge på deigen",
+          "7. Lag lag av yufka over med smør",
+          "8. Bak 40-50 minutter til gyllene",
+          "9. Serv varm"
+        ],
+        "en": [
+          "1. Preheat oven to 180C",
+          "2. Brown meat and onion",
+          "3. Mix meat, feta, eggs, paprika, salt and pepper",
+          "4. Melt butter",
+          "5. Make layers of yufka with butter between",
+          "6. Spread meat filling on dough",
+          "7. Make layers of yufka over with butter",
+          "8. Bake 40-50 minutes until golden",
+          "9. Serve hot"
+        ]
+      }
+    },
+    {
+      "id": "eu_104",
+      "title": {
+        "no": "Gołąbki",
+        "en": "Gołąbki"
+      },
+      "subtitle": {
+        "no": "Polsk kål rullar med kjøtt",
+        "en": "Polish cabbage rolls with meat"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 90,
+      "servings": 4,
+      "category": "Beef & Red Meat",
+      "tags": [
+        "rolls",
+        "Polish",
+        "cabbage",
+        "cuisine:polish"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Hvitkål",
+            "en": "Cabbage"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Svinekjøtt (hakket)",
+            "en": "Ground pork"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Oksekjøtt (hakket)",
+            "en": "Ground beef"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Ris",
+            "en": "Rice"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomat",
+            "en": "Tomato"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Kjøttbuljong",
+            "en": "Beef broth"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "after taste",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Koke hvitkål helt til bladene løsner",
+          "2. Bland svin- og oksekjøtt, ris, løk, hvitløk, salt og pepper",
+          "3. Legg fylling på hvert kål blad",
+          "4. Rull og fold sidene",
+          "5. Legg rullene i kasserolle",
+          "6. Lage tomat buljong dressing",
+          "7. Hell over rullene",
+          "8. Dekk og simrer 45-60 minutter",
+          "9. Serv varmt"
+        ],
+        "en": [
+          "1. Boil cabbage until leaves loosen",
+          "2. Mix pork and beef, rice, onion, garlic, salt and pepper",
+          "3. Place filling on each cabbage leaf",
+          "4. Roll and fold sides",
+          "5. Place rolls in casserole",
+          "6. Make tomato broth dressing",
+          "7. Pour over rolls",
+          "8. Cover and simmer 45-60 minutes",
+          "9. Serve hot"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,1372 @@
+{
+  "packId": "pack_01_norwegian_sides_light_meals",
+  "packName": {
+    "en": "Norwegian Sides & Light Meals",
+    "no": "Norsk Sides & Light Meals"
+  },
+  "packDescription": {
+    "en": "Sides & Light Meals dishes from the Norwegian collection",
+    "no": "Sides & Light Meals-retter fra Norsk-samlingen"
+  },
+  "packImage": "🥪",
+  "packColor": "#999999",
+  "recipeCount": 14,
+  "estimatedCookTime": "varies",
+  "difficulty": "varies",
+  "recipes": [
+    {
+      "id": "no_017",
+      "title": {
+        "no": "Pølse med Lompe",
+        "en": "Sausage with Potato Flatbread"
+      },
+      "subtitle": {
+        "no": "Norsk gatemat med varm pølse rullet i potetlompe",
+        "en": "Norwegian street food with a hot sausage wrapped in potato flatbread"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 40,
+      "servings": 4,
+      "category": "Sides & Light Meals",
+      "tags": [
+        "traditional",
+        "norwegian",
+        "quick",
+        "street-food",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Potet (kokt og moset)",
+            "en": "Potatoes (boiled and mashed)"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Mel",
+            "en": "Flour"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "teskje",
+            "en": "teaspoon"
+          }
+        },
+        {
+          "name": {
+            "no": "Grillpølser",
+            "en": "Grilling sausages"
+          },
+          "amount": 8,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Ketsjup",
+            "en": "Ketchup"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tablespoons"
+          }
+        },
+        {
+          "name": {
+            "no": "Sennep",
+            "en": "Mustard"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tablespoons"
+          }
+        },
+        {
+          "name": {
+            "no": "Stekt løk",
+            "en": "Fried onion bits"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tablespoons"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok potetene møre, mos dem godt og la avkjøles litt.",
+          "2. Bland inn mel og salt til en jevn deig.",
+          "3. Del deigen i emner og kjevle hvert emne tynt ut til en rund flatbrødform.",
+          "4. Stek lompene på tørr, varm stekepanne eller takke til de får lyse, gylne flekker på begge sider.",
+          "5. Kok eller grill pølsene til de er gjennomvarme.",
+          "6. Legg en pølse i hver lompe og topp med ketsjup, sennep og stekt løk.",
+          "7. Rull sammen og server umiddelbart."
+        ],
+        "en": [
+          "1. Boil the potatoes until tender, mash well, and let cool slightly.",
+          "2. Mix in flour and salt to form a smooth dough.",
+          "3. Divide the dough into portions and roll each one out thin into a round flatbread shape.",
+          "4. Cook the flatbreads on a dry, hot griddle or pan until lightly golden on both sides.",
+          "5. Boil or grill the sausages until heated through.",
+          "6. Place a sausage in each flatbread and top with ketchup, mustard, and fried onion bits.",
+          "7. Roll up and serve immediately."
+        ]
+      }
+    },
+    {
+      "id": "no_034",
+      "title": {
+        "no": "Brunost Smørbrød",
+        "en": "Brown Cheese Sandwich"
+      },
+      "subtitle": {
+        "no": "Klassisk norsk smørbrød",
+        "en": "Classic Norwegian sandwich"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 5,
+      "servings": 1,
+      "category": "Sides & Light Meals",
+      "tags": [
+        "sandwich",
+        "cheese",
+        "traditional",
+        "quick",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "brød",
+            "en": "bread"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "brunost",
+            "en": "brown cheese"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "smør",
+            "en": "butter"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "syltetøy",
+            "en": "jam"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Påsmør brødet",
+          "2. Legg brunost på",
+          "3. Dryss syltetøy",
+          "4. Server straks"
+        ],
+        "en": [
+          "1. Butter bread",
+          "2. Place brown cheese on",
+          "3. Drizzle jam",
+          "4. Serve immediately"
+        ]
+      }
+    },
+    {
+      "id": "no_035",
+      "title": {
+        "no": "Leverpostei Smørbrød",
+        "en": "Liver Pâté Sandwich"
+      },
+      "subtitle": {
+        "no": "Klassisk postei smørbrød",
+        "en": "Classic pâté sandwich"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 5,
+      "servings": 1,
+      "category": "Sides & Light Meals",
+      "tags": [
+        "sandwich",
+        "pâté",
+        "traditional",
+        "quick",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "meat",
+        "dairy",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "brød",
+            "en": "bread"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "leverpostei",
+            "en": "liver pâté"
+          },
+          "amount": 40,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "smør",
+            "en": "butter"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "agurk",
+            "en": "cucumber"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "løk",
+            "en": "onion"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Påsmør brødet",
+          "2. Påfør postei",
+          "3. Topp med agurk og løk",
+          "4. Server med sitron"
+        ],
+        "en": [
+          "1. Butter bread",
+          "2. Spread pâté",
+          "3. Top with cucumber and onion",
+          "4. Serve with lemon"
+        ]
+      }
+    },
+    {
+      "id": "no_037",
+      "title": {
+        "no": "Roastbiff Smørbrød",
+        "en": "Roast Beef Sandwich"
+      },
+      "subtitle": {
+        "no": "Klassisk kjøtt smørbrød",
+        "en": "Classic beef sandwich"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 5,
+      "servings": 1,
+      "category": "Sides & Light Meals",
+      "tags": [
+        "sandwich",
+        "beef",
+        "traditional",
+        "quick",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "meat",
+        "dairy",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "brød",
+            "en": "bread"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "roastbiff",
+            "en": "roast beef"
+          },
+          "amount": 60,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "smør",
+            "en": "butter"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "løk",
+            "en": "onion"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "syltet rødbete",
+            "en": "pickled beet"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Påsmør brød",
+          "2. Legg roastbiff på",
+          "3. Topp med løk og rødbete",
+          "4. Server med krydderurter"
+        ],
+        "en": [
+          "1. Butter bread",
+          "2. Place roast beef on",
+          "3. Top with onion and beet",
+          "4. Serve with herbs"
+        ]
+      }
+    },
+    {
+      "id": "no_039",
+      "title": {
+        "no": "Kaviar Smørbrød",
+        "en": "Caviar Sandwich"
+      },
+      "subtitle": {
+        "no": "Luksus smørbrød",
+        "en": "Luxury sandwich"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 5,
+      "servings": 1,
+      "category": "Sides & Light Meals",
+      "tags": [
+        "sandwich",
+        "caviar",
+        "luxury",
+        "quick",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "fish",
+        "dairy",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "brød",
+            "en": "bread"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "kaviar",
+            "en": "caviar"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "smør",
+            "en": "butter"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "fløte",
+            "en": "sour cream"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "sitron",
+            "en": "lemon"
+          },
+          "amount": 0.5,
+          "unit": {
+            "no": "stykk",
+            "en": "piece"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Påsmør brød",
+          "2. Påfør fløte",
+          "3. Topp med kaviar",
+          "4. Dryss sitron",
+          "5. Server straks"
+        ],
+        "en": [
+          "1. Butter bread",
+          "2. Spread sour cream",
+          "3. Top with caviar",
+          "4. Drizzle lemon",
+          "5. Serve immediately"
+        ]
+      }
+    },
+    {
+      "id": "no_040",
+      "title": {
+        "no": "Pinnekjøttpålegg Smørbrød",
+        "en": "Cured Lamb Sandwich"
+      },
+      "subtitle": {
+        "no": "Klassisk lamme smørbrød",
+        "en": "Classic lamb sandwich"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 5,
+      "servings": 1,
+      "category": "Sides & Light Meals",
+      "tags": [
+        "sandwich",
+        "lamb",
+        "traditional",
+        "quick",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "meat",
+        "dairy",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "brød",
+            "en": "bread"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "pinnekjøtt",
+            "en": "cured lamb"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "smør",
+            "en": "butter"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "rødløk",
+            "en": "red onion"
+          },
+          "amount": 15,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "syltet agurk",
+            "en": "pickled cucumber"
+          },
+          "amount": 15,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Påsmør brød",
+          "2. Legg pinnekjøtt på",
+          "3. Topp med løk og agurk",
+          "4. Server varm eller kald"
+        ],
+        "en": [
+          "1. Butter bread",
+          "2. Place cured lamb on",
+          "3. Top with onion and cucumber",
+          "4. Serve warm or cold"
+        ]
+      }
+    },
+    {
+      "id": "no_052",
+      "title": {
+        "no": "Lefse",
+        "en": "Lefse Bread"
+      },
+      "subtitle": {
+        "no": "Klassisk norsk flatbrød",
+        "en": "Classic Norwegian flatbread"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 40,
+      "servings": 8,
+      "category": "Sides & Light Meals",
+      "tags": [
+        "bread",
+        "flatbread",
+        "traditional",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "wheat",
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "poteter",
+            "en": "potatoes"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "mel",
+            "en": "flour"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "smør",
+            "en": "butter"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "salt",
+            "en": "salt"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok poteter",
+          "2. Knus til puré",
+          "3. Bland mel og salt",
+          "4. Kn sammen",
+          "5. Rull tynn",
+          "6. Stekt på griddle",
+          "7. Serve varm"
+        ],
+        "en": [
+          "1. Boil potatoes",
+          "2. Mash to puree",
+          "3. Mix flour and salt",
+          "4. Knead together",
+          "5. Roll thin",
+          "6. Fry on griddle",
+          "7. Serve warm"
+        ]
+      }
+    },
+    {
+      "id": "no_053",
+      "title": {
+        "no": "Flatbrød",
+        "en": "Flatbread"
+      },
+      "subtitle": {
+        "no": "Tradisjonelt norsk brød",
+        "en": "Traditional Norwegian bread"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 20,
+      "servings": 6,
+      "category": "Sides & Light Meals",
+      "tags": [
+        "bread",
+        "flatbread",
+        "simple",
+        "quick",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "wheat"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "mel",
+            "en": "flour"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "vann",
+            "en": "water"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "salt",
+            "en": "salt"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland mel og salt",
+          "2. Tilsett vann",
+          "3. Elt deigen",
+          "4. Rull tynn",
+          "5. Stekt på griddle",
+          "6. Serve varm"
+        ],
+        "en": [
+          "1. Mix flour and salt",
+          "2. Add water",
+          "3. Knead dough",
+          "4. Roll thin",
+          "5. Fry on griddle",
+          "6. Serve warm"
+        ]
+      }
+    },
+    {
+      "id": "no_054",
+      "title": {
+        "no": "Lompe",
+        "en": "Potato Wraps"
+      },
+      "subtitle": {
+        "no": "Potet flatbrød",
+        "en": "Potato flatbread"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 30,
+      "servings": 6,
+      "category": "Sides & Light Meals",
+      "tags": [
+        "bread",
+        "potato",
+        "traditional",
+        "quick",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "wheat",
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "poteter",
+            "en": "potatoes"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "mel",
+            "en": "flour"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "melk",
+            "en": "milk"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "salt",
+            "en": "salt"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "smør",
+            "en": "butter"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok poteter",
+          "2. Knus til puré",
+          "3. Bland mel og melk",
+          "4. Mix med poteter",
+          "5. Rull tynn",
+          "6. Stekt på griddle",
+          "7. Serve varm"
+        ],
+        "en": [
+          "1. Boil potatoes",
+          "2. Mash to puree",
+          "3. Mix flour and milk",
+          "4. Mix with potatoes",
+          "5. Roll thin",
+          "6. Fry on griddle",
+          "7. Serve warm"
+        ]
+      }
+    },
+    {
+      "id": "no_075",
+      "title": {
+        "no": "Spekemat-platte",
+        "en": "Cured Meat Platter"
+      },
+      "subtitle": {
+        "no": "Klassisk spekat arrangement",
+        "en": "Classic cured meat arrangement"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 0,
+      "servings": 6,
+      "category": "Sides & Light Meals",
+      "tags": [
+        "cured meat",
+        "charcuterie",
+        "traditional",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "meat"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "fenalår",
+            "en": "cured ham"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "spekeskinke",
+            "en": "cured bacon"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "medisterpølse",
+            "en": "sausage"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "brunost",
+            "en": "brown cheese"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "brød",
+            "en": "bread"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skjær spekatten i tynne skiver",
+          "2. Ordne på brett",
+          "3. Tilsett brunost",
+          "4. Server med brød",
+          "5. Drikkpaus og nytelse"
+        ],
+        "en": [
+          "1. Slice cured meats thinly",
+          "2. Arrange on board",
+          "3. Add brown cheese",
+          "4. Serve with bread",
+          "5. Enjoy with drink"
+        ]
+      }
+    },
+    {
+      "id": "no_096",
+      "title": {
+        "no": "Råstekte Poteter",
+        "en": "Raw Fried Potatoes"
+      },
+      "subtitle": {
+        "no": "Poteter stekt i pannelett",
+        "en": "Potatoes fried in a skillet"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 25,
+      "servings": 4,
+      "category": "Sides & Light Meals",
+      "tags": [
+        "side",
+        "traditional",
+        "quick",
+        "cuisine:norwegian"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Olje",
+            "en": "Oil"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "spsk",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "porsjon",
+            "en": "portion"
+          }
+        },
+        {
+          "name": {
+            "no": "Persille",
+            "en": "Parsley"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skrell og skjær poteter i tynne skiver",
+          "2. Hakk løk",
+          "3. Heat olje i en panne",
+          "4. Tilsett poteter og løk",
+          "5. Sterk til poteter er møre og gyllen",
+          "6. Krydre med salt og pepper",
+          "7. Garnish med persille"
+        ],
+        "en": [
+          "1. Peel and cut potatoes into thin slices",
+          "2. Chop onion",
+          "3. Heat oil in a skillet",
+          "4. Add potatoes and onion",
+          "5. Fry until potatoes are tender and golden",
+          "6. Season with salt and pepper",
+          "7. Garnish with parsley"
+        ]
+      }
+    },
+    {
+      "id": "no_097",
+      "title": {
+        "no": "Potetmos",
+        "en": "Mashed Potatoes"
+      },
+      "subtitle": {
+        "no": "Kremete potetmos med smør",
+        "en": "Creamy mashed potatoes with butter"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Sides & Light Meals",
+      "tags": [
+        "side",
+        "traditional",
+        "comfort",
+        "quick",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "milk"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Pepper",
+            "en": "Black pepper"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok poteter til møre",
+          "2. Dren poteter",
+          "3. Mos med smør og melk",
+          "4. Krydre med salt og pepper",
+          "5. Server varmt som sidesett"
+        ],
+        "en": [
+          "1. Cook potatoes until tender",
+          "2. Drain potatoes",
+          "3. Mash with butter and milk",
+          "4. Season with salt and pepper",
+          "5. Serve warm as a side dish"
+        ]
+      }
+    },
+    {
+      "id": "no_098",
+      "title": {
+        "no": "Kokte Poteter",
+        "en": "Boiled Potatoes"
+      },
+      "subtitle": {
+        "no": "Enkle kokte poteter med dill",
+        "en": "Simple boiled potatoes with dill"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 20,
+      "servings": 4,
+      "category": "Sides & Light Meals",
+      "tags": [
+        "side",
+        "traditional",
+        "basic",
+        "quick",
+        "cuisine:norwegian"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Dill",
+            "en": "Dill"
+          },
+          "amount": 15,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kutt poteter i jevn størrelse",
+          "2. Kok i saltet vann til møre",
+          "3. Dren poteter",
+          "4. Topp med fres dill og smør",
+          "5. Server varmt"
+        ],
+        "en": [
+          "1. Cut potatoes into even size",
+          "2. Boil in salted water until tender",
+          "3. Drain potatoes",
+          "4. Top with fresh dill and butter",
+          "5. Serve warm"
+        ]
+      }
+    },
+    {
+      "id": "no_100",
+      "title": {
+        "no": "Potetball uten Fyll",
+        "en": "Potato Balls"
+      },
+      "subtitle": {
+        "no": "Potetballer uten fyll",
+        "en": "Simple potato balls"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 40,
+      "servings": 4,
+      "category": "Sides & Light Meals",
+      "tags": [
+        "side",
+        "traditional",
+        "norwegian",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "wheat"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Mel",
+            "en": "Flour"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Egg"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Pepper",
+            "en": "Pepper"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok og mos poteter",
+          "2. Bland med mel, egg, salt og pepper",
+          "3. Former små baller",
+          "4. Kok i lett kokende saltet vann",
+          "5. Fjern når ballene flyter opp",
+          "6. Server med kjøtt og saus"
+        ],
+        "en": [
+          "1. Cook and mash potatoes",
+          "2. Mix with flour, egg, salt and pepper",
+          "3. Shape into small balls",
+          "4. Cook in gently boiling salted water",
+          "5. Remove when balls float to the surface",
+          "6. Serve with meat and sauce"
+        ]
+      }
+    }
+  ]
+}

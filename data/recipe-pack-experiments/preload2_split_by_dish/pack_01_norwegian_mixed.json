@@ -1,0 +1,2576 @@
+{
+  "packId": "pack_01_norwegian_mixed",
+  "packName": {
+    "en": "Norwegian Mixed",
+    "no": "Norsk Diverse"
+  },
+  "packDescription": {
+    "en": "A mix of smaller categories from the Norwegian collection - too few of each to be their own pack",
+    "no": "En blanding av mindre kategorier fra Norsk-samlingen"
+  },
+  "packImage": "🍽️",
+  "packColor": "#999999",
+  "recipeCount": 25,
+  "estimatedCookTime": "varies",
+  "difficulty": "varies",
+  "recipes": [
+    {
+      "id": "no_002",
+      "title": {
+        "no": "Raspeball",
+        "en": "Potato Meatball"
+      },
+      "subtitle": {
+        "no": "Norsk potetbolle med kjøtt og løk",
+        "en": "Norwegian potato ball with meat and onion"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 45,
+      "servings": 4,
+      "category": "Ground Meat & Sausages",
+      "tags": [
+        "traditional",
+        "norwegian",
+        "comfort-food",
+        "potato-based",
+        "cuisine:norwegian"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Poteter (rå)",
+            "en": "Potatoes (raw)"
+          },
+          "amount": 1000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kjøttdeig (svin/okse)",
+            "en": "Ground meat (pork/beef)"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk (finhakket)",
+            "en": "Onion (minced)"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "medium",
+            "en": "medium"
+          }
+        },
+        {
+          "name": {
+            "no": "Mel",
+            "en": "Flour"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Mos råpoteter fint eller riv dem på en rivjern.",
+          "2. Bland poteter, kjøttdeig, løk, mel, salt og pepper.",
+          "3. Form deigstykkene til store boller.",
+          "4. Kok bollene i saltet vann i ca. 30-40 minutter.",
+          "5. Server med smør, potetmos og tyttebær eller preskekompott."
+        ],
+        "en": [
+          "1. Mash raw potatoes finely or grate them.",
+          "2. Mix potatoes, ground meat, onion, flour, salt and pepper.",
+          "3. Form into large balls.",
+          "4. Boil the balls in salted water for 30-40 minutes.",
+          "5. Serve with butter, mashed potatoes, lingonberry or prune compote."
+        ]
+      }
+    },
+    {
+      "id": "no_003",
+      "title": {
+        "no": "Kjøttkaker",
+        "en": "Meatballs"
+      },
+      "subtitle": {
+        "no": "Klassiske norske kjøttkaker med brun saus",
+        "en": "Classic Norwegian meatballs with brown gravy"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Ground Meat & Sausages",
+      "tags": [
+        "traditional",
+        "norwegian",
+        "easy",
+        "quick",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kjøttdeig",
+            "en": "Ground meat"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Brød (fint formolket)",
+            "en": "Bread (crumbled)"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Egg"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk (finhakket)",
+            "en": "Onion (minced)"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "medium",
+            "en": "medium"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bløtlegg brødet i melk.",
+          "2. Bland kjøttdeig, brød, egg, løk, salt og pepper.",
+          "3. Form til mindre kuler.",
+          "4. Steik kullene i en panne med smør til de er gylne.",
+          "5. Server med potetmos, grønnsaker og brunsaus."
+        ],
+        "en": [
+          "1. Soak bread in milk.",
+          "2. Mix ground meat, bread, egg, onion, salt and pepper.",
+          "3. Form into small balls.",
+          "4. Fry the balls in a pan with butter until golden.",
+          "5. Serve with mashed potatoes, vegetables and brown gravy."
+        ]
+      }
+    },
+    {
+      "id": "no_029",
+      "title": {
+        "no": "Kjøttpudding",
+        "en": "Norwegian Meat Loaf"
+      },
+      "subtitle": {
+        "no": "Mør kjøttform kokt eller bakt, servert med brun saus",
+        "en": "Tender meat loaf, boiled or baked, served with brown gravy"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 75,
+      "servings": 4,
+      "category": "Ground Meat & Sausages",
+      "tags": [
+        "traditional",
+        "norwegian",
+        "comfort-food",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "dairy",
+        "egg"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kjøttdeig (storfe eller blandet)",
+            "en": "Ground meat (beef or mixed)"
+          },
+          "amount": 700,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Egg"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
+        },
+        {
+          "name": {
+            "no": "Potetmel",
+            "en": "Potato starch"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tablespoons"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "desiliter",
+            "en": "deciliters"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk (finhakket)",
+            "en": "Onion (finely chopped)"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt, pepper og ingefær",
+            "en": "Salt, pepper, and ginger"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør (til form)",
+            "en": "Butter (for the dish)"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland kjøttdeig, egg, potetmel og krydder godt sammen i en bolle.",
+          "2. Spe forsiktig med melk under omrøring til en jevn, luftig farse.",
+          "3. Rør inn finhakket løk.",
+          "4. Smør en form godt og legg farsen i formen, jevn ut overflaten.",
+          "5. Sett ovnen på 175°C og stek kjøttpuddingen i 50-60 minutter til den er gjennomstekt.",
+          "6. Lag en brun saus av stekesjy, eventuelt buljong og litt mel til jevning.",
+          "7. Skjær puddingen i skiver og server med den brune sausen."
+        ],
+        "en": [
+          "1. Mix ground meat, egg, potato starch, and seasoning well together in a bowl.",
+          "2. Gradually add milk while stirring to form a smooth, airy mixture.",
+          "3. Stir in the finely chopped onion.",
+          "4. Grease a baking dish well and place the mixture in it, smoothing the surface.",
+          "5. Preheat the oven to 175°C and bake the meat loaf for 50-60 minutes until cooked through.",
+          "6. Make a brown gravy from the pan juices, optionally adding stock and a little flour to thicken.",
+          "7. Slice the loaf and serve with the brown gravy."
+        ]
+      }
+    },
+    {
+      "id": "no_072",
+      "title": {
+        "no": "Medisterkaker",
+        "en": "Sausage Patties"
+      },
+      "subtitle": {
+        "no": "Klassiske kjøttkaker",
+        "en": "Classic meat patties"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 20,
+      "servings": 4,
+      "category": "Ground Meat & Sausages",
+      "tags": [
+        "sausage",
+        "patties",
+        "traditional",
+        "quick",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "meat",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "kjøttdeig",
+            "en": "ground meat"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "løk",
+            "en": "onion"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stykk",
+            "en": "piece"
+          }
+        },
+        {
+          "name": {
+            "no": "melk",
+            "en": "milk"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "brødråker",
+            "en": "breadcrumbs"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "salt og pepper",
+            "en": "salt and pepper"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Hakk løk fint",
+          "2. Bland kjøtt, løk, brødråker og melk",
+          "3. Former runder kaker",
+          "4. Stekt på pannen",
+          "5. Serv med potetmos"
+        ],
+        "en": [
+          "1. Chop onion finely",
+          "2. Mix meat, onion, breadcrumbs and milk",
+          "3. Form round patties",
+          "4. Fry on pan",
+          "5. Serve with mashed potatoes"
+        ]
+      }
+    },
+    {
+      "id": "no_073",
+      "title": {
+        "no": "Medisterpølse",
+        "en": "Sausage"
+      },
+      "subtitle": {
+        "no": "Klassisk norsk pølse",
+        "en": "Classic Norwegian sausage"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 20,
+      "servings": 4,
+      "category": "Ground Meat & Sausages",
+      "tags": [
+        "sausage",
+        "traditional",
+        "quick",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "meat",
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "kjøtt",
+            "en": "meat"
+          },
+          "amount": 700,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "fett",
+            "en": "fat"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "løk",
+            "en": "onion"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "salt",
+            "en": "salt"
+          },
+          "amount": 15,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "pølsehylser",
+            "en": "sausage casings"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "meter",
+            "en": "m"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Hakk kjøtt og fett",
+          "2. Hakk løk",
+          "3. Bland alt med salt",
+          "4. Fylt hylserne",
+          "5. Kok i varmt vann 20 minutter",
+          "6. Kjøl før serving"
+        ],
+        "en": [
+          "1. Chop meat and fat",
+          "2. Chop onion",
+          "3. Mix all with salt",
+          "4. Fill casings",
+          "5. Cook in hot water 20 minutes",
+          "6. Cool before serving"
+        ]
+      }
+    },
+    {
+      "id": "no_074",
+      "title": {
+        "no": "Fårepølse",
+        "en": "Lamb Sausage"
+      },
+      "subtitle": {
+        "no": "Klassisk lamme pølse",
+        "en": "Classic lamb sausage"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 20,
+      "servings": 4,
+      "category": "Ground Meat & Sausages",
+      "tags": [
+        "sausage",
+        "lamb",
+        "traditional",
+        "quick",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "meat"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "lammekjøtt",
+            "en": "lamb meat"
+          },
+          "amount": 700,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "fett",
+            "en": "fat"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "salt",
+            "en": "salt"
+          },
+          "amount": 15,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "krydder",
+            "en": "spices"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "teskje",
+            "en": "teaspoons"
+          }
+        },
+        {
+          "name": {
+            "no": "pølsehylser",
+            "en": "sausage casings"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "meter",
+            "en": "m"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Hakk kjøtt og fett",
+          "2. Bland med salt og krydder",
+          "3. Fylt hylserne",
+          "4. Kok i varmt vann 20 minutter",
+          "5. Kjøl før serving"
+        ],
+        "en": [
+          "1. Chop meat and fat",
+          "2. Mix with salt and spices",
+          "3. Fill casings",
+          "4. Cook in hot water 20 minutes",
+          "5. Cool before serving"
+        ]
+      }
+    },
+    {
+      "id": "no_011",
+      "title": {
+        "no": "Pinnekjøtt",
+        "en": "Salted Lamb Ribs"
+      },
+      "subtitle": {
+        "no": "Tradisjonell norsk julémat",
+        "en": "Traditional Norwegian Christmas food"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 120,
+      "servings": 4,
+      "category": "Beef & Red Meat",
+      "tags": [
+        "traditional",
+        "norwegian",
+        "christmas",
+        "holiday",
+        "cuisine:norwegian"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Pinnekjøtt (saltlam)",
+            "en": "Pinnekjøtt (salted lamb ribs)"
+          },
+          "amount": 1000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Rutabaga (kålrot)",
+            "en": "Rutabaga (swede)"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bløtlegg pinnekjøttet i kaldt vann i 1-2 timer.",
+          "2. Kok pinnekjøttet i ferskt vann i ca. 1,5 time.",
+          "3. Fjern ribbenene fra vannet de siste 30 minuttene.",
+          "4. Kok poteter og rutabaga separat.",
+          "5. Server varmt med poteter, rutabaga og brunsaus.",
+          "6. Server med akavit som tradisjon sier."
+        ],
+        "en": [
+          "1. Soak pinnekjøtt in cold water for 1-2 hours.",
+          "2. Boil pinnekjøtt in fresh water for about 1.5 hours.",
+          "3. Remove ribs from water during last 30 minutes.",
+          "4. Boil potatoes and rutabaga separately.",
+          "5. Serve hot with potatoes, rutabaga and brown sauce.",
+          "6. Serve with aquavit as tradition dictates."
+        ]
+      }
+    },
+    {
+      "id": "no_020",
+      "title": {
+        "no": "Reinsdyrstek",
+        "en": "Roast Reindeer"
+      },
+      "subtitle": {
+        "no": "Saftig helstekt reinsdyr med kremet viltsaus",
+        "en": "Juicy roasted reindeer with a creamy game sauce"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 100,
+      "servings": 4,
+      "category": "Beef & Red Meat",
+      "tags": [
+        "traditional",
+        "norwegian",
+        "game",
+        "festive",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Reinsdyrstek",
+            "en": "Reindeer roast"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "kg",
+            "en": "kg"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        },
+        {
+          "name": {
+            "no": "Fløte",
+            "en": "Heavy cream"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "desiliter",
+            "en": "deciliters"
+          }
+        },
+        {
+          "name": {
+            "no": "Kjøttbuljong",
+            "en": "Beef or game stock"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "desiliter",
+            "en": "deciliters"
+          }
+        },
+        {
+          "name": {
+            "no": "Tyttebærsyltetøy",
+            "en": "Lingonberry jam"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tablespoons"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. La steken ligge i romtemperatur en stund og krydre godt med salt og pepper.",
+          "2. Brun steken på alle sider i smør i en varm stekepanne.",
+          "3. Sett ovnen på 160°C og stek steken videre til kjernetemperaturen er rundt 60°C for rosa kjøtt.",
+          "4. Ta steken ut og la den hvile innpakket i folie i 15 minutter.",
+          "5. Bruk stekesjyen til å lage saus: spe med kjøttbuljong og fløte, og kok opp under omrøring.",
+          "6. Smak sausen til med salt, pepper og tyttebærsyltetøy.",
+          "7. Skjær steken i skiver og server med sausen."
+        ],
+        "en": [
+          "1. Let the roast come to room temperature and season generously with salt and pepper.",
+          "2. Brown the roast on all sides in butter in a hot pan.",
+          "3. Preheat the oven to 160°C and continue roasting until the internal temperature reaches about 60°C for medium-rare meat.",
+          "4. Remove the roast and let it rest wrapped in foil for 15 minutes.",
+          "5. Use the pan drippings to make a sauce: add stock and cream, and bring to a boil while stirring.",
+          "6. Season the sauce with salt, pepper, and lingonberry jam.",
+          "7. Slice the roast and serve with the sauce."
+        ]
+      }
+    },
+    {
+      "id": "no_024",
+      "title": {
+        "no": "Pytt i Panne",
+        "en": "Norwegian Hash"
+      },
+      "subtitle": {
+        "no": "Stekt rett med terninger av kjøtt, potet og løk, toppet med stekt egg",
+        "en": "Fried dish of diced meat, potato, and onion, topped with a fried egg"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 35,
+      "servings": 4,
+      "category": "Beef & Red Meat",
+      "tags": [
+        "traditional",
+        "norwegian",
+        "leftovers",
+        "quick",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "egg"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kokt potet (i terninger)",
+            "en": "Boiled potatoes (diced)"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Rester av kjøtt eller pølse (i terninger)",
+            "en": "Leftover meat or sausage (diced)"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk (i terninger)",
+            "en": "Onion (diced)"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 40,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Eggs"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Stek løken i smør i en stor stekepanne til den blir blank.",
+          "2. Tilsett kjøttet og stek til det er gjennomvarmt og lett brunet.",
+          "3. Ha i potetterningene og stek alt sammen til potetene får en gyllen, sprø overflate.",
+          "4. Krydre med salt og pepper.",
+          "5. Stek egg i en egen panne, ett per person.",
+          "6. Legg pytt i panne på tallerkener og legg et stekt egg på toppen av hver.",
+          "7. Server umiddelbart, gjerne med ketsjup eller rødbeter."
+        ],
+        "en": [
+          "1. Fry the onion in butter in a large skillet until translucent.",
+          "2. Add the meat and fry until heated through and lightly browned.",
+          "3. Add the diced potatoes and fry everything together until the potatoes are golden and crisp on the surface.",
+          "4. Season with salt and pepper.",
+          "5. Fry the eggs in a separate pan, one per person.",
+          "6. Plate the hash and top each serving with a fried egg.",
+          "7. Serve immediately, ideally with ketchup or pickled beets."
+        ]
+      }
+    },
+    {
+      "id": "no_027",
+      "title": {
+        "no": "Komle",
+        "en": "Potato Dumplings"
+      },
+      "subtitle": {
+        "no": "Tunge potetklubb fylt med saltet kjøtt, kokt i kraftig vann",
+        "en": "Hearty potato dumplings filled with salted meat, boiled in flavorful water"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 90,
+      "servings": 4,
+      "category": "Beef & Red Meat",
+      "tags": [
+        "traditional",
+        "norwegian",
+        "comfort-food",
+        "slow-cooked",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Rå potet (revet)",
+            "en": "Raw potatoes (grated)"
+          },
+          "amount": 1.5,
+          "unit": {
+            "no": "kg",
+            "en": "kg"
+          }
+        },
+        {
+          "name": {
+            "no": "Mel",
+            "en": "Flour"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "spiseskje",
+            "en": "tablespoon"
+          }
+        },
+        {
+          "name": {
+            "no": "Saltet svinekjøtt eller bacon (i terninger)",
+            "en": "Salted pork or bacon (cubed)"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "liter",
+            "en": "liters"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør (til servering)",
+            "en": "Butter (for serving)"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Riv potetene fint og press ut litt av væsken.",
+          "2. Bland inn mel og salt til en fast, klebrig deig.",
+          "3. Form deigen til runde klubb med en klump saltet svinekjøtt i midten av hver.",
+          "4. Kok opp godt saltet vann i en stor gryte.",
+          "5. Legg klubbene forsiktig i det kokende vannet og la dem koke i 45-60 minutter til de er gjennomkokte.",
+          "6. Ta klubbene opp med en hullsleiv og la dem dryppe av.",
+          "7. Server varme med smeltet smør."
+        ],
+        "en": [
+          "1. Grate the potatoes finely and press out some of the liquid.",
+          "2. Mix in flour and salt to form a firm, sticky dough.",
+          "3. Shape the dough into round dumplings with a piece of salted pork tucked in the center of each.",
+          "4. Bring well-salted water to a boil in a large pot.",
+          "5. Gently lower the dumplings into the boiling water and cook for 45-60 minutes until cooked through.",
+          "6. Lift the dumplings out with a slotted spoon and let them drain.",
+          "7. Serve hot with melted butter."
+        ]
+      }
+    },
+    {
+      "id": "no_068",
+      "title": {
+        "no": "Lammelår Stekt",
+        "en": "Fried Lamb Leg"
+      },
+      "subtitle": {
+        "no": "Stekt lammefilet",
+        "en": "Fried lamb fillet"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 35,
+      "servings": 4,
+      "category": "Beef & Red Meat",
+      "tags": [
+        "lamb",
+        "fried",
+        "elegant",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "meat"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "lammelår",
+            "en": "lamb leg"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "smør",
+            "en": "butter"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "hvitløk",
+            "en": "garlic"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "kløver",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "rosmarin",
+            "en": "rosemary"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "salt og pepper",
+            "en": "salt and pepper"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Ta lammelåret ut av kjølskåp",
+          "2. Bring til romtemperatur",
+          "3. Smelt smør i panne",
+          "4. Stekt kjøttet raskt på alle sider",
+          "5. Tilsett hvitløk og rosmarin",
+          "6. Bak på 160°C til ønsket gjennomstekehet",
+          "7. Serv med poteter"
+        ],
+        "en": [
+          "1. Remove lamb leg from fridge",
+          "2. Bring to room temperature",
+          "3. Melt butter in pan",
+          "4. Fry meat quickly on all sides",
+          "5. Add garlic and rosemary",
+          "6. Bake at 160°C to desired doneness",
+          "7. Serve with potatoes"
+        ]
+      }
+    },
+    {
+      "id": "no_069",
+      "title": {
+        "no": "Lammestek",
+        "en": "Roasted Lamb"
+      },
+      "subtitle": {
+        "no": "Klassisk stekt lamme",
+        "en": "Classic roasted lamb"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 90,
+      "servings": 6,
+      "category": "Beef & Red Meat",
+      "tags": [
+        "lamb",
+        "roasted",
+        "traditional",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "meat"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "hel lamme",
+            "en": "whole lamb"
+          },
+          "amount": 1500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "smør",
+            "en": "butter"
+          },
+          "amount": 75,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "rosmarin",
+            "en": "rosemary"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "hvitløk",
+            "en": "garlic"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "kløver",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "salt og pepper",
+            "en": "salt and pepper"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Gni lammen med salt, pepper og rosmarin",
+          "2. Plasser på brettstein",
+          "3. Påfør smør",
+          "4. Bak på 160°C 1,5 time",
+          "5. La hvile 15 minutter",
+          "6. Skjær og servér"
+        ],
+        "en": [
+          "1. Rub lamb with salt, pepper and rosemary",
+          "2. Place on roasting pan",
+          "3. Brush with butter",
+          "4. Bake at 160°C 1.5 hours",
+          "5. Rest 15 minutes",
+          "6. Slice and serve"
+        ]
+      }
+    },
+    {
+      "id": "no_076",
+      "title": {
+        "no": "Fenalår",
+        "en": "Cured Leg"
+      },
+      "subtitle": {
+        "no": "Tradisjonell kjøtt spekemat",
+        "en": "Traditional cured meat"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 0,
+      "servings": 8,
+      "category": "Beef & Red Meat",
+      "tags": [
+        "cured",
+        "traditional",
+        "preservation",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "meat"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "lammelår",
+            "en": "lamb leg"
+          },
+          "amount": 1500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "salt",
+            "en": "salt"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "sukker",
+            "en": "sugar"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "nitratsalt",
+            "en": "nitrate salt"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Blend salt, sukker og nitratsalt",
+          "2. Gni kjøttet godt",
+          "3. Legg i kjølskåp",
+          "4. Drenasj væske daglig",
+          "5. Etter 2 uker henges å tørke",
+          "6. Server tynn skåret"
+        ],
+        "en": [
+          "1. Mix salt, sugar and nitrate salt",
+          "2. Rub meat well",
+          "3. Place in fridge",
+          "4. Drain liquid daily",
+          "5. After 2 weeks hang to dry",
+          "6. Serve sliced thinly"
+        ]
+      }
+    },
+    {
+      "id": "no_036",
+      "title": {
+        "no": "Skagenrøre Smørbrød",
+        "en": "Shrimp Salad Sandwich"
+      },
+      "subtitle": {
+        "no": "Klassisk reke smørbrød",
+        "en": "Classic shrimp sandwich"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 10,
+      "servings": 1,
+      "category": "Salads",
+      "tags": [
+        "sandwich",
+        "shrimp",
+        "traditional",
+        "quick",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "shellfish",
+        "dairy",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "brød",
+            "en": "bread"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "reker",
+            "en": "shrimp"
+          },
+          "amount": 80,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "mayonnaise",
+            "en": "mayonnaise"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "agurk",
+            "en": "cucumber"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "sitron",
+            "en": "lemon"
+          },
+          "amount": 0.5,
+          "unit": {
+            "no": "stykk",
+            "en": "piece"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland reker og mayo",
+          "2. Påsmør brød",
+          "3. Påfør rekeblandingen",
+          "4. Topp med agurk",
+          "5. Dryss sitron"
+        ],
+        "en": [
+          "1. Mix shrimp and mayo",
+          "2. Butter bread",
+          "3. Spread shrimp mixture",
+          "4. Top with cucumber",
+          "5. Drizzle lemon"
+        ]
+      }
+    },
+    {
+      "id": "no_038",
+      "title": {
+        "no": "Eggerøre Smørbrød",
+        "en": "Egg Salad Sandwich"
+      },
+      "subtitle": {
+        "no": "Klassisk egg smørbrød",
+        "en": "Classic egg sandwich"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 10,
+      "servings": 1,
+      "category": "Salads",
+      "tags": [
+        "sandwich",
+        "egg",
+        "traditional",
+        "quick",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "eggs",
+        "dairy",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "brød",
+            "en": "bread"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "egg",
+            "en": "eggs"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stykk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "mayonnaise",
+            "en": "mayonnaise"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "dill",
+            "en": "dill"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "salt og pepper",
+            "en": "salt and pepper"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok og skjær egg",
+          "2. Bland med mayo og dill",
+          "3. Påsmør brød",
+          "4. Påfør eggeblandingen",
+          "5. Krydre"
+        ],
+        "en": [
+          "1. Boil and slice eggs",
+          "2. Mix with mayo and dill",
+          "3. Butter bread",
+          "4. Spread egg mixture",
+          "5. Season"
+        ]
+      }
+    },
+    {
+      "id": "no_094",
+      "title": {
+        "no": "Italiensk Salat",
+        "en": "Italian Salad"
+      },
+      "subtitle": {
+        "no": "Klassisk italiensk grønnsakssalat",
+        "en": "Classic Italian vegetable salad"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 6,
+      "category": "Salads",
+      "tags": [
+        "salad",
+        "traditional",
+        "side",
+        "quick",
+        "cuisine:italian"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Rødkål",
+            "en": "Red cabbage"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Gulrot",
+            "en": "Carrots"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Mais",
+            "en": "Corn"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Erter",
+            "en": "Peas"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Eddik",
+            "en": "Vinegar"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skjær kål og gulrot i små biter",
+          "2. Bland alle grønnsakene",
+          "3. Lag en dressing med eddik og sukker",
+          "4. Hell dressingen over salaten",
+          "5. La stå i kjøleskapet minst 2 timer før servering"
+        ],
+        "en": [
+          "1. Cut cabbage and carrots into small pieces",
+          "2. Mix all vegetables",
+          "3. Make a dressing with vinegar and sugar",
+          "4. Pour dressing over salad",
+          "5. Let sit in refrigerator for at least 2 hours before serving"
+        ]
+      }
+    },
+    {
+      "id": "no_095",
+      "title": {
+        "no": "Potetsalat",
+        "en": "Potato Salad"
+      },
+      "subtitle": {
+        "no": "Norsk potetsalat med løk og dressing",
+        "en": "Norwegian potato salad with onion and dressing"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 40,
+      "servings": 6,
+      "category": "Salads",
+      "tags": [
+        "salad",
+        "traditional",
+        "side",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "milk"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Surmelk",
+            "en": "Sour cream"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Sennepemustart",
+            "en": "Mustard"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Dill",
+            "en": "Dill"
+          },
+          "amount": 15,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok poteter til møre",
+          "2. La kjøle og skjær i kuber",
+          "3. Hakk løk fint",
+          "4. Bland surmelk og sennep",
+          "5. Bland poteter, løk og dressing",
+          "6. Topp med dill"
+        ],
+        "en": [
+          "1. Cook potatoes until tender",
+          "2. Cool and cut into cubes",
+          "3. Chop onion finely",
+          "4. Mix sour cream and mustard",
+          "5. Mix potatoes, onion and dressing",
+          "6. Top with dill"
+        ]
+      }
+    },
+    {
+      "id": "no_070",
+      "title": {
+        "no": "Svinestek",
+        "en": "Roasted Pork"
+      },
+      "subtitle": {
+        "no": "Klassisk stekt svin",
+        "en": "Classic roasted pork"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 120,
+      "servings": 8,
+      "category": "Pork",
+      "tags": [
+        "pork",
+        "roasted",
+        "traditional",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "meat"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "svinestek",
+            "en": "pork roast"
+          },
+          "amount": 2000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "salt",
+            "en": "salt"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "pepper",
+            "en": "pepper"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "smør",
+            "en": "butter"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "vann",
+            "en": "water"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Gni steken med salt og pepper",
+          "2. Plasser på brettstein",
+          "3. Påfør smør",
+          "4. Tilsett vann",
+          "5. Bak på 160°C 2 timer",
+          "6. La hvile før serving"
+        ],
+        "en": [
+          "1. Rub roast with salt and pepper",
+          "2. Place on roasting pan",
+          "3. Brush with butter",
+          "4. Add water",
+          "5. Bake at 160°C 2 hours",
+          "6. Rest before serving"
+        ]
+      }
+    },
+    {
+      "id": "no_071",
+      "title": {
+        "no": "Ribbe",
+        "en": "Pork Ribs"
+      },
+      "subtitle": {
+        "no": "Klassisk norsk ribbe",
+        "en": "Classic Norwegian ribs"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 120,
+      "servings": 6,
+      "category": "Pork",
+      "tags": [
+        "pork",
+        "ribs",
+        "traditional",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "meat"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "svineribbe",
+            "en": "pork ribs"
+          },
+          "amount": 1500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "salt",
+            "en": "salt"
+          },
+          "amount": 15,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "pepper",
+            "en": "pepper"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "vann",
+            "en": "water"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Dryss ribbene med salt og pepper",
+          "2. Plasser hudside ned på brettstein",
+          "3. Tilsett vann",
+          "4. Dekk med folie",
+          "5. Bak på 170°C 1,5 time",
+          "6. Fjern folie og bak videre til gyllen"
+        ],
+        "en": [
+          "1. Season ribs with salt and pepper",
+          "2. Place skin side down on pan",
+          "3. Add water",
+          "4. Cover with foil",
+          "5. Bake at 170°C 1.5 hours",
+          "6. Remove foil and bake until golden"
+        ]
+      }
+    },
+    {
+      "id": "no_077",
+      "title": {
+        "no": "Spekeskinke",
+        "en": "Cured Ham"
+      },
+      "subtitle": {
+        "no": "Tradisjonell skinke",
+        "en": "Traditional ham"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 0,
+      "servings": 10,
+      "category": "Pork",
+      "tags": [
+        "cured",
+        "traditional",
+        "preservation",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "meat"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "svineskink",
+            "en": "pork ham"
+          },
+          "amount": 2000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "salt",
+            "en": "salt"
+          },
+          "amount": 120,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "sukker",
+            "en": "sugar"
+          },
+          "amount": 40,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "nitratsalt",
+            "en": "nitrate salt"
+          },
+          "amount": 15,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland salt, sukker og nitratsalt",
+          "2. Gni skinken",
+          "3. Legg i kjølskåp 3 uker",
+          "4. Drenasj daglig",
+          "5. Henges å tørke 2-3 måneder",
+          "6. Server tynn skåret"
+        ],
+        "en": [
+          "1. Mix salt, sugar and nitrate salt",
+          "2. Rub ham",
+          "3. Place in fridge 3 weeks",
+          "4. Drain daily",
+          "5. Hang to dry 2-3 months",
+          "6. Serve sliced thinly"
+        ]
+      }
+    },
+    {
+      "id": "no_099",
+      "title": {
+        "no": "Klubb",
+        "en": "Potato Dumpling"
+      },
+      "subtitle": {
+        "no": "Potetdump med flesk",
+        "en": "Potato dumpling with pork"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 60,
+      "servings": 6,
+      "category": "Pork",
+      "tags": [
+        "traditional",
+        "comfort",
+        "norwegian",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "meat",
+        "wheat"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Mel",
+            "en": "Flour"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Saltkjøtt",
+            "en": "Salted pork"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skrell og mos halvparten av potetene",
+          "2. Riv den andre halvparten",
+          "3. Bland moset poteter med mel og salt",
+          "4. Lag rund baller",
+          "5. Fyll hver ball med saltkjøtt og løk",
+          "6. Kok i lett kokende vann i 30 minutter",
+          "7. Server med potetgryte"
+        ],
+        "en": [
+          "1. Peel and mash half of the potatoes",
+          "2. Grate the other half",
+          "3. Mix mashed potatoes with flour and salt",
+          "4. Shape into round balls",
+          "5. Fill each ball with salted pork and onion",
+          "6. Cook in gently boiling water for 30 minutes",
+          "7. Serve with potato stew"
+        ]
+      }
+    },
+    {
+      "id": "no_101",
+      "title": {
+        "no": "Stekt Flesk og Løk",
+        "en": "Fried Bacon and Onion"
+      },
+      "subtitle": {
+        "no": "Stekt flesk med løk og potet",
+        "en": "Fried bacon with onion and potatoes"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 25,
+      "servings": 4,
+      "category": "Pork",
+      "tags": [
+        "traditional",
+        "comfort",
+        "quick",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "meat"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Flesk",
+            "en": "Bacon or pork belly"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Pepper",
+            "en": "Pepper"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skjær flesk i tynnе stykker",
+          "2. Sterk flesk i en panne",
+          "3. Fjern flesk og sauté løk",
+          "4. Tilsett rå potetskiver",
+          "5. Dekk og kok til poteter er møre",
+          "6. Tilsett flesk igjen",
+          "7. Krydre og server varmt"
+        ],
+        "en": [
+          "1. Cut bacon into thin pieces",
+          "2. Fry bacon in a skillet",
+          "3. Remove bacon and sauté onion",
+          "4. Add raw potato slices",
+          "5. Cover and cook until potatoes are tender",
+          "6. Return bacon",
+          "7. Season and serve hot"
+        ]
+      }
+    },
+    {
+      "id": "no_078",
+      "title": {
+        "no": "Mølje",
+        "en": "Liver Paste"
+      },
+      "subtitle": {
+        "no": "Klassisk leverpostei",
+        "en": "Classic liver paste"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 45,
+      "servings": 6,
+      "category": "Other",
+      "tags": [
+        "liver",
+        "paste",
+        "traditional",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "meat",
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "lever",
+            "en": "liver"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "fett",
+            "en": "fat"
+          },
+          "amount": 250,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "melk",
+            "en": "milk"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "egg",
+            "en": "eggs"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stykk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "salt og krydder",
+            "en": "salt and spices"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Hakk lever og fett",
+          "2. Bland med melk og egg",
+          "3. Tilsett salt og krydder",
+          "4. Hell i form",
+          "5. Bak i vannskål på 160°C 35 minutter",
+          "6. Kjøl før serving"
+        ],
+        "en": [
+          "1. Chop liver and fat",
+          "2. Mix with milk and eggs",
+          "3. Add salt and spices",
+          "4. Pour into mold",
+          "5. Bake in water bath at 160°C 35 minutes",
+          "6. Cool before serving"
+        ]
+      }
+    },
+    {
+      "id": "no_093",
+      "title": {
+        "no": "Sild i Karry",
+        "en": "Herring in Curry"
+      },
+      "subtitle": {
+        "no": "Marinert sild med karry og løk",
+        "en": "Marinated herring with curry and onion"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 1440,
+      "servings": 6,
+      "category": "Other",
+      "tags": [
+        "traditional",
+        "marinated",
+        "condiment",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "fish"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Sild",
+            "en": "Herring"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Karry",
+            "en": "Curry powder"
+          },
+          "amount": 15,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Eddik",
+            "en": "Vinegar"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kutt silden i stykker",
+          "2. Skjær løken i ringer",
+          "3. Lag en marinade med karry, sukker, eddik og vann",
+          "4. Lag lag av sild og løk i en glassbeholder",
+          "5. Helle marinade over",
+          "6. La marinere i minst 24 timer før servering"
+        ],
+        "en": [
+          "1. Cut herring into pieces",
+          "2. Slice onion into rings",
+          "3. Make a marinade with curry, sugar, vinegar and water",
+          "4. Layer herring and onion in a glass container",
+          "5. Pour marinade over",
+          "6. Let marinate for at least 24 hours before serving"
+        ]
+      }
+    },
+    {
+      "id": "no_105",
+      "title": {
+        "no": "Lungemos",
+        "en": "Lung Pâté"
+      },
+      "subtitle": {
+        "no": "Tradisjonell norsk lungemos",
+        "en": "Traditional Norwegian lung pâté"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 90,
+      "servings": 8,
+      "category": "Other",
+      "tags": [
+        "traditional",
+        "offal",
+        "comfort",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "meat",
+        "milk"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Lunge",
+            "en": "Pork lung"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Lever",
+            "en": "Pork liver"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Mel",
+            "en": "Flour"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Eggs"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og krydder",
+            "en": "Salt and spices"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "porsjon",
+            "en": "portion"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Hakk lunge og lever",
+          "2. Sauté finhakket løk",
+          "3. Bland alle ingrediensene",
+          "4. Hent i et fettlinjert brødform",
+          "5. Steik i vannbad på 175°C i 50-60 minutter",
+          "6. La kjøle",
+          "7. Server kaldt eller varmt"
+        ],
+        "en": [
+          "1. Chop lung and liver",
+          "2. Sauté finely chopped onion",
+          "3. Mix all ingredients",
+          "4. Place in a fat-lined loaf pan",
+          "5. Bake in water bath at 175°C for 50-60 minutes",
+          "6. Cool",
+          "7. Serve cold or warm"
+        ]
+      }
+    }
+  ]
+}

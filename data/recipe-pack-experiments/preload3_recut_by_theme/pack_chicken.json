@@ -1,0 +1,1160 @@
+{
+  "packId": "pack_chicken",
+  "packName": {
+    "en": "Chicken",
+    "no": "Kylling"
+  },
+  "packDescription": {
+    "en": "Chicken recipes from across all our collections",
+    "no": "Kylling-oppskrifter fra alle samlingene våre"
+  },
+  "packImage": "🍗",
+  "packColor": "#999999",
+  "recipeCount": 10,
+  "estimatedCookTime": "varies",
+  "difficulty": "varies",
+  "recipes": [
+    {
+      "id": "eu_006",
+      "title": {
+        "no": "Coq au Vin",
+        "en": "Coq au Vin"
+      },
+      "subtitle": {
+        "no": "Fransk kylling i rødvin",
+        "en": "French chicken in red wine"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 90,
+      "servings": 4,
+      "category": "Chicken",
+      "tags": [
+        "french",
+        "chicken",
+        "wine",
+        "classic",
+        "cuisine:french"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kylling (hele eller deler)",
+            "en": "Chicken (whole or parts)"
+          },
+          "amount": 1200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Rødvin",
+            "en": "Red wine"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Spek",
+            "en": "Bacon"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "medium",
+            "en": "medium"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Brun sopp",
+            "en": "Brown mushroom"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Buljong",
+            "en": "Broth"
+          },
+          "amount": 250,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomat-puré",
+            "en": "Tomato paste"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Steik speket til det er sprøtt, ta det ut.",
+          "2. Steik kylingen til den er gylden.",
+          "3. Tilsett løk, hvitløk og tomat-puré.",
+          "4. Hell på rødvin og buljong.",
+          "5. Tilsett speket og la det småkoke i 45 minutter.",
+          "6. Tilsett sopp og kok 15 minutter til.",
+          "7. Smak til med salt og pepper.",
+          "8. Server med poteter eller brød."
+        ],
+        "en": [
+          "1. Fry bacon until crispy, remove it.",
+          "2. Brown the chicken.",
+          "3. Add onion, garlic and tomato paste.",
+          "4. Pour in red wine and broth.",
+          "5. Add bacon and simmer for 45 minutes.",
+          "6. Add mushrooms and cook 15 more minutes.",
+          "7. Season with salt and pepper.",
+          "8. Serve with potatoes or bread."
+        ]
+      }
+    },
+    {
+      "id": "eu_105",
+      "title": {
+        "no": "Chicken Paprikash",
+        "en": "Chicken Paprikash"
+      },
+      "subtitle": {
+        "no": "Ungarsk kylling i paprika cream",
+        "en": "Hungarian chicken in paprika cream"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 60,
+      "servings": 4,
+      "category": "Chicken",
+      "tags": [
+        "chicken",
+        "Hungarian",
+        "paprika",
+        "cuisine:hungarian"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kylling (kubert)",
+            "en": "Chicken (cubed)"
+          },
+          "amount": 1000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Paprikapulver",
+            "en": "Paprika powder"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "tbsp",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Bell paprika",
+            "en": "Bell pepper"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomat",
+            "en": "Tomato"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Kjøttbuljong",
+            "en": "Beef broth"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Sterk fløte",
+            "en": "Heavy cream"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Olje",
+            "en": "Oil"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "tbsp",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "after taste",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Varm olje i en stor gryte",
+          "2. Brun kylling på alle sider, fjern fra gryta",
+          "3. Steak løk, hvitløk og paprika i samme gryte",
+          "4. Tilsett paprikapulver, rør godt",
+          "5. Tilbake kyllingen, tilsett tomat og buljong",
+          "6. Dekk og simrer 30-35 minutter til kyllingen er mør",
+          "7. Tilsett fløte, varm igjennom",
+          "8. Smak og krydre etter ønske",
+          "9. Serv med rød potet eller nudler"
+        ],
+        "en": [
+          "1. Heat oil in a large pot",
+          "2. Brown chicken on all sides, remove from pot",
+          "3. Fry onion, garlic and pepper in same pot",
+          "4. Add paprika powder, stir well",
+          "5. Return chicken, add tomato and broth",
+          "6. Cover and simmer 30-35 minutes until chicken is tender",
+          "7. Add cream, heat through",
+          "8. Taste and season as desired",
+          "9. Serve with boiled potato or noodles"
+        ]
+      }
+    },
+    {
+      "id": "hol_001",
+      "title": {
+        "no": "Julemiddag: Stekt Kalkun",
+        "en": "Christmas Dinner: Roasted Turkey"
+      },
+      "subtitle": {
+        "no": "Klassisk julemiddag med helstekt kalkun",
+        "en": "Classic Christmas dinner with whole roasted turkey"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 180,
+      "servings": 8,
+      "category": "Chicken",
+      "tags": [
+        "christmas",
+        "turkey",
+        "holiday",
+        "festive"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kalkun (hel)",
+            "en": "Turkey (whole)"
+          },
+          "amount": 4500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør (mykt)",
+            "en": "Butter (soft)"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        },
+        {
+          "name": {
+            "no": "Timen",
+            "en": "Thyme"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "stengel",
+            "en": "sprigs"
+          }
+        },
+        {
+          "name": {
+            "no": "Laurbær",
+            "en": "Bay leaf"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "stk",
+            "en": "leaves"
+          }
+        },
+        {
+          "name": {
+            "no": "Sitron",
+            "en": "Lemon"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Buljong (varm)",
+            "en": "Broth (warm)"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Tørk kalkunen på innsiden og utsiden.",
+          "2. Fyll kalkuinen med frynsede sitronskiver, timen og laurbær.",
+          "3. Bind lårene sammen med norgekortnorsk snor.",
+          "4. Gnid smør over hele kalkunen, salt og pepper.",
+          "5. Legg kalkunen brystkant opp på en roastingsplatter.",
+          "6. Bak på 180°C i ca. 2,5-3 timer (15 minutter per 500g + 20 minutter).",
+          "7. Vann kalkunen hvert 30. minutt med pannesaft.",
+          "8. Kontroller temperaturen innvendig: 75°C når lårene og brystet er rørt.",
+          "9. La kalkunen hvile i 20 minutter før servering.",
+          "10. Lag saus fra pansaften."
+        ],
+        "en": [
+          "1. Pat turkey dry inside and outside.",
+          "2. Fill turkey with sliced lemon, thyme and bay leaf.",
+          "3. Tie legs together with string.",
+          "4. Rub butter over whole turkey, salt and pepper.",
+          "5. Place turkey breast up on a roasting pan.",
+          "6. Roast at 180°C for about 2.5-3 hours (15 min per 500g + 20 min).",
+          "7. Baste turkey every 30 minutes with pan juices.",
+          "8. Check internal temperature: 75°C when legs and breast are pierced.",
+          "9. Let turkey rest 20 minutes before serving.",
+          "10. Make gravy from pan juices."
+        ]
+      }
+    },
+    {
+      "id": "hol_015",
+      "title": {
+        "no": "Glasert Juleand",
+        "en": "Glazed Christmas Duck"
+      },
+      "subtitle": {
+        "no": "Helstekt and fylt med frukt og glasert med søtsyrlig saus",
+        "en": "Whole roasted duck stuffed with fruit and glazed with a sweet-tangy sauce"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 150,
+      "servings": 4,
+      "category": "Chicken",
+      "tags": [
+        "holiday",
+        "celebration",
+        "festive",
+        "christmas",
+        "cuisine:danish"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "And (hel)",
+            "en": "Duck (whole)"
+          },
+          "amount": 2200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Eple (i båter)",
+            "en": "Apple (wedges)"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Sviske (uttrukket)",
+            "en": "Prunes (pitted)"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Appelsinmarmelade",
+            "en": "Orange marmalade"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Soyasaus",
+            "en": "Soy sauce"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Tørk anden godt og gni inn salt og pepper både innvendig og utvendig.",
+          "2. Fyll anden med eple og sviske.",
+          "3. Stikk hull i skinnet med en gaffel for å la fettet renne av under steking.",
+          "4. Stek anden brystkant opp i ovnen på 160°C i ca. 2 timer.",
+          "5. Bland marmelade og soyasaus til en glasur.",
+          "6. Pensle anden med glasuren de siste 20 minuttene og skru opp til 200°C for sprø skinn.",
+          "7. La anden hvile i 15 minutter før den deles og serveres."
+        ],
+        "en": [
+          "1. Pat the duck dry and rub salt and pepper both inside and outside.",
+          "2. Stuff the duck with the apple and prunes.",
+          "3. Prick the skin with a fork to let the fat drain off during roasting.",
+          "4. Roast the duck breast-side up in the oven at 160°C for about 2 hours.",
+          "5. Mix the marmalade and soy sauce to make a glaze.",
+          "6. Brush the duck with the glaze for the last 20 minutes and increase the temperature to 200°C for crispy skin.",
+          "7. Let the duck rest for 15 minutes before carving and serving."
+        ]
+      }
+    },
+    {
+      "id": "hol_017",
+      "title": {
+        "no": "Julegås",
+        "en": "Christmas Goose"
+      },
+      "subtitle": {
+        "no": "Helstekt gås fylt med eple og løk, en gammel europeisk juletradisjon",
+        "en": "Whole roasted goose stuffed with apple and onion, an old European Christmas tradition"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 210,
+      "servings": 6,
+      "category": "Chicken",
+      "tags": [
+        "holiday",
+        "celebration",
+        "festive",
+        "christmas",
+        "cuisine:danish"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Gås (hel)",
+            "en": "Goose (whole)"
+          },
+          "amount": 4500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Eple (i båter)",
+            "en": "Apple (wedges)"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk (i båter)",
+            "en": "Onion (wedges)"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        },
+        {
+          "name": {
+            "no": "Timian",
+            "en": "Thyme"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "stengel",
+            "en": "sprigs"
+          }
+        },
+        {
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Tørk gåsen godt og gni salt og pepper innvendig og utvendig.",
+          "2. Fyll gåsen med eplebåter, løkbåter og timian.",
+          "3. Stikk hull i skinnet med en gaffel for å hjelpe fettet å renne av.",
+          "4. Sett gåsen på rist over en langpanne med vann og stek på 150°C i ca. 3 til 3,5 timer.",
+          "5. Øs fettet av langpannen jevnlig under stekingen.",
+          "6. Skru opp temperaturen til 200°C de siste 20 minuttene for å gjøre skinnet sprøtt.",
+          "7. La gåsen hvile i 20 minutter før den deles opp og serveres."
+        ],
+        "en": [
+          "1. Pat the goose dry and rub salt and pepper inside and out.",
+          "2. Stuff the goose with apple wedges, onion wedges, and thyme.",
+          "3. Prick the skin with a fork to help the fat drain off.",
+          "4. Place the goose on a rack over a roasting pan with water and roast at 150°C for about 3 to 3.5 hours.",
+          "5. Spoon off the fat from the roasting pan periodically during cooking.",
+          "6. Increase the temperature to 200°C for the last 20 minutes to crisp up the skin.",
+          "7. Let the goose rest for 20 minutes before carving and serving."
+        ]
+      }
+    },
+    {
+      "id": "hol_021",
+      "title": {
+        "no": "Helstekt Cornish Hen",
+        "en": "Roast Cornish Hen"
+      },
+      "subtitle": {
+        "no": "Individuelle helstekte små høner, en elegant festrett for én person",
+        "en": "Individual whole roasted small hens, an elegant festive dish for one person"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 60,
+      "servings": 4,
+      "category": "Chicken",
+      "tags": [
+        "holiday",
+        "celebration",
+        "festive"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Cornish hen (hel, liten kylling)",
+            "en": "Cornish hen (whole small chicken)"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør (smeltet)",
+            "en": "Butter (melted)"
+          },
+          "amount": 80,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk (finhakket)",
+            "en": "Garlic (minced)"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Sitron (i båter)",
+            "en": "Lemon (wedges)"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
+        },
+        {
+          "name": {
+            "no": "Timian",
+            "en": "Thyme"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "stengel",
+            "en": "sprigs"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Tørk hønene godt med papir og krydre innvendig og utvendig med salt og pepper.",
+          "2. Fyll hver høne med en sitronbåt og en kvist timian.",
+          "3. Bland smeltet smør med hvitløk og pensle utenpå hver høne.",
+          "4. Bind sammen lårene med hyssing slik at hønene holder formen under steking.",
+          "5. Stek i ovnen på 200°C i 40-45 minutter til skinnet er gyllent og saftene er klare.",
+          "6. Kontroller at kjernetemperaturen er minst 75°C ved låret.",
+          "7. La hønene hvile i 5-10 minutter før servering."
+        ],
+        "en": [
+          "1. Pat the hens dry with paper towels and season inside and out with salt and pepper.",
+          "2. Stuff each hen with a lemon wedge and a sprig of thyme.",
+          "3. Mix the melted butter with garlic and brush it over each hen.",
+          "4. Tie the legs together with kitchen string so the hens hold their shape while roasting.",
+          "5. Roast in the oven at 200°C for 40-45 minutes until the skin is golden and the juices run clear.",
+          "6. Check that the internal temperature at the thigh is at least 75°C.",
+          "7. Let the hens rest for 5-10 minutes before serving."
+        ]
+      }
+    },
+    {
+      "id": "hol_025",
+      "title": {
+        "no": "Helstekt Kalkun",
+        "en": "Whole Roasted Turkey"
+      },
+      "subtitle": {
+        "no": "Klassisk julekalkun med fyll",
+        "en": "Classic roasted turkey with stuffing"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 240,
+      "servings": 12,
+      "category": "Chicken",
+      "tags": [
+        "holiday",
+        "traditional",
+        "celebration"
+      ],
+      "allergens": [
+        "meat",
+        "wheat",
+        "eggs"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kalkun",
+            "en": "Turkey"
+          },
+          "amount": 5000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Brød",
+            "en": "Bread"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Eggs"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Forbered kalkunen",
+          "2. Lag fyll med brød og løk",
+          "3. Fylt kalkunen",
+          "4. Bak på 175°C i 3-4 timer",
+          "5. La hvile før serving"
+        ],
+        "en": [
+          "1. Prepare turkey",
+          "2. Make stuffing with bread and onion",
+          "3. Stuff the turkey",
+          "4. Roast at 175°C for 3-4 hours",
+          "5. Rest before serving"
+        ]
+      }
+    },
+    {
+      "id": "hol_042",
+      "title": {
+        "no": "Andebryst",
+        "en": "Duck Breast"
+      },
+      "subtitle": {
+        "no": "Stekt andebryst med appelsinsaus",
+        "en": "Seared duck breast with orange sauce"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 35,
+      "servings": 4,
+      "category": "Chicken",
+      "tags": [
+        "holiday",
+        "elegant",
+        "poultry"
+      ],
+      "allergens": [
+        "meat"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Andebryst",
+            "en": "Duck breast"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Appelsin",
+            "en": "Orange"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Honning",
+            "en": "Honey"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kjøttbuljong",
+            "en": "Beef broth"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Sterk andebrystet på høy varme",
+          "2. Fjern og la hvile",
+          "3. Lag saus med appelsinjuice og honning",
+          "4. Skjær andebrystet",
+          "5. Server med sausen"
+        ],
+        "en": [
+          "1. Sear duck breast on high heat",
+          "2. Remove and rest",
+          "3. Make sauce with orange juice and honey",
+          "4. Slice duck breast",
+          "5. Serve with sauce"
+        ]
+      }
+    },
+    {
+      "id": "sum_085",
+      "title": {
+        "no": "Vietnamesisk Rullér med Fisjesaus",
+        "en": "Vietnamese Rolls with Fish Sauce"
+      },
+      "subtitle": {
+        "no": "Papirrollér med kylling og fisjesaus",
+        "en": "Paper rolls with chicken and fish sauce"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 25,
+      "servings": 4,
+      "category": "Chicken",
+      "tags": [
+        "asian",
+        "light",
+        "fresh",
+        "quick",
+        "cuisine:asian"
+      ],
+      "allergens": [
+        "gluten",
+        "shellfish"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Rispapir",
+            "en": "Rice paper"
+          },
+          "amount": 16,
+          "unit": {
+            "no": "ark",
+            "en": "sheets"
+          }
+        },
+        {
+          "name": {
+            "no": "Grilllagd kykling",
+            "en": "Grilled chicken"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salat",
+            "en": "Lettuce"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Mynta",
+            "en": "Mint"
+          },
+          "amount": 40,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Fisjesaus",
+            "en": "Fish sauce"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Fukta rispapiret",
+          "2. Legg salat, kykling og mynta",
+          "3. Rull tett",
+          "4. Server med fisjesaus"
+        ],
+        "en": [
+          "1. Wet rice paper",
+          "2. Add lettuce, chicken and mint",
+          "3. Roll tightly",
+          "4. Serve with fish sauce"
+        ]
+      }
+    },
+    {
+      "id": "sum_086",
+      "title": {
+        "no": "Thaiisk Basil-Kykling",
+        "en": "Thai Basil Chicken"
+      },
+      "subtitle": {
+        "no": "Kykling med thaiisk basilikum",
+        "en": "Chicken with Thai basil"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 25,
+      "servings": 4,
+      "category": "Chicken",
+      "tags": [
+        "thai",
+        "stir-fry",
+        "aromatic",
+        "quick",
+        "cuisine:thai"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kyllingkjøtt",
+            "en": "Ground chicken"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Thaiisk basilikum",
+            "en": "Thai basil"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 40,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Chili",
+            "en": "Red chili"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Fiskesaus",
+            "en": "Fish sauce"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Sterk kjøtt i olje",
+          "2. Tilsett hakket hvitløk og chili",
+          "3. Tilsett fiskesaus",
+          "4. Fold inn basilikum",
+          "5. Server varmt"
+        ],
+        "en": [
+          "1. Fry meat in oil",
+          "2. Add chopped garlic and chili",
+          "3. Add fish sauce",
+          "4. Fold in basil",
+          "5. Serve hot"
+        ]
+      }
+    }
+  ]
+}

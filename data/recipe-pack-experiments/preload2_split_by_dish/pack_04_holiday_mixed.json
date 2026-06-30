@@ -1,0 +1,3793 @@
+{
+  "packId": "pack_04_holiday_mixed",
+  "packName": {
+    "en": "Holiday Mixed",
+    "no": "Høytid Diverse"
+  },
+  "packDescription": {
+    "en": "A mix of smaller categories from the Holiday collection - too few of each to be their own pack",
+    "no": "En blanding av mindre kategorier fra Høytid-samlingen"
+  },
+  "packImage": "🍽️",
+  "packColor": "#999999",
+  "recipeCount": 35,
+  "estimatedCookTime": "varies",
+  "difficulty": "varies",
+  "recipes": [
+    {
+      "id": "hol_001",
+      "title": {
+        "no": "Julemiddag: Stekt Kalkun",
+        "en": "Christmas Dinner: Roasted Turkey"
+      },
+      "subtitle": {
+        "no": "Klassisk julemiddag med helstekt kalkun",
+        "en": "Classic Christmas dinner with whole roasted turkey"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 180,
+      "servings": 8,
+      "category": "Chicken",
+      "tags": [
+        "christmas",
+        "turkey",
+        "holiday",
+        "festive"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kalkun (hel)",
+            "en": "Turkey (whole)"
+          },
+          "amount": 4500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør (mykt)",
+            "en": "Butter (soft)"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        },
+        {
+          "name": {
+            "no": "Timen",
+            "en": "Thyme"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "stengel",
+            "en": "sprigs"
+          }
+        },
+        {
+          "name": {
+            "no": "Laurbær",
+            "en": "Bay leaf"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "stk",
+            "en": "leaves"
+          }
+        },
+        {
+          "name": {
+            "no": "Sitron",
+            "en": "Lemon"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Buljong (varm)",
+            "en": "Broth (warm)"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Tørk kalkunen på innsiden og utsiden.",
+          "2. Fyll kalkuinen med frynsede sitronskiver, timen og laurbær.",
+          "3. Bind lårene sammen med norgekortnorsk snor.",
+          "4. Gnid smør over hele kalkunen, salt og pepper.",
+          "5. Legg kalkunen brystkant opp på en roastingsplatter.",
+          "6. Bak på 180°C i ca. 2,5-3 timer (15 minutter per 500g + 20 minutter).",
+          "7. Vann kalkunen hvert 30. minutt med pannesaft.",
+          "8. Kontroller temperaturen innvendig: 75°C når lårene og brystet er rørt.",
+          "9. La kalkunen hvile i 20 minutter før servering.",
+          "10. Lag saus fra pansaften."
+        ],
+        "en": [
+          "1. Pat turkey dry inside and outside.",
+          "2. Fill turkey with sliced lemon, thyme and bay leaf.",
+          "3. Tie legs together with string.",
+          "4. Rub butter over whole turkey, salt and pepper.",
+          "5. Place turkey breast up on a roasting pan.",
+          "6. Roast at 180°C for about 2.5-3 hours (15 min per 500g + 20 min).",
+          "7. Baste turkey every 30 minutes with pan juices.",
+          "8. Check internal temperature: 75°C when legs and breast are pierced.",
+          "9. Let turkey rest 20 minutes before serving.",
+          "10. Make gravy from pan juices."
+        ]
+      }
+    },
+    {
+      "id": "hol_015",
+      "title": {
+        "no": "Glasert Juleand",
+        "en": "Glazed Christmas Duck"
+      },
+      "subtitle": {
+        "no": "Helstekt and fylt med frukt og glasert med søtsyrlig saus",
+        "en": "Whole roasted duck stuffed with fruit and glazed with a sweet-tangy sauce"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 150,
+      "servings": 4,
+      "category": "Chicken",
+      "tags": [
+        "holiday",
+        "celebration",
+        "festive",
+        "christmas",
+        "cuisine:danish"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "And (hel)",
+            "en": "Duck (whole)"
+          },
+          "amount": 2200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Eple (i båter)",
+            "en": "Apple (wedges)"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Sviske (uttrukket)",
+            "en": "Prunes (pitted)"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Appelsinmarmelade",
+            "en": "Orange marmalade"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Soyasaus",
+            "en": "Soy sauce"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Tørk anden godt og gni inn salt og pepper både innvendig og utvendig.",
+          "2. Fyll anden med eple og sviske.",
+          "3. Stikk hull i skinnet med en gaffel for å la fettet renne av under steking.",
+          "4. Stek anden brystkant opp i ovnen på 160°C i ca. 2 timer.",
+          "5. Bland marmelade og soyasaus til en glasur.",
+          "6. Pensle anden med glasuren de siste 20 minuttene og skru opp til 200°C for sprø skinn.",
+          "7. La anden hvile i 15 minutter før den deles og serveres."
+        ],
+        "en": [
+          "1. Pat the duck dry and rub salt and pepper both inside and outside.",
+          "2. Stuff the duck with the apple and prunes.",
+          "3. Prick the skin with a fork to let the fat drain off during roasting.",
+          "4. Roast the duck breast-side up in the oven at 160°C for about 2 hours.",
+          "5. Mix the marmalade and soy sauce to make a glaze.",
+          "6. Brush the duck with the glaze for the last 20 minutes and increase the temperature to 200°C for crispy skin.",
+          "7. Let the duck rest for 15 minutes before carving and serving."
+        ]
+      }
+    },
+    {
+      "id": "hol_017",
+      "title": {
+        "no": "Julegås",
+        "en": "Christmas Goose"
+      },
+      "subtitle": {
+        "no": "Helstekt gås fylt med eple og løk, en gammel europeisk juletradisjon",
+        "en": "Whole roasted goose stuffed with apple and onion, an old European Christmas tradition"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 210,
+      "servings": 6,
+      "category": "Chicken",
+      "tags": [
+        "holiday",
+        "celebration",
+        "festive",
+        "christmas",
+        "cuisine:danish"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Gås (hel)",
+            "en": "Goose (whole)"
+          },
+          "amount": 4500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Eple (i båter)",
+            "en": "Apple (wedges)"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk (i båter)",
+            "en": "Onion (wedges)"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        },
+        {
+          "name": {
+            "no": "Timian",
+            "en": "Thyme"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "stengel",
+            "en": "sprigs"
+          }
+        },
+        {
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Tørk gåsen godt og gni salt og pepper innvendig og utvendig.",
+          "2. Fyll gåsen med eplebåter, løkbåter og timian.",
+          "3. Stikk hull i skinnet med en gaffel for å hjelpe fettet å renne av.",
+          "4. Sett gåsen på rist over en langpanne med vann og stek på 150°C i ca. 3 til 3,5 timer.",
+          "5. Øs fettet av langpannen jevnlig under stekingen.",
+          "6. Skru opp temperaturen til 200°C de siste 20 minuttene for å gjøre skinnet sprøtt.",
+          "7. La gåsen hvile i 20 minutter før den deles opp og serveres."
+        ],
+        "en": [
+          "1. Pat the goose dry and rub salt and pepper inside and out.",
+          "2. Stuff the goose with apple wedges, onion wedges, and thyme.",
+          "3. Prick the skin with a fork to help the fat drain off.",
+          "4. Place the goose on a rack over a roasting pan with water and roast at 150°C for about 3 to 3.5 hours.",
+          "5. Spoon off the fat from the roasting pan periodically during cooking.",
+          "6. Increase the temperature to 200°C for the last 20 minutes to crisp up the skin.",
+          "7. Let the goose rest for 20 minutes before carving and serving."
+        ]
+      }
+    },
+    {
+      "id": "hol_021",
+      "title": {
+        "no": "Helstekt Cornish Hen",
+        "en": "Roast Cornish Hen"
+      },
+      "subtitle": {
+        "no": "Individuelle helstekte små høner, en elegant festrett for én person",
+        "en": "Individual whole roasted small hens, an elegant festive dish for one person"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 60,
+      "servings": 4,
+      "category": "Chicken",
+      "tags": [
+        "holiday",
+        "celebration",
+        "festive"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Cornish hen (hel, liten kylling)",
+            "en": "Cornish hen (whole small chicken)"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør (smeltet)",
+            "en": "Butter (melted)"
+          },
+          "amount": 80,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk (finhakket)",
+            "en": "Garlic (minced)"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Sitron (i båter)",
+            "en": "Lemon (wedges)"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
+        },
+        {
+          "name": {
+            "no": "Timian",
+            "en": "Thyme"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "stengel",
+            "en": "sprigs"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Tørk hønene godt med papir og krydre innvendig og utvendig med salt og pepper.",
+          "2. Fyll hver høne med en sitronbåt og en kvist timian.",
+          "3. Bland smeltet smør med hvitløk og pensle utenpå hver høne.",
+          "4. Bind sammen lårene med hyssing slik at hønene holder formen under steking.",
+          "5. Stek i ovnen på 200°C i 40-45 minutter til skinnet er gyllent og saftene er klare.",
+          "6. Kontroller at kjernetemperaturen er minst 75°C ved låret.",
+          "7. La hønene hvile i 5-10 minutter før servering."
+        ],
+        "en": [
+          "1. Pat the hens dry with paper towels and season inside and out with salt and pepper.",
+          "2. Stuff each hen with a lemon wedge and a sprig of thyme.",
+          "3. Mix the melted butter with garlic and brush it over each hen.",
+          "4. Tie the legs together with kitchen string so the hens hold their shape while roasting.",
+          "5. Roast in the oven at 200°C for 40-45 minutes until the skin is golden and the juices run clear.",
+          "6. Check that the internal temperature at the thigh is at least 75°C.",
+          "7. Let the hens rest for 5-10 minutes before serving."
+        ]
+      }
+    },
+    {
+      "id": "hol_025",
+      "title": {
+        "no": "Helstekt Kalkun",
+        "en": "Whole Roasted Turkey"
+      },
+      "subtitle": {
+        "no": "Klassisk julekalkun med fyll",
+        "en": "Classic roasted turkey with stuffing"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 240,
+      "servings": 12,
+      "category": "Chicken",
+      "tags": [
+        "holiday",
+        "traditional",
+        "celebration"
+      ],
+      "allergens": [
+        "meat",
+        "wheat",
+        "eggs"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kalkun",
+            "en": "Turkey"
+          },
+          "amount": 5000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Brød",
+            "en": "Bread"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Eggs"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Forbered kalkunen",
+          "2. Lag fyll med brød og løk",
+          "3. Fylt kalkunen",
+          "4. Bak på 175°C i 3-4 timer",
+          "5. La hvile før serving"
+        ],
+        "en": [
+          "1. Prepare turkey",
+          "2. Make stuffing with bread and onion",
+          "3. Stuff the turkey",
+          "4. Roast at 175°C for 3-4 hours",
+          "5. Rest before serving"
+        ]
+      }
+    },
+    {
+      "id": "hol_042",
+      "title": {
+        "no": "Andebryst",
+        "en": "Duck Breast"
+      },
+      "subtitle": {
+        "no": "Stekt andebryst med appelsinsaus",
+        "en": "Seared duck breast with orange sauce"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 35,
+      "servings": 4,
+      "category": "Chicken",
+      "tags": [
+        "holiday",
+        "elegant",
+        "poultry"
+      ],
+      "allergens": [
+        "meat"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Andebryst",
+            "en": "Duck breast"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Appelsin",
+            "en": "Orange"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Honning",
+            "en": "Honey"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kjøttbuljong",
+            "en": "Beef broth"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Sterk andebrystet på høy varme",
+          "2. Fjern og la hvile",
+          "3. Lag saus med appelsinjuice og honning",
+          "4. Skjær andebrystet",
+          "5. Server med sausen"
+        ],
+        "en": [
+          "1. Sear duck breast on high heat",
+          "2. Remove and rest",
+          "3. Make sauce with orange juice and honey",
+          "4. Slice duck breast",
+          "5. Serve with sauce"
+        ]
+      }
+    },
+    {
+      "id": "hol_005",
+      "title": {
+        "no": "Påskekrim",
+        "en": "Easter Lamb"
+      },
+      "subtitle": {
+        "no": "Påske-tradisjonell stekt lamb",
+        "en": "Easter traditional roasted lamb"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 120,
+      "servings": 6,
+      "category": "Beef & Red Meat",
+      "tags": [
+        "easter",
+        "lamb",
+        "holiday",
+        "festive",
+        "cuisine:nordic"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Lammekjøtt (ribben)",
+            "en": "Lamb (rack)"
+          },
+          "amount": 1500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 75,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Rosmarin (frisk)",
+            "en": "Rosemary (fresh)"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "stengel",
+            "en": "sprigs"
+          }
+        },
+        {
+          "name": {
+            "no": "Timen (frisk)",
+            "en": "Thyme (fresh)"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "stengel",
+            "en": "sprigs"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        },
+        {
+          "name": {
+            "no": "Buljong (varmt)",
+            "en": "Broth (warm)"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Ta lammeribben ut av kjøleskapet 30 minutter før tilberedelse.",
+          "2. Gnid med salt, pepper og pressede hvitløkfedd.",
+          "3. Gnid med smør og tilsett rosmarin og timen.",
+          "4. Legg på en roastingsplatter.",
+          "5. Bak på 200°C i ca. 45-60 minutter (tilleggstime for middels rosé).",
+          "6. Hell over noe buljong i pannen.",
+          "7. La lammen hvile i 15 minutter før servering.",
+          "8. Server med sprøllet hull og nye poteter."
+        ],
+        "en": [
+          "1. Take lamb rack out of refrigerator 30 minutes before cooking.",
+          "2. Rub with salt, pepper and crushed garlic.",
+          "3. Rub with butter and add rosemary and thyme.",
+          "4. Place on roasting pan.",
+          "5. Roast at 200°C for about 45-60 minutes (longer for medium-rare).",
+          "6. Pour some broth in the pan.",
+          "7. Let lamb rest 15 minutes before serving.",
+          "8. Serve with crispy potatoes and new potatoes."
+        ]
+      }
+    },
+    {
+      "id": "hol_008",
+      "title": {
+        "no": "Nyårsaften: Flott Stekt Oksebiff",
+        "en": "New Year's Eve: Beautiful Roasted Beef"
+      },
+      "subtitle": {
+        "no": "Elegant New Year's dinner",
+        "en": "Elegant New Year's dinner"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 90,
+      "servings": 6,
+      "category": "Beef & Red Meat",
+      "tags": [
+        "newyear",
+        "beef",
+        "elegant",
+        "festive"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Oksebiff (beste kutt)",
+            "en": "Beef roast (best cut)"
+          },
+          "amount": 1500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Rosmarin (frisk)",
+            "en": "Rosemary (fresh)"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "stengel",
+            "en": "sprigs"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        },
+        {
+          "name": {
+            "no": "Rødvin",
+            "en": "Red wine"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Buljong (okse)",
+            "en": "Beef broth"
+          },
+          "amount": 250,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Ta kjøttet ut av kjøleskapet 1 time før tilberedelse.",
+          "2. Salt og pepper det godt.",
+          "3. Heat smør i en stor gryte på høy varme.",
+          "4. Brun kjøttet på alle sider.",
+          "5. Fjern kjøttet og steik hvitløk og rosmarin.",
+          "6. Hell på rødvin og buljong.",
+          "7. Tilbakesett kjøttet og dekk.",
+          "8. Bak på 160°C i ca. 45-60 minutter for medium-rare.",
+          "9. La kjøttet hvile i 15 minutter.",
+          "10. Server med sprøllet hull, grønnsaker og saus fra pannen."
+        ],
+        "en": [
+          "1. Remove meat from refrigerator 1 hour before cooking.",
+          "2. Salt and pepper it well.",
+          "3. Heat butter in a large pot on high heat.",
+          "4. Brown meat on all sides.",
+          "5. Remove meat and fry garlic and rosemary.",
+          "6. Pour in red wine and broth.",
+          "7. Return meat and cover.",
+          "8. Bake at 160°C for about 45-60 minutes for medium-rare.",
+          "9. Let meat rest 15 minutes.",
+          "10. Serve with roasted vegetables and gravy from pan."
+        ]
+      }
+    },
+    {
+      "id": "hol_016",
+      "title": {
+        "no": "Beef Wellington",
+        "en": "Beef Wellington"
+      },
+      "subtitle": {
+        "no": "Mørbrad i butterdeig med sjampignonduxelles, en elegant festrett",
+        "en": "Beef fillet wrapped in puff pastry with mushroom duxelles, an elegant festive dish"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 75,
+      "servings": 4,
+      "category": "Beef & Red Meat",
+      "tags": [
+        "holiday",
+        "celebration",
+        "festive",
+        "cuisine:british"
+      ],
+      "allergens": [
+        "gluten",
+        "egg"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Indrefilet av oksekjøtt",
+            "en": "Beef fillet"
+          },
+          "amount": 700,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sjampignon (finhakket)",
+            "en": "Mushrooms (finely chopped)"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sjalottløk (finhakket)",
+            "en": "Shallots (finely chopped)"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Parmaskinke (skiver)",
+            "en": "Prosciutto (slices)"
+          },
+          "amount": 8,
+          "unit": {
+            "no": "skiver",
+            "en": "slices"
+          }
+        },
+        {
+          "name": {
+            "no": "Butterdeig",
+            "en": "Puff pastry"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "rull",
+            "en": "sheet"
+          }
+        },
+        {
+          "name": {
+            "no": "Dijonsennep",
+            "en": "Dijon mustard"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg (sammenpisket, til pensling)",
+            "en": "Egg (beaten, for brushing)"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Brun kjøttet raskt på alle sider i en svært varm panne, krydre og la avkjøles.",
+          "2. Pensle kjøttet med dijonsennep.",
+          "3. Surr sjampignon og sjalottløk til all væske har dampet av, og avkjøl duxellesen.",
+          "4. Legg parmaskinkeskiver overlappende på plastfolie, smør på duxellesen og legg kjøttet på toppen, rull tett og kjøl i 20 minutter.",
+          "5. Rull ut butterdeigen, legg den innpakkede filéten i midten og pakk inn deigen tett rundt.",
+          "6. Pensle med egg og stek i ovnen på 200°C i 25-30 minutter til deigen er gyllen.",
+          "7. La retten hvile i 10 minutter før den skjæres i skiver."
+        ],
+        "en": [
+          "1. Sear the beef quickly on all sides in a very hot pan, season, and let it cool.",
+          "2. Brush the beef with Dijon mustard.",
+          "3. Sauté the mushrooms and shallots until all liquid has evaporated, then cool the duxelles.",
+          "4. Lay overlapping slices of prosciutto on plastic wrap, spread the duxelles over it, place the beef on top, roll tightly, and chill for 20 minutes.",
+          "5. Roll out the puff pastry, place the wrapped fillet in the center, and fold the pastry snugly around it.",
+          "6. Brush with egg and bake in the oven at 200°C for 25-30 minutes until the pastry is golden.",
+          "7. Let the dish rest for 10 minutes before slicing."
+        ]
+      }
+    },
+    {
+      "id": "hol_020",
+      "title": {
+        "no": "Påskelammestek",
+        "en": "Easter Lamb Roast"
+      },
+      "subtitle": {
+        "no": "Helstekt lammelår med hvitløk og rosmarin til påskefeiring",
+        "en": "Whole roasted leg of lamb with garlic and rosemary for Easter celebration"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 120,
+      "servings": 6,
+      "category": "Beef & Red Meat",
+      "tags": [
+        "holiday",
+        "celebration",
+        "festive",
+        "easter",
+        "cuisine:nordic"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Lammelår (med bein)",
+            "en": "Leg of lamb (bone-in)"
+          },
+          "amount": 2000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk (i fedd)",
+            "en": "Garlic (cloves)"
+          },
+          "amount": 6,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Rosmarin (kvister)",
+            "en": "Rosemary (sprigs)"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "stengel",
+            "en": "sprigs"
+          }
+        },
+        {
+          "name": {
+            "no": "Olivenolje",
+            "en": "Olive oil"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Ta lammelåret ut av kjøleskapet i god tid før steking.",
+          "2. Skjær små snitt i kjøttet og stikk inn hvitløksfedd og rosmarinkvister.",
+          "3. Gni hele lammelåret med olivenolje, salt og pepper.",
+          "4. Brun lammelåret raskt på alle sider i en stekepanne eller stekeovn på høy varme.",
+          "5. Senk temperaturen til 160°C og fortsett stekingen til kjernetemperaturen er ca. 58-60°C for rosa kjøtt.",
+          "6. Ta kjøttet ut av ovnen og la det hvile tildekket med folie i 15 minutter.",
+          "7. Skjær i skiver på tvers av fibrene og server med stekesjyen."
+        ],
+        "en": [
+          "1. Take the leg of lamb out of the refrigerator well ahead of roasting.",
+          "2. Cut small slits in the meat and insert garlic cloves and rosemary sprigs.",
+          "3. Rub the whole leg of lamb with olive oil, salt, and pepper.",
+          "4. Sear the leg of lamb quickly on all sides in a hot pan or oven.",
+          "5. Lower the temperature to 160°C and continue roasting until the internal temperature reaches about 58-60°C for pink meat.",
+          "6. Remove the meat from the oven and let it rest covered with foil for 15 minutes.",
+          "7. Slice against the grain and serve with the pan juices."
+        ]
+      }
+    },
+    {
+      "id": "hol_035",
+      "title": {
+        "no": "Blomkål-Kartoffelgratin",
+        "en": "Cauliflower-Potato Gratin"
+      },
+      "subtitle": {
+        "no": "Gratin av blomkål og poteter",
+        "en": "Gratin of cauliflower and potatoes"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 50,
+      "servings": 6,
+      "category": "Beef & Red Meat",
+      "tags": [
+        "holiday",
+        "side",
+        "gratin",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "milk"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Blomkål",
+            "en": "Cauliflower"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Fløte",
+            "en": "Heavy cream"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Ost",
+            "en": "Cheese"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 40,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok blomkål og poteter",
+          "2. Lag lag i en form",
+          "3. Helle fløte over",
+          "4. Topp med ost",
+          "5. Bak på 200°C i 30 minutter"
+        ],
+        "en": [
+          "1. Cook cauliflower and potatoes",
+          "2. Layer in a baking dish",
+          "3. Pour cream over",
+          "4. Top with cheese",
+          "5. Bake at 200°C for 30 minutes"
+        ]
+      }
+    },
+    {
+      "id": "hol_040",
+      "title": {
+        "no": "Reinsdyrstek",
+        "en": "Reindeer Roast"
+      },
+      "subtitle": {
+        "no": "Stekt reinsdyrskjøtt",
+        "en": "Roasted reindeer meat"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 90,
+      "servings": 6,
+      "category": "Beef & Red Meat",
+      "tags": [
+        "holiday",
+        "traditional",
+        "celebration",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "meat"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Reinsdyr",
+            "en": "Reindeer"
+          },
+          "amount": 1200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Gulrot",
+            "en": "Carrot"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Rødvin",
+            "en": "Red wine"
+          },
+          "amount": 250,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Buljong",
+            "en": "Broth"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Brown kjøttet",
+          "2. Tilsett grønnsakene",
+          "3. Helle vin og buljong over",
+          "4. Dekk og brait i 60 minutter",
+          "5. Server med brun saus"
+        ],
+        "en": [
+          "1. Brown meat",
+          "2. Add vegetables",
+          "3. Pour wine and broth over",
+          "4. Cover and braise for 60 minutes",
+          "5. Serve with brown sauce"
+        ]
+      }
+    },
+    {
+      "id": "hol_041",
+      "title": {
+        "no": "Hjortestek",
+        "en": "Venison Roast"
+      },
+      "subtitle": {
+        "no": "Stekt hjortekjøtt med bær",
+        "en": "Roasted venison with berries"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 100,
+      "servings": 6,
+      "category": "Beef & Red Meat",
+      "tags": [
+        "holiday",
+        "elegant",
+        "game",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "meat"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Hjortekjøtt",
+            "en": "Venison"
+          },
+          "amount": 1200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Rødvin",
+            "en": "Red wine"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Ripsebær",
+            "en": "Redcurrants"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Rømme",
+            "en": "Sour cream"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Marinér kjøtt i rødvin",
+          "2. Brown kjøttet",
+          "3. Tilsett løk",
+          "4. Helle marinade over",
+          "5. Brait i 70 minutter",
+          "6. Tilsett ripsebær og rømme"
+        ],
+        "en": [
+          "1. Marinate meat in red wine",
+          "2. Brown meat",
+          "3. Add onion",
+          "4. Pour marinade over",
+          "5. Braise for 70 minutes",
+          "6. Add redcurrants and sour cream"
+        ]
+      }
+    },
+    {
+      "id": "hol_006",
+      "title": {
+        "no": "Påskebrød (Panartonone)",
+        "en": "Easter Bread"
+      },
+      "subtitle": {
+        "no": "Italiensk påske-panettone",
+        "en": "Italian Easter panettone"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 240,
+      "servings": 8,
+      "category": "Other",
+      "tags": [
+        "easter",
+        "bread",
+        "holiday",
+        "italian",
+        "cuisine:italian"
+      ],
+      "allergens": [
+        "gluten",
+        "dairy",
+        "eggs",
+        "nuts"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Mel",
+            "en": "Flour"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Gjær",
+            "en": "Yeast"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Eggs"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Rosiner",
+            "en": "Raisins"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Candita frukter",
+            "en": "Candied fruits"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Mandler (hele)",
+            "en": "Almonds (whole)"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Vaniljeekstrakt",
+            "en": "Vanilla extract"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Sitronskall",
+            "en": "Lemon zest"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Løs gjæren i lunkken vann med litt sukker.",
+          "2. Bland mel, gjær-blandingen, resten av sukker, egg og smør.",
+          "3. Trill deigen godt i 15 minutter.",
+          "4. La deigen heve i 2 timer under et handklæ.",
+          "5. Fold in rosiner, candita frukter, mandler, vaniljekstrakt og sitronskall.",
+          "6. La deigen heve igjen i 1 time.",
+          "7. Fordel i høye bakeplater.",
+          "8. Bak på 180°C i ca. 50-60 minutter.",
+          "9. Brødet skal være gyllent brunt når det er ferdig."
+        ],
+        "en": [
+          "1. Dissolve yeast in lukewarm water with a bit of sugar.",
+          "2. Mix flour, yeast mixture, remaining sugar, eggs and butter.",
+          "3. Knead dough well for 15 minutes.",
+          "4. Let dough rise 2 hours under towel.",
+          "5. Fold in raisins, candied fruits, almonds, vanilla extract and lemon zest.",
+          "6. Let dough rise again 1 hour.",
+          "7. Divide into tall baking pans.",
+          "8. Bake at 180°C for about 50-60 minutes.",
+          "9. Bread should be golden brown when done."
+        ]
+      }
+    },
+    {
+      "id": "hol_022",
+      "title": {
+        "no": "Julegrøt med Mandel",
+        "en": "Christmas Rice Porridge with Hidden Almond"
+      },
+      "subtitle": {
+        "no": "Tradisjonell risgrøt servert på julaften med en gjemt mandel for lykke",
+        "en": "Traditional rice porridge served on Christmas Eve with a hidden almond for luck"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 50,
+      "servings": 4,
+      "category": "Other",
+      "tags": [
+        "holiday",
+        "celebration",
+        "festive",
+        "christmas",
+        "cuisine:danish"
+      ],
+      "allergens": [
+        "dairy",
+        "nuts"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Grøtris",
+            "en": "Pudding rice"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 1200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "teskje",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Kanelsukker",
+            "en": "Cinnamon sugar"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Hel mandel",
+            "en": "Whole almond"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "klump",
+            "en": "knob"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok risen i vann i ca. 5 minutter til vannet er nesten kokt inn.",
+          "2. Tilsett melken og la grøten småkoke under omrøring i 30-35 minutter til risen er mør.",
+          "3. Rør innom jevnlig slik at grøten ikke setter seg fast i bunnen.",
+          "4. Tilsett salt og rør inn en klump smør mot slutten.",
+          "5. Skyll en hel mandel og legg den ned i grøten uten at noen ser hvor.",
+          "6. Hell grøten i serveringsskåler.",
+          "7. Strø kanelsukker over og server varm, den som finner mandelen får lykke det neste året."
+        ],
+        "en": [
+          "1. Boil the rice in water for about 5 minutes until the water is nearly absorbed.",
+          "2. Add the milk and let the porridge simmer while stirring for 30-35 minutes until the rice is tender.",
+          "3. Stir regularly so the porridge does not stick to the bottom of the pot.",
+          "4. Add salt and stir in a knob of butter toward the end.",
+          "5. Rinse a whole almond and hide it in the porridge without anyone seeing where.",
+          "6. Pour the porridge into serving bowls.",
+          "7. Sprinkle with cinnamon sugar and serve hot; whoever finds the almond gets good luck for the coming year."
+        ]
+      }
+    },
+    {
+      "id": "hol_033",
+      "title": {
+        "no": "Romarinpotet",
+        "en": "Rosemary Potatoes"
+      },
+      "subtitle": {
+        "no": "Stekte poteter med rosmarin",
+        "en": "Roasted potatoes with rosemary"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 45,
+      "servings": 6,
+      "category": "Other",
+      "tags": [
+        "holiday",
+        "side",
+        "vegetable",
+        "cuisine:nordic"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Rosmarin",
+            "en": "Rosemary"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Olje",
+            "en": "Olive oil"
+          },
+          "amount": 60,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Pepper",
+            "en": "Black pepper"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kutt poteter i små biter",
+          "2. Bland med olje og rosmarin",
+          "3. Fordel på bakeplett",
+          "4. Sterk på 200°C i 35-40 minutter"
+        ],
+        "en": [
+          "1. Cut potatoes into small pieces",
+          "2. Mix with oil and rosemary",
+          "3. Spread on baking sheet",
+          "4. Roast at 200°C for 35-40 minutes"
+        ]
+      }
+    },
+    {
+      "id": "hol_043",
+      "title": {
+        "no": "Ostefondue",
+        "en": "Cheese Fondue"
+      },
+      "subtitle": {
+        "no": "Tradisjonell sveitsisk ostefondue",
+        "en": "Traditional Swiss cheese fondue"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 6,
+      "category": "Other",
+      "tags": [
+        "holiday",
+        "cheese",
+        "appetizer",
+        "quick",
+        "cuisine:swiss"
+      ],
+      "allergens": [
+        "milk",
+        "wine",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Emmental",
+            "en": "Emmental cheese"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Gruyère",
+            "en": "Gruyère cheese"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitvin",
+            "en": "White wine"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Brød",
+            "en": "Bread cubes"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Riv osten",
+          "2. Heat vin i en fonduegryte",
+          "3. Tilsett ost gradvis",
+          "4. Stir til glatt",
+          "5. Server med brødkuber"
+        ],
+        "en": [
+          "1. Grate cheese",
+          "2. Heat wine in fondue pot",
+          "3. Add cheese gradually",
+          "4. Stir until smooth",
+          "5. Serve with bread cubes"
+        ]
+      }
+    },
+    {
+      "id": "hol_007",
+      "title": {
+        "no": "Grillet Fisk med Sommerkrydder",
+        "en": "Grilled Fish with Summer Herbs"
+      },
+      "subtitle": {
+        "no": "Sommerfest-klassiker",
+        "en": "Summer celebration classic"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Grill",
+      "tags": [
+        "summer",
+        "grilled",
+        "fish",
+        "festive",
+        "quick",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "fish"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Fiskéfiléer (torsk/sei)",
+            "en": "Fish fillets (cod/pollock)"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Olivenolje",
+            "en": "Olive oil"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Dill (frisk)",
+            "en": "Dill (fresh)"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "knippe",
+            "en": "bunches"
+          }
+        },
+        {
+          "name": {
+            "no": "Persille (frisk)",
+            "en": "Parsley (fresh)"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "knippe",
+            "en": "bunch"
+          }
+        },
+        {
+          "name": {
+            "no": "Sitron",
+            "en": "Lemon"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Varme opp grillen til medium-høy varme.",
+          "2. Gnid fisken med olivenolje, salt og pepper.",
+          "3. Legg dill og persille på grillen eller inne i fisken.",
+          "4. Grill fisken 4-5 minutter på hver side.",
+          "5. Server varmt med sitronskiver.",
+          "6. Garner med ferske krydder."
+        ],
+        "en": [
+          "1. Preheat grill to medium-high heat.",
+          "2. Rub fish with olive oil, salt and pepper.",
+          "3. Place dill and parsley on grill or inside fish.",
+          "4. Grill fish 4-5 minutes on each side.",
+          "5. Serve hot with lemon slices.",
+          "6. Garnish with fresh herbs."
+        ]
+      }
+    },
+    {
+      "id": "hol_009",
+      "title": {
+        "no": "Forrett: Gravlaks med Sennepssaus",
+        "en": "Starter: Gravlax with Mustard Sauce"
+      },
+      "subtitle": {
+        "no": "Elegant starter for festmåltider",
+        "en": "Elegant starter for festive meals"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 1440,
+      "servings": 8,
+      "category": "Fish & Seafood",
+      "tags": [
+        "starter",
+        "fish",
+        "elegant",
+        "holiday",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "fish"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Laks (ferskt filéer)",
+            "en": "Salmon (fresh fillets)"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 25,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 15,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Dill (frisk)",
+            "en": "Dill (fresh)"
+          },
+          "amount": 40,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Pepper (sort)",
+            "en": "Black pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Sennepe (Dijon)",
+            "en": "Mustard (Dijon)"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Honning",
+            "en": "Honey"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Olivenolje",
+            "en": "Olive oil"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland salt, sukker, dill og pepper.",
+          "2. Gnid blandingen inn i laksefilené.",
+          "3. Pakk inn og legg i kjøleskapet.",
+          "4. La det kurere i 24-48 timer.",
+          "5. For sausen: bland sennepe, honning og olivenolje.",
+          "6. Skjær gravlaksen i tynne skiver.",
+          "7. Server med brød og sennepssausen.",
+          "8. Garner med frisk dill."
+        ],
+        "en": [
+          "1. Mix salt, sugar, dill and pepper.",
+          "2. Rub mixture into salmon fillet.",
+          "3. Wrap and place in refrigerator.",
+          "4. Let cure 24-48 hours.",
+          "5. For sauce: mix mustard, honey and olive oil.",
+          "6. Slice gravlax thinly.",
+          "7. Serve with bread and mustard sauce.",
+          "8. Garnish with fresh dill."
+        ]
+      }
+    },
+    {
+      "id": "hol_014",
+      "title": {
+        "no": "Lutefisk",
+        "en": "Lutefisk"
+      },
+      "subtitle": {
+        "no": "Tradisjonell lutbehandlet fisk, en klassisk julerett i Norge",
+        "en": "Traditional lye-treated fish, a classic Christmas dish in Norway"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 40,
+      "servings": 4,
+      "category": "Fish & Seafood",
+      "tags": [
+        "holiday",
+        "celebration",
+        "festive",
+        "christmas",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "fish"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Lutefisk (utvannet, ferdig til tilberedning)",
+            "en": "Lutefisk (soaked, ready to cook)"
+          },
+          "amount": 1000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "teskjeer",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Bacon (i skiver)",
+            "en": "Bacon (sliced)"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Erter (grønne, kokte)",
+            "en": "Peas (green, cooked)"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kokte potet",
+            "en": "Potatoes (boiled)"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Legg lutefisken med skinnsiden ned i en ildfast form og salt lett.",
+          "2. Stek bacon i en stekepanne til den er sprø, sett til side.",
+          "3. Sett formen i en forvarmet ovn på 225°C og stek i 20-25 minutter til fisken er gjennomvarm og fast.",
+          "4. Kok potetene møre i lettsaltet vann mens fisken steker.",
+          "5. Varm erter og smelt smøret separat.",
+          "6. Hell av overskytende vann fra fisken før servering.",
+          "7. Server lutefisken med smeltet smør, bacon, erter og kokte poteter."
+        ],
+        "en": [
+          "1. Place the lutefisk skin-side down in a baking dish and salt lightly.",
+          "2. Fry the bacon in a pan until crisp, then set aside.",
+          "3. Bake in a preheated oven at 225°C for 20-25 minutes until the fish is heated through and firm.",
+          "4. Boil the potatoes in lightly salted water while the fish bakes.",
+          "5. Warm the peas and melt the butter separately.",
+          "6. Drain off any excess liquid from the fish before serving.",
+          "7. Serve the lutefisk with melted butter, bacon, peas, and boiled potatoes."
+        ]
+      }
+    },
+    {
+      "id": "hol_039",
+      "title": {
+        "no": "Fisk Aluette",
+        "en": "Fish Roulade"
+      },
+      "subtitle": {
+        "no": "Rullet fisk med fyll",
+        "en": "Rolled fish with filling"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 40,
+      "servings": 4,
+      "category": "Fish & Seafood",
+      "tags": [
+        "holiday",
+        "elegant",
+        "seafood",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "fish",
+        "wheat"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Fiskfilé",
+            "en": "Fish fillet"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 60,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Brød",
+            "en": "Bread crumbs"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Egg"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Lag fyll med smør og løk",
+          "2. Legg fyll på fiskfilé",
+          "3. Rull tett",
+          "4. Bind med tråd",
+          "5. Sterk i pannen",
+          "6. Bak på 175°C i 20 minutter"
+        ],
+        "en": [
+          "1. Make filling with butter and onion",
+          "2. Place filling on fish",
+          "3. Roll tightly",
+          "4. Tie with string",
+          "5. Sear in pan",
+          "6. Bake at 175°C for 20 minutes"
+        ]
+      }
+    },
+    {
+      "id": "hol_013",
+      "title": {
+        "no": "Juleskinke",
+        "en": "Christmas Ham"
+      },
+      "subtitle": {
+        "no": "Saltet og glasert juleskinke, en norsk juletradisjon",
+        "en": "Cured and glazed Christmas ham, a Norwegian holiday tradition"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 180,
+      "servings": 8,
+      "category": "Pork",
+      "tags": [
+        "holiday",
+        "celebration",
+        "festive",
+        "christmas",
+        "cuisine:nordic"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Skinke (saltet, med svor)",
+            "en": "Ham (cured, with rind)"
+          },
+          "amount": 3000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sennep (grov)",
+            "en": "Mustard (coarse)"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Brunt sukker",
+            "en": "Brown sugar"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Nellik (hel)",
+            "en": "Cloves (whole)"
+          },
+          "amount": 15,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "liter",
+            "en": "liter"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Legg skinken i en stor gryte med vann og kok opp.",
+          "2. Skum av urenheter og la skinken trekke på svak varme i ca. 2 timer.",
+          "3. Ta skinken ut og la den avkjøles litt, fjern svoren forsiktig med en skarp kniv.",
+          "4. Skjær rutemønster i fettlaget og press inn nellik i hvert kryss.",
+          "5. Bland sennep og brunt sukker, og smør blandingen jevnt over skinken.",
+          "6. Stek i ovnen på 200°C i 20-25 minutter til glasuren er gyllenbrun.",
+          "7. La skinken hvile i 15 minutter før den skjæres i tynne skiver."
+        ],
+        "en": [
+          "1. Place the ham in a large pot with water and bring to a boil.",
+          "2. Skim off any foam and let the ham simmer gently for about 2 hours.",
+          "3. Remove the ham and let it cool slightly, then carefully trim away the rind with a sharp knife.",
+          "4. Score a diamond pattern into the fat layer and press a clove into each intersection.",
+          "5. Mix the mustard and brown sugar and spread the mixture evenly over the ham.",
+          "6. Roast in the oven at 200°C for 20-25 minutes until the glaze turns golden brown.",
+          "7. Let the ham rest for 15 minutes before slicing thinly."
+        ]
+      }
+    },
+    {
+      "id": "hol_018",
+      "title": {
+        "no": "Prime Rib Stek",
+        "en": "Prime Rib Roast"
+      },
+      "subtitle": {
+        "no": "Saftig helstekt ribbestek av oksekjøtt med urtekrydring, perfekt til fest",
+        "en": "Juicy whole roasted beef rib roast with herb seasoning, perfect for celebrations"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 150,
+      "servings": 6,
+      "category": "Pork",
+      "tags": [
+        "holiday",
+        "celebration",
+        "festive"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Ribbestek av okse (med bein)",
+            "en": "Beef rib roast (bone-in)"
+          },
+          "amount": 2500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk (finhakket)",
+            "en": "Garlic (minced)"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør (mykt)",
+            "en": "Butter (soft)"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Rosmarin (finhakket)",
+            "en": "Rosemary (chopped)"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Ta kjøttet ut av kjøleskapet minst 1 time før steking slik at det blir romtemperert.",
+          "2. Bland smør, hvitløk, rosmarin, salt og pepper til en pasta.",
+          "3. Gni pastaen jevnt over hele kjøttstykket.",
+          "4. Stek kjøttet i ovnen på 220°C i 20 minutter for å få en god stekeskorpe.",
+          "5. Senk temperaturen til 150°C og fortsett stekingen til kjernetemperaturen viser ønsket stekegrad (ca. 54°C for rosa).",
+          "6. Ta kjøttet ut og la det hvile tildekket i minst 20 minutter.",
+          "7. Skjær i tykke skiver og server med stekesjy."
+        ],
+        "en": [
+          "1. Take the meat out of the refrigerator at least 1 hour before roasting so it reaches room temperature.",
+          "2. Mix butter, garlic, rosemary, salt, and pepper into a paste.",
+          "3. Rub the paste evenly over the entire roast.",
+          "4. Roast the meat in the oven at 220°C for 20 minutes to develop a good crust.",
+          "5. Lower the temperature to 150°C and continue roasting until the internal temperature reaches the desired level (about 54°C for medium-rare).",
+          "6. Remove the meat and let it rest covered for at least 20 minutes.",
+          "7. Slice into thick pieces and serve with the pan juices."
+        ]
+      }
+    },
+    {
+      "id": "hol_024",
+      "title": {
+        "no": "Stekt Svinekam med Sennepsskorpe",
+        "en": "Roast Pork Loin with Mustard Crust"
+      },
+      "subtitle": {
+        "no": "Saltet svinekam med en sprø skorpe av sennep og brødsmuler til jul",
+        "en": "Cured pork loin with a crispy mustard and breadcrumb crust for Christmas"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 100,
+      "servings": 6,
+      "category": "Pork",
+      "tags": [
+        "holiday",
+        "celebration",
+        "festive",
+        "christmas",
+        "cuisine:german"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Svinekam (saltet, med svor)",
+            "en": "Pork loin (cured, with rind)"
+          },
+          "amount": 2000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Dijonsennep",
+            "en": "Dijon mustard"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Brødsmuler",
+            "en": "Breadcrumbs"
+          },
+          "amount": 80,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Persille (finhakket)",
+            "en": "Parsley (finely chopped)"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør (smeltet)",
+            "en": "Butter (melted)"
+          },
+          "amount": 40,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skjær rutemønster i svoren på svinekammen med en skarp kniv.",
+          "2. Gni kjøttet med salt og pepper og stek i ovnen på 180°C i ca. 1 time.",
+          "3. Bland brødsmuler, persille og smeltet smør til en smuldrete blanding.",
+          "4. Ta kjøttet ut og pensle svoren med dijonsennep.",
+          "5. Press brødsmulerblandingen jevnt over sennepslaget.",
+          "6. Sett kjøttet tilbake i ovnen og stek videre i 20-25 minutter til skorpen er gyllen og sprø.",
+          "7. La svinekammen hvile i 10 minutter før den skjæres i skiver."
+        ],
+        "en": [
+          "1. Score a diamond pattern into the rind of the pork loin with a sharp knife.",
+          "2. Rub the meat with salt and pepper and roast in the oven at 180°C for about 1 hour.",
+          "3. Mix the breadcrumbs, parsley, and melted butter into a crumbly mixture.",
+          "4. Remove the meat and brush the rind with Dijon mustard.",
+          "5. Press the breadcrumb mixture evenly over the mustard layer.",
+          "6. Return the meat to the oven and continue roasting for 20-25 minutes until the crust is golden and crispy.",
+          "7. Let the pork loin rest for 10 minutes before slicing."
+        ]
+      }
+    },
+    {
+      "id": "hol_026",
+      "title": {
+        "no": "Juleskinke",
+        "en": "Christmas Ham"
+      },
+      "subtitle": {
+        "no": "Glassert skinke med honning og sennepe",
+        "en": "Glazed ham with honey and mustard"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 180,
+      "servings": 12,
+      "category": "Pork",
+      "tags": [
+        "holiday",
+        "traditional",
+        "celebration",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "meat",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Skinke",
+            "en": "Ham"
+          },
+          "amount": 3000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Honning",
+            "en": "Honey"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sennepe",
+            "en": "Mustard"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kryddernellik",
+            "en": "Cloves"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Brød",
+            "en": "Bread crumbs"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skrell skinken",
+          "2. Lag en glasur med honning og sennepe",
+          "3. Påfør glasuren",
+          "4. Bak på 180°C i 2 timer",
+          "5. Server varm"
+        ],
+        "en": [
+          "1. Peel ham",
+          "2. Make glaze with honey and mustard",
+          "3. Apply glaze",
+          "4. Bake at 180°C for 2 hours",
+          "5. Serve warm"
+        ]
+      }
+    },
+    {
+      "id": "hol_046",
+      "title": {
+        "no": "Ribbe",
+        "en": "Roasted Pork Ribs"
+      },
+      "subtitle": {
+        "no": "Stekt ribbe med sprø svarte",
+        "en": "Roasted ribs with crispy skin"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 180,
+      "servings": 8,
+      "category": "Pork",
+      "tags": [
+        "holiday",
+        "traditional",
+        "celebration",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "meat"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Ribbe",
+            "en": "Pork ribs"
+          },
+          "amount": 2000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Pepper",
+            "en": "Black pepper"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Karve",
+            "en": "Caraway"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Riller ribben på flere steder",
+          "2. Krydre godt",
+          "3. Hell vann i stekepanne",
+          "4. Bak på 170°C i 2-2,5 timer",
+          "5. Server varmt"
+        ],
+        "en": [
+          "1. Score the ribs in several places",
+          "2. Season well",
+          "3. Add water to roasting pan",
+          "4. Roast at 170°C for 2-2.5 hours",
+          "5. Serve hot"
+        ]
+      }
+    },
+    {
+      "id": "hol_023",
+      "title": {
+        "no": "Festkjøttboller i Kremsaus",
+        "en": "Festive Meatballs in Cream Sauce"
+      },
+      "subtitle": {
+        "no": "Store, krydrede kjøttboller i en rik og kremet saus, perfekt julerett",
+        "en": "Large, well-seasoned meatballs in a rich and creamy sauce, a perfect holiday dish"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 50,
+      "servings": 4,
+      "category": "Ground Meat & Sausages",
+      "tags": [
+        "holiday",
+        "celebration",
+        "festive",
+        "christmas",
+        "cuisine:swedish"
+      ],
+      "allergens": [
+        "dairy",
+        "egg",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kjøttdeig (blandet kjøtt)",
+            "en": "Ground meat (mixed)"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk (finhakket)",
+            "en": "Onion (finely chopped)"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Egg"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
+        },
+        {
+          "name": {
+            "no": "Brødsmuler",
+            "en": "Breadcrumbs"
+          },
+          "amount": 60,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Muskat og ingefær",
+            "en": "Nutmeg and ginger"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "teskje hver",
+            "en": "tsp each"
+          }
+        },
+        {
+          "name": {
+            "no": "Kremfløte",
+            "en": "Heavy cream"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Buljong",
+            "en": "Broth"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland kjøttdeig, løk, egg, brødsmuler, muskat og ingefær til en jevn farse.",
+          "2. Form farsen til store kjøttboller med våte hender.",
+          "3. Brun kjøttbollene i en panne i smør til de har fin farge på alle sider.",
+          "4. Ta kjøttbollene ut og hell buljong og kremfløte i pannen, rør ut stekeskorpen.",
+          "5. La sausen koke opp og småkoke til den tykner litt.",
+          "6. Legg kjøttbollene tilbake i sausen og la dem trekke videre i 15-20 minutter.",
+          "7. Smak til med salt og pepper og server varmt med kokte poteter eller tyttebærsyltetøy."
+        ],
+        "en": [
+          "1. Mix the ground meat, onion, egg, breadcrumbs, nutmeg, and ginger into an even mixture.",
+          "2. Shape the mixture into large meatballs with wet hands.",
+          "3. Brown the meatballs in a pan with butter until nicely colored on all sides.",
+          "4. Remove the meatballs and pour the broth and cream into the pan, stirring up the browned bits.",
+          "5. Bring the sauce to a boil and let it simmer until it thickens slightly.",
+          "6. Return the meatballs to the sauce and let them simmer further for 15-20 minutes.",
+          "7. Season with salt and pepper and serve hot with boiled potatoes or lingonberry jam."
+        ]
+      }
+    },
+    {
+      "id": "hol_032",
+      "title": {
+        "no": "Levekål",
+        "en": "Cabbage with Meatballs"
+      },
+      "subtitle": {
+        "no": "Tradisjonell rett med kål og kjøttkaker",
+        "en": "Traditional dish with cabbage and meatballs"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 70,
+      "servings": 6,
+      "category": "Ground Meat & Sausages",
+      "tags": [
+        "holiday",
+        "traditional",
+        "comfort",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "meat",
+        "wheat"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kål",
+            "en": "Cabbage"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kjøtt",
+            "en": "Ground beef"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Brød",
+            "en": "Bread crumbs"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Egg"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skjær kål i strimler",
+          "2. Bland kjøtt med løk og brød",
+          "3. Former kjøttkaker",
+          "4. Lag lag av kål og kjøttkaker",
+          "5. Kok i 50 minutter"
+        ],
+        "en": [
+          "1. Cut cabbage into strips",
+          "2. Mix meat with onion and bread",
+          "3. Form meatballs",
+          "4. Layer cabbage and meatballs",
+          "5. Cook for 50 minutes"
+        ]
+      }
+    },
+    {
+      "id": "hol_047",
+      "title": {
+        "no": "Medisterkaker",
+        "en": "Pork Patties"
+      },
+      "subtitle": {
+        "no": "Tradisjonelle norske medisterkaker",
+        "en": "Traditional Norwegian pork patties"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 30,
+      "servings": 6,
+      "category": "Ground Meat & Sausages",
+      "tags": [
+        "holiday",
+        "traditional",
+        "comfort",
+        "quick",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "meat",
+        "wheat"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kjøtt",
+            "en": "Ground pork"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Fløte",
+            "en": "Heavy cream"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Brød",
+            "en": "Bread crumbs"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Egg"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland kjøtt med fløte",
+          "2. Tilsett hakket løk og brød",
+          "3. Former flatbrød-formede kaker",
+          "4. Sterk i pannen på 6-7 minutter hver side",
+          "5. Server med løk"
+        ],
+        "en": [
+          "1. Mix meat with cream",
+          "2. Add chopped onion and bread",
+          "3. Form flatbread-shaped patties",
+          "4. Fry in pan for 6-7 minutes per side",
+          "5. Serve with onion"
+        ]
+      }
+    },
+    {
+      "id": "hol_034",
+      "title": {
+        "no": "Rød Kål",
+        "en": "Red Cabbage"
+      },
+      "subtitle": {
+        "no": "Stuing av rød kål med eple",
+        "en": "Red cabbage stew with apple"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 40,
+      "servings": 6,
+      "category": "Soups & Stews",
+      "tags": [
+        "holiday",
+        "side",
+        "vegetable",
+        "cuisine:german"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Rød kål",
+            "en": "Red cabbage"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Eple",
+            "en": "Apple"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Eddik",
+            "en": "Vinegar"
+          },
+          "amount": 60,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skjær kål i strimler",
+          "2. Skjær eple i biter",
+          "3. Heat smør",
+          "4. Tilsett kål og eple",
+          "5. Helle eddik og sukker over",
+          "6. Kok i 30 minutter"
+        ],
+        "en": [
+          "1. Cut cabbage into strips",
+          "2. Cut apple into pieces",
+          "3. Heat butter",
+          "4. Add cabbage and apple",
+          "5. Pour vinegar and sugar over",
+          "6. Cook for 30 minutes"
+        ]
+      }
+    },
+    {
+      "id": "hol_036",
+      "title": {
+        "no": "Sopp Stuing",
+        "en": "Mushroom Stew"
+      },
+      "subtitle": {
+        "no": "Stuing av forskjellige sopp",
+        "en": "Stew with various mushrooms"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 40,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "holiday",
+        "vegetarian",
+        "side",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "milk"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Sopp",
+            "en": "Mixed mushrooms"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Fløte",
+            "en": "Heavy cream"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 40,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skjær sopp",
+          "2. Heat smør",
+          "3. Sauté løk og hvitløk",
+          "4. Tilsett sopp",
+          "5. Kok i 20 minutter",
+          "6. Tilsett fløte"
+        ],
+        "en": [
+          "1. Slice mushrooms",
+          "2. Heat butter",
+          "3. Sauté onion and garlic",
+          "4. Add mushrooms",
+          "5. Cook for 20 minutes",
+          "6. Add cream"
+        ]
+      }
+    },
+    {
+      "id": "hol_038",
+      "title": {
+        "no": "Brennesølsuppe",
+        "en": "Nettle Soup"
+      },
+      "subtitle": {
+        "no": "Tradisjonell grønn suppe",
+        "en": "Traditional green soup"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "holiday",
+        "traditional",
+        "soup",
+        "quick",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "milk"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Brennesølblader",
+            "en": "Nettle leaves"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kjøttbuljong",
+            "en": "Beef broth"
+          },
+          "amount": 1000,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Fløte",
+            "en": "Cream"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok poteter og løk",
+          "2. Tilsett brennesølblader",
+          "3. Kok i 15 minutter",
+          "4. Blend til glatt",
+          "5. Tilsett fløte"
+        ],
+        "en": [
+          "1. Cook potatoes and onion",
+          "2. Add nettle leaves",
+          "3. Cook for 15 minutes",
+          "4. Blend until smooth",
+          "5. Add cream"
+        ]
+      }
+    },
+    {
+      "id": "hol_037",
+      "title": {
+        "no": "Syltede Agurker",
+        "en": "Pickled Cucumbers"
+      },
+      "subtitle": {
+        "no": "Marinert agurk og dill",
+        "en": "Marinated cucumber and dill"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 1440,
+      "servings": 8,
+      "category": "Sides & Light Meals",
+      "tags": [
+        "holiday",
+        "condiment",
+        "preserved",
+        "cuisine:nordic"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Agurk",
+            "en": "Cucumber"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Eddik",
+            "en": "Vinegar"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Dill",
+            "en": "Dill"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skjær agurker",
+          "2. Lag en lake med eddik, vann og sukker",
+          "3. Tilsett dill",
+          "4. Legg agurk i krukke",
+          "5. Hell lake over",
+          "6. La stå 24 timer før servering"
+        ],
+        "en": [
+          "1. Cut cucumbers",
+          "2. Make brine with vinegar, water and sugar",
+          "3. Add dill",
+          "4. Place cucumber in jar",
+          "5. Pour brine over",
+          "6. Let sit 24 hours before serving"
+        ]
+      }
+    },
+    {
+      "id": "hol_045",
+      "title": {
+        "no": "Vinterkastrull",
+        "en": "Winter Vegetable Medley"
+      },
+      "subtitle": {
+        "no": "Blanding av vinterns grønnsakar",
+        "en": "Mix of winter vegetables"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 40,
+      "servings": 6,
+      "category": "Sides & Light Meals",
+      "tags": [
+        "holiday",
+        "side",
+        "vegetable",
+        "cuisine:nordic"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kålrot",
+            "en": "Rutabaga"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Pastinak",
+            "en": "Parsnip"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Gulerøtter",
+            "en": "Carrots"
+          },
+          "amount": 250,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Timian",
+            "en": "Thyme"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skjær alle grønnsakene",
+          "2. Kok til møre",
+          "3. Dren",
+          "4. Tilsett smør og timian",
+          "5. Server varmt"
+        ],
+        "en": [
+          "1. Cut all vegetables",
+          "2. Cook until tender",
+          "3. Drain",
+          "4. Add butter and thyme",
+          "5. Serve warm"
+        ]
+      }
+    },
+    {
+      "id": "hol_052",
+      "title": {
+        "no": "Vintergrønnsakssalat",
+        "en": "Winter Vegetable Salad"
+      },
+      "subtitle": {
+        "no": "Salat med rødbeter og kål",
+        "en": "Salad with beets and cabbage"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 6,
+      "category": "Salads",
+      "tags": [
+        "holiday",
+        "salad",
+        "vegetable",
+        "quick",
+        "cuisine:nordic"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Rødbeter",
+            "en": "Beets"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kål",
+            "en": "Cabbage"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Gulrot",
+            "en": "Carrot"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Eddik",
+            "en": "Vinegar"
+          },
+          "amount": 60,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Olje",
+            "en": "Oil"
+          },
+          "amount": 60,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok rødbeter",
+          "2. Skjær alle grønnsakene",
+          "3. Lag en dressing med eddik og olje",
+          "4. Bland",
+          "5. La stå i kjøleskapet før servering"
+        ],
+        "en": [
+          "1. Cook beets",
+          "2. Cut all vegetables",
+          "3. Make dressing with vinegar and oil",
+          "4. Mix",
+          "5. Let sit in refrigerator before serving"
+        ]
+      }
+    }
+  ]
+}

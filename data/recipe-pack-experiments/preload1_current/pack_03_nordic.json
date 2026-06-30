@@ -3197,8 +3197,7 @@
       "tags": [
         "sausage",
         "traditional",
-        "savory",
-        "cuisine:nordic"
+        "savory"
       ],
       "allergens": [
         "meat",
@@ -3317,8 +3316,7 @@
       "tags": [
         "pork",
         "sausage",
-        "comfort food",
-        "cuisine:nordic"
+        "comfort food"
       ],
       "allergens": [
         "meat",
@@ -3426,8 +3424,7 @@
       "tags": [
         "cured",
         "traditional",
-        "charcuterie",
-        "cuisine:nordic"
+        "charcuterie"
       ],
       "allergens": [
         "meat",
@@ -3536,8 +3533,7 @@
         "cookies",
         "seeds",
         "crispy",
-        "quick",
-        "cuisine:nordic"
+        "quick"
       ],
       "allergens": [
         "wheat",
@@ -3646,8 +3642,7 @@
       "tags": [
         "bread",
         "rye",
-        "traditional",
-        "cuisine:nordic"
+        "traditional"
       ],
       "allergens": [
         "wheat",
@@ -3760,8 +3755,7 @@
       "tags": [
         "soup",
         "potatoes",
-        "comfort food",
-        "cuisine:nordic"
+        "comfort food"
       ],
       "allergens": [
         "milk"
@@ -4123,8 +4117,7 @@
       "tags": [
         "vegetables",
         "comfort food",
-        "traditional",
-        "cuisine:nordic"
+        "traditional"
       ],
       "allergens": [],
       "ingredients": [
@@ -4218,8 +4211,7 @@
       "tags": [
         "vegetarian",
         "comfort food",
-        "stew",
-        "cuisine:nordic"
+        "stew"
       ],
       "allergens": [
         "milk"
@@ -4342,8 +4334,7 @@
         "vegetables",
         "side dish",
         "healthy",
-        "quick",
-        "cuisine:nordic"
+        "quick"
       ],
       "allergens": [
         "milk"
@@ -4464,8 +4455,7 @@
         "vegetables",
         "side dish",
         "puree",
-        "quick",
-        "cuisine:nordic"
+        "quick"
       ],
       "allergens": [
         "milk"
@@ -4572,8 +4562,7 @@
       "tags": [
         "vegetables",
         "side dish",
-        "traditional",
-        "cuisine:nordic"
+        "traditional"
       ],
       "allergens": [
         "milk"
@@ -4672,8 +4661,7 @@
         "vegetables",
         "roasted",
         "healthy",
-        "quick",
-        "cuisine:nordic"
+        "quick"
       ],
       "allergens": [],
       "ingredients": [
@@ -4767,8 +4755,7 @@
       "tags": [
         "vegetables",
         "side dish",
-        "quick",
-        "cuisine:nordic"
+        "quick"
       ],
       "allergens": [
         "milk"
@@ -4866,8 +4853,7 @@
       "tags": [
         "vegetables",
         "stew",
-        "comfort food",
-        "cuisine:nordic"
+        "comfort food"
       ],
       "allergens": [],
       "ingredients": [

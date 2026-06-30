@@ -1087,7 +1087,14 @@ def settings_page():
             with open(path, 'r', encoding='utf-8') as f:
                 raw_cats = json.load(f)
             lang = _get_lang()
+            # Skip pack-name pseudo-categories (imported: true) here too -
+            # same reasoning as /api/categories: recipes never carry one of
+            # these as their actual category anymore (see B4b), so showing
+            # them in the manage-categories list would let an owner try to
+            # rename/merge/delete something that was never a real category.
             for cat in raw_cats:
+                if cat.get('imported'):
+                    continue
                 translated = dict(cat)
                 translated['name'] = cat.get(f'name_{lang}') or cat.get('name_en') or cat.get('code')
                 categories.append(translated)
@@ -1772,13 +1779,12 @@ def api_regenerate():
         return jsonify({'status': 'error', 'message': str(e)}), 500
 
 def _sort_categories(categories):
-    """Favorites always sorts first; imported recipe-pack categories always
-    sort to the bottom; everything else in between is alphabetical by
+    """Favorites always sorts first; everything else is alphabetical by
     display name."""
     def sort_key(c):
         if c.get('code') == 'favorites':
             return (-1, '')
-        return (1 if c.get('imported') else 0, c.get('name', c.get('name_en', '')).lower())
+        return (0, c.get('name', c.get('name_en', '')).lower())
     return sorted(categories, key=sort_key)
 
 @app.route('/api/categories')
@@ -1805,8 +1811,15 @@ def get_categories():
         try:
             with open(categories_file, 'r', encoding='utf-8') as f:
                 raw_cats = json.load(f)
-                # Translate to current language
+                # Translate to current language. Skip pack-name pseudo-categories
+                # (imported: true) - recipes now keep their own real dish-type
+                # category through import (see B4b), so a recipe can never have
+                # one of these as its category anymore. Selecting one in the
+                # dropdown would always show an empty list, which is confusing -
+                # better to not offer it at all than show a dead-end option.
                 for cat in raw_cats:
+                    if cat.get('imported'):
+                        continue
                     translated = dict(cat)
                     # Add 'name' field with the translated category name
                     translated['name'] = cat.get(f'name_{lang}') or cat.get('name_en') or cat.get('code')

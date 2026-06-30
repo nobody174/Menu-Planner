@@ -283,8 +283,7 @@
         "chicken",
         "tropical",
         "summer",
-        "quick",
-        "cuisine:american"
+        "quick"
       ],
       "allergens": [],
       "ingredients": [
@@ -1119,8 +1118,7 @@
         "crab",
         "seafood",
         "luxury",
-        "quick",
-        "cuisine:american"
+        "quick"
       ],
       "allergens": [
         "shellfish"
@@ -1957,8 +1955,7 @@
         "fresh",
         "light",
         "grilled",
-        "quick",
-        "cuisine:italian"
+        "quick"
       ],
       "allergens": [
         "dairy"
@@ -2202,8 +2199,7 @@
         "fresh",
         "light",
         "grilled",
-        "quick",
-        "cuisine:greek"
+        "quick"
       ],
       "allergens": [
         "dairy"
@@ -2598,8 +2594,7 @@
         "summer",
         "fresh",
         "light",
-        "quick",
-        "cuisine:italian"
+        "quick"
       ],
       "allergens": [
         "gluten"
@@ -2732,8 +2727,7 @@
         "fresh",
         "light",
         "grilled",
-        "quick",
-        "cuisine:american"
+        "quick"
       ],
       "allergens": [],
       "ingredients": [
@@ -2861,8 +2855,7 @@
       "category": "Grill",
       "tags": [
         "summer",
-        "grilled",
-        "cuisine:american"
+        "grilled"
       ],
       "allergens": [],
       "ingredients": [
@@ -2992,8 +2985,7 @@
         "summer",
         "fresh",
         "light",
-        "quick",
-        "cuisine:greek"
+        "quick"
       ],
       "allergens": [
         "dairy"
@@ -3370,8 +3362,7 @@
         "fresh",
         "light",
         "grilled",
-        "quick",
-        "cuisine:american"
+        "quick"
       ],
       "allergens": [
         "fish",

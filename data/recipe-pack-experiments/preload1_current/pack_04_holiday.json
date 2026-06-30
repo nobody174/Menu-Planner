@@ -159,8 +159,7 @@
         "easter",
         "lamb",
         "holiday",
-        "festive",
-        "cuisine:nordic"
+        "festive"
       ],
       "allergens": [],
       "ingredients": [
@@ -448,8 +447,7 @@
         "grilled",
         "fish",
         "festive",
-        "quick",
-        "cuisine:nordic"
+        "quick"
       ],
       "allergens": [
         "fish"
@@ -686,8 +684,7 @@
         "starter",
         "fish",
         "elegant",
-        "holiday",
-        "cuisine:nordic"
+        "holiday"
       ],
       "allergens": [
         "fish"
@@ -823,8 +820,7 @@
         "holiday",
         "celebration",
         "festive",
-        "christmas",
-        "cuisine:nordic"
+        "christmas"
       ],
       "allergens": [],
       "ingredients": [
@@ -923,8 +919,7 @@
         "holiday",
         "celebration",
         "festive",
-        "christmas",
-        "cuisine:nordic"
+        "christmas"
       ],
       "allergens": [
         "fish"
@@ -1036,8 +1031,7 @@
         "holiday",
         "celebration",
         "festive",
-        "christmas",
-        "cuisine:danish"
+        "christmas"
       ],
       "allergens": [],
       "ingredients": [
@@ -1146,8 +1140,7 @@
       "tags": [
         "holiday",
         "celebration",
-        "festive",
-        "cuisine:british"
+        "festive"
       ],
       "allergens": [
         "gluten",
@@ -1271,8 +1264,7 @@
         "holiday",
         "celebration",
         "festive",
-        "christmas",
-        "cuisine:danish"
+        "christmas"
       ],
       "allergens": [],
       "ingredients": [
@@ -1480,8 +1472,7 @@
         "holiday",
         "celebration",
         "festive",
-        "easter",
-        "cuisine:nordic"
+        "easter"
       ],
       "allergens": [],
       "ingredients": [
@@ -1689,8 +1680,7 @@
         "holiday",
         "celebration",
         "festive",
-        "christmas",
-        "cuisine:danish"
+        "christmas"
       ],
       "allergens": [
         "dairy",
@@ -1814,8 +1804,7 @@
         "holiday",
         "celebration",
         "festive",
-        "christmas",
-        "cuisine:swedish"
+        "christmas"
       ],
       "allergens": [
         "dairy",
@@ -1940,8 +1929,7 @@
         "holiday",
         "celebration",
         "festive",
-        "christmas",
-        "cuisine:german"
+        "christmas"
       ],
       "allergens": [
         "gluten"
@@ -2150,8 +2138,7 @@
       "tags": [
         "holiday",
         "traditional",
-        "celebration",
-        "cuisine:nordic"
+        "celebration"
       ],
       "allergens": [
         "meat",
@@ -2248,8 +2235,7 @@
       "tags": [
         "holiday",
         "traditional",
-        "comfort",
-        "cuisine:nordic"
+        "comfort"
       ],
       "allergens": [
         "meat",
@@ -2346,8 +2332,7 @@
       "tags": [
         "holiday",
         "side",
-        "vegetable",
-        "cuisine:nordic"
+        "vegetable"
       ],
       "allergens": [],
       "ingredients": [
@@ -2439,8 +2424,7 @@
       "tags": [
         "holiday",
         "side",
-        "vegetable",
-        "cuisine:german"
+        "vegetable"
       ],
       "allergens": [],
       "ingredients": [
@@ -2536,8 +2520,7 @@
       "tags": [
         "holiday",
         "side",
-        "gratin",
-        "cuisine:nordic"
+        "gratin"
       ],
       "allergens": [
         "milk"
@@ -2633,8 +2616,7 @@
       "tags": [
         "holiday",
         "vegetarian",
-        "side",
-        "cuisine:nordic"
+        "side"
       ],
       "allergens": [
         "milk"
@@ -2732,8 +2714,7 @@
       "tags": [
         "holiday",
         "condiment",
-        "preserved",
-        "cuisine:nordic"
+        "preserved"
       ],
       "allergens": [],
       "ingredients": [
@@ -2830,8 +2811,7 @@
         "holiday",
         "traditional",
         "soup",
-        "quick",
-        "cuisine:nordic"
+        "quick"
       ],
       "allergens": [
         "milk"
@@ -2927,8 +2907,7 @@
       "tags": [
         "holiday",
         "elegant",
-        "seafood",
-        "cuisine:nordic"
+        "seafood"
       ],
       "allergens": [
         "fish",
@@ -3027,8 +3006,7 @@
       "tags": [
         "holiday",
         "traditional",
-        "celebration",
-        "cuisine:nordic"
+        "celebration"
       ],
       "allergens": [
         "meat"
@@ -3124,8 +3102,7 @@
       "tags": [
         "holiday",
         "elegant",
-        "game",
-        "cuisine:nordic"
+        "game"
       ],
       "allergens": [
         "meat"
@@ -3320,8 +3297,7 @@
         "holiday",
         "cheese",
         "appetizer",
-        "quick",
-        "cuisine:swiss"
+        "quick"
       ],
       "allergens": [
         "milk",
@@ -3419,8 +3395,7 @@
       "tags": [
         "holiday",
         "side",
-        "vegetable",
-        "cuisine:nordic"
+        "vegetable"
       ],
       "allergens": [],
       "ingredients": [
@@ -3514,8 +3489,7 @@
       "tags": [
         "holiday",
         "traditional",
-        "celebration",
-        "cuisine:nordic"
+        "celebration"
       ],
       "allergens": [
         "meat"
@@ -3612,8 +3586,7 @@
         "holiday",
         "traditional",
         "comfort",
-        "quick",
-        "cuisine:nordic"
+        "quick"
       ],
       "allergens": [
         "meat",
@@ -3711,8 +3684,7 @@
         "holiday",
         "salad",
         "vegetable",
-        "quick",
-        "cuisine:nordic"
+        "quick"
       ],
       "allergens": [],
       "ingredients": [

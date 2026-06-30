@@ -2910,8 +2910,7 @@
         "fish",
         "marinated",
         "traditional",
-        "quick",
-        "cuisine:norwegian"
+        "quick"
       ],
       "allergens": [
         "fish"
@@ -3007,8 +3006,7 @@
       "tags": [
         "salmon",
         "cured",
-        "delicacy",
-        "cuisine:norwegian"
+        "delicacy"
       ],
       "allergens": [
         "fish"
@@ -3108,8 +3106,7 @@
       "tags": [
         "salmon",
         "smoked",
-        "traditional",
-        "cuisine:norwegian"
+        "traditional"
       ],
       "allergens": [
         "fish"
@@ -3210,8 +3207,7 @@
         "sandwich",
         "cheese",
         "traditional",
-        "quick",
-        "cuisine:norwegian"
+        "quick"
       ],
       "allergens": [
         "dairy",
@@ -3296,8 +3292,7 @@
         "sandwich",
         "pâté",
         "traditional",
-        "quick",
-        "cuisine:norwegian"
+        "quick"
       ],
       "allergens": [
         "meat",
@@ -3394,8 +3389,7 @@
         "sandwich",
         "shrimp",
         "traditional",
-        "quick",
-        "cuisine:norwegian"
+        "quick"
       ],
       "allergens": [
         "shellfish",
@@ -3494,8 +3488,7 @@
         "sandwich",
         "beef",
         "traditional",
-        "quick",
-        "cuisine:norwegian"
+        "quick"
       ],
       "allergens": [
         "meat",
@@ -3592,8 +3585,7 @@
         "sandwich",
         "egg",
         "traditional",
-        "quick",
-        "cuisine:norwegian"
+        "quick"
       ],
       "allergens": [
         "eggs",
@@ -3692,8 +3684,7 @@
         "sandwich",
         "caviar",
         "luxury",
-        "quick",
-        "cuisine:norwegian"
+        "quick"
       ],
       "allergens": [
         "fish",
@@ -3792,8 +3783,7 @@
         "sandwich",
         "lamb",
         "traditional",
-        "quick",
-        "cuisine:norwegian"
+        "quick"
       ],
       "allergens": [
         "meat",
@@ -3889,8 +3879,7 @@
       "tags": [
         "bread",
         "flatbread",
-        "traditional",
-        "cuisine:norwegian"
+        "traditional"
       ],
       "allergens": [
         "wheat",
@@ -3981,8 +3970,7 @@
         "bread",
         "flatbread",
         "simple",
-        "quick",
-        "cuisine:norwegian"
+        "quick"
       ],
       "allergens": [
         "wheat"
@@ -4059,8 +4047,7 @@
         "bread",
         "potato",
         "traditional",
-        "quick",
-        "cuisine:norwegian"
+        "quick"
       ],
       "allergens": [
         "wheat",
@@ -4161,8 +4148,7 @@
       "tags": [
         "lamb",
         "stew",
-        "traditional",
-        "cuisine:norwegian"
+        "traditional"
       ],
       "allergens": [
         "meat",
@@ -4276,8 +4262,7 @@
       "tags": [
         "lamb",
         "fried",
-        "elegant",
-        "cuisine:norwegian"
+        "elegant"
       ],
       "allergens": [
         "meat"
@@ -4377,8 +4362,7 @@
       "tags": [
         "lamb",
         "roasted",
-        "traditional",
-        "cuisine:norwegian"
+        "traditional"
       ],
       "allergens": [
         "meat"
@@ -4476,8 +4460,7 @@
       "tags": [
         "pork",
         "roasted",
-        "traditional",
-        "cuisine:norwegian"
+        "traditional"
       ],
       "allergens": [
         "meat"
@@ -4575,8 +4558,7 @@
       "tags": [
         "pork",
         "ribs",
-        "traditional",
-        "cuisine:norwegian"
+        "traditional"
       ],
       "allergens": [
         "meat"
@@ -4664,8 +4646,7 @@
         "sausage",
         "patties",
         "traditional",
-        "quick",
-        "cuisine:norwegian"
+        "quick"
       ],
       "allergens": [
         "meat",
@@ -4762,8 +4743,7 @@
       "tags": [
         "sausage",
         "traditional",
-        "quick",
-        "cuisine:norwegian"
+        "quick"
       ],
       "allergens": [
         "meat",
@@ -4863,8 +4843,7 @@
         "sausage",
         "lamb",
         "traditional",
-        "quick",
-        "cuisine:norwegian"
+        "quick"
       ],
       "allergens": [
         "meat"
@@ -4960,8 +4939,7 @@
       "tags": [
         "cured meat",
         "charcuterie",
-        "traditional",
-        "cuisine:norwegian"
+        "traditional"
       ],
       "allergens": [
         "meat"
@@ -5057,8 +5035,7 @@
       "tags": [
         "cured",
         "traditional",
-        "preservation",
-        "cuisine:norwegian"
+        "preservation"
       ],
       "allergens": [
         "meat"
@@ -5145,8 +5122,7 @@
       "tags": [
         "cured",
         "traditional",
-        "preservation",
-        "cuisine:norwegian"
+        "preservation"
       ],
       "allergens": [
         "meat"
@@ -5233,8 +5209,7 @@
       "tags": [
         "liver",
         "paste",
-        "traditional",
-        "cuisine:norwegian"
+        "traditional"
       ],
       "allergens": [
         "meat",
@@ -5333,8 +5308,7 @@
       "tags": [
         "fish",
         "salt",
-        "traditional",
-        "cuisine:norwegian"
+        "traditional"
       ],
       "allergens": [
         "fish",
@@ -5446,8 +5420,7 @@
       "tags": [
         "fish",
         "dried",
-        "traditional",
-        "cuisine:norwegian"
+        "traditional"
       ],
       "allergens": [
         "fish"
@@ -5541,8 +5514,7 @@
       "tags": [
         "fish",
         "baked",
-        "elegant",
-        "cuisine:norwegian"
+        "elegant"
       ],
       "allergens": [
         "fish",
@@ -5642,8 +5614,7 @@
         "fish",
         "mackerel",
         "tomato",
-        "quick",
-        "cuisine:norwegian"
+        "quick"
       ],
       "allergens": [
         "fish"
@@ -5742,8 +5713,7 @@
         "fish",
         "baked",
         "white fish",
-        "quick",
-        "cuisine:norwegian"
+        "quick"
       ],
       "allergens": [
         "fish",
@@ -5857,8 +5827,7 @@
         "fish",
         "boiled",
         "simple",
-        "quick",
-        "cuisine:norwegian"
+        "quick"
       ],
       "allergens": [
         "fish"
@@ -5952,8 +5921,7 @@
       "tags": [
         "fermented",
         "traditional",
-        "preserved",
-        "cuisine:norwegian"
+        "preserved"
       ],
       "allergens": [
         "fish"
@@ -6051,8 +6019,7 @@
       "tags": [
         "roe",
         "cured",
-        "delicacy",
-        "cuisine:norwegian"
+        "delicacy"
       ],
       "allergens": [
         "fish"
@@ -6149,8 +6116,7 @@
         "shellfish",
         "crab",
         "boiled",
-        "quick",
-        "cuisine:norwegian"
+        "quick"
       ],
       "allergens": [
         "shellfish"
@@ -6237,8 +6203,7 @@
       "tags": [
         "cured",
         "traditional",
-        "delicacy",
-        "cuisine:norwegian"
+        "delicacy"
       ],
       "allergens": [
         "fish"
@@ -6336,8 +6301,7 @@
       "tags": [
         "seafood",
         "traditional",
-        "celebration",
-        "cuisine:norwegian"
+        "celebration"
       ],
       "allergens": [
         "shellfish"
@@ -6435,8 +6399,7 @@
       "tags": [
         "seafood",
         "luxury",
-        "celebration",
-        "cuisine:norwegian"
+        "celebration"
       ],
       "allergens": [
         "shellfish"
@@ -6532,8 +6495,7 @@
       "tags": [
         "seafood",
         "elegant",
-        "quick",
-        "cuisine:norwegian"
+        "quick"
       ],
       "allergens": [
         "shellfish"
@@ -6630,8 +6592,7 @@
         "seafood",
         "elegant",
         "traditional",
-        "quick",
-        "cuisine:norwegian"
+        "quick"
       ],
       "allergens": [
         "shellfish",
@@ -6733,8 +6694,7 @@
       "tags": [
         "traditional",
         "marinated",
-        "condiment",
-        "cuisine:norwegian"
+        "condiment"
       ],
       "allergens": [
         "fish"
@@ -6844,8 +6804,7 @@
         "salad",
         "traditional",
         "side",
-        "quick",
-        "cuisine:italian"
+        "quick"
       ],
       "allergens": [],
       "ingredients": [
@@ -6950,8 +6909,7 @@
       "tags": [
         "salad",
         "traditional",
-        "side",
-        "cuisine:norwegian"
+        "side"
       ],
       "allergens": [
         "milk"
@@ -7049,8 +7007,7 @@
       "tags": [
         "side",
         "traditional",
-        "quick",
-        "cuisine:norwegian"
+        "quick"
       ],
       "allergens": [],
       "ingredients": [
@@ -7149,8 +7106,7 @@
         "side",
         "traditional",
         "comfort",
-        "quick",
-        "cuisine:norwegian"
+        "quick"
       ],
       "allergens": [
         "milk"
@@ -7247,8 +7203,7 @@
         "side",
         "traditional",
         "basic",
-        "quick",
-        "cuisine:norwegian"
+        "quick"
       ],
       "allergens": [],
       "ingredients": [
@@ -7532,8 +7487,7 @@
       "tags": [
         "traditional",
         "comfort",
-        "quick",
-        "cuisine:norwegian"
+        "quick"
       ],
       "allergens": [
         "meat"
@@ -7633,8 +7587,7 @@
       "tags": [
         "traditional",
         "comfort",
-        "stew",
-        "cuisine:norwegian"
+        "stew"
       ],
       "allergens": [
         "meat"
@@ -7745,8 +7698,7 @@
       "tags": [
         "traditional",
         "stew",
-        "comfort",
-        "cuisine:norwegian"
+        "comfort"
       ],
       "allergens": [
         "meat"
@@ -7857,8 +7809,7 @@
       "tags": [
         "vegetable",
         "traditional",
-        "side",
-        "cuisine:norwegian"
+        "side"
       ],
       "allergens": [],
       "ingredients": [
@@ -7956,8 +7907,7 @@
       "tags": [
         "traditional",
         "offal",
-        "comfort",
-        "cuisine:norwegian"
+        "comfort"
       ],
       "allergens": [
         "meat",

@@ -1,0 +1,2760 @@
+{
+  "packId": "pack_01_norwegian_fish_seafood",
+  "packName": {
+    "en": "Norwegian Fish & Seafood",
+    "no": "Norsk Fish & Seafood"
+  },
+  "packDescription": {
+    "en": "Fish & Seafood dishes from the Norwegian collection",
+    "no": "Fish & Seafood-retter fra Norsk-samlingen"
+  },
+  "packImage": "🐟",
+  "packColor": "#999999",
+  "recipeCount": 26,
+  "estimatedCookTime": "varies",
+  "difficulty": "varies",
+  "recipes": [
+    {
+      "id": "no_005",
+      "title": {
+        "no": "Fiskegrateng",
+        "en": "Fish Gratin"
+      },
+      "subtitle": {
+        "no": "Norsk gratinert fiskérett med poteter",
+        "en": "Norwegian gratined fish dish with potatoes"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 50,
+      "servings": 4,
+      "category": "Fish & Seafood",
+      "tags": [
+        "norwegian",
+        "seafood",
+        "comfort-food",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "fish",
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Fiskéfiléer (torsk/sei)",
+            "en": "Fish fillets (cod/pollock)"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 700,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Mel",
+            "en": "Flour"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Ost (riven)",
+            "en": "Cheese (grated)"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok poteter til de er halvkjøpt, kutt dem i skiver.",
+          "2. Lag en béchamel-saus: smelt smør, tilsett mel og rør godt.",
+          "3. Tilsett melk sakte mens du rører.",
+          "4. Lag lag av poteter, fisk og saus i en ildfast form.",
+          "5. Helles av resten av sausen og strø ost på toppen.",
+          "6. Bak på 200°C i ca. 30 minutter til det er gyllent."
+        ],
+        "en": [
+          "1. Boil potatoes until half-cooked, slice them.",
+          "2. Make a béchamel sauce: melt butter, add flour and stir well.",
+          "3. Add milk slowly while stirring.",
+          "4. Layer potatoes, fish and sauce in a baking dish.",
+          "5. Pour remaining sauce and sprinkle cheese on top.",
+          "6. Bake at 200°C for about 30 minutes until golden."
+        ]
+      }
+    },
+    {
+      "id": "no_009",
+      "title": {
+        "no": "Klippfisk",
+        "en": "Salted Dried Fish"
+      },
+      "subtitle": {
+        "no": "Tradisjonell norsk fiskérett",
+        "en": "Traditional Norwegian salted fish dish"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 120,
+      "servings": 4,
+      "category": "Fish & Seafood",
+      "tags": [
+        "traditional",
+        "norwegian",
+        "seafood",
+        "historic",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "fish"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Klippfisk (saltfisk)",
+            "en": "Klippfisk (salted fish)"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 700,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "medium",
+            "en": "medium"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bløtlegg klippfisken i kaldt vann i minst 24 timer.",
+          "2. Skift vannet flere ganger.",
+          "3. Kok fisken i en gryte med friskt vann i ca. 20 minutter.",
+          "4. Kok poteter og løk separat.",
+          "5. Server fisken med poteter, løk og smørsaus.",
+          "6. Garner med egg og løk hvis ønsket."
+        ],
+        "en": [
+          "1. Soak klippfisk in cold water for at least 24 hours.",
+          "2. Change the water several times.",
+          "3. Boil the fish in fresh water for about 20 minutes.",
+          "4. Boil potatoes and onion separately.",
+          "5. Serve fish with potatoes, onion and butter sauce.",
+          "6. Garnish with egg and onion if desired."
+        ]
+      }
+    },
+    {
+      "id": "no_010",
+      "title": {
+        "no": "Lutefisk",
+        "en": "Lye-Cured Fish"
+      },
+      "subtitle": {
+        "no": "Klassisk norsk juléérett",
+        "en": "Classic Norwegian Christmas dish"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 60,
+      "servings": 4,
+      "category": "Fish & Seafood",
+      "tags": [
+        "traditional",
+        "norwegian",
+        "christmas",
+        "holiday",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "fish"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Lutefisk (ferdig behandlet)",
+            "en": "Lutefisk (pre-treated)"
+          },
+          "amount": 1000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt (til kokevann)",
+            "en": "Salt (for cooking water)"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Ertebønner (tørket)",
+            "en": "Yellow peas (dried)"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Fløte",
+            "en": "Cream"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Fløtesaus",
+            "en": "Cream sauce"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok lutefisken i saltet vann i ca. 5-10 minutter.",
+          "2. Lutefisken skal være gjennomvarmet men ikke overkokt.",
+          "3. Kok poteter og tørket erter separat.",
+          "4. Tilsett fløte til speilegg eller lag fløtesaus.",
+          "5. Server lutefisken med poteter, ertebønner og fløtesaus.",
+          "6. Garnering med bacon eller røkt fisk er tradisjonelt."
+        ],
+        "en": [
+          "1. Boil lutefisk in salted water for about 5-10 minutes.",
+          "2. The fish should be heated through but not overcooked.",
+          "3. Boil potatoes and dried peas separately.",
+          "4. Add cream to fried eggs or make cream sauce.",
+          "5. Serve lutefisk with potatoes, peas and cream sauce.",
+          "6. Garnish with bacon or smoked fish is traditional."
+        ]
+      }
+    },
+    {
+      "id": "no_012",
+      "title": {
+        "no": "Rakørret",
+        "en": "Cured Trout"
+      },
+      "subtitle": {
+        "no": "Norsk fiskédelicacy",
+        "en": "Norwegian fish delicacy"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 1440,
+      "servings": 6,
+      "category": "Fish & Seafood",
+      "tags": [
+        "traditional",
+        "norwegian",
+        "seafood",
+        "cured",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "fish"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Ørret (fersk)",
+            "en": "Trout (fresh)"
+          },
+          "amount": 1500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 40,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Dill (frisk)",
+            "en": "Dill (fresh)"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Pepperkorn",
+            "en": "Peppercorns"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Rengjør ørreten og del den langs ryggen.",
+          "2. Fjern ryggbein men la huden sitte på.",
+          "3. Bland salt, sukker, dill og pepperkorn.",
+          "4. Gni blandingen inn i fisken.",
+          "5. Legg ørreten på aluminiumsfolie i kjøleskapet.",
+          "6. La det kurere i 24-48 timer.",
+          "7. Skjær i tynne skiver og server på brød med løk og sitron."
+        ],
+        "en": [
+          "1. Clean the trout and split along the back.",
+          "2. Remove backbone but leave skin.",
+          "3. Mix salt, sugar, dill and peppercorns.",
+          "4. Rub mixture into fish.",
+          "5. Place trout on foil in refrigerator.",
+          "6. Let cure for 24-48 hours.",
+          "7. Slice thinly and serve on bread with onion and lemon."
+        ]
+      }
+    },
+    {
+      "id": "no_018",
+      "title": {
+        "no": "Fiskegrateng",
+        "en": "Fish Gratin"
+      },
+      "subtitle": {
+        "no": "Kremet fiskeform bakt i ovn med hvit saus",
+        "en": "Creamy baked fish dish with white sauce"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 45,
+      "servings": 4,
+      "category": "Fish & Seafood",
+      "tags": [
+        "traditional",
+        "norwegian",
+        "baked",
+        "comfort-food",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "fish",
+        "dairy",
+        "gluten",
+        "egg"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Hvit fiskefilet (torsk eller sei)",
+            "en": "White fish fillet (cod or pollock)"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Mel",
+            "en": "Flour"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tablespoons"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "desiliter",
+            "en": "deciliters"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Eggs"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Revet ost",
+            "en": "Grated cheese"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og muskat",
+            "en": "Salt and nutmeg"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Sett ovnen på 200°C og smør en ildfast form.",
+          "2. Skjær fisken i mindre stykker og legg dem i formen.",
+          "3. Smelt smør i en kjele, rør inn mel og spe gradvis med melk under stadig omrøring til en jevn saus.",
+          "4. Krydre sausen med salt og muskat, og rør inn lett pisket egg.",
+          "5. Hell sausen over fisken i formen.",
+          "6. Strø revet ost over toppen og sett formen i ovnen.",
+          "7. Stek i 25-30 minutter til gratengen er gyllen og gjennomstekt."
+        ],
+        "en": [
+          "1. Preheat the oven to 200°C and grease an oven-safe dish.",
+          "2. Cut the fish into smaller pieces and place them in the dish.",
+          "3. Melt butter in a saucepan, stir in flour, and gradually whisk in milk to form a smooth sauce.",
+          "4. Season the sauce with salt and nutmeg, then stir in lightly beaten egg.",
+          "5. Pour the sauce over the fish in the dish.",
+          "6. Sprinkle grated cheese on top.",
+          "7. Bake for 25-30 minutes until golden and cooked through."
+        ]
+      }
+    },
+    {
+      "id": "no_019",
+      "title": {
+        "no": "Fiskeboller i Hvit Saus",
+        "en": "Fish Balls in White Sauce"
+      },
+      "subtitle": {
+        "no": "Møre fiskeboller servert i en mild kremet saus",
+        "en": "Tender fish balls served in a mild creamy sauce"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 50,
+      "servings": 4,
+      "category": "Fish & Seafood",
+      "tags": [
+        "traditional",
+        "norwegian",
+        "comfort-food",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "fish",
+        "dairy",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Hvit fisk (filet)",
+            "en": "White fish (fillet)"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Maisennamel",
+            "en": "Cornstarch"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tablespoons"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "desiliter",
+            "en": "deciliters"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "teskje",
+            "en": "teaspoon"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 40,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Mel (til saus)",
+            "en": "Flour (for sauce)"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tablespoons"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk (til saus)",
+            "en": "Milk (for sauce)"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "desiliter",
+            "en": "deciliters"
+          }
+        },
+        {
+          "name": {
+            "no": "Persille (hakket)",
+            "en": "Parsley (chopped)"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tablespoons"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kjør fisk, maisennamel, melk og salt i en foodprosessor til en jevn, klebrig farse.",
+          "2. Form farsen til små boller med to skjeer.",
+          "3. Kok bollene forsiktig i lettsaltet vann i 8-10 minutter til de flyter opp.",
+          "4. Ta bollene opp med en hullsleiv og sett til side.",
+          "5. Smelt smør, rør inn mel og spe med melk under omrøring til en jevn hvit saus.",
+          "6. Legg fiskebollene i sausen og varm dem gjennom.",
+          "7. Strø over hakket persille og server med kokte poteter."
+        ],
+        "en": [
+          "1. Blend the fish, cornstarch, milk, and salt in a food processor into a smooth, sticky mixture.",
+          "2. Shape the mixture into small balls using two spoons.",
+          "3. Gently poach the balls in lightly salted water for 8-10 minutes until they float.",
+          "4. Remove the balls with a slotted spoon and set aside.",
+          "5. Melt butter, stir in flour, and gradually whisk in milk to make a smooth white sauce.",
+          "6. Add the fish balls to the sauce and heat through.",
+          "7. Sprinkle with chopped parsley and serve with boiled potatoes."
+        ]
+      }
+    },
+    {
+      "id": "no_022",
+      "title": {
+        "no": "Torsk med Eggesmør",
+        "en": "Cod with Egg Butter Sauce"
+      },
+      "subtitle": {
+        "no": "Dampet torsk servert med smeltet smør og hakket egg",
+        "en": "Poached cod served with melted butter and chopped egg"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Fish & Seafood",
+      "tags": [
+        "traditional",
+        "norwegian",
+        "fish",
+        "quick",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "fish",
+        "dairy",
+        "egg"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Torskefilet",
+            "en": "Cod fillet"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "liter",
+            "en": "liter"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "spiseskje",
+            "en": "tablespoon"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg (hardkokte)",
+            "en": "Eggs (hard-boiled)"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Persille (hakket)",
+            "en": "Parsley (chopped)"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tablespoons"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok egg hardt, avkjøl, skall og hakk dem fint.",
+          "2. Kok opp vann med salt i en vid panne.",
+          "3. Legg torskefiletene i det varme vannet og la dem trekke uten å koke, i 8-10 minutter til fisken er gjennomstekt.",
+          "4. Smelt smøret i en liten kjele uten at det blir brunt.",
+          "5. Rør de hakkede eggene inn i det smeltede smøret.",
+          "6. Ta fisken opp av vannet med en hullsleiv og legg på serveringsfat.",
+          "7. Hell eggesmøret over fisken og strø over hakket persille."
+        ],
+        "en": [
+          "1. Hard-boil the eggs, cool, peel, and chop them finely.",
+          "2. Bring water with salt to a boil in a wide pan.",
+          "3. Place the cod fillets in the hot water and let them poach gently without boiling for 8-10 minutes until cooked through.",
+          "4. Melt the butter in a small saucepan without letting it brown.",
+          "5. Stir the chopped eggs into the melted butter.",
+          "6. Lift the fish out of the water with a slotted spoon and place on a serving platter.",
+          "7. Pour the egg butter over the fish and sprinkle with chopped parsley."
+        ]
+      }
+    },
+    {
+      "id": "no_026",
+      "title": {
+        "no": "Persetorsk",
+        "en": "Salt-Pressed Cod"
+      },
+      "subtitle": {
+        "no": "Lett saltet torsk presset under press og servert med smør",
+        "en": "Lightly salted cod pressed under weight and served with butter"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 40,
+      "servings": 4,
+      "category": "Fish & Seafood",
+      "tags": [
+        "traditional",
+        "norwegian",
+        "fish",
+        "coastal",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "fish",
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Fersk torskefilet",
+            "en": "Fresh cod fillet"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tablespoons"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 80,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Potet (kokt)",
+            "en": "Potatoes (boiled)"
+          },
+          "amount": 8,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Pepper",
+            "en": "Pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Gni torskefiletene godt inn med salt på begge sider.",
+          "2. Legg fileten mellom to skjærefjøler eller fat, og legg en tyngde på toppen.",
+          "3. Sett under press i kjøleskapet i 2-3 timer slik at fisken trekker ut væske og blir fastere.",
+          "4. Skyll fisken lett for overflødig salt og klapp den tørr.",
+          "5. Stek fisken kort i smør i en varm panne til den er gjennomstekt og lett gyllen.",
+          "6. Kok potetene møre i lettsaltet vann samtidig.",
+          "7. Server fisken med smeltet smør og kokte poteter."
+        ],
+        "en": [
+          "1. Rub the cod fillets generously with salt on both sides.",
+          "2. Place the fillet between two cutting boards or plates and add a weight on top.",
+          "3. Press in the refrigerator for 2-3 hours so the fish releases liquid and firms up.",
+          "4. Rinse the fish lightly to remove excess salt and pat dry.",
+          "5. Briefly fry the fish in butter in a hot pan until cooked through and lightly golden.",
+          "6. Boil the potatoes until tender in lightly salted water at the same time.",
+          "7. Serve the fish with melted butter and boiled potatoes."
+        ]
+      }
+    },
+    {
+      "id": "no_028",
+      "title": {
+        "no": "Fiskekaker",
+        "en": "Norwegian Fish Cakes"
+      },
+      "subtitle": {
+        "no": "Stekte kaker av hvit fisk, servert med stuet kål eller potet",
+        "en": "Pan-fried white fish cakes, served with creamed cabbage or potatoes"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 35,
+      "servings": 4,
+      "category": "Fish & Seafood",
+      "tags": [
+        "traditional",
+        "norwegian",
+        "fish",
+        "quick",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "fish",
+        "gluten",
+        "egg"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Hvit fisk (filet)",
+            "en": "White fish (fillet)"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Mel",
+            "en": "Flour"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tablespoons"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Egg"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "desiliter",
+            "en": "deciliter"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk (finhakket)",
+            "en": "Onion (finely chopped)"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør (til steking)",
+            "en": "Butter (for frying)"
+          },
+          "amount": 40,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kjør fisk, mel, egg, melk, salt og pepper i en foodprosessor til en jevn farse.",
+          "2. Rør inn finhakket løk for hånd.",
+          "3. La farsen sette seg i kjøleskap i 15 minutter.",
+          "4. Form farsen til flate kaker med en skje.",
+          "5. Stek kakene i smør på middels varme i 4-5 minutter på hver side til de er gyllenbrune.",
+          "6. Pass på at kakene er gjennomstekt i midten før servering.",
+          "7. Server varme med stuet kål eller kokte poteter."
+        ],
+        "en": [
+          "1. Blend the fish, flour, egg, milk, salt, and pepper in a food processor into a smooth mixture.",
+          "2. Stir in the finely chopped onion by hand.",
+          "3. Let the mixture rest in the fridge for 15 minutes.",
+          "4. Shape the mixture into flat patties using a spoon.",
+          "5. Fry the patties in butter over medium heat for 4-5 minutes per side until golden brown.",
+          "6. Make sure the patties are cooked through in the middle before serving.",
+          "7. Serve hot with creamed cabbage or boiled potatoes."
+        ]
+      }
+    },
+    {
+      "id": "no_031",
+      "title": {
+        "no": "Sursild",
+        "en": "Sour Herring"
+      },
+      "subtitle": {
+        "no": "Marinert sild i syrlig dressing",
+        "en": "Marinated herring in sour dressing"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 10,
+      "servings": 4,
+      "category": "Fish & Seafood",
+      "tags": [
+        "fish",
+        "marinated",
+        "traditional",
+        "quick",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "fish"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "marinert sild",
+            "en": "marinated herring"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "hvitløk",
+            "en": "garlic"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "kløver",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "løk",
+            "en": "onion"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stykk",
+            "en": "piece"
+          }
+        },
+        {
+          "name": {
+            "no": "eddik",
+            "en": "vinegar"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "sukker",
+            "en": "sugar"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skjær løk og hvitløk",
+          "2. Bland eddik og sukker",
+          "3. Legg sild og løk i",
+          "4. La marineree 30 min",
+          "5. Serv kald"
+        ],
+        "en": [
+          "1. Slice onion and garlic",
+          "2. Mix vinegar and sugar",
+          "3. Place herring and onion in",
+          "4. Let marinate 30 min",
+          "5. Serve cold"
+        ]
+      }
+    },
+    {
+      "id": "no_032",
+      "title": {
+        "no": "Gravlaks",
+        "en": "Cured Salmon"
+      },
+      "subtitle": {
+        "no": "Hjemmelaget gravlaks",
+        "en": "Homemade cured salmon"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 0,
+      "servings": 8,
+      "category": "Fish & Seafood",
+      "tags": [
+        "salmon",
+        "cured",
+        "delicacy",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "fish"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "laksefillet",
+            "en": "salmon fillet"
+          },
+          "amount": 1000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "salt",
+            "en": "salt"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "sukker",
+            "en": "sugar"
+          },
+          "amount": 25,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "dill",
+            "en": "dill"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "sitron",
+            "en": "lemon"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stykk",
+            "en": "piece"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland salt og sukker",
+          "2. Hakk dill",
+          "3. Gni laksen med blandingen og dill",
+          "4. Legg på bakepapir",
+          "5. Vikle inn og legg vekt på",
+          "6. Kjølskåls 2-3 dager",
+          "7. Skjær tynne skiver"
+        ],
+        "en": [
+          "1. Mix salt and sugar",
+          "2. Chop dill",
+          "3. Rub salmon with mixture and dill",
+          "4. Place on baking paper",
+          "5. Wrap and weight down",
+          "6. Chill 2-3 days",
+          "7. Slice thinly"
+        ]
+      }
+    },
+    {
+      "id": "no_033",
+      "title": {
+        "no": "Røkt Laks",
+        "en": "Smoked Salmon"
+      },
+      "subtitle": {
+        "no": "Varmt røkt laks",
+        "en": "Hot smoked salmon"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 60,
+      "servings": 6,
+      "category": "Fish & Seafood",
+      "tags": [
+        "salmon",
+        "smoked",
+        "traditional",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "fish"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "laksefillet",
+            "en": "salmon fillet"
+          },
+          "amount": 1000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "salt",
+            "en": "salt"
+          },
+          "amount": 40,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "sukker",
+            "en": "sugar"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "trekuler",
+            "en": "wood chips"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "sitron",
+            "en": "lemon"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stykk",
+            "en": "piece"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland salt og sukker",
+          "2. Gni laksen",
+          "3. La stå 1 time",
+          "4. Skyll av",
+          "5. Tørk",
+          "6. Røyk i 30-40 min",
+          "7. Server varm"
+        ],
+        "en": [
+          "1. Mix salt and sugar",
+          "2. Rub salmon",
+          "3. Let sit 1 hour",
+          "4. Rinse off",
+          "5. Pat dry",
+          "6. Smoke 30-40 min",
+          "7. Serve warm"
+        ]
+      }
+    },
+    {
+      "id": "no_079",
+      "title": {
+        "no": "Bacalao",
+        "en": "Salt Cod"
+      },
+      "subtitle": {
+        "no": "Klassisk salt fisk rett",
+        "en": "Classic salt fish dish"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 45,
+      "servings": 4,
+      "category": "Fish & Seafood",
+      "tags": [
+        "fish",
+        "salt",
+        "traditional",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "fish",
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "bacalao",
+            "en": "salt cod"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "poteter",
+            "en": "potatoes"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "løk",
+            "en": "onion"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stykk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "hvitløk",
+            "en": "garlic"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "kløver",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "tomatosaus",
+            "en": "tomato sauce"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "olivenolje",
+            "en": "olive oil"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bløt bacalaoen i vann 24 timer",
+          "2. Kok poteter",
+          "3. Hakk løk og hvitløk",
+          "4. Sauté løk og hvitløk",
+          "5. Tilsett fisk",
+          "6. Tilsett tomatosaus",
+          "7. Kok 20 minutter"
+        ],
+        "en": [
+          "1. Soak salt cod in water 24 hours",
+          "2. Boil potatoes",
+          "3. Chop onion and garlic",
+          "4. Sauté onion and garlic",
+          "5. Add fish",
+          "6. Add tomato sauce",
+          "7. Cook 20 minutes"
+        ]
+      }
+    },
+    {
+      "id": "no_080",
+      "title": {
+        "no": "Klippfisk",
+        "en": "Clipped Fish"
+      },
+      "subtitle": {
+        "no": "Klassisk tørket og salt fisk",
+        "en": "Classic dried and salted fish"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 40,
+      "servings": 4,
+      "category": "Fish & Seafood",
+      "tags": [
+        "fish",
+        "dried",
+        "traditional",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "fish"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "klippfisk",
+            "en": "clipped fish"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "poteter",
+            "en": "potatoes"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "løk",
+            "en": "onion"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stykk",
+            "en": "piece"
+          }
+        },
+        {
+          "name": {
+            "no": "lorbærblad",
+            "en": "bay leaf"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stykk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "smør",
+            "en": "butter"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bløt fisken i vann natt over",
+          "2. Kok poteter",
+          "3. Kok fisken med løk og lorbær",
+          "4. Serv med smør og poteter"
+        ],
+        "en": [
+          "1. Soak fish in water overnight",
+          "2. Boil potatoes",
+          "3. Cook fish with onion and bay leaf",
+          "4. Serve with butter and potatoes"
+        ]
+      }
+    },
+    {
+      "id": "no_081",
+      "title": {
+        "no": "Sei i Form",
+        "en": "Pollock in Mold"
+      },
+      "subtitle": {
+        "no": "Bakt fisk i form",
+        "en": "Baked fish in mold"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 35,
+      "servings": 4,
+      "category": "Fish & Seafood",
+      "tags": [
+        "fish",
+        "baked",
+        "elegant",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "fish",
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "seifilet",
+            "en": "pollock fillet"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "fløte",
+            "en": "cream"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "egg",
+            "en": "eggs"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stykk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "dill",
+            "en": "dill"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "salt og pepper",
+            "en": "salt and pepper"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Smør form",
+          "2. Legg fillet på bunn",
+          "3. Visp egg med fløte og dill",
+          "4. Hell over",
+          "5. Krydre",
+          "6. Bak på 180°C 25 minutter"
+        ],
+        "en": [
+          "1. Butter mold",
+          "2. Place fillet on bottom",
+          "3. Whisk eggs with cream and dill",
+          "4. Pour over",
+          "5. Season",
+          "6. Bake at 180°C 25 minutes"
+        ]
+      }
+    },
+    {
+      "id": "no_082",
+      "title": {
+        "no": "Makrell i Tomat",
+        "en": "Mackerel in Tomato"
+      },
+      "subtitle": {
+        "no": "Klassisk makrell rett",
+        "en": "Classic mackerel dish"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 25,
+      "servings": 4,
+      "category": "Fish & Seafood",
+      "tags": [
+        "fish",
+        "mackerel",
+        "tomato",
+        "quick",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "fish"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "makrell",
+            "en": "mackerel"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "tomatosaus",
+            "en": "tomato sauce"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "løk",
+            "en": "onion"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stykk",
+            "en": "piece"
+          }
+        },
+        {
+          "name": {
+            "no": "hvitløk",
+            "en": "garlic"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "kløver",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "olivenolje",
+            "en": "olive oil"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Hakk løk og hvitløk",
+          "2. Sauté i olivenolje",
+          "3. Tilsett tomatosaus",
+          "4. Tilsett makrell",
+          "5. La småkoke 15 minutter",
+          "6. Serv med brød"
+        ],
+        "en": [
+          "1. Chop onion and garlic",
+          "2. Sauté in olive oil",
+          "3. Add tomato sauce",
+          "4. Add mackerel",
+          "5. Simmer 15 minutes",
+          "6. Serve with bread"
+        ]
+      }
+    },
+    {
+      "id": "no_083",
+      "title": {
+        "no": "Steinbit i Form",
+        "en": "Catfish in Mold"
+      },
+      "subtitle": {
+        "no": "Bakt hvitfisk i form",
+        "en": "Baked white fish in mold"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Fish & Seafood",
+      "tags": [
+        "fish",
+        "baked",
+        "white fish",
+        "quick",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "fish",
+        "dairy",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "steinbitfillet",
+            "en": "catfish fillet"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "mel",
+            "en": "flour"
+          },
+          "amount": 40,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "melk",
+            "en": "milk"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "smør",
+            "en": "butter"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "egg",
+            "en": "eggs"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stykk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "salt og pepper",
+            "en": "salt and pepper"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Smør form",
+          "2. Legg fillet på bunnen",
+          "3. Lag hvit saus",
+          "4. Hell halvparten over fisken",
+          "5. Visp egg inn i resten",
+          "6. Hell over",
+          "7. Bak 200 grader 25 min"
+        ],
+        "en": [
+          "1. Butter mold",
+          "2. Layer fillet on bottom",
+          "3. Make white sauce",
+          "4. Pour half over fish",
+          "5. Whisk eggs into rest",
+          "6. Pour over",
+          "7. Bake 200 degrees 25 min"
+        ]
+      }
+    },
+    {
+      "id": "no_084",
+      "title": {
+        "no": "Kveite Kokt",
+        "en": "Boiled Halibut"
+      },
+      "subtitle": {
+        "no": "Enkel kokt fisk",
+        "en": "Simple boiled fish"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 20,
+      "servings": 4,
+      "category": "Fish & Seafood",
+      "tags": [
+        "fish",
+        "boiled",
+        "simple",
+        "quick",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "fish"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "kveitefillet",
+            "en": "halibut fillet"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "poteter",
+            "en": "potatoes"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "løk",
+            "en": "onion"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stykk",
+            "en": "piece"
+          }
+        },
+        {
+          "name": {
+            "no": "salt",
+            "en": "salt"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "smør",
+            "en": "butter"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok poteter",
+          "2. Kok fillet med løk i saltet vann",
+          "3. Fjern fisken forsiktig",
+          "4. Serv med poteter og smør"
+        ],
+        "en": [
+          "1. Boil potatoes",
+          "2. Boil fillet with onion in salted water",
+          "3. Remove fish carefully",
+          "4. Serve with potatoes and butter"
+        ]
+      }
+    },
+    {
+      "id": "no_085",
+      "title": {
+        "no": "Rakfisk",
+        "en": "Fermented Fish"
+      },
+      "subtitle": {
+        "no": "Tradisjonell gjermet fisk",
+        "en": "Traditional fermented fish"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 0,
+      "servings": 8,
+      "category": "Fish & Seafood",
+      "tags": [
+        "fermented",
+        "traditional",
+        "preserved",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "fish"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "ferskvannsfisk",
+            "en": "freshwater fish"
+          },
+          "amount": 1500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "salt",
+            "en": "salt"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "sukker",
+            "en": "sugar"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "pepperkorn",
+            "en": "peppercorns"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "lorbærblad",
+            "en": "bay leaves"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stykk",
+            "en": "pieces"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Rens fisk nøye",
+          "2. Lag lage av salt og sukker",
+          "3. Gni fisken godt",
+          "4. Legg i glass med krydder",
+          "5. La gjere ved romtemp 2-3 uker",
+          "6. Serv tynne skiver"
+        ],
+        "en": [
+          "1. Clean fish carefully",
+          "2. Make layer of salt and sugar",
+          "3. Rub fish well",
+          "4. Place in glass with spices",
+          "5. Let ferment at room temperature 2-3 weeks",
+          "6. Serve thin slices"
+        ]
+      }
+    },
+    {
+      "id": "no_086",
+      "title": {
+        "no": "Gravrøye",
+        "en": "Cured Roe"
+      },
+      "subtitle": {
+        "no": "Innlagret fiskeegg",
+        "en": "Cured fish eggs"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 0,
+      "servings": 6,
+      "category": "Fish & Seafood",
+      "tags": [
+        "roe",
+        "cured",
+        "delicacy",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "fish"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "ferskfiskerogn",
+            "en": "fresh fish roe"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "salt",
+            "en": "salt"
+          },
+          "amount": 60,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "sukker",
+            "en": "sugar"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "kryddernellik",
+            "en": "cloves"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "stykk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "lorbærblad",
+            "en": "bay leaf"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stykk",
+            "en": "piece"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland salt og sukker",
+          "2. Gni inn i rognen",
+          "3. Legg i glass med krydder",
+          "4. Kjølskåls 3-5 dager",
+          "5. Serv på brød"
+        ],
+        "en": [
+          "1. Mix salt and sugar",
+          "2. Rub into roe",
+          "3. Place in glass with spices",
+          "4. Chill 3-5 days",
+          "5. Serve on bread"
+        ]
+      }
+    },
+    {
+      "id": "no_087",
+      "title": {
+        "no": "Krabbe Kokt",
+        "en": "Boiled Crab"
+      },
+      "subtitle": {
+        "no": "Enkel kokt skalldyr",
+        "en": "Simple boiled shellfish"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Fish & Seafood",
+      "tags": [
+        "shellfish",
+        "crab",
+        "boiled",
+        "quick",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "shellfish"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "levende krabbe",
+            "en": "live crab"
+          },
+          "amount": 1500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "vann",
+            "en": "water"
+          },
+          "amount": 2000,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "salt",
+            "en": "salt"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "dill",
+            "en": "dill"
+          },
+          "amount": 15,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok vann med salt",
+          "2. Legg krabben i",
+          "3. Kok 20-25 minutter",
+          "4. Ta ut og avkjøl",
+          "5. Knekk ut kjøttet",
+          "6. Serv med smør"
+        ],
+        "en": [
+          "1. Boil water with salt",
+          "2. Place crab in",
+          "3. Boil 20-25 minutes",
+          "4. Remove and cool",
+          "5. Extract meat",
+          "6. Serve with butter"
+        ]
+      }
+    },
+    {
+      "id": "no_088",
+      "title": {
+        "no": "Gravrøye",
+        "en": "Cured Fish Roe"
+      },
+      "subtitle": {
+        "no": "Tilberedt rogn med urter og salt",
+        "en": "Cured roe with herbs and salt"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 1440,
+      "servings": 6,
+      "category": "Fish & Seafood",
+      "tags": [
+        "cured",
+        "traditional",
+        "delicacy",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "fish"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Rogn",
+            "en": "Fish roe"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Dill",
+            "en": "Dill"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Pepperkorn",
+            "en": "Peppercorns"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland salt og sukker",
+          "2. Lag et salt lag i en glass",
+          "3. Fordel rogn og dill i lag",
+          "4. Dekk med mer salt",
+          "5. La stå kjølig i 7-10 dager",
+          "6. Serv kald med brød"
+        ],
+        "en": [
+          "1. Mix salt and sugar",
+          "2. Create a salt layer in a glass",
+          "3. Distribute roe and dill in layers",
+          "4. Cover with more salt",
+          "5. Let rest cool for 7-10 days",
+          "6. Serve cold with bread"
+        ]
+      }
+    },
+    {
+      "id": "no_089",
+      "title": {
+        "no": "Krabbe Kokt",
+        "en": "Boiled Crab"
+      },
+      "subtitle": {
+        "no": "Hele krabber kokt og serverert",
+        "en": "Whole crabs boiled and served"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 45,
+      "servings": 4,
+      "category": "Fish & Seafood",
+      "tags": [
+        "seafood",
+        "traditional",
+        "celebration",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "shellfish"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Krabbe",
+            "en": "Whole crabs"
+          },
+          "amount": 1000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
+          "amount": 2000,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Dill",
+            "en": "Dill"
+          },
+          "amount": 15,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Fyll en stor gryte med vann og salt",
+          "2. Bring til kokling",
+          "3. Tilsett krabbene",
+          "4. Kok i 20-25 minutter",
+          "5. Fjern og la avkjøle",
+          "6. Server med smør og sitron"
+        ],
+        "en": [
+          "1. Fill a large pot with water and salt",
+          "2. Bring to boil",
+          "3. Add crabs",
+          "4. Cook for 20-25 minutes",
+          "5. Remove and cool",
+          "6. Serve with butter and lemon"
+        ]
+      }
+    },
+    {
+      "id": "no_090",
+      "title": {
+        "no": "Kongekrabbe",
+        "en": "King Crab"
+      },
+      "subtitle": {
+        "no": "Kongekrabbe med pålegg",
+        "en": "King crab with accompaniments"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 60,
+      "servings": 6,
+      "category": "Fish & Seafood",
+      "tags": [
+        "seafood",
+        "luxury",
+        "celebration",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "shellfish"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kongekrabbe",
+            "en": "King crab legs"
+          },
+          "amount": 1500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
+          "amount": 3000,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Melted butter"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sitron",
+            "en": "Lemon"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bring vann med salt til kokling",
+          "2. Tilsett kongekrabbekjøttet",
+          "3. Kok i 4-5 minutter hvis fryst, 2-3 minutter hvis fersk",
+          "4. Fjern og la avkjøle litt",
+          "5. Server med smurt og sitron"
+        ],
+        "en": [
+          "1. Bring salted water to boil",
+          "2. Add king crab legs",
+          "3. Cook for 4-5 minutes if frozen, 2-3 if fresh",
+          "4. Remove and let cool slightly",
+          "5. Serve with melted butter and lemon"
+        ]
+      }
+    },
+    {
+      "id": "no_091",
+      "title": {
+        "no": "Kamskjell",
+        "en": "Scallops"
+      },
+      "subtitle": {
+        "no": "Stekte kamskjell med smør",
+        "en": "Pan-fried scallops with butter"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 15,
+      "servings": 4,
+      "category": "Fish & Seafood",
+      "tags": [
+        "seafood",
+        "elegant",
+        "quick",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "shellfish"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kamskjell",
+            "en": "Scallops"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 60,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 15,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Persille",
+            "en": "Parsley"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "porsjon",
+            "en": "portion"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Tørk kamskjellene med papirservietter",
+          "2. Smelt smør på høy varme",
+          "3. Tilsett kamskjellene og sterk 2-3 minutter hver side",
+          "4. Tilsett hakket hvitløk og persille",
+          "5. Server straks"
+        ],
+        "en": [
+          "1. Pat scallops dry with paper towels",
+          "2. Melt butter on high heat",
+          "3. Add scallops and fry 2-3 minutes per side",
+          "4. Add chopped garlic and parsley",
+          "5. Serve immediately"
+        ]
+      }
+    },
+    {
+      "id": "no_092",
+      "title": {
+        "no": "Blåskjell i Hvitvinssaus",
+        "en": "Mussels in White Wine"
+      },
+      "subtitle": {
+        "no": "Blåskjell i hvitvin med fløte",
+        "en": "Mussels in white wine and cream"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 25,
+      "servings": 4,
+      "category": "Fish & Seafood",
+      "tags": [
+        "seafood",
+        "elegant",
+        "traditional",
+        "quick",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "shellfish",
+        "milk",
+        "alcohol"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Blåskjell",
+            "en": "Mussels"
+          },
+          "amount": 1000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitvin",
+            "en": "White wine"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Fløte",
+            "en": "Heavy cream"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 40,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Rens blåskjellene grundig",
+          "2. Hakk løk og sauté i smør",
+          "3. Tilsett hvitvin",
+          "4. Tilsett blåskjellene",
+          "5. Dekk og kok i 8-10 minutter",
+          "6. Tilsett fløten",
+          "7. Kok videre i 2 minutter"
+        ],
+        "en": [
+          "1. Clean mussels thoroughly",
+          "2. Chop onion and sauté in butter",
+          "3. Add white wine",
+          "4. Add mussels",
+          "5. Cover and cook for 8-10 minutes",
+          "6. Add cream",
+          "7. Cook for another 2 minutes"
+        ]
+      }
+    }
+  ]
+}

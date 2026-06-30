@@ -1,0 +1,1974 @@
+{
+  "packId": "pack_05_summer_grill",
+  "packName": {
+    "en": "Summer Grill",
+    "no": "Sommer Grill"
+  },
+  "packDescription": {
+    "en": "Grill dishes from the Summer collection",
+    "no": "Grill-retter fra Sommer-samlingen"
+  },
+  "packImage": "🔥",
+  "packColor": "#999999",
+  "recipeCount": 18,
+  "estimatedCookTime": "varies",
+  "difficulty": "varies",
+  "recipes": [
+    {
+      "id": "sum_006",
+      "title": {
+        "no": "Grillet Oksekjøtt-Stav",
+        "en": "Grilled Beef Skewer"
+      },
+      "subtitle": {
+        "no": "Aromatisk og deilig grillet kjøtt",
+        "en": "Aromatic and delicious grilled meat"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Grill",
+      "tags": [
+        "grill",
+        "beef",
+        "skewer",
+        "summer",
+        "quick"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Oksekjøtt (filéstykke)",
+            "en": "Beef (fillet pieces)"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Rød paprika",
+            "en": "Red bell pepper"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk (stort)",
+            "en": "Red onion (large)"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomat",
+            "en": "Tomato"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "medium",
+            "en": "medium"
+          }
+        },
+        {
+          "name": {
+            "no": "Olivenolje",
+            "en": "Olive oil"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Rosmarin (frisk)",
+            "en": "Rosemary (fresh)"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stengel",
+            "en": "sprigs"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kutt kjøttet i terninger på ca. 4x4 cm.",
+          "2. Kutt paprika, løk og tomat i like store stykker.",
+          "3. Steik kjøttet i en panne med olivenolje og hvitløk.",
+          "4. Thread kjøtt og grønnsaker alternativt på spidder.",
+          "5. Varme opp grillen til medium-høy.",
+          "6. Grill spidderne 8-10 minutter, vend ofte.",
+          "7. Garner med frisk rosmarin.",
+          "8. Server varmt med poteter eller brød."
+        ],
+        "en": [
+          "1. Cut meat into 4x4 cm cubes.",
+          "2. Cut bell pepper, onion and tomato into equal pieces.",
+          "3. Brown meat in a pan with olive oil and garlic.",
+          "4. Thread meat and vegetables alternately on skewers.",
+          "5. Preheat grill to medium-high.",
+          "6. Grill skewers 8-10 minutes, turning frequently.",
+          "7. Garnish with fresh rosemary.",
+          "8. Serve hot with potatoes or bread."
+        ]
+      }
+    },
+    {
+      "id": "sum_007",
+      "title": {
+        "no": "Grillet Kylling med Sitron",
+        "en": "Grilled Chicken with Lemon"
+      },
+      "subtitle": {
+        "no": "Lett og smakfull grillet kylling",
+        "en": "Light and flavorful grilled chicken"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 35,
+      "servings": 4,
+      "category": "Grill",
+      "tags": [
+        "grill",
+        "chicken",
+        "lemon",
+        "summer"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kyllingbiler",
+            "en": "Chicken thighs"
+          },
+          "amount": 8,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Sitron",
+            "en": "Lemon"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Olivenolje",
+            "en": "Olive oil"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Timen",
+            "en": "Thyme"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stengel",
+            "en": "sprigs"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "efter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Blend olivenolje med pressede hvitløk og timen.",
+          "2. Tilsett juice fra en sitron.",
+          "3. Marinér kyllingbilene i 30 minutter.",
+          "4. Varme opp grillen til medium-høy.",
+          "5. Grill kyllingbilene 6-8 minutter på hver side.",
+          "6. Sjekk at kjøttet er gjennomstekt.",
+          "7. Serve med sitronskiver og frisk salat."
+        ],
+        "en": [
+          "1. Mix olive oil with crushed garlic and thyme.",
+          "2. Add juice from one lemon.",
+          "3. Marinate chicken thighs for 30 minutes.",
+          "4. Preheat grill to medium-high.",
+          "5. Grill chicken 6-8 minutes on each side.",
+          "6. Check that meat is cooked through.",
+          "7. Serve with lemon slices and fresh salad."
+        ]
+      }
+    },
+    {
+      "id": "sum_009",
+      "title": {
+        "no": "Grillet Laks",
+        "en": "Grilled Salmon"
+      },
+      "subtitle": {
+        "no": "Delikat grillet laks med dill",
+        "en": "Delicate grilled salmon with dill"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 25,
+      "servings": 4,
+      "category": "Grill",
+      "tags": [
+        "grill",
+        "salmon",
+        "seafood",
+        "summer",
+        "quick"
+      ],
+      "allergens": [
+        "fish"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Laksefiléer",
+            "en": "Salmon fillets"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Olivenolje",
+            "en": "Olive oil"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Sitron",
+            "en": "Lemon"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Dill (frisk)",
+            "en": "Dill (fresh)"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Varme opp grillen til medium-høy.",
+          "2. Gnid laksen med olivenolje, salt og pepper.",
+          "3. Legg sitronskiver på grillen.",
+          "4. Grill laksen hud-siden ned i 5-6 minutter.",
+          "5. Vend og grill 4-5 minutter til.",
+          "6. Laksen skal være myk og rosa innvendig.",
+          "7. Serve med sitronskiver og frisk dill."
+        ],
+        "en": [
+          "1. Preheat grill to medium-high.",
+          "2. Rub salmon with olive oil, salt and pepper.",
+          "3. Place lemon slices on grill.",
+          "4. Grill salmon skin side down for 5-6 minutes.",
+          "5. Turn and grill 4-5 more minutes.",
+          "6. Salmon should be soft and pink inside.",
+          "7. Serve with lemon slices and fresh dill."
+        ]
+      }
+    },
+    {
+      "id": "sum_011",
+      "title": {
+        "no": "Torskefiléer (Grillet)",
+        "en": "Cod Fillets (Grilled)"
+      },
+      "subtitle": {
+        "no": "Enkel og smakfull grillet torsk",
+        "en": "Simple and flavorful grilled cod"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 20,
+      "servings": 4,
+      "category": "Grill",
+      "tags": [
+        "grill",
+        "fish",
+        "cod",
+        "summer",
+        "quick"
+      ],
+      "allergens": [
+        "fish"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Torskefiléer",
+            "en": "Cod fillets"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Olivenolje",
+            "en": "Olive oil"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Sitron",
+            "en": "Lemon"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "efter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Varme opp grillen til medium.",
+          "2. Gnid fiskne med olivenolje, salt og pepper.",
+          "3. Grill filen 4-5 minutter på hver side.",
+          "4. Fisken skal være hvit og lett å flke.",
+          "5. Serve med sitronskiver og hvitløk.",
+          "6. Garner med friske krydder."
+        ],
+        "en": [
+          "1. Preheat grill to medium.",
+          "2. Rub fish with olive oil, salt and pepper.",
+          "3. Grill fillet 4-5 minutes on each side.",
+          "4. Fish should be white and flake easily.",
+          "5. Serve with lemon slices and garlic.",
+          "6. Garnish with fresh herbs."
+        ]
+      }
+    },
+    {
+      "id": "sum_012",
+      "title": {
+        "no": "Blåskjell (Grillet)",
+        "en": "Mussels (Grilled)"
+      },
+      "subtitle": {
+        "no": "Delikate grillte blåskjell",
+        "en": "Delicate grilled mussels"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 15,
+      "servings": 4,
+      "category": "Grill",
+      "tags": [
+        "grill",
+        "mussels",
+        "seafood",
+        "summer",
+        "quick"
+      ],
+      "allergens": [
+        "shellfish"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Blåskjell (ferskt)",
+            "en": "Mussels (fresh)"
+          },
+          "amount": 1000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Olivenolje",
+            "en": "Olive oil"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Sitron",
+            "en": "Lemon"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
+        },
+        {
+          "name": {
+            "no": "Persille (frisk)",
+            "en": "Parsley (fresh)"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "efter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Rens og sjekk blåskjellene, fjern skadede.",
+          "2. Blend olivenolje med pressede hvitløk, salt og pepper.",
+          "3. Varme opp grillen til medium-høy.",
+          "4. Grill blåskjellene i ca. 5-8 minutter til de åpner seg.",
+          "5. Fjern alle som ikke åpner seg.",
+          "6. Dryss med persille og sitron-saft.",
+          "7. Serve varmt som en elegant forrett."
+        ],
+        "en": [
+          "1. Clean and check mussels, remove damaged ones.",
+          "2. Mix olive oil with crushed garlic, salt and pepper.",
+          "3. Preheat grill to medium-high.",
+          "4. Grill mussels for about 5-8 minutes until they open.",
+          "5. Remove any that don't open.",
+          "6. Sprinkle with parsley and lemon juice.",
+          "7. Serve hot as an elegant starter."
+        ]
+      }
+    },
+    {
+      "id": "sum_013",
+      "title": {
+        "no": "Rette med Ørret",
+        "en": "Trout Dish"
+      },
+      "subtitle": {
+        "no": "Hel grillet ørret med urter",
+        "en": "Whole grilled trout with herbs"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Grill",
+      "tags": [
+        "grill",
+        "trout",
+        "fish",
+        "summer",
+        "quick"
+      ],
+      "allergens": [
+        "fish"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Ørret (hele fisk)",
+            "en": "Trout (whole fish)"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Olivenolje",
+            "en": "Olive oil"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Dill (frisk)",
+            "en": "Dill (fresh)"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "knippe",
+            "en": "bunches"
+          }
+        },
+        {
+          "name": {
+            "no": "Sitron",
+            "en": "Lemon"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "efter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Rens ørretene innsiden og utsiden.",
+          "2. Fylt med dill og sitron-skiver.",
+          "3. Gnid utsiden med olivenolje, salt og pepper.",
+          "4. Varme opp grillen til medium-høy.",
+          "5. Grill ørreten 5-6 minutter på hver side.",
+          "6. Ørreten skal være gjennomstekt.",
+          "7. Serve varmt som en klassisk sommerrett."
+        ],
+        "en": [
+          "1. Clean trout inside and outside.",
+          "2. Fill with dill and lemon slices.",
+          "3. Rub outside with olive oil, salt and pepper.",
+          "4. Preheat grill to medium-high.",
+          "5. Grill trout 5-6 minutes on each side.",
+          "6. Trout should be cooked through.",
+          "7. Serve hot as a classic summer dish."
+        ]
+      }
+    },
+    {
+      "id": "sum_015",
+      "title": {
+        "no": "Søt og Sur Kylling",
+        "en": "Sweet and Sour Chicken"
+      },
+      "subtitle": {
+        "no": "Grillet kylling med søt og sur saus",
+        "en": "Grilled chicken with sweet and sour sauce"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 35,
+      "servings": 4,
+      "category": "Grill",
+      "tags": [
+        "grill",
+        "chicken",
+        "asian",
+        "summer",
+        "cuisine:asian"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kyllingbiler",
+            "en": "Chicken thighs"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Ananassaft",
+            "en": "Pineapple juice"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Eddik",
+            "en": "Vinegar"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 75,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Ketchup",
+            "en": "Ketchup"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Soyasaus",
+            "en": "Soy sauce"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland ananassaft, eddik, sukker, ketchup, soyasaus og hvitløk.",
+          "2. Marinér kyllingbilene i halve blandingen i 30 minutter.",
+          "3. Varme opp grillen til medium-høy.",
+          "4. Grill kyllingbilene 6-8 minutter på hver side.",
+          "5. Sjekk at kjøttet er gjennomstekt.",
+          "6. Varm den gjenværende sausen.",
+          "7. Hell sausen over kyllingen.",
+          "8. Serve varmt med ris eller noodles."
+        ],
+        "en": [
+          "1. Mix pineapple juice, vinegar, sugar, ketchup, soy sauce and garlic.",
+          "2. Marinate chicken in half mixture for 30 minutes.",
+          "3. Preheat grill to medium-high.",
+          "4. Grill chicken 6-8 minutes on each side.",
+          "5. Check that meat is cooked through.",
+          "6. Warm remaining sauce.",
+          "7. Pour sauce over chicken.",
+          "8. Serve hot with rice or noodles."
+        ]
+      }
+    },
+    {
+      "id": "sum_016",
+      "title": {
+        "no": "Grillede Kyllingspyd",
+        "en": "Grilled Chicken Skewers"
+      },
+      "subtitle": {
+        "no": "Greske souvlaki-spyd med sitron, hvitløk og oregano",
+        "en": "Greek-style souvlaki skewers with lemon, garlic and oregano"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Grill",
+      "tags": [
+        "summer",
+        "fresh",
+        "light",
+        "grilled",
+        "quick"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kyllingfilet",
+            "en": "Chicken breast"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Olivenolje",
+            "en": "Olive oil"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Sitron (saft og skall)",
+            "en": "Lemon (juice and zest)"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk (finhakket)",
+            "en": "Garlic (minced)"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Oregano (tørket)",
+            "en": "Oregano (dried)"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "teskje",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Rød paprika",
+            "en": "Red bell pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Rødløk",
+            "en": "Red onion"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skjær kyllingfilet i terninger på ca. 3 cm.",
+          "2. Bland olivenolje, sitronsaft, sitronskall, hvitløk, oregano, salt og pepper i en bolle.",
+          "3. Vend kyllingterningene i marinaden og la marinere i minst 30 minutter, gjerne lenger i kjøleskap.",
+          "4. Skjær paprika og rødløk i biter på størrelse med kyllingen.",
+          "5. Tre kylling, paprika og løk på grillspyd.",
+          "6. Grill spydene på middels høy varme i 10-12 minutter, vend regelmessig, til kyllingen er gjennomstekt."
+        ],
+        "en": [
+          "1. Cut the chicken breast into roughly 3 cm cubes.",
+          "2. Mix olive oil, lemon juice, lemon zest, garlic, oregano, salt and pepper in a bowl.",
+          "3. Toss the chicken in the marinade and let it sit for at least 30 minutes, longer in the fridge if possible.",
+          "4. Cut the bell pepper and red onion into pieces similar in size to the chicken.",
+          "5. Thread chicken, pepper and onion onto skewers.",
+          "6. Grill the skewers over medium-high heat for 10-12 minutes, turning regularly, until the chicken is cooked through."
+        ]
+      }
+    },
+    {
+      "id": "sum_018",
+      "title": {
+        "no": "Grillede Reke-spyd",
+        "en": "Shrimp Skewers"
+      },
+      "subtitle": {
+        "no": "Middelhavsinspirerte rekespyd med hvitløk og sitron rett fra grillen",
+        "en": "Mediterranean-inspired shrimp skewers with garlic and lemon, straight off the grill"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 20,
+      "servings": 4,
+      "category": "Grill",
+      "tags": [
+        "summer",
+        "fresh",
+        "light",
+        "grilled",
+        "quick"
+      ],
+      "allergens": [
+        "shellfish"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Store reker (skall av, rå)",
+            "en": "Large shrimp (peeled, raw)"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Olivenolje",
+            "en": "Olive oil"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk (finhakket)",
+            "en": "Garlic (minced)"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Sitron (saft og skiver)",
+            "en": "Lemon (juice and slices)"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Chiliflak",
+            "en": "Chili flakes"
+          },
+          "amount": 0.5,
+          "unit": {
+            "no": "teskje",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Fersk persille (hakket)",
+            "en": "Fresh parsley (chopped)"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland olivenolje, hvitløk, sitronsaft, chiliflak, salt og pepper i en bolle.",
+          "2. Vend rekene i marinaden og la stå i 15-20 minutter.",
+          "3. Tre rekene på grillspyd.",
+          "4. Grill spydene på høy varme i 2-3 minutter per side til rekene er rosa og faste.",
+          "5. Legg sitronskiver på grillen de siste minuttene for ekstra smak.",
+          "6. Strø over fersk persille og server spydene varme med grillet sitron."
+        ],
+        "en": [
+          "1. Mix olive oil, garlic, lemon juice, chili flakes, salt and pepper in a bowl.",
+          "2. Toss the shrimp in the marinade and let sit for 15-20 minutes.",
+          "3. Thread the shrimp onto skewers.",
+          "4. Grill over high heat for 2-3 minutes per side until the shrimp are pink and firm.",
+          "5. Add lemon slices to the grill for the last few minutes for extra flavor.",
+          "6. Sprinkle with fresh parsley and serve the skewers hot with the grilled lemon."
+        ]
+      }
+    },
+    {
+      "id": "sum_020",
+      "title": {
+        "no": "Grillet Grønnsaksfat",
+        "en": "Grilled Vegetable Platter"
+      },
+      "subtitle": {
+        "no": "Fargerikt fat med grillede sommergrønnsaker og urtedressing",
+        "en": "Colorful platter of grilled summer vegetables with herb dressing"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 25,
+      "servings": 4,
+      "category": "Grill",
+      "tags": [
+        "summer",
+        "fresh",
+        "light",
+        "grilled",
+        "quick"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Squash",
+            "en": "Zucchini"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Aubergine",
+            "en": "Eggplant"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Rød paprika",
+            "en": "Red bell pepper"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Rødløk",
+            "en": "Red onion"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Cherrytomater på stilk",
+            "en": "Cherry tomatoes on the vine"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Olivenolje",
+            "en": "Olive oil"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Fersk basilikum (hakket)",
+            "en": "Fresh basil (chopped)"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skjær squash, aubergine og paprika i tykke skiver eller strimler.",
+          "2. Skjær rødløken i tykke ringer.",
+          "3. Pensle alle grønnsakene med olivenolje og krydre med salt og pepper.",
+          "4. Grill grønnsakene i porsjoner på middels høy varme til de er møre og har fine grillmerker, ca. 3-5 minutter per side.",
+          "5. Grill cherrytomatene kort til skinnet begynner å sprekke.",
+          "6. Legg alt på et fat, dryss over hakket basilikum og litt ekstra olivenolje før servering."
+        ],
+        "en": [
+          "1. Slice the zucchini, eggplant and bell peppers into thick slices or strips.",
+          "2. Cut the red onion into thick rings.",
+          "3. Brush all the vegetables with olive oil and season with salt and pepper.",
+          "4. Grill the vegetables in batches over medium-high heat until tender with nice char marks, about 3-5 minutes per side.",
+          "5. Briefly grill the cherry tomatoes until the skins start to split.",
+          "6. Arrange everything on a platter, sprinkle with chopped basil and a little extra olive oil before serving."
+        ]
+      }
+    },
+    {
+      "id": "sum_024",
+      "title": {
+        "no": "BBQ Pulled Pork",
+        "en": "BBQ Pulled Pork"
+      },
+      "subtitle": {
+        "no": "Sakte tilberedt svinekjøtt i BBQ-saus, perfekt i burgerbrød",
+        "en": "Slow-cooked pork in BBQ sauce, perfect in a burger bun"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 240,
+      "servings": 6,
+      "category": "Grill",
+      "tags": [
+        "summer",
+        "grilled",
+        "cuisine:american"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Svinenakke (uten ben)",
+            "en": "Pork shoulder (boneless)"
+          },
+          "amount": 1.5,
+          "unit": {
+            "no": "kg",
+            "en": "kg"
+          }
+        },
+        {
+          "name": {
+            "no": "Paprikapulver",
+            "en": "Paprika powder"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "spiseskje",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Brunt sukker",
+            "en": "Brown sugar"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "spiseskje",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløkpulver",
+            "en": "Garlic powder"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "teskje",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        },
+        {
+          "name": {
+            "no": "BBQ-saus",
+            "en": "BBQ sauce"
+          },
+          "amount": 250,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Burgerbrød",
+            "en": "Burger buns"
+          },
+          "amount": 6,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Kålsalat (coleslaw)",
+            "en": "Coleslaw"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Gni svinenakken inn med paprikapulver, brunt sukker, hvitløkpulver, salt og pepper.",
+          "2. Stek kjøttet på lav, indirekte varme (grill eller ovn på ca. 140°C) i 3,5-4 timer til det er mørt og lett kan trekkes i stykker.",
+          "3. La kjøttet hvile innpakket i folie i 15 minutter.",
+          "4. Riv kjøttet i strimler med to gafler.",
+          "5. Vend det revne kjøttet inn i BBQ-saus.",
+          "6. Server i burgerbrød toppet med kålsalat."
+        ],
+        "en": [
+          "1. Rub the pork shoulder with paprika, brown sugar, garlic powder, salt and pepper.",
+          "2. Cook over low, indirect heat (grill or oven at about 140°C) for 3.5-4 hours until tender and easily pulled apart.",
+          "3. Let the meat rest wrapped in foil for 15 minutes.",
+          "4. Shred the meat into strips using two forks.",
+          "5. Toss the shredded meat with BBQ sauce.",
+          "6. Serve in burger buns topped with coleslaw."
+        ]
+      }
+    },
+    {
+      "id": "sum_071",
+      "title": {
+        "no": "Grilllagd Sitrongraskykling",
+        "en": "Lemongrass Chicken Grilled"
+      },
+      "subtitle": {
+        "no": "Kylling grilllagd med sitroonsgras",
+        "en": "Grilled chicken with lemongrass"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Grill",
+      "tags": [
+        "grilled",
+        "asian",
+        "light",
+        "quick",
+        "cuisine:asian"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kyllingbryst",
+            "en": "Chicken breasts"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sitronssgras",
+            "en": "Lemongrass"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Fisjesaus",
+            "en": "Fish sauce"
+          },
+          "amount": 40,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Lime",
+            "en": "Lime"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Hakk sitronssgras og hvitløk",
+          "2. Bland med fisjesaus og lime",
+          "3. Marinér kylingen i 30 minutter",
+          "4. Grill i 12-15 minutter"
+        ],
+        "en": [
+          "1. Chop lemongrass and garlic",
+          "2. Mix with fish sauce and lime",
+          "3. Marinate chicken for 30 minutes",
+          "4. Grill for 12-15 minutes"
+        ]
+      }
+    },
+    {
+      "id": "sum_072",
+      "title": {
+        "no": "Indonesisk Satay med Jordnøttsaus",
+        "en": "Indonesian Satay with Peanut Sauce"
+      },
+      "subtitle": {
+        "no": "Stikker kjøtt med jordnøttsaus",
+        "en": "Skewered meat with peanut sauce"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 40,
+      "servings": 4,
+      "category": "Grill",
+      "tags": [
+        "grilled",
+        "asian",
+        "peanut",
+        "cuisine:asian"
+      ],
+      "allergens": [
+        "nuts"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Svinekjøtt",
+            "en": "Pork strips"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Jordnøttsaus",
+            "en": "Peanut butter"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kokosmelk",
+            "en": "Coconut milk"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Chilisosp",
+            "en": "Chili paste"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Lime",
+            "en": "Lime"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Setter kjøtt på stikker",
+          "2. Grill i 10-12 minutter",
+          "3. Bland jordnøttsaus med kokosmelk og chili",
+          "4. Server med sausen"
+        ],
+        "en": [
+          "1. Thread meat on skewers",
+          "2. Grill for 10-12 minutes",
+          "3. Mix peanut butter with coconut milk and chili",
+          "4. Serve with sauce"
+        ]
+      }
+    },
+    {
+      "id": "sum_082",
+      "title": {
+        "no": "Vietnamesisk Cơm Tấm",
+        "en": "Vietnamese Cơm Tấm"
+      },
+      "subtitle": {
+        "no": "Brutt ris med grilllagd kjøtt",
+        "en": "Broken rice with grilled meat"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 40,
+      "servings": 4,
+      "category": "Grill",
+      "tags": [
+        "rice",
+        "asian",
+        "grilled",
+        "cuisine:asian"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Brutt ris",
+            "en": "Broken rice"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Grilllagd kykling",
+            "en": "Grilled chicken"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Marinert agurk",
+            "en": "Pickled cucumber"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomat",
+            "en": "Tomato"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Fisk-saus",
+            "en": "Fish sauce"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok brutt ris",
+          "2. Server med grilllagd kykling",
+          "3. Tilsett marinert agurk og tomat",
+          "4. Drys med fisk-saus"
+        ],
+        "en": [
+          "1. Cook broken rice",
+          "2. Serve with grilled chicken",
+          "3. Add pickled cucumber and tomato",
+          "4. Drizzle with fish sauce"
+        ]
+      }
+    },
+    {
+      "id": "sum_092",
+      "title": {
+        "no": "Portugisisk Stekt Sardine",
+        "en": "Portuguese Sardine Grilled"
+      },
+      "subtitle": {
+        "no": "Grilllagd sardine med sitron",
+        "en": "Grilled sardines with lemon"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 20,
+      "servings": 4,
+      "category": "Grill",
+      "tags": [
+        "portuguese",
+        "grilled",
+        "seafood",
+        "quick",
+        "cuisine:portuguese"
+      ],
+      "allergens": [
+        "fish"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Sardiner",
+            "en": "Fresh sardines"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sitron",
+            "en": "Lemon"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Olje",
+            "en": "Olive oil"
+          },
+          "amount": 60,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Persille",
+            "en": "Parsley"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Rengjør sardiner",
+          "2. Dryss med olje, salt",
+          "3. Grill i 5-7 minutter hver side",
+          "4. Server med sitron og persille"
+        ],
+        "en": [
+          "1. Clean sardines",
+          "2. Drizzle with oil, salt",
+          "3. Grill for 5-7 minutes per side",
+          "4. Serve with lemon and parsley"
+        ]
+      }
+    },
+    {
+      "id": "sum_094",
+      "title": {
+        "no": "Spansk Pulpo à Feira",
+        "en": "Spanish Pulpo à Feira"
+      },
+      "subtitle": {
+        "no": "Grilllagd blekksprut med paprika",
+        "en": "Grilled octopus with paprika"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 60,
+      "servings": 4,
+      "category": "Grill",
+      "tags": [
+        "spanish",
+        "seafood",
+        "grilled",
+        "cuisine:spanish"
+      ],
+      "allergens": [
+        "shellfish"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Blekksprut",
+            "en": "Octopus"
+          },
+          "amount": 1000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Paprika",
+            "en": "Paprika powder"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Olje",
+            "en": "Olive oil"
+          },
+          "amount": 60,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sitron",
+            "en": "Lemon"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok blekkspruten til mørt",
+          "2. Skjær i biter",
+          "3. Grill med olje",
+          "4. Dryss med paprika",
+          "5. Server med sitron"
+        ],
+        "en": [
+          "1. Cook octopus until tender",
+          "2. Cut into pieces",
+          "3. Grill with oil",
+          "4. Sprinkle with paprika",
+          "5. Serve with lemon"
+        ]
+      }
+    },
+    {
+      "id": "sum_104",
+      "title": {
+        "no": "Midtøst Grilllagd Halloumi",
+        "en": "Middle Eastern Grilled Halloumi"
+      },
+      "subtitle": {
+        "no": "Grill-stekt ferskt ost",
+        "en": "Grilled fresh cheese"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 15,
+      "servings": 4,
+      "category": "Grill",
+      "tags": [
+        "middle eastern",
+        "grilled",
+        "cheese",
+        "quick",
+        "cuisine:middle_eastern"
+      ],
+      "allergens": [
+        "milk"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Halloumi",
+            "en": "Halloumi cheese"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sitron",
+            "en": "Lemon"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Olje",
+            "en": "Olive oil"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Oregano",
+            "en": "Oregano"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skjær halloumi",
+          "2. Brush med olje",
+          "3. Grill i 3-4 minutter hver side",
+          "4. Server med sitron og oregano"
+        ],
+        "en": [
+          "1. Cut halloumi",
+          "2. Brush with oil",
+          "3. Grill for 3-4 minutes per side",
+          "4. Serve with lemon and oregano"
+        ]
+      }
+    },
+    {
+      "id": "sum_105",
+      "title": {
+        "no": "Afrikansk Peri Peri Kykling",
+        "en": "African Peri Peri Chicken"
+      },
+      "subtitle": {
+        "no": "Pikant grilllagd kykling",
+        "en": "Spicy grilled chicken"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 35,
+      "servings": 4,
+      "category": "Grill",
+      "tags": [
+        "african",
+        "grilled",
+        "spicy",
+        "cuisine:african"
+      ],
+      "allergens": [
+        "meat"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kykling",
+            "en": "Chicken pieces"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Peri Peri Chili",
+            "en": "Peri Peri peppers"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Lime",
+            "en": "Lime"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Olje",
+            "en": "Olive oil"
+          },
+          "amount": 60,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Blend peri peri chili med hvitløk",
+          "2. Blend med lime og olje",
+          "3. Marinér kylingen",
+          "4. Grill i 20-25 minutter"
+        ],
+        "en": [
+          "1. Blend peri peri peppers with garlic",
+          "2. Mix with lime and oil",
+          "3. Marinate chicken",
+          "4. Grill for 20-25 minutes"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,2575 @@
+{
+  "packId": "pack_03_nordic_mixed",
+  "packName": {
+    "en": "Nordic Mixed",
+    "no": "Nordisk Diverse"
+  },
+  "packDescription": {
+    "en": "A mix of smaller categories from the Nordic collection - too few of each to be their own pack",
+    "no": "En blanding av mindre kategorier fra Nordisk-samlingen"
+  },
+  "packImage": "🍽️",
+  "packColor": "#999999",
+  "recipeCount": 21,
+  "estimatedCookTime": "varies",
+  "difficulty": "varies",
+  "recipes": [
+    {
+      "id": "nd_002",
+      "title": {
+        "no": "Gravlax",
+        "en": "Gravlax"
+      },
+      "subtitle": {
+        "no": "Skandinavisk gravlaks med urter",
+        "en": "Scandinavian cured salmon with herbs"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 1440,
+      "servings": 8,
+      "category": "Fish & Seafood",
+      "tags": [
+        "scandinavian",
+        "salmon",
+        "cured",
+        "elegant",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "fish"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Laks (fersk, filéer)",
+            "en": "Salmon (fresh, fillets)"
+          },
+          "amount": 1000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Dill (frisk)",
+            "en": "Dill (fresh)"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Pepper (sort)",
+            "en": "Black pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Anis eller fennikelfrø",
+            "en": "Anise or fennel seeds"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Pat laksen tørt med papirtøy.",
+          "2. Bland salt, sukker, pepper, dill, anis og fennikelfrø.",
+          "3. Legg laksen på folie, hud-siden ned.",
+          "4. Påfør half av blandingen på laksen.",
+          "5. Legg den andre laksefileten på toppen, hud-siden opp.",
+          "6. Påfør resten av blandingen på toppen.",
+          "7. Pakk inn og legg i kjøleskapet.",
+          "8. Legg en plate på toppen med vekt.",
+          "9. La det kurere i 24-48 timer, vend hver 12. time.",
+          "10. Skjær i tynne skiver og server på brød med rømme, løk og agurk."
+        ],
+        "en": [
+          "1. Pat salmon dry with paper towels.",
+          "2. Mix salt, sugar, pepper, dill, anise and fennel seeds.",
+          "3. Place salmon on foil, skin side down.",
+          "4. Apply half mixture to salmon.",
+          "5. Place other salmon fillet on top, skin side up.",
+          "6. Apply remaining mixture on top.",
+          "7. Wrap and place in refrigerator.",
+          "8. Place a plate on top with weight.",
+          "9. Let cure 24-48 hours, turn every 12 hours.",
+          "10. Slice thinly and serve on bread with sour cream, onion and cucumber."
+        ]
+      }
+    },
+    {
+      "id": "nd_004",
+      "title": {
+        "no": "Plokkfisk",
+        "en": "Plokkfisk"
+      },
+      "subtitle": {
+        "no": "Islandsk fiskérett",
+        "en": "Icelandic fish dish"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 45,
+      "servings": 4,
+      "category": "Fish & Seafood",
+      "tags": [
+        "icelandic",
+        "fish",
+        "comfort-food",
+        "cuisine:icelandic"
+      ],
+      "allergens": [
+        "fish",
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Fiskefiléer",
+            "en": "Fish fillets"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "medium",
+            "en": "medium"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 75,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Mel",
+            "en": "Flour"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok poteter til halvkjøpt, kutt i terninger.",
+          "2. Kok fiskefilene lett og bli av med beinen.",
+          "3. Lag sausen: smelt smør, tilsett mel og rør til det er glatt.",
+          "4. Tilsett melk langsomt mens du rører.",
+          "5. Bland poteter, fisk og løk i sausen.",
+          "6. La det småkoke i 15 minutter.",
+          "7. Smak til med salt og pepper.",
+          "8. Server varmt som en komfortrett."
+        ],
+        "en": [
+          "1. Boil potatoes until half-cooked, dice them.",
+          "2. Boil fish fillets lightly and remove bones.",
+          "3. Make sauce: melt butter, add flour and stir until smooth.",
+          "4. Add milk slowly while stirring.",
+          "5. Mix potatoes, fish and onion in sauce.",
+          "6. Simmer for 15 minutes.",
+          "7. Season with salt and pepper.",
+          "8. Serve hot as a comfort dish."
+        ]
+      }
+    },
+    {
+      "id": "nd_013",
+      "title": {
+        "no": "Fiskeboller",
+        "en": "Fish Balls"
+      },
+      "subtitle": {
+        "no": "Skandinavisk fisk-spesialet",
+        "en": "Scandinavian fish specialty"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 45,
+      "servings": 4,
+      "category": "Fish & Seafood",
+      "tags": [
+        "scandinavian",
+        "fish",
+        "comfort-food",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "fish",
+        "dairy",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Fisk (finhakket)",
+            "en": "Fish (minced)"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Brødkrumler",
+            "en": "Breadcrumbs"
+          },
+          "amount": 75,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Egg"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk (finhakket)",
+            "en": "Onion (minced)"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "small",
+            "en": "small"
+          }
+        },
+        {
+          "name": {
+            "no": "Dill (frisk)",
+            "en": "Dill (fresh)"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Buljong (fisk)",
+            "en": "Fish broth"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bløtlegg brødkrumler i melk.",
+          "2. Bland fisk, brødkrumler, egg, løk, dill, salt og pepper.",
+          "3. Form små kuler.",
+          "4. Steik kullene i smør til de er lett brune.",
+          "5. Hell fiskbuljongen i pannen.",
+          "6. La kullene småkoke i ca. 15 minutter.",
+          "7. Server med poteter og grønnsaker."
+        ],
+        "en": [
+          "1. Soak breadcrumbs in milk.",
+          "2. Mix fish, breadcrumbs, egg, onion, dill, salt and pepper.",
+          "3. Form small balls.",
+          "4. Fry balls in butter until lightly brown.",
+          "5. Pour fish broth in pan.",
+          "6. Let balls simmer for about 15 minutes.",
+          "7. Serve with potatoes and vegetables."
+        ]
+      }
+    },
+    {
+      "id": "nd_021",
+      "title": {
+        "no": "Gravlax",
+        "en": "Cured Salmon"
+      },
+      "subtitle": {
+        "no": "Saltet og sukret laks med sennepssaus",
+        "en": "Salt and sugar cured salmon with mustard-dill sauce"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 30,
+      "servings": 6,
+      "category": "Fish & Seafood",
+      "tags": [
+        "traditional",
+        "nordic",
+        "fish",
+        "cured",
+        "quick",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "fish",
+        "mustard"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Laksefilet med skinn",
+            "en": "Salmon fillet with skin"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvit pepper",
+            "en": "White pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Fersk dill",
+            "en": "Fresh dill"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "bunt",
+            "en": "bunch"
+          }
+        },
+        {
+          "name": {
+            "no": "Sennep (dijon)",
+            "en": "Mustard (dijon)"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Honning",
+            "en": "Honey"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Olje",
+            "en": "Oil"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland salt, sukker og pepper, og gni blandingen jevnt over laksefileten på begge sider.",
+          "2. Legg laksen i et fat, dekk rikelig med hakket dill og pakk tett inn i plastfolie.",
+          "3. Legg en lett vekt på toppen og sett i kjøleskap i 24-48 timer, og vend laksen et par ganger.",
+          "4. Skrap av marinaden og dilllaget før servering, og skjær laksen i tynne skiver.",
+          "5. Lag sennepssausen ved å piske sammen sennep, honning og olje til en jevn emulsjon.",
+          "6. Tilsett finhakket dill i sausen og smak til med salt og pepper.",
+          "7. Server de tynne laksskivene med sennepssausen og rugbrød eller poteter."
+        ],
+        "en": [
+          "1. Mix salt, sugar and pepper, and rub the mixture evenly over both sides of the salmon fillet.",
+          "2. Place the salmon in a dish, cover generously with chopped dill and wrap tightly in plastic film.",
+          "3. Place a light weight on top and refrigerate for 24-48 hours, turning the salmon a couple of times.",
+          "4. Scrape off the marinade and dill before serving, and slice the salmon thinly.",
+          "5. Make the mustard sauce by whisking together mustard, honey and oil until smoothly emulsified.",
+          "6. Stir finely chopped dill into the sauce and season with salt and pepper to taste.",
+          "7. Serve the thin salmon slices with the mustard-dill sauce and rye bread or potatoes."
+        ]
+      }
+    },
+    {
+      "id": "nd_026",
+      "title": {
+        "no": "Fiskeboller",
+        "en": "Nordic Fish Balls in White Sauce"
+      },
+      "subtitle": {
+        "no": "Lyse fiskeboller i kremet hvit saus",
+        "en": "Pale fish balls simmered in creamy white sauce"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 35,
+      "servings": 4,
+      "category": "Fish & Seafood",
+      "tags": [
+        "traditional",
+        "nordic",
+        "fish",
+        "comfort-food",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "fish",
+        "dairy",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Hvit fisk, filet (torsk eller sei)",
+            "en": "White fish fillet (cod or pollock)"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Potetmel",
+            "en": "Potato starch"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Egg"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvetemel",
+            "en": "Wheat flour"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Fiskekraft",
+            "en": "Fish stock"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Muskat",
+            "en": "Nutmeg"
+          },
+          "amount": 0.25,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kjør fiskefilet, potetmel, egg og litt melk i en foodprosessor til en glatt farse.",
+          "2. Smak til farsen med salt, pepper og muskat.",
+          "3. Form farsen til små boller med to skjeer.",
+          "4. Kok opp fiskekraften og la fiskebollene sive forsiktig i 8-10 minutter til de flyter og er gjennomkokt.",
+          "5. Ta opp bollene og sil kraften, behold den til sausen.",
+          "6. Smelt smør i en kjele, rør inn mel og spe med den varme kraften til en jevn hvit saus.",
+          "7. Legg fiskebollene tilbake i sausen og server med kokte poteter og gulrøtter."
+        ],
+        "en": [
+          "1. Blend the fish fillet, potato starch, egg and a little milk in a food processor until smooth.",
+          "2. Season the mixture with salt, pepper and nutmeg.",
+          "3. Shape the mixture into small balls using two spoons.",
+          "4. Bring the fish stock to a gentle simmer and poach the fish balls for 8-10 minutes until they float and are cooked through.",
+          "5. Remove the balls and strain the stock, reserving it for the sauce.",
+          "6. Melt butter in a saucepan, stir in flour, and gradually add the hot stock to make a smooth white sauce.",
+          "7. Return the fish balls to the sauce and serve with boiled potatoes and carrots."
+        ]
+      }
+    },
+    {
+      "id": "nd_028",
+      "title": {
+        "no": "Kalakukko",
+        "en": "Finnish Fish and Pork Rye Pie"
+      },
+      "subtitle": {
+        "no": "Finsk rugdeigpai fylt med fisk og flesk",
+        "en": "Finnish rye-crusted pie filled with fish and pork"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 240,
+      "servings": 6,
+      "category": "Fish & Seafood",
+      "tags": [
+        "traditional",
+        "nordic",
+        "fish",
+        "baked",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "fish",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Rugmel",
+            "en": "Rye flour"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvetemel",
+            "en": "Wheat flour"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
+          "amount": 250,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Liten hel fisk (abbor eller sik), renset",
+            "en": "Small whole fish (perch or whitefish), cleaned"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt flesk, i skiver",
+            "en": "Salted pork, sliced"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør til pensling",
+            "en": "Butter for brushing"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland rugmel, hvetemel, salt og vann til en fast deig, og kjevle den ut til en stor sirkel.",
+          "2. Legg fiskefiletene og flesket lagvis i midten av deigen, og krydre med salt og pepper.",
+          "3. Brett deigkanten opp og over fyllet, og kna kantene godt sammen til en tett, lukket pakke.",
+          "4. Form pakken til en avrundet, hevet pai og legg den på en stekeplate.",
+          "5. Stek i ovnen på 175°C i 2,5-3 timer til skallet er mørkt og fast.",
+          "6. Pensle skallet med smeltet smør halvveis gjennom stekingen for å holde det smidig.",
+          "7. La paien avkjøles litt, skjær i skiver og server varm eller romtemperert."
+        ],
+        "en": [
+          "1. Mix rye flour, wheat flour, salt and water into a firm dough, and roll it out into a large circle.",
+          "2. Layer the fish fillets and pork slices in the center of the dough, seasoning with salt and pepper.",
+          "3. Fold the dough edges up and over the filling, pressing the seams firmly together into a sealed parcel.",
+          "4. Shape the parcel into a rounded, domed pie and place it on a baking sheet.",
+          "5. Bake at 175°C for 2.5-3 hours until the crust is dark and firm.",
+          "6. Brush the crust with melted butter halfway through baking to keep it from drying out.",
+          "7. Let the pie cool slightly, slice, and serve warm or at room temperature."
+        ]
+      }
+    },
+    {
+      "id": "nd_006",
+      "title": {
+        "no": "Mørbrad med jordbær og flødeskum",
+        "en": "Pork Tenderloin with Strawberries and Whipped Cream"
+      },
+      "subtitle": {
+        "no": "Skandinavisk elegant rett",
+        "en": "Scandinavian elegant dish"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 40,
+      "servings": 4,
+      "category": "Pork",
+      "tags": [
+        "scandinavian",
+        "elegant",
+        "summer",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Mørbrad (gris)",
+            "en": "Pork tenderloin"
+          },
+          "amount": 700,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Jordbær (friske)",
+            "en": "Strawberries (fresh)"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Fløte (tykk)",
+            "en": "Cream (heavy)"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvit vin",
+            "en": "White wine"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Sesr mørbradstykket lett og smak til med salt og pepper.",
+          "2. Heat smør i en stekepanne.",
+          "3. Steik mørbradstykket på høy varme 3-4 minutter på hver side.",
+          "4. Legg på en varmt stell.",
+          "5. Hell hvit vin i pannen og la det redusere.",
+          "6. Tilsett fløten og la det småkoke i 5 minutter.",
+          "7. Tilsett jordbærene til sausen.",
+          "8. Skjær mørbradstykket i skiver og arrange på en tallerken.",
+          "9. Hell jordebærsausen over og server varmt."
+        ],
+        "en": [
+          "1. Season tenderloin lightly and taste with salt and pepper.",
+          "2. Heat butter in a frying pan.",
+          "3. Fry tenderloin on high heat 3-4 minutes on each side.",
+          "4. Place on warm plate.",
+          "5. Pour white wine in pan and let reduce.",
+          "6. Add cream and simmer for 5 minutes.",
+          "7. Add strawberries to sauce.",
+          "8. Slice tenderloin and arrange on plate.",
+          "9. Pour strawberry sauce over and serve hot."
+        ]
+      }
+    },
+    {
+      "id": "nd_024",
+      "title": {
+        "no": "Stegt Flæsk med Persillesovs",
+        "en": "Fried Pork Belly with Parsley Sauce"
+      },
+      "subtitle": {
+        "no": "Dansk nasjonalrett med sprøtt flesk og persillesaus",
+        "en": "Danish national dish with crispy pork belly and parsley sauce"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 50,
+      "servings": 4,
+      "category": "Pork",
+      "tags": [
+        "traditional",
+        "nordic",
+        "comfort-food",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Svineribbe, tynne skiver",
+            "en": "Pork belly, thinly sliced"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvetemel",
+            "en": "Wheat flour"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Fersk persille, hakket",
+            "en": "Fresh parsley, chopped"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "bunt",
+            "en": "bunch"
+          }
+        },
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Legg de tynne fleskskivene i en kald stekepanne og stek dem på middels varme til de blir sprø og gyldenbrune.",
+          "2. Ta flesket ut og la det dryppe av på papir, og behold litt av fettet i pannen til sausen.",
+          "3. Smelt smør i fettet, rør inn mel og la det surre i et minutt.",
+          "4. Spe gradvis med melk under konstant røring til sausen er jevn og tykner.",
+          "5. La sausen koke sakte i 5-10 minutter, smak til med salt og pepper.",
+          "6. Rør inn rikelig med hakket persille like før servering.",
+          "7. Server det sprøstekte flesket med persillesausen og kokte poteter."
+        ],
+        "en": [
+          "1. Place the thin pork belly slices in a cold frying pan and fry over medium heat until crispy and golden brown.",
+          "2. Remove the pork and let it drain on paper, keeping some of the fat in the pan for the sauce.",
+          "3. Melt butter in the fat, stir in flour and let it cook for a minute.",
+          "4. Gradually whisk in the milk while stirring constantly until the sauce is smooth and thickens.",
+          "5. Let the sauce simmer gently for 5-10 minutes, seasoning with salt and pepper.",
+          "6. Stir in plenty of chopped parsley just before serving.",
+          "7. Serve the crispy fried pork belly with the parsley sauce and boiled potatoes."
+        ]
+      }
+    },
+    {
+      "id": "nd_029",
+      "title": {
+        "no": "Raspeballer",
+        "en": "Norwegian Potato Dumplings"
+      },
+      "subtitle": {
+        "no": "Potetraspeballer kokt med saltet flesk",
+        "en": "Grated potato dumplings boiled with salted pork"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 90,
+      "servings": 4,
+      "category": "Pork",
+      "tags": [
+        "traditional",
+        "nordic",
+        "comfort-food",
+        "cuisine:nordic"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Rå poteter, revet",
+            "en": "Raw potatoes, grated"
+          },
+          "amount": 1000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kokte poteter, moste",
+            "en": "Boiled potatoes, mashed"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvetemel",
+            "en": "Wheat flour"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Saltet flesk eller bacon, i biter",
+            "en": "Salted pork or bacon, cubed"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør til servering",
+            "en": "Butter for serving"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Riv de rå potetene fint og press ut overflødig vann gjennom et klede.",
+          "2. Bland de revne potetene med moste kokte poteter, mel og salt til en fast deig.",
+          "3. Press en liten klump flesk inn i midten av en håndfull deig og form til en jevn ball.",
+          "4. Fortsett til all deig og flesk er brukt opp.",
+          "5. Kok opp en stor gryte med lettsaltet vann og legg raspeballene forsiktig i.",
+          "6. La dem koke i 45-60 minutter til de er gjennomkokt og flyter til overflaten.",
+          "7. Server varme med smeltet smør, eventuelt sammen med kålrabistuing eller flesk."
+        ],
+        "en": [
+          "1. Finely grate the raw potatoes and press out excess water through a cloth.",
+          "2. Mix the grated potatoes with the mashed boiled potatoes, flour and salt into a firm dough.",
+          "3. Press a small piece of pork into the center of a handful of dough and shape into an even ball.",
+          "4. Continue until all the dough and pork have been used.",
+          "5. Bring a large pot of lightly salted water to a boil and gently add the dumplings.",
+          "6. Let them boil for 45-60 minutes until fully cooked and floating to the surface.",
+          "7. Serve hot with melted butter, optionally alongside mashed rutabaga or pork."
+        ]
+      }
+    },
+    {
+      "id": "nd_009",
+      "title": {
+        "no": "Janteloven Brød",
+        "en": "Jante Law Bread"
+      },
+      "subtitle": {
+        "no": "Skandinavisk tradisjonelt brød",
+        "en": "Scandinavian traditional bread"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 240,
+      "servings": 2,
+      "category": "Other",
+      "tags": [
+        "scandinavian",
+        "bread",
+        "traditional",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Rugmel",
+            "en": "Rye flour"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvetemel",
+            "en": "Wheat flour"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Gjær",
+            "en": "Yeast"
+          },
+          "amount": 25,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
+          "amount": 350,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Honning (valgfritt)",
+            "en": "Honey (optional)"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland rugmel, hvetemel og salt.",
+          "2. Løs gjæren i lunkken vann.",
+          "3. Bland gjærblandingen med melblanden.",
+          "4. Trill deigen godt i 10 minutter.",
+          "5. La deigen heve i 2-3 timer under et handklæ.",
+          "6. Form til brødboller eller flat brød.",
+          "7. La det heve i ytterligere 1 time.",
+          "8. Bak på 200°C i 35-40 minutter.",
+          "9. Brødet skal være gyllent brunt når det er ferdig."
+        ],
+        "en": [
+          "1. Mix rye flour, wheat flour and salt.",
+          "2. Dissolve yeast in lukewarm water.",
+          "3. Mix yeast mixture with flour mixture.",
+          "4. Knead dough well for 10 minutes.",
+          "5. Let dough rise 2-3 hours under towel.",
+          "6. Shape into bread rolls or flat bread.",
+          "7. Let rise another 1 hour.",
+          "8. Bake at 200°C for 35-40 minutes.",
+          "9. Bread should be golden brown when done."
+        ]
+      }
+    },
+    {
+      "id": "nd_022",
+      "title": {
+        "no": "Janssons Frestelse",
+        "en": "Jansson's Temptation"
+      },
+      "subtitle": {
+        "no": "Kremet potetgrateng med ansjos",
+        "en": "Creamy potato and anchovy casserole"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 75,
+      "servings": 4,
+      "category": "Other",
+      "tags": [
+        "traditional",
+        "nordic",
+        "casserole",
+        "comfort-food",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "fish",
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Poteter, skåret i staver",
+            "en": "Potatoes, cut into strips"
+          },
+          "amount": 1000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk, tynt skåret",
+            "en": "Onion, thinly sliced"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Ansjosfileter i olje",
+            "en": "Anchovy fillets in oil"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kremfløte",
+            "en": "Heavy cream"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Brødsmuler",
+            "en": "Breadcrumbs"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Forvarm stekeovnen til 200°C og smør en ildfast form.",
+          "2. Stek løken lett i smør til den er blank, uten å bli brun.",
+          "3. Legg lag av potetstaver, løk og ansjosfileter etter tur i formen, og avslutt med et lag poteter.",
+          "4. Bland kremfløte og melk og hell over grateng-en til den nesten dekker potetene.",
+          "5. Strø brødsmuler og noen klatter smør på toppen.",
+          "6. Stek i ovnen i 50-60 minutter til potetene er møre og toppen er gyllen.",
+          "7. La gratengen stå noen minutter før servering."
+        ],
+        "en": [
+          "1. Preheat the oven to 200°C and butter an ovenproof dish.",
+          "2. Lightly sauté the onion in butter until translucent, without browning it.",
+          "3. Layer the potato strips, onion and anchovy fillets in turns in the dish, finishing with a layer of potatoes.",
+          "4. Mix the cream and milk and pour over the casserole until it almost covers the potatoes.",
+          "5. Sprinkle breadcrumbs and a few dabs of butter on top.",
+          "6. Bake for 50-60 minutes until the potatoes are tender and the top is golden.",
+          "7. Let the casserole rest a few minutes before serving."
+        ]
+      }
+    },
+    {
+      "id": "nd_077",
+      "title": {
+        "no": "Frøsnapper",
+        "en": "Seed Snaps"
+      },
+      "subtitle": {
+        "no": "Sprø kjeks med sesam og frø",
+        "en": "Crispy cookies with sesame and seeds"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 25,
+      "servings": 20,
+      "category": "Other",
+      "tags": [
+        "cookies",
+        "seeds",
+        "crispy",
+        "quick",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "wheat",
+        "sesame",
+        "nuts"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Mel",
+            "en": "Flour"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sesamfrø",
+            "en": "Sesame seeds"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Solsikkekjerner",
+            "en": "Sunflower seeds"
+          },
+          "amount": 40,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland smør og sukker",
+          "2. Tilsett mel, sesamfrø, solsikkekjerner og salt",
+          "3. Former små baller",
+          "4. Plasser på bakepapir og flat dem",
+          "5. Bak på 180°C i 12-15 minutter"
+        ],
+        "en": [
+          "1. Mix butter and sugar",
+          "2. Add flour, sesame seeds, sunflower seeds and salt",
+          "3. Form small balls",
+          "4. Place on baking paper and flatten",
+          "5. Bake at 180°C for 12-15 minutes"
+        ]
+      }
+    },
+    {
+      "id": "nd_090",
+      "title": {
+        "no": "Pandekager",
+        "en": "Pancakes"
+      },
+      "subtitle": {
+        "no": "Tynne søte pannekaker",
+        "en": "Thin sweet pancakes"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 20,
+      "servings": 4,
+      "category": "Other",
+      "tags": [
+        "pancake",
+        "breakfast",
+        "sweet",
+        "quick"
+      ],
+      "allergens": [
+        "wheat",
+        "milk",
+        "eggs"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Mel",
+            "en": "Flour"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Eggs"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland mel og salt",
+          "2. Lage krater og tilsett egg",
+          "3. Gradvis tilsett melk",
+          "4. Bland til glattt deig",
+          "5. Sterk små mengder på varmt smør",
+          "6. Sterk hver side til lys gyllen",
+          "7. Server med syltetøy eller sjokolade"
+        ],
+        "en": [
+          "1. Mix flour and salt",
+          "2. Make a well and add eggs",
+          "3. Gradually add milk",
+          "4. Mix to smooth batter",
+          "5. Fry small amounts on hot butter",
+          "6. Fry each side until light golden",
+          "7. Serve with jam or chocolate"
+        ]
+      }
+    },
+    {
+      "id": "nd_018",
+      "title": {
+        "no": "Karjalanpaisti",
+        "en": "Karelian Stew"
+      },
+      "subtitle": {
+        "no": "Finsk langtidsstekt gryte med blandet kjøtt",
+        "en": "Finnish slow-baked stew with mixed meats"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 180,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "traditional",
+        "nordic",
+        "slow-cooked",
+        "comfort-food",
+        "cuisine:nordic"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kjøttbiter av svin",
+            "en": "Pork, cubed"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kjøttbiter av kjøtt (oksekjøtt)",
+            "en": "Beef, cubed"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Lammekjøtt, biter",
+            "en": "Lamb, cubed"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Gulrot",
+            "en": "Carrot"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Hele pepperkorn",
+            "en": "Whole peppercorns"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Forvarm stekeovnen til 150°C.",
+          "2. Skjær kjøttet i jevne biter og legg det i en gryte med lokk.",
+          "3. Skjær gulrøtter og løk i grove biter og legg over kjøttet.",
+          "4. Tilsett pepperkorn, salt og vann.",
+          "5. Sett gryten med lokk i ovnen og la den småkoke i 3-4 timer til kjøttet er mørt.",
+          "6. Rør om en gang i løpet av steketiden og sjekk vannivået.",
+          "7. Server varm med kokte poteter eller rugbrød."
+        ],
+        "en": [
+          "1. Preheat the oven to 150°C.",
+          "2. Cut the meat into even chunks and place in a covered casserole dish.",
+          "3. Cut the carrots and onions into rough pieces and layer over the meat.",
+          "4. Add the peppercorns, salt and water.",
+          "5. Place the covered casserole in the oven and let it simmer for 3-4 hours until the meat is tender.",
+          "6. Stir once during cooking and check the water level.",
+          "7. Serve hot with boiled potatoes or rye bread."
+        ]
+      }
+    },
+    {
+      "id": "nd_019",
+      "title": {
+        "no": "Ärtsoppa",
+        "en": "Swedish Yellow Split Pea Soup"
+      },
+      "subtitle": {
+        "no": "Varmende ertesuppe med flesk og urter",
+        "en": "Warming split pea soup with salted pork and herbs"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 90,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "traditional",
+        "nordic",
+        "soup",
+        "comfort-food",
+        "cuisine:nordic"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Gule erter (tørkede)",
+            "en": "Yellow split peas (dried)"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Saltflesk eller bacon",
+            "en": "Salted pork or bacon"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Timian",
+            "en": "Thyme"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
+          "amount": 1500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Sennep til servering",
+            "en": "Mustard for serving"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skyll de gule ertene og legg dem i vann i flere timer eller over natten.",
+          "2. Kok ertene opp i ferskt vann og skum av skummet som dannes på toppen.",
+          "3. Tilsett løk i hele eller halve biter og det salte flesket.",
+          "4. La suppen koke sakte i 1-1,5 time til ertene er møre og suppen er tykk.",
+          "5. Fjern fleskbitene, skjær dem i mindre stykker og legg tilbake i suppen.",
+          "6. Smak til med timian, salt og pepper.",
+          "7. Server varm med sennep og eventuelt tynne pannekaker til dessert."
+        ],
+        "en": [
+          "1. Rinse the split peas and soak them in water for several hours or overnight.",
+          "2. Bring the peas to a boil in fresh water, skimming off the foam that forms on top.",
+          "3. Add the onion in whole or halved pieces along with the salted pork.",
+          "4. Let the soup simmer gently for 1-1.5 hours until the peas are soft and the soup has thickened.",
+          "5. Remove the pork pieces, cut into smaller chunks and return to the soup.",
+          "6. Season with thyme, salt and pepper to taste.",
+          "7. Serve hot with mustard, traditionally followed by thin pancakes for dessert."
+        ]
+      }
+    },
+    {
+      "id": "nd_027",
+      "title": {
+        "no": "Kalops",
+        "en": "Swedish Beef Stew"
+      },
+      "subtitle": {
+        "no": "Svensk langtidskokt biffgryte med løk og lauerbær",
+        "en": "Swedish slow-cooked beef stew with onion and bay leaf"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 150,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "traditional",
+        "nordic",
+        "slow-cooked",
+        "comfort-food",
+        "cuisine:nordic"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Oksekjøtt til gryte, i biter",
+            "en": "Beef stewing meat, cubed"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk, i skiver",
+            "en": "Onion, sliced"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Gulrot, i skiver",
+            "en": "Carrot, sliced"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Lauerbærblad",
+            "en": "Bay leaves"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Allehånde, hele korn",
+            "en": "Allspice berries, whole"
+          },
+          "amount": 6,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Kjøttkraft",
+            "en": "Beef stock"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvetemel",
+            "en": "Wheat flour"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Brun kjøttbitene godt i smør i en gryte på høy varme i flere omganger.",
+          "2. Tilsett løk og fortsett å steke til løken blir blank.",
+          "3. Strø mel over kjøttet og løken og rør godt for å dekke alt.",
+          "4. Hell på kraften, tilsett lauerbærblad og allehånde, og kok opp.",
+          "5. Sett varmen ned og la gryten putre med lokk på i 2-2,5 timer til kjøttet er mørt.",
+          "6. Tilsett gulrøttene de siste 30 minuttene av koketiden.",
+          "7. Smak til med salt og pepper, og server med kokte poteter eller potetmos."
+        ],
+        "en": [
+          "1. Brown the meat well in butter in a pot over high heat, working in batches.",
+          "2. Add the onion and continue cooking until translucent.",
+          "3. Sprinkle flour over the meat and onion and stir well to coat everything.",
+          "4. Pour in the stock, add the bay leaves and allspice, and bring to a boil.",
+          "5. Lower the heat and let the stew simmer covered for 2-2.5 hours until the meat is tender.",
+          "6. Add the carrots during the last 30 minutes of cooking.",
+          "7. Season with salt and pepper, and serve with boiled potatoes or mashed potatoes."
+        ]
+      }
+    },
+    {
+      "id": "nd_079",
+      "title": {
+        "no": "Kartoffelsuppe",
+        "en": "Potato Soup"
+      },
+      "subtitle": {
+        "no": "Varm og mettende potetsuppe",
+        "en": "Warm and hearty potato soup"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 35,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "soup",
+        "potatoes",
+        "comfort food",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "milk"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Klippløk",
+            "en": "Chives"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Kjøttbuljong",
+            "en": "Beef broth"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 40,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "porsjon",
+            "en": "portion"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kutt poteter og løk i små terninger",
+          "2. Smelt smør i en gryte",
+          "3. Sauté løk i 3-4 minutter",
+          "4. Tilsett poteter og kjøttbuljong",
+          "5. Kok i 15-20 minutter til poteter er møre",
+          "6. Tilsett melk og klippløk",
+          "7. Krydre med salt og pepper"
+        ],
+        "en": [
+          "1. Cut potatoes and onion into small cubes",
+          "2. Melt butter in a pot",
+          "3. Sauté onion for 3-4 minutes",
+          "4. Add potatoes and beef broth",
+          "5. Cook for 15-20 minutes until potatoes are tender",
+          "6. Add milk and chives",
+          "7. Season with salt and pepper"
+        ]
+      }
+    },
+    {
+      "id": "nd_099",
+      "title": {
+        "no": "Mushroom Stew",
+        "en": "Mushroom Stew"
+      },
+      "subtitle": {
+        "no": "Varmrätt med sopp og grønsaker",
+        "en": "Warm stew with mushrooms and vegetables"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 40,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "vegetarian",
+        "comfort food",
+        "stew",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "milk"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Champignon",
+            "en": "Button mushrooms"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Heavy cream"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Grønnsaksbuljong",
+            "en": "Vegetable broth"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Timian",
+            "en": "Thyme"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Hakk løk og hvitløk",
+          "2. Skjær soppen i stykker",
+          "3. Smelt smør og sauté løk og hvitløk",
+          "4. Tilsett soppen og kok i 10 minutter",
+          "5. Helle inn buljongen og melk",
+          "6. Tilsett timian",
+          "7. Kok til deigen er mykt, omkring 20 minutter"
+        ],
+        "en": [
+          "1. Chop onion and garlic",
+          "2. Slice mushrooms",
+          "3. Melt butter and sauté onion and garlic",
+          "4. Add mushrooms and cook for 10 minutes",
+          "5. Pour in broth and cream",
+          "6. Add thyme",
+          "7. Cook until vegetables are soft, about 20 minutes"
+        ]
+      }
+    },
+    {
+      "id": "nd_105",
+      "title": {
+        "no": "Grønnsaksstuing",
+        "en": "Mixed Vegetable Stew"
+      },
+      "subtitle": {
+        "no": "Blandet grønnsaksstuing med tomatssaus",
+        "en": "Mixed vegetables in tomato sauce"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 45,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "vegetables",
+        "stew",
+        "comfort food",
+        "cuisine:nordic"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomat",
+            "en": "Tomatoes"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Gulrot",
+            "en": "Carrots"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 250,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Paprika",
+            "en": "Bell pepper"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Grønnsaksbuljong",
+            "en": "Vegetable broth"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Olje",
+            "en": "Oil"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "spsk",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Urter",
+            "en": "Herbs"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Hakk løk og sauté i olje",
+          "2. Kutt alle grønnsakene i små stykker",
+          "3. Tilsett tomat og buljongen",
+          "4. Tilsett alle grønnsakene",
+          "5. Kok i 30 minutter til grønnsakene er møre",
+          "6. Krydre med urter, salt og pepper"
+        ],
+        "en": [
+          "1. Chop onion and sauté in oil",
+          "2. Cut all vegetables into small pieces",
+          "3. Add tomato and broth",
+          "4. Add all vegetables",
+          "5. Cook for 30 minutes until vegetables are tender",
+          "6. Season with herbs, salt and pepper"
+        ]
+      }
+    },
+    {
+      "id": "nd_030",
+      "title": {
+        "no": "Pytt i Panna",
+        "en": "Swedish Hash with Fried Egg"
+      },
+      "subtitle": {
+        "no": "Svensk pannerett av terninger kjøtt og potet, toppet med egg",
+        "en": "Swedish skillet hash of diced meat and potato, topped with a fried egg"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 35,
+      "servings": 4,
+      "category": "Beef & Red Meat",
+      "tags": [
+        "traditional",
+        "nordic",
+        "leftovers",
+        "comfort-food",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "egg"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kokte poteter, i terninger",
+            "en": "Boiled potatoes, diced"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Rester av kjøtt (roastbiff eller pølse), i terninger",
+            "en": "Leftover meat (roast beef or sausage), diced"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk, i terninger",
+            "en": "Onion, diced"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Eggs"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Rødbeter, syltede",
+            "en": "Pickled beetroot"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Persille til garnityr",
+            "en": "Parsley for garnish"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Stek potetterningene i smør i en stor stekepanne til de er gyldne og sprø på utsiden.",
+          "2. Ta potetene ut og stek løken i samme panne til den er blank.",
+          "3. Tilsett kjøttterningene og stek til de er gyllenbrune og varme gjennom.",
+          "4. Bland potetene tilbake i pannen sammen med kjøtt og løk, og smak til med salt og pepper.",
+          "5. Stek alt sammen et par minutter til slik at smakene blander seg.",
+          "6. Stek eggene separat i en annen panne til eggeplommen fortsatt er rennende.",
+          "7. Server pytt i panna i porsjoner med et stekt egg på toppen og syltede rødbeter til."
+        ],
+        "en": [
+          "1. Fry the diced potatoes in butter in a large frying pan until golden and crisp on the outside.",
+          "2. Remove the potatoes and fry the onion in the same pan until translucent.",
+          "3. Add the diced meat and fry until golden brown and heated through.",
+          "4. Return the potatoes to the pan with the meat and onion, and season with salt and pepper.",
+          "5. Fry everything together for a couple more minutes so the flavors combine.",
+          "6. Fry the eggs separately in another pan until the yolk is still runny.",
+          "7. Serve the hash in portions topped with a fried egg, with pickled beetroot on the side."
+        ]
+      }
+    },
+    {
+      "id": "nd_098",
+      "title": {
+        "no": "Kartoffel og Blomkål",
+        "en": "Potatoes and Cauliflower"
+      },
+      "subtitle": {
+        "no": "Stekt kjøttstykker med kartoffel og blomkål",
+        "en": "Roasted meat with potatoes and cauliflower"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 50,
+      "servings": 4,
+      "category": "Beef & Red Meat",
+      "tags": [
+        "vegetables",
+        "comfort food",
+        "traditional",
+        "cuisine:nordic"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Svinekjøtt",
+            "en": "Pork chops"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Blomkål",
+            "en": "Cauliflower"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 40,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "porsjon",
+            "en": "portion"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skjær poteter i kuber og kok i saltet vann",
+          "2. Del blomkål i buketter og kok sammen med poteter",
+          "3. Brun svinekjøttet i et pannelett",
+          "4. Dren potetene og blomkålen",
+          "5. Server kjøttet med grønnsaker og smør"
+        ],
+        "en": [
+          "1. Cut potatoes into cubes and boil in salted water",
+          "2. Divide cauliflower into florets and cook with potatoes",
+          "3. Brown pork chops in a skillet",
+          "4. Drain potatoes and cauliflower",
+          "5. Serve meat with vegetables and butter"
+        ]
+      }
+    }
+  ]
+}
