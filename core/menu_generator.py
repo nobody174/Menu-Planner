@@ -28,9 +28,18 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 DATA_DIR = Path(__file__).parent.parent / 'data'
-RECIPES_DB_FILE = DATA_DIR / 'sample_recipes.json'
+
+# Static seed content reads from here instead of DATA_DIR - see the matching
+# comment in deployment/flask_app.py for why (Railway's persistent volume
+# at DATA_DIR never overwrites existing files, so static seed data shipped
+# in the image needs a separate, always-fresh path to actually take effect).
+SEED_DIR = Path(__file__).parent.parent / 'data-seed'
+if not SEED_DIR.exists():
+    SEED_DIR = DATA_DIR
+
+RECIPES_DB_FILE = SEED_DIR / 'sample_recipes.json'
 RECIPES_IMPORTED_FILE = DATA_DIR / 'recipes_db.json'
-CATEGORIES_FILE = DATA_DIR / 'categories.json'
+CATEGORIES_FILE = SEED_DIR / 'categories.json'
 MENU_OUTPUT_FILE = DATA_DIR / 'weekly_menu.json'
 
 ORANGE_KEYWORDS = [

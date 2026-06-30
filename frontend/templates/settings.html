@@ -630,6 +630,22 @@
     border-color: var(--color-primary, #d97706);
     background: rgba(217,119,6,0.07);
 }
+.pack-card-imported {
+    cursor: default;
+    opacity: 0.6;
+}
+.pack-card-imported:hover {
+    border-color: var(--color-border, #e5e7eb);
+    background: none;
+    transform: none;
+}
+.pack-imported-badge {
+    font-size: 0.75em;
+    font-weight: 600;
+    color: var(--color-success, #16a34a);
+    margin-left: 8px;
+    white-space: nowrap;
+}
 .pack-card-header {
     display: flex;
     justify-content: space-between;
@@ -837,7 +853,8 @@ var STR = {
     invalid_file:       '{{ t.invalid_file }}',
     file_read_error:    '{{ t.file_read_error }}',
     select_pack:        '{{ t.select_pack }}',
-    recipes_label:      '{{ t.recipes_label }}'
+    recipes_label:      '{{ t.recipes_label }}',
+    already_imported:   '{{ t.already_imported }}'
 };
 
 // ── Recipe Packs Modal ────────────────────────────────────────────────────────
@@ -881,12 +898,14 @@ function displayRecipePacks(packs) {
         var desc = (pack.packDescription && pack.packDescription[LANG]) || (pack.packDescription && pack.packDescription.en) || '';
 
         var card = document.createElement('div');
-        card.className = 'pack-card';
-        card.onclick = function() { togglePackSelection(card); };
+        card.className = 'pack-card' + (pack.alreadyImported ? ' pack-card-imported' : '');
+        if (!pack.alreadyImported) {
+            card.onclick = function() { togglePackSelection(card); };
+        }
         card.innerHTML =
             '<div class="pack-card-header">' +
                 '<div>' +
-                    '<div class="pack-card-title">' + _esc(name) + '</div>' +
+                    '<div class="pack-card-title">' + _esc(name) + (pack.alreadyImported ? ' <span class="pack-imported-badge">✓ ' + STR.already_imported + '</span>' : '') + '</div>' +
                     '<div class="pack-desc">' + _esc(desc) + '</div>' +
                 '</div>' +
                 '<div class="pack-count">' + pack.recipeCount + ' ' + STR.recipes_label + '</div>' +
@@ -895,10 +914,11 @@ function displayRecipePacks(packs) {
                 '<span>⏱️ ' + _esc(pack.estimatedCookTime || '') + '</span>' +
                 '<span>📊 ' + _esc(pack.difficulty || '') + '</span>' +
             '</div>' +
+            (pack.alreadyImported ? '' :
             '<label class="pack-select-label" onclick="event.stopPropagation()">' +
                 '<input type="checkbox" data-pack-id="' + _esc(pack.packId) + '" onchange="event.stopPropagation()">' +
                 ' ' + STR.select_pack +
-            '</label>';
+            '</label>');
         list.appendChild(card);
     });
 }

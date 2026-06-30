@@ -15,8 +15,16 @@ from pathlib import Path
 DATA_DIR = Path(__file__).parent.parent / 'data'
 HOUSEHOLDS_DIR = DATA_DIR / 'households'
 
+# Static seed content (categories.json's base list, pantry_staples.json) is
+# read from here instead of DATA_DIR - see the matching comment in
+# deployment/flask_app.py for why. household data (HOUSEHOLDS_DIR) stays on
+# DATA_DIR/the volume, only the read-only seed source moves.
+SEED_DIR = Path(__file__).parent.parent / 'data-seed'
+if not SEED_DIR.exists():
+    SEED_DIR = DATA_DIR
+
 _SEED_FILES = ('weekly_menu.json', 'recipes_db.json', 'categories.json')
-_PANTRY_STAPLES_FILE = DATA_DIR / 'pantry_staples.json'
+_PANTRY_STAPLES_FILE = SEED_DIR / 'pantry_staples.json'
 
 _pantry_translation_cache = None
 
@@ -109,7 +117,7 @@ def household_dir(household_id: str) -> Path:
     if not hdir.exists():
         hdir.mkdir(parents=True, exist_ok=True)
         for filename in _SEED_FILES:
-            src = DATA_DIR / filename
+            src = SEED_DIR / filename
             if src.exists():
                 if filename == 'recipes_db.json':
                     # Start empty so new households have a clean slate
@@ -169,7 +177,7 @@ def categories_file(household_id: str) -> Path:
     are never re-added by this self-heal, even if they still exist in the
     base seed file."""
     path = household_dir(household_id) / 'categories.json'
-    base_path = DATA_DIR / 'categories.json'
+    base_path = SEED_DIR / 'categories.json'
 
     if not path.exists() or not base_path.exists():
         return path

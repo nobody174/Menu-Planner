@@ -87,6 +87,8 @@
   "file_read_error_en": "Error reading file",
   "select_pack_no": "Velg pakk",
   "select_pack_en": "Select pack",
+  "already_imported_no": "Allerede importert",
+  "already_imported_en": "Already imported",
   "recipes_label_no": "oppskrifter",
   "recipes_label_en": "recipes",
   "export_error_no": "Eksportfeil",

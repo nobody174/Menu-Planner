@@ -425,6 +425,10 @@ a:hover {
   background-color: var(--color-divider);
 }
 
+.card-footer .btn {
+  width: 100%;
+}
+
 /* ── Buttons ── */
 .btn {
   display: inline-flex;
@@ -446,7 +450,6 @@ a:hover {
 .btn-primary {
   background-color: var(--color-secondary);
   color: white;
-  width: 100%;
 }
 
 .btn-primary:hover {

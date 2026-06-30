@@ -25,10 +25,15 @@
             <select id="categoryFilter" style="padding: 8px 12px; border: 1px solid #ddd; border-radius: 6px;">
                 <option value="">{{ t.all_categories }}</option>
             </select>
-            <select id="cuisineFilter" style="padding: 8px 12px; border: 1px solid #ddd; border-radius: 6px;">
+            <!-- Cuisine + Quick-only filters: built and working, but hidden for the
+                 first public launch per user decision (2026-06-30) - too much choice
+                 for a first impression. Left in the DOM (just hidden) rather than
+                 removed, so the already-working JS/data doesn't need rebuilding later -
+                 just flip these display:none rules off when it's time to ship this. -->
+            <select id="cuisineFilter" title="{{ t.get('cuisine_filter_hint', 'Filter by country/region of origin, on top of the category filter') }}" style="display: none; padding: 8px 12px; border: 1px solid #ddd; border-radius: 6px;">
                 <option value="">{{ t.get('all_cuisines', 'All Cuisines') }}</option>
             </select>
-            <label style="display: flex; align-items: center; gap: 6px; padding: 8px 12px; border: 1px solid #ddd; border-radius: 6px; cursor: pointer; white-space: nowrap;">
+            <label style="display: none; align-items: center; gap: 6px; padding: 8px 12px; border: 1px solid #ddd; border-radius: 6px; cursor: pointer; white-space: nowrap;">
                 <input type="checkbox" id="quickOnlyFilter">
                 ⚡ {{ t.get('quick_only', 'Quick only (≤30 min)') }}
             </label>
@@ -247,10 +252,13 @@ function populateCuisineFilter() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    loadWeeklyMenu();
-    loadCategoryFilter();
-    restoreFavoriteStars();
-    populateCuisineFilter();
+    // Each call isolated in its own try/catch - one failing (e.g. a
+    // transient API error or a localStorage access issue) must not prevent
+    // the others from running, since they're otherwise unrelated.
+    try { loadWeeklyMenu(); } catch(e) { console.error('loadWeeklyMenu failed:', e); }
+    try { loadCategoryFilter(); } catch(e) { console.error('loadCategoryFilter failed:', e); }
+    try { restoreFavoriteStars(); } catch(e) { console.error('restoreFavoriteStars failed:', e); }
+    try { populateCuisineFilter(); } catch(e) { console.error('populateCuisineFilter failed:', e); }
 });
 
 document.getElementById('searchInput').addEventListener('keyup', filterRecipes);

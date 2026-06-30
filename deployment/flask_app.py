@@ -181,6 +181,22 @@ logger.setLevel(logging.INFO)
 
 DATA_DIR = Path(__file__).parent.parent / 'data'
 CACHE_DIR = DATA_DIR / 'recipes_cache'
+
+# Static recipe/category seed content (sample_recipes.json, recipe-packs/,
+# the base categories.json, pantry_staples.json, dessert/drinks stashes)
+# is read from here instead of DATA_DIR. On Railway, DATA_DIR sits on a
+# persistent volume that's deliberately never overwritten on redeploy (so
+# real household data survives across deploys) - but that also means any
+# fix to these static seed files would silently never reach production,
+# since the volume's stale copy from whenever it was first created always
+# wins. SEED_DIR points at a pristine, always-fresh-from-the-image copy the
+# Dockerfile bakes in at /app/data-seed specifically so static content isn't
+# subject to the volume's no-clobber protection. Falls back to DATA_DIR
+# itself when data-seed doesn't exist (e.g. local dev, where there's no
+# volume shadowing to worry about).
+SEED_DIR = Path(__file__).parent.parent / 'data-seed'
+if not SEED_DIR.exists():
+    SEED_DIR = DATA_DIR
 PROFILE_COOKIE_MAX_AGE = 60 * 60 * 24 * 365  # 1 year
 
 # Certificate paths (relative to the deployment dir where the service runs from)
@@ -512,7 +528,7 @@ def save_recipes_db(recipes):
 def find_recipe(recipe_id):
     # Search household recipes_db.json first, then global sample_recipes.json
     all_recipes = load_recipes_db()
-    sample_path = DATA_DIR / 'sample_recipes.json'
+    sample_path = SEED_DIR / 'sample_recipes.json'
     if sample_path.exists():
         try:
             with open(sample_path, 'r', encoding='utf-8') as f:
@@ -579,31 +595,6 @@ def dashboard():
             dinner['subtitle'] = dinner.get(f'subtitle_{lang}') or dinner.get('subtitle_en') or dinner.get('subtitle') or ''
     logger.info("Dashboard accessed")
     return render_template('index.html', menu=menu)
-
-@app.route('/debug/recipe-source/<recipe_id>')
-def debug_recipe_source(recipe_id):
-    """TEMPORARY - find which data source find_recipe() actually returns for
-    a given id, to diagnose a live bug. Remove after use."""
-    household_recipes = load_recipes_db()
-    household_match = next((r for r in household_recipes if r.get('id') == recipe_id), None)
-
-    sample_path = DATA_DIR / 'sample_recipes.json'
-    sample_recipes = []
-    if sample_path.exists():
-        with open(sample_path, 'r', encoding='utf-8') as f:
-            sample_recipes = json.load(f)
-    sample_match = next((r for r in sample_recipes if r.get('id') == recipe_id), None)
-
-    resolved = find_recipe(recipe_id)
-
-    return jsonify({
-        'household_id': current_household_id(),
-        'found_in_household_recipes_db': household_match is not None,
-        'household_match_instructions': household_match.get('instructions') if household_match else None,
-        'found_in_sample_recipes_json': sample_match is not None,
-        'sample_match_instructions': sample_match.get('instructions') if sample_match else None,
-        'find_recipe_resolved_instructions': resolved.get('instructions') if resolved else None,
-    })
 
 @app.route('/recipe/<recipe_id>')
 def recipe_detail(recipe_id):
@@ -686,7 +677,7 @@ def shopping_list():
         from core.household_paths import recipes_db_file
         all_recipes_raw = []
         # Load from all sources: sample recipes, imported recipes, and recipe packs
-        for db_path in (DATA_DIR / 'sample_recipes.json', recipes_db_file(current_household_id())):
+        for db_path in (SEED_DIR / 'sample_recipes.json', recipes_db_file(current_household_id())):
             if db_path.exists():
                 try:
                     with open(db_path, 'r', encoding='utf-8') as f:
@@ -694,7 +685,7 @@ def shopping_list():
                 except Exception:
                     pass
         # Also load from recipe packs (which have bilingual data)
-        packs_dir = DATA_DIR / 'recipe-packs'
+        packs_dir = SEED_DIR / 'recipe-packs'
         if packs_dir.exists():
             for pack_file in packs_dir.glob('*.json'):
                 try:
@@ -1055,7 +1046,7 @@ def all_recipes_page():
     lang = _get_lang()
     # Load both household recipes AND shared sample recipes (same as MenuGenerator does)
     all_recipes = []
-    sample_recipes_path = DATA_DIR / 'sample_recipes.json'
+    sample_recipes_path = SEED_DIR / 'sample_recipes.json'
     if sample_recipes_path.exists():
         try:
             with open(sample_recipes_path, 'r', encoding='utf-8') as f:
@@ -2204,7 +2195,7 @@ def theme_preview(filename):
 
 def get_available_recipe_packs():
     """Load all available recipe packs from data/recipe-packs/"""
-    packs_dir = DATA_DIR / 'recipe-packs'
+    packs_dir = SEED_DIR / 'recipe-packs'
     packs = []
 
     if not packs_dir.exists():
