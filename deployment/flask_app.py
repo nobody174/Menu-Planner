@@ -580,6 +580,31 @@ def dashboard():
     logger.info("Dashboard accessed")
     return render_template('index.html', menu=menu)
 
+@app.route('/debug/recipe-source/<recipe_id>')
+def debug_recipe_source(recipe_id):
+    """TEMPORARY - find which data source find_recipe() actually returns for
+    a given id, to diagnose a live bug. Remove after use."""
+    household_recipes = load_recipes_db()
+    household_match = next((r for r in household_recipes if r.get('id') == recipe_id), None)
+
+    sample_path = DATA_DIR / 'sample_recipes.json'
+    sample_recipes = []
+    if sample_path.exists():
+        with open(sample_path, 'r', encoding='utf-8') as f:
+            sample_recipes = json.load(f)
+    sample_match = next((r for r in sample_recipes if r.get('id') == recipe_id), None)
+
+    resolved = find_recipe(recipe_id)
+
+    return jsonify({
+        'household_id': current_household_id(),
+        'found_in_household_recipes_db': household_match is not None,
+        'household_match_instructions': household_match.get('instructions') if household_match else None,
+        'found_in_sample_recipes_json': sample_match is not None,
+        'sample_match_instructions': sample_match.get('instructions') if sample_match else None,
+        'find_recipe_resolved_instructions': resolved.get('instructions') if resolved else None,
+    })
+
 @app.route('/recipe/<recipe_id>')
 def recipe_detail(recipe_id):
     recipe = None
@@ -2198,9 +2223,17 @@ def get_available_recipe_packs():
 
 @app.route('/api/recipe-packs/list')
 def api_recipe_packs_list():
-    """Get list of available recipe packs"""
+    """Get list of available recipe packs, flagging which ones this
+    household has already imported (by source_pack on its own recipes)."""
     packs = get_available_recipe_packs()
-    # Return pack metadata only (not full recipes)
+
+    imported_pack_ids = set()
+    household_id = current_household_id()
+    if household_id:
+        for r in load_recipes_db():
+            if r.get('source_pack'):
+                imported_pack_ids.add(r['source_pack'])
+
     simplified = []
     for pack in packs:
         simplified.append({
@@ -2211,7 +2244,8 @@ def api_recipe_packs_list():
             'packColor': pack.get('packColor', '#999999'),
             'recipeCount': pack['recipeCount'],
             'estimatedCookTime': pack['estimatedCookTime'],
-            'difficulty': pack['difficulty']
+            'difficulty': pack['difficulty'],
+            'alreadyImported': pack['packId'] in imported_pack_ids
         })
     return jsonify(simplified)
 
