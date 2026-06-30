@@ -1503,7 +1503,8 @@
         "pancake",
         "breakfast",
         "sweet",
-        "quick"
+        "quick",
+        "cuisine:international"
       ],
       "allergens": [
         "wheat",

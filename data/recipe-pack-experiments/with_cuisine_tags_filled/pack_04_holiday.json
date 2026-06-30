@@ -32,7 +32,8 @@
         "christmas",
         "turkey",
         "holiday",
-        "festive"
+        "festive",
+        "cuisine:international"
       ],
       "allergens": [],
       "ingredients": [
@@ -559,7 +560,8 @@
         "newyear",
         "beef",
         "elegant",
-        "festive"
+        "festive",
+        "cuisine:international"
       ],
       "allergens": [],
       "ingredients": [
@@ -1381,7 +1383,8 @@
       "tags": [
         "holiday",
         "celebration",
-        "festive"
+        "festive",
+        "cuisine:international"
       ],
       "allergens": [],
       "ingredients": [
@@ -1579,7 +1582,8 @@
       "tags": [
         "holiday",
         "celebration",
-        "festive"
+        "festive",
+        "cuisine:international"
       ],
       "allergens": [],
       "ingredients": [
@@ -2052,7 +2056,8 @@
       "tags": [
         "holiday",
         "traditional",
-        "celebration"
+        "celebration",
+        "cuisine:international"
       ],
       "allergens": [
         "meat",
@@ -3223,7 +3228,8 @@
       "tags": [
         "holiday",
         "elegant",
-        "poultry"
+        "poultry",
+        "cuisine:international"
       ],
       "allergens": [
         "meat"

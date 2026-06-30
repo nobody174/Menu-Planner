@@ -520,10 +520,18 @@ def load_recipes_db():
 
 def save_recipes_db(recipes):
     from core.household_paths import recipes_db_file
+    import tempfile, os
     household_id = current_household_id()
     path = recipes_db_file(household_id)
-    with open(path, 'w', encoding='utf-8') as f:
-        json.dump(recipes, f, ensure_ascii=False, indent=2)
+    # Write to a temp file in the same directory first, then rename atomically
+    # so a crash/interrupt mid-write never leaves a partially-written (broken)
+    # recipes_db.json behind.
+    dir_ = path.parent
+    with tempfile.NamedTemporaryFile('w', encoding='utf-8', dir=dir_, delete=False, suffix='.tmp') as tf:
+        json.dump(recipes, tf, ensure_ascii=False, indent=2)
+        tf.write('\n')
+        tmp_path = tf.name
+    os.replace(tmp_path, path)
 
 def find_recipe(recipe_id):
     # Search household recipes_db.json first, then global sample_recipes.json

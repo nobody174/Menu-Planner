@@ -1,0 +1,1632 @@
+{
+  "_note": "Side dishes removed from dinner packs - preserved for a future Sides feature.",
+  "recipeCount": 16,
+  "recipes": [
+    {
+      "id": "no_052",
+      "title": {
+        "no": "Lefse",
+        "en": "Lefse Bread"
+      },
+      "subtitle": {
+        "no": "Klassisk norsk flatbrød",
+        "en": "Classic Norwegian flatbread"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 40,
+      "servings": 8,
+      "category": "Sides & Light Meals",
+      "tags": [
+        "bread",
+        "flatbread",
+        "traditional",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "wheat",
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "poteter",
+            "en": "potatoes"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "mel",
+            "en": "flour"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "smør",
+            "en": "butter"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "salt",
+            "en": "salt"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok poteter",
+          "2. Knus til puré",
+          "3. Bland mel og salt",
+          "4. Kn sammen",
+          "5. Rull tynn",
+          "6. Stekt på griddle",
+          "7. Serve varm"
+        ],
+        "en": [
+          "1. Boil potatoes",
+          "2. Mash to puree",
+          "3. Mix flour and salt",
+          "4. Knead together",
+          "5. Roll thin",
+          "6. Fry on griddle",
+          "7. Serve warm"
+        ]
+      },
+      "_original_pack": "pack_sides_light_meals"
+    },
+    {
+      "id": "no_053",
+      "title": {
+        "no": "Flatbrød",
+        "en": "Flatbread"
+      },
+      "subtitle": {
+        "no": "Tradisjonelt norsk brød",
+        "en": "Traditional Norwegian bread"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 20,
+      "servings": 6,
+      "category": "Sides & Light Meals",
+      "tags": [
+        "bread",
+        "flatbread",
+        "simple",
+        "quick",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "wheat"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "mel",
+            "en": "flour"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "vann",
+            "en": "water"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "salt",
+            "en": "salt"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland mel og salt",
+          "2. Tilsett vann",
+          "3. Elt deigen",
+          "4. Rull tynn",
+          "5. Stekt på griddle",
+          "6. Serve varm"
+        ],
+        "en": [
+          "1. Mix flour and salt",
+          "2. Add water",
+          "3. Knead dough",
+          "4. Roll thin",
+          "5. Fry on griddle",
+          "6. Serve warm"
+        ]
+      },
+      "_original_pack": "pack_sides_light_meals"
+    },
+    {
+      "id": "no_054",
+      "title": {
+        "no": "Lompe",
+        "en": "Potato Wraps"
+      },
+      "subtitle": {
+        "no": "Potet flatbrød",
+        "en": "Potato flatbread"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 30,
+      "servings": 6,
+      "category": "Sides & Light Meals",
+      "tags": [
+        "bread",
+        "potato",
+        "traditional",
+        "quick",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "wheat",
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "poteter",
+            "en": "potatoes"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "mel",
+            "en": "flour"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "melk",
+            "en": "milk"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "salt",
+            "en": "salt"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "smør",
+            "en": "butter"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok poteter",
+          "2. Knus til puré",
+          "3. Bland mel og melk",
+          "4. Mix med poteter",
+          "5. Rull tynn",
+          "6. Stekt på griddle",
+          "7. Serve varm"
+        ],
+        "en": [
+          "1. Boil potatoes",
+          "2. Mash to puree",
+          "3. Mix flour and milk",
+          "4. Mix with potatoes",
+          "5. Roll thin",
+          "6. Fry on griddle",
+          "7. Serve warm"
+        ]
+      },
+      "_original_pack": "pack_sides_light_meals"
+    },
+    {
+      "id": "no_096",
+      "title": {
+        "no": "Råstekte Poteter",
+        "en": "Raw Fried Potatoes"
+      },
+      "subtitle": {
+        "no": "Poteter stekt i pannelett",
+        "en": "Potatoes fried in a skillet"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 25,
+      "servings": 4,
+      "category": "Sides & Light Meals",
+      "tags": [
+        "side",
+        "traditional",
+        "quick",
+        "cuisine:norwegian"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Olje",
+            "en": "Oil"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "spsk",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "porsjon",
+            "en": "portion"
+          }
+        },
+        {
+          "name": {
+            "no": "Persille",
+            "en": "Parsley"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skrell og skjær poteter i tynne skiver",
+          "2. Hakk løk",
+          "3. Heat olje i en panne",
+          "4. Tilsett poteter og løk",
+          "5. Sterk til poteter er møre og gyllen",
+          "6. Krydre med salt og pepper",
+          "7. Garnish med persille"
+        ],
+        "en": [
+          "1. Peel and cut potatoes into thin slices",
+          "2. Chop onion",
+          "3. Heat oil in a skillet",
+          "4. Add potatoes and onion",
+          "5. Fry until potatoes are tender and golden",
+          "6. Season with salt and pepper",
+          "7. Garnish with parsley"
+        ]
+      },
+      "_original_pack": "pack_sides_light_meals"
+    },
+    {
+      "id": "no_097",
+      "title": {
+        "no": "Potetmos",
+        "en": "Mashed Potatoes"
+      },
+      "subtitle": {
+        "no": "Kremete potetmos med smør",
+        "en": "Creamy mashed potatoes with butter"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Sides & Light Meals",
+      "tags": [
+        "side",
+        "traditional",
+        "comfort",
+        "quick",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "milk"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Pepper",
+            "en": "Black pepper"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok poteter til møre",
+          "2. Dren poteter",
+          "3. Mos med smør og melk",
+          "4. Krydre med salt og pepper",
+          "5. Server varmt som sidesett"
+        ],
+        "en": [
+          "1. Cook potatoes until tender",
+          "2. Drain potatoes",
+          "3. Mash with butter and milk",
+          "4. Season with salt and pepper",
+          "5. Serve warm as a side dish"
+        ]
+      },
+      "_original_pack": "pack_sides_light_meals"
+    },
+    {
+      "id": "no_098",
+      "title": {
+        "no": "Kokte Poteter",
+        "en": "Boiled Potatoes"
+      },
+      "subtitle": {
+        "no": "Enkle kokte poteter med dill",
+        "en": "Simple boiled potatoes with dill"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 20,
+      "servings": 4,
+      "category": "Sides & Light Meals",
+      "tags": [
+        "side",
+        "traditional",
+        "basic",
+        "quick",
+        "cuisine:norwegian"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Dill",
+            "en": "Dill"
+          },
+          "amount": 15,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kutt poteter i jevn størrelse",
+          "2. Kok i saltet vann til møre",
+          "3. Dren poteter",
+          "4. Topp med fres dill og smør",
+          "5. Server varmt"
+        ],
+        "en": [
+          "1. Cut potatoes into even size",
+          "2. Boil in salted water until tender",
+          "3. Drain potatoes",
+          "4. Top with fresh dill and butter",
+          "5. Serve warm"
+        ]
+      },
+      "_original_pack": "pack_sides_light_meals"
+    },
+    {
+      "id": "no_100",
+      "title": {
+        "no": "Potetball uten Fyll",
+        "en": "Potato Balls"
+      },
+      "subtitle": {
+        "no": "Potetballer uten fyll",
+        "en": "Simple potato balls"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 40,
+      "servings": 4,
+      "category": "Sides & Light Meals",
+      "tags": [
+        "side",
+        "traditional",
+        "norwegian",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "wheat"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Mel",
+            "en": "Flour"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Egg"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Pepper",
+            "en": "Pepper"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok og mos poteter",
+          "2. Bland med mel, egg, salt og pepper",
+          "3. Former små baller",
+          "4. Kok i lett kokende saltet vann",
+          "5. Fjern når ballene flyter opp",
+          "6. Server med kjøtt og saus"
+        ],
+        "en": [
+          "1. Cook and mash potatoes",
+          "2. Mix with flour, egg, salt and pepper",
+          "3. Shape into small balls",
+          "4. Cook in gently boiling salted water",
+          "5. Remove when balls float to the surface",
+          "6. Serve with meat and sauce"
+        ]
+      },
+      "_original_pack": "pack_sides_light_meals"
+    },
+    {
+      "id": "nd_078",
+      "title": {
+        "no": "Rugbrød",
+        "en": "Rye Bread"
+      },
+      "subtitle": {
+        "no": "Mørkt rugbrød med frø",
+        "en": "Dark rye bread with seeds"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 120,
+      "servings": 10,
+      "category": "Sides & Light Meals",
+      "tags": [
+        "bread",
+        "rye",
+        "traditional",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "wheat",
+        "rye",
+        "seeds"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Rugmel",
+            "en": "Rye flour"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvetemel",
+            "en": "Wheat flour"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
+          "amount": 450,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Gjær",
+            "en": "Yeast"
+          },
+          "amount": 7,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sesamfrø",
+            "en": "Sesame seeds"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland rugmel, hvetemel, salt og gjær",
+          "2. Tilsett vann gradvis og bland godt",
+          "3. La deigen heve i 30 minutter",
+          "4. Helle deigen i en brødform",
+          "5. Påstrø sesamfrø på toppen",
+          "6. La heve igjen i 30 minutter",
+          "7. Bak på 200°C i 40 minutter"
+        ],
+        "en": [
+          "1. Mix rye flour, wheat flour, salt and yeast",
+          "2. Add water gradually and mix well",
+          "3. Let dough rise for 30 minutes",
+          "4. Pour dough into bread pan",
+          "5. Sprinkle sesame seeds on top",
+          "6. Let rise again for 30 minutes",
+          "7. Bake at 200°C for 40 minutes"
+        ]
+      },
+      "_original_pack": "pack_sides_light_meals"
+    },
+    {
+      "id": "nd_080",
+      "title": {
+        "no": "Dansk Rugbrød",
+        "en": "Danish Rye Bread"
+      },
+      "subtitle": {
+        "no": "Tradisjonell dansk mørkt rugbrød",
+        "en": "Traditional Danish dark rye bread"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 180,
+      "servings": 12,
+      "category": "Sides & Light Meals",
+      "tags": [
+        "bread",
+        "rye",
+        "danish",
+        "cuisine:danish"
+      ],
+      "allergens": [
+        "rye",
+        "wheat"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Rugmel",
+            "en": "Rye flour"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvetemel",
+            "en": "Wheat flour"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Gjær",
+            "en": "Yeast"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 12,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Honning",
+            "en": "Honey"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Karvefrø",
+            "en": "Caraway seeds"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Oppløs gjær i varmt vann",
+          "2. Bland rugmel, hvetemel, salt og karvefrø",
+          "3. Tilsett gjærblandingen og honning",
+          "4. Bland godt til en tung deig",
+          "5. La heve i 2 timer",
+          "6. Press deigen inn i et brødform",
+          "7. La heve igjen i 1 time",
+          "8. Bak på 180°C i 45-50 minutter"
+        ],
+        "en": [
+          "1. Dissolve yeast in warm water",
+          "2. Mix rye flour, wheat flour, salt and caraway seeds",
+          "3. Add yeast mixture and honey",
+          "4. Mix well to a heavy dough",
+          "5. Let rise for 2 hours",
+          "6. Press dough into bread pan",
+          "7. Let rise again for 1 hour",
+          "8. Bake at 180°C for 45-50 minutes"
+        ]
+      },
+      "_original_pack": "pack_sides_light_meals"
+    },
+    {
+      "id": "nd_100",
+      "title": {
+        "no": "Herb Butter Vegetables",
+        "en": "Herb Butter Vegetables"
+      },
+      "subtitle": {
+        "no": "Stekt grønsaker med urte smør",
+        "en": "Sautéed vegetables with herb butter"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 25,
+      "servings": 4,
+      "category": "Sides & Light Meals",
+      "tags": [
+        "vegetables",
+        "side dish",
+        "healthy",
+        "quick",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "milk"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Brokkoli",
+            "en": "Broccoli"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Gulrot",
+            "en": "Carrots"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Persille",
+            "en": "Parsley"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Dill",
+            "en": "Dill"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "porsjon",
+            "en": "portion"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kutt brokkoli i buketter og gulrot i stenger",
+          "2. Kok grønnsakene til de er møre men sprø",
+          "3. Hakk frisk urter og hvitløk",
+          "4. Bland urtene med smør",
+          "5. Dren grønnsakene",
+          "6. Topp med urte smøret og server varmt"
+        ],
+        "en": [
+          "1. Cut broccoli into florets and carrots into sticks",
+          "2. Cook vegetables until tender but crisp",
+          "3. Chop fresh herbs and garlic",
+          "4. Mix herbs with butter",
+          "5. Drain vegetables",
+          "6. Top with herb butter and serve warm"
+        ]
+      },
+      "_original_pack": "pack_sides_light_meals"
+    },
+    {
+      "id": "nd_101",
+      "title": {
+        "no": "Root Vegetable Purée",
+        "en": "Root Vegetable Purée"
+      },
+      "subtitle": {
+        "no": "Rotkartoffel mos",
+        "en": "Creamed root vegetables"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Sides & Light Meals",
+      "tags": [
+        "vegetables",
+        "side dish",
+        "puree",
+        "quick",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "milk"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kålrabi",
+            "en": "Rutabaga"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Gulrot",
+            "en": "Carrots"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Selleri",
+            "en": "Celery root"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 40,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "porsjon",
+            "en": "portion"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kutt alle rotgrønnsaker i mindre biter",
+          "2. Kok i saltet vann til de er møre",
+          "3. Dren og mos med smør og melk",
+          "4. Krydre med salt og pepper",
+          "5. Server varmt som sidesett"
+        ],
+        "en": [
+          "1. Cut all root vegetables into small pieces",
+          "2. Cook in salted water until tender",
+          "3. Drain and mash with butter and milk",
+          "4. Season with salt and pepper",
+          "5. Serve warm as a side dish"
+        ]
+      },
+      "_original_pack": "pack_sides_light_meals"
+    },
+    {
+      "id": "nd_102",
+      "title": {
+        "no": "Turnip Mash",
+        "en": "Turnip Mash"
+      },
+      "subtitle": {
+        "no": "Mos av kålrot",
+        "en": "Creamed rutabaga"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 35,
+      "servings": 4,
+      "category": "Sides & Light Meals",
+      "tags": [
+        "vegetables",
+        "side dish",
+        "traditional",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "milk"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kålrot",
+            "en": "Rutabaga"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 250,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Pepperkorn",
+            "en": "Black pepper"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skrell og kutt kålroten i små biter",
+          "2. Kok i saltet vann til møre",
+          "3. Dren godt",
+          "4. Mos med smør og melk",
+          "5. Krydre med salt og pepper",
+          "6. Server varmt"
+        ],
+        "en": [
+          "1. Peel and cut rutabaga into small pieces",
+          "2. Cook in salted water until tender",
+          "3. Drain well",
+          "4. Mash with butter and milk",
+          "5. Season with salt and pepper",
+          "6. Serve warm"
+        ]
+      },
+      "_original_pack": "pack_sides_light_meals"
+    },
+    {
+      "id": "nd_103",
+      "title": {
+        "no": "Steikt Blomkål",
+        "en": "Roasted Cauliflower"
+      },
+      "subtitle": {
+        "no": "Stekt blomkål med urter",
+        "en": "Roasted cauliflower with herbs"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Sides & Light Meals",
+      "tags": [
+        "vegetables",
+        "roasted",
+        "healthy",
+        "quick",
+        "cuisine:nordic"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Blomkål",
+            "en": "Cauliflower"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Olje",
+            "en": "Olive oil"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "spsk",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 15,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Rosmarin",
+            "en": "Rosemary"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "porsjon",
+            "en": "portion"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Del blomkål i buketter",
+          "2. Bland med olje, hakket hvitløk og rosmarin",
+          "3. Fordel på en bakeplett",
+          "4. Sterk på 200°C i 25 minutter",
+          "5. Krydre med salt og pepper"
+        ],
+        "en": [
+          "1. Divide cauliflower into florets",
+          "2. Toss with oil, chopped garlic and rosemary",
+          "3. Spread on a baking sheet",
+          "4. Roast at 200°C for 25 minutes",
+          "5. Season with salt and pepper"
+        ]
+      },
+      "_original_pack": "pack_sides_light_meals"
+    },
+    {
+      "id": "nd_104",
+      "title": {
+        "no": "Stekt Brokkoli",
+        "en": "Sautéed Broccoli"
+      },
+      "subtitle": {
+        "no": "Grønn brokkoli med smør og salt",
+        "en": "Green broccoli with butter and garlic"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 20,
+      "servings": 4,
+      "category": "Sides & Light Meals",
+      "tags": [
+        "vegetables",
+        "side dish",
+        "quick",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "milk"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Brokkoli",
+            "en": "Broccoli"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic cloves"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Pepper",
+            "en": "Black pepper"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Del brokkoli i små buketter",
+          "2. Kok i saltet vann til sprø men møre",
+          "3. Smelt smør i en panne",
+          "4. Hakk hvitløk og sauté i smør",
+          "5. Dren brokkoli og tilsett pannen",
+          "6. Server straks"
+        ],
+        "en": [
+          "1. Divide broccoli into small florets",
+          "2. Boil in salted water until tender crisp",
+          "3. Melt butter in a pan",
+          "4. Chop garlic and sauté in butter",
+          "5. Drain broccoli and add to pan",
+          "6. Serve immediately"
+        ]
+      },
+      "_original_pack": "pack_sides_light_meals"
+    },
+    {
+      "id": "hol_037",
+      "title": {
+        "no": "Syltede Agurker",
+        "en": "Pickled Cucumbers"
+      },
+      "subtitle": {
+        "no": "Marinert agurk og dill",
+        "en": "Marinated cucumber and dill"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 1440,
+      "servings": 8,
+      "category": "Sides & Light Meals",
+      "tags": [
+        "holiday",
+        "condiment",
+        "preserved",
+        "cuisine:nordic"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Agurk",
+            "en": "Cucumber"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Eddik",
+            "en": "Vinegar"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Dill",
+            "en": "Dill"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skjær agurker",
+          "2. Lag en lake med eddik, vann og sukker",
+          "3. Tilsett dill",
+          "4. Legg agurk i krukke",
+          "5. Hell lake over",
+          "6. La stå 24 timer før servering"
+        ],
+        "en": [
+          "1. Cut cucumbers",
+          "2. Make brine with vinegar, water and sugar",
+          "3. Add dill",
+          "4. Place cucumber in jar",
+          "5. Pour brine over",
+          "6. Let sit 24 hours before serving"
+        ]
+      },
+      "_original_pack": "pack_sides_light_meals"
+    },
+    {
+      "id": "hol_045",
+      "title": {
+        "no": "Vinterkastrull",
+        "en": "Winter Vegetable Medley"
+      },
+      "subtitle": {
+        "no": "Blanding av vinterns grønnsakar",
+        "en": "Mix of winter vegetables"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 40,
+      "servings": 6,
+      "category": "Sides & Light Meals",
+      "tags": [
+        "holiday",
+        "side",
+        "vegetable",
+        "cuisine:nordic"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kålrot",
+            "en": "Rutabaga"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Pastinak",
+            "en": "Parsnip"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Gulerøtter",
+            "en": "Carrots"
+          },
+          "amount": 250,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Timian",
+            "en": "Thyme"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skjær alle grønnsakene",
+          "2. Kok til møre",
+          "3. Dren",
+          "4. Tilsett smør og timian",
+          "5. Server varmt"
+        ],
+        "en": [
+          "1. Cut all vegetables",
+          "2. Cook until tender",
+          "3. Drain",
+          "4. Add butter and thyme",
+          "5. Serve warm"
+        ]
+      },
+      "_original_pack": "pack_sides_light_meals"
+    }
+  ]
+}

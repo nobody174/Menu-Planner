@@ -1,0 +1,567 @@
+{
+  "packId": "pack_taco_texmex",
+  "packName": {
+    "en": "Taco & Tex-Mex",
+    "no": "Taco & Tex-Mex"
+  },
+  "packDescription": {
+    "en": "Tacos, enchiladas, nachos and other Tex-Mex favorites",
+    "no": "Tacoer, enchiladas, nachos og andre Tex-Mex-favoritter"
+  },
+  "packImage": "🌮",
+  "packColor": "#D2691E",
+  "recipeCount": 4,
+  "estimatedCookTime": "25-40 min",
+  "difficulty": "easy-medium",
+  "recipes": [
+    {
+      "id": "tex_001",
+      "title": {
+        "no": "Hjemmelagde Beef Tacos",
+        "en": "Homemade Beef Tacos"
+      },
+      "subtitle": {
+        "no": "Krydret kjøttdeig i myke tortillaer med klassiske toppinger",
+        "en": "Spiced ground beef in soft tortillas with classic toppings"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 25,
+      "servings": 4,
+      "category": "Taco & Tex-Mex",
+      "tags": [
+        "taco",
+        "ground beef",
+        "mexican-inspired",
+        "quick",
+        "cuisine:american"
+      ],
+      "allergens": [
+        "gluten",
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kjøttdeig",
+            "en": "Ground beef"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Spisskummen",
+            "en": "Cumin"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Paprikapulver",
+            "en": "Paprika powder"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Chilipulver",
+            "en": "Chili powder"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Tortillas",
+            "en": "Tortillas"
+          },
+          "amount": 8,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomat",
+            "en": "Tomato"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Isbergsalat",
+            "en": "Iceberg lettuce"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Cheddarost",
+            "en": "Cheddar cheese"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Rømme",
+            "en": "Sour cream"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Finhakk løk og hvitløk.",
+          "2. Brun kjøttdeigen i en panne på middels-høy varme.",
+          "3. Tilsett løk og hvitløk, stek til løken er blank.",
+          "4. Krydre med spisskummen, paprikapulver og chilipulver. Stek 2-3 minutter til.",
+          "5. Varm tortillaene i en tørr panne eller i ovnen.",
+          "6. Kutt tomat og salat, riv osten.",
+          "7. Sett sammen tacoene med kjøttdeig og toppinger etter ønske."
+        ],
+        "en": [
+          "1. Finely chop onion and garlic.",
+          "2. Brown the ground beef in a pan over medium-high heat.",
+          "3. Add onion and garlic, cook until the onion is translucent.",
+          "4. Season with cumin, paprika powder and chili powder. Cook 2-3 minutes more.",
+          "5. Warm the tortillas in a dry pan or in the oven.",
+          "6. Dice the tomato and lettuce, grate the cheese.",
+          "7. Assemble the tacos with the beef and your choice of toppings."
+        ]
+      }
+    },
+    {
+      "id": "tex_002",
+      "title": {
+        "no": "Kylling-enchiladas",
+        "en": "Chicken Enchiladas"
+      },
+      "subtitle": {
+        "no": "Rullede tortillaer med kylling, dekket i tomatsaus og ost, bakt i ovnen",
+        "en": "Rolled tortillas with chicken, covered in tomato sauce and cheese, baked in the oven"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 40,
+      "servings": 4,
+      "category": "Taco & Tex-Mex",
+      "tags": [
+        "enchilada",
+        "chicken",
+        "baked",
+        "mexican-inspired",
+        "cuisine:american"
+      ],
+      "allergens": [
+        "gluten",
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kyllingfilet",
+            "en": "Chicken breast"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Hermetiske tomater",
+            "en": "Canned tomatoes"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Chilipulver",
+            "en": "Chili powder"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Spisskummen",
+            "en": "Cumin"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Tortillas",
+            "en": "Tortillas"
+          },
+          "amount": 8,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Cheddarost",
+            "en": "Cheddar cheese"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Vegetabilsk olje",
+            "en": "Vegetable oil"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok kyllingfileten til den er gjennomstekt, og riv den i strimler.",
+          "2. Finhakk løken og fres den blank i olje.",
+          "3. Tilsett hermetiske tomater, chilipulver og spisskummen. La det småkoke i 10 minutter til en saus.",
+          "4. Bland litt av sausen med kyllingen.",
+          "5. Fyll tortillaene med kyllingblandingen og rull dem sammen.",
+          "6. Legg dem i en ildfast form, hell over resten av sausen og dryss over ost.",
+          "7. Stek i ovnen på 200°C i 20 minutter til osten er gyllen og putrende."
+        ],
+        "en": [
+          "1. Cook the chicken breast through, then shred it into strips.",
+          "2. Finely chop the onion and sauté until translucent in oil.",
+          "3. Add canned tomatoes, chili powder and cumin. Simmer for 10 minutes into a sauce.",
+          "4. Mix some of the sauce with the chicken.",
+          "5. Fill the tortillas with the chicken mixture and roll them up.",
+          "6. Place them in a baking dish, pour over the remaining sauce and sprinkle with cheese.",
+          "7. Bake in the oven at 200°C (400°F) for 20 minutes until the cheese is golden and bubbling."
+        ]
+      }
+    },
+    {
+      "id": "tex_003",
+      "title": {
+        "no": "Loaded Nachos",
+        "en": "Loaded Nachos"
+      },
+      "subtitle": {
+        "no": "Tortillachips dekket med kjøttdeig, ost, guacamole og rømme",
+        "en": "Tortilla chips loaded with ground beef, cheese, guacamole and sour cream"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Taco & Tex-Mex",
+      "tags": [
+        "nachos",
+        "ground beef",
+        "sharing",
+        "mexican-inspired",
+        "cuisine:american"
+      ],
+      "allergens": [
+        "gluten",
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Tortillachips",
+            "en": "Tortilla chips"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kjøttdeig",
+            "en": "Ground beef"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Chilipulver",
+            "en": "Chili powder"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Cheddarost",
+            "en": "Cheddar cheese"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Avokado",
+            "en": "Avocado"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Lime",
+            "en": "Lime"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Rømme",
+            "en": "Sour cream"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Jalapeño",
+            "en": "Jalapeño"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Brun kjøttdeigen i en panne, krydre med chilipulver.",
+          "2. Mos avokado med limejuice, salt og pepper til guacamole.",
+          "3. Legg tortillachips i et ildfast fat.",
+          "4. Fordel kjøttdeigen over chipsene og dryss over revet ost.",
+          "5. Stek i ovnen på 200°C i 8-10 minutter til osten har smeltet.",
+          "6. Topp med guacamole, rømme og skiver av jalapeño før servering."
+        ],
+        "en": [
+          "1. Brown the ground beef in a pan, season with chili powder.",
+          "2. Mash the avocado with lime juice, salt and pepper into guacamole.",
+          "3. Spread the tortilla chips on a baking sheet.",
+          "4. Spread the ground beef over the chips and sprinkle with grated cheese.",
+          "5. Bake in the oven at 200°C (400°F) for 8-10 minutes until the cheese has melted.",
+          "6. Top with guacamole, sour cream and jalapeño slices before serving."
+        ]
+      }
+    },
+    {
+      "id": "tex_004",
+      "title": {
+        "no": "Kylling-quesadillas",
+        "en": "Chicken Quesadillas"
+      },
+      "subtitle": {
+        "no": "Grillede tortillaer fylt med kylling og smeltet ost",
+        "en": "Griddled tortillas filled with chicken and melted cheese"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 20,
+      "servings": 2,
+      "category": "Taco & Tex-Mex",
+      "tags": [
+        "quesadilla",
+        "chicken",
+        "quick",
+        "mexican-inspired",
+        "cuisine:american"
+      ],
+      "allergens": [
+        "gluten",
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kyllingfilet",
+            "en": "Chicken breast"
+          },
+          "amount": 250,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Tortillas",
+            "en": "Tortillas"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Cheddarost",
+            "en": "Cheddar cheese"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Paprika",
+            "en": "Bell pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Rødløk",
+            "en": "Red onion"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Vegetabilsk olje",
+            "en": "Vegetable oil"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skjær kyllingen i strimler og stek den gjennom i en panne.",
+          "2. Kutt paprika og rødløk i tynne strimler, fres dem lett.",
+          "3. Legg ost, kylling og grønnsaker på halvparten av en tortilla, og fold den andre halvdelen over.",
+          "4. Stek quesadillaen i en panne med litt olje på middels varme, 2-3 minutter på hver side til den er gyllen og osten har smeltet.",
+          "5. Skjær i trekanter og server."
+        ],
+        "en": [
+          "1. Cut the chicken into strips and cook it through in a pan.",
+          "2. Cut the bell pepper and red onion into thin strips, sauté lightly.",
+          "3. Place cheese, chicken and vegetables on half of a tortilla, and fold the other half over.",
+          "4. Cook the quesadilla in a pan with a little oil over medium heat, 2-3 minutes per side until golden and the cheese has melted.",
+          "5. Cut into wedges and serve."
+        ]
+      }
+    }
+  ]
+}

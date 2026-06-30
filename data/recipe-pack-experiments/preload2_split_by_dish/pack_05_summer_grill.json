@@ -33,7 +33,8 @@
         "beef",
         "skewer",
         "summer",
-        "quick"
+        "quick",
+        "season:summer"
       ],
       "allergens": [],
       "ingredients": [
@@ -156,7 +157,8 @@
         "grill",
         "chicken",
         "lemon",
-        "summer"
+        "summer",
+        "season:summer"
       ],
       "allergens": [],
       "ingredients": [
@@ -267,7 +269,8 @@
         "salmon",
         "seafood",
         "summer",
-        "quick"
+        "quick",
+        "season:summer"
       ],
       "allergens": [
         "fish"
@@ -369,7 +372,8 @@
         "fish",
         "cod",
         "summer",
-        "quick"
+        "quick",
+        "season:summer"
       ],
       "allergens": [
         "fish"
@@ -469,7 +473,8 @@
         "mussels",
         "seafood",
         "summer",
-        "quick"
+        "quick",
+        "season:summer"
       ],
       "allergens": [
         "shellfish"
@@ -582,7 +587,8 @@
         "trout",
         "fish",
         "summer",
-        "quick"
+        "quick",
+        "season:summer"
       ],
       "allergens": [
         "fish"
@@ -808,7 +814,8 @@
         "fresh",
         "light",
         "grilled",
-        "quick"
+        "quick",
+        "season:summer"
       ],
       "allergens": [],
       "ingredients": [
@@ -939,7 +946,8 @@
         "fresh",
         "light",
         "grilled",
-        "quick"
+        "quick",
+        "season:summer"
       ],
       "allergens": [
         "shellfish"
@@ -1061,7 +1069,8 @@
         "fresh",
         "light",
         "grilled",
-        "quick"
+        "quick",
+        "season:summer"
       ],
       "allergens": [],
       "ingredients": [

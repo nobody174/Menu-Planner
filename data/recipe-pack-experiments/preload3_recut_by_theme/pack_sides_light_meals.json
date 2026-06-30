@@ -3228,7 +3228,8 @@
         "summer",
         "fresh",
         "light",
-        "quick"
+        "quick",
+        "cuisine:international"
       ],
       "allergens": [
         "dairy",

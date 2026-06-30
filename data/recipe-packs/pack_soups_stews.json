@@ -1,0 +1,5179 @@
+{
+  "packId": "pack_soups_stews",
+  "packName": {
+    "en": "Soups & Stews",
+    "no": "Supper & Gryter"
+  },
+  "packDescription": {
+    "en": "Soups & Stews recipes from across all our collections",
+    "no": "Supper & Gryter-oppskrifter fra alle samlingene våre"
+  },
+  "packImage": "🍲",
+  "packColor": "#999999",
+  "recipeCount": 42,
+  "estimatedCookTime": "varies",
+  "difficulty": "varies",
+  "recipes": [
+    {
+      "id": "no_001",
+      "title": {
+        "no": "Fårikål",
+        "en": "Lamb and Cabbage Stew"
+      },
+      "subtitle": {
+        "no": "Klassisk norsk kjøttstuing med kål og løk",
+        "en": "Classic Norwegian meat stew with cabbage and onion"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 90,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "traditional",
+        "norwegian",
+        "slow-cooked",
+        "comfort-food",
+        "cuisine:norwegian"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Lammekjøtt (kjøttbiter)",
+            "en": "Lamb (meat chunks)"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kål (hvit)",
+            "en": "Cabbage (white)"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "hode",
+            "en": "head"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        },
+        {
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "liter",
+            "en": "liter"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kutt lammen i portjonsstykker og løken i skivis.",
+          "2. Skjær kålen i sjansekutt.",
+          "3. Legg lammen i en stor gryte lag for lag med kål og løk.",
+          "4. Tilsett salt, pepper og litt vann.",
+          "5. La det koke sakte i ca. 1,5 time til kjøttet er mørt.",
+          "6. Server varmt med nypoteter eller brød."
+        ],
+        "en": [
+          "1. Cut lamb into portions and slice onions.",
+          "2. Chop cabbage into chunks.",
+          "3. Layer lamb in a large pot with cabbage and onion.",
+          "4. Add salt, pepper and water.",
+          "5. Simmer slowly for about 1.5 hours until meat is tender.",
+          "6. Serve hot with new potatoes or bread."
+        ]
+      }
+    },
+    {
+      "id": "no_004",
+      "title": {
+        "no": "Lapskaus",
+        "en": "Meat and Vegetable Stew"
+      },
+      "subtitle": {
+        "no": "Norsk grytérett med kjøtt og grønnsaker",
+        "en": "Norwegian pot stew with meat and vegetables"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 60,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "traditional",
+        "norwegian",
+        "slow-cooked",
+        "comfort-food",
+        "cuisine:norwegian"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Oksekjøtt (kube)",
+            "en": "Beef (cubed)"
+          },
+          "amount": 700,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Gulrøtter",
+            "en": "Carrots"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "medium",
+            "en": "medium"
+          }
+        },
+        {
+          "name": {
+            "no": "Buljong (okse)",
+            "en": "Beef broth"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "liter",
+            "en": "liter"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Steik kjøttet i en gryte til det får farge.",
+          "2. Tilsett løk og la det bli lyst.",
+          "3. Legg i kubet poteter og gulrøtter.",
+          "4. Hell på buljongen og la det koke sakte i ca. 45 minutter.",
+          "5. Smak til med salt og pepper.",
+          "6. Server varmt med brød eller flatbrød."
+        ],
+        "en": [
+          "1. Brown the meat in a pot.",
+          "2. Add onion and cook until light.",
+          "3. Add cubed potatoes and carrots.",
+          "4. Pour in broth and simmer for about 45 minutes.",
+          "5. Season with salt and pepper.",
+          "6. Serve hot with bread."
+        ]
+      }
+    },
+    {
+      "id": "no_007",
+      "title": {
+        "no": "Kålsuppe",
+        "en": "Cabbage Soup"
+      },
+      "subtitle": {
+        "no": "Varmende norsk suppe med kål og kjøtt",
+        "en": "Warming Norwegian soup with cabbage and meat"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 45,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "traditional",
+        "norwegian",
+        "soup",
+        "warm",
+        "cuisine:norwegian"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kjøtt (kuber)",
+            "en": "Meat (cubes)"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kål (hvit)",
+            "en": "Cabbage (white)"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "medium",
+            "en": "medium"
+          }
+        },
+        {
+          "name": {
+            "no": "Buljong",
+            "en": "Broth"
+          },
+          "amount": 1.5,
+          "unit": {
+            "no": "liter",
+            "en": "liter"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Stekt kjøttkubene til de er brune.",
+          "2. Tilsett løk og steik litt til.",
+          "3. Hell på buljongen og la det koke.",
+          "4. Tilsett kubet poteter og kål.",
+          "5. La det koke til alt er mørt, ca. 30 minutter.",
+          "6. Smak til med salt og pepper.",
+          "7. Server med brød og smør."
+        ],
+        "en": [
+          "1. Brown the meat cubes.",
+          "2. Add onion and cook a bit more.",
+          "3. Pour in broth and bring to boil.",
+          "4. Add cubed potatoes and cabbage.",
+          "5. Simmer until everything is tender, about 30 minutes.",
+          "6. Season with salt and pepper.",
+          "7. Serve with bread and butter."
+        ]
+      }
+    },
+    {
+      "id": "no_008",
+      "title": {
+        "no": "Skilpaddesuppe",
+        "en": "Turtle Soup (Beef & Vegetable)"
+      },
+      "subtitle": {
+        "no": "Norsk spesialsuppe med okse og grønnsaker",
+        "en": "Norwegian specialty soup with beef and vegetables"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 90,
+      "servings": 6,
+      "category": "Soups & Stews",
+      "tags": [
+        "traditional",
+        "norwegian",
+        "special",
+        "soup",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "gluten",
+        "eggs"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Oksekjøtt (kuber)",
+            "en": "Beef (cubes)"
+          },
+          "amount": 700,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Oksebuljong",
+            "en": "Beef broth"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "liter",
+            "en": "liter"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg (kokt og hakket)",
+            "en": "Eggs (boiled and chopped)"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Gulrøtter",
+            "en": "Carrots"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "medium",
+            "en": "medium"
+          }
+        },
+        {
+          "name": {
+            "no": "Mel",
+            "en": "Flour"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Steik kjøttet til det blir brunt.",
+          "2. Tilsett løk og steik litt til.",
+          "3. Støv mel over og rør godt.",
+          "4. Hell på buljongen langsomt.",
+          "5. La det koke sakte i ca. 45 minutter.",
+          "6. Tilsett poteter og gulrøtter, kok 20 minutter til.",
+          "7. Tilsett de kokte eggene like før servering.",
+          "8. Smak til med salt og pepper."
+        ],
+        "en": [
+          "1. Brown the meat.",
+          "2. Add onion and cook a bit more.",
+          "3. Dust flour over and stir well.",
+          "4. Pour in broth slowly.",
+          "5. Simmer slowly for about 45 minutes.",
+          "6. Add potatoes and carrots, cook 20 more minutes.",
+          "7. Add boiled eggs just before serving.",
+          "8. Season with salt and pepper."
+        ]
+      }
+    },
+    {
+      "id": "no_016",
+      "title": {
+        "no": "Sodd",
+        "en": "Mutton and Meatball Soup"
+      },
+      "subtitle": {
+        "no": "Klar kjøttsuppe fra Trøndelag med fårekjøtt og kjøttboller",
+        "en": "Clear meat soup from Trøndelag with mutton and meatballs"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 150,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "traditional",
+        "norwegian",
+        "soup",
+        "comfort-food",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "egg"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Fårekjøtt med bein",
+            "en": "Mutton on the bone"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kjøttdeig (lam eller storfe)",
+            "en": "Ground meat (lamb or beef)"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Egg"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
+        },
+        {
+          "name": {
+            "no": "Mel",
+            "en": "Flour"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "spiseskjeer",
+            "en": "tablespoons"
+          }
+        },
+        {
+          "name": {
+            "no": "Gulrøtter",
+            "en": "Carrots"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Kålrot",
+            "en": "Swede/rutabaga"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
+        },
+        {
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "liter",
+            "en": "liters"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Legg fårekjøttet i en stor kjele med kaldt vann og kok opp, skum av urenheter som flyter til toppen.",
+          "2. La kjøttet småkoke under lokk i omtrent 90 minutter til det er mørt.",
+          "3. Bland kjøttdeig, egg, mel, salt og pepper til en jevn farse og form små kjøttboller.",
+          "4. Skrell og skjær gulrøtter og kålrot i biter, og ha dem i kjelen sammen med kjøttbollene.",
+          "5. La det small til grønnsakene og kjøttbollene er ferdig kokt, omtrent 20-25 minutter.",
+          "6. Smak til suppen med salt og pepper.",
+          "7. Server varm, gjerne med flatbrød eller potet på siden."
+        ],
+        "en": [
+          "1. Place the mutton in a large pot with cold water, bring to a boil, and skim off any foam that rises to the top.",
+          "2. Let the meat simmer covered for about 90 minutes until tender.",
+          "3. Mix ground meat, egg, flour, salt, and pepper into a smooth mixture and shape into small meatballs.",
+          "4. Peel and cut the carrots and swede into pieces, and add them to the pot along with the meatballs.",
+          "5. Simmer until the vegetables and meatballs are cooked through, about 20-25 minutes.",
+          "6. Season the soup with salt and pepper to taste.",
+          "7. Serve hot, ideally with flatbread or potatoes on the side."
+        ]
+      }
+    },
+    {
+      "id": "no_021",
+      "title": {
+        "no": "Elggryte",
+        "en": "Moose Stew"
+      },
+      "subtitle": {
+        "no": "Rustikk gryte med mørt elgkjøtt og rotgrønnsaker",
+        "en": "Rustic stew with tender moose meat and root vegetables"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 120,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "traditional",
+        "norwegian",
+        "game",
+        "slow-cooked",
+        "cuisine:norwegian"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Elgkjøtt (i terninger)",
+            "en": "Moose meat (cubed)"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Gulrøtter",
+            "en": "Carrots"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Potet",
+            "en": "Potatoes"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Kjøttbuljong",
+            "en": "Beef stock"
+          },
+          "amount": 7,
+          "unit": {
+            "no": "desiliter",
+            "en": "deciliters"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomatpuré",
+            "en": "Tomato paste"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "spiseskje",
+            "en": "tablespoon"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør (til steking)",
+            "en": "Butter (for frying)"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Brun elgkjøttet i smør i en stor gryte til det får en god farge på alle sider.",
+          "2. Tilsett finhakket løk og fres et par minutter.",
+          "3. Rør inn tomatpuré og spe med kjøttbuljong.",
+          "4. La gryta småkoke under lokk i omtrent 60 minutter til kjøttet begynner å bli mørt.",
+          "5. Skjær gulrøtter og potet i biter og ha dem i gryta.",
+          "6. La det fortsette å koke i 30-40 minutter til grønnsakene og kjøttet er møre.",
+          "7. Smak til med salt og pepper og server varm."
+        ],
+        "en": [
+          "1. Brown the moose meat in butter in a large pot until well colored on all sides.",
+          "2. Add finely chopped onion and sauté for a couple of minutes.",
+          "3. Stir in tomato paste and add the beef stock.",
+          "4. Let the stew simmer covered for about 60 minutes until the meat starts to become tender.",
+          "5. Cut carrots and potatoes into pieces and add them to the pot.",
+          "6. Continue simmering for another 30-40 minutes until the vegetables and meat are tender.",
+          "7. Season with salt and pepper and serve hot."
+        ]
+      }
+    },
+    {
+      "id": "no_025",
+      "title": {
+        "no": "Bidos",
+        "en": "Sami Reindeer Stew"
+      },
+      "subtitle": {
+        "no": "Enkel samisk gryte med reinsdyrkjøtt og rotgrønnsaker",
+        "en": "Simple Sami stew with reindeer meat and root vegetables"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 100,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "traditional",
+        "sami",
+        "norwegian",
+        "slow-cooked",
+        "cuisine:norwegian"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Reinsdyrkjøtt (i terninger)",
+            "en": "Reindeer meat (cubed)"
+          },
+          "amount": 700,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "liter",
+            "en": "liter"
+          }
+        },
+        {
+          "name": {
+            "no": "Potet",
+            "en": "Potatoes"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Gulrøtter",
+            "en": "Carrots"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Legg reinsdyrkjøttet i en gryte med vann og kok opp.",
+          "2. Skum av urenheter og la kjøttet småkoke under lokk i 45 minutter.",
+          "3. Skjær løk i båter og ha den i gryta.",
+          "4. La det fortsette å koke i ytterligere 15 minutter.",
+          "5. Skjær potet og gulrøtter i grove biter og ha dem i gryta.",
+          "6. Kok videre til grønnsakene og kjøttet er møre, omtrent 25-30 minutter til.",
+          "7. Smak til med salt og pepper og server varm rett fra gryta."
+        ],
+        "en": [
+          "1. Place the reindeer meat in a pot with water and bring to a boil.",
+          "2. Skim off any foam and let the meat simmer covered for 45 minutes.",
+          "3. Cut the onion into wedges and add it to the pot.",
+          "4. Continue simmering for another 15 minutes.",
+          "5. Cut the potatoes and carrots into chunky pieces and add them to the pot.",
+          "6. Continue cooking until the vegetables and meat are tender, about another 25-30 minutes.",
+          "7. Season with salt and pepper and serve hot straight from the pot."
+        ]
+      }
+    },
+    {
+      "id": "no_030",
+      "title": {
+        "no": "Ertesuppe",
+        "en": "Norwegian Split Pea Soup"
+      },
+      "subtitle": {
+        "no": "Tykk grønn suppe med gule eller grønne erter og fleskestykker",
+        "en": "Thick green soup with split peas and chunks of pork or ham"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 120,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "traditional",
+        "norwegian",
+        "soup",
+        "comfort-food",
+        "cuisine:norwegian"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Gule eller grønne erter (tørkede)",
+            "en": "Split peas (yellow or green, dried)"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Fleskestykker eller skinke",
+            "en": "Pork chunks or ham"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "liter",
+            "en": "liters"
+          }
+        },
+        {
+          "name": {
+            "no": "Gulrøtter",
+            "en": "Carrots"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
+        },
+        {
+          "name": {
+            "no": "Purre",
+            "en": "Leek"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skyll ertene og la dem ligge i kaldt vann i noen timer eller over natten.",
+          "2. Hell av vannet og legg ertene i en stor gryte sammen med fleskestykkene og friskt vann.",
+          "3. Kok opp og skum av urenheter som flyter til toppen.",
+          "4. La suppen småkoke under lokk i 60-90 minutter til ertene begynner å falle i stykker.",
+          "5. Skjær gulrøtter, løk og purre i biter og ha dem i gryta.",
+          "6. La det fortsette å koke til grønnsakene er møre og suppen er tykk og kremet, omtrent 20-30 minutter til.",
+          "7. Smak til med salt og pepper, og server varm med kjøttet skåret i biter."
+        ],
+        "en": [
+          "1. Rinse the split peas and let them soak in cold water for a few hours or overnight.",
+          "2. Drain the water and place the peas in a large pot together with the pork chunks and fresh water.",
+          "3. Bring to a boil and skim off any foam that rises to the top.",
+          "4. Let the soup simmer covered for 60-90 minutes until the peas start to break down.",
+          "5. Cut carrots, onion, and leek into pieces and add them to the pot.",
+          "6. Continue cooking until the vegetables are tender and the soup is thick and creamy, about another 20-30 minutes.",
+          "7. Season with salt and pepper, and serve hot with the meat cut into pieces."
+        ]
+      }
+    },
+    {
+      "id": "no_067",
+      "title": {
+        "no": "Fårefrikassé",
+        "en": "Lamb Fricassee"
+      },
+      "subtitle": {
+        "no": "Klassisk lamme stew",
+        "en": "Classic lamb stew"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 60,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "lamb",
+        "stew",
+        "traditional",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "meat",
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "lammekjøtt",
+            "en": "lamb meat"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "poteter",
+            "en": "potatoes"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "hvitløk",
+            "en": "garlic"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "kløver",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "løk",
+            "en": "onion"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stykk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "fløte",
+            "en": "cream"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "vann",
+            "en": "water"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Stekt kjøttet",
+          "2. Tilsett løk og hvitløk",
+          "3. Tilsett vann",
+          "4. La småkoke 30 minutter",
+          "5. Tilsett poteter",
+          "6. Kok videre 20 minutter",
+          "7. Tilsett fløte",
+          "8. Serv varm"
+        ],
+        "en": [
+          "1. Fry meat",
+          "2. Add onion and garlic",
+          "3. Add water",
+          "4. Simmer 30 minutes",
+          "5. Add potatoes",
+          "6. Cook 20 more minutes",
+          "7. Add cream",
+          "8. Serve hot"
+        ]
+      }
+    },
+    {
+      "id": "no_102",
+      "title": {
+        "no": "Saltkjøtt og Suppe",
+        "en": "Salted Meat and Soup"
+      },
+      "subtitle": {
+        "no": "Kokt saltkjøtt med grønnsaksuppe",
+        "en": "Boiled salted meat with vegetable soup"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 120,
+      "servings": 6,
+      "category": "Soups & Stews",
+      "tags": [
+        "traditional",
+        "comfort",
+        "stew",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "meat"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Saltkjøtt",
+            "en": "Salted beef brisket"
+          },
+          "amount": 1000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Gulrot",
+            "en": "Carrots"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kålrot",
+            "en": "Rutabaga"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
+          "amount": 2000,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok saltkjøtt i vann i 60 minutter",
+          "2. Kutt grønnsakene i stykker",
+          "3. Tilsett poteter og gulrot",
+          "4. Kok i 20 minutter",
+          "5. Tilsett kålrot og løk",
+          "6. Kok til alt er mørt",
+          "7. Server kjøtt med grønnsakene i brøden"
+        ],
+        "en": [
+          "1. Cook salted meat in water for 60 minutes",
+          "2. Cut vegetables into pieces",
+          "3. Add potatoes and carrots",
+          "4. Cook for 20 minutes",
+          "5. Add rutabaga and onion",
+          "6. Cook until everything is tender",
+          "7. Serve meat with vegetables in the broth"
+        ]
+      }
+    },
+    {
+      "id": "no_103",
+      "title": {
+        "no": "Pinnekjøttsuppe",
+        "en": "Salted Lamb Soup"
+      },
+      "subtitle": {
+        "no": "Suppe med pinnekjøtt og grønnsakar",
+        "en": "Soup with salted lamb and vegetables"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 100,
+      "servings": 6,
+      "category": "Soups & Stews",
+      "tags": [
+        "traditional",
+        "stew",
+        "comfort",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "meat"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Pinnekjøtt",
+            "en": "Salted lamb ribs"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Gulrot",
+            "en": "Carrots"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kålrot",
+            "en": "Rutabaga"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
+          "amount": 2000,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok pinnekjøtt i vann i 45 minutter",
+          "2. Fjern eventuelle skjell",
+          "3. Kutt grønnsakene i stykker",
+          "4. Tilsett alle grønnsakene",
+          "5. Kok til alt er mørt",
+          "6. Krydre med salt og pepper",
+          "7. Server varmt"
+        ],
+        "en": [
+          "1. Cook salted lamb ribs in water for 45 minutes",
+          "2. Remove any bones",
+          "3. Cut vegetables into pieces",
+          "4. Add all vegetables",
+          "5. Cook until everything is tender",
+          "6. Season with salt and pepper",
+          "7. Serve warm"
+        ]
+      }
+    },
+    {
+      "id": "no_104",
+      "title": {
+        "no": "Kålrotstuing",
+        "en": "Rutabaga Stew"
+      },
+      "subtitle": {
+        "no": "Stuing av kålrot",
+        "en": "Stewed rutabaga"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 45,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "vegetable",
+        "traditional",
+        "side",
+        "cuisine:norwegian"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kålrot",
+            "en": "Rutabaga"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 40,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Grønnsaksbuljong",
+            "en": "Vegetable broth"
+          },
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          },
+          "amount": 400
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "porsjon",
+            "en": "portion"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skrell og kutt kålroten i kuber",
+          "2. Hakk løk",
+          "3. Smelt smør og sauté løk",
+          "4. Tilsett kålrot",
+          "5. Helle buljongen over",
+          "6. Dekk og kok i 30 minutter til mørt",
+          "7. Krydre med salt og pepper"
+        ],
+        "en": [
+          "1. Peel and cut rutabaga into cubes",
+          "2. Chop onion",
+          "3. Melt butter and sauté onion",
+          "4. Add rutabaga",
+          "5. Pour broth over",
+          "6. Cover and cook for 30 minutes until tender",
+          "7. Season with salt and pepper"
+        ]
+      }
+    },
+    {
+      "id": "eu_003",
+      "title": {
+        "no": "Bouillabaisse",
+        "en": "Bouillabaisse"
+      },
+      "subtitle": {
+        "no": "Fransk fisksuppe fra Provence",
+        "en": "French fish soup from Provence"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 60,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "french",
+        "seafood",
+        "soup",
+        "classic",
+        "cuisine:french"
+      ],
+      "allergens": [
+        "fish",
+        "shellfish",
+        "saffron"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Blandede fisker",
+            "en": "Mixed fish"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Blåskjell",
+            "en": "Mussels"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomat (frisk eller konservert)",
+            "en": "Tomato (fresh or canned)"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "medium",
+            "en": "medium"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Saffran",
+            "en": "Saffron"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "g",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Buljong (fisk)",
+            "en": "Fish broth"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "liter",
+            "en": "liter"
+          }
+        },
+        {
+          "name": {
+            "no": "Fennikkel",
+            "en": "Fennel"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stengel",
+            "en": "stalk"
+          }
+        },
+        {
+          "name": {
+            "no": "Olivenolje",
+            "en": "Olive oil"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Heat olivenolje og steik løk, hvitløk og fennikkel.",
+          "2. Tilsett tomater og la det koke i 10 minutter.",
+          "3. Hell på fiskbuljongen og saffran.",
+          "4. Tilsett fiskene og la det koke i 15 minutter.",
+          "5. Tilsett blåskjellene og kok til de åpner seg.",
+          "6. Smak til med salt og pepper.",
+          "7. Server i dype skåler med brød og rouille."
+        ],
+        "en": [
+          "1. Heat olive oil and fry onion, garlic and fennel.",
+          "2. Add tomatoes and let simmer for 10 minutes.",
+          "3. Pour in fish broth and saffron.",
+          "4. Add fish and cook for 15 minutes.",
+          "5. Add mussels and cook until they open.",
+          "6. Season with salt and pepper.",
+          "7. Serve in deep bowls with bread and rouille."
+        ]
+      }
+    },
+    {
+      "id": "eu_009",
+      "title": {
+        "no": "Gazpacho",
+        "en": "Gazpacho"
+      },
+      "subtitle": {
+        "no": "Spansk kald tomat-suppe",
+        "en": "Spanish cold tomato soup"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "spanish",
+        "cold-soup",
+        "vegetarian",
+        "summer",
+        "quick",
+        "cuisine:spanish"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Tomat (frisk)",
+            "en": "Tomato (fresh)"
+          },
+          "amount": 1000,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Agurk",
+            "en": "Cucumber"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "medium",
+            "en": "medium"
+          }
+        },
+        {
+          "name": {
+            "no": "Rødt paprika",
+            "en": "Red bell pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Brød (gammelt)",
+            "en": "Bread (stale)"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Rødvin-eddiksyre",
+            "en": "Red wine vinegar"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Olivenolje",
+            "en": "Olive oil"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Hakk tomater, agurk, paprika og hvitløk grovt.",
+          "2. Tilsett brød, rødvin-eddiksyre, olivenolje og salt.",
+          "3. Bland i en food processor eller miksmaster til ønsket tekstur.",
+          "4. Kjøl i minst 2 timer.",
+          "5. Rør om før servering.",
+          "6. Server med toppinger: hakket agurk, paprika, egg og croutons.",
+          "7. Server kald som appetitt-suppe på varme dager."
+        ],
+        "en": [
+          "1. Chop tomatoes, cucumber, bell pepper and garlic coarsely.",
+          "2. Add bread, red wine vinegar, olive oil and salt.",
+          "3. Blend in a food processor to desired texture.",
+          "4. Chill for at least 2 hours.",
+          "5. Stir before serving.",
+          "6. Serve with toppings: chopped cucumber, pepper, egg and croutons.",
+          "7. Serve cold as an appetizer on warm days."
+        ]
+      }
+    },
+    {
+      "id": "eu_010",
+      "title": {
+        "no": "Ratatouille",
+        "en": "Ratatouille"
+      },
+      "subtitle": {
+        "no": "Fransk grønnsakstuing",
+        "en": "French vegetable stew"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 45,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "french",
+        "vegetable",
+        "vegetarian",
+        "healthy",
+        "cuisine:french"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Aubergine",
+            "en": "Eggplant"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "large",
+            "en": "large"
+          }
+        },
+        {
+          "name": {
+            "no": "Zucchini",
+            "en": "Zucchini"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "medium",
+            "en": "medium"
+          }
+        },
+        {
+          "name": {
+            "no": "Rødt paprika",
+            "en": "Red bell pepper"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomat (frisk)",
+            "en": "Tomato (fresh)"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "medium",
+            "en": "medium"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Oregano (frisk eller tørket)",
+            "en": "Oregano (fresh or dried)"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Olivenolje",
+            "en": "Olive oil"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kutt alle grønnsakene i terninger.",
+          "2. Heat olivenolje og steik løk og hvitløk.",
+          "3. Tilsett auberginen og zucchini, steik i 5 minutter.",
+          "4. Tilsett paprika og tomater.",
+          "5. Tilsett oregano, salt og pepper.",
+          "6. La det småkoke i 25-30 minutter.",
+          "7. Grønnsakene bør bli myke men ikke muslete.",
+          "8. Server varmt eller kaldt."
+        ],
+        "en": [
+          "1. Dice all vegetables.",
+          "2. Heat olive oil and fry onion and garlic.",
+          "3. Add eggplant and zucchini, cook 5 minutes.",
+          "4. Add bell pepper and tomatoes.",
+          "5. Add oregano, salt and pepper.",
+          "6. Simmer for 25-30 minutes.",
+          "7. Vegetables should be soft but not mushy.",
+          "8. Serve hot or cold."
+        ]
+      }
+    },
+    {
+      "id": "eu_015",
+      "title": {
+        "no": "Cassoulet",
+        "en": "Cassoulet"
+      },
+      "subtitle": {
+        "no": "Fransk vit bønn-stuing med andekjøtt",
+        "en": "French white bean stew with duck"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 180,
+      "servings": 6,
+      "category": "Soups & Stews",
+      "tags": [
+        "french",
+        "beans",
+        "slow-cooked",
+        "hearty",
+        "cuisine:french"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Hvite bønner (tørret)",
+            "en": "White beans (dried)"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Andekjøtt (konservert eller fersk)",
+            "en": "Duck (canned or fresh)"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Svinespek",
+            "en": "Pork belly"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "medium",
+            "en": "medium"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomat-puré",
+            "en": "Tomato paste"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Buljong",
+            "en": "Broth"
+          },
+          "amount": 1.5,
+          "unit": {
+            "no": "liter",
+            "en": "liter"
+          }
+        },
+        {
+          "name": {
+            "no": "Timen",
+            "en": "Thyme"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Laurblad",
+            "en": "Bay leaf"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bløtlegg bønnene over natten.",
+          "2. Kok bønnene i friskt vann i ca. 1 time til de er halvkjøpt.",
+          "3. Steik speken til det er sprøtt.",
+          "4. Steik løk og hvitløk i samme panne.",
+          "5. Tilsett tomat-puré og bland godt.",
+          "6. Hell på buljongen langsomt.",
+          "7. Tilsett bønnene, speken, and-kjøttet, timen og laurbladet.",
+          "8. La det småkoke sakte i 1-2 timer.",
+          "9. Smak til med salt og pepper.",
+          "10. Server i dype skåler varmt."
+        ],
+        "en": [
+          "1. Soak beans overnight.",
+          "2. Cook beans in fresh water for about 1 hour until half-cooked.",
+          "3. Fry bacon until crispy.",
+          "4. Fry onion and garlic in same pan.",
+          "5. Add tomato paste and mix well.",
+          "6. Pour in broth slowly.",
+          "7. Add beans, bacon, duck meat, thyme and bay leaf.",
+          "8. Simmer slowly for 1-2 hours.",
+          "9. Season with salt and pepper.",
+          "10. Serve in deep bowls hot."
+        ]
+      }
+    },
+    {
+      "id": "eu_016",
+      "title": {
+        "no": "Boeuf Bourguignon",
+        "en": "Beef Bourguignon"
+      },
+      "subtitle": {
+        "no": "Fransk grytestek av oksekjøtt i rødvin",
+        "en": "French beef stew braised in red wine"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 180,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "french",
+        "slow-cooked",
+        "comfort-food",
+        "wine",
+        "cuisine:french"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Oksekjøtt (gryte)",
+            "en": "Beef (stewing chunks)"
+          },
+          "amount": 900,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Rødvin",
+            "en": "Red wine"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Bacon (i terninger)",
+            "en": "Bacon (diced)"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Gulrot",
+            "en": "Carrot"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "medium",
+            "en": "medium"
+          }
+        },
+        {
+          "name": {
+            "no": "Sjampinjong",
+            "en": "Mushroom"
+          },
+          "amount": 250,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Buljong (okse)",
+            "en": "Beef stock"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomatpuré",
+            "en": "Tomato paste"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvetemel",
+            "en": "Flour"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Brun oksekjøttet i smør på høy varme i en stor gryte og ta det ut.",
+          "2. Stek bacon, løk og gulrot i samme gryte til de er gyldne.",
+          "3. Tilsett mel og rør godt, så tomatpuré og hvitløk.",
+          "4. Hell i rødvin og buljong, ha kjøttet tilbake i gryten.",
+          "5. La det småkoke med lokk på lav varme i 2-3 timer til kjøttet er mørt.",
+          "6. Stek sjampinjong separat og rør inn de siste 15 minuttene.",
+          "7. Smak til med salt og pepper, server med potetmos eller brød."
+        ],
+        "en": [
+          "1. Brown the beef in butter over high heat in a large pot, then remove it.",
+          "2. Sauté bacon, onion and carrot in the same pot until golden.",
+          "3. Stir in flour, then add tomato paste and garlic.",
+          "4. Pour in red wine and stock, and return the beef to the pot.",
+          "5. Simmer covered on low heat for 2-3 hours until the meat is tender.",
+          "6. Sauté the mushrooms separately and stir in during the last 15 minutes.",
+          "7. Season with salt and pepper, serve with mashed potatoes or bread."
+        ]
+      }
+    },
+    {
+      "id": "eu_017",
+      "title": {
+        "no": "Ratatouille",
+        "en": "Ratatouille"
+      },
+      "subtitle": {
+        "no": "Provençalsk grønnsaksgryte med aubergine og squash",
+        "en": "Provençal vegetable stew with eggplant and zucchini"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 50,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "french",
+        "vegetarian",
+        "vegetables",
+        "comfort-food",
+        "cuisine:french"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Aubergine",
+            "en": "Eggplant"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Squash",
+            "en": "Zucchini"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Paprika (rød)",
+            "en": "Bell pepper (red)"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomat",
+            "en": "Tomato"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Olivenolje",
+            "en": "Olive oil"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Tørket timian",
+            "en": "Dried thyme"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "tsk",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Frisk basilikum",
+            "en": "Fresh basil"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "håndfull",
+            "en": "handful"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skjær aubergine, squash, paprika, tomat og løk i jevne biter.",
+          "2. Surr løk og hvitløk i olivenolje i en stor panne eller gryte.",
+          "3. Tilsett aubergine og paprika, stek i noen minutter.",
+          "4. Ha i squash, tomat og timian, rør godt sammen.",
+          "5. La det småkoke under lokk på middels varme i 25-30 minutter til grønnsakene er møre.",
+          "6. Smak til med salt og pepper.",
+          "7. Strø over fersk basilikum før servering."
+        ],
+        "en": [
+          "1. Cut the eggplant, zucchini, bell pepper, tomato and onion into even chunks.",
+          "2. Sauté the onion and garlic in olive oil in a large pan or pot.",
+          "3. Add the eggplant and bell pepper, cook for a few minutes.",
+          "4. Add zucchini, tomato and thyme, stir well together.",
+          "5. Simmer covered over medium heat for 25-30 minutes until the vegetables are tender.",
+          "6. Season with salt and pepper.",
+          "7. Sprinkle with fresh basil before serving."
+        ]
+      }
+    },
+    {
+      "id": "eu_018",
+      "title": {
+        "no": "Gulasj",
+        "en": "Goulash"
+      },
+      "subtitle": {
+        "no": "Ungarsk paprikagryte med oksekjøtt",
+        "en": "Hungarian paprika stew with beef"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 120,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "hungarian",
+        "slow-cooked",
+        "comfort-food",
+        "spicy",
+        "cuisine:hungarian"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Oksekjøtt (gryte)",
+            "en": "Beef (stewing chunks)"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Paprikapulver",
+            "en": "Paprika powder"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Paprika (rød)",
+            "en": "Bell pepper (red)"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomat (hakket, konservert)",
+            "en": "Tomato (chopped, canned)"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Potet",
+            "en": "Potato"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Buljong (okse)",
+            "en": "Beef stock"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Karve",
+            "en": "Caraway seeds"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "tsk",
+            "en": "tsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Brun oksekjøttet i olje i en stor gryte og ta det ut.",
+          "2. Surr løk i samme gryte til den er blank.",
+          "3. Tilsett paprikapulver og hvitløk, rør raskt for å unngå at det svir seg.",
+          "4. Ha kjøttet tilbake i gryten sammen med tomat, buljong og karve.",
+          "5. La det småkoke under lokk på lav varme i 1,5 time.",
+          "6. Tilsett paprika og potet i biter, kok videre i 30 minutter til alt er mørt.",
+          "7. Smak til med salt og pepper, server gjerne med brød."
+        ],
+        "en": [
+          "1. Brown the beef in oil in a large pot, then remove it.",
+          "2. Sauté the onion in the same pot until translucent.",
+          "3. Add paprika powder and garlic, stirring quickly so it doesn't burn.",
+          "4. Return the beef to the pot along with tomato, stock and caraway seeds.",
+          "5. Simmer covered on low heat for 1.5 hours.",
+          "6. Add the bell pepper and diced potato, cook for another 30 minutes until everything is tender.",
+          "7. Season with salt and pepper, and serve with bread if desired."
+        ]
+      }
+    },
+    {
+      "id": "eu_022",
+      "title": {
+        "no": "Cassoulet",
+        "en": "Cassoulet"
+      },
+      "subtitle": {
+        "no": "Fransk bønnegryte med pølse og duck eller svinekjøtt",
+        "en": "French bean stew with sausage and duck or pork"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 150,
+      "servings": 6,
+      "category": "Soups & Stews",
+      "tags": [
+        "french",
+        "slow-cooked",
+        "beans",
+        "comfort-food",
+        "cuisine:french"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Hvite bønner (tørkede eller hermetiske)",
+            "en": "White beans (dried or canned)"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Andelår eller svinekjøtt",
+            "en": "Duck legs or pork"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Grovpølse",
+            "en": "Coarse sausage"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Bacon (i skiver)",
+            "en": "Bacon (sliced)"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomat (hermetisk, hakket)",
+            "en": "Tomato (canned, chopped)"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Buljong (kylling)",
+            "en": "Chicken stock"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Brødsmuler",
+            "en": "Breadcrumbs"
+          },
+          "amount": 60,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Brun andelår eller svinekjøtt, bacon og pølse i en stor gryte.",
+          "2. Surr løk og hvitløk i samme gryte til de blir blanke.",
+          "3. Tilsett bønner, tomat og buljong, rør sammen.",
+          "4. Legg kjøttet tilbake i gryten og la det småkoke under lokk i 1,5-2 timer.",
+          "5. Hell alt over i en ildfast form og strø brødsmuler på toppen.",
+          "6. Stek i ovnen på 180°C i 30-40 minutter til toppen er gyllen og sprø.",
+          "7. La gryten roe seg litt før servering."
+        ],
+        "en": [
+          "1. Brown the duck legs or pork, bacon and sausage in a large pot.",
+          "2. Sauté onion and garlic in the same pot until translucent.",
+          "3. Add the beans, tomato and stock, and stir together.",
+          "4. Return the meat to the pot and simmer covered for 1.5-2 hours.",
+          "5. Transfer everything to a baking dish and sprinkle breadcrumbs on top.",
+          "6. Bake at 180°C (355°F) for 30-40 minutes until the top is golden and crisp.",
+          "7. Let the dish rest briefly before serving."
+        ]
+      }
+    },
+    {
+      "id": "eu_023",
+      "title": {
+        "no": "Osso Buco",
+        "en": "Osso Buco"
+      },
+      "subtitle": {
+        "no": "Italiensk skankegryte med hvitvin og grønnsaker",
+        "en": "Italian braised veal shank with white wine and vegetables"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 150,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "italian",
+        "slow-cooked",
+        "comfort-food",
+        "classic",
+        "cuisine:italian"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kalveskank (i skiver)",
+            "en": "Veal shank (sliced)"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvetemel",
+            "en": "Flour"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Gulrot",
+            "en": "Carrot"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Selleristang",
+            "en": "Celery stalk"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitvin",
+            "en": "White wine"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomat (hermetisk, hakket)",
+            "en": "Tomato (canned, chopped)"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Buljong (kylling eller okse)",
+            "en": "Chicken or beef stock"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Sitronskall (revet)",
+            "en": "Lemon zest"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Persille (hakket)",
+            "en": "Parsley (chopped)"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Vend skankeskivene i mel og brun dem godt i olje i en stor gryte, ta dem ut.",
+          "2. Surr finhakket gulrot, selleri og løk i samme gryte til de er møre.",
+          "3. Hell i hvitvin og la det koke noen minutter for å redusere.",
+          "4. Tilsett tomat og buljong, ha skankeskivene tilbake i gryten.",
+          "5. La det småkoke under lokk på lav varme i 2 timer til kjøttet er mørt og løsner fra beinet.",
+          "6. Rør inn sitronskall og persille like før servering.",
+          "7. Server med risotto eller polenta."
+        ],
+        "en": [
+          "1. Coat the shank slices in flour and brown them well in oil in a large pot, then remove them.",
+          "2. Sauté finely chopped carrot, celery and onion in the same pot until softened.",
+          "3. Pour in the white wine and let it simmer for a few minutes to reduce.",
+          "4. Add tomato and stock, and return the shank slices to the pot.",
+          "5. Simmer covered on low heat for 2 hours until the meat is tender and falling off the bone.",
+          "6. Stir in lemon zest and parsley just before serving.",
+          "7. Serve with risotto or polenta."
+        ]
+      }
+    },
+    {
+      "id": "eu_028",
+      "title": {
+        "no": "Sauerbraten",
+        "en": "Sauerbraten"
+      },
+      "subtitle": {
+        "no": "Tysk syrlig marinert grytestek",
+        "en": "German tangy marinated pot roast"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 180,
+      "servings": 6,
+      "category": "Soups & Stews",
+      "tags": [
+        "german",
+        "slow-cooked",
+        "marinated",
+        "comfort-food",
+        "cuisine:german"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Oksestek",
+            "en": "Beef roast"
+          },
+          "amount": 1.2,
+          "unit": {
+            "no": "kg",
+            "en": "kg"
+          }
+        },
+        {
+          "name": {
+            "no": "Rødvinseddik",
+            "en": "Red wine vinegar"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Gulrot",
+            "en": "Carrot"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Laurbærblad",
+            "en": "Bay leaf"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Nellik (hel)",
+            "en": "Cloves (whole)"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Knekkebrødkjeks eller pepperkaker",
+            "en": "Gingerbread cookies or crackers"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Rosiner",
+            "en": "Raisins"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Marinér oksesteken i en blanding av eddik, vann, løk, gulrot, laurbærblad og nellik i kjøleskap i minst 24 timer.",
+          "2. Ta kjøttet ut og tørk det av, sil marinaden og sett den til side.",
+          "3. Brun kjøttet godt på alle sider i en stor gryte.",
+          "4. Hell over marinaden med grønnsakene, og la det småkoke under lokk i 2,5-3 timer til kjøttet er mørt.",
+          "5. Ta kjøttet ut og sil kraften.",
+          "6. Smuldre pepperkaker i kraften og tilsett rosiner, kok opp til sausen tykner.",
+          "7. Skjær kjøttet i skiver og server med sausen, gjerne sammen med kokte potetballer."
+        ],
+        "en": [
+          "1. Marinate the beef roast in a mixture of vinegar, water, onion, carrot, bay leaves and cloves in the fridge for at least 24 hours.",
+          "2. Remove the meat and pat it dry, then strain the marinade and set it aside.",
+          "3. Brown the meat well on all sides in a large pot.",
+          "4. Pour the marinade with the vegetables over the meat, and simmer covered for 2.5-3 hours until tender.",
+          "5. Remove the meat and strain the cooking liquid.",
+          "6. Crumble gingerbread cookies into the liquid and add raisins, then bring to a simmer until the sauce thickens.",
+          "7. Slice the meat and serve with the sauce, ideally alongside boiled potato dumplings."
+        ]
+      }
+    },
+    {
+      "id": "eu_029",
+      "title": {
+        "no": "Bouillabaisse",
+        "en": "Bouillabaisse"
+      },
+      "subtitle": {
+        "no": "Fransk fiskesuppe fra Marseille med safran",
+        "en": "French fish soup from Marseille with saffron"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 60,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "french",
+        "seafood",
+        "soup",
+        "classic",
+        "cuisine:french"
+      ],
+      "allergens": [
+        "fish",
+        "shellfish"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Blandet fisk (filet)",
+            "en": "Mixed fish (fillets)"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Reker",
+            "en": "Shrimp"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Blåskjell",
+            "en": "Mussels"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomat (hermetisk, hakket)",
+            "en": "Tomato (canned, chopped)"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Fennikel",
+            "en": "Fennel"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Safran",
+            "en": "Saffron"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "knivsodd",
+            "en": "pinch"
+          }
+        },
+        {
+          "name": {
+            "no": "Fiskekraft",
+            "en": "Fish stock"
+          },
+          "amount": 700,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Olivenolje",
+            "en": "Olive oil"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Surr løk, fennikel og hvitløk i olivenolje i en stor gryte til de er møre.",
+          "2. Tilsett tomat, safran og fiskekraft, kok opp.",
+          "3. La suppebasen småkoke i 15-20 minutter slik at smakene utvikler seg.",
+          "4. Tilsett fiskefiletene først og kok i 5 minutter.",
+          "5. Ha i reker og blåskjell, og kok videre 4-5 minutter til skjellene har åpnet seg.",
+          "6. Smak til med salt og pepper.",
+          "7. Server varm med godt brød og gjerne en aioli-dressing på siden."
+        ],
+        "en": [
+          "1. Sauté onion, fennel and garlic in olive oil in a large pot until softened.",
+          "2. Add tomato, saffron and fish stock, and bring to a boil.",
+          "3. Let the soup base simmer for 15-20 minutes to develop the flavors.",
+          "4. Add the fish fillets first and cook for 5 minutes.",
+          "5. Add the shrimp and mussels, and cook for another 4-5 minutes until the mussels have opened.",
+          "6. Season with salt and pepper.",
+          "7. Serve hot with good bread and, if desired, an aioli dressing on the side."
+        ]
+      }
+    },
+    {
+      "id": "eu_030",
+      "title": {
+        "no": "Beef Stroganoff",
+        "en": "Beef Stroganoff"
+      },
+      "subtitle": {
+        "no": "Russisk kremet oksekjøttgryte med sjampinjong",
+        "en": "Russian creamy beef stew with mushrooms"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 35,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "russian",
+        "comfort-food",
+        "creamy",
+        "quick",
+        "cuisine:russian"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Oksekjøtt (mørbrad, i strimler)",
+            "en": "Beef (sirloin, sliced into strips)"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sjampinjong",
+            "en": "Mushroom"
+          },
+          "amount": 250,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Rømme",
+            "en": "Sour cream"
+          },
+          "amount": 250,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Dijonsennep",
+            "en": "Dijon mustard"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Buljong (okse)",
+            "en": "Beef stock"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Persille (hakket)",
+            "en": "Parsley (chopped)"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Stek kjøttstrimlene raskt i smør på høy varme, ta dem ut.",
+          "2. Stek løk og sjampinjong i samme panne til de er møre og gyldne.",
+          "3. Tilsett buljong og sennep, kok opp og la det redusere litt.",
+          "4. Senk varmen og rør inn rømme til en jevn saus.",
+          "5. Ha kjøttet tilbake i pannen og varm det gjennom uten å la det koke videre.",
+          "6. Smak til med salt og pepper.",
+          "7. Strø over persille og server med ris eller pasta."
+        ],
+        "en": [
+          "1. Quickly fry the beef strips in butter over high heat, then remove them.",
+          "2. Fry the onion and mushrooms in the same pan until tender and golden.",
+          "3. Add the stock and mustard, bring to a boil and let it reduce slightly.",
+          "4. Lower the heat and stir in the sour cream to form a smooth sauce.",
+          "5. Return the meat to the pan and warm it through without letting it boil further.",
+          "6. Season with salt and pepper.",
+          "7. Sprinkle with parsley and serve with rice or pasta."
+        ]
+      }
+    },
+    {
+      "id": "eu_090",
+      "title": {
+        "no": "Irish Stew",
+        "en": "Irish Stew"
+      },
+      "subtitle": {
+        "no": "Irlandsk kjøttstuing med lam",
+        "en": "Irish meat stew with lamb"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 90,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "stew",
+        "Irish",
+        "comfort food",
+        "cuisine:irish"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Lamm (hakket eller kubert)",
+            "en": "Lamb (minced or cubed)"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Potet",
+            "en": "Potato"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Kjøttbuljong",
+            "en": "Beef broth"
+          },
+          "amount": 1000,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Tyme",
+            "en": "Thyme"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "sprigs"
+          }
+        },
+        {
+          "name": {
+            "no": "Lagerblad",
+            "en": "Bay leaf"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "after taste",
+            "en": "to taste"
+          }
+        },
+        {
+          "name": {
+            "no": "Persille",
+            "en": "Parsley"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "bunch",
+            "en": "bunch"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Lag lag av kjøtt, løk og poteter i en stor gryte",
+          "2. Tilsett buljong, tyme og lagerblad",
+          "3. Bring til kokepunkt, deretter redusere varme",
+          "4. Dekk og simrer 1,5 timer",
+          "5. Fjern tyme og lagerblad",
+          "6. Smak på og krydre med salt og pepper",
+          "7. Garnish med fersk persille",
+          "8. Serv varmt"
+        ],
+        "en": [
+          "1. Layer meat, onion and potatoes in a large pot",
+          "2. Add broth, thyme and bay leaf",
+          "3. Bring to boil, then reduce heat",
+          "4. Cover and simmer 1.5 hours",
+          "5. Remove thyme and bay leaf",
+          "6. Taste and season with salt and pepper",
+          "7. Garnish with fresh parsley",
+          "8. Serve hot"
+        ]
+      }
+    },
+    {
+      "id": "eu_103",
+      "title": {
+        "no": "Bigos",
+        "en": "Bigos"
+      },
+      "subtitle": {
+        "no": "Polsk kjøtt og kål stuing",
+        "en": "Polish meat and cabbage stew"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 120,
+      "servings": 6,
+      "category": "Soups & Stews",
+      "tags": [
+        "stew",
+        "Polish",
+        "cabbage",
+        "cuisine:polish"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Svinekjøtt",
+            "en": "Pork"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Viltkjøtt (eller elg)",
+            "en": "Venison (or elk)"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitkål",
+            "en": "Cabbage"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Ferskekål",
+            "en": "Fresh cabbage"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomat",
+            "en": "Tomato"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Kjøttbuljong",
+            "en": "Beef broth"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Eddiksyre",
+            "en": "Vinegar"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "tbsp",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "tbsp",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "after taste",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kutt kjøtt i små biter",
+          "2. Hakk og fres kål og løk",
+          "3. Lag lag av kjøtt og kål i gryte",
+          "4. Tilsett tomat, buljong, eddiksyre og sukker",
+          "5. Simrer sakte 1,5-2 timer",
+          "6. Smak og krydre etter ønske",
+          "7. Serv varmt med rugbrød"
+        ],
+        "en": [
+          "1. Dice meat into small pieces",
+          "2. Chop and cook cabbage and onion",
+          "3. Layer meat and cabbage in pot",
+          "4. Add tomato, broth, vinegar and sugar",
+          "5. Simmer gently for 1.5-2 hours",
+          "6. Taste and season as desired",
+          "7. Serve hot with rye bread"
+        ]
+      }
+    },
+    {
+      "id": "nd_018",
+      "title": {
+        "no": "Karjalanpaisti",
+        "en": "Karelian Stew"
+      },
+      "subtitle": {
+        "no": "Finsk langtidsstekt gryte med blandet kjøtt",
+        "en": "Finnish slow-baked stew with mixed meats"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 180,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "traditional",
+        "nordic",
+        "slow-cooked",
+        "comfort-food",
+        "cuisine:nordic"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kjøttbiter av svin",
+            "en": "Pork, cubed"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kjøttbiter av kjøtt (oksekjøtt)",
+            "en": "Beef, cubed"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Lammekjøtt, biter",
+            "en": "Lamb, cubed"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Gulrot",
+            "en": "Carrot"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Hele pepperkorn",
+            "en": "Whole peppercorns"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Forvarm stekeovnen til 150°C.",
+          "2. Skjær kjøttet i jevne biter og legg det i en gryte med lokk.",
+          "3. Skjær gulrøtter og løk i grove biter og legg over kjøttet.",
+          "4. Tilsett pepperkorn, salt og vann.",
+          "5. Sett gryten med lokk i ovnen og la den småkoke i 3-4 timer til kjøttet er mørt.",
+          "6. Rør om en gang i løpet av steketiden og sjekk vannivået.",
+          "7. Server varm med kokte poteter eller rugbrød."
+        ],
+        "en": [
+          "1. Preheat the oven to 150°C.",
+          "2. Cut the meat into even chunks and place in a covered casserole dish.",
+          "3. Cut the carrots and onions into rough pieces and layer over the meat.",
+          "4. Add the peppercorns, salt and water.",
+          "5. Place the covered casserole in the oven and let it simmer for 3-4 hours until the meat is tender.",
+          "6. Stir once during cooking and check the water level.",
+          "7. Serve hot with boiled potatoes or rye bread."
+        ]
+      }
+    },
+    {
+      "id": "nd_019",
+      "title": {
+        "no": "Ärtsoppa",
+        "en": "Swedish Yellow Split Pea Soup"
+      },
+      "subtitle": {
+        "no": "Varmende ertesuppe med flesk og urter",
+        "en": "Warming split pea soup with salted pork and herbs"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 90,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "traditional",
+        "nordic",
+        "soup",
+        "comfort-food",
+        "cuisine:nordic"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Gule erter (tørkede)",
+            "en": "Yellow split peas (dried)"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Saltflesk eller bacon",
+            "en": "Salted pork or bacon"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Timian",
+            "en": "Thyme"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
+          "amount": 1500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Sennep til servering",
+            "en": "Mustard for serving"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skyll de gule ertene og legg dem i vann i flere timer eller over natten.",
+          "2. Kok ertene opp i ferskt vann og skum av skummet som dannes på toppen.",
+          "3. Tilsett løk i hele eller halve biter og det salte flesket.",
+          "4. La suppen koke sakte i 1-1,5 time til ertene er møre og suppen er tykk.",
+          "5. Fjern fleskbitene, skjær dem i mindre stykker og legg tilbake i suppen.",
+          "6. Smak til med timian, salt og pepper.",
+          "7. Server varm med sennep og eventuelt tynne pannekaker til dessert."
+        ],
+        "en": [
+          "1. Rinse the split peas and soak them in water for several hours or overnight.",
+          "2. Bring the peas to a boil in fresh water, skimming off the foam that forms on top.",
+          "3. Add the onion in whole or halved pieces along with the salted pork.",
+          "4. Let the soup simmer gently for 1-1.5 hours until the peas are soft and the soup has thickened.",
+          "5. Remove the pork pieces, cut into smaller chunks and return to the soup.",
+          "6. Season with thyme, salt and pepper to taste.",
+          "7. Serve hot with mustard, traditionally followed by thin pancakes for dessert."
+        ]
+      }
+    },
+    {
+      "id": "nd_027",
+      "title": {
+        "no": "Kalops",
+        "en": "Swedish Beef Stew"
+      },
+      "subtitle": {
+        "no": "Svensk langtidskokt biffgryte med løk og lauerbær",
+        "en": "Swedish slow-cooked beef stew with onion and bay leaf"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 150,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "traditional",
+        "nordic",
+        "slow-cooked",
+        "comfort-food",
+        "cuisine:nordic"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Oksekjøtt til gryte, i biter",
+            "en": "Beef stewing meat, cubed"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk, i skiver",
+            "en": "Onion, sliced"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Gulrot, i skiver",
+            "en": "Carrot, sliced"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Lauerbærblad",
+            "en": "Bay leaves"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Allehånde, hele korn",
+            "en": "Allspice berries, whole"
+          },
+          "amount": 6,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Kjøttkraft",
+            "en": "Beef stock"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvetemel",
+            "en": "Wheat flour"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Brun kjøttbitene godt i smør i en gryte på høy varme i flere omganger.",
+          "2. Tilsett løk og fortsett å steke til løken blir blank.",
+          "3. Strø mel over kjøttet og løken og rør godt for å dekke alt.",
+          "4. Hell på kraften, tilsett lauerbærblad og allehånde, og kok opp.",
+          "5. Sett varmen ned og la gryten putre med lokk på i 2-2,5 timer til kjøttet er mørt.",
+          "6. Tilsett gulrøttene de siste 30 minuttene av koketiden.",
+          "7. Smak til med salt og pepper, og server med kokte poteter eller potetmos."
+        ],
+        "en": [
+          "1. Brown the meat well in butter in a pot over high heat, working in batches.",
+          "2. Add the onion and continue cooking until translucent.",
+          "3. Sprinkle flour over the meat and onion and stir well to coat everything.",
+          "4. Pour in the stock, add the bay leaves and allspice, and bring to a boil.",
+          "5. Lower the heat and let the stew simmer covered for 2-2.5 hours until the meat is tender.",
+          "6. Add the carrots during the last 30 minutes of cooking.",
+          "7. Season with salt and pepper, and serve with boiled potatoes or mashed potatoes."
+        ]
+      }
+    },
+    {
+      "id": "nd_079",
+      "title": {
+        "no": "Kartoffelsuppe",
+        "en": "Potato Soup"
+      },
+      "subtitle": {
+        "no": "Varm og mettende potetsuppe",
+        "en": "Warm and hearty potato soup"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 35,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "soup",
+        "potatoes",
+        "comfort food",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "milk"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Klippløk",
+            "en": "Chives"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Kjøttbuljong",
+            "en": "Beef broth"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 40,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "porsjon",
+            "en": "portion"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kutt poteter og løk i små terninger",
+          "2. Smelt smør i en gryte",
+          "3. Sauté løk i 3-4 minutter",
+          "4. Tilsett poteter og kjøttbuljong",
+          "5. Kok i 15-20 minutter til poteter er møre",
+          "6. Tilsett melk og klippløk",
+          "7. Krydre med salt og pepper"
+        ],
+        "en": [
+          "1. Cut potatoes and onion into small cubes",
+          "2. Melt butter in a pot",
+          "3. Sauté onion for 3-4 minutes",
+          "4. Add potatoes and beef broth",
+          "5. Cook for 15-20 minutes until potatoes are tender",
+          "6. Add milk and chives",
+          "7. Season with salt and pepper"
+        ]
+      }
+    },
+    {
+      "id": "nd_099",
+      "title": {
+        "no": "Mushroom Stew",
+        "en": "Mushroom Stew"
+      },
+      "subtitle": {
+        "no": "Varmrätt med sopp og grønsaker",
+        "en": "Warm stew with mushrooms and vegetables"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 40,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "vegetarian",
+        "comfort food",
+        "stew",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "milk"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Champignon",
+            "en": "Button mushrooms"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Heavy cream"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Grønnsaksbuljong",
+            "en": "Vegetable broth"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Timian",
+            "en": "Thyme"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Hakk løk og hvitløk",
+          "2. Skjær soppen i stykker",
+          "3. Smelt smør og sauté løk og hvitløk",
+          "4. Tilsett soppen og kok i 10 minutter",
+          "5. Helle inn buljongen og melk",
+          "6. Tilsett timian",
+          "7. Kok til deigen er mykt, omkring 20 minutter"
+        ],
+        "en": [
+          "1. Chop onion and garlic",
+          "2. Slice mushrooms",
+          "3. Melt butter and sauté onion and garlic",
+          "4. Add mushrooms and cook for 10 minutes",
+          "5. Pour in broth and cream",
+          "6. Add thyme",
+          "7. Cook until vegetables are soft, about 20 minutes"
+        ]
+      }
+    },
+    {
+      "id": "nd_105",
+      "title": {
+        "no": "Grønnsaksstuing",
+        "en": "Mixed Vegetable Stew"
+      },
+      "subtitle": {
+        "no": "Blandet grønnsaksstuing med tomatssaus",
+        "en": "Mixed vegetables in tomato sauce"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 45,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "vegetables",
+        "stew",
+        "comfort food",
+        "cuisine:nordic"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomat",
+            "en": "Tomatoes"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Gulrot",
+            "en": "Carrots"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 250,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Paprika",
+            "en": "Bell pepper"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Grønnsaksbuljong",
+            "en": "Vegetable broth"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Olje",
+            "en": "Oil"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "spsk",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Urter",
+            "en": "Herbs"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Hakk løk og sauté i olje",
+          "2. Kutt alle grønnsakene i små stykker",
+          "3. Tilsett tomat og buljongen",
+          "4. Tilsett alle grønnsakene",
+          "5. Kok i 30 minutter til grønnsakene er møre",
+          "6. Krydre med urter, salt og pepper"
+        ],
+        "en": [
+          "1. Chop onion and sauté in oil",
+          "2. Cut all vegetables into small pieces",
+          "3. Add tomato and broth",
+          "4. Add all vegetables",
+          "5. Cook for 30 minutes until vegetables are tender",
+          "6. Season with herbs, salt and pepper"
+        ]
+      }
+    },
+    {
+      "id": "hol_034",
+      "title": {
+        "no": "Rød Kål",
+        "en": "Red Cabbage"
+      },
+      "subtitle": {
+        "no": "Stuing av rød kål med eple",
+        "en": "Red cabbage stew with apple"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 40,
+      "servings": 6,
+      "category": "Soups & Stews",
+      "tags": [
+        "holiday",
+        "side",
+        "vegetable",
+        "cuisine:german"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Rød kål",
+            "en": "Red cabbage"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Eple",
+            "en": "Apple"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Eddik",
+            "en": "Vinegar"
+          },
+          "amount": 60,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skjær kål i strimler",
+          "2. Skjær eple i biter",
+          "3. Heat smør",
+          "4. Tilsett kål og eple",
+          "5. Helle eddik og sukker over",
+          "6. Kok i 30 minutter"
+        ],
+        "en": [
+          "1. Cut cabbage into strips",
+          "2. Cut apple into pieces",
+          "3. Heat butter",
+          "4. Add cabbage and apple",
+          "5. Pour vinegar and sugar over",
+          "6. Cook for 30 minutes"
+        ]
+      }
+    },
+    {
+      "id": "hol_036",
+      "title": {
+        "no": "Sopp Stuing",
+        "en": "Mushroom Stew"
+      },
+      "subtitle": {
+        "no": "Stuing av forskjellige sopp",
+        "en": "Stew with various mushrooms"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 40,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "holiday",
+        "vegetarian",
+        "side",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "milk"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Sopp",
+            "en": "Mixed mushrooms"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Fløte",
+            "en": "Heavy cream"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 40,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skjær sopp",
+          "2. Heat smør",
+          "3. Sauté løk og hvitløk",
+          "4. Tilsett sopp",
+          "5. Kok i 20 minutter",
+          "6. Tilsett fløte"
+        ],
+        "en": [
+          "1. Slice mushrooms",
+          "2. Heat butter",
+          "3. Sauté onion and garlic",
+          "4. Add mushrooms",
+          "5. Cook for 20 minutes",
+          "6. Add cream"
+        ]
+      }
+    },
+    {
+      "id": "hol_038",
+      "title": {
+        "no": "Brennesølsuppe",
+        "en": "Nettle Soup"
+      },
+      "subtitle": {
+        "no": "Tradisjonell grønn suppe",
+        "en": "Traditional green soup"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "holiday",
+        "traditional",
+        "soup",
+        "quick",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "milk"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Brennesølblader",
+            "en": "Nettle leaves"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kjøttbuljong",
+            "en": "Beef broth"
+          },
+          "amount": 1000,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Fløte",
+            "en": "Cream"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok poteter og løk",
+          "2. Tilsett brennesølblader",
+          "3. Kok i 15 minutter",
+          "4. Blend til glatt",
+          "5. Tilsett fløte"
+        ],
+        "en": [
+          "1. Cook potatoes and onion",
+          "2. Add nettle leaves",
+          "3. Cook for 15 minutes",
+          "4. Blend until smooth",
+          "5. Add cream"
+        ]
+      }
+    },
+    {
+      "id": "sum_077",
+      "title": {
+        "no": "Filipinsk Adobo Sommar",
+        "en": "Filipino Adobo Summer"
+      },
+      "subtitle": {
+        "no": "Kylling og svinekjøtt i søtsuret marinade",
+        "en": "Chicken and pork in sweet-sour marinade"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 45,
+      "servings": 6,
+      "category": "Soups & Stews",
+      "tags": [
+        "asian",
+        "comfort",
+        "stew",
+        "cuisine:asian"
+      ],
+      "allergens": [
+        "meat",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kykling",
+            "en": "Chicken"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Svinekjøtt",
+            "en": "Pork"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Eddik",
+            "en": "Vinegar"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Soya sopp",
+            "en": "Soy sauce"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 40,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Brown kjøtt i olje",
+          "2. Bland med eddik og soya-sopp",
+          "3. Tilsett hvitløk",
+          "4. Kok i 30 minutter til kjøtt er mørt",
+          "5. Server varmt"
+        ],
+        "en": [
+          "1. Brown meat in oil",
+          "2. Mix with vinegar and soy sauce",
+          "3. Add garlic",
+          "4. Cook for 30 minutes until meat is tender",
+          "5. Serve hot"
+        ]
+      }
+    },
+    {
+      "id": "sum_079",
+      "title": {
+        "no": "Thaiisk Tom Kha Gai",
+        "en": "Thai Tom Kha Gai"
+      },
+      "subtitle": {
+        "no": "Kokos-kylling-suppe med ingefær",
+        "en": "Coconut chicken soup with ginger"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "soup",
+        "thai",
+        "creamy",
+        "quick",
+        "cuisine:thai"
+      ],
+      "allergens": [
+        "milk",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kokosmelk",
+            "en": "Coconut milk"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Kyllingbuljong",
+            "en": "Chicken broth"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Kyllingbryst",
+            "en": "Chicken breast"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Ingefær",
+            "en": "Ginger"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Lime",
+            "en": "Lime"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Heat kokosmelk og buljong",
+          "2. Tilsett ingefær",
+          "3. Tilsett kylling",
+          "4. Kok til kjøtt er mørt",
+          "5. Server med lime"
+        ],
+        "en": [
+          "1. Heat coconut milk and broth",
+          "2. Add ginger",
+          "3. Add chicken",
+          "4. Cook until meat is tender",
+          "5. Serve with lime"
+        ]
+      }
+    },
+    {
+      "id": "sum_081",
+      "title": {
+        "no": "Malaysisk Rendang Lett",
+        "en": "Malaysian Rendang Light"
+      },
+      "subtitle": {
+        "no": "Kokos-kjøtt-stuing",
+        "en": "Coconut meat stew"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 50,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "asian",
+        "coconut",
+        "curry",
+        "cuisine:asian"
+      ],
+      "allergens": [
+        "milk"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kjøtt",
+            "en": "Beef or lamb"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kokosmelk",
+            "en": "Coconut milk"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Rendang paste",
+            "en": "Rendang paste"
+          },
+          "amount": 80,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Chili",
+            "en": "Red chili"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Brown kjøtt",
+          "2. Tilsett rendang paste",
+          "3. Helle kokosmelk over",
+          "4. Tilsett løk og chili",
+          "5. Kok i 30 minutter til kjøtt er mørt"
+        ],
+        "en": [
+          "1. Brown meat",
+          "2. Add rendang paste",
+          "3. Pour coconut milk over",
+          "4. Add onion and chili",
+          "5. Cook for 30 minutes until meat is tender"
+        ]
+      }
+    },
+    {
+      "id": "sum_084",
+      "title": {
+        "no": "Indonesisk Soto Ayam",
+        "en": "Indonesian Soto Ayam"
+      },
+      "subtitle": {
+        "no": "Gul kylling-suppe med karry",
+        "en": "Yellow chicken soup with curry"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 45,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "soup",
+        "asian",
+        "curry",
+        "cuisine:asian"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Hele kykling",
+            "en": "Whole chicken"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Turmeric",
+            "en": "Turmeric"
+          },
+          "amount": 15,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
+          "amount": 1000,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok kykling med løk",
+          "2. Fjern kjøtt og sil buljong",
+          "3. Bland turmeric og hvitløk med litt buljong",
+          "4. Tilsett i kjøtsuppen",
+          "5. Server med strimlet kjøtt"
+        ],
+        "en": [
+          "1. Cook chicken with onion",
+          "2. Remove meat and strain broth",
+          "3. Mix turmeric and garlic with some broth",
+          "4. Add to chicken soup",
+          "5. Serve with shredded meat"
+        ]
+      }
+    },
+    {
+      "id": "sum_093",
+      "title": {
+        "no": "Portugisisk Caldo Verde Sommar",
+        "en": "Portuguese Caldo Verde Summer"
+      },
+      "subtitle": {
+        "no": "Lett grønnsaksuppe",
+        "en": "Light vegetable soup"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "portuguese",
+        "soup",
+        "light",
+        "quick",
+        "cuisine:portuguese"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kål",
+            "en": "Kale"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Grønnsaksbuljong",
+            "en": "Vegetable broth"
+          },
+          "amount": 1000,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Olje",
+            "en": "Olive oil"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok poteter og løk",
+          "2. Smulder poteter",
+          "3. Tilsett kål",
+          "4. Kok til alt er mørt",
+          "5. Dryss med olje"
+        ],
+        "en": [
+          "1. Cook potatoes and onion",
+          "2. Mash potatoes",
+          "3. Add kale",
+          "4. Cook until everything is tender",
+          "5. Drizzle with oil"
+        ]
+      }
+    },
+    {
+      "id": "sum_098",
+      "title": {
+        "no": "Fransk Ratatouille Niçoise",
+        "en": "French Ratatouille Niçoise"
+      },
+      "subtitle": {
+        "no": "Grønnsaksstuing fra Nizza",
+        "en": "Vegetable stew from Nice"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 45,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "french",
+        "vegetable",
+        "summer",
+        "cuisine:french"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Aubergine",
+            "en": "Eggplant"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Zucchini",
+            "en": "Zucchini"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomat",
+            "en": "Tomato"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Olje",
+            "en": "Olive oil"
+          },
+          "amount": 60,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skjær alle grønnsakene i kuber",
+          "2. Heat olje og sauté løk",
+          "3. Tilsett alle grønnsakene",
+          "4. Kok i 30-35 minutter",
+          "5. Krydre og server"
+        ],
+        "en": [
+          "1. Cut all vegetables into cubes",
+          "2. Heat oil and sauté onion",
+          "3. Add all vegetables",
+          "4. Cook for 30-35 minutes",
+          "5. Season and serve"
+        ]
+      }
+    },
+    {
+      "id": "sum_099",
+      "title": {
+        "no": "Fransk Bouillabaisse",
+        "en": "French Bouillabaisse"
+      },
+      "subtitle": {
+        "no": "Tradisjonell provençalsk fisk-suppe",
+        "en": "Traditional Provençal fish soup"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 50,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "french",
+        "seafood",
+        "soup",
+        "cuisine:french"
+      ],
+      "allergens": [
+        "fish",
+        "shellfish",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Fiskbuljong",
+            "en": "Fish broth"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Forskjellige fiskesorter",
+            "en": "Various fish"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomat",
+            "en": "Tomato"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Safran",
+            "en": "Saffron"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Olje",
+            "en": "Olive oil"
+          },
+          "amount": 60,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Heat olje og sauté løk",
+          "2. Tilsett tomat og safran",
+          "3. Helle buljong over",
+          "4. Kok i 20 minutter",
+          "5. Tilsett fisk",
+          "6. Kok videre til fisk er mørt"
+        ],
+        "en": [
+          "1. Heat oil and sauté onion",
+          "2. Add tomato and saffron",
+          "3. Pour broth over",
+          "4. Cook for 20 minutes",
+          "5. Add fish",
+          "6. Cook until fish is tender"
+        ]
+      }
+    }
+  ]
+}

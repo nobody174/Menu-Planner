@@ -1,0 +1,1525 @@
+{
+  "packId": "pack_pasta_noodles",
+  "packName": {
+    "en": "Pasta & Noodles",
+    "no": "Pasta & Nudler"
+  },
+  "packDescription": {
+    "en": "Pasta & Noodles recipes from across all our collections",
+    "no": "Pasta & Nudler-oppskrifter fra alle samlingene våre"
+  },
+  "packImage": "🍝",
+  "packColor": "#999999",
+  "recipeCount": 13,
+  "estimatedCookTime": "varies",
+  "difficulty": "varies",
+  "recipes": [
+    {
+      "id": "eu_001",
+      "title": {
+        "no": "Spaghetti Bolognese",
+        "en": "Spaghetti Bolognese"
+      },
+      "subtitle": {
+        "no": "Italiensk klassiker med kjøttsaus",
+        "en": "Italian classic with meat sauce"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 60,
+      "servings": 4,
+      "category": "Pasta & Noodles",
+      "tags": [
+        "italian",
+        "pasta",
+        "comfort-food",
+        "classic",
+        "cuisine:italian"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kjøttdeig",
+            "en": "Ground meat"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomat (konservert)",
+            "en": "Tomato (canned)"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "medium",
+            "en": "medium"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Spaghetti",
+            "en": "Spaghetti"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Olivenolje",
+            "en": "Olive oil"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Heat olivenolje i en stekepanne.",
+          "2. Steik løk og hvitløk til det dufter.",
+          "3. Tilsett kjøttdeigen og steik til den er brun.",
+          "4. Hell på tomaten og la det småkoke i 30 minutter.",
+          "5. Kok spaghettien etter anvisning.",
+          "6. Bland sausen med pastaen eller server ved siden av.",
+          "7. Smak til med salt og pepper."
+        ],
+        "en": [
+          "1. Heat olive oil in a pan.",
+          "2. Fry onion and garlic until fragrant.",
+          "3. Add ground meat and brown it.",
+          "4. Pour in tomato and simmer for 30 minutes.",
+          "5. Cook spaghetti according to instructions.",
+          "6. Mix sauce with pasta or serve on the side.",
+          "7. Season with salt and pepper."
+        ]
+      }
+    },
+    {
+      "id": "eu_002",
+      "title": {
+        "no": "Risotto",
+        "en": "Risotto"
+      },
+      "subtitle": {
+        "no": "Italiensk creme-risotto med saffran",
+        "en": "Italian creamy saffron risotto"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 40,
+      "servings": 4,
+      "category": "Pasta & Noodles",
+      "tags": [
+        "italian",
+        "rice",
+        "creamy",
+        "elegant",
+        "cuisine:italian"
+      ],
+      "allergens": [
+        "dairy",
+        "saffron"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Arborio-ris",
+            "en": "Arborio rice"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Buljong (varmt)",
+            "en": "Broth (warm)"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "liter",
+            "en": "liter"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "medium",
+            "en": "medium"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitvín",
+            "en": "White wine"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Saffran",
+            "en": "Saffron"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "g",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Parmesan-ost",
+            "en": "Parmesan cheese"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Olivenolje",
+            "en": "Olive oil"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Heat olivenolje og steik løk og hvitløk.",
+          "2. Tilsett risen og rør i 2 minutter.",
+          "3. Hell på hvitvin og rør til det er absorbert.",
+          "4. Tilsett saffran til buljongen.",
+          "5. Tilsett buljong en liten del om gangen, og rør konstant.",
+          "6. Kok til risen er kremete og al dente, ca. 18-20 minutter.",
+          "7. Fjern fra varmen og rør inn smør og parmesan.",
+          "8. Server umiddelbart."
+        ],
+        "en": [
+          "1. Heat olive oil and fry onion and garlic.",
+          "2. Add rice and stir for 2 minutes.",
+          "3. Pour in white wine and stir until absorbed.",
+          "4. Add saffron to broth.",
+          "5. Add broth a little at a time, stirring constantly.",
+          "6. Cook until rice is creamy and al dente, about 18-20 minutes.",
+          "7. Remove from heat and stir in butter and parmesan.",
+          "8. Serve immediately."
+        ]
+      }
+    },
+    {
+      "id": "eu_007",
+      "title": {
+        "no": "Penne all'Arrabbiata",
+        "en": "Penne all'Arrabbiata"
+      },
+      "subtitle": {
+        "no": "Italiensk pasta med tomat og chilì",
+        "en": "Italian pasta with tomato and chili"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Pasta & Noodles",
+      "tags": [
+        "italian",
+        "pasta",
+        "vegetarian",
+        "spicy",
+        "quick",
+        "cuisine:italian"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Penne",
+            "en": "Penne"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomat (konservert)",
+            "en": "Tomato (canned)"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Chilì (tørket)",
+            "en": "Chili (dried)"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Olivenolje",
+            "en": "Olive oil"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok penneen etter anvisning.",
+          "2. Heat olivenolje og tilsett finhakket hvitløk og chilì.",
+          "3. Rør forsiktig i 1-2 minutter.",
+          "4. Tilsett konserverte tomater og salt.",
+          "5. La det småkoke i 10-15 minutter.",
+          "6. Bland pastaen med sausen.",
+          "7. Server umiddelbart med frisk persille."
+        ],
+        "en": [
+          "1. Cook penne according to instructions.",
+          "2. Heat olive oil and add minced garlic and chili.",
+          "3. Stir gently for 1-2 minutes.",
+          "4. Add canned tomatoes and salt.",
+          "5. Simmer for 10-15 minutes.",
+          "6. Mix pasta with sauce.",
+          "7. Serve immediately with fresh parsley."
+        ]
+      }
+    },
+    {
+      "id": "eu_014",
+      "title": {
+        "no": "Spätzle",
+        "en": "Spätzle"
+      },
+      "subtitle": {
+        "no": "Tysk egg-pasta med ost",
+        "en": "German egg pasta with cheese"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Pasta & Noodles",
+      "tags": [
+        "german",
+        "pasta",
+        "cheese",
+        "comfort-food",
+        "quick",
+        "cuisine:german"
+      ],
+      "allergens": [
+        "gluten",
+        "dairy",
+        "eggs"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Hvetemel",
+            "en": "Wheat flour"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Eggs"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Muskatnøtt",
+            "en": "Nutmeg"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Ost (riven)",
+            "en": "Cheese (grated)"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk (steikt)",
+            "en": "Onion (fried)"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "medium",
+            "en": "medium"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland mel, egg, melk, salt og muskatnøtt.",
+          "2. Deigen skal være tykk og elastisk.",
+          "3. Kok vann i en stor gryte.",
+          "4. Bruk en spätzle-press eller grov rivejern for å presse deigen gjennom.",
+          "5. Kok pastaen til den flyter opp og 1 minutt til.",
+          "6. Steik løk i smør til den er gylden.",
+          "7. Bland spätzle med smør, ost og steikt løk.",
+          "8. Server varmt."
+        ],
+        "en": [
+          "1. Mix flour, eggs, milk, salt and nutmeg.",
+          "2. Dough should be thick and elastic.",
+          "3. Boil water in a large pot.",
+          "4. Use a spätzle press or coarse grater to push dough through.",
+          "5. Cook pasta until it floats and 1 minute more.",
+          "6. Fry onion in butter until golden.",
+          "7. Mix spätzle with butter, cheese and fried onion.",
+          "8. Serve hot."
+        ]
+      }
+    },
+    {
+      "id": "eu_021",
+      "title": {
+        "no": "Spaghetti alla Carbonara",
+        "en": "Spaghetti alla Carbonara"
+      },
+      "subtitle": {
+        "no": "Romersk pastarett med egg, bacon og parmesan",
+        "en": "Roman pasta dish with egg, bacon and parmesan"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 25,
+      "servings": 4,
+      "category": "Pasta & Noodles",
+      "tags": [
+        "italian",
+        "pasta",
+        "quick",
+        "classic",
+        "cuisine:italian"
+      ],
+      "allergens": [
+        "gluten",
+        "egg",
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Spaghetti",
+            "en": "Spaghetti"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Bacon eller guanciale (i terninger)",
+            "en": "Bacon or guanciale (diced)"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Egg"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Parmesan (revet)",
+            "en": "Parmesan (grated)"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sort pepper",
+            "en": "Black pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "tsk",
+            "en": "tsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok spaghetti i godt saltet vann til den er al dente.",
+          "2. Stek bacon i en panne til det er sprøtt.",
+          "3. Pisk sammen egg og parmesan i en bolle, og kverne over rikelig sort pepper.",
+          "4. Ta fra litt pastavann, og hell av resten av vannet fra spaghettien.",
+          "5. Bland varm spaghetti med bacon i pannen, av varmen.",
+          "6. Rør raskt inn eggeblandingen sammen med litt pastavann til en kremet saus dannes.",
+          "7. Server umiddelbart med ekstra parmesan og pepper på toppen."
+        ],
+        "en": [
+          "1. Cook the spaghetti in well-salted water until al dente.",
+          "2. Fry the bacon in a pan until crisp.",
+          "3. Whisk together the eggs and parmesan in a bowl, and grind in plenty of black pepper.",
+          "4. Reserve some pasta water, then drain the rest from the spaghetti.",
+          "5. Combine the hot spaghetti with the bacon in the pan, off the heat.",
+          "6. Quickly stir in the egg mixture along with a little pasta water to form a creamy sauce.",
+          "7. Serve immediately with extra parmesan and pepper on top."
+        ]
+      }
+    },
+    {
+      "id": "eu_072",
+      "title": {
+        "no": "Spätzle",
+        "en": "Spätzle"
+      },
+      "subtitle": {
+        "no": "Tysk egg-nudler med smør",
+        "en": "German egg noodles with butter"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Pasta & Noodles",
+      "tags": [
+        "pasta",
+        "German",
+        "side dish",
+        "quick",
+        "cuisine:german"
+      ],
+      "allergens": [
+        "gluten",
+        "eggs",
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Hvetemel",
+            "en": "Wheat flour"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Eggs"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "tsp",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Muskatnøtt",
+            "en": "Nutmeg"
+          },
+          "amount": 0.5,
+          "unit": {
+            "no": "tsp",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Ost",
+            "en": "Cheese"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland mel, egg, melk, salt og muskatnøtt til en tykk deig",
+          "2. Koke salt vann i en stor gryte",
+          "3. Trykk deigen gjennom en spätzle-presse direkte i det kokende vannet",
+          "4. Spätzlene stiger til toppen når de er klare",
+          "5. Fang opp med slottet og plassere på tallerken",
+          "6. Trekk smør og ost over, serv varmt"
+        ],
+        "en": [
+          "1. Mix flour, eggs, milk, salt and nutmeg to a thick dough",
+          "2. Bring salted water to boil in a large pot",
+          "3. Press dough through spätzle press directly into boiling water",
+          "4. Spätzle rise to the top when done",
+          "5. Remove with slotted spoon and place on plate",
+          "6. Toss with butter and cheese, serve hot"
+        ]
+      }
+    },
+    {
+      "id": "eu_096",
+      "title": {
+        "no": "Pastitsio",
+        "en": "Pastitsio"
+      },
+      "subtitle": {
+        "no": "Gresk pasta grateng med kjøttlags",
+        "en": "Greek pasta casserole with meat layer"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 90,
+      "servings": 6,
+      "category": "Pasta & Noodles",
+      "tags": [
+        "pasta",
+        "baked",
+        "Greek",
+        "cuisine:greek"
+      ],
+      "allergens": [
+        "gluten",
+        "dairy",
+        "eggs"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Pasta (penne eller rigatoni)",
+            "en": "Pasta (penne or rigatoni)"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Oksekjøtt (hakket)",
+            "en": "Ground beef"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomatsaus",
+            "en": "Tomato sauce"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitvin",
+            "en": "White wine"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Kanel",
+            "en": "Cinnamon"
+          },
+          "unit": {
+            "no": "tsp",
+            "en": "tsp"
+          },
+          "amount": 0.5
+        },
+        {
+          "name": {
+            "no": "Mozzarella og parmesan",
+            "en": "Mozzarella and parmesan"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Béchamel (melk, smør, mel)",
+            "en": "Béchamel (milk, butter, flour)"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "ml/100g/50g",
+            "en": "ml/g/g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "after taste",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Varmeovnen til 180C",
+          "2. Kok pasta halvveis, drenér",
+          "3. Brun kjøtt og løk",
+          "4. Tilsett tomat, vin og kanel, simrer 15 minutter",
+          "5. Gjør béchamel-saus",
+          "6. Legg lag av pasta, kjøtt, pasta i form",
+          "7. Hell béchamel over",
+          "8. Topp med ost",
+          "9. Bak 40-45 minutter til gyllene"
+        ],
+        "en": [
+          "1. Preheat oven to 180C",
+          "2. Cook pasta halfway, drain",
+          "3. Brown meat and onion",
+          "4. Add tomato, wine and cinnamon, simmer 15 minutes",
+          "5. Make béchamel sauce",
+          "6. Layer pasta, meat, pasta in dish",
+          "7. Pour béchamel over",
+          "8. Top with cheese",
+          "9. Bake 40-45 minutes until golden"
+        ]
+      }
+    },
+    {
+      "id": "sum_069",
+      "title": {
+        "no": "Vietnamesiske Ferskyrullér",
+        "en": "Vietnamese Fresh Spring Rolls"
+      },
+      "subtitle": {
+        "no": "Rullér med rispapir, ris og grønnsakar",
+        "en": "Rolls with rice paper, noodles and vegetables"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Pasta & Noodles",
+      "tags": [
+        "light",
+        "asian",
+        "fresh",
+        "quick",
+        "cuisine:asian"
+      ],
+      "allergens": [
+        "gluten",
+        "shellfish"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Rispapir",
+            "en": "Rice paper"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "ark",
+            "en": "sheets"
+          }
+        },
+        {
+          "name": {
+            "no": "Risnuler",
+            "en": "Rice noodles"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salat",
+            "en": "Lettuce"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Agurk",
+            "en": "Cucumber"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Mynta",
+            "en": "Mint"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Fisjesaus",
+            "en": "Fish sauce"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok risnulene til møre",
+          "2. Fukta rispapiret med vann",
+          "3. Legg salat, agurk, mynta og risnuler på papiret",
+          "4. Rull tett og server med fisjesaus"
+        ],
+        "en": [
+          "1. Cook rice noodles until tender",
+          "2. Wet rice paper with water",
+          "3. Add lettuce, cucumber, mint and noodles to paper",
+          "4. Roll tightly and serve with fish sauce"
+        ]
+      }
+    },
+    {
+      "id": "sum_073",
+      "title": {
+        "no": "Malaysisk Laksa",
+        "en": "Malaysian Laksa"
+      },
+      "subtitle": {
+        "no": "Pikant nuddelsuppe med kokos",
+        "en": "Spicy noodle soup with coconut"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 45,
+      "servings": 4,
+      "category": "Pasta & Noodles",
+      "tags": [
+        "soup",
+        "asian",
+        "spicy",
+        "cuisine:asian"
+      ],
+      "allergens": [
+        "gluten",
+        "shellfish",
+        "milk"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Egg-nuler",
+            "en": "Egg noodles"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kokosmelk",
+            "en": "Coconut milk"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Kyllingbuljong",
+            "en": "Chicken broth"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Laksa-paste",
+            "en": "Laksa paste"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Tofu",
+            "en": "Tofu"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok nuler til møre",
+          "2. Blend laksa-paste med kokosmelk",
+          "3. Heat med buljong",
+          "4. Tilsett taufu",
+          "5. Server med nuler"
+        ],
+        "en": [
+          "1. Cook noodles until tender",
+          "2. Mix laksa paste with coconut milk",
+          "3. Heat with broth",
+          "4. Add tofu",
+          "5. Serve with noodles"
+        ]
+      }
+    },
+    {
+      "id": "sum_074",
+      "title": {
+        "no": "Singapore Mei Fun",
+        "en": "Singapore Mei Fun"
+      },
+      "subtitle": {
+        "no": "Stekt tynn nudler med karry",
+        "en": "Fried thin noodles with curry"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 20,
+      "servings": 4,
+      "category": "Pasta & Noodles",
+      "tags": [
+        "noodles",
+        "asian",
+        "spicy",
+        "quick",
+        "cuisine:asian"
+      ],
+      "allergens": [
+        "gluten",
+        "shellfish"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Mei Fun nudler",
+            "en": "Mei Fun noodles"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Eggs"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Karrypulver",
+            "en": "Curry powder"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Reker",
+            "en": "Shrimp"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Rødløk",
+            "en": "Red onion"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok nuler og dren",
+          "2. Pisk egg og tilsett pannen",
+          "3. Tilsett karry og reker",
+          "4. Tilsett nuler og bland godt"
+        ],
+        "en": [
+          "1. Cook noodles and drain",
+          "2. Whisk eggs and add to pan",
+          "3. Add curry and shrimp",
+          "4. Add noodles and mix well"
+        ]
+      }
+    },
+    {
+      "id": "sum_075",
+      "title": {
+        "no": "Vietnamesisk Pho Lett Buljong",
+        "en": "Vietnamese Pho Light Broth"
+      },
+      "subtitle": {
+        "no": "Lett nødle-kjøtt-suppe",
+        "en": "Light noodle beef soup"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 50,
+      "servings": 4,
+      "category": "Pasta & Noodles",
+      "tags": [
+        "soup",
+        "asian",
+        "beef",
+        "cuisine:asian"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kjøttbuljong",
+            "en": "Beef broth"
+          },
+          "amount": 1000,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Risnuler",
+            "en": "Rice noodles"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Strimlet kjøtt",
+            "en": "Sliced beef"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Stjerneanis",
+            "en": "Star anise"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Sitronssgras",
+            "en": "Lemongrass"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok buljongen med stjerneanis og sitronssgras",
+          "2. Sil buljongen",
+          "3. Kok risnulene",
+          "4. Tilsett råt kjøtt i varmen suppe",
+          "5. Server med nuler og tynt kjøtt"
+        ],
+        "en": [
+          "1. Cook broth with star anise and lemongrass",
+          "2. Strain broth",
+          "3. Cook rice noodles",
+          "4. Add raw beef to hot soup",
+          "5. Serve with noodles and sliced beef"
+        ]
+      }
+    },
+    {
+      "id": "sum_090",
+      "title": {
+        "no": "Spansk Fideuà",
+        "en": "Spanish Fideuà"
+      },
+      "subtitle": {
+        "no": "Nødlerrett med sjømat",
+        "en": "Noodle dish with seafood"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 45,
+      "servings": 4,
+      "category": "Pasta & Noodles",
+      "tags": [
+        "spanish",
+        "seafood",
+        "noodles",
+        "cuisine:spanish"
+      ],
+      "allergens": [
+        "shellfish",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Fideuà nudler",
+            "en": "Fideuà noodles"
+          },
+          "amount": 350,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Reker",
+            "en": "Shrimp"
+          },
+          "amount": 250,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Blåskjell",
+            "en": "Mussels"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Fiskbuljong",
+            "en": "Fish broth"
+          },
+          "amount": 700,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Heat olje",
+          "2. Tilsett nudlene og bryn",
+          "3. Helle buljongen over",
+          "4. Kok til nudlene er møre",
+          "5. Tilsett sjømat",
+          "6. Kok til alle ingrediensene er ferdig"
+        ],
+        "en": [
+          "1. Heat oil",
+          "2. Add noodles and brown",
+          "3. Pour broth over",
+          "4. Cook until noodles are tender",
+          "5. Add seafood",
+          "6. Cook until everything is done"
+        ]
+      }
+    },
+    {
+      "id": "sum_095",
+      "title": {
+        "no": "Italiensk Risotto ai Funghi",
+        "en": "Italian Risotto ai Funghi"
+      },
+      "subtitle": {
+        "no": "Kremete risrisret med sopp",
+        "en": "Creamy rice dish with mushrooms"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 40,
+      "servings": 4,
+      "category": "Pasta & Noodles",
+      "tags": [
+        "italian",
+        "rice",
+        "mushroom",
+        "cuisine:italian"
+      ],
+      "allergens": [
+        "milk",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Arborio ris",
+            "en": "Arborio rice"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sopp",
+            "en": "Mushrooms"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Grønnsaksbuljong",
+            "en": "Vegetable broth"
+          },
+          "amount": 700,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvit vin",
+            "en": "White wine"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Parmesan",
+            "en": "Parmesan cheese"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Sauté sopp og sett av",
+          "2. Sauté ris",
+          "3. Helle vin over",
+          "4. Gradvis tilsett buljong",
+          "5. Rør ofte",
+          "6. Tilsett sopp og ost"
+        ],
+        "en": [
+          "1. Sauté mushrooms and set aside",
+          "2. Sauté rice",
+          "3. Pour wine over",
+          "4. Gradually add broth",
+          "5. Stir often",
+          "6. Add mushrooms and cheese"
+        ]
+      }
+    }
+  ]
+}

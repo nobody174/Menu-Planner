@@ -26,41 +26,50 @@
         <button onclick="exportMyRecipes()" class="btn btn-primary">💾 Export My Recipes</button>
     </div>
 
-    <!-- Imported packs section (loaded via API) -->
-    <h2 style="margin-top: 32px; margin-bottom: 12px;">{{ t.imported_packs }}</h2>
-    <div id="importedPacksContainer" class="packs-container">
-        <p style="color: #999;">{{ t.loading_packs }}</p>
-    </div>
-
-    <!-- Available packs section (loaded via API) -->
-    <h2 style="margin-top: 32px; margin-bottom: 12px;">{{ t.available_packs }}</h2>
-    <div id="packsContainer" class="packs-container">
-        <p style="color: #999;">{{ t.loading_packs }}</p>
-    </div>
-
-    <!-- Imported recipes section (from Jinja) -->
-    {% if recipes %}
-    <h2 style="margin-top: 36px; margin-bottom: 12px;">{{ t.all_recipes }} ({{ recipes | length }})</h2>
-    <div class="imported-list">
-        {% for recipe in recipes %}
-        <div class="recipe-row">
-            <div class="recipe-row-main">
-                <a href="/recipe/{{ recipe.id }}" class="recipe-row-title">{{ recipe.title }}</a>
-                <span class="recipe-row-cat">{{ recipe.category }}</span>
-            </div>
-            <div class="recipe-row-meta">
-                <span>⏱️ {{ recipe.time_minutes }} {{ t.minutes }}</span>
-                <span>📊 {{ recipe.difficulty }}</span>
-            </div>
+    <!-- Imported packs: collapsed by default, expand to see/remove -->
+    <details style="margin-top: 32px;">
+        <summary style="cursor:pointer; font-size:1.1rem; font-weight:600; padding:8px 0; list-style:none; display:flex; align-items:center; gap:8px;">
+            <span class="details-arrow" style="font-size:0.85rem;">▸</span>
+            {{ t.imported_packs }}
+        </summary>
+        <div id="importedPacksContainer" class="packs-container" style="margin-top:12px;">
+            <p style="color: #999;">{{ t.loading_packs }}</p>
         </div>
-        {% endfor %}
-    </div>
+    </details>
+
+    <!-- Available packs: hidden — handled via the Import button above -->
+
+    <!-- All recipes: collapsed by default -->
+    {% if recipes %}
+    <details style="margin-top: 24px;">
+        <summary style="cursor:pointer; font-size:1.1rem; font-weight:600; padding:8px 0; list-style:none; display:flex; align-items:center; gap:8px;">
+            <span class="details-arrow" style="font-size:0.85rem;">▸</span>
+            {{ t.all_recipes }} ({{ recipes | length }})
+        </summary>
+        <div class="imported-list" style="margin-top:12px;">
+            {% for recipe in recipes %}
+            <div class="recipe-row">
+                <div class="recipe-row-main">
+                    <a href="/recipe/{{ recipe.id }}" class="recipe-row-title">{{ recipe.title }}</a>
+                    <span class="recipe-row-cat">{{ recipe.category }}</span>
+                </div>
+                <div class="recipe-row-meta">
+                    <span>⏱️ {{ recipe.time_minutes }} {{ t.minutes }}</span>
+                    <span>📊 {{ recipe.difficulty }}</span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </details>
     {% endif %}
 
     <div id="exportStatus" style="display:none; margin-top:20px; padding:14px; border-radius:6px;"></div>
 </div>
 
 <style>
+details[open] > summary .details-arrow { transform: rotate(90deg); }
+.details-arrow { display:inline-block; transition: transform 0.15s; }
+
 .rp-page {
     max-width: 1000px;
     margin: 0 auto;
@@ -235,10 +244,17 @@ var STR = {
 
 async function loadAvailablePacks() {
     var container = document.getElementById('packsContainer');
+    // Available packs section is hidden (removed from template) - only
+    // update the stats counter, don't try to render into a missing element.
     try {
         var resp = await fetch('/api/recipe-packs/list');
         if (!resp.ok) throw new Error('HTTP ' + resp.status);
         var packs = await resp.json();
+        if (!container) {
+            // Just update the stat and return
+            document.getElementById('packRecipeCount').textContent = packs.length;
+            return;
+        }
 
         // Update stat
         document.getElementById('packRecipeCount').textContent = packs.length;

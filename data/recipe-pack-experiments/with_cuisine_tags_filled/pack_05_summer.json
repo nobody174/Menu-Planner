@@ -535,7 +535,8 @@
         "strawberry",
         "summer",
         "sweet",
-        "quick"
+        "quick",
+        "season:summer"
       ],
       "allergens": [
         "nuts"
@@ -659,7 +660,8 @@
         "beef",
         "skewer",
         "summer",
-        "quick"
+        "quick",
+        "season:summer"
       ],
       "allergens": [],
       "ingredients": [
@@ -782,7 +784,8 @@
         "grill",
         "chicken",
         "lemon",
-        "summer"
+        "summer",
+        "season:summer"
       ],
       "allergens": [],
       "ingredients": [
@@ -893,7 +896,8 @@
         "shrimp",
         "seafood",
         "summer",
-        "quick"
+        "quick",
+        "season:summer"
       ],
       "allergens": [
         "shellfish"
@@ -1017,7 +1021,8 @@
         "salmon",
         "seafood",
         "summer",
-        "quick"
+        "quick",
+        "season:summer"
       ],
       "allergens": [
         "fish"
@@ -1244,7 +1249,8 @@
         "fish",
         "cod",
         "summer",
-        "quick"
+        "quick",
+        "season:summer"
       ],
       "allergens": [
         "fish"
@@ -1344,7 +1350,8 @@
         "mussels",
         "seafood",
         "summer",
-        "quick"
+        "quick",
+        "season:summer"
       ],
       "allergens": [
         "shellfish"
@@ -1457,7 +1464,8 @@
         "trout",
         "fish",
         "summer",
-        "quick"
+        "quick",
+        "season:summer"
       ],
       "allergens": [
         "fish"
@@ -1826,7 +1834,8 @@
         "fresh",
         "light",
         "grilled",
-        "quick"
+        "quick",
+        "season:summer"
       ],
       "allergens": [],
       "ingredients": [
@@ -2080,7 +2089,8 @@
         "fresh",
         "light",
         "grilled",
-        "quick"
+        "quick",
+        "season:summer"
       ],
       "allergens": [
         "shellfish"
@@ -2347,7 +2357,8 @@
         "fresh",
         "light",
         "grilled",
-        "quick"
+        "quick",
+        "season:summer"
       ],
       "allergens": [],
       "ingredients": [
@@ -3115,7 +3126,8 @@
         "fresh",
         "light",
         "grilled",
-        "quick"
+        "quick",
+        "season:summer"
       ],
       "allergens": [
         "dairy"
@@ -3505,7 +3517,8 @@
         "summer",
         "fresh",
         "light",
-        "quick"
+        "quick",
+        "cuisine:international"
       ],
       "allergens": [
         "dairy",
@@ -3628,7 +3641,8 @@
         "fresh",
         "light",
         "grilled",
-        "quick"
+        "quick",
+        "season:summer"
       ],
       "allergens": [
         "dairy"

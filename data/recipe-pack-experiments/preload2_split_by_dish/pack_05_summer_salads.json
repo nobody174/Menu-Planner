@@ -535,7 +535,8 @@
         "strawberry",
         "summer",
         "sweet",
-        "quick"
+        "quick",
+        "season:summer"
       ],
       "allergens": [
         "nuts"
@@ -659,7 +660,8 @@
         "shrimp",
         "seafood",
         "summer",
-        "quick"
+        "quick",
+        "season:summer"
       ],
       "allergens": [
         "shellfish"
@@ -1706,7 +1708,8 @@
         "fresh",
         "light",
         "grilled",
-        "quick"
+        "quick",
+        "season:summer"
       ],
       "allergens": [
         "dairy"
@@ -1964,7 +1967,8 @@
         "fresh",
         "light",
         "grilled",
-        "quick"
+        "quick",
+        "season:summer"
       ],
       "allergens": [
         "dairy"

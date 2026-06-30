@@ -168,12 +168,22 @@ function renderCategories(cats) {
     if (!container) return;
     container.innerHTML = '';
 
-    // Get saved categories
-    var saved = localStorage.getItem('selectedCategories');
-    var savedCats = saved ? JSON.parse(saved) : ['Quick Dinners', 'Pasta & Noodles', 'Chicken', 'Ground Meat & Sausages', 'Fish & Seafood'];
-
     // Handle both array and object with 'categories' key
     var catList = Array.isArray(cats) ? cats : (cats.categories || []);
+
+    // Get saved categories, but validate them against what actually exists in
+    // the current pack structure - stale saved values from a previous pack
+    // scheme would match nothing and generate an empty menu.
+    var saved = localStorage.getItem('selectedCategories');
+    var savedCats = saved ? JSON.parse(saved) : [];
+    var availableValues = catList.map(function(c) { return c.name_en || c.name || c.value || ''; });
+    var validSaved = savedCats.filter(function(c) { return availableValues.indexOf(c) !== -1; });
+
+    // If nothing saved, or saved list is entirely stale, use a sensible default.
+    if (validSaved.length === 0) {
+        validSaved = ['Fish & Seafood', 'Soups & Stews', 'Beef & Red Meat', 'Chicken', 'Pasta & Noodles'];
+    }
+    var savedCats = validSaved;
 
     catList.forEach(function(cat) {
         var label = document.createElement('label');
@@ -265,14 +275,13 @@ function refreshMenu() {
         .then(function(r) { return r.json(); })
         .then(function(data) {
             if (data.status === 'success') {
-                pmAlert('✅', _t('menu_ready'), _t('menu_updated')).then(function() {
-                    // Ensure language cookie is synced before reload
-                    var stored = localStorage.getItem('menu-planner-language');
-                    if (stored) {
-                        document.cookie = 'pi_language=' + stored + '; path=/; max-age=31536000; SameSite=Lax';
-                    }
-                    location.reload();
-                });
+                // Skip the "menu is ready" completion popup - the page reload
+                // makes it obvious the menu changed, the extra dialog is noise.
+                var stored = localStorage.getItem('menu-planner-language');
+                if (stored) {
+                    document.cookie = 'pi_language=' + stored + '; path=/; max-age=31536000; SameSite=Lax';
+                }
+                location.reload();
             } else {
                 pmAlert('❌', _t('generation_failed'), _t('generation_error') + ': ' + (data.message || ''));
                 if (navLink) { navLink.textContent = _t('generate_menu'); navLink.style.opacity = ''; }
