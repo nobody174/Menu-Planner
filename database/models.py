@@ -45,6 +45,10 @@ class User(Base):
     email_confirmed_at = Column(DateTime, nullable=True)
     email_confirmation_token = Column(String(64), nullable=True, index=True)
 
+    # Password reset: token is set when user requests a reset, cleared once used.
+    password_reset_token = Column(String(64), nullable=True, index=True)
+    password_reset_requested_at = Column(DateTime, nullable=True)
+
     # Relationships
     households = relationship('Household', back_populates='owner')
     household_members = relationship('HouseholdMember', back_populates='user')

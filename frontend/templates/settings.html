@@ -1075,4 +1075,35 @@ function _esc(str) {
 }
 </script>
 
+<!-- Danger zone: delete account -->
+<section class="settings-section" style="margin-top:40px; border:2px solid #fee2e2; border-radius:8px; padding:20px; background:#fffafa;">
+  <h2 style="color:#dc2626; margin-top:0;">⚠️ {{ t.get('danger_zone', 'Danger Zone') }}</h2>
+  <p style="color:#666;">{{ t.get('delete_account_desc', 'Permanently delete your account, all your households and all associated data. This cannot be undone.') }}</p>
+
+  <details>
+    <summary style="cursor:pointer; color:#dc2626; font-weight:600; padding:8px 0; list-style:none; display:flex; align-items:center; gap:8px;">
+      <span style="font-size:0.85rem; display:inline-block; transition:transform 0.15s;" class="delete-arrow">▸</span>
+      {{ t.get('delete_my_account', 'Delete my account') }}
+    </summary>
+    <div style="margin-top:16px;">
+      <p style="color:#dc2626; font-size:0.9rem; font-weight:600; margin-bottom:12px;">
+        {{ t.get('delete_confirm_msg', 'To confirm, enter your password:') }}
+      </p>
+      <form method="POST" action="{{ url_for('delete_own_account') }}"
+            onsubmit="return confirm('Are you absolutely sure? This will permanently delete your account and all your data.');">
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <input type="password" name="password" required placeholder="{{ t.get('password', 'Password') }}"
+                 style="flex:1; min-width:200px; padding:10px; border:1px solid #fca5a5; border-radius:6px; font-size:14px;">
+          <button type="submit" style="background:#dc2626; color:white; border:none; border-radius:6px; padding:10px 20px; font-weight:600; cursor:pointer; white-space:nowrap;">
+            {{ t.get('delete_account', 'Delete Account') }}
+          </button>
+        </div>
+      </form>
+    </div>
+  </details>
+</section>
+<style>
+details[open] > summary .delete-arrow { transform: rotate(90deg); }
+</style>
+
 {% endblock %}

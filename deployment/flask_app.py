@@ -282,6 +282,38 @@ def _send_confirmation_email(user):
         logger.error(f"Resend confirmation email exception: {e}")
         return False
 
+def _send_password_reset_email(user):
+    """Email the user a password reset link via Resend."""
+    api_key = os.getenv('RESEND_API_KEY', '').strip()
+    if not api_key:
+        logger.warning(f"RESEND_API_KEY not set - cannot send password reset email to {user.email}")
+        return False
+    from_addr = os.getenv('RESEND_FROM_EMAIL', 'onboarding@resend.dev').strip()
+    reset_url = url_for('reset_password_page', token=user.password_reset_token, _external=True)
+    body = (
+        f"You requested a password reset for your Menu Planner account.\n\n"
+        f"Click the link below to set a new password (link expires in 1 hour):\n\n"
+        f"{reset_url}\n\n"
+        f"If you didn't request this, you can ignore this email — your password has not changed."
+    )
+    try:
+        resp = requests.post(
+            'https://api.resend.com/emails',
+            headers={'Authorization': f'Bearer {api_key}', 'Content-Type': 'application/json'},
+            json={'from': from_addr, 'to': [user.email],
+                  'subject': 'Reset your Menu Planner password', 'text': body},
+            timeout=10,
+        )
+        if resp.status_code >= 300:
+            logger.error(f"Resend password reset email failed: {resp.status_code} {resp.text}")
+            return False
+        logger.info(f"Password reset email sent to {user.email}")
+        return True
+    except Exception as e:
+        logger.error(f"Resend password reset email exception: {e}")
+        return False
+
+
 def _notify_admin_of_feedback(entry):
     """Email ADMIN_EMAIL via Resend when new feedback is submitted, so the
     developer doesn't have to manually check data/feedback.json or dig
@@ -1584,6 +1616,112 @@ def resend_confirmation():
     _send_confirmation_email(result)
     logger.info(f"Resent confirmation email to {result.email}")
     return render_template('login.html', success='Confirmation email resent - please check your inbox.', email=email)
+
+@app.route('/forgot-password')
+def forgot_password_page():
+    return render_template('forgot_password.html', error=request.args.get('error'), success=request.args.get('success'))
+
+@app.route('/forgot-password', methods=['POST'])
+def forgot_password():
+    from core.auth_helpers import request_password_reset
+    email = request.form.get('email', '').strip()
+    if not email:
+        return redirect(url_for('forgot_password_page', error='Email required'))
+    success, user = request_password_reset(email)
+    if user:
+        _send_password_reset_email(user)
+        logger.info(f"Password reset email sent to {user.email}")
+    # Always show the same message regardless of whether email exists
+    return redirect(url_for('forgot_password_page', success='If that email is registered, a reset link is on its way.'))
+
+@app.route('/reset-password/<token>')
+def reset_password_page(token):
+    return render_template('reset_password.html', token=token, error=request.args.get('error'))
+
+@app.route('/reset-password/<token>', methods=['POST'])
+def reset_password_submit(token):
+    from core.auth_helpers import reset_password
+    new_password = request.form.get('password', '')
+    confirm = request.form.get('password_confirm', '')
+    if new_password != confirm:
+        return render_template('reset_password.html', token=token, error='Passwords do not match')
+    success, msg = reset_password(token, new_password)
+    if not success:
+        return render_template('reset_password.html', token=token, error=msg)
+    return redirect(url_for('login_page', success='Password updated — you can now log in.'))
+
+@app.route('/account/delete', methods=['POST'])
+def delete_own_account():
+    """User deletes their own account. Requires password confirmation."""
+    user_id = session.get('user_id')
+    if not user_id:
+        return redirect(url_for('login_page'))
+    from core.auth_helpers import delete_user_account, get_user_by_email, verify_password
+    password = request.form.get('password', '')
+    user_email = session.get('user_email', '')
+    user = get_user_by_email(user_email)
+    if not user or not verify_password(user.password_hash, password):
+        return redirect(url_for('settings_page', error='Incorrect password — account not deleted'))
+    # Clean up household data on disk too
+    user_id_str = str(user_id)
+    from core.auth_helpers import delete_user_account
+    success, msg = delete_user_account(user_id_str)
+    if not success:
+        return redirect(url_for('settings_page', error=f'Could not delete account: {msg}'))
+    # Clean up the household folder if it exists
+    from core.household_paths import HOUSEHOLDS_DIR
+    import shutil
+    household_id = session.get('current_household_id')
+    if household_id:
+        hdir = HOUSEHOLDS_DIR / str(household_id)
+        if hdir.exists():
+            shutil.rmtree(hdir, ignore_errors=True)
+    session.clear()
+    logger.info(f"Account deleted: {user_email}")
+    return redirect(url_for('login_page', success='Your account has been permanently deleted.'))
+
+# ── Admin panel ───────────────────────────────────────────────────────────────
+
+def _is_admin():
+    """Check if the currently logged-in user is the site admin (matches ADMIN_EMAIL env var)."""
+    admin_email = os.getenv('ADMIN_EMAIL', '').strip().lower()
+    if not admin_email:
+        return False
+    return session.get('user_email', '').lower() == admin_email
+
+@app.route('/admin')
+def admin_panel():
+    if not _is_admin():
+        return redirect(url_for('dashboard'))
+    from database.models import User as UserModel
+    from database.database import SessionLocal as _SessionLocal
+    db = _SessionLocal()
+    try:
+        users = db.query(UserModel).order_by(UserModel.created_at.desc()).all()
+        users_data = [{
+            'id': str(u.id),
+            'email': u.email,
+            'confirmed': bool(u.email_confirmed_at),
+            'created_at': u.created_at.strftime('%Y-%m-%d %H:%M') if u.created_at else '',
+            'referral_code': u.referral_code,
+        } for u in users]
+    finally:
+        db.close()
+    return render_template('admin.html', users=users_data)
+
+@app.route('/admin/delete-user', methods=['POST'])
+def admin_delete_user():
+    if not _is_admin():
+        return redirect(url_for('dashboard'))
+    from core.auth_helpers import delete_user_account
+    user_id = request.form.get('user_id', '').strip()
+    if not user_id:
+        return redirect(url_for('admin_panel', error='No user ID provided'))
+    success, msg = delete_user_account(user_id)
+    if success:
+        logger.info(f"Admin deleted user {user_id}")
+        return redirect(url_for('admin_panel', success=f'User deleted successfully'))
+    return redirect(url_for('admin_panel', error=msg))
 
 @app.route('/welcome')
 def welcome():

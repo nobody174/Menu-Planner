@@ -213,6 +213,79 @@ def regenerate_confirmation_token(email):
         session.close()
 
 
+def request_password_reset(email):
+    """Generate a password reset token. Always returns True even if email not
+    found — never reveals whether an account exists (prevents enumeration)."""
+    from datetime import datetime
+    email = email.lower().strip()
+    session = SessionLocal()
+    try:
+        user = session.query(User).filter(User.email == email).first()
+        if not user:
+            return True, None
+        user.password_reset_token = _generate_confirmation_token()
+        user.password_reset_requested_at = datetime.utcnow()
+        session.commit()
+        session.refresh(user)
+        return True, user
+    except Exception as e:
+        session.rollback()
+        return False, f"Database error: {str(e)}"
+    finally:
+        session.close()
+
+
+def reset_password(token, new_password):
+    """Reset password via a valid token. Tokens expire after 1 hour."""
+    from datetime import datetime, timedelta
+    if not token:
+        return False, "Missing reset token"
+    valid, msg = is_valid_password(new_password)
+    if not valid:
+        return False, msg
+    session = SessionLocal()
+    try:
+        user = session.query(User).filter(User.password_reset_token == token).first()
+        if not user:
+            return False, "Invalid or expired reset link"
+        if user.password_reset_requested_at:
+            age = datetime.utcnow() - user.password_reset_requested_at
+            if age > timedelta(hours=1):
+                return False, "Reset link has expired — please request a new one"
+        user.password_hash = hash_password(new_password)
+        user.password_reset_token = None
+        user.password_reset_requested_at = None
+        session.commit()
+        return True, "Password updated successfully"
+    except Exception as e:
+        session.rollback()
+        return False, f"Database error: {str(e)}"
+    finally:
+        session.close()
+
+
+def delete_user_account(user_id):
+    """Delete a user and all their data. Handles FK constraints in correct order."""
+    session = SessionLocal()
+    try:
+        from database.models import Household, HouseholdMember
+        owned_ids = [
+            h.id for h in session.query(Household).filter(Household.owner_id == user_id).all()
+        ]
+        for hid in owned_ids:
+            session.query(HouseholdMember).filter(HouseholdMember.household_id == hid).delete()
+        session.query(HouseholdMember).filter(HouseholdMember.user_id == user_id).delete()
+        session.query(Household).filter(Household.owner_id == user_id).delete()
+        session.query(User).filter(User.id == user_id).delete()
+        session.commit()
+        return True, "Account deleted"
+    except Exception as e:
+        session.rollback()
+        return False, f"Database error: {str(e)}"
+    finally:
+        session.close()
+
+
 def set_pin(user_id, pin):
     """Set or change the account's shared-device PIN. 4 digits only, hashed
     the same way as the account password - never stored in clear text even

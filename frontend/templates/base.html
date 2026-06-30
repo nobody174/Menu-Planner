@@ -95,6 +95,9 @@
                             <a href="{{ url_for('household_settings') }}" class="settings-item">{{ t.get('household', 'Household') }}</a>
                             <a href="/settings" class="settings-item">{{ t.settings }}</a>
                             {% endif %}
+                            {% if is_app_admin %}
+                            <a href="{{ url_for('admin_panel') }}" class="settings-item" style="color:#dc2626;">🔧 Admin</a>
+                            {% endif %}
                             <a href="/all-recipes" class="settings-item">{{ t.all_recipes }}</a>
                             <a href="/add-recipe" class="settings-item">+ {{ t.add_recipe }}</a>
                             {% if is_authenticated %}

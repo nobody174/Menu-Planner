@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Admin Panel - Menu Planner{% endblock %}
+{% block content %}
+<div style="max-width:900px; margin:40px auto; padding:0 20px;">
+  <h1>🔧 Admin Panel</h1>
+  <p style="color:#888; font-size:0.9rem;">Only visible to the configured ADMIN_EMAIL account.</p>
+
+  {% if request.args.get('success') %}
+  <div style="background:#efe; color:#363; border:1px solid #cfc; border-radius:6px; padding:12px; margin-bottom:16px;">{{ request.args.get('success') }}</div>
+  {% endif %}
+  {% if request.args.get('error') %}
+  <div style="background:#fee; color:#c33; border:1px solid #fcc; border-radius:6px; padding:12px; margin-bottom:16px;">{{ request.args.get('error') }}</div>
+  {% endif %}
+
+  <h2 style="margin-top:32px;">Users ({{ users|length }})</h2>
+  <table style="width:100%; border-collapse:collapse; font-size:0.9rem;">
+    <thead>
+      <tr style="background:#f5f5f5;">
+        <th style="text-align:left; padding:10px 12px; border-bottom:2px solid #ddd;">Email</th>
+        <th style="text-align:left; padding:10px 12px; border-bottom:2px solid #ddd;">Confirmed</th>
+        <th style="text-align:left; padding:10px 12px; border-bottom:2px solid #ddd;">Signed up</th>
+        <th style="text-align:left; padding:10px 12px; border-bottom:2px solid #ddd;">Referral code</th>
+        <th style="padding:10px 12px; border-bottom:2px solid #ddd;"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in users %}
+      <tr style="border-bottom:1px solid #eee;">
+        <td style="padding:10px 12px;">{{ user.email }}</td>
+        <td style="padding:10px 12px;">
+          {% if user.confirmed %}
+            <span style="color:#16a34a;">✓ Yes</span>
+          {% else %}
+            <span style="color:#dc2626;">✗ No</span>
+          {% endif %}
+        </td>
+        <td style="padding:10px 12px; color:#888;">{{ user.created_at }}</td>
+        <td style="padding:10px 12px; font-family:monospace; font-size:0.85rem;">{{ user.referral_code }}</td>
+        <td style="padding:10px 12px; text-align:right;">
+          <form method="POST" action="{{ url_for('admin_delete_user') }}" style="display:inline;"
+                onsubmit="return confirm('Delete {{ user.email }}? This cannot be undone.');">
+            <input type="hidden" name="user_id" value="{{ user.id }}">
+            <button type="submit" style="background:#ef4444; color:white; border:none; border-radius:4px; padding:5px 12px; font-size:0.8rem; cursor:pointer;">
+              Delete
+            </button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
