@@ -10,7 +10,7 @@
   },
   "packImage": "☀️",
   "packColor": "#FFD700",
-  "recipeCount": 67,
+  "recipeCount": 65,
   "estimatedCookTime": "15-45 minutes",
   "difficulty": "easy",
   "recipes": [
@@ -27,12 +27,14 @@
       "difficulty": "easy",
       "cookTimeMinutes": 15,
       "servings": 4,
-      "category": "Other",
+      "category": "Salads",
       "tags": [
         "salad",
         "greek",
         "vegetarian",
-        "summer"
+        "summer",
+        "quick",
+        "cuisine:greek"
       ],
       "allergens": [
         "dairy"
@@ -161,12 +163,14 @@
       "difficulty": "easy",
       "cookTimeMinutes": 10,
       "servings": 4,
-      "category": "Other",
+      "category": "Salads",
       "tags": [
         "salad",
         "italian",
         "fresh",
-        "summer"
+        "summer",
+        "quick",
+        "cuisine:italian"
       ],
       "allergens": [
         "dairy"
@@ -273,12 +277,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 30,
       "servings": 4,
-      "category": "Meat",
+      "category": "Salads",
       "tags": [
         "salad",
         "chicken",
         "tropical",
-        "summer"
+        "summer",
+        "quick"
       ],
       "allergens": [],
       "ingredients": [
@@ -396,12 +401,14 @@
       "difficulty": "easy",
       "cookTimeMinutes": 25,
       "servings": 4,
-      "category": "Other",
+      "category": "Salads",
       "tags": [
         "salad",
         "potato",
         "summer",
-        "nordic"
+        "nordic",
+        "quick",
+        "cuisine:nordic"
       ],
       "allergens": [
         "dairy"
@@ -521,12 +528,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 15,
       "servings": 4,
-      "category": "Other",
+      "category": "Salads",
       "tags": [
         "salad",
         "strawberry",
         "summer",
-        "sweet"
+        "sweet",
+        "quick"
       ],
       "allergens": [
         "nuts"
@@ -644,12 +652,13 @@
       "difficulty": "medium",
       "cookTimeMinutes": 30,
       "servings": 4,
-      "category": "Meat",
+      "category": "Grill",
       "tags": [
         "grill",
         "beef",
         "skewer",
-        "summer"
+        "summer",
+        "quick"
       ],
       "allergens": [],
       "ingredients": [
@@ -767,7 +776,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 35,
       "servings": 4,
-      "category": "Meat",
+      "category": "Grill",
       "tags": [
         "grill",
         "chicken",
@@ -877,12 +886,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 20,
       "servings": 4,
-      "category": "Fish",
+      "category": "Salads",
       "tags": [
         "salad",
         "shrimp",
         "seafood",
-        "summer"
+        "summer",
+        "quick"
       ],
       "allergens": [
         "shellfish"
@@ -1000,12 +1010,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 25,
       "servings": 4,
-      "category": "Fish",
+      "category": "Grill",
       "tags": [
         "grill",
         "salmon",
         "seafood",
-        "summer"
+        "summer",
+        "quick"
       ],
       "allergens": [
         "fish"
@@ -1101,12 +1112,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 15,
       "servings": 4,
-      "category": "Fish",
+      "category": "Salads",
       "tags": [
         "salad",
         "crab",
         "seafood",
-        "luxury"
+        "luxury",
+        "quick"
       ],
       "allergens": [
         "shellfish"
@@ -1224,12 +1236,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 20,
       "servings": 4,
-      "category": "Fish",
+      "category": "Grill",
       "tags": [
         "grill",
         "fish",
         "cod",
-        "summer"
+        "summer",
+        "quick"
       ],
       "allergens": [
         "fish"
@@ -1323,12 +1336,13 @@
       "difficulty": "medium",
       "cookTimeMinutes": 15,
       "servings": 4,
-      "category": "Fish",
+      "category": "Grill",
       "tags": [
         "grill",
         "mussels",
         "seafood",
-        "summer"
+        "summer",
+        "quick"
       ],
       "allergens": [
         "shellfish"
@@ -1435,12 +1449,13 @@
       "difficulty": "medium",
       "cookTimeMinutes": 30,
       "servings": 4,
-      "category": "Fish",
+      "category": "Grill",
       "tags": [
         "grill",
         "trout",
         "fish",
-        "summer"
+        "summer",
+        "quick"
       ],
       "allergens": [
         "fish"
@@ -1536,12 +1551,14 @@
       "difficulty": "easy",
       "cookTimeMinutes": 25,
       "servings": 4,
-      "category": "Meat",
+      "category": "Salads",
       "tags": [
         "salad",
         "american",
         "hearty",
-        "summer"
+        "summer",
+        "quick",
+        "cuisine:american"
       ],
       "allergens": [
         "dairy",
@@ -1677,12 +1694,13 @@
       "difficulty": "medium",
       "cookTimeMinutes": 35,
       "servings": 4,
-      "category": "Meat",
+      "category": "Grill",
       "tags": [
         "grill",
         "chicken",
         "asian",
-        "summer"
+        "summer",
+        "cuisine:asian"
       ],
       "allergens": [],
       "ingredients": [
@@ -1800,12 +1818,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 30,
       "servings": 4,
-      "category": "Meat",
+      "category": "Grill",
       "tags": [
         "summer",
         "fresh",
         "light",
-        "grilled"
+        "grilled",
+        "quick"
       ],
       "allergens": [],
       "ingredients": [
@@ -1930,12 +1949,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 25,
       "servings": 4,
-      "category": "Meat",
+      "category": "Salads",
       "tags": [
         "summer",
         "fresh",
         "light",
-        "grilled"
+        "grilled",
+        "quick"
       ],
       "allergens": [
         "dairy"
@@ -2051,12 +2071,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 20,
       "servings": 4,
-      "category": "Fish",
+      "category": "Grill",
       "tags": [
         "summer",
         "fresh",
         "light",
-        "grilled"
+        "grilled",
+        "quick"
       ],
       "allergens": [
         "shellfish"
@@ -2172,12 +2193,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 30,
       "servings": 4,
-      "category": "Meat",
+      "category": "Salads",
       "tags": [
         "summer",
         "fresh",
         "light",
-        "grilled"
+        "grilled",
+        "quick"
       ],
       "allergens": [
         "dairy"
@@ -2315,12 +2337,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 25,
       "servings": 4,
-      "category": "Other",
+      "category": "Grill",
       "tags": [
         "summer",
         "fresh",
         "light",
-        "grilled"
+        "grilled",
+        "quick"
       ],
       "allergens": [],
       "ingredients": [
@@ -2445,11 +2468,12 @@
       "difficulty": "medium",
       "cookTimeMinutes": 20,
       "servings": 4,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "summer",
         "fresh",
-        "light"
+        "light",
+        "quick"
       ],
       "allergens": [
         "fish"
@@ -2565,11 +2589,12 @@
       "difficulty": "easy",
       "cookTimeMinutes": 25,
       "servings": 4,
-      "category": "Meat",
+      "category": "Salads",
       "tags": [
         "summer",
         "fresh",
-        "light"
+        "light",
+        "quick"
       ],
       "allergens": [
         "gluten"
@@ -2696,12 +2721,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 25,
       "servings": 4,
-      "category": "Other",
+      "category": "Salads",
       "tags": [
         "summer",
         "fresh",
         "light",
-        "grilled"
+        "grilled",
+        "quick"
       ],
       "allergens": [],
       "ingredients": [
@@ -2826,7 +2852,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 240,
       "servings": 6,
-      "category": "Meat",
+      "category": "Grill",
       "tags": [
         "summer",
         "grilled"
@@ -2954,11 +2980,12 @@
       "difficulty": "easy",
       "cookTimeMinutes": 15,
       "servings": 4,
-      "category": "Other",
+      "category": "Salads",
       "tags": [
         "summer",
         "fresh",
-        "light"
+        "light",
+        "quick"
       ],
       "allergens": [
         "dairy"
@@ -3074,12 +3101,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 20,
       "servings": 4,
-      "category": "Other",
+      "category": "Salads",
       "tags": [
         "summer",
         "fresh",
         "light",
-        "grilled"
+        "grilled",
+        "quick"
       ],
       "allergens": [
         "dairy"
@@ -3195,11 +3223,12 @@
       "difficulty": "medium",
       "cookTimeMinutes": 30,
       "servings": 4,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "summer",
         "fresh",
-        "light"
+        "light",
+        "quick"
       ],
       "allergens": [
         "fish",
@@ -3327,12 +3356,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 25,
       "servings": 4,
-      "category": "Fish",
+      "category": "Salads",
       "tags": [
         "summer",
         "fresh",
         "light",
-        "grilled"
+        "grilled",
+        "quick"
       ],
       "allergens": [
         "fish",
@@ -3461,11 +3491,12 @@
       "difficulty": "easy",
       "cookTimeMinutes": 15,
       "servings": 4,
-      "category": "Meat",
+      "category": "Sides & Light Meals",
       "tags": [
         "summer",
         "fresh",
-        "light"
+        "light",
+        "quick"
       ],
       "allergens": [
         "dairy",
@@ -3582,12 +3613,13 @@
       "difficulty": "medium",
       "cookTimeMinutes": 25,
       "servings": 4,
-      "category": "Meat",
+      "category": "Salads",
       "tags": [
         "summer",
         "fresh",
         "light",
-        "grilled"
+        "grilled",
+        "quick"
       ],
       "allergens": [
         "dairy"
@@ -3714,11 +3746,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 30,
       "servings": 4,
-      "category": "Other",
+      "category": "Pasta & Noodles",
       "tags": [
         "light",
         "asian",
-        "fresh"
+        "fresh",
+        "quick",
+        "cuisine:asian"
       ],
       "allergens": [
         "gluten",
@@ -3824,7 +3858,9 @@
       "tags": [
         "spice",
         "curry",
-        "asian"
+        "asian",
+        "quick",
+        "cuisine:asian"
       ],
       "allergens": [
         "nuts"
@@ -3921,11 +3957,13 @@
       "difficulty": "medium",
       "cookTimeMinutes": 30,
       "servings": 4,
-      "category": "Meat",
+      "category": "Grill",
       "tags": [
         "grilled",
         "asian",
-        "light"
+        "light",
+        "quick",
+        "cuisine:asian"
       ],
       "allergens": [],
       "ingredients": [
@@ -4013,11 +4051,12 @@
       "difficulty": "medium",
       "cookTimeMinutes": 40,
       "servings": 4,
-      "category": "Meat",
+      "category": "Grill",
       "tags": [
         "grilled",
         "asian",
-        "peanut"
+        "peanut",
+        "cuisine:asian"
       ],
       "allergens": [
         "nuts"
@@ -4107,11 +4146,12 @@
       "difficulty": "medium",
       "cookTimeMinutes": 45,
       "servings": 4,
-      "category": "Other",
+      "category": "Pasta & Noodles",
       "tags": [
         "soup",
         "asian",
-        "spicy"
+        "spicy",
+        "cuisine:asian"
       ],
       "allergens": [
         "gluten",
@@ -4205,11 +4245,13 @@
       "difficulty": "medium",
       "cookTimeMinutes": 20,
       "servings": 4,
-      "category": "Other",
+      "category": "Pasta & Noodles",
       "tags": [
         "noodles",
         "asian",
-        "spicy"
+        "spicy",
+        "quick",
+        "cuisine:asian"
       ],
       "allergens": [
         "gluten",
@@ -4300,11 +4342,12 @@
       "difficulty": "medium",
       "cookTimeMinutes": 50,
       "servings": 4,
-      "category": "Meat",
+      "category": "Pasta & Noodles",
       "tags": [
         "soup",
         "asian",
-        "beef"
+        "beef",
+        "cuisine:asian"
       ],
       "allergens": [
         "gluten"
@@ -4384,102 +4427,6 @@
       }
     },
     {
-      "id": "sum_076",
-      "title": {
-        "no": "Thaiisk Mango Klissig Ris",
-        "en": "Thai Mango Sticky Rice"
-      },
-      "subtitle": {
-        "no": "Søt dessert med mango og klissig ris",
-        "en": "Sweet dessert with mango and sticky rice"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 45,
-      "servings": 4,
-      "category": "Other",
-      "tags": [
-        "dessert",
-        "thai",
-        "sweet"
-      ],
-      "allergens": [
-        "milk"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Klissig ris",
-            "en": "Sticky rice"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Kokosmelk",
-            "en": "Coconut milk"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Mango",
-            "en": "Mango"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "stk",
-            "en": "pcs"
-          }
-        },
-        {
-          "name": {
-            "no": "Salt",
-            "en": "Salt"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Kok klissig ris",
-          "2. Heat kokosmelk med sukker og salt",
-          "3. Bland kokosmelken med risen",
-          "4. La stå 10 minutter",
-          "5. Serve med skivet mango"
-        ],
-        "en": [
-          "1. Cook sticky rice",
-          "2. Heat coconut milk with sugar and salt",
-          "3. Mix coconut mixture with rice",
-          "4. Let sit for 10 minutes",
-          "5. Serve with sliced mango"
-        ]
-      }
-    },
-    {
       "id": "sum_077",
       "title": {
         "no": "Filipinsk Adobo Sommar",
@@ -4492,11 +4439,12 @@
       "difficulty": "medium",
       "cookTimeMinutes": 45,
       "servings": 6,
-      "category": "Meat",
+      "category": "Soups & Stews",
       "tags": [
         "asian",
         "comfort",
-        "stew"
+        "stew",
+        "cuisine:asian"
       ],
       "allergens": [
         "meat",
@@ -4589,11 +4537,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 20,
       "servings": 2,
-      "category": "Meat",
+      "category": "Sides & Light Meals",
       "tags": [
         "sandwich",
         "asian",
-        "light"
+        "light",
+        "quick",
+        "cuisine:asian"
       ],
       "allergens": [
         "wheat",
@@ -4687,11 +4637,13 @@
       "difficulty": "medium",
       "cookTimeMinutes": 30,
       "servings": 4,
-      "category": "Meat",
+      "category": "Soups & Stews",
       "tags": [
         "soup",
         "thai",
-        "creamy"
+        "creamy",
+        "quick",
+        "cuisine:thai"
       ],
       "allergens": [
         "milk",
@@ -4788,7 +4740,8 @@
       "tags": [
         "vegetable",
         "asian",
-        "peanut"
+        "peanut",
+        "cuisine:asian"
       ],
       "allergens": [
         "nuts"
@@ -4878,11 +4831,12 @@
       "difficulty": "medium",
       "cookTimeMinutes": 50,
       "servings": 4,
-      "category": "Meat",
+      "category": "Soups & Stews",
       "tags": [
         "asian",
         "coconut",
-        "curry"
+        "curry",
+        "cuisine:asian"
       ],
       "allergens": [
         "milk"
@@ -4974,11 +4928,12 @@
       "difficulty": "medium",
       "cookTimeMinutes": 40,
       "servings": 4,
-      "category": "Meat",
+      "category": "Grill",
       "tags": [
         "rice",
         "asian",
-        "grilled"
+        "grilled",
+        "cuisine:asian"
       ],
       "allergens": [
         "gluten"
@@ -5068,11 +5023,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 15,
       "servings": 2,
-      "category": "Other",
+      "category": "Salads",
       "tags": [
         "salad",
         "thai",
-        "light"
+        "light",
+        "quick",
+        "cuisine:thai"
       ],
       "allergens": [
         "gluten",
@@ -5165,11 +5122,12 @@
       "difficulty": "medium",
       "cookTimeMinutes": 45,
       "servings": 4,
-      "category": "Meat",
+      "category": "Soups & Stews",
       "tags": [
         "soup",
         "asian",
-        "curry"
+        "curry",
+        "cuisine:asian"
       ],
       "allergens": [
         "gluten"
@@ -5261,11 +5219,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 25,
       "servings": 4,
-      "category": "Meat",
+      "category": "Chicken",
       "tags": [
         "asian",
         "light",
-        "fresh"
+        "fresh",
+        "quick",
+        "cuisine:asian"
       ],
       "allergens": [
         "gluten",
@@ -5356,11 +5316,13 @@
       "difficulty": "medium",
       "cookTimeMinutes": 25,
       "servings": 4,
-      "category": "Meat",
+      "category": "Chicken",
       "tags": [
         "thai",
         "stir-fry",
-        "aromatic"
+        "aromatic",
+        "quick",
+        "cuisine:thai"
       ],
       "allergens": [
         "gluten"
@@ -5452,11 +5414,12 @@
       "difficulty": "medium",
       "cookTimeMinutes": 35,
       "servings": 4,
-      "category": "Meat",
+      "category": "Beef & Red Meat",
       "tags": [
         "asian",
         "fried",
-        "appetizer"
+        "appetizer",
+        "cuisine:asian"
       ],
       "allergens": [
         "wheat",
@@ -5553,7 +5516,8 @@
       "tags": [
         "asian",
         "appetizer",
-        "vegetable"
+        "vegetable",
+        "cuisine:asian"
       ],
       "allergens": [
         "wheat",
@@ -5646,11 +5610,12 @@
       "difficulty": "hard",
       "cookTimeMinutes": 50,
       "servings": 6,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "spanish",
         "seafood",
-        "rice"
+        "rice",
+        "cuisine:spanish"
       ],
       "allergens": [
         "shellfish",
@@ -5747,11 +5712,12 @@
       "difficulty": "hard",
       "cookTimeMinutes": 45,
       "servings": 4,
-      "category": "Fish",
+      "category": "Pasta & Noodles",
       "tags": [
         "spanish",
         "seafood",
-        "noodles"
+        "noodles",
+        "cuisine:spanish"
       ],
       "allergens": [
         "shellfish",
@@ -5846,11 +5812,12 @@
       "difficulty": "hard",
       "cookTimeMinutes": 35,
       "servings": 4,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "portuguese",
         "seafood",
-        "traditional"
+        "traditional",
+        "cuisine:portuguese"
       ],
       "allergens": [
         "shellfish"
@@ -5940,11 +5907,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 20,
       "servings": 4,
-      "category": "Fish",
+      "category": "Grill",
       "tags": [
         "portuguese",
         "grilled",
-        "seafood"
+        "seafood",
+        "quick",
+        "cuisine:portuguese"
       ],
       "allergens": [
         "fish"
@@ -6034,11 +6003,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 30,
       "servings": 4,
-      "category": "Other",
+      "category": "Soups & Stews",
       "tags": [
         "portuguese",
         "soup",
-        "light"
+        "light",
+        "quick",
+        "cuisine:portuguese"
       ],
       "allergens": [],
       "ingredients": [
@@ -6128,11 +6099,12 @@
       "difficulty": "hard",
       "cookTimeMinutes": 60,
       "servings": 4,
-      "category": "Fish",
+      "category": "Grill",
       "tags": [
         "spanish",
         "seafood",
-        "grilled"
+        "grilled",
+        "cuisine:spanish"
       ],
       "allergens": [
         "shellfish"
@@ -6224,11 +6196,12 @@
       "difficulty": "medium",
       "cookTimeMinutes": 40,
       "servings": 4,
-      "category": "Other",
+      "category": "Pasta & Noodles",
       "tags": [
         "italian",
         "rice",
-        "mushroom"
+        "mushroom",
+        "cuisine:italian"
       ],
       "allergens": [
         "milk",
@@ -6323,11 +6296,12 @@
       "difficulty": "hard",
       "cookTimeMinutes": 120,
       "servings": 4,
-      "category": "Meat",
+      "category": "Other",
       "tags": [
         "italian",
         "veal",
-        "braised"
+        "braised",
+        "cuisine:italian"
       ],
       "allergens": [
         "meat",
@@ -6411,104 +6385,6 @@
       }
     },
     {
-      "id": "sum_097",
-      "title": {
-        "no": "Italiensk Tiramisu Sommar",
-        "en": "Italian Tiramisu Summer"
-      },
-      "subtitle": {
-        "no": "Klassisk italiensk dessert",
-        "en": "Classic Italian dessert"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 30,
-      "servings": 6,
-      "category": "Other",
-      "tags": [
-        "italian",
-        "dessert",
-        "no-bake"
-      ],
-      "allergens": [
-        "milk",
-        "eggs",
-        "alcohol"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Mascarpone",
-            "en": "Mascarpone cheese"
-          },
-          "amount": 500,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Egg yolks",
-            "en": "Egg yolks"
-          },
-          "amount": 3,
-          "unit": {
-            "no": "stk",
-            "en": "pcs"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Kakaopulver",
-            "en": "Cocoa powder"
-          },
-          "amount": 30,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Kaffe",
-            "en": "Coffee"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Pisk eggeplommer med sukker",
-          "2. Fold inn mascarpone",
-          "3. Dypp biskoter i kaffe",
-          "4. Lag lag av krem og biskoter",
-          "5. Pudre kakao på toppen"
-        ],
-        "en": [
-          "1. Whisk egg yolks with sugar",
-          "2. Fold in mascarpone",
-          "3. Dip ladyfingers in coffee",
-          "4. Layer cream and ladyfingers",
-          "5. Dust cocoa on top"
-        ]
-      }
-    },
-    {
       "id": "sum_098",
       "title": {
         "no": "Fransk Ratatouille Niçoise",
@@ -6521,11 +6397,12 @@
       "difficulty": "medium",
       "cookTimeMinutes": 45,
       "servings": 4,
-      "category": "Other",
+      "category": "Soups & Stews",
       "tags": [
         "french",
         "vegetable",
-        "summer"
+        "summer",
+        "cuisine:french"
       ],
       "allergens": [],
       "ingredients": [
@@ -6615,11 +6492,12 @@
       "difficulty": "hard",
       "cookTimeMinutes": 50,
       "servings": 4,
-      "category": "Fish",
+      "category": "Soups & Stews",
       "tags": [
         "french",
         "seafood",
-        "soup"
+        "soup",
+        "cuisine:french"
       ],
       "allergens": [
         "fish",
@@ -6719,7 +6597,8 @@
       "tags": [
         "greek",
         "vegetable",
-        "baked"
+        "baked",
+        "cuisine:greek"
       ],
       "allergens": [],
       "ingredients": [
@@ -6807,11 +6686,13 @@
       "difficulty": "medium",
       "cookTimeMinutes": 25,
       "servings": 4,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "greek",
         "fried",
-        "seafood"
+        "seafood",
+        "quick",
+        "cuisine:greek"
       ],
       "allergens": [
         "fish",
@@ -6903,11 +6784,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 20,
       "servings": 4,
-      "category": "Other",
+      "category": "Salads",
       "tags": [
         "middle eastern",
         "salad",
-        "light"
+        "light",
+        "quick",
+        "cuisine:middle_eastern"
       ],
       "allergens": [
         "gluten"
@@ -6997,11 +6880,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 20,
       "servings": 4,
-      "category": "Other",
+      "category": "Sides & Light Meals",
       "tags": [
         "middle eastern",
         "appetizer",
-        "dip"
+        "dip",
+        "quick",
+        "cuisine:middle_eastern"
       ],
       "allergens": [
         "sesame",
@@ -7094,11 +6979,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 15,
       "servings": 4,
-      "category": "Other",
+      "category": "Grill",
       "tags": [
         "middle eastern",
         "grilled",
-        "cheese"
+        "cheese",
+        "quick",
+        "cuisine:middle_eastern"
       ],
       "allergens": [
         "milk"
@@ -7188,11 +7075,12 @@
       "difficulty": "medium",
       "cookTimeMinutes": 35,
       "servings": 4,
-      "category": "Meat",
+      "category": "Grill",
       "tags": [
         "african",
         "grilled",
-        "spicy"
+        "spicy",
+        "cuisine:african"
       ],
       "allergens": [
         "meat"

@@ -61,6 +61,13 @@ def _generate_referral_code(session):
             return code
 
 
+def _generate_confirmation_token():
+    """URL-safe random token for email confirmation links - unguessable,
+    no need to check uniqueness (collision odds are astronomically low and
+    the token is only ever looked up by exact match, never enumerated)."""
+    return secrets.token_urlsafe(32)
+
+
 def get_user_by_referral_code(code):
     """Look up a user by their referral code (for linking new signups)."""
     if not code:
@@ -113,7 +120,8 @@ def create_user(email, password, referred_by_code=None):
             password_hash=password_hash,
             referral_code=referral_code,
             referred_by_user_id=referred_by_user_id,
-            referred_by_code=referred_by_code_clean
+            referred_by_code=referred_by_code_clean,
+            email_confirmation_token=_generate_confirmation_token()
         )
         session.add(user)
         session.commit()
@@ -130,6 +138,12 @@ def authenticate_user(email, password):
     """
     Authenticate user by email and password.
     Returns: (success, user_or_error_msg)
+    Login is blocked until the email is confirmed (email_confirmed_at set) -
+    this is a deliberate choice, not an oversight: it's the only way to
+    actually verify a real, reachable address rather than just trusting
+    whatever format-valid string was typed at signup, which matters here
+    because anyone could otherwise sign up with a fake/bot-generated address
+    and get full app access immediately.
     """
     email = email.lower().strip()
     user = get_user_by_email(email)
@@ -140,7 +154,63 @@ def authenticate_user(email, password):
     if not verify_password(user.password_hash, password):
         return False, "Invalid password"
 
+    if not user.email_confirmed_at:
+        return False, "EMAIL_NOT_CONFIRMED"
+
     return True, user
+
+
+def confirm_email(token):
+    """Mark a user's email as confirmed via their confirmation token.
+    Returns: (success, user_or_error_msg)."""
+    if not token:
+        return False, "Missing confirmation token"
+
+    session = SessionLocal()
+    try:
+        user = session.query(User).filter(User.email_confirmation_token == token).first()
+        if not user:
+            return False, "Invalid or expired confirmation link"
+
+        if user.email_confirmed_at:
+            return True, user  # already confirmed - clicking the link twice is harmless
+
+        from datetime import datetime
+        user.email_confirmed_at = datetime.utcnow()
+        user.email_confirmation_token = None  # one-time use, prevents replay
+        session.commit()
+        session.refresh(user)
+        return True, user
+    except Exception as e:
+        session.rollback()
+        return False, f"Database error: {str(e)}"
+    finally:
+        session.close()
+
+
+def regenerate_confirmation_token(email):
+    """Issue a fresh confirmation token for a "resend confirmation email"
+    flow - needed because the original token may have landed in spam or
+    the email was mistyped at signup time. Returns: (success, user_or_error_msg)."""
+    email = email.lower().strip()
+    session = SessionLocal()
+    try:
+        user = session.query(User).filter(User.email == email).first()
+        if not user:
+            return False, "User not found"
+
+        if user.email_confirmed_at:
+            return False, "Email already confirmed"
+
+        user.email_confirmation_token = _generate_confirmation_token()
+        session.commit()
+        session.refresh(user)
+        return True, user
+    except Exception as e:
+        session.rollback()
+        return False, f"Database error: {str(e)}"
+    finally:
+        session.close()
 
 
 def set_pin(user_id, pin):

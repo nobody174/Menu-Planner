@@ -18,13 +18,40 @@
     "color": "#6C8EBF"
   },
   {
-    "code": "kjøtt",
-    "name_no": "Kjøtt",
-    "name_en": "Meat",
-    "description_no": "Deilige kjøttmiddager",
-    "description_en": "Delicious meat dishes",
+    "code": "beef_red_meat",
+    "name_no": "Biff & Rødt Kjøtt",
+    "name_en": "Beef & Red Meat",
+    "description_no": "Biff, lam, vilt og andre rødkjøttmiddager",
+    "description_en": "Beef, lamb, game and other red meat dishes",
     "icon": "🥩",
     "color": "#C5504C"
+  },
+  {
+    "code": "pork",
+    "name_no": "Svin",
+    "name_en": "Pork",
+    "description_no": "Svinekjøttmiddager",
+    "description_en": "Pork dishes",
+    "icon": "🐖",
+    "color": "#D88C9A"
+  },
+  {
+    "code": "salads",
+    "name_no": "Salater",
+    "name_en": "Salads",
+    "description_no": "Salater og lette retter",
+    "description_en": "Salads and light dishes",
+    "icon": "🥬",
+    "color": "#7FB069"
+  },
+  {
+    "code": "sides_light",
+    "name_no": "Sider & Lette Måltider",
+    "name_en": "Sides & Light Meals",
+    "description_no": "Smørrebrød, sandwicher og lette tilbehør",
+    "description_en": "Sandwiches, open sandwiches and light side dishes",
+    "icon": "🥪",
+    "color": "#B0A990"
   },
   {
     "code": "annet",

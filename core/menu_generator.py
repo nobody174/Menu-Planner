@@ -63,7 +63,7 @@ PROTEIN_IMAGES = {
 
 class MenuGenerator:
     def __init__(self, seed: Optional[int] = None, selected_categories: Optional[List[str]] = None,
-                 household_id: Optional[str] = None):
+                 household_id: Optional[str] = None, favorite_recipe_ids: Optional[List[str]] = None):
         self.seed = seed
         if seed:
             random.seed(seed)
@@ -82,6 +82,7 @@ class MenuGenerator:
 
         self.categories = self.load_categories()
         self.selected_categories = selected_categories or ['Quick Dinners', 'Fish & Seafood', 'Vegetarian']
+        self.favorite_recipe_ids = favorite_recipe_ids or []
         self.recipes_db = []
         self.deduplicator = IngredientDeduplicator()
         self.filtered_recipes = []
@@ -98,7 +99,7 @@ class MenuGenerator:
         return []
 
     def load_recipes(self) -> bool:
-        """Load recipes from the shared base sample_recipes.json plus this household's imported recipes, filter by selected categories."""
+        """Load recipes from the shared base sample_recipes.json plus this household's imported recipes, filter by selected categories or favorites."""
         self.recipes_db = []
         all_recipes = []
 
@@ -122,8 +123,38 @@ class MenuGenerator:
             logger.error("No recipes found in any database file.")
             return False
 
-        # Filter by selected categories (case-insensitive)
-        selected_lower = [c.lower() for c in self.selected_categories]
+        # Check if Favorites is the only/primary category selected (supports both English and Norwegian)
+        has_favorites = any(cat for cat in self.selected_categories if cat.lower() in ('favorites', 'favoritter'))
+        other_categories = [c for c in self.selected_categories if c.lower() not in ('favorites', 'favoritter')]
+
+        # If Favorites is selected and we have favorited recipes, filter to those
+        if has_favorites and self.favorite_recipe_ids:
+            all_recipes = [r for r in all_recipes if r.get('id') in self.favorite_recipe_ids]
+            logger.info(f"Filtering to {len(all_recipes)} favorite recipes from {len(self.favorite_recipe_ids)} marked")
+            # If Favorites is the ONLY category selected, we're done filtering
+            if not other_categories:
+                # Process and add the filtered recipes
+                seen_ids = set()
+                for recipe in all_recipes:
+                    rid = recipe.get('id', '')
+                    if rid in seen_ids:
+                        continue
+                    seen_ids.add(rid)
+                    recipe_copy = copy.deepcopy(recipe)
+                    for field in ('title', 'subtitle', 'description', 'comment'):
+                        val = recipe_copy.get(field)
+                        if isinstance(val, dict):
+                            recipe_copy[f'_filter_{field}'] = val.get('en') or val.get('no') or ''
+                    self.recipes_db.append(recipe_copy)
+                logger.info(f"Loaded {len(self.recipes_db)} favorite recipes")
+                return len(self.recipes_db) > 0
+        elif has_favorites and not self.favorite_recipe_ids:
+            # Favorites selected but none marked
+            logger.info("Favorites selected but no recipes marked as favorites - returning empty")
+            return True
+
+        # Filter by other selected categories (case-insensitive) if present
+        selected_lower = [c.lower() for c in other_categories]
         seen_ids = set()
         for recipe in all_recipes:
             rid = recipe.get('id', '')
@@ -131,7 +162,8 @@ class MenuGenerator:
                 continue
             seen_ids.add(rid)
             category = recipe.get('category', '').lower()
-            if not self.selected_categories or category in selected_lower:
+            # If no other categories selected, include all; otherwise check category match
+            if not selected_lower or category in selected_lower:
                 # Deep copy to preserve original bilingual data
                 recipe_copy = copy.deepcopy(recipe)
                 # For filtering, add flattened versions of text fields

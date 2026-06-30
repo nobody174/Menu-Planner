@@ -345,7 +345,7 @@ async function loadImportedPacks() {
                         '<strong>' + _esc(pack.category_name) + '</strong>' +
                         '<span style="color:#999;margin-left:12px;">(' + pack.recipe_count + ' ' + STR.recipes_in_pack + ')</span>' +
                     '</div>' +
-                    '<button onclick="removeImportedPack(\'' + _esc(pack.category_name) + '\')" class="btn btn-danger" style="white-space:nowrap;">🗑️ Remove</button>' +
+                    '<button onclick="removeImportedPack(\'' + _esc(pack.pack_id) + '\', \'' + _esc(pack.category_name) + '\')" class="btn btn-danger" style="white-space:nowrap;">🗑️ Remove</button>' +
                 '</div>';
             container.appendChild(card);
         });
@@ -355,15 +355,15 @@ async function loadImportedPacks() {
     }
 }
 
-function removeImportedPack(categoryName) {
-    pmConfirm('🗑️', 'Remove Pack?', 'Remove ' + categoryName + ' and all its recipes? This cannot be undone.', 'Remove', 'pm-btn-danger')
+function removeImportedPack(packId, displayName) {
+    pmConfirm('🗑️', 'Remove Pack?', 'Remove ' + displayName + ' and all its recipes? This cannot be undone.', 'Remove', 'pm-btn-danger')
         .then(function(confirmed) {
             if (!confirmed) return;
 
             fetch('/api/recipe-packs/remove', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ category: categoryName })
+                body: JSON.stringify({ pack_id: packId })
             })
             .then(function(r) { return r.json(); })
             .then(function(data) {

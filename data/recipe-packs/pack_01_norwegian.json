@@ -10,7 +10,7 @@
   },
   "packImage": "🌅",
   "packColor": "#BA0C2F",
-  "recipeCount": 105,
+  "recipeCount": 77,
   "estimatedCookTime": "30-60 minutes",
   "difficulty": "easy",
   "recipes": [
@@ -27,12 +27,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 90,
       "servings": 4,
-      "category": "Meat",
+      "category": "Soups & Stews",
       "tags": [
         "traditional",
         "norwegian",
         "slow-cooked",
-        "comfort-food"
+        "comfort-food",
+        "cuisine:norwegian"
       ],
       "allergens": [],
       "ingredients": [
@@ -124,12 +125,13 @@
       "difficulty": "medium",
       "cookTimeMinutes": 45,
       "servings": 4,
-      "category": "Meat",
+      "category": "Ground Meat & Sausages",
       "tags": [
         "traditional",
         "norwegian",
         "comfort-food",
-        "potato-based"
+        "potato-based",
+        "cuisine:norwegian"
       ],
       "allergens": [],
       "ingredients": [
@@ -219,12 +221,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 30,
       "servings": 4,
-      "category": "Meat",
+      "category": "Ground Meat & Sausages",
       "tags": [
         "traditional",
         "norwegian",
         "easy",
-        "quick"
+        "quick",
+        "cuisine:norwegian"
       ],
       "allergens": [
         "gluten"
@@ -327,12 +330,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 60,
       "servings": 4,
-      "category": "Meat",
+      "category": "Soups & Stews",
       "tags": [
         "traditional",
         "norwegian",
         "slow-cooked",
-        "comfort-food"
+        "comfort-food",
+        "cuisine:norwegian"
       ],
       "allergens": [],
       "ingredients": [
@@ -435,11 +439,12 @@
       "difficulty": "medium",
       "cookTimeMinutes": 50,
       "servings": 4,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "norwegian",
         "seafood",
-        "comfort-food"
+        "comfort-food",
+        "cuisine:norwegian"
       ],
       "allergens": [
         "fish",
@@ -544,129 +549,6 @@
       }
     },
     {
-      "id": "no_006",
-      "title": {
-        "no": "Brunost-og-vafler",
-        "en": "Brown Cheese Waffles"
-      },
-      "subtitle": {
-        "no": "Tradisjonelle norske vafler med brunost",
-        "en": "Traditional Norwegian waffles with brown cheese"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 30,
-      "servings": 4,
-      "category": "Other",
-      "tags": [
-        "norwegian",
-        "breakfast",
-        "snack",
-        "traditional"
-      ],
-      "allergens": [
-        "dairy",
-        "gluten",
-        "eggs"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Mel",
-            "en": "Flour"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Egg",
-            "en": "Eggs"
-          },
-          "amount": 3,
-          "unit": {
-            "no": "stk",
-            "en": "pieces"
-          }
-        },
-        {
-          "name": {
-            "no": "Melk",
-            "en": "Milk"
-          },
-          "amount": 500,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Smør (smeltet)",
-            "en": "Butter (melted)"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Brunost (riven)",
-            "en": "Brown cheese (grated)"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "ss",
-            "en": "tbsp"
-          }
-        },
-        {
-          "name": {
-            "no": "Bakepulver",
-            "en": "Baking powder"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "ts",
-            "en": "tsp"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Bland mel, bakepulver og sukker.",
-          "2. Visp egg og melk sammen.",
-          "3. Bland tørre og våte ingredienser, tilsett smeltet smør.",
-          "4. Fold inn brunost.",
-          "5. Bak vafler i en vaffelsteke til de er gyllent brune.",
-          "6. Server varme med brunost og syltetøy."
-        ],
-        "en": [
-          "1. Mix flour, baking powder and sugar.",
-          "2. Whisk eggs and milk together.",
-          "3. Combine dry and wet ingredients, add melted butter.",
-          "4. Fold in brown cheese.",
-          "5. Bake waffles in a waffle iron until golden brown.",
-          "6. Serve hot with brown cheese and jam."
-        ]
-      }
-    },
-    {
       "id": "no_007",
       "title": {
         "no": "Kålsuppe",
@@ -679,12 +561,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 45,
       "servings": 4,
-      "category": "Other",
+      "category": "Soups & Stews",
       "tags": [
         "traditional",
         "norwegian",
         "soup",
-        "warm"
+        "warm",
+        "cuisine:norwegian"
       ],
       "allergens": [],
       "ingredients": [
@@ -789,12 +672,13 @@
       "difficulty": "medium",
       "cookTimeMinutes": 90,
       "servings": 6,
-      "category": "Meat",
+      "category": "Soups & Stews",
       "tags": [
         "traditional",
         "norwegian",
         "special",
-        "soup"
+        "soup",
+        "cuisine:norwegian"
       ],
       "allergens": [
         "gluten",
@@ -926,12 +810,13 @@
       "difficulty": "medium",
       "cookTimeMinutes": 120,
       "servings": 4,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "traditional",
         "norwegian",
         "seafood",
-        "historic"
+        "historic",
+        "cuisine:norwegian"
       ],
       "allergens": [
         "fish"
@@ -1025,12 +910,13 @@
       "difficulty": "medium",
       "cookTimeMinutes": 60,
       "servings": 4,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "traditional",
         "norwegian",
         "christmas",
-        "holiday"
+        "holiday",
+        "cuisine:norwegian"
       ],
       "allergens": [
         "fish"
@@ -1135,12 +1021,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 120,
       "servings": 4,
-      "category": "Meat",
+      "category": "Beef & Red Meat",
       "tags": [
         "traditional",
         "norwegian",
         "christmas",
-        "holiday"
+        "holiday",
+        "cuisine:norwegian"
       ],
       "allergens": [],
       "ingredients": [
@@ -1221,12 +1108,13 @@
       "difficulty": "hard",
       "cookTimeMinutes": 1440,
       "servings": 6,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "traditional",
         "norwegian",
         "seafood",
-        "cured"
+        "cured",
+        "cuisine:norwegian"
       ],
       "allergens": [
         "fish"
@@ -1310,389 +1198,6 @@
       }
     },
     {
-      "id": "no_013",
-      "title": {
-        "no": "Søteboller",
-        "en": "Sweet Buns"
-      },
-      "subtitle": {
-        "no": "Norske søte rundstykker",
-        "en": "Norwegian sweet rolls"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 90,
-      "servings": 12,
-      "category": "Other",
-      "tags": [
-        "norwegian",
-        "baking",
-        "sweet",
-        "traditional"
-      ],
-      "allergens": [
-        "gluten",
-        "dairy",
-        "eggs"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Hvetemel",
-            "en": "Wheat flour"
-          },
-          "amount": 500,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Melk (lunkken)",
-            "en": "Milk (lukewarm)"
-          },
-          "amount": 250,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Gjær",
-            "en": "Yeast"
-          },
-          "amount": 50,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 50,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Salt",
-            "en": "Salt"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "ts",
-            "en": "tsp"
-          }
-        },
-        {
-          "name": {
-            "no": "Smør",
-            "en": "Butter"
-          },
-          "amount": 50,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Egg",
-            "en": "Egg"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "stk",
-            "en": "piece"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Løs gjæren i lunkken melk med sukker.",
-          "2. Tilsett mel, salt og smør.",
-          "3. Trill deigen godt i ca. 10 minutter.",
-          "4. La deigen heve i 1 time under et handklæ.",
-          "5. Del deigen i 12 like deler og roll til boller.",
-          "6. La bollene heve i 30 minutter.",
-          "7. Pensl med slått egg.",
-          "8. Bak på 200°C i ca. 15-20 minutter."
-        ],
-        "en": [
-          "1. Dissolve yeast in lukewarm milk with sugar.",
-          "2. Add flour, salt and butter.",
-          "3. Knead dough well for about 10 minutes.",
-          "4. Let dough rise for 1 hour under a towel.",
-          "5. Divide dough into 12 equal parts and roll into balls.",
-          "6. Let buns rise for 30 minutes.",
-          "7. Brush with beaten egg.",
-          "8. Bake at 200°C for about 15-20 minutes."
-        ]
-      }
-    },
-    {
-      "id": "no_014",
-      "title": {
-        "no": "Sjokoladekake",
-        "en": "Chocolate Cake"
-      },
-      "subtitle": {
-        "no": "Klassisk norsk sjokoladekake",
-        "en": "Classic Norwegian chocolate cake"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 45,
-      "servings": 8,
-      "category": "Other",
-      "tags": [
-        "norwegian",
-        "baking",
-        "dessert",
-        "chocolate"
-      ],
-      "allergens": [
-        "gluten",
-        "dairy",
-        "eggs"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Smør",
-            "en": "Butter"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Egg",
-            "en": "Eggs"
-          },
-          "amount": 3,
-          "unit": {
-            "no": "stk",
-            "en": "pieces"
-          }
-        },
-        {
-          "name": {
-            "no": "Hvetemel",
-            "en": "Wheat flour"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Kakao (usøtet)",
-            "en": "Cocoa (unsweetened)"
-          },
-          "amount": 50,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Bakepulver",
-            "en": "Baking powder"
-          },
-          "amount": 1.5,
-          "unit": {
-            "no": "ts",
-            "en": "tsp"
-          }
-        },
-        {
-          "name": {
-            "no": "Melk",
-            "en": "Milk"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Vaniljeekstrakt",
-            "en": "Vanilla extract"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "ts",
-            "en": "tsp"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Smelt smør og blanda det med sukker.",
-          "2. Visp inn egg en om gangen.",
-          "3. Bland mel, kakao og bakepulver.",
-          "4. Veksla mellom å tilsette tørre ingredienser og melk.",
-          "5. Tilsett vaniljeekstrakt.",
-          "6. Hell deigen i en smurt og melstøvet form.",
-          "7. Bak på 180°C i ca. 25-30 minutter.",
-          "8. La den kjøle før du dekorerer med glasur."
-        ],
-        "en": [
-          "1. Melt butter and mix with sugar.",
-          "2. Whisk in eggs one at a time.",
-          "3. Mix flour, cocoa and baking powder.",
-          "4. Alternate adding dry ingredients and milk.",
-          "5. Add vanilla extract.",
-          "6. Pour batter into greased and floured pan.",
-          "7. Bake at 180°C for about 25-30 minutes.",
-          "8. Let cool before decorating with frosting."
-        ]
-      }
-    },
-    {
-      "id": "no_015",
-      "title": {
-        "no": "Krumkake",
-        "en": "Krumkake (Thin Cookies)"
-      },
-      "subtitle": {
-        "no": "Tradisjonelle norske tynne kaker",
-        "en": "Traditional Norwegian thin waffle cookies"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 60,
-      "servings": 24,
-      "category": "Other",
-      "tags": [
-        "norwegian",
-        "baking",
-        "traditional",
-        "cookies"
-      ],
-      "allergens": [
-        "gluten",
-        "dairy",
-        "eggs"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Smør",
-            "en": "Butter"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Egg",
-            "en": "Eggs"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "stk",
-            "en": "pieces"
-          }
-        },
-        {
-          "name": {
-            "no": "Hvetemel",
-            "en": "Wheat flour"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Kartoffelstivelse",
-            "en": "Potato starch"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Vaniljeekstrakt",
-            "en": "Vanilla extract"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "ts",
-            "en": "tsp"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Smelt smør og blanda det med sukker.",
-          "2. Visp inn egg.",
-          "3. Bland mel, kartoffelstivelse og vaniljeekstrakt.",
-          "4. Tilsett tørre ingredienser til smørblanden.",
-          "5. Varm opp krumkakejernet.",
-          "6. Legg en tesked deig i jernet og bak til den er gyllent.",
-          "7. Rull kakene mens de er varme rundt en kjegle.",
-          "8. La dem kjøle og stive.",
-          "9. Server med sjokolade eller fylling etter ønske."
-        ],
-        "en": [
-          "1. Melt butter and mix with sugar.",
-          "2. Whisk in eggs.",
-          "3. Mix flour, potato starch and vanilla extract.",
-          "4. Add dry ingredients to butter mixture.",
-          "5. Heat krumkake iron.",
-          "6. Put a teaspoon of dough in iron and bake until golden.",
-          "7. Roll cookies while warm around a cone.",
-          "8. Let cool and harden.",
-          "9. Serve with chocolate or filling if desired."
-        ]
-      }
-    },
-    {
       "id": "no_016",
       "title": {
         "no": "Sodd",
@@ -1705,12 +1210,13 @@
       "difficulty": "medium",
       "cookTimeMinutes": 150,
       "servings": 4,
-      "category": "Meat",
+      "category": "Soups & Stews",
       "tags": [
         "traditional",
         "norwegian",
         "soup",
-        "comfort-food"
+        "comfort-food",
+        "cuisine:norwegian"
       ],
       "allergens": [
         "egg"
@@ -1839,12 +1345,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 40,
       "servings": 4,
-      "category": "Meat",
+      "category": "Sides & Light Meals",
       "tags": [
         "traditional",
         "norwegian",
         "quick",
-        "street-food"
+        "street-food",
+        "cuisine:norwegian"
       ],
       "allergens": [
         "gluten"
@@ -1962,12 +1469,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 45,
       "servings": 4,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "traditional",
         "norwegian",
         "baked",
-        "comfort-food"
+        "comfort-food",
+        "cuisine:norwegian"
       ],
       "allergens": [
         "fish",
@@ -2088,11 +1596,12 @@
       "difficulty": "medium",
       "cookTimeMinutes": 50,
       "servings": 4,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "traditional",
         "norwegian",
-        "comfort-food"
+        "comfort-food",
+        "cuisine:norwegian"
       ],
       "allergens": [
         "fish",
@@ -2223,12 +1732,13 @@
       "difficulty": "hard",
       "cookTimeMinutes": 100,
       "servings": 4,
-      "category": "Meat",
+      "category": "Beef & Red Meat",
       "tags": [
         "traditional",
         "norwegian",
         "game",
-        "festive"
+        "festive",
+        "cuisine:norwegian"
       ],
       "allergens": [
         "dairy"
@@ -2335,12 +1845,13 @@
       "difficulty": "medium",
       "cookTimeMinutes": 120,
       "servings": 4,
-      "category": "Meat",
+      "category": "Soups & Stews",
       "tags": [
         "traditional",
         "norwegian",
         "game",
-        "slow-cooked"
+        "slow-cooked",
+        "cuisine:norwegian"
       ],
       "allergens": [],
       "ingredients": [
@@ -2467,12 +1978,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 30,
       "servings": 4,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "traditional",
         "norwegian",
         "fish",
-        "quick"
+        "quick",
+        "cuisine:norwegian"
       ],
       "allergens": [
         "fish",
@@ -2569,142 +2081,6 @@
       }
     },
     {
-      "id": "no_023",
-      "title": {
-        "no": "Vafler",
-        "en": "Norwegian Waffles"
-      },
-      "subtitle": {
-        "no": "Hjerteformede vafler servert med rømme og brunost til middag",
-        "en": "Heart-shaped waffles served with sour cream and brown cheese for dinner"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 30,
-      "servings": 4,
-      "category": "Other",
-      "tags": [
-        "traditional",
-        "norwegian",
-        "quick",
-        "comfort-food"
-      ],
-      "allergens": [
-        "gluten",
-        "dairy",
-        "egg"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Mel",
-            "en": "Flour"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Melk",
-            "en": "Milk"
-          },
-          "amount": 5,
-          "unit": {
-            "no": "desiliter",
-            "en": "deciliters"
-          }
-        },
-        {
-          "name": {
-            "no": "Egg",
-            "en": "Eggs"
-          },
-          "amount": 3,
-          "unit": {
-            "no": "stk",
-            "en": "pieces"
-          }
-        },
-        {
-          "name": {
-            "no": "Smør (smeltet)",
-            "en": "Butter (melted)"
-          },
-          "amount": 75,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "spiseskje",
-            "en": "tablespoon"
-          }
-        },
-        {
-          "name": {
-            "no": "Kardemomme",
-            "en": "Cardamom"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "teskje",
-            "en": "teaspoon"
-          }
-        },
-        {
-          "name": {
-            "no": "Rømme (til servering)",
-            "en": "Sour cream (for serving)"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "desiliter",
-            "en": "deciliters"
-          }
-        },
-        {
-          "name": {
-            "no": "Brunost (til servering)",
-            "en": "Brown cheese (for serving)"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Visp egg og sukker sammen i en bolle.",
-          "2. Tilsett mel og melk vekselvis under omrøring til en jevn røre.",
-          "3. Rør inn smeltet smør og kardemomme.",
-          "4. La røren svelle i kjøleskap i minst 20 minutter.",
-          "5. Varm opp vaffeljernet og stek vafler til de er gyldne og gjennomstekte.",
-          "6. Server vaflene varme med rømme og skiver av brunost.",
-          "7. Spis umiddelbart for best resultat."
-        ],
-        "en": [
-          "1. Whisk eggs and sugar together in a bowl.",
-          "2. Add flour and milk alternately while stirring to form a smooth batter.",
-          "3. Stir in melted butter and cardamom.",
-          "4. Let the batter rest in the fridge for at least 20 minutes.",
-          "5. Heat the waffle iron and bake waffles until golden and cooked through.",
-          "6. Serve the waffles warm with sour cream and slices of brown cheese.",
-          "7. Eat immediately for best results."
-        ]
-      }
-    },
-    {
       "id": "no_024",
       "title": {
         "no": "Pytt i Panne",
@@ -2717,12 +2093,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 35,
       "servings": 4,
-      "category": "Meat",
+      "category": "Beef & Red Meat",
       "tags": [
         "traditional",
         "norwegian",
         "leftovers",
-        "quick"
+        "quick",
+        "cuisine:norwegian"
       ],
       "allergens": [
         "egg"
@@ -2829,12 +2206,13 @@
       "difficulty": "medium",
       "cookTimeMinutes": 100,
       "servings": 4,
-      "category": "Meat",
+      "category": "Soups & Stews",
       "tags": [
         "traditional",
         "sami",
         "norwegian",
-        "slow-cooked"
+        "slow-cooked",
+        "cuisine:norwegian"
       ],
       "allergens": [],
       "ingredients": [
@@ -2939,12 +2317,13 @@
       "difficulty": "medium",
       "cookTimeMinutes": 40,
       "servings": 4,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "traditional",
         "norwegian",
         "fish",
-        "coastal"
+        "coastal",
+        "cuisine:norwegian"
       ],
       "allergens": [
         "fish",
@@ -3041,12 +2420,13 @@
       "difficulty": "hard",
       "cookTimeMinutes": 90,
       "servings": 4,
-      "category": "Meat",
+      "category": "Beef & Red Meat",
       "tags": [
         "traditional",
         "norwegian",
         "comfort-food",
-        "slow-cooked"
+        "slow-cooked",
+        "cuisine:norwegian"
       ],
       "allergens": [
         "gluten"
@@ -3153,12 +2533,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 35,
       "servings": 4,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "traditional",
         "norwegian",
         "fish",
-        "quick"
+        "quick",
+        "cuisine:norwegian"
       ],
       "allergens": [
         "fish",
@@ -3278,11 +2659,12 @@
       "difficulty": "medium",
       "cookTimeMinutes": 75,
       "servings": 4,
-      "category": "Meat",
+      "category": "Ground Meat & Sausages",
       "tags": [
         "traditional",
         "norwegian",
-        "comfort-food"
+        "comfort-food",
+        "cuisine:norwegian"
       ],
       "allergens": [
         "dairy",
@@ -3401,12 +2783,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 120,
       "servings": 4,
-      "category": "Other",
+      "category": "Soups & Stews",
       "tags": [
         "traditional",
         "norwegian",
         "soup",
-        "comfort-food"
+        "comfort-food",
+        "cuisine:norwegian"
       ],
       "allergens": [],
       "ingredients": [
@@ -3522,11 +2905,12 @@
       "difficulty": "easy",
       "cookTimeMinutes": 10,
       "servings": 4,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "fish",
         "marinated",
-        "traditional"
+        "traditional",
+        "quick"
       ],
       "allergens": [
         "fish"
@@ -3618,7 +3002,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 0,
       "servings": 8,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "salmon",
         "cured",
@@ -3718,7 +3102,7 @@
       "difficulty": "hard",
       "cookTimeMinutes": 60,
       "servings": 6,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "salmon",
         "smoked",
@@ -3818,11 +3202,12 @@
       "difficulty": "easy",
       "cookTimeMinutes": 5,
       "servings": 1,
-      "category": "Other",
+      "category": "Sides & Light Meals",
       "tags": [
         "sandwich",
         "cheese",
-        "traditional"
+        "traditional",
+        "quick"
       ],
       "allergens": [
         "dairy",
@@ -3902,11 +3287,12 @@
       "difficulty": "easy",
       "cookTimeMinutes": 5,
       "servings": 1,
-      "category": "Meat",
+      "category": "Sides & Light Meals",
       "tags": [
         "sandwich",
         "pâté",
-        "traditional"
+        "traditional",
+        "quick"
       ],
       "allergens": [
         "meat",
@@ -3998,11 +3384,12 @@
       "difficulty": "easy",
       "cookTimeMinutes": 10,
       "servings": 1,
-      "category": "Fish",
+      "category": "Salads",
       "tags": [
         "sandwich",
         "shrimp",
-        "traditional"
+        "traditional",
+        "quick"
       ],
       "allergens": [
         "shellfish",
@@ -4096,11 +3483,12 @@
       "difficulty": "easy",
       "cookTimeMinutes": 5,
       "servings": 1,
-      "category": "Meat",
+      "category": "Sides & Light Meals",
       "tags": [
         "sandwich",
         "beef",
-        "traditional"
+        "traditional",
+        "quick"
       ],
       "allergens": [
         "meat",
@@ -4192,11 +3580,12 @@
       "difficulty": "easy",
       "cookTimeMinutes": 10,
       "servings": 1,
-      "category": "Other",
+      "category": "Salads",
       "tags": [
         "sandwich",
         "egg",
-        "traditional"
+        "traditional",
+        "quick"
       ],
       "allergens": [
         "eggs",
@@ -4290,11 +3679,12 @@
       "difficulty": "easy",
       "cookTimeMinutes": 5,
       "servings": 1,
-      "category": "Fish",
+      "category": "Sides & Light Meals",
       "tags": [
         "sandwich",
         "caviar",
-        "luxury"
+        "luxury",
+        "quick"
       ],
       "allergens": [
         "fish",
@@ -4388,11 +3778,12 @@
       "difficulty": "easy",
       "cookTimeMinutes": 5,
       "servings": 1,
-      "category": "Meat",
+      "category": "Sides & Light Meals",
       "tags": [
         "sandwich",
         "lamb",
-        "traditional"
+        "traditional",
+        "quick"
       ],
       "allergens": [
         "meat",
@@ -4472,1128 +3863,6 @@
       }
     },
     {
-      "id": "no_041",
-      "title": {
-        "no": "Multekrem",
-        "en": "Cloudberry Cream"
-      },
-      "subtitle": {
-        "no": "Norsk dessert med multer",
-        "en": "Norwegian dessert with cloudberries"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 10,
-      "servings": 4,
-      "category": "Other",
-      "tags": [
-        "dessert",
-        "cloudberry",
-        "traditional"
-      ],
-      "allergens": [
-        "dairy"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "multer",
-            "en": "cloudberries"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "fløte",
-            "en": "heavy cream"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "sukker",
-            "en": "sugar"
-          },
-          "amount": 50,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "egg",
-            "en": "egg"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "stykk",
-            "en": "piece"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Pisk fløte til stiv",
-          "2. Pisk eggeplommen",
-          "3. Fold inn multene",
-          "4. Serv i glas",
-          "5. Garnér med multer"
-        ],
-        "en": [
-          "1. Whip cream until stiff",
-          "2. Whip egg yolk",
-          "3. Fold in cloudberries",
-          "4. Serve in glasses",
-          "5. Garnish with cloudberries"
-        ]
-      }
-    },
-    {
-      "id": "no_042",
-      "title": {
-        "no": "Riskrem",
-        "en": "Rice Cream"
-      },
-      "subtitle": {
-        "no": "Klassisk norsk dessert",
-        "en": "Classic Norwegian dessert"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 25,
-      "servings": 4,
-      "category": "Other",
-      "tags": [
-        "dessert",
-        "rice",
-        "traditional"
-      ],
-      "allergens": [
-        "dairy"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "ris",
-            "en": "rice"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "melk",
-            "en": "milk"
-          },
-          "amount": 500,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "fløte",
-            "en": "heavy cream"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "sukker",
-            "en": "sugar"
-          },
-          "amount": 50,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "mandler",
-            "en": "almonds"
-          },
-          "amount": 50,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "hjørnepølse",
-            "en": "vanilla"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "stykk",
-            "en": "piece"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Kok ris i melk til mørt",
-          "2. Kjøl",
-          "3. Pisk fløte",
-          "4. Fold fløte i risen",
-          "5. Tilsett sukker og mandler",
-          "6. Serv kald"
-        ],
-        "en": [
-          "1. Cook rice in milk until soft",
-          "2. Cool",
-          "3. Whip cream",
-          "4. Fold cream into rice",
-          "5. Add sugar and almonds",
-          "6. Serve cold"
-        ]
-      }
-    },
-    {
-      "id": "no_043",
-      "title": {
-        "no": "Krumkaker",
-        "en": "Krumkake Wafers"
-      },
-      "subtitle": {
-        "no": "Klassiske norske vafler",
-        "en": "Classic Norwegian waffles"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 30,
-      "servings": 12,
-      "category": "Other",
-      "tags": [
-        "waffle",
-        "traditional",
-        "dessert"
-      ],
-      "allergens": [
-        "wheat",
-        "eggs",
-        "dairy"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "mel",
-            "en": "flour"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "smør",
-            "en": "butter"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "sukker",
-            "en": "sugar"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "egg",
-            "en": "eggs"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "stykk",
-            "en": "pieces"
-          }
-        },
-        {
-          "name": {
-            "no": "melk",
-            "en": "milk"
-          },
-          "amount": 50,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Visp smør og sukker",
-          "2. Tilsett egg",
-          "3. Tilsett mel og melk",
-          "4. Elt deigen",
-          "5. Bak i krumkakejern",
-          "6. Rull rundt kjepp mens varm",
-          "7. Kjøl"
-        ],
-        "en": [
-          "1. Whisk butter and sugar",
-          "2. Add eggs",
-          "3. Add flour and milk",
-          "4. Mix dough",
-          "5. Bake in waffle iron",
-          "6. Roll around stick while warm",
-          "7. Cool"
-        ]
-      }
-    },
-    {
-      "id": "no_044",
-      "title": {
-        "no": "Goro",
-        "en": "Goro Wafers"
-      },
-      "subtitle": {
-        "no": "Klassiske kardemomme vafler",
-        "en": "Classic cardamom waffles"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 35,
-      "servings": 12,
-      "category": "Other",
-      "tags": [
-        "waffle",
-        "cardamom",
-        "traditional"
-      ],
-      "allergens": [
-        "wheat",
-        "eggs",
-        "dairy"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "mel",
-            "en": "flour"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "smør",
-            "en": "butter"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "sukker",
-            "en": "sugar"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "egg",
-            "en": "eggs"
-          },
-          "amount": 3,
-          "unit": {
-            "no": "stykk",
-            "en": "pieces"
-          }
-        },
-        {
-          "name": {
-            "no": "kardemomme",
-            "en": "cardamom"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "teskje",
-            "en": "teaspoons"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Visp smør og sukker",
-          "2. Tilsett egg",
-          "3. Tilsett mel og kardemomme",
-          "4. Bak i gorojern",
-          "5. La kjøle på rist",
-          "6. Server tørt"
-        ],
-        "en": [
-          "1. Whisk butter and sugar",
-          "2. Add eggs",
-          "3. Add flour and cardamom",
-          "4. Bake in goro iron",
-          "5. Cool on wire rack",
-          "6. Serve dry"
-        ]
-      }
-    },
-    {
-      "id": "no_045",
-      "title": {
-        "no": "Sirupssnipper",
-        "en": "Syrup Snips"
-      },
-      "subtitle": {
-        "no": "Søte og krystalske kjeks",
-        "en": "Sweet and crispy cookies"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 20,
-      "servings": 20,
-      "category": "Other",
-      "tags": [
-        "cookies",
-        "syrup",
-        "crispy"
-      ],
-      "allergens": [
-        "wheat",
-        "dairy"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "mel",
-            "en": "flour"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "sirup",
-            "en": "syrup"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "smør",
-            "en": "butter"
-          },
-          "amount": 75,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "sukker",
-            "en": "sugar"
-          },
-          "amount": 50,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "natriumbikarbonat",
-            "en": "baking soda"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "teskje",
-            "en": "teaspoon"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Smelt sirup og smør",
-          "2. Tilsett sukker",
-          "3. Kjøl",
-          "4. Tilsett mel og natron",
-          "5. Rull ut tynn",
-          "6. Skjær i biter",
-          "7. Bak på 180°C 10 min"
-        ],
-        "en": [
-          "1. Melt syrup and butter",
-          "2. Add sugar",
-          "3. Cool",
-          "4. Add flour and baking soda",
-          "5. Roll out thin",
-          "6. Cut into pieces",
-          "7. Bake at 180°C 10 min"
-        ]
-      }
-    },
-    {
-      "id": "no_046",
-      "title": {
-        "no": "Serinakaker",
-        "en": "Baked Pastries"
-      },
-      "subtitle": {
-        "no": "Syltete bakervarer",
-        "en": "Jammed baked goods"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 30,
-      "servings": 12,
-      "category": "Other",
-      "tags": [
-        "pastry",
-        "jam",
-        "traditional"
-      ],
-      "allergens": [
-        "wheat",
-        "eggs",
-        "dairy"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "mel",
-            "en": "flour"
-          },
-          "amount": 250,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "smør",
-            "en": "butter"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "egg",
-            "en": "eggs"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "stykk",
-            "en": "pieces"
-          }
-        },
-        {
-          "name": {
-            "no": "syltetøy",
-            "en": "jam"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "sukker",
-            "en": "sugar"
-          },
-          "amount": 50,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Visp smør og sukker",
-          "2. Tilsett egg",
-          "3. Tilsett mel",
-          "4. Elt deigen",
-          "5. Rull ut",
-          "6. Fylt med syltetøy",
-          "7. Rull opp og skjær",
-          "8. Bak på 190°C 15 min"
-        ],
-        "en": [
-          "1. Whisk butter and sugar",
-          "2. Add eggs",
-          "3. Add flour",
-          "4. Knead dough",
-          "5. Roll out",
-          "6. Fill with jam",
-          "7. Roll up and slice",
-          "8. Bake at 190°C 15 min"
-        ]
-      }
-    },
-    {
-      "id": "no_047",
-      "title": {
-        "no": "Fattigmann",
-        "en": "Poor Man's Pastry"
-      },
-      "subtitle": {
-        "no": "Tradisjonell fritert deig",
-        "en": "Traditional fried dough"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 25,
-      "servings": 12,
-      "category": "Other",
-      "tags": [
-        "fried",
-        "pastry",
-        "traditional"
-      ],
-      "allergens": [
-        "wheat",
-        "eggs",
-        "dairy"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "mel",
-            "en": "flour"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "egg",
-            "en": "eggs"
-          },
-          "amount": 3,
-          "unit": {
-            "no": "stykk",
-            "en": "pieces"
-          }
-        },
-        {
-          "name": {
-            "no": "smør",
-            "en": "butter"
-          },
-          "amount": 50,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "sukker",
-            "en": "sugar"
-          },
-          "amount": 30,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "kardemomme",
-            "en": "cardamom"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "teskje",
-            "en": "teaspoon"
-          }
-        },
-        {
-          "name": {
-            "no": "olje",
-            "en": "oil"
-          },
-          "amount": 500,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Visp egg med sukker",
-          "2. Tilsett mel og kardemomme",
-          "3. Elt deigen",
-          "4. Rull tynn og skjær",
-          "5. Fritt i olje",
-          "6. Server med sukker"
-        ],
-        "en": [
-          "1. Whisk eggs with sugar",
-          "2. Add flour and cardamom",
-          "3. Knead dough",
-          "4. Roll thin and cut",
-          "5. Deep fry in oil",
-          "6. Serve with sugar"
-        ]
-      }
-    },
-    {
-      "id": "no_048",
-      "title": {
-        "no": "Sandkaker",
-        "en": "Sand Cakes"
-      },
-      "subtitle": {
-        "no": "Klassiske smørkaker",
-        "en": "Classic butter cakes"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 20,
-      "servings": 12,
-      "category": "Other",
-      "tags": [
-        "cakes",
-        "butter",
-        "traditional"
-      ],
-      "allergens": [
-        "wheat",
-        "eggs",
-        "dairy"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "mel",
-            "en": "flour"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "smør",
-            "en": "butter"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "egg",
-            "en": "eggs"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "stykk",
-            "en": "pieces"
-          }
-        },
-        {
-          "name": {
-            "no": "sukker",
-            "en": "sugar"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "vaniljestang",
-            "en": "vanilla pod"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "stykk",
-            "en": "piece"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Visp smør og sukker",
-          "2. Tilsett egg",
-          "3. Tilsett mel og vaniljefrø",
-          "4. Fyll i form",
-          "5. Bak på 180°C 15 min",
-          "6. Kjøl på rist"
-        ],
-        "en": [
-          "1. Whisk butter and sugar",
-          "2. Add eggs",
-          "3. Add flour and vanilla seeds",
-          "4. Fill molds",
-          "5. Bake at 180°C 15 min",
-          "6. Cool on rack"
-        ]
-      }
-    },
-    {
-      "id": "no_049",
-      "title": {
-        "no": "Berlinerkranser",
-        "en": "Berlinerkranser Wreaths"
-      },
-      "subtitle": {
-        "no": "Klassiske kransekaker",
-        "en": "Classic wreath cakes"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 25,
-      "servings": 12,
-      "category": "Other",
-      "tags": [
-        "cakes",
-        "shaped",
-        "traditional"
-      ],
-      "allergens": [
-        "wheat",
-        "eggs",
-        "dairy",
-        "nuts"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "mel",
-            "en": "flour"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "smør",
-            "en": "butter"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "egg",
-            "en": "eggs"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "stykk",
-            "en": "piece"
-          }
-        },
-        {
-          "name": {
-            "no": "sukker",
-            "en": "sugar"
-          },
-          "amount": 75,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "mandelmjøl",
-            "en": "almond flour"
-          },
-          "amount": 50,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Visp smør og sukker",
-          "2. Tilsett egg",
-          "3. Tilsett mel og mandelmjøl",
-          "4. Press gjennom sprøyte",
-          "5. Form kransler",
-          "6. Bak på 180°C 12 min"
-        ],
-        "en": [
-          "1. Whisk butter and sugar",
-          "2. Add eggs",
-          "3. Add flour and almond flour",
-          "4. Press through piping bag",
-          "5. Form wreaths",
-          "6. Bake at 180°C 12 min"
-        ]
-      }
-    },
-    {
-      "id": "no_050",
-      "title": {
-        "no": "Pepperkaker",
-        "en": "Gingerbread Cookies"
-      },
-      "subtitle": {
-        "no": "Klassiske krydrete kjeks",
-        "en": "Classic spiced cookies"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 30,
-      "servings": 20,
-      "category": "Other",
-      "tags": [
-        "cookies",
-        "ginger",
-        "spiced"
-      ],
-      "allergens": [
-        "wheat",
-        "dairy"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "mel",
-            "en": "flour"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "sirup",
-            "en": "syrup"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "smør",
-            "en": "butter"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "gjær",
-            "en": "yeast"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "teskje",
-            "en": "teaspoon"
-          }
-        },
-        {
-          "name": {
-            "no": "krydder",
-            "en": "spices"
-          },
-          "amount": 3,
-          "unit": {
-            "no": "teskje",
-            "en": "teaspoons"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Smelt sirup og smør",
-          "2. Tilsett mel og krydder",
-          "3. Kjøl deigen",
-          "4. Rull ut og skjær",
-          "5. Bak på 170°C 10 min"
-        ],
-        "en": [
-          "1. Melt syrup and butter",
-          "2. Add flour and spices",
-          "3. Cool dough",
-          "4. Roll out and cut",
-          "5. Bake at 170°C 10 min"
-        ]
-      }
-    },
-    {
-      "id": "no_051",
-      "title": {
-        "no": "Julekake",
-        "en": "Christmas Cake"
-      },
-      "subtitle": {
-        "no": "Klassisk norsk julekake",
-        "en": "Classic Norwegian Christmas cake"
-      },
-      "difficulty": "hard",
-      "cookTimeMinutes": 180,
-      "servings": 12,
-      "category": "Other",
-      "tags": [
-        "cake",
-        "christmas",
-        "traditional"
-      ],
-      "allergens": [
-        "wheat",
-        "eggs",
-        "dairy",
-        "nuts"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "mel",
-            "en": "flour"
-          },
-          "amount": 400,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "smør",
-            "en": "butter"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "sukker",
-            "en": "sugar"
-          },
-          "amount": 400,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "egg",
-            "en": "eggs"
-          },
-          "amount": 6,
-          "unit": {
-            "no": "stykk",
-            "en": "pieces"
-          }
-        },
-        {
-          "name": {
-            "no": "tørket frukt",
-            "en": "dried fruit"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "mandler",
-            "en": "almonds"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Visp smør og sukker",
-          "2. Tilsett egg en om gangen",
-          "3. Tilsett mel",
-          "4. Fold in frukt og mandler",
-          "5. Hell i form",
-          "6. Bak på 150°C 2 timer"
-        ],
-        "en": [
-          "1. Whisk butter and sugar",
-          "2. Add eggs one by one",
-          "3. Add flour",
-          "4. Fold in fruit and almonds",
-          "5. Pour into mold",
-          "6. Bake at 150°C 2 hours"
-        ]
-      }
-    },
-    {
       "id": "no_052",
       "title": {
         "no": "Lefse",
@@ -5606,7 +3875,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 40,
       "servings": 8,
-      "category": "Other",
+      "category": "Sides & Light Meals",
       "tags": [
         "bread",
         "flatbread",
@@ -5696,11 +3965,12 @@
       "difficulty": "easy",
       "cookTimeMinutes": 20,
       "servings": 6,
-      "category": "Other",
+      "category": "Sides & Light Meals",
       "tags": [
         "bread",
         "flatbread",
-        "simple"
+        "simple",
+        "quick"
       ],
       "allergens": [
         "wheat"
@@ -5772,11 +4042,12 @@
       "difficulty": "medium",
       "cookTimeMinutes": 30,
       "servings": 6,
-      "category": "Other",
+      "category": "Sides & Light Meals",
       "tags": [
         "bread",
         "potato",
-        "traditional"
+        "traditional",
+        "quick"
       ],
       "allergens": [
         "wheat",
@@ -5861,1191 +4132,6 @@
       }
     },
     {
-      "id": "no_055",
-      "title": {
-        "no": "Skillingsboller",
-        "en": "Shilling Buns"
-      },
-      "subtitle": {
-        "no": "Søte brød boll",
-        "en": "Sweet bread bun"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 50,
-      "servings": 12,
-      "category": "Other",
-      "tags": [
-        "bread",
-        "sweet",
-        "bun"
-      ],
-      "allergens": [
-        "wheat",
-        "dairy",
-        "eggs"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "mel",
-            "en": "flour"
-          },
-          "amount": 500,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "melk",
-            "en": "milk"
-          },
-          "amount": 250,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "gjær",
-            "en": "yeast"
-          },
-          "amount": 10,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "sukker",
-            "en": "sugar"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "smør",
-            "en": "butter"
-          },
-          "amount": 75,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "egg",
-            "en": "eggs"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "stykk",
-            "en": "piece"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Varm melk med gjær",
-          "2. Bland mel og salt",
-          "3. Lag krater og helle gjær i",
-          "4. Knead deigen",
-          "5. La heve 1 time",
-          "6. Form boller",
-          "7. La heve 30 min",
-          "8. Bak på 200°C 20 min"
-        ],
-        "en": [
-          "1. Warm milk with yeast",
-          "2. Mix flour and salt",
-          "3. Make well and pour yeast in",
-          "4. Knead dough",
-          "5. Let rise 1 hour",
-          "6. Form buns",
-          "7. Let rise 30 min",
-          "8. Bake at 200°C 20 min"
-        ]
-      }
-    },
-    {
-      "id": "no_056",
-      "title": {
-        "no": "Kanelsnurrer",
-        "en": "Cinnamon Rolls"
-      },
-      "subtitle": {
-        "no": "Søte kanelruller",
-        "en": "Sweet cinnamon rolls"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 45,
-      "servings": 12,
-      "category": "Other",
-      "tags": [
-        "bread",
-        "cinnamon",
-        "sweet"
-      ],
-      "allergens": [
-        "wheat",
-        "dairy",
-        "eggs"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "mel",
-            "en": "flour"
-          },
-          "amount": 400,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "melk",
-            "en": "milk"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "gjær",
-            "en": "yeast"
-          },
-          "amount": 10,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "sukker",
-            "en": "sugar"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "smør",
-            "en": "butter"
-          },
-          "amount": 75,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "kanel",
-            "en": "cinnamon"
-          },
-          "amount": 10,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Gjør deig som for boller",
-          "2. La heve",
-          "3. Rull ut",
-          "4. Påfør smør og kanel",
-          "5. Rull opp",
-          "6. Skjær",
-          "7. La heve 30 min",
-          "8. Bak på 200°C 20 min"
-        ],
-        "en": [
-          "1. Make dough like for buns",
-          "2. Let rise",
-          "3. Roll out",
-          "4. Spread butter and cinnamon",
-          "5. Roll up",
-          "6. Cut",
-          "7. Let rise 30 min",
-          "8. Bake at 200°C 20 min"
-        ]
-      }
-    },
-    {
-      "id": "no_057",
-      "title": {
-        "no": "Vørterkake",
-        "en": "Vort Cake"
-      },
-      "subtitle": {
-        "no": "Mørkekake med krydder",
-        "en": "Dark cake with spices"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 40,
-      "servings": 8,
-      "category": "Other",
-      "tags": [
-        "cake",
-        "spiced",
-        "traditional"
-      ],
-      "allergens": [
-        "wheat",
-        "dairy",
-        "eggs"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "mel",
-            "en": "flour"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "vørtmel",
-            "en": "malt flour"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "smør",
-            "en": "butter"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "sukker",
-            "en": "sugar"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "egg",
-            "en": "eggs"
-          },
-          "amount": 3,
-          "unit": {
-            "no": "stykk",
-            "en": "pieces"
-          }
-        },
-        {
-          "name": {
-            "no": "krydder",
-            "en": "spices"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "teskje",
-            "en": "teaspoons"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Visp smør og sukker",
-          "2. Tilsett egg",
-          "3. Bland mel, vørtmel og krydder",
-          "4. Mix sammen",
-          "5. Hell i form",
-          "6. Bak på 180°C 30 min"
-        ],
-        "en": [
-          "1. Whisk butter and sugar",
-          "2. Add eggs",
-          "3. Mix flour, malt flour and spices",
-          "4. Mix together",
-          "5. Pour into mold",
-          "6. Bake at 180°C 30 min"
-        ]
-      }
-    },
-    {
-      "id": "no_058",
-      "title": {
-        "no": "Bløtkake",
-        "en": "Soft Cake"
-      },
-      "subtitle": {
-        "no": "Klassisk norsk krem kake",
-        "en": "Classic Norwegian cream cake"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 45,
-      "servings": 8,
-      "category": "Other",
-      "tags": [
-        "cake",
-        "cream",
-        "celebration"
-      ],
-      "allergens": [
-        "wheat",
-        "dairy",
-        "eggs"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "mel",
-            "en": "flour"
-          },
-          "amount": 250,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "sukker",
-            "en": "sugar"
-          },
-          "amount": 250,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "egg",
-            "en": "eggs"
-          },
-          "amount": 4,
-          "unit": {
-            "no": "stykk",
-            "en": "pieces"
-          }
-        },
-        {
-          "name": {
-            "no": "fløte",
-            "en": "cream"
-          },
-          "amount": 400,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "syltetøy",
-            "en": "jam"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "kokosnøtt",
-            "en": "coconut"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Visp egg og sukker",
-          "2. Fold mel inn",
-          "3. Hell i form",
-          "4. Bak på 180°C 25 min",
-          "5. Kjøl",
-          "6. Del i 2-3 lag",
-          "7. Påfør syltetøy og fløte",
-          "8. Sprø kokosnøtt på"
-        ],
-        "en": [
-          "1. Whisk eggs and sugar",
-          "2. Fold in flour",
-          "3. Pour into mold",
-          "4. Bake at 180°C 25 min",
-          "5. Cool",
-          "6. Divide into 2-3 layers",
-          "7. Spread jam and cream",
-          "8. Sprinkle coconut on"
-        ]
-      }
-    },
-    {
-      "id": "no_059",
-      "title": {
-        "no": "Eplekake",
-        "en": "Apple Cake"
-      },
-      "subtitle": {
-        "no": "Klassisk eple kake",
-        "en": "Classic apple cake"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 40,
-      "servings": 8,
-      "category": "Other",
-      "tags": [
-        "cake",
-        "apple",
-        "traditional"
-      ],
-      "allergens": [
-        "wheat",
-        "dairy",
-        "eggs"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "mel",
-            "en": "flour"
-          },
-          "amount": 250,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "smør",
-            "en": "butter"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "sukker",
-            "en": "sugar"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "egg",
-            "en": "eggs"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "stykk",
-            "en": "pieces"
-          }
-        },
-        {
-          "name": {
-            "no": "epler",
-            "en": "apples"
-          },
-          "amount": 400,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "kanel",
-            "en": "cinnamon"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "teskje",
-            "en": "teaspoons"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Visp smør og sukker",
-          "2. Tilsett egg og mel",
-          "3. Skjær epler i terninger",
-          "4. Fold epler og kanel inn",
-          "5. Hell i form",
-          "6. Bak på 180°C 35 min"
-        ],
-        "en": [
-          "1. Whisk butter and sugar",
-          "2. Add eggs and flour",
-          "3. Cut apples into cubes",
-          "4. Fold apples and cinnamon in",
-          "5. Pour into mold",
-          "6. Bake at 180°C 35 min"
-        ]
-      }
-    },
-    {
-      "id": "no_060",
-      "title": {
-        "no": "Trollkrem",
-        "en": "Troll Cream"
-      },
-      "subtitle": {
-        "no": "Klassisk dessert cream",
-        "en": "Classic dessert cream"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 15,
-      "servings": 4,
-      "category": "Other",
-      "tags": [
-        "dessert",
-        "cream",
-        "chocolate"
-      ],
-      "allergens": [
-        "dairy"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "sjokolade",
-            "en": "chocolate"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "fløte",
-            "en": "cream"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "sukker",
-            "en": "sugar"
-          },
-          "amount": 50,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "egg",
-            "en": "eggs"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "stykk",
-            "en": "piece"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Smelt sjokolade",
-          "2. Kjøl litt",
-          "3. Visp fløte",
-          "4. Visp egg med sukker",
-          "5. Fold sjokolade og fløte sammen",
-          "6. Serv i glas"
-        ],
-        "en": [
-          "1. Melt chocolate",
-          "2. Cool slightly",
-          "3. Whip cream",
-          "4. Whip egg with sugar",
-          "5. Fold chocolate and cream together",
-          "6. Serve in glasses"
-        ]
-      }
-    },
-    {
-      "id": "no_061",
-      "title": {
-        "no": "Rabarbragrøt",
-        "en": "Rhubarb Pudding"
-      },
-      "subtitle": {
-        "no": "Klassisk rhubarb dessert",
-        "en": "Classic rhubarb dessert"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 25,
-      "servings": 4,
-      "category": "Other",
-      "tags": [
-        "pudding",
-        "rhubarb",
-        "summer"
-      ],
-      "allergens": [],
-      "ingredients": [
-        {
-          "name": {
-            "no": "rabarbra",
-            "en": "rhubarb"
-          },
-          "amount": 600,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "sukker",
-            "en": "sugar"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "vann",
-            "en": "water"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "kartoffelstivelse",
-            "en": "cornstarch"
-          },
-          "amount": 20,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Skjær rabarbra i biter",
-          "2. Kok med sukker og vann",
-          "3. Bland stivelse med litt kaldt vann",
-          "4. Tilsett stivelsen",
-          "5. Kok til tykk",
-          "6. Serv kald"
-        ],
-        "en": [
-          "1. Cut rhubarb into pieces",
-          "2. Cook with sugar and water",
-          "3. Mix starch with cold water",
-          "4. Add starch",
-          "5. Cook until thick",
-          "6. Serve cold"
-        ]
-      }
-    },
-    {
-      "id": "no_062",
-      "title": {
-        "no": "Sviskegrøt",
-        "en": "Prune Pudding"
-      },
-      "subtitle": {
-        "no": "Klassisk dried fruit pudding",
-        "en": "Classic dried fruit pudding"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 30,
-      "servings": 4,
-      "category": "Other",
-      "tags": [
-        "pudding",
-        "fruit",
-        "traditional"
-      ],
-      "allergens": [],
-      "ingredients": [
-        {
-          "name": {
-            "no": "tørrkede plommer",
-            "en": "dried prunes"
-          },
-          "amount": 400,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "vann",
-            "en": "water"
-          },
-          "amount": 600,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "sukker",
-            "en": "sugar"
-          },
-          "amount": 50,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "kartoffelstivelse",
-            "en": "cornstarch"
-          },
-          "amount": 20,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "kanel",
-            "en": "cinnamon"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "teskje",
-            "en": "teaspoon"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Kok plommer i vann",
-          "2. Tilsett sukker",
-          "3. Kok 15 minutter",
-          "4. Bland stivelse og kanel",
-          "5. Tilsett stivelsen",
-          "6. Kok til tykk",
-          "7. Serv kald"
-        ],
-        "en": [
-          "1. Cook prunes in water",
-          "2. Add sugar",
-          "3. Cook 15 minutes",
-          "4. Mix starch and cinnamon",
-          "5. Add starch",
-          "6. Cook until thick",
-          "7. Serve cold"
-        ]
-      }
-    },
-    {
-      "id": "no_063",
-      "title": {
-        "no": "Tykkmelk",
-        "en": "Soured Milk"
-      },
-      "subtitle": {
-        "no": "Tradisjonell norsk melkedessert",
-        "en": "Traditional Norwegian milk dessert"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 10,
-      "servings": 4,
-      "category": "Other",
-      "tags": [
-        "dessert",
-        "milk",
-        "traditional"
-      ],
-      "allergens": [
-        "dairy"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "melk",
-            "en": "milk"
-          },
-          "amount": 500,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "surmelk",
-            "en": "sour milk"
-          },
-          "amount": 250,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "sukker",
-            "en": "sugar"
-          },
-          "amount": 30,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "kartoffelstivelse",
-            "en": "cornstarch"
-          },
-          "amount": 15,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Varm melk",
-          "2. Bland stivelse med surmelk",
-          "3. Tilsett stivelseblandingen",
-          "4. Rør konstant",
-          "5. Kok til tykk",
-          "6. Tilsett sukker",
-          "7. Serv"
-        ],
-        "en": [
-          "1. Heat milk",
-          "2. Mix starch with sour milk",
-          "3. Add starch mixture",
-          "4. Stir constantly",
-          "5. Cook until thick",
-          "6. Add sugar",
-          "7. Serve"
-        ]
-      }
-    },
-    {
-      "id": "no_064",
-      "title": {
-        "no": "Surmelk",
-        "en": "Sour Milk"
-      },
-      "subtitle": {
-        "no": "Klassisk norsk surmelk",
-        "en": "Classic Norwegian sour milk"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 0,
-      "servings": 4,
-      "category": "Other",
-      "tags": [
-        "dessert",
-        "milk",
-        "traditional"
-      ],
-      "allergens": [
-        "dairy"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "melk",
-            "en": "milk"
-          },
-          "amount": 500,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "fløte",
-            "en": "cream"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "surmelkkulturer",
-            "en": "sour milk cultures"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "pakke",
-            "en": "package"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Varm melk og fløte til 40°C",
-          "2. Tilsett kultura",
-          "3. La stå 8-12 timer",
-          "4. Serv kald med granola eller frukt"
-        ],
-        "en": [
-          "1. Heat milk and cream to 40°C",
-          "2. Add cultures",
-          "3. Let sit 8-12 hours",
-          "4. Serve cold with granola or fruit"
-        ]
-      }
-    },
-    {
-      "id": "no_065",
-      "title": {
-        "no": "Kesam med Bær",
-        "en": "Curd with Berries"
-      },
-      "subtitle": {
-        "no": "Klassisk kesam dessert",
-        "en": "Classic curd dessert"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 15,
-      "servings": 4,
-      "category": "Other",
-      "tags": [
-        "dessert",
-        "curd",
-        "berries"
-      ],
-      "allergens": [
-        "dairy"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "melk",
-            "en": "milk"
-          },
-          "amount": 500,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "kesam",
-            "en": "curd"
-          },
-          "amount": 250,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "sukker",
-            "en": "sugar"
-          },
-          "amount": 50,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "bær",
-            "en": "berries"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Varm melk",
-          "2. Tilsett kesam",
-          "3. Stir forsiktig",
-          "4. Tilsett sukker",
-          "5. Kjøl",
-          "6. Serv med bær"
-        ],
-        "en": [
-          "1. Heat milk",
-          "2. Add curd",
-          "3. Stir gently",
-          "4. Add sugar",
-          "5. Cool",
-          "6. Serve with berries"
-        ]
-      }
-    },
-    {
-      "id": "no_066",
-      "title": {
-        "no": "Fløtevelling",
-        "en": "Cream Velling"
-      },
-      "subtitle": {
-        "no": "Klassisk fløte dessert",
-        "en": "Classic cream dessert"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 20,
-      "servings": 4,
-      "category": "Other",
-      "tags": [
-        "dessert",
-        "cream",
-        "traditional"
-      ],
-      "allergens": [
-        "dairy"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "fløte",
-            "en": "cream"
-          },
-          "amount": 250,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "melk",
-            "en": "milk"
-          },
-          "amount": 250,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "kartoffelstivelse",
-            "en": "cornstarch"
-          },
-          "amount": 30,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "sukker",
-            "en": "sugar"
-          },
-          "amount": 50,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "vaniljefrø",
-            "en": "vanilla seeds"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "stykk",
-            "en": "piece"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Bland stivelse med melk",
-          "2. Varm fløte",
-          "3. Tilsett stivelseblandingen",
-          "4. Rør konstant",
-          "5. Kok til tykk",
-          "6. Tilsett sukker og vaniljefrø",
-          "7. Serv"
-        ],
-        "en": [
-          "1. Mix starch with milk",
-          "2. Heat cream",
-          "3. Add starch mixture",
-          "4. Stir constantly",
-          "5. Cook until thick",
-          "6. Add sugar and vanilla seeds",
-          "7. Serve"
-        ]
-      }
-    },
-    {
       "id": "no_067",
       "title": {
         "no": "Fårefrikassé",
@@ -7058,7 +4144,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 60,
       "servings": 4,
-      "category": "Meat",
+      "category": "Soups & Stews",
       "tags": [
         "lamb",
         "stew",
@@ -7172,7 +4258,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 35,
       "servings": 4,
-      "category": "Meat",
+      "category": "Beef & Red Meat",
       "tags": [
         "lamb",
         "fried",
@@ -7272,7 +4358,7 @@
       "difficulty": "hard",
       "cookTimeMinutes": 90,
       "servings": 6,
-      "category": "Meat",
+      "category": "Beef & Red Meat",
       "tags": [
         "lamb",
         "roasted",
@@ -7370,7 +4456,7 @@
       "difficulty": "hard",
       "cookTimeMinutes": 120,
       "servings": 8,
-      "category": "Meat",
+      "category": "Pork",
       "tags": [
         "pork",
         "roasted",
@@ -7468,7 +4554,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 120,
       "servings": 6,
-      "category": "Meat",
+      "category": "Pork",
       "tags": [
         "pork",
         "ribs",
@@ -7555,11 +4641,12 @@
       "difficulty": "easy",
       "cookTimeMinutes": 20,
       "servings": 4,
-      "category": "Meat",
+      "category": "Ground Meat & Sausages",
       "tags": [
         "sausage",
         "patties",
-        "traditional"
+        "traditional",
+        "quick"
       ],
       "allergens": [
         "meat",
@@ -7652,10 +4739,11 @@
       "difficulty": "medium",
       "cookTimeMinutes": 20,
       "servings": 4,
-      "category": "Meat",
+      "category": "Ground Meat & Sausages",
       "tags": [
         "sausage",
-        "traditional"
+        "traditional",
+        "quick"
       ],
       "allergens": [
         "meat",
@@ -7750,11 +4838,12 @@
       "difficulty": "medium",
       "cookTimeMinutes": 20,
       "servings": 4,
-      "category": "Meat",
+      "category": "Ground Meat & Sausages",
       "tags": [
         "sausage",
         "lamb",
-        "traditional"
+        "traditional",
+        "quick"
       ],
       "allergens": [
         "meat"
@@ -7846,7 +4935,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 0,
       "servings": 6,
-      "category": "Meat",
+      "category": "Sides & Light Meals",
       "tags": [
         "cured meat",
         "charcuterie",
@@ -7942,7 +5031,7 @@
       "difficulty": "hard",
       "cookTimeMinutes": 0,
       "servings": 8,
-      "category": "Meat",
+      "category": "Beef & Red Meat",
       "tags": [
         "cured",
         "traditional",
@@ -8029,7 +5118,7 @@
       "difficulty": "hard",
       "cookTimeMinutes": 0,
       "servings": 10,
-      "category": "Meat",
+      "category": "Pork",
       "tags": [
         "cured",
         "traditional",
@@ -8116,7 +5205,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 45,
       "servings": 6,
-      "category": "Meat",
+      "category": "Other",
       "tags": [
         "liver",
         "paste",
@@ -8215,7 +5304,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 45,
       "servings": 4,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "fish",
         "salt",
@@ -8327,7 +5416,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 40,
       "servings": 4,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "fish",
         "dried",
@@ -8421,7 +5510,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 35,
       "servings": 4,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "fish",
         "baked",
@@ -8520,11 +5609,12 @@
       "difficulty": "easy",
       "cookTimeMinutes": 25,
       "servings": 4,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "fish",
         "mackerel",
-        "tomato"
+        "tomato",
+        "quick"
       ],
       "allergens": [
         "fish"
@@ -8618,11 +5708,12 @@
       "difficulty": "medium",
       "cookTimeMinutes": 30,
       "servings": 4,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "fish",
         "baked",
-        "white fish"
+        "white fish",
+        "quick"
       ],
       "allergens": [
         "fish",
@@ -8731,11 +5822,12 @@
       "difficulty": "easy",
       "cookTimeMinutes": 20,
       "servings": 4,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "fish",
         "boiled",
-        "simple"
+        "simple",
+        "quick"
       ],
       "allergens": [
         "fish"
@@ -8825,7 +5917,7 @@
       "difficulty": "hard",
       "cookTimeMinutes": 0,
       "servings": 8,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "fermented",
         "traditional",
@@ -8923,7 +6015,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 0,
       "servings": 6,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "roe",
         "cured",
@@ -9019,11 +6111,12 @@
       "difficulty": "easy",
       "cookTimeMinutes": 30,
       "servings": 4,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "shellfish",
         "crab",
-        "boiled"
+        "boiled",
+        "quick"
       ],
       "allergens": [
         "shellfish"
@@ -9106,7 +6199,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 1440,
       "servings": 6,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "cured",
         "traditional",
@@ -9204,7 +6297,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 45,
       "servings": 4,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "seafood",
         "traditional",
@@ -9302,7 +6395,7 @@
       "difficulty": "hard",
       "cookTimeMinutes": 60,
       "servings": 6,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "seafood",
         "luxury",
@@ -9398,7 +6491,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 15,
       "servings": 4,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "seafood",
         "elegant",
@@ -9494,11 +6587,12 @@
       "difficulty": "medium",
       "cookTimeMinutes": 25,
       "servings": 4,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "seafood",
         "elegant",
-        "traditional"
+        "traditional",
+        "quick"
       ],
       "allergens": [
         "shellfish",
@@ -9596,7 +6690,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 1440,
       "servings": 6,
-      "category": "Fish",
+      "category": "Other",
       "tags": [
         "traditional",
         "marinated",
@@ -9705,11 +6799,12 @@
       "difficulty": "easy",
       "cookTimeMinutes": 30,
       "servings": 6,
-      "category": "Other",
+      "category": "Salads",
       "tags": [
         "salad",
         "traditional",
-        "side"
+        "side",
+        "quick"
       ],
       "allergens": [],
       "ingredients": [
@@ -9810,7 +6905,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 40,
       "servings": 6,
-      "category": "Other",
+      "category": "Salads",
       "tags": [
         "salad",
         "traditional",
@@ -9908,7 +7003,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 25,
       "servings": 4,
-      "category": "Other",
+      "category": "Sides & Light Meals",
       "tags": [
         "side",
         "traditional",
@@ -10006,11 +7101,12 @@
       "difficulty": "easy",
       "cookTimeMinutes": 30,
       "servings": 4,
-      "category": "Other",
+      "category": "Sides & Light Meals",
       "tags": [
         "side",
         "traditional",
-        "comfort"
+        "comfort",
+        "quick"
       ],
       "allergens": [
         "milk"
@@ -10102,11 +7198,12 @@
       "difficulty": "easy",
       "cookTimeMinutes": 20,
       "servings": 4,
-      "category": "Other",
+      "category": "Sides & Light Meals",
       "tags": [
         "side",
         "traditional",
-        "basic"
+        "basic",
+        "quick"
       ],
       "allergens": [],
       "ingredients": [
@@ -10185,11 +7282,12 @@
       "difficulty": "hard",
       "cookTimeMinutes": 60,
       "servings": 6,
-      "category": "Meat",
+      "category": "Pork",
       "tags": [
         "traditional",
         "comfort",
-        "norwegian"
+        "norwegian",
+        "cuisine:norwegian"
       ],
       "allergens": [
         "meat",
@@ -10286,11 +7384,12 @@
       "difficulty": "medium",
       "cookTimeMinutes": 40,
       "servings": 4,
-      "category": "Other",
+      "category": "Sides & Light Meals",
       "tags": [
         "side",
         "traditional",
-        "norwegian"
+        "norwegian",
+        "cuisine:norwegian"
       ],
       "allergens": [
         "wheat"
@@ -10384,7 +7483,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 25,
       "servings": 4,
-      "category": "Meat",
+      "category": "Pork",
       "tags": [
         "traditional",
         "comfort",
@@ -10484,7 +7583,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 120,
       "servings": 6,
-      "category": "Meat",
+      "category": "Soups & Stews",
       "tags": [
         "traditional",
         "comfort",
@@ -10595,7 +7694,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 100,
       "servings": 6,
-      "category": "Meat",
+      "category": "Soups & Stews",
       "tags": [
         "traditional",
         "stew",
@@ -10706,7 +7805,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 45,
       "servings": 4,
-      "category": "Other",
+      "category": "Soups & Stews",
       "tags": [
         "vegetable",
         "traditional",
@@ -10804,7 +7903,7 @@
       "difficulty": "hard",
       "cookTimeMinutes": 90,
       "servings": 8,
-      "category": "Meat",
+      "category": "Other",
       "tags": [
         "traditional",
         "offal",

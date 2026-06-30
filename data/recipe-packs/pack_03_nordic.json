@@ -10,7 +10,7 @@
   },
   "packImage": "❄️",
   "packColor": "#1E90FF",
-  "recipeCount": 67,
+  "recipeCount": 41,
   "estimatedCookTime": "30-120 minutes",
   "difficulty": "medium",
   "recipes": [
@@ -27,12 +27,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 35,
       "servings": 4,
-      "category": "Meat",
+      "category": "Ground Meat & Sausages",
       "tags": [
         "swedish",
         "meatballs",
         "cream",
-        "classic"
+        "classic",
+        "cuisine:swedish"
       ],
       "allergens": [
         "gluten",
@@ -162,12 +163,13 @@
       "difficulty": "medium",
       "cookTimeMinutes": 1440,
       "servings": 8,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "scandinavian",
         "salmon",
         "cured",
-        "elegant"
+        "elegant",
+        "cuisine:nordic"
       ],
       "allergens": [
         "fish"
@@ -280,12 +282,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 20,
       "servings": 2,
-      "category": "Other",
+      "category": "Sides & Light Meals",
       "tags": [
         "danish",
         "sandwich",
         "lunch",
-        "quick"
+        "quick",
+        "cuisine:danish"
       ],
       "allergens": [
         "gluten",
@@ -414,11 +417,12 @@
       "difficulty": "easy",
       "cookTimeMinutes": 45,
       "servings": 4,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "icelandic",
         "fish",
-        "comfort-food"
+        "comfort-food",
+        "cuisine:icelandic"
       ],
       "allergens": [
         "fish",
@@ -527,144 +531,6 @@
       }
     },
     {
-      "id": "nd_005",
-      "title": {
-        "no": "Prinsessekake",
-        "en": "Princess Cake"
-      },
-      "subtitle": {
-        "no": "Svensk festkake med grønn fondant",
-        "en": "Swedish celebration cake with green fondant"
-      },
-      "difficulty": "hard",
-      "cookTimeMinutes": 120,
-      "servings": 8,
-      "category": "Other",
-      "tags": [
-        "swedish",
-        "cake",
-        "elegant",
-        "celebration"
-      ],
-      "allergens": [
-        "gluten",
-        "dairy",
-        "eggs"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Biskvi-kake (ferdig bakket)",
-            "en": "Sponge cake (pre-baked)"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "stk",
-            "en": "piece"
-          }
-        },
-        {
-          "name": {
-            "no": "Fløte (tykk)",
-            "en": "Cream (heavy)"
-          },
-          "amount": 500,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Stivelse eller pudringssukker",
-            "en": "Cornstarch or powdered sugar"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "ss",
-            "en": "tbsp"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 50,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Vaniljeekstrakt",
-            "en": "Vanilla extract"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "ts",
-            "en": "tsp"
-          }
-        },
-        {
-          "name": {
-            "no": "Fondant (grønn)",
-            "en": "Fondant (green)"
-          },
-          "amount": 400,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Syltetøy (for midt-lag)",
-            "en": "Jam (for middle layer)"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Rosenbär (til toppen)",
-            "en": "Marzipan rose"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "stk",
-            "en": "piece"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Del kaken i tre lag horisontalt.",
-          "2. Visp fløten stivt med stivelse, sukker og vaniljeekstrakt.",
-          "3. Lag lag med kake, syltetøy, og fløtecreme.",
-          "4. Dekk hele kaken med det siste laget av fløtecreme.",
-          "5. Rull ut fondanten og dekk kaken på samme måte som en baldakin.",
-          "6. Garner toppen med en rosenbær og en lite palmeblad.",
-          "7. Kjøl i minst 2 timer før servering.",
-          "8. Server som en klassisk svensk festkake."
-        ],
-        "en": [
-          "1. Slice cake into three horizontal layers.",
-          "2. Whip cream stiff with cornstarch, sugar and vanilla extract.",
-          "3. Layer cake, jam, and whipped cream.",
-          "4. Cover entire cake with final layer of whipped cream.",
-          "5. Roll out fondant and cover cake like a dome.",
-          "6. Garnish top with a marzipan rose and a small palm leaf.",
-          "7. Chill for at least 2 hours before serving.",
-          "8. Serve as a classic Swedish celebration cake."
-        ]
-      }
-    },
-    {
       "id": "nd_006",
       "title": {
         "no": "Mørbrad med jordbær og flødeskum",
@@ -677,11 +543,12 @@
       "difficulty": "medium",
       "cookTimeMinutes": 40,
       "servings": 4,
-      "category": "Meat",
+      "category": "Pork",
       "tags": [
         "scandinavian",
         "elegant",
-        "summer"
+        "summer",
+        "cuisine:nordic"
       ],
       "allergens": [
         "dairy"
@@ -792,11 +659,12 @@
       "difficulty": "easy",
       "cookTimeMinutes": 40,
       "servings": 4,
-      "category": "Meat",
+      "category": "Ground Meat & Sausages",
       "tags": [
         "danish",
         "meatballs",
-        "comfort-food"
+        "comfort-food",
+        "cuisine:danish"
       ],
       "allergens": [
         "gluten",
@@ -903,131 +771,6 @@
       }
     },
     {
-      "id": "nd_008",
-      "title": {
-        "no": "Rødgrød med fløde",
-        "en": "Red Fruit Compote with Cream"
-      },
-      "subtitle": {
-        "no": "Dansk dessert med bær og fløte",
-        "en": "Danish dessert with berries and cream"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 30,
-      "servings": 4,
-      "category": "Other",
-      "tags": [
-        "danish",
-        "dessert",
-        "berries",
-        "summer"
-      ],
-      "allergens": [
-        "dairy"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Jordbær",
-            "en": "Strawberries"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Kirsebær",
-            "en": "Cherries"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Rabarber",
-            "en": "Rhubarb"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Vann",
-            "en": "Water"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Stivelse (maiskorn)",
-            "en": "Cornstarch"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "ss",
-            "en": "tbsp"
-          }
-        },
-        {
-          "name": {
-            "no": "Fløte",
-            "en": "Cream"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Kutt rabaraberen i biter.",
-          "2. Kok fruktene med vann og sukker i ca. 10 minutter.",
-          "3. Bland stivelsen med litt kaldt vann.",
-          "4. Tilsett stivelsespasta til det kokte frukten.",
-          "5. Rør godt og kok et minutt til for å la det stivne.",
-          "6. Sil blandingen hvis du ønsker en glatt tekstur.",
-          "7. Kjøl før servering.",
-          "8. Server i glass eller skål med kald fløte på toppen."
-        ],
-        "en": [
-          "1. Cut rhubarb into pieces.",
-          "2. Cook fruits with water and sugar for about 10 minutes.",
-          "3. Mix cornstarch with a little cold water.",
-          "4. Add starch paste to cooked fruit.",
-          "5. Stir well and cook one more minute to thicken.",
-          "6. Strain mixture if smooth texture is desired.",
-          "7. Chill before serving.",
-          "8. Serve in glass or bowl with cold cream on top."
-        ]
-      }
-    },
-    {
       "id": "nd_009",
       "title": {
         "no": "Janteloven Brød",
@@ -1044,7 +787,8 @@
       "tags": [
         "scandinavian",
         "bread",
-        "traditional"
+        "traditional",
+        "cuisine:nordic"
       ],
       "allergens": [
         "gluten"
@@ -1155,11 +899,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 20,
       "servings": 4,
-      "category": "Fish",
+      "category": "Sides & Light Meals",
       "tags": [
         "scandinavian",
         "seafood",
-        "traditional"
+        "traditional",
+        "quick",
+        "cuisine:nordic"
       ],
       "allergens": [
         "fish"
@@ -1254,233 +1000,6 @@
       }
     },
     {
-      "id": "nd_011",
-      "title": {
-        "no": "Kransekake",
-        "en": "Kransekake"
-      },
-      "subtitle": {
-        "no": "Skandinavisk festkake med mands og rom",
-        "en": "Scandinavian celebration cake with almond and rum"
-      },
-      "difficulty": "hard",
-      "cookTimeMinutes": 120,
-      "servings": 10,
-      "category": "Other",
-      "tags": [
-        "scandinavian",
-        "cake",
-        "celebration"
-      ],
-      "allergens": [
-        "nuts",
-        "dairy",
-        "eggs"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Mandelmel",
-            "en": "Almond flour"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Egg",
-            "en": "Eggs"
-          },
-          "amount": 5,
-          "unit": {
-            "no": "stk",
-            "en": "pieces"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker (puddringssukker)",
-            "en": "Sugar (powdered)"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Rom eller likør",
-            "en": "Rum or liqueur"
-          },
-          "amount": 3,
-          "unit": {
-            "no": "ss",
-            "en": "tbsp"
-          }
-        },
-        {
-          "name": {
-            "no": "Hvitløk eller vaniljeekstrakt",
-            "en": "Zest or vanilla"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "ts",
-            "en": "tsp"
-          }
-        },
-        {
-          "name": {
-            "no": "Sjokolade (til dekorasjon)",
-            "en": "Chocolate (for decoration)"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Visp egg og sukker til det er luftig og lyst.",
-          "2. Fold in mandelmel.",
-          "3. Tilsett rom og vaniljeekstrakt.",
-          "4. Fordel deigen i forskjellige sirkulære ringer.",
-          "5. Bak på 175°C i ca. 10-12 minutter per ring.",
-          "6. La ringene kjøle helt.",
-          "7. Stable ringene på hverandre med de største på bunnen.",
-          "8. Dekorér toppen med smeltet sjokolade og små flagg.",
-          "9. Serve som en klassisk skandinavisk festkake."
-        ],
-        "en": [
-          "1. Whisk eggs and sugar until fluffy and pale.",
-          "2. Fold in almond flour.",
-          "3. Add rum and vanilla extract.",
-          "4. Divide dough into different circular rings.",
-          "5. Bake at 175°C for about 10-12 minutes per ring.",
-          "6. Let rings cool completely.",
-          "7. Stack rings on top of each other with largest at bottom.",
-          "8. Decorate top with melted chocolate and small flags.",
-          "9. Serve as a classic Scandinavian celebration cake."
-        ]
-      }
-    },
-    {
-      "id": "nd_012",
-      "title": {
-        "no": "Søt-Suppe",
-        "en": "Sweet Fruit Soup"
-      },
-      "subtitle": {
-        "no": "Nordisk dessert-suppe med frukter",
-        "en": "Nordic dessert soup with fruit"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 30,
-      "servings": 4,
-      "category": "Other",
-      "tags": [
-        "scandinavian",
-        "soup",
-        "dessert",
-        "fruit"
-      ],
-      "allergens": [],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Tørket frukt (blandede)",
-            "en": "Dried fruit (mixed)"
-          },
-          "amount": 400,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 50,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Vann",
-            "en": "Water"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "liter",
-            "en": "liter"
-          }
-        },
-        {
-          "name": {
-            "no": "Kanelstang",
-            "en": "Cinnamon stick"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "stk",
-            "en": "piece"
-          }
-        },
-        {
-          "name": {
-            "no": "Nellik",
-            "en": "Cloves"
-          },
-          "amount": 3,
-          "unit": {
-            "no": "stk",
-            "en": "pieces"
-          }
-        },
-        {
-          "name": {
-            "no": "Sitron (saft og skall)",
-            "en": "Lemon (juice and zest)"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "stk",
-            "en": "piece"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Kok tørket frukt i vann med sukker i 20 minutter.",
-          "2. Tilsett kanelstang, nellik og sitronskall.",
-          "3. Kok ytterligere 5 minutter.",
-          "4. Fjern kanelstang og nellik.",
-          "5. Tilsett sitrojus.",
-          "6. Server varmt eller kaldt etter smak.",
-          "7. Kan serveres som dessert-suppe eller brennevin."
-        ],
-        "en": [
-          "1. Boil dried fruit in water with sugar for 20 minutes.",
-          "2. Add cinnamon stick, cloves and lemon zest.",
-          "3. Cook another 5 minutes.",
-          "4. Remove cinnamon stick and cloves.",
-          "5. Add lemon juice.",
-          "6. Serve hot or cold to taste.",
-          "7. Can be served as dessert soup or as a compote."
-        ]
-      }
-    },
-    {
       "id": "nd_013",
       "title": {
         "no": "Fiskeboller",
@@ -1493,11 +1012,12 @@
       "difficulty": "medium",
       "cookTimeMinutes": 45,
       "servings": 4,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "scandinavian",
         "fish",
-        "comfort-food"
+        "comfort-food",
+        "cuisine:nordic"
       ],
       "allergens": [
         "fish",
@@ -1628,11 +1148,12 @@
       "difficulty": "easy",
       "cookTimeMinutes": 35,
       "servings": 4,
-      "category": "Meat",
+      "category": "Ground Meat & Sausages",
       "tags": [
         "icelandic",
         "meatballs",
-        "comfort-food"
+        "comfort-food",
+        "cuisine:icelandic"
       ],
       "allergens": [
         "gluten",
@@ -1741,143 +1262,6 @@
       }
     },
     {
-      "id": "nd_015",
-      "title": {
-        "no": "Serinakake",
-        "en": "Serina Cake"
-      },
-      "subtitle": {
-        "no": "Islandsk lagkake",
-        "en": "Icelandic layer cake"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 60,
-      "servings": 8,
-      "category": "Other",
-      "tags": [
-        "icelandic",
-        "cake",
-        "layered"
-      ],
-      "allergens": [
-        "gluten",
-        "dairy",
-        "eggs"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Hvetemel",
-            "en": "Wheat flour"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Smør",
-            "en": "Butter"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Egg",
-            "en": "Eggs"
-          },
-          "amount": 3,
-          "unit": {
-            "no": "stk",
-            "en": "pieces"
-          }
-        },
-        {
-          "name": {
-            "no": "Bakepulver",
-            "en": "Baking powder"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "ts",
-            "en": "tsp"
-          }
-        },
-        {
-          "name": {
-            "no": "Melk",
-            "en": "Milk"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Syltetøy",
-            "en": "Jam"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Fløte (tykk)",
-            "en": "Cream (heavy)"
-          },
-          "amount": 500,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Lag to kaker: blend smør og sukker, visp inn egg, tilsett mel, bakepulver og melk.",
-          "2. Fordel i to bakeplater.",
-          "3. Bak på 180°C i ca. 25-30 minutter.",
-          "4. La kakene kjøle helt.",
-          "5. Spreik kaken horisontalt.",
-          "6. Bland syltetøy mellom lagene.",
-          "7. Visp fløten stivt og bruk som topping.",
-          "8. Dekorasjon med frukter eller konfekt."
-        ],
-        "en": [
-          "1. Make two cakes: cream butter and sugar, whisk in eggs, add flour, baking powder and milk.",
-          "2. Divide into two baking pans.",
-          "3. Bake at 180°C for about 25-30 minutes.",
-          "4. Let cakes cool completely.",
-          "5. Split cake horizontally.",
-          "6. Spread jam between layers.",
-          "7. Whip cream stiff and use as topping.",
-          "8. Decorate with fruit or candies."
-        ]
-      }
-    },
-    {
       "id": "nd_016",
       "title": {
         "no": "Köttbullar",
@@ -1890,11 +1274,12 @@
       "difficulty": "medium",
       "cookTimeMinutes": 45,
       "servings": 4,
-      "category": "Meat",
+      "category": "Ground Meat & Sausages",
       "tags": [
         "traditional",
         "nordic",
-        "comfort-food"
+        "comfort-food",
+        "cuisine:nordic"
       ],
       "allergens": [
         "dairy",
@@ -2047,11 +1432,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 30,
       "servings": 4,
-      "category": "Meat",
+      "category": "Ground Meat & Sausages",
       "tags": [
         "traditional",
         "nordic",
-        "comfort-food"
+        "comfort-food",
+        "quick",
+        "cuisine:nordic"
       ],
       "allergens": [
         "dairy",
@@ -2160,12 +1547,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 180,
       "servings": 4,
-      "category": "Meat",
+      "category": "Soups & Stews",
       "tags": [
         "traditional",
         "nordic",
         "slow-cooked",
-        "comfort-food"
+        "comfort-food",
+        "cuisine:nordic"
       ],
       "allergens": [],
       "ingredients": [
@@ -2292,12 +1680,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 90,
       "servings": 4,
-      "category": "Other",
+      "category": "Soups & Stews",
       "tags": [
         "traditional",
         "nordic",
         "soup",
-        "comfort-food"
+        "comfort-food",
+        "cuisine:nordic"
       ],
       "allergens": [],
       "ingredients": [
@@ -2402,11 +1791,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 20,
       "servings": 4,
-      "category": "Other",
+      "category": "Sides & Light Meals",
       "tags": [
         "traditional",
         "nordic",
-        "light-meal"
+        "light-meal",
+        "quick",
+        "cuisine:nordic"
       ],
       "allergens": [
         "gluten",
@@ -2537,12 +1928,14 @@
       "difficulty": "medium",
       "cookTimeMinutes": 30,
       "servings": 6,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "traditional",
         "nordic",
         "fish",
-        "cured"
+        "cured",
+        "quick",
+        "cuisine:nordic"
       ],
       "allergens": [
         "fish",
@@ -2672,12 +2065,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 75,
       "servings": 4,
-      "category": "Fish",
+      "category": "Other",
       "tags": [
         "traditional",
         "nordic",
         "casserole",
-        "comfort-food"
+        "comfort-food",
+        "cuisine:nordic"
       ],
       "allergens": [
         "fish",
@@ -2796,12 +2190,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 40,
       "servings": 4,
-      "category": "Fish",
+      "category": "Sides & Light Meals",
       "tags": [
         "traditional",
         "nordic",
         "fish",
-        "comfort-food"
+        "comfort-food",
+        "cuisine:nordic"
       ],
       "allergens": [
         "fish",
@@ -2920,11 +2315,12 @@
       "difficulty": "medium",
       "cookTimeMinutes": 50,
       "servings": 4,
-      "category": "Meat",
+      "category": "Pork",
       "tags": [
         "traditional",
         "nordic",
-        "comfort-food"
+        "comfort-food",
+        "cuisine:nordic"
       ],
       "allergens": [
         "dairy",
@@ -3032,11 +2428,12 @@
       "difficulty": "easy",
       "cookTimeMinutes": 40,
       "servings": 4,
-      "category": "Meat",
+      "category": "Ground Meat & Sausages",
       "tags": [
         "traditional",
         "nordic",
-        "comfort-food"
+        "comfort-food",
+        "cuisine:nordic"
       ],
       "allergens": [
         "dairy",
@@ -3167,12 +2564,13 @@
       "difficulty": "medium",
       "cookTimeMinutes": 35,
       "servings": 4,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "traditional",
         "nordic",
         "fish",
-        "comfort-food"
+        "comfort-food",
+        "cuisine:nordic"
       ],
       "allergens": [
         "fish",
@@ -3303,12 +2701,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 150,
       "servings": 4,
-      "category": "Meat",
+      "category": "Soups & Stews",
       "tags": [
         "traditional",
         "nordic",
         "slow-cooked",
-        "comfort-food"
+        "comfort-food",
+        "cuisine:nordic"
       ],
       "allergens": [],
       "ingredients": [
@@ -3435,12 +2834,13 @@
       "difficulty": "hard",
       "cookTimeMinutes": 240,
       "servings": 6,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "traditional",
         "nordic",
         "fish",
-        "baked"
+        "baked",
+        "cuisine:nordic"
       ],
       "allergens": [
         "fish",
@@ -3559,11 +2959,12 @@
       "difficulty": "medium",
       "cookTimeMinutes": 90,
       "servings": 4,
-      "category": "Meat",
+      "category": "Pork",
       "tags": [
         "traditional",
         "nordic",
-        "comfort-food"
+        "comfort-food",
+        "cuisine:nordic"
       ],
       "allergens": [],
       "ingredients": [
@@ -3668,12 +3069,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 35,
       "servings": 4,
-      "category": "Meat",
+      "category": "Beef & Red Meat",
       "tags": [
         "traditional",
         "nordic",
         "leftovers",
-        "comfort-food"
+        "comfort-food",
+        "cuisine:nordic"
       ],
       "allergens": [
         "egg"
@@ -3779,151 +3181,6 @@
       }
     },
     {
-      "id": "nd_069",
-      "title": {
-        "no": "Isbjørnkake",
-        "en": "Polar Bear Cake"
-      },
-      "subtitle": {
-        "no": "Sjokoladekake med marshmallow og kokos",
-        "en": "Chocolate cake with marshmallow and coconut"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 45,
-      "servings": 8,
-      "category": "Other",
-      "tags": [
-        "dessert",
-        "chocolate",
-        "celebration"
-      ],
-      "allergens": [
-        "wheat",
-        "eggs",
-        "milk",
-        "nuts"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Mel",
-            "en": "Flour"
-          },
-          "amount": 250,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Kakao",
-            "en": "Cocoa powder"
-          },
-          "amount": 50,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Smør",
-            "en": "Butter"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Egg",
-            "en": "Eggs"
-          },
-          "amount": 4,
-          "unit": {
-            "no": "stk",
-            "en": "pcs"
-          }
-        },
-        {
-          "name": {
-            "no": "Melk",
-            "en": "Milk"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Baking powder",
-            "en": "Baking powder"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "teskje",
-            "en": "tsp"
-          }
-        },
-        {
-          "name": {
-            "no": "Marshmallow",
-            "en": "Marshmallow fluff"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Kokosnøtt",
-            "en": "Shredded coconut"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Smelt smør og bland med sukker",
-          "2. Pisk inn egg en om gangen",
-          "3. Bland mel, kakao og baking powder",
-          "4. Vekslende påfør melk og tørstoff",
-          "5. Hell i form og bak på 175°C i 30 minutter",
-          "6. Kjøl kaken, påfør marshmallow og kokosnøtt på toppen"
-        ],
-        "en": [
-          "1. Melt butter and mix with sugar",
-          "2. Whisk in eggs one at a time",
-          "3. Combine flour, cocoa and baking powder",
-          "4. Alternately add milk and dry ingredients",
-          "5. Pour into pan and bake at 175°C for 30 minutes",
-          "6. Cool cake, spread marshmallow and coconut on top"
-        ]
-      }
-    },
-    {
       "id": "nd_070",
       "title": {
         "no": "Svartpølse",
@@ -3936,7 +3193,7 @@
       "difficulty": "hard",
       "cookTimeMinutes": 60,
       "servings": 6,
-      "category": "Meat",
+      "category": "Ground Meat & Sausages",
       "tags": [
         "sausage",
         "traditional",
@@ -4055,7 +3312,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 40,
       "servings": 4,
-      "category": "Meat",
+      "category": "Ground Meat & Sausages",
       "tags": [
         "pork",
         "sausage",
@@ -4163,7 +3420,7 @@
       "difficulty": "hard",
       "cookTimeMinutes": 1440,
       "servings": 8,
-      "category": "Meat",
+      "category": "Ground Meat & Sausages",
       "tags": [
         "cured",
         "traditional",
@@ -4259,433 +3516,6 @@
       }
     },
     {
-      "id": "nd_073",
-      "title": {
-        "no": "Romkugler",
-        "en": "Rum Balls"
-      },
-      "subtitle": {
-        "no": "Sjokoladekugler med rom og kokosnøtt",
-        "en": "Chocolate balls with rum and coconut"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 30,
-      "servings": 24,
-      "category": "Other",
-      "tags": [
-        "dessert",
-        "chocolate",
-        "no-bake"
-      ],
-      "allergens": [
-        "chocolate",
-        "coconut",
-        "alcohol"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Sjokoladekalkes",
-            "en": "Chocolate cake crumbs"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Powdered sugar"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Rom",
-            "en": "Rum"
-          },
-          "amount": 60,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Smør",
-            "en": "Butter"
-          },
-          "amount": 75,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Kakao",
-            "en": "Cocoa powder"
-          },
-          "amount": 25,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Kokosnøtt",
-            "en": "Shredded coconut"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Bland kakebrødet med pulverisert sukker",
-          "2. Bland inn smør og rom",
-          "3. Former små kugler",
-          "4. Rull halvparten i kakao, halvparten i kokosnøtt",
-          "5. Kjøl før servering"
-        ],
-        "en": [
-          "1. Mix cake crumbs with powdered sugar",
-          "2. Mix in butter and rum",
-          "3. Form small balls",
-          "4. Roll half in cocoa, half in coconut",
-          "5. Chill before serving"
-        ]
-      }
-    },
-    {
-      "id": "nd_074",
-      "title": {
-        "no": "Troll Krem",
-        "en": "Troll Cream"
-      },
-      "subtitle": {
-        "no": "Lys og luftig sjokoladedesert",
-        "en": "Light and airy chocolate dessert"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 20,
-      "servings": 6,
-      "category": "Other",
-      "tags": [
-        "dessert",
-        "chocolate",
-        "mousse"
-      ],
-      "allergens": [
-        "chocolate",
-        "eggs",
-        "milk"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Mørk sjokolade",
-            "en": "Dark chocolate"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Fløte",
-            "en": "Heavy cream"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Egg",
-            "en": "Egg yolks"
-          },
-          "amount": 3,
-          "unit": {
-            "no": "stk",
-            "en": "pcs"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 30,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Eggehviter",
-            "en": "Egg whites"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "stk",
-            "en": "pcs"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Smelt sjokoladen over varmtvann",
-          "2. Pisk eggehviter til stiv skum",
-          "3. Pisk fløte til halvstiv",
-          "4. Bland sjokolade med eggeplommer og sukker",
-          "5. Fold i eggehviter og fløte forsiktig",
-          "6. Server på glass eller kopper"
-        ],
-        "en": [
-          "1. Melt chocolate over hot water",
-          "2. Whip egg whites until stiff",
-          "3. Whip cream until semi-stiff",
-          "4. Mix chocolate with egg yolks and sugar",
-          "5. Gently fold in egg whites and cream",
-          "6. Serve in glasses or cups"
-        ]
-      }
-    },
-    {
-      "id": "nd_075",
-      "title": {
-        "no": "Piskekrem",
-        "en": "Whipped Cream"
-      },
-      "subtitle": {
-        "no": "Klassisk nordisk dessert med bær",
-        "en": "Classic Nordic dessert with berries"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 15,
-      "servings": 4,
-      "category": "Other",
-      "tags": [
-        "dessert",
-        "cream",
-        "berries"
-      ],
-      "allergens": [
-        "milk"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Fløte",
-            "en": "Heavy cream"
-          },
-          "amount": 400,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 30,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Vaniljestang",
-            "en": "Vanilla pod"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "stk",
-            "en": "pc"
-          }
-        },
-        {
-          "name": {
-            "no": "Blåbær",
-            "en": "Blueberries"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Jordbær",
-            "en": "Strawberries"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Skrap frø fra vaniljestangen",
-          "2. Pisk fløte med sukker og vaniljefrø",
-          "3. Pisk til den blir luftig og stiv",
-          "4. Del bær i skåler",
-          "5. Topp med piskekrem og server straks"
-        ],
-        "en": [
-          "1. Scrape seeds from vanilla pod",
-          "2. Whip cream with sugar and vanilla seeds",
-          "3. Whip until fluffy and stiff",
-          "4. Divide berries into bowls",
-          "5. Top with whipped cream and serve immediately"
-        ]
-      }
-    },
-    {
-      "id": "nd_076",
-      "title": {
-        "no": "Boller med Sukker",
-        "en": "Sugar Buns"
-      },
-      "subtitle": {
-        "no": "Myk søt bolle med sukker og smør",
-        "en": "Soft sweet roll with sugar and butter"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 50,
-      "servings": 12,
-      "category": "Other",
-      "tags": [
-        "bread",
-        "sweet",
-        "breakfast"
-      ],
-      "allergens": [
-        "wheat",
-        "milk",
-        "eggs"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Mel",
-            "en": "Flour"
-          },
-          "amount": 500,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Melk",
-            "en": "Milk"
-          },
-          "amount": 250,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Gjær",
-            "en": "Yeast"
-          },
-          "amount": 10,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 50,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Smør",
-            "en": "Butter"
-          },
-          "amount": 50,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Salt",
-            "en": "Salt"
-          },
-          "amount": 5,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Egg",
-            "en": "Egg"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "stk",
-            "en": "pc"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Varm melk og bland med gjær og sukker",
-          "2. Bland mel og salt, lage en krater i midten",
-          "3. Helle gjærblandingen i krater",
-          "4. Knead deigen og arbeide inn smør",
-          "5. La deigen heve i 1 time",
-          "6. Former til boller, hev igjen og bak på 200°C i 20 minutter"
-        ],
-        "en": [
-          "1. Warm milk and mix with yeast and sugar",
-          "2. Mix flour and salt, make a well in center",
-          "3. Pour yeast mixture into well",
-          "4. Knead dough and work in butter",
-          "5. Let dough rise for 1 hour",
-          "6. Shape into buns, rise again and bake at 200°C for 20 minutes"
-        ]
-      }
-    },
-    {
       "id": "nd_077",
       "title": {
         "no": "Frøsnapper",
@@ -4702,7 +3532,8 @@
       "tags": [
         "cookies",
         "seeds",
-        "crispy"
+        "crispy",
+        "quick"
       ],
       "allergens": [
         "wheat",
@@ -4807,7 +3638,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 120,
       "servings": 10,
-      "category": "Other",
+      "category": "Sides & Light Meals",
       "tags": [
         "bread",
         "rye",
@@ -4920,7 +3751,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 35,
       "servings": 4,
-      "category": "Other",
+      "category": "Soups & Stews",
       "tags": [
         "soup",
         "potatoes",
@@ -5042,11 +3873,12 @@
       "difficulty": "hard",
       "cookTimeMinutes": 180,
       "servings": 12,
-      "category": "Other",
+      "category": "Sides & Light Meals",
       "tags": [
         "bread",
         "rye",
-        "danish"
+        "danish",
+        "cuisine:danish"
       ],
       "allergens": [
         "rye",
@@ -5155,1116 +3987,6 @@
       }
     },
     {
-      "id": "nd_081",
-      "title": {
-        "no": "Kokosboller",
-        "en": "Coconut Buns"
-      },
-      "subtitle": {
-        "no": "Søte boller med kokosfyll",
-        "en": "Sweet buns with coconut filling"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 45,
-      "servings": 12,
-      "category": "Other",
-      "tags": [
-        "bread",
-        "sweet",
-        "coconut"
-      ],
-      "allergens": [
-        "wheat",
-        "milk",
-        "eggs",
-        "coconut"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Mel",
-            "en": "Flour"
-          },
-          "amount": 400,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Melk",
-            "en": "Milk"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Gjær",
-            "en": "Yeast"
-          },
-          "amount": 10,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 80,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Smør",
-            "en": "Butter"
-          },
-          "amount": 75,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Kokosnøtt",
-            "en": "Shredded coconut"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Salt",
-            "en": "Salt"
-          },
-          "amount": 5,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Varm melk og bland med gjær og 20g sukker",
-          "2. Bland mel og salt, lag krater",
-          "3. Helle gjærblandingen i krater",
-          "4. Knead og arbeid inn 50g smør",
-          "5. La heve i 1 time",
-          "6. Bland kokosnøtt med gjenværende sukker og smør",
-          "7. Rull deigen flat og fordel kokosfyllet",
-          "8. Roll opp og skjær i stykker",
-          "9. La heve og bak på 200°C i 20 minutter"
-        ],
-        "en": [
-          "1. Warm milk and mix with yeast and 20g sugar",
-          "2. Mix flour and salt, make a well",
-          "3. Pour yeast mixture into well",
-          "4. Knead and work in 50g butter",
-          "5. Let rise for 1 hour",
-          "6. Mix coconut with remaining sugar and butter",
-          "7. Roll out dough and spread coconut filling",
-          "8. Roll up and cut into pieces",
-          "9. Let rise and bake at 200°C for 20 minutes"
-        ]
-      }
-    },
-    {
-      "id": "nd_082",
-      "title": {
-        "no": "Chokoladeboller",
-        "en": "Chocolate Buns"
-      },
-      "subtitle": {
-        "no": "Flaskepostboller med sjokoladeglasur",
-        "en": "Chocolate-glazed pastry buns"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 50,
-      "servings": 12,
-      "category": "Other",
-      "tags": [
-        "pastry",
-        "chocolate",
-        "sweet"
-      ],
-      "allergens": [
-        "wheat",
-        "milk",
-        "eggs",
-        "chocolate"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Mel",
-            "en": "Flour"
-          },
-          "amount": 350,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Melk",
-            "en": "Milk"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Gjær",
-            "en": "Yeast"
-          },
-          "amount": 10,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 60,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Smør",
-            "en": "Butter"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sjokolade",
-            "en": "Chocolate"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Salt",
-            "en": "Salt"
-          },
-          "amount": 5,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Varm melk og bland med gjær og sukker",
-          "2. Bland mel og salt, lag krater",
-          "3. Helle gjærblandingen i krater",
-          "4. Knead og arbeid inn 50g smør",
-          "5. La heve i 1 time",
-          "6. Hakk sjokoladen og bland med 50g smør",
-          "7. Rull deigen flat og fordel sjokoladefyllet",
-          "8. Roll opp og skjær i stykker",
-          "9. La heve og bak på 200°C i 20 minutter"
-        ],
-        "en": [
-          "1. Warm milk and mix with yeast and sugar",
-          "2. Mix flour and salt, make a well",
-          "3. Pour yeast mixture into well",
-          "4. Knead and work in 50g butter",
-          "5. Let rise for 1 hour",
-          "6. Chop chocolate and mix with 50g butter",
-          "7. Roll out dough and spread chocolate filling",
-          "8. Roll up and cut into pieces",
-          "9. Let rise and bake at 200°C for 20 minutes"
-        ]
-      }
-    },
-    {
-      "id": "nd_083",
-      "title": {
-        "no": "Brunsviger",
-        "en": "Brunsviger Cake"
-      },
-      "subtitle": {
-        "no": "Søt kakestykker med karamell topping",
-        "en": "Sweet cake with caramel topping"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 45,
-      "servings": 8,
-      "category": "Other",
-      "tags": [
-        "cake",
-        "caramel",
-        "traditional"
-      ],
-      "allergens": [
-        "wheat",
-        "milk",
-        "eggs"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Mel",
-            "en": "Flour"
-          },
-          "amount": 250,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Smør",
-            "en": "Butter"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Egg",
-            "en": "Eggs"
-          },
-          "amount": 3,
-          "unit": {
-            "no": "stk",
-            "en": "pcs"
-          }
-        },
-        {
-          "name": {
-            "no": "Baking powder",
-            "en": "Baking powder"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "teskje",
-            "en": "tsp"
-          }
-        },
-        {
-          "name": {
-            "no": "Melk",
-            "en": "Milk"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Mandler",
-            "en": "Almonds"
-          },
-          "amount": 75,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Smelt 100g smør og bland med 100g sukker",
-          "2. Pisk inn egg",
-          "3. Bland mel og baking powder",
-          "4. Vekslende påfør melk og mel",
-          "5. Hell i form og bak på 175°C i 25 minutter",
-          "6. Smelt 50g smør med 100g sukker og mandler",
-          "7. Påfør karamellblandingen på kaken",
-          "8. Bak videre til toppen er gyllen"
-        ],
-        "en": [
-          "1. Melt 100g butter and mix with 100g sugar",
-          "2. Whisk in eggs",
-          "3. Mix flour and baking powder",
-          "4. Alternately add milk and flour",
-          "5. Pour into pan and bake at 175°C for 25 minutes",
-          "6. Melt 50g butter with 100g sugar and almonds",
-          "7. Spread caramel mixture on cake",
-          "8. Bake until topping is golden"
-        ]
-      }
-    },
-    {
-      "id": "nd_084",
-      "title": {
-        "no": "Wienerbrød",
-        "en": "Danish Pastry"
-      },
-      "subtitle": {
-        "no": "Sprø pasteikaker med fyll",
-        "en": "Crispy pastry with filling"
-      },
-      "difficulty": "hard",
-      "cookTimeMinutes": 90,
-      "servings": 12,
-      "category": "Other",
-      "tags": [
-        "pastry",
-        "danish",
-        "breakfast"
-      ],
-      "allergens": [
-        "wheat",
-        "milk",
-        "eggs"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Mel",
-            "en": "Flour"
-          },
-          "amount": 400,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Smør",
-            "en": "Butter"
-          },
-          "amount": 250,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Melk",
-            "en": "Milk"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Gjær",
-            "en": "Yeast"
-          },
-          "amount": 10,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 50,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Egg",
-            "en": "Egg"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "stk",
-            "en": "pc"
-          }
-        },
-        {
-          "name": {
-            "no": "Salt",
-            "en": "Salt"
-          },
-          "amount": 5,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Varm melk og bland med gjær og sukker",
-          "2. Bland mel og salt, lag krater",
-          "3. Helle gjærblandingen i krater, tilsett egg",
-          "4. Knead deigen",
-          "5. Flat ut deigen og lag lamellert struktur med smør ved å fold",
-          "6. La heve og fold igjen flere ganger",
-          "7. Kjøl før du former og fyller",
-          "8. Bak på 200°C i 20-25 minutter"
-        ],
-        "en": [
-          "1. Warm milk and mix with yeast and sugar",
-          "2. Mix flour and salt, make a well",
-          "3. Pour yeast mixture into well, add egg",
-          "4. Knead dough",
-          "5. Flatten dough and create laminated structure with butter by folding",
-          "6. Let rise and fold again several times",
-          "7. Chill before shaping and filling",
-          "8. Bake at 200°C for 20-25 minutes"
-        ]
-      }
-    },
-    {
-      "id": "nd_085",
-      "title": {
-        "no": "Chokoladekake",
-        "en": "Chocolate Cake"
-      },
-      "subtitle": {
-        "no": "Rik og mørk sjokoladekake",
-        "en": "Rich and dark chocolate cake"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 50,
-      "servings": 8,
-      "category": "Other",
-      "tags": [
-        "cake",
-        "chocolate",
-        "celebration"
-      ],
-      "allergens": [
-        "wheat",
-        "milk",
-        "eggs",
-        "chocolate"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Mel",
-            "en": "Flour"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Kakao",
-            "en": "Cocoa powder"
-          },
-          "amount": 75,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Smør",
-            "en": "Butter"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Egg",
-            "en": "Eggs"
-          },
-          "amount": 4,
-          "unit": {
-            "no": "stk",
-            "en": "pcs"
-          }
-        },
-        {
-          "name": {
-            "no": "Melk",
-            "en": "Milk"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Baking powder",
-            "en": "Baking powder"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "teskje",
-            "en": "tsp"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Smelt smør og bland med sukker",
-          "2. Pisk inn egg en om gangen",
-          "3. Bland mel og baking powder",
-          "4. Vekslende påfør melk og tørstoff",
-          "5. Hell i form og bak på 175°C i 35-40 minutter",
-          "6. Kjøl og dekorer etter ønske"
-        ],
-        "en": [
-          "1. Melt butter and mix with sugar",
-          "2. Whisk in eggs one at a time",
-          "3. Mix flour and baking powder",
-          "4. Alternately add milk and dry ingredients",
-          "5. Pour into pan and bake at 175°C for 35-40 minutes",
-          "6. Cool and decorate as desired"
-        ]
-      }
-    },
-    {
-      "id": "nd_086",
-      "title": {
-        "no": "Mazarin",
-        "en": "Mazarin Cake"
-      },
-      "subtitle": {
-        "no": "Mandelkake med sjokolade glasur",
-        "en": "Almond cake with chocolate glaze"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 40,
-      "servings": 8,
-      "category": "Other",
-      "tags": [
-        "cake",
-        "almond",
-        "chocolate"
-      ],
-      "allergens": [
-        "wheat",
-        "eggs",
-        "nuts",
-        "chocolate"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Mandelmel",
-            "en": "Almond flour"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Egg",
-            "en": "Eggs"
-          },
-          "amount": 4,
-          "unit": {
-            "no": "stk",
-            "en": "pcs"
-          }
-        },
-        {
-          "name": {
-            "no": "Smør",
-            "en": "Butter"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Mel",
-            "en": "Flour"
-          },
-          "amount": 50,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sjokolade",
-            "en": "Dark chocolate"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Baking powder",
-            "en": "Baking powder"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "teskje",
-            "en": "tsp"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Smelt smør og bland med sukker",
-          "2. Pisk inn egg",
-          "3. Bland mandelmel, mel og baking powder",
-          "4. Fold inn tørstoffer forsiktig",
-          "5. Hell i form og bak på 175°C i 30 minutter",
-          "6. Smelt sjokladen over varmtvann",
-          "7. Påfør sjokoladeglasuren når kaken er kjølt"
-        ],
-        "en": [
-          "1. Melt butter and mix with sugar",
-          "2. Whisk in eggs",
-          "3. Mix almond flour, flour and baking powder",
-          "4. Gently fold in dry ingredients",
-          "5. Pour into pan and bake at 175°C for 30 minutes",
-          "6. Melt chocolate over hot water",
-          "7. Apply chocolate glaze when cake has cooled"
-        ]
-      }
-    },
-    {
-      "id": "nd_087",
-      "title": {
-        "no": "Hindbærsnitter",
-        "en": "Raspberry Slices"
-      },
-      "subtitle": {
-        "no": "Smørbrød stykker med bringebær",
-        "en": "Butter cookie slices with raspberry"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 45,
-      "servings": 12,
-      "category": "Other",
-      "tags": [
-        "cookies",
-        "raspberry",
-        "jam"
-      ],
-      "allergens": [
-        "wheat",
-        "milk",
-        "eggs"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Mel",
-            "en": "Flour"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Smør",
-            "en": "Butter"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Egg",
-            "en": "Egg yolk"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "stk",
-            "en": "pc"
-          }
-        },
-        {
-          "name": {
-            "no": "Bringebærmarmelade",
-            "en": "Raspberry jam"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Kokosnøtt",
-            "en": "Shredded coconut"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Bland smør og sukker",
-          "2. Tilsett eggeplommen og mel",
-          "3. Press deigen inn i en form",
-          "4. Bak på 180°C i 15 minutter",
-          "5. Påfør marmelade på baken",
-          "6. Topp med kokosnøtt",
-          "7. Bak videre i 15 minutter",
-          "8. Kjøl og skjør i stykker"
-        ],
-        "en": [
-          "1. Mix butter and sugar",
-          "2. Add egg yolk and flour",
-          "3. Press dough into pan",
-          "4. Bake at 180°C for 15 minutes",
-          "5. Spread jam on base",
-          "6. Top with coconut",
-          "7. Bake for another 15 minutes",
-          "8. Cool and cut into slices"
-        ]
-      }
-    },
-    {
-      "id": "nd_088",
-      "title": {
-        "no": "Jordbaerskiver",
-        "en": "Strawberry Jam Tarts"
-      },
-      "subtitle": {
-        "no": "Smål tarte med jordbærmarmelade",
-        "en": "Small tarts with strawberry jam"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 35,
-      "servings": 12,
-      "category": "Other",
-      "tags": [
-        "tart",
-        "strawberry",
-        "jam"
-      ],
-      "allergens": [
-        "wheat",
-        "milk",
-        "eggs"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Mel",
-            "en": "Flour"
-          },
-          "amount": 250,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Smør",
-            "en": "Butter"
-          },
-          "amount": 120,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 75,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Egg",
-            "en": "Egg"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "stk",
-            "en": "pc"
-          }
-        },
-        {
-          "name": {
-            "no": "Jordbaermarmelade",
-            "en": "Strawberry jam"
-          },
-          "amount": 250,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Vaniljestang",
-            "en": "Vanilla pod"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "stk",
-            "en": "pc"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Bland smør og sukker",
-          "2. Tilsett egg og mel",
-          "3. Kjøl deigen i 30 minutter",
-          "4. Press deigen inn i små tartformer",
-          "5. Fylt hver tart med marmelade",
-          "6. Bak på 180°C i 20-25 minutter",
-          "7. Kjøl før serving"
-        ],
-        "en": [
-          "1. Mix butter and sugar",
-          "2. Add egg and flour",
-          "3. Chill dough for 30 minutes",
-          "4. Press dough into small tart pans",
-          "5. Fill each tart with jam",
-          "6. Bake at 180°C for 20-25 minutes",
-          "7. Cool before serving"
-        ]
-      }
-    },
-    {
-      "id": "nd_089",
-      "title": {
-        "no": "Æbleskiver",
-        "en": "Æbleskiver Pancakes"
-      },
-      "subtitle": {
-        "no": "Runde pannekaker med epler",
-        "en": "Round pancakes with apples"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 30,
-      "servings": 4,
-      "category": "Other",
-      "tags": [
-        "pancake",
-        "apple",
-        "breakfast"
-      ],
-      "allergens": [
-        "wheat",
-        "milk",
-        "eggs"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Mel",
-            "en": "Flour"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Melk",
-            "en": "Milk"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Egg",
-            "en": "Eggs"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "stk",
-            "en": "pcs"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 25,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Baking powder",
-            "en": "Baking powder"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "teskje",
-            "en": "tsp"
-          }
-        },
-        {
-          "name": {
-            "no": "Epler",
-            "en": "Apples"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Smør",
-            "en": "Butter"
-          },
-          "amount": 30,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Bland mel, sukker og baking powder",
-          "2. Pisk egg og melk",
-          "3. Bland våt og tørr ingredienser",
-          "4. Hakk epler i små stykker",
-          "5. Fold inn epler i deigen",
-          "6. Bruk æbleskivepanne og fyll halvparten",
-          "7. Sterk i smør på begge sider til gyllen"
-        ],
-        "en": [
-          "1. Mix flour, sugar and baking powder",
-          "2. Whisk eggs and milk",
-          "3. Combine wet and dry ingredients",
-          "4. Chop apples into small pieces",
-          "5. Fold apples into batter",
-          "6. Use æbleskiver pan and fill halfway",
-          "7. Fry in butter on both sides until golden"
-        ]
-      }
-    },
-    {
       "id": "nd_090",
       "title": {
         "no": "Pandekager",
@@ -6281,7 +4003,8 @@
       "tags": [
         "pancake",
         "breakfast",
-        "sweet"
+        "sweet",
+        "quick"
       ],
       "allergens": [
         "wheat",
@@ -6378,789 +4101,6 @@
       }
     },
     {
-      "id": "nd_091",
-      "title": {
-        "no": "Drømmekiks",
-        "en": "Dream Cookies"
-      },
-      "subtitle": {
-        "no": "Sprø kjeks med karameltopping",
-        "en": "Crispy cookies with caramel topping"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 40,
-      "servings": 16,
-      "category": "Other",
-      "tags": [
-        "cookies",
-        "caramel",
-        "crispy"
-      ],
-      "allergens": [
-        "wheat",
-        "milk",
-        "eggs"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Mel",
-            "en": "Flour"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Smør",
-            "en": "Butter"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Egg",
-            "en": "Egg"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "stk",
-            "en": "pc"
-          }
-        },
-        {
-          "name": {
-            "no": "Melk",
-            "en": "Milk"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Karamell",
-            "en": "Caramel"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Kokos",
-            "en": "Coconut"
-          },
-          "amount": 75,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Bland smør og 50g sukker",
-          "2. Tilsett egg og mel",
-          "3. Hell i form og bak på 180°C i 12 minutter",
-          "4. Bland 50g sukker, melk og kokos",
-          "5. Påfør blandingen på halvbakete deigen",
-          "6. Bak videre til toppen er gyllen",
-          "7. Kjøl og påfør smeltet karamell på toppen"
-        ],
-        "en": [
-          "1. Mix butter and 50g sugar",
-          "2. Add egg and flour",
-          "3. Pour into pan and bake at 180°C for 12 minutes",
-          "4. Mix 50g sugar, milk and coconut",
-          "5. Spread mixture on partially baked dough",
-          "6. Bake until topping is golden",
-          "7. Cool and drizzle melted caramel on top"
-        ]
-      }
-    },
-    {
-      "id": "nd_092",
-      "title": {
-        "no": "Vanillekrans",
-        "en": "Vanilla Wreath"
-      },
-      "subtitle": {
-        "no": "Kringle formet vaniljekjeks",
-        "en": "Vanilla cookies shaped like wreaths"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 35,
-      "servings": 20,
-      "category": "Other",
-      "tags": [
-        "cookies",
-        "vanilla",
-        "shaped"
-      ],
-      "allergens": [
-        "wheat",
-        "milk",
-        "eggs"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Mel",
-            "en": "Flour"
-          },
-          "amount": 250,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Smør",
-            "en": "Butter"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Egg",
-            "en": "Egg"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "stk",
-            "en": "pc"
-          }
-        },
-        {
-          "name": {
-            "no": "Vaniljestang",
-            "en": "Vanilla pod"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "stk",
-            "en": "pc"
-          }
-        },
-        {
-          "name": {
-            "no": "Salt",
-            "en": "Salt"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Skrap frø fra vaniljestangen",
-          "2. Bland smør og sukker",
-          "3. Tilsett egg og vaniljefrø",
-          "4. Bland mel og salt",
-          "5. Fold inn mel i smørblandingen",
-          "6. Kjøl deigen i 30 minutter",
-          "7. Press deigen gjennom posedekortett til kringler",
-          "8. Bak på 180°C i 12-15 minutter"
-        ],
-        "en": [
-          "1. Scrape seeds from vanilla pod",
-          "2. Mix butter and sugar",
-          "3. Add egg and vanilla seeds",
-          "4. Mix flour and salt",
-          "5. Fold flour into butter mixture",
-          "6. Chill dough for 30 minutes",
-          "7. Press dough through piping bag into wreaths",
-          "8. Bake at 180°C for 12-15 minutes"
-        ]
-      }
-    },
-    {
-      "id": "nd_093",
-      "title": {
-        "no": "Appelsinsnitter",
-        "en": "Orange Slices"
-      },
-      "subtitle": {
-        "no": "Appelsinsmak kakor med glasur",
-        "en": "Orange-flavored cake slices with glaze"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 40,
-      "servings": 12,
-      "category": "Other",
-      "tags": [
-        "cake",
-        "orange",
-        "glaze"
-      ],
-      "allergens": [
-        "wheat",
-        "milk",
-        "eggs"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Mel",
-            "en": "Flour"
-          },
-          "amount": 250,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Smør",
-            "en": "Butter"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Egg",
-            "en": "Eggs"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "stk",
-            "en": "pcs"
-          }
-        },
-        {
-          "name": {
-            "no": "Appelsinzest",
-            "en": "Orange zest"
-          },
-          "amount": 20,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Appelsinfjuice",
-            "en": "Orange juice"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Baking powder",
-            "en": "Baking powder"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "teskje",
-            "en": "tsp"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Bland smør og sukker",
-          "2. Pisk inn egg",
-          "3. Tilsett appelsinzest",
-          "4. Vekslende påfør mel og appelsinfjuice",
-          "5. Tilsett baking powder",
-          "6. Hell i form og bak på 180°C i 30 minutter",
-          "7. Kjøl og påfør appelsinglasur"
-        ],
-        "en": [
-          "1. Mix butter and sugar",
-          "2. Whisk in eggs",
-          "3. Add orange zest",
-          "4. Alternately add flour and orange juice",
-          "5. Add baking powder",
-          "6. Pour into pan and bake at 180°C for 30 minutes",
-          "7. Cool and apply orange glaze"
-        ]
-      }
-    },
-    {
-      "id": "nd_094",
-      "title": {
-        "no": "Kokosnødder",
-        "en": "Coconut Pyramids"
-      },
-      "subtitle": {
-        "no": "Pyramideformete kokoskaker",
-        "en": "Pyramid-shaped coconut cakes"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 25,
-      "servings": 12,
-      "category": "Other",
-      "tags": [
-        "coconut",
-        "no-bake",
-        "sweet"
-      ],
-      "allergens": [
-        "coconut",
-        "milk"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Kokosnøtt",
-            "en": "Shredded coconut"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Melk",
-            "en": "Condensed milk"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 75,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sjokolade",
-            "en": "Dark chocolate"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Bland kokosnøtt med melk og sukker",
-          "2. Former små pyramider",
-          "3. Kjøl i fryseren i 2 timer",
-          "4. Smelt sjokoladen",
-          "5. Dypp pyramidene halvveis ned i sjokoladen",
-          "6. La sjokoladen tørke"
-        ],
-        "en": [
-          "1. Mix coconut with condensed milk and sugar",
-          "2. Form small pyramids",
-          "3. Chill in freezer for 2 hours",
-          "4. Melt chocolate",
-          "5. Dip pyramids halfway into chocolate",
-          "6. Let chocolate set"
-        ]
-      }
-    },
-    {
-      "id": "nd_095",
-      "title": {
-        "no": "Shortbread Cookies",
-        "en": "Shortbread Cookies"
-      },
-      "subtitle": {
-        "no": "Smørrike og sprø kjeks",
-        "en": "Buttery and crispy cookies"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 25,
-      "servings": 16,
-      "category": "Other",
-      "tags": [
-        "cookies",
-        "shortbread",
-        "butter"
-      ],
-      "allergens": [
-        "wheat",
-        "milk"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Mel",
-            "en": "Flour"
-          },
-          "amount": 250,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Smør",
-            "en": "Butter"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Salt",
-            "en": "Salt"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Bland smør og sukker til lys og luftig",
-          "2. Tilsett mel og salt",
-          "3. Knead deigen til den blir glatt",
-          "4. Rull ut på bakepapir",
-          "5. Skjær i ønskete former",
-          "6. Bak på 160°C i 15-20 minutter"
-        ],
-        "en": [
-          "1. Mix butter and sugar until light and fluffy",
-          "2. Add flour and salt",
-          "3. Knead dough until smooth",
-          "4. Roll out on baking paper",
-          "5. Cut into desired shapes",
-          "6. Bake at 160°C for 15-20 minutes"
-        ]
-      }
-    },
-    {
-      "id": "nd_096",
-      "title": {
-        "no": "Gløgg",
-        "en": "Glögg"
-      },
-      "subtitle": {
-        "no": "Varm fruktdrikk med vin og krydder",
-        "en": "Warm fruit drink with wine and spices"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 30,
-      "servings": 8,
-      "category": "Other",
-      "tags": [
-        "drink",
-        "warm",
-        "spiced",
-        "holiday"
-      ],
-      "allergens": [
-        "alcohol",
-        "nuts"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Rødt vin",
-            "en": "Red wine"
-          },
-          "amount": 750,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Vann",
-            "en": "Water"
-          },
-          "amount": 500,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Kanelstang",
-            "en": "Cinnamon stick"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "stk",
-            "en": "pcs"
-          }
-        },
-        {
-          "name": {
-            "no": "Nellik",
-            "en": "Cloves"
-          },
-          "amount": 10,
-          "unit": {
-            "no": "stk",
-            "en": "pcs"
-          }
-        },
-        {
-          "name": {
-            "no": "Kardesamom",
-            "en": "Cardamom"
-          },
-          "amount": 5,
-          "unit": {
-            "no": "stk",
-            "en": "pcs"
-          }
-        },
-        {
-          "name": {
-            "no": "Rosiner",
-            "en": "Raisins"
-          },
-          "amount": 75,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Mandler",
-            "en": "Almonds"
-          },
-          "amount": 75,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Kombiner vin, vann og sukker i en kjele",
-          "2. Tilsett kanelstang, nellik og kardesamom",
-          "3. Heat sakte til det blir varmt, ikke kokt",
-          "4. Sil bort krydderne",
-          "5. Tilsett rosiner og mandler",
-          "6. Serv varm i kopper"
-        ],
-        "en": [
-          "1. Combine wine, water and sugar in a pot",
-          "2. Add cinnamon stick, cloves and cardamom",
-          "3. Heat slowly until warm, do not boil",
-          "4. Strain out spices",
-          "5. Add raisins and almonds",
-          "6. Serve warm in cups"
-        ]
-      }
-    },
-    {
-      "id": "nd_097",
-      "title": {
-        "no": "Rødgrød med Fløde",
-        "en": "Red Fruit Dessert"
-      },
-      "subtitle": {
-        "no": "Klassisk dansk rødfruktgrøt med krem",
-        "en": "Classic Danish red berry pudding with cream"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 25,
-      "servings": 4,
-      "category": "Other",
-      "tags": [
-        "dessert",
-        "berries",
-        "traditional"
-      ],
-      "allergens": [
-        "milk"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Jordbær",
-            "en": "Strawberries"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Bringebær",
-            "en": "Raspberries"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Vann",
-            "en": "Water"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Maisstivelse",
-            "en": "Cornstarch"
-          },
-          "amount": 20,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Fløte",
-            "en": "Heavy cream"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Kokk bær med sukker og vann i 10 minutter",
-          "2. Sil fruktkjøttet",
-          "3. Mix maisstivelse med litt kaldt vann",
-          "4. Helle maisstivelseblandingen i varmen fruktjuice",
-          "5. Kok til det blir tykkere",
-          "6. La kjøle ned",
-          "7. Server med piskekrem på topp"
-        ],
-        "en": [
-          "1. Cook berries with sugar and water for 10 minutes",
-          "2. Strain through sieve",
-          "3. Mix cornstarch with cold water",
-          "4. Pour cornstarch mixture into warm fruit juice",
-          "5. Cook until thickened",
-          "6. Cool down",
-          "7. Serve with whipped cream on top"
-        ]
-      }
-    },
-    {
       "id": "nd_098",
       "title": {
         "no": "Kartoffel og Blomkål",
@@ -7173,7 +4113,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 50,
       "servings": 4,
-      "category": "Meat",
+      "category": "Beef & Red Meat",
       "tags": [
         "vegetables",
         "comfort food",
@@ -7267,7 +4207,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 40,
       "servings": 4,
-      "category": "Other",
+      "category": "Soups & Stews",
       "tags": [
         "vegetarian",
         "comfort food",
@@ -7389,11 +4329,12 @@
       "difficulty": "easy",
       "cookTimeMinutes": 25,
       "servings": 4,
-      "category": "Other",
+      "category": "Sides & Light Meals",
       "tags": [
         "vegetables",
         "side dish",
-        "healthy"
+        "healthy",
+        "quick"
       ],
       "allergens": [
         "milk"
@@ -7509,11 +4450,12 @@
       "difficulty": "easy",
       "cookTimeMinutes": 30,
       "servings": 4,
-      "category": "Other",
+      "category": "Sides & Light Meals",
       "tags": [
         "vegetables",
         "side dish",
-        "puree"
+        "puree",
+        "quick"
       ],
       "allergens": [
         "milk"
@@ -7616,7 +4558,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 35,
       "servings": 4,
-      "category": "Other",
+      "category": "Sides & Light Meals",
       "tags": [
         "vegetables",
         "side dish",
@@ -7714,11 +4656,12 @@
       "difficulty": "easy",
       "cookTimeMinutes": 30,
       "servings": 4,
-      "category": "Other",
+      "category": "Sides & Light Meals",
       "tags": [
         "vegetables",
         "roasted",
-        "healthy"
+        "healthy",
+        "quick"
       ],
       "allergens": [],
       "ingredients": [
@@ -7808,7 +4751,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 20,
       "servings": 4,
-      "category": "Other",
+      "category": "Sides & Light Meals",
       "tags": [
         "vegetables",
         "side dish",
@@ -7906,7 +4849,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 45,
       "servings": 4,
-      "category": "Other",
+      "category": "Soups & Stews",
       "tags": [
         "vegetables",
         "stew",

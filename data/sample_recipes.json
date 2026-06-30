@@ -1,98 +1,41 @@
 [
   {
     "id": "sample_001",
-    "title_no": "Kremete Pasta med Kjøttkugler",
-    "title_en": "Creamy Pasta with Meatballs",
-    "description_no": "Klassisk italiensk rett med hjemmelaget kjøttkugler i en cremekilde tomatsaus",
-    "description_en": "Classic Italian dish with homemade meatballs in a creamy tomato sauce",
-    "category": "Quick Dinners",
-    "difficulty": "Medium",
-    "time_minutes": 35,
+    "title": {
+      "no": "Kremete Pasta med Kjøttkugler",
+      "en": "Creamy Pasta with Meatballs"
+    },
+    "subtitle": {
+      "no": "Klassisk italiensk rett med hjemmelaget kjøttkugler i en kremet tomatsaus",
+      "en": "Classic Italian dish with homemade meatballs in a creamy tomato sauce"
+    },
+    "difficulty": "medium",
+    "cookTimeMinutes": 35,
     "servings": 4,
-    "calories": 520,
-    "protein": 28,
-    "tags": [
-      "italiensk",
-      "pasta",
-      "kjøtt"
+    "category": "Quick Dinners",
+    "tags": ["italiensk", "pasta", "kjøtt"],
+    "allergens": ["melk", "gluten", "egg"],
+    "ingredients": [
+      {"name": {"no": "Hakket kjøtt", "en": "Ground beef"}, "amount": 500, "unit": {"no": "gram", "en": "g"}},
+      {"name": {"no": "Fløte", "en": "Heavy cream"}, "amount": 200, "unit": {"no": "milliliter", "en": "ml"}},
+      {"name": {"no": "Tomat", "en": "Tomato"}, "amount": 400, "unit": {"no": "gram", "en": "g"}},
+      {"name": {"no": "Pasta", "en": "Pasta"}, "amount": 400, "unit": {"no": "gram", "en": "g"}},
+      {"name": {"no": "Løk", "en": "Onion"}, "amount": 1, "unit": {"no": "stk", "en": "pieces"}},
+      {"name": {"no": "Hvitløk", "en": "Garlic"}, "amount": 3, "unit": {"no": "fedd", "en": "cloves"}}
     ],
-    "allergens": [
-      "melk",
-      "gluten",
-      "egg"
-    ],
-    "ingredients_included": [
-      {
-        "id": "ing_001",
-        "name_no": "Hakket kjøtt",
-        "name_en": "Ground beef",
-        "quantity": 500,
-        "unit": "g",
-        "category": "Kjøtt",
-        "name": "Ground beef"
-      },
-      {
-        "id": "ing_002",
-        "name_no": "Fløte",
-        "name_en": "Heavy cream",
-        "quantity": 200,
-        "unit": "ml",
-        "category": "Melkeprodukter",
-        "name": "Heavy cream"
-      },
-      {
-        "id": "ing_003",
-        "name_no": "Tomat",
-        "name_en": "Tomato",
-        "quantity": 400,
-        "unit": "g",
-        "category": "Grønnsaker",
-        "name": "Tomato"
-      },
-      {
-        "id": "ing_004",
-        "name_no": "Pasta",
-        "name_en": "Pasta",
-        "quantity": 400,
-        "unit": "g",
-        "category": "Kornprodukter",
-        "name": "Pasta"
-      },
-      {
-        "id": "ing_005",
-        "name_no": "Løk",
-        "name_en": "Onion",
-        "quantity": 1,
-        "unit": "stk",
-        "category": "Grønnsaker",
-        "name": "Onion"
-      },
-      {
-        "id": "ing_006",
-        "name_no": "Hvitkål",
-        "name_en": "Garlic",
-        "quantity": 3,
-        "unit": "fedd",
-        "category": "Grønnsaker",
-        "name": "Garlic"
-      }
-    ],
-    "instructions_no": "1. Brun hakket kjøtt i en panne. 2. Tilsett finhakket løk og hvitkål. 3. Tilsett tomat og la det småkoke. 4. Tilsett fløte og krydderier. 5. Kok pasta etter anvisning. 6. Bland pasta med sausen.",
-    "instructions_en": "1. Brown ground beef in a pan. 2. Add diced onion and garlic. 3. Add tomato and simmer. 4. Stir in cream and seasonings. 5. Cook pasta according to instructions. 6. Mix pasta with sauce.",
-    "title": "Creamy Pasta with Meatballs",
     "instructions": {
       "no": [
         "1. Brun kjøttdeigen i en gryte over medium varme.",
-        "2. Tilsett løk og hvitløk, og la det fryse litt.",
-        "3. Hell i tomatosaos og fløten, bland godt.",
+        "2. Tilsett løk og hvitløk, og la det surre litt.",
+        "3. Hell i tomat og fløte, bland godt.",
         "4. Kok pastaen etter anvisning på pakken.",
         "5. Bland pasta med kjøttsausen.",
-        "6. Serv varmt med parmesanost på toppen."
+        "6. Server varmt med parmesanost på toppen."
       ],
       "en": [
         "1. Brown ground beef in a pot over medium heat.",
         "2. Add onions and garlic, sauté until fragrant.",
-        "3. Pour in tomato sauce and cream, stir well.",
+        "3. Pour in tomato and cream, stir well.",
         "4. Cook pasta according to package directions.",
         "5. Mix cooked pasta with the meat sauce.",
         "6. Serve hot topped with parmesan cheese."
@@ -101,73 +44,34 @@
   },
   {
     "id": "sample_002",
-    "title_no": "Grillet Laks med Aspargess",
-    "title_en": "Grilled Salmon with Asparagus",
-    "description_no": "Frisk og helserik laksefillet grillet til perfeksjon med ferske aspargesstilker",
-    "description_en": "Fresh and healthy salmon fillet grilled to perfection with fresh asparagus spears",
-    "category": "Fish & Seafood",
-    "difficulty": "Easy",
-    "time_minutes": 25,
+    "title": {
+      "no": "Grillet Laks med Asparges",
+      "en": "Grilled Salmon with Asparagus"
+    },
+    "subtitle": {
+      "no": "Frisk og helserik laksefilet grillet til perfeksjon med ferske aspargesstilker",
+      "en": "Fresh and healthy salmon fillet grilled to perfection with fresh asparagus spears"
+    },
+    "difficulty": "easy",
+    "cookTimeMinutes": 25,
     "servings": 2,
-    "calories": 380,
-    "protein": 42,
-    "tags": [
-      "fisk",
-      "helsekost",
-      "rask"
+    "category": "Fish & Seafood",
+    "tags": ["fisk", "helsekost", "rask"],
+    "allergens": ["fisk"],
+    "ingredients": [
+      {"name": {"no": "Laksefilet", "en": "Salmon fillet"}, "amount": 400, "unit": {"no": "gram", "en": "g"}},
+      {"name": {"no": "Asparges", "en": "Asparagus"}, "amount": 300, "unit": {"no": "gram", "en": "g"}},
+      {"name": {"no": "Sitron", "en": "Lemon"}, "amount": 1, "unit": {"no": "stk", "en": "pieces"}},
+      {"name": {"no": "Olivenolje", "en": "Olive oil"}, "amount": 30, "unit": {"no": "milliliter", "en": "ml"}}
     ],
-    "allergens": [
-      "fisk"
-    ],
-    "ingredients_included": [
-      {
-        "id": "ing_007",
-        "name_no": "Laksefillet",
-        "name_en": "Salmon fillet",
-        "quantity": 400,
-        "unit": "g",
-        "category": "Fisk",
-        "name": "Salmon fillet"
-      },
-      {
-        "id": "ing_008",
-        "name_no": "Asparges",
-        "name_en": "Asparagus",
-        "quantity": 300,
-        "unit": "g",
-        "category": "Grønnsaker",
-        "name": "Asparagus"
-      },
-      {
-        "id": "ing_009",
-        "name_no": "Sitron",
-        "name_en": "Lemon",
-        "quantity": 1,
-        "unit": "stk",
-        "category": "Frukter",
-        "name": "Lemon"
-      },
-      {
-        "id": "ing_010",
-        "name_no": "Olivenolje",
-        "name_en": "Olive oil",
-        "quantity": 30,
-        "unit": "ml",
-        "category": "Oljer",
-        "name": "Olive oil"
-      }
-    ],
-    "instructions_no": "1. Varm grillen. 2. Klem sitronjuice over laksen. 3. Grill laksen ca 12 minutter. 4. Tilsett asparges på grillen. 5. Grill til alt er mørt.",
-    "instructions_en": "1. Heat grill. 2. Squeeze lemon juice over salmon. 3. Grill salmon for about 12 minutes. 4. Add asparagus to grill. 5. Grill until everything is tender.",
-    "title": "Grilled Salmon with Asparagus",
     "instructions": {
       "no": [
         "1. Forhett ovnen til 200°C.",
-        "2. Legg laksefilen på bakepapir.",
+        "2. Legg laksefileten på bakepapir.",
         "3. Legg asparges rundt laksen.",
-        "4. Drysle med olivennolje, salt og pepper.",
-        "5. Bak i ovnen i 15-20 minutter til laksen er mørt.",
-        "6. Serv med sitronskiver."
+        "4. Dryss med olivenolje, salt og pepper.",
+        "5. Bak i ovnen i 15-20 minutter til laksen er gjennomstekt.",
+        "6. Server med sitronskiver."
       ],
       "en": [
         "1. Preheat oven to 200°C (400°F).",
@@ -181,668 +85,327 @@
   },
   {
     "id": "sample_003",
-    "title_no": "Grønn Wok med Kylling",
-    "title_en": "Green Vegetable Stir-fry with Chicken",
-    "description_no": "Rask og fargerik stir-fry med ferske grønnsaker og grillet kylling",
-    "description_en": "Quick and colorful stir-fry with fresh vegetables and grilled chicken",
-    "category": "Quick Dinners",
-    "difficulty": "Easy",
-    "time_minutes": 20,
+    "title": {
+      "no": "Grønn Wok med Kylling",
+      "en": "Green Vegetable Stir-fry with Chicken"
+    },
+    "subtitle": {
+      "no": "Rask og fargerik stir-fry med ferske grønnsaker og kylling",
+      "en": "Quick and colorful stir-fry with fresh vegetables and chicken"
+    },
+    "difficulty": "easy",
+    "cookTimeMinutes": 20,
     "servings": 2,
-    "calories": 320,
-    "protein": 38,
-    "tags": [
-      "vegetar-vennlig",
-      "asiatisk",
-      "rask"
+    "category": "Quick Dinners",
+    "tags": ["asiatisk", "rask"],
+    "allergens": ["soya"],
+    "ingredients": [
+      {"name": {"no": "Kyllingfilet", "en": "Chicken breast"}, "amount": 300, "unit": {"no": "gram", "en": "g"}},
+      {"name": {"no": "Brokkoli", "en": "Broccoli"}, "amount": 200, "unit": {"no": "gram", "en": "g"}},
+      {"name": {"no": "Zucchini", "en": "Zucchini"}, "amount": 150, "unit": {"no": "gram", "en": "g"}},
+      {"name": {"no": "Soyasaus", "en": "Soy sauce"}, "amount": 30, "unit": {"no": "milliliter", "en": "ml"}},
+      {"name": {"no": "Ingefær", "en": "Ginger"}, "amount": 1, "unit": {"no": "ss", "en": "tbsp"}}
     ],
-    "allergens": [
-      "soya"
-    ],
-    "ingredients_included": [
-      {
-        "id": "ing_011",
-        "name_no": "Kyllingfilet",
-        "name_en": "Chicken breast",
-        "quantity": 300,
-        "unit": "g",
-        "category": "Kjøtt",
-        "name": "Chicken breast"
-      },
-      {
-        "id": "ing_012",
-        "name_no": "Brokkoli",
-        "name_en": "Broccoli",
-        "quantity": 200,
-        "unit": "g",
-        "category": "Grønnsaker",
-        "name": "Broccoli"
-      },
-      {
-        "id": "ing_013",
-        "name_no": "Zucchini",
-        "name_en": "Zucchini",
-        "quantity": 150,
-        "unit": "g",
-        "category": "Grønnsaker",
-        "name": "Zucchini"
-      },
-      {
-        "id": "ing_014",
-        "name_no": "Soyasaus",
-        "name_en": "Soy sauce",
-        "quantity": 30,
-        "unit": "ml",
-        "category": "Krydderier",
-        "name": "Soy sauce"
-      },
-      {
-        "id": "ing_015",
-        "name_no": "Ingefær",
-        "name_en": "Ginger",
-        "quantity": 1,
-        "unit": "tbsp",
-        "category": "Krydderier",
-        "name": "Ginger"
-      }
-    ],
-    "instructions_no": "1. Skjær kyllingen i biter. 2. Varm olje i wok eller stor panne. 3. Stek kyllingen til den er gyllen. 4. Tilsett grønnsaker og ingefær. 5. Tilsett soyasaus og la det koke i 5 minutter.",
-    "instructions_en": "1. Cut chicken into pieces. 2. Heat oil in wok or large pan. 3. Stir-fry chicken until golden. 4. Add vegetables and ginger. 5. Add soy sauce and cook for 5 minutes.",
-    "title": "Green Vegetable Stir-fry with Chicken",
     "instructions": {
       "no": [
-        "1. Kok poteter til de er møre, ca 15-20 minutter.",
-        "2. Avløp potetene og varm dem opp igjen med smør.",
-        "3. Krem dem til en glatt purépasta.",
-        "4. Tilsett salt, pepper og muskatnøtt etter smak.",
-        "5. Server varmt som tilbehør."
+        "1. Skjær kyllingen i biter.",
+        "2. Varm olje i wok eller stor panne.",
+        "3. Stek kyllingen til den er gyllen.",
+        "4. Tilsett brokkoli, zucchini og ingefær.",
+        "5. Tilsett soyasaus og la det koke i 5 minutter."
       ],
       "en": [
-        "1. Boil potatoes until tender, about 15-20 minutes.",
-        "2. Drain potatoes and warm them again with butter.",
-        "3. Mash them into a smooth puree.",
-        "4. Add salt, pepper and nutmeg to taste.",
-        "5. Serve hot as a side dish."
+        "1. Cut chicken into pieces.",
+        "2. Heat oil in wok or large pan.",
+        "3. Stir-fry chicken until golden.",
+        "4. Add broccoli, zucchini and ginger.",
+        "5. Add soy sauce and cook for 5 minutes."
       ]
     }
   },
   {
     "id": "sample_004",
-    "title_no": "Kyllingtaco med Friske Toppinger",
-    "title_en": "Chicken Tacos with Fresh Toppings",
-    "description_no": "Mexicansk inspirert familiekost med krydret kylling og mange gode toppinger",
-    "description_en": "Mexican-inspired family meal with spiced chicken and many delicious toppings",
-    "category": "Quick Dinners",
-    "difficulty": "Easy",
-    "time_minutes": 25,
+    "title": {
+      "no": "Kyllingtaco med Friske Toppinger",
+      "en": "Chicken Tacos with Fresh Toppings"
+    },
+    "subtitle": {
+      "no": "Mexicansk inspirert familiekost med krydret kylling og gode toppinger",
+      "en": "Mexican-inspired family meal with spiced chicken and delicious toppings"
+    },
+    "difficulty": "easy",
+    "cookTimeMinutes": 25,
     "servings": 4,
-    "calories": 420,
-    "protein": 32,
-    "tags": [
-      "mexicansk",
-      "famiglia",
-      "rask"
+    "category": "Quick Dinners",
+    "tags": ["mexicansk", "familie", "rask"],
+    "allergens": ["gluten", "melk"],
+    "ingredients": [
+      {"name": {"no": "Kyllingfilet", "en": "Chicken breast"}, "amount": 500, "unit": {"no": "gram", "en": "g"}},
+      {"name": {"no": "Tortillas", "en": "Tortillas"}, "amount": 8, "unit": {"no": "stk", "en": "pieces"}},
+      {"name": {"no": "Isbergsalat", "en": "Iceberg lettuce"}, "amount": 100, "unit": {"no": "gram", "en": "g"}},
+      {"name": {"no": "Tomat", "en": "Tomato"}, "amount": 200, "unit": {"no": "gram", "en": "g"}},
+      {"name": {"no": "Ost", "en": "Cheese"}, "amount": 100, "unit": {"no": "gram", "en": "g"}},
+      {"name": {"no": "Guacamole", "en": "Guacamole"}, "amount": 150, "unit": {"no": "gram", "en": "g"}}
     ],
-    "allergens": [
-      "gluten",
-      "melk"
-    ],
-    "ingredients_included": [
-      {
-        "id": "ing_016",
-        "name_no": "Kyllingfilet",
-        "name_en": "Chicken breast",
-        "quantity": 500,
-        "unit": "g",
-        "category": "Kjøtt",
-        "name": "Chicken breast"
-      },
-      {
-        "id": "ing_017",
-        "name_no": "Tortillas",
-        "name_en": "Tortillas",
-        "quantity": 8,
-        "unit": "stk",
-        "category": "Kornprodukter",
-        "name": "Tortillas"
-      },
-      {
-        "id": "ing_018",
-        "name_no": "Isbergsalat",
-        "name_en": "Iceberg lettuce",
-        "quantity": 100,
-        "unit": "g",
-        "category": "Grønnsaker",
-        "name": "Iceberg lettuce"
-      },
-      {
-        "id": "ing_019",
-        "name_no": "Tomat",
-        "name_en": "Tomato",
-        "quantity": 200,
-        "unit": "g",
-        "category": "Grønnsaker",
-        "name": "Tomato"
-      },
-      {
-        "id": "ing_020",
-        "name_no": "Ost",
-        "name_en": "Cheese",
-        "quantity": 100,
-        "unit": "g",
-        "category": "Melkeprodukter",
-        "name": "Cheese"
-      },
-      {
-        "id": "ing_021",
-        "name_no": "Guacamole",
-        "name_en": "Guacamole",
-        "quantity": 150,
-        "unit": "g",
-        "category": "Saus",
-        "name": "Guacamole"
-      }
-    ],
-    "instructions_no": "1. Kutt kyllingen i små biter. 2. Krydre med taco-krydder. 3. Fry kyllingen i 10 minutter. 4. Varm tortillas. 5. Assemble tacosene med salat, tomat, ost og guacamole.",
-    "instructions_en": "1. Cut chicken into small pieces. 2. Season with taco seasoning. 3. Fry chicken for 10 minutes. 4. Warm tortillas. 5. Assemble tacos with lettuce, tomato, cheese and guacamole.",
-    "title": "Chicken Tacos with Fresh Toppings",
     "instructions": {
       "no": [
-        "1. Kutt kjøttet i små biter.",
-        "2. Brun kjøttet i en gryte med olje.",
-        "3. Tilsett løk og hvitløk.",
-        "4. Legg til alle grønnsakene og kraft.",
-        "5. La det simre i 30-40 minutter.",
-        "6. Smak til med salt og pepper."
+        "1. Kutt kyllingen i små biter.",
+        "2. Krydre med taco-krydder.",
+        "3. Stek kyllingen i 10 minutter.",
+        "4. Varm tortillaene.",
+        "5. Sett sammen tacoene med salat, tomat, ost og guacamole."
       ],
       "en": [
-        "1. Cut beef into small cubes.",
-        "2. Brown the meat in a pot with oil.",
-        "3. Add onions and garlic.",
-        "4. Add all vegetables and broth.",
-        "5. Simmer for 30-40 minutes.",
-        "6. Season with salt and pepper to taste."
+        "1. Cut chicken into small pieces.",
+        "2. Season with taco seasoning.",
+        "3. Fry chicken for 10 minutes.",
+        "4. Warm tortillas.",
+        "5. Assemble tacos with lettuce, tomato, cheese and guacamole."
       ]
     }
   },
   {
     "id": "sample_005",
-    "title_no": "Kokt Torsk med Kartofler",
-    "title_en": "Baked Cod with Potatoes",
-    "description_no": "Klassisk norsk fiskeret med saftig torsk og roastede poteter",
-    "description_en": "Classic Norwegian fish dish with juicy cod and roasted potatoes",
-    "category": "Fish & Seafood",
-    "difficulty": "Easy",
-    "time_minutes": 40,
+    "title": {
+      "no": "Ovnsbakt Torsk med Poteter",
+      "en": "Baked Cod with Potatoes"
+    },
+    "subtitle": {
+      "no": "Klassisk norsk fiskerett med saftig torsk og ovnsbakte poteter",
+      "en": "Classic Norwegian fish dish with juicy cod and oven-roasted potatoes"
+    },
+    "difficulty": "easy",
+    "cookTimeMinutes": 40,
     "servings": 4,
-    "calories": 340,
-    "protein": 36,
-    "tags": [
-      "norsk",
-      "fisk",
-      "enkelt"
+    "category": "Fish & Seafood",
+    "tags": ["norsk", "fisk", "enkelt"],
+    "allergens": ["fisk"],
+    "ingredients": [
+      {"name": {"no": "Torskefilet", "en": "Cod fillet"}, "amount": 600, "unit": {"no": "gram", "en": "g"}},
+      {"name": {"no": "Poteter", "en": "Potatoes"}, "amount": 800, "unit": {"no": "gram", "en": "g"}},
+      {"name": {"no": "Dill", "en": "Dill"}, "amount": 2, "unit": {"no": "ss", "en": "tbsp"}},
+      {"name": {"no": "Sitron", "en": "Lemon"}, "amount": 1, "unit": {"no": "stk", "en": "pieces"}}
     ],
-    "allergens": [
-      "fisk"
-    ],
-    "ingredients_included": [
-      {
-        "id": "ing_022",
-        "name_no": "Torskefillet",
-        "name_en": "Cod fillet",
-        "quantity": 600,
-        "unit": "g",
-        "category": "Fisk",
-        "name": "Cod fillet"
-      },
-      {
-        "id": "ing_023",
-        "name_no": "Kartofler",
-        "name_en": "Potatoes",
-        "quantity": 800,
-        "unit": "g",
-        "category": "Grønnsaker",
-        "name": "Potatoes"
-      },
-      {
-        "id": "ing_024",
-        "name_no": "Dill",
-        "name_en": "Dill",
-        "quantity": 2,
-        "unit": "tbsp",
-        "category": "Krydderier",
-        "name": "Dill"
-      },
-      {
-        "id": "ing_025",
-        "name_no": "Sitron",
-        "name_en": "Lemon",
-        "quantity": 1,
-        "unit": "stk",
-        "category": "Frukter",
-        "name": "Lemon"
-      }
-    ],
-    "instructions_no": "1. Forvarm ovnen til 200°C. 2. Kutt kartofler i biter og tilsett olje. 3. Ros kartofler i 30 minutter. 4. Tilsett torsk på toppen og bak i 10-12 minutter. 5. Garnerer med dill og sitron.",
-    "instructions_en": "1. Preheat oven to 200°C. 2. Cut potatoes and toss with oil. 3. Roast potatoes for 30 minutes. 4. Place cod on top and bake for 10-12 minutes. 5. Garnish with dill and lemon.",
-    "title": "Baked Cod with Potatoes",
     "instructions": {
       "no": [
-        "1. Skrell og kutt gulrøttene i strimler.",
-        "2. Kutt løkene i tynne ringer.",
-        "3. Varm opp smøret i en gryte.",
-        "4. Tilsett grønnsakene og la dem fryse i 5 minutter.",
-        "5. Tilsett kraft eller buljong.",
-        "6. La det koke i 15 minutter til grønnsakene er møre."
+        "1. Forvarm ovnen til 200°C.",
+        "2. Kutt potetene i biter og vend dem i olje.",
+        "3. Stek potetene i 30 minutter.",
+        "4. Legg torsken på toppen og stek videre i 10-12 minutter.",
+        "5. Garner med dill og sitron."
       ],
       "en": [
-        "1. Peel and cut carrots into strips.",
-        "2. Slice onions into thin rings.",
-        "3. Heat butter in a pot.",
-        "4. Add vegetables and sauté for 5 minutes.",
-        "5. Add broth or stock.",
-        "6. Simmer for 15 minutes until vegetables are tender."
+        "1. Preheat oven to 200°C.",
+        "2. Cut potatoes into pieces and toss with oil.",
+        "3. Roast potatoes for 30 minutes.",
+        "4. Place cod on top and bake for 10-12 minutes more.",
+        "5. Garnish with dill and lemon."
       ]
     }
   },
   {
     "id": "sample_006",
-    "title_no": "Stuet Kjøtt med Grønnsaker",
-    "title_en": "Beef Stew with Vegetables",
-    "description_no": "Varmende og mettende gryte med mørt kjøtt og rotgrønnsaker",
-    "description_en": "Warming and hearty stew with tender beef and root vegetables",
-    "category": "Quick Dinners",
-    "difficulty": "Medium",
-    "time_minutes": 90,
+    "title": {
+      "no": "Gryte med Kjøtt og Grønnsaker",
+      "en": "Beef Stew with Vegetables"
+    },
+    "subtitle": {
+      "no": "Varmende og mettende gryte med mørt kjøtt og rotgrønnsaker",
+      "en": "Warming and hearty stew with tender beef and root vegetables"
+    },
+    "difficulty": "medium",
+    "cookTimeMinutes": 90,
     "servings": 4,
-    "calories": 420,
-    "protein": 34,
-    "tags": [
-      "gryte",
-      "familie",
-      "varmt"
-    ],
+    "category": "Quick Dinners",
+    "tags": ["gryte", "familie", "varmt"],
     "allergens": [],
-    "ingredients_included": [
-      {
-        "id": "ing_026",
-        "name_no": "Kjøttkuber",
-        "name_en": "Beef cubes",
-        "quantity": 800,
-        "unit": "g",
-        "category": "Kjøtt",
-        "name": "Beef cubes"
-      },
-      {
-        "id": "ing_027",
-        "name_no": "Gulerot",
-        "name_en": "Carrot",
-        "quantity": 300,
-        "unit": "g",
-        "category": "Grønnsaker",
-        "name": "Carrot"
-      },
-      {
-        "id": "ing_028",
-        "name_no": "Løk",
-        "name_en": "Onion",
-        "quantity": 200,
-        "unit": "g",
-        "category": "Grønnsaker",
-        "name": "Onion"
-      },
-      {
-        "id": "ing_029",
-        "name_no": "Brokkoli",
-        "name_en": "Broccoli",
-        "quantity": 200,
-        "unit": "g",
-        "category": "Grønnsaker",
-        "name": "Broccoli"
-      },
-      {
-        "id": "ing_030",
-        "name_no": "Buljong",
-        "name_en": "Broth",
-        "quantity": 500,
-        "unit": "ml",
-        "category": "Væsker",
-        "name": "Broth"
-      }
+    "ingredients": [
+      {"name": {"no": "Kjøttkuber", "en": "Beef cubes"}, "amount": 800, "unit": {"no": "gram", "en": "g"}},
+      {"name": {"no": "Gulrot", "en": "Carrot"}, "amount": 300, "unit": {"no": "gram", "en": "g"}},
+      {"name": {"no": "Løk", "en": "Onion"}, "amount": 200, "unit": {"no": "gram", "en": "g"}},
+      {"name": {"no": "Brokkoli", "en": "Broccoli"}, "amount": 200, "unit": {"no": "gram", "en": "g"}},
+      {"name": {"no": "Buljong", "en": "Broth"}, "amount": 500, "unit": {"no": "milliliter", "en": "ml"}}
     ],
-    "instructions_no": "1. Brun kjøttet i en gryte. 2. Tilsett løk og gulerot. 3. Tilsett buljong og la det småkoke i 60 minutter. 4. Tilsett brokkoli og la det koke i 10 minutter til.",
-    "instructions_en": "1. Brown beef in a pot. 2. Add onion and carrot. 3. Add broth and simmer for 60 minutes. 4. Add broccoli and cook for 10 more minutes.",
-    "title": "Beef Stew with Vegetables",
     "instructions": {
       "no": [
-        "1. Kutt kjøttet i små biter.",
-        "2. Kutt opp alle grønnsakene.",
-        "3. Brun kjøttet i en gryte.",
-        "4. Tilsett grønnsakene og la dem fryse.",
-        "5. Hell i kraft og la det simre i 45 minutter.",
-        "6. Smak til og serv varmt."
+        "1. Kutt kjøttet i biter og brun det i en gryte.",
+        "2. Tilsett løk og gulrot.",
+        "3. Hell i buljong og la det småkoke i 60 minutter.",
+        "4. Tilsett brokkoli og kok i 10 minutter til.",
+        "5. Smak til med salt og pepper, og server varmt."
       ],
       "en": [
-        "1. Cut beef into small cubes.",
-        "2. Chop all the vegetables.",
-        "3. Brown the meat in a pot.",
-        "4. Add vegetables and sauté.",
-        "5. Pour in broth and simmer for 45 minutes.",
-        "6. Season to taste and serve hot."
+        "1. Cut beef into cubes and brown in a pot.",
+        "2. Add onion and carrot.",
+        "3. Pour in broth and simmer for 60 minutes.",
+        "4. Add broccoli and cook for 10 more minutes.",
+        "5. Season with salt and pepper to taste, and serve hot."
       ]
     }
   },
   {
     "id": "sample_007",
-    "title_no": "Kikertatekurry med Ris",
-    "title_en": "Chickpea Curry with Rice",
-    "description_no": "Vegetarisk curry full av smak, perfekt med ris",
-    "description_en": "Vegetarian curry full of flavor, perfect with rice",
-    "category": "Vegetarian",
-    "difficulty": "Medium",
-    "time_minutes": 35,
+    "title": {
+      "no": "Kikertcurry med Ris",
+      "en": "Chickpea Curry with Rice"
+    },
+    "subtitle": {
+      "no": "Vegetarisk curry full av smak, perfekt med ris",
+      "en": "Vegetarian curry full of flavor, perfect with rice"
+    },
+    "difficulty": "medium",
+    "cookTimeMinutes": 35,
     "servings": 3,
-    "calories": 380,
-    "protein": 14,
-    "tags": [
-      "vegetar",
-      "asiatisk",
-      "krydret"
+    "category": "Vegetarian",
+    "tags": ["vegetar", "asiatisk", "krydret"],
+    "allergens": ["melk"],
+    "ingredients": [
+      {"name": {"no": "Kikerter", "en": "Chickpeas"}, "amount": 400, "unit": {"no": "gram", "en": "g"}},
+      {"name": {"no": "Kokosmelk", "en": "Coconut milk"}, "amount": 400, "unit": {"no": "milliliter", "en": "ml"}},
+      {"name": {"no": "Løk", "en": "Onion"}, "amount": 1, "unit": {"no": "stk", "en": "pieces"}},
+      {"name": {"no": "Karripulver", "en": "Curry powder"}, "amount": 2, "unit": {"no": "ss", "en": "tbsp"}},
+      {"name": {"no": "Ris", "en": "Rice"}, "amount": 250, "unit": {"no": "gram", "en": "g"}},
+      {"name": {"no": "Tomat", "en": "Tomato"}, "amount": 200, "unit": {"no": "gram", "en": "g"}}
     ],
-    "allergens": [
-      "melk"
-    ],
-    "ingredients_included": [
-      {
-        "id": "ing_031",
-        "name_no": "Kikerter",
-        "name_en": "Chickpeas",
-        "quantity": 400,
-        "unit": "g",
-        "category": "Bønner",
-        "name": "Chickpeas"
-      },
-      {
-        "id": "ing_032",
-        "name_no": "Kokosmjølk",
-        "name_en": "Coconut milk",
-        "quantity": 400,
-        "unit": "ml",
-        "category": "Melkeprodukter",
-        "name": "Coconut milk"
-      },
-      {
-        "id": "ing_033",
-        "name_no": "Løk",
-        "name_en": "Onion",
-        "quantity": 1,
-        "unit": "stk",
-        "category": "Grønnsaker",
-        "name": "Onion"
-      },
-      {
-        "id": "ing_034",
-        "name_no": "Currykrydder",
-        "name_en": "Curry powder",
-        "quantity": 2,
-        "unit": "tbsp",
-        "category": "Krydderier",
-        "name": "Curry powder"
-      },
-      {
-        "id": "ing_035",
-        "name_no": "Ris",
-        "name_en": "Rice",
-        "quantity": 250,
-        "unit": "g",
-        "category": "Kornprodukter",
-        "name": "Rice"
-      },
-      {
-        "id": "ing_036",
-        "name_no": "Tomat",
-        "name_en": "Tomato",
-        "quantity": 200,
-        "unit": "g",
-        "category": "Grønnsaker",
-        "name": "Tomato"
-      }
-    ],
-    "instructions_no": "1. Kok ris etter anvisning. 2. Tilsett løk og currykriyder i en panne. 3. Tilsett kikerter, kokosmjølk og tomat. 4. La det småkoke i 20 minutter.",
-    "instructions_en": "1. Cook rice according to instructions. 2. Sauté onion and curry powder in a pan. 3. Add chickpeas, coconut milk and tomato. 4. Simmer for 20 minutes.",
-    "title": "Chickpea Curry with Rice"
+    "instructions": {
+      "no": [
+        "1. Kok ris etter anvisning.",
+        "2. Surr løk og karripulver i en panne.",
+        "3. Tilsett kikerter, kokosmelk og tomat.",
+        "4. La det småkoke i 20 minutter.",
+        "5. Server curryen over risen."
+      ],
+      "en": [
+        "1. Cook rice according to instructions.",
+        "2. Sauté onion and curry powder in a pan.",
+        "3. Add chickpeas, coconut milk and tomato.",
+        "4. Simmer for 20 minutes.",
+        "5. Serve the curry over the rice."
+      ]
+    }
   },
   {
     "id": "sample_008",
-    "title_no": "Grisekjøtt Tenderloin med Sopp",
-    "title_en": "Pork Tenderloin with Mushrooms",
-    "description_no": "Elegantx grisekjøttretten med fløtekrem og sopp",
-    "description_en": "Elegant pork dish with cream sauce and mushrooms",
-    "category": "Quick Dinners",
-    "difficulty": "Medium",
-    "time_minutes": 40,
+    "title": {
+      "no": "Svinemørbrad med Sopp",
+      "en": "Pork Tenderloin with Mushrooms"
+    },
+    "subtitle": {
+      "no": "Elegant svinekjøttrett med fløtesaus og sopp",
+      "en": "Elegant pork dish with cream sauce and mushrooms"
+    },
+    "difficulty": "medium",
+    "cookTimeMinutes": 40,
     "servings": 4,
-    "calories": 450,
-    "protein": 40,
-    "tags": [
-      "grisekjøtt",
-      "elegant",
-      "fløte"
+    "category": "Quick Dinners",
+    "tags": ["svinekjøtt", "elegant", "fløte"],
+    "allergens": ["melk"],
+    "ingredients": [
+      {"name": {"no": "Svinemørbrad", "en": "Pork tenderloin"}, "amount": 800, "unit": {"no": "gram", "en": "g"}},
+      {"name": {"no": "Sopp", "en": "Mushrooms"}, "amount": 300, "unit": {"no": "gram", "en": "g"}},
+      {"name": {"no": "Fløte", "en": "Heavy cream"}, "amount": 200, "unit": {"no": "milliliter", "en": "ml"}},
+      {"name": {"no": "Hvitløk", "en": "Garlic"}, "amount": 3, "unit": {"no": "fedd", "en": "cloves"}},
+      {"name": {"no": "Persille", "en": "Parsley"}, "amount": 1, "unit": {"no": "ss", "en": "tbsp"}}
     ],
-    "allergens": [
-      "melk"
-    ],
-    "ingredients_included": [
-      {
-        "id": "ing_037",
-        "name_no": "Grisekjøtt tenderloin",
-        "name_en": "Pork tenderloin",
-        "quantity": 800,
-        "unit": "g",
-        "category": "Kjøtt",
-        "name": "Pork tenderloin"
-      },
-      {
-        "id": "ing_038",
-        "name_no": "Sopp",
-        "name_en": "Mushrooms",
-        "quantity": 300,
-        "unit": "g",
-        "category": "Grønnsaker",
-        "name": "Mushrooms"
-      },
-      {
-        "id": "ing_039",
-        "name_no": "Fløte",
-        "name_en": "Heavy cream",
-        "quantity": 200,
-        "unit": "ml",
-        "category": "Melkeprodukter",
-        "name": "Heavy cream"
-      },
-      {
-        "id": "ing_040",
-        "name_no": "Hvitløk",
-        "name_en": "Garlic",
-        "quantity": 3,
-        "unit": "fedd",
-        "category": "Grønnsaker",
-        "name": "Garlic"
-      },
-      {
-        "id": "ing_041",
-        "name_no": "Persille",
-        "name_en": "Parsley",
-        "quantity": 1,
-        "unit": "tbsp",
-        "category": "Krydderier",
-        "name": "Parsley"
-      }
-    ],
-    "instructions_no": "1. Brun grisekjøttet fra alle sider. 2. Fjern og sett til side. 3. Tilsett sopp og hvitløk og fry til det blir mykt. 4. Tilsett fløte og la det småkoke. 5. Tilbake grisekjøttet og la det ferdigstekte.",
-    "instructions_en": "1. Brown pork on all sides. 2. Remove and set aside. 3. Sauté mushrooms and garlic until soft. 4. Add cream and simmer. 5. Return pork and finish cooking.",
-    "title": "Pork Tenderloin with Mushrooms"
+    "instructions": {
+      "no": [
+        "1. Brun svinemørbraden på alle sider.",
+        "2. Ta den ut og sett til side.",
+        "3. Stek sopp og hvitløk til det blir mykt.",
+        "4. Tilsett fløte og la det småkoke.",
+        "5. Legg mørbraden tilbake og la den bli ferdigstekt.",
+        "6. Garner med persille og server."
+      ],
+      "en": [
+        "1. Brown pork tenderloin on all sides.",
+        "2. Remove and set aside.",
+        "3. Sauté mushrooms and garlic until soft.",
+        "4. Add cream and simmer.",
+        "5. Return pork and finish cooking through.",
+        "6. Garnish with parsley and serve."
+      ]
+    }
   },
   {
     "id": "sample_009",
-    "title_no": "Vegetar Buddha Bowl",
-    "title_en": "Vegetarian Buddha Bowl",
-    "description_no": "Fargerik og næringsrik bolle med hele korn, grønnsaker og linser",
-    "description_en": "Colorful and nutritious bowl with whole grains, vegetables and lentils",
-    "category": "Vegetarian",
-    "difficulty": "Easy",
-    "time_minutes": 30,
+    "title": {
+      "no": "Vegetar Buddha Bowl",
+      "en": "Vegetarian Buddha Bowl"
+    },
+    "subtitle": {
+      "no": "Fargerik og næringsrik bolle med fullkorn, grønnsaker og linser",
+      "en": "Colorful and nutritious bowl with whole grains, vegetables and lentils"
+    },
+    "difficulty": "easy",
+    "cookTimeMinutes": 30,
     "servings": 2,
-    "calories": 380,
-    "protein": 16,
-    "tags": [
-      "vegetar",
-      "helsekost",
-      "bowl"
+    "category": "Vegetarian",
+    "tags": ["vegetar", "helsekost", "bowl"],
+    "allergens": ["gluten"],
+    "ingredients": [
+      {"name": {"no": "Røde linser", "en": "Red lentils"}, "amount": 150, "unit": {"no": "gram", "en": "g"}},
+      {"name": {"no": "Quinoa", "en": "Quinoa"}, "amount": 100, "unit": {"no": "gram", "en": "g"}},
+      {"name": {"no": "Spinat", "en": "Spinach"}, "amount": 150, "unit": {"no": "gram", "en": "g"}},
+      {"name": {"no": "Rødbete", "en": "Beet"}, "amount": 100, "unit": {"no": "gram", "en": "g"}},
+      {"name": {"no": "Avokado", "en": "Avocado"}, "amount": 1, "unit": {"no": "stk", "en": "pieces"}},
+      {"name": {"no": "Tahini", "en": "Tahini"}, "amount": 2, "unit": {"no": "ss", "en": "tbsp"}}
     ],
-    "allergens": [
-      "gluten"
-    ],
-    "ingredients_included": [
-      {
-        "id": "ing_042",
-        "name_no": "Røde linser",
-        "name_en": "Red lentils",
-        "quantity": 150,
-        "unit": "g",
-        "category": "Bønner",
-        "name": "Red lentils"
-      },
-      {
-        "id": "ing_043",
-        "name_no": "Quinoa",
-        "name_en": "Quinoa",
-        "quantity": 100,
-        "unit": "g",
-        "category": "Kornprodukter",
-        "name": "Quinoa"
-      },
-      {
-        "id": "ing_044",
-        "name_no": "Spinat",
-        "name_en": "Spinach",
-        "quantity": 150,
-        "unit": "g",
-        "category": "Grønnsaker",
-        "name": "Spinach"
-      },
-      {
-        "id": "ing_045",
-        "name_no": "Rødbete",
-        "name_en": "Beet",
-        "quantity": 100,
-        "unit": "g",
-        "category": "Grønnsaker",
-        "name": "Beet"
-      },
-      {
-        "id": "ing_046",
-        "name_no": "Avokado",
-        "name_en": "Avocado",
-        "quantity": 1,
-        "unit": "stk",
-        "category": "Frukter",
-        "name": "Avocado"
-      },
-      {
-        "id": "ing_047",
-        "name_no": "Tahini",
-        "name_en": "Tahini",
-        "quantity": 2,
-        "unit": "tbsp",
-        "category": "Saus",
-        "name": "Tahini"
-      }
-    ],
-    "instructions_no": "1. Kok linser og quinoa etter anvisning. 2. Damp spinat og tilsett linser. 3. Tilsett rødbete. 4. Lag tahini dressing. 5. Assemble bolle med alle ingrediensene.",
-    "instructions_en": "1. Cook lentils and quinoa according to instructions. 2. Steam spinach and add lentils. 3. Add beet. 4. Make tahini dressing. 5. Assemble bowl with all ingredients.",
-    "title": "Vegetarian Buddha Bowl"
+    "instructions": {
+      "no": [
+        "1. Kok linser og quinoa etter anvisning.",
+        "2. Damp spinaten og bland med linsene.",
+        "3. Skjær rødbete og avokado i skiver.",
+        "4. Lag en tahinidressing.",
+        "5. Sett sammen bollen med alle ingrediensene og dressingen."
+      ],
+      "en": [
+        "1. Cook lentils and quinoa according to instructions.",
+        "2. Steam spinach and mix with lentils.",
+        "3. Slice beet and avocado.",
+        "4. Make a tahini dressing.",
+        "5. Assemble the bowl with all ingredients and the dressing."
+      ]
+    }
   },
   {
     "id": "sample_010",
-    "title_no": "Fiskekaker med Remoulade",
-    "title_en": "Fish Cakes with Remoulade",
-    "description_no": "Klassisk norsk fiskekaker - perfekt til kvelds eller bursdagskalas",
-    "description_en": "Classic Norwegian fish cakes - perfect for dinner or birthday party",
-    "category": "Fish & Seafood",
-    "difficulty": "Medium",
-    "time_minutes": 45,
+    "title": {
+      "no": "Fiskekaker med Remulade",
+      "en": "Fish Cakes with Remoulade"
+    },
+    "subtitle": {
+      "no": "Klassiske norske fiskekaker - perfekt til middag",
+      "en": "Classic Norwegian fish cakes - perfect for dinner"
+    },
+    "difficulty": "medium",
+    "cookTimeMinutes": 45,
     "servings": 4,
-    "calories": 360,
-    "protein": 32,
-    "tags": [
-      "norsk",
-      "fisk",
-      "klassisk"
+    "category": "Fish & Seafood",
+    "tags": ["norsk", "fisk", "klassisk"],
+    "allergens": ["fisk", "egg", "melk"],
+    "ingredients": [
+      {"name": {"no": "Sei eller hyse", "en": "Saithe or haddock"}, "amount": 600, "unit": {"no": "gram", "en": "g"}},
+      {"name": {"no": "Poteter", "en": "Potatoes"}, "amount": 300, "unit": {"no": "gram", "en": "g"}},
+      {"name": {"no": "Løk", "en": "Onion"}, "amount": 1, "unit": {"no": "stk", "en": "pieces"}},
+      {"name": {"no": "Egg", "en": "Egg"}, "amount": 1, "unit": {"no": "stk", "en": "pieces"}},
+      {"name": {"no": "Melk", "en": "Milk"}, "amount": 100, "unit": {"no": "milliliter", "en": "ml"}},
+      {"name": {"no": "Mel", "en": "Flour"}, "amount": 2, "unit": {"no": "ss", "en": "tbsp"}}
     ],
-    "allergens": [
-      "fisk",
-      "egg",
-      "melk"
-    ],
-    "ingredients_included": [
-      {
-        "id": "ing_048",
-        "name_no": "Sei eller hyse",
-        "name_en": "Saithe or haddock",
-        "quantity": 600,
-        "unit": "g",
-        "category": "Fisk",
-        "name": "Saithe or haddock"
-      },
-      {
-        "id": "ing_049",
-        "name_no": "Kartofler",
-        "name_en": "Potatoes",
-        "quantity": 300,
-        "unit": "g",
-        "category": "Grønnsaker",
-        "name": "Potatoes"
-      },
-      {
-        "id": "ing_050",
-        "name_no": "Løk",
-        "name_en": "Onion",
-        "quantity": 1,
-        "unit": "stk",
-        "category": "Grønnsaker",
-        "name": "Onion"
-      },
-      {
-        "id": "ing_051",
-        "name_no": "Egg",
-        "name_en": "Egg",
-        "quantity": 1,
-        "unit": "stk",
-        "category": "Proteiner",
-        "name": "Egg"
-      },
-      {
-        "id": "ing_052",
-        "name_no": "Melk",
-        "name_en": "Milk",
-        "quantity": 100,
-        "unit": "ml",
-        "category": "Melkeprodukter",
-        "name": "Milk"
-      },
-      {
-        "id": "ing_053",
-        "name_no": "Mel",
-        "name_en": "Flour",
-        "quantity": 2,
-        "unit": "tbsp",
-        "category": "Kornprodukter",
-        "name": "Flour"
-      }
-    ],
-    "instructions_no": "1. Kok kartofler og løk til mørt. 2. Flis fisken fint. 3. Bland fisk, kartofler, løk, egg og melk. 4. Form boller og panerer med mel. 5. Fry til gyllent brunt.",
-    "instructions_en": "1. Boil potatoes and onion until tender. 2. Finely shred fish. 3. Mix fish, potatoes, onion, egg and milk. 4. Form balls and coat with flour. 5. Fry until golden brown.",
-    "title": "Fish Cakes with Remoulade"
+    "instructions": {
+      "no": [
+        "1. Kok poteter og løk til de er møre.",
+        "2. Finhakk fisken.",
+        "3. Bland fisk, poteter, løk, egg og melk.",
+        "4. Form boller og vend dem i mel.",
+        "5. Stek til de er gyllenbrune på begge sider."
+      ],
+      "en": [
+        "1. Boil potatoes and onion until tender.",
+        "2. Finely chop the fish.",
+        "3. Mix fish, potatoes, onion, egg and milk.",
+        "4. Form patties and coat with flour.",
+        "5. Fry until golden brown on both sides."
+      ]
+    }
   }
 ]

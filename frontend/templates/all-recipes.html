@@ -25,13 +25,22 @@
             <select id="categoryFilter" style="padding: 8px 12px; border: 1px solid #ddd; border-radius: 6px;">
                 <option value="">{{ t.all_categories }}</option>
             </select>
+            <select id="cuisineFilter" style="padding: 8px 12px; border: 1px solid #ddd; border-radius: 6px;">
+                <option value="">{{ t.get('all_cuisines', 'All Cuisines') }}</option>
+            </select>
+            <label style="display: flex; align-items: center; gap: 6px; padding: 8px 12px; border: 1px solid #ddd; border-radius: 6px; cursor: pointer; white-space: nowrap;">
+                <input type="checkbox" id="quickOnlyFilter">
+                ⚡ {{ t.get('quick_only', 'Quick only (≤30 min)') }}
+            </label>
         </div>
 
         <div id="recipesList" style="display: grid; gap: 16px;">
             {% for recipe in recipes %}
             <div class="recipe-card"
+                 data-recipe-id="{{ recipe.id }}"
                  data-title="{{ recipe.title|lower }}"
                  data-category="{{ recipe.category }}"
+                 data-tags="{{ (recipe.tags or [])|join(',')|lower }}"
                  style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; background: #fafafa; transition: all 0.2s;">
                 <div style="display: flex; flex-direction: column; gap: 0;">
                     <div style="display: flex; justify-content: space-between; align-items: start; gap: 16px;">
@@ -206,7 +215,7 @@ async function loadCategoryFilter() {
         var select = document.getElementById('categoryFilter');
         (cats || []).forEach(function(cat) {
             var opt = document.createElement('option');
-            opt.value = cat.name_en || cat.name || '';
+            opt.value = cat.code === 'favorites' ? '__FAVORITES__' : (cat.name_en || cat.name || '');
             opt.textContent = (cat.icon || '') + ' ' + (cat.name || '');
             select.appendChild(opt);
         });
@@ -215,24 +224,56 @@ async function loadCategoryFilter() {
     }
 }
 
+// Cuisine filter options are derived from cuisine:xxx tags already present
+// on the rendered recipe cards (data-tags) - no extra API call needed, since
+// these tags are baked into the recipe pack data, not household-specific.
+function populateCuisineFilter() {
+    var cuisines = new Set();
+    document.querySelectorAll('.recipe-card').forEach(function(card) {
+        var tags = (card.getAttribute('data-tags') || '').split(',');
+        tags.forEach(function(tag) {
+            if (tag.indexOf('cuisine:') === 0) cuisines.add(tag);
+        });
+    });
+    var select = document.getElementById('cuisineFilter');
+    Array.from(cuisines).sort().forEach(function(tag) {
+        var label = tag.replace('cuisine:', '').replace(/_/g, ' ');
+        label = label.charAt(0).toUpperCase() + label.slice(1);
+        var opt = document.createElement('option');
+        opt.value = tag;
+        opt.textContent = label;
+        select.appendChild(opt);
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     loadWeeklyMenu();
     loadCategoryFilter();
     restoreFavoriteStars();
+    populateCuisineFilter();
 });
 
 document.getElementById('searchInput').addEventListener('keyup', filterRecipes);
 document.getElementById('categoryFilter').addEventListener('change', filterRecipes);
+document.getElementById('cuisineFilter').addEventListener('change', filterRecipes);
+document.getElementById('quickOnlyFilter').addEventListener('change', filterRecipes);
 
 function filterRecipes() {
     var searchTerm = document.getElementById('searchInput').value.toLowerCase();
     var categoryTerm = document.getElementById('categoryFilter').value;
+    var cuisineTerm = document.getElementById('cuisineFilter').value;
+    var quickOnly = document.getElementById('quickOnlyFilter').checked;
     document.querySelectorAll('.recipe-card').forEach(function(card) {
         var title    = card.getAttribute('data-title') || '';
         var category = card.getAttribute('data-category') || '';
+        var recipeId = card.getAttribute('data-recipe-id') || '';
+        var tags     = (card.getAttribute('data-tags') || '').split(',');
         var matchSearch   = searchTerm === '' || title.includes(searchTerm);
-        var matchCategory = categoryTerm === '' || category === categoryTerm;
-        card.style.display = (matchSearch && matchCategory) ? 'block' : 'none';
+        var matchCategory = categoryTerm === '' ||
+                           (categoryTerm === '__FAVORITES__' ? localStorage.getItem('favorite-' + recipeId) === 'true' : category === categoryTerm);
+        var matchCuisine  = cuisineTerm === '' || tags.indexOf(cuisineTerm) !== -1;
+        var matchQuick    = !quickOnly || tags.indexOf('quick') !== -1;
+        card.style.display = (matchSearch && matchCategory && matchCuisine && matchQuick) ? 'block' : 'none';
     });
 }
 
@@ -274,11 +315,12 @@ function _esc(str) {
 }
 
 // ---- Favorites ----
+// Uses the same 'favorite-{recipeId}' localStorage scheme as app.js / recipe.html,
+// so starring a recipe here or on its detail page stays in sync everywhere.
 function restoreFavoriteStars() {
-    var favorites = JSON.parse(localStorage.getItem('menu-planner-favorites') || '[]');
     document.querySelectorAll('.favorite-star-btn').forEach(function(btn) {
         var id = btn.getAttribute('data-recipe-id');
-        if (favorites.includes(id)) {
+        if (localStorage.getItem('favorite-' + id) === 'true') {
             btn.textContent = '★';
             btn.title = STR_FAV_REMOVE;
             btn.style.color = '#d97706';
@@ -289,23 +331,21 @@ function restoreFavoriteStars() {
 
 function toggleFavoriteFromAllRecipes(recipeId, event) {
     event.stopPropagation();
-    var favorites = JSON.parse(localStorage.getItem('menu-planner-favorites') || '[]');
     var btn = event.currentTarget;
-    var idx = favorites.indexOf(recipeId);
-    if (idx === -1) {
-        favorites.push(recipeId);
-        btn.textContent = '★';
-        btn.title = STR_FAV_REMOVE;
-        btn.style.color = '#d97706';
-        btn.style.borderColor = '#d97706';
-    } else {
-        favorites.splice(idx, 1);
+    var favKey = 'favorite-' + recipeId;
+    if (localStorage.getItem(favKey) === 'true') {
+        localStorage.removeItem(favKey);
         btn.textContent = '☆';
         btn.title = STR_FAV_ADD;
         btn.style.color = '';
         btn.style.borderColor = '#ddd';
+    } else {
+        localStorage.setItem(favKey, 'true');
+        btn.textContent = '★';
+        btn.title = STR_FAV_REMOVE;
+        btn.style.color = '#d97706';
+        btn.style.borderColor = '#d97706';
     }
-    localStorage.setItem('menu-planner-favorites', JSON.stringify(favorites));
 }
 
 // ---- Delete ----
@@ -326,9 +366,7 @@ function deleteRecipe(recipeId, recipeTitle) {
     .then(function(data) {
         if (data.status === 'success') {
             // Remove from favorites if present
-            var favorites = JSON.parse(localStorage.getItem('menu-planner-favorites') || '[]');
-            var idx = favorites.indexOf(recipeId);
-            if (idx !== -1) { favorites.splice(idx, 1); localStorage.setItem('menu-planner-favorites', JSON.stringify(favorites)); }
+            localStorage.removeItem('favorite-' + recipeId);
 
             pmAlert('✅', STR_DELETED_TITLE, '"' + recipeTitle + '" ' + STR_DELETED_MSG).then(function() {
                 location.reload();

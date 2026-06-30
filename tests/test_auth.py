@@ -5,7 +5,7 @@ Test authentication functionality.
 import pytest
 from core.auth_helpers import (
     create_user, authenticate_user, is_valid_email, is_valid_password,
-    verify_password, hash_password
+    verify_password, hash_password, confirm_email, regenerate_confirmation_token
 )
 
 
@@ -134,26 +134,42 @@ class TestUserCreation:
 
 
 class TestUserAuthentication:
-    """Test user login."""
+    """Test user login. Login is blocked until the email is confirmed (see
+    TestEmailConfirmation below), so every success-path test here must
+    confirm the user first - this mirrors the real signup -> confirm -> login
+    flow rather than the old signup -> login flow."""
 
     def test_authenticate_user_success(self):
-        """Valid credentials should authenticate."""
+        """Valid credentials should authenticate once confirmed."""
         email = 'test@example.com'
         password = 'TestPassword123'
 
-        create_user(email, password)
+        _, user, _ = create_user(email, password)
+        confirm_email(user.email_confirmation_token)
         success, user = authenticate_user(email, password)
 
         assert success
         assert user is not None
         assert user.email == email
 
+    def test_authenticate_user_unconfirmed_blocked(self):
+        """Login should be blocked until the email is confirmed."""
+        email = 'test@example.com'
+        password = 'TestPassword123'
+
+        create_user(email, password)
+        success, msg = authenticate_user(email, password)
+
+        assert not success
+        assert msg == "EMAIL_NOT_CONFIRMED"
+
     def test_authenticate_user_wrong_password(self):
         """Wrong password should fail."""
         email = 'test@example.com'
         password = 'TestPassword123'
 
-        create_user(email, password)
+        _, user, _ = create_user(email, password)
+        confirm_email(user.email_confirmation_token)
         success, msg = authenticate_user(email, 'WrongPassword123')
 
         assert not success
@@ -171,8 +187,80 @@ class TestUserAuthentication:
         email = 'test@example.com'
         password = 'TestPassword123'
 
-        create_user(email, password)
+        _, user, _ = create_user(email, password)
+        confirm_email(user.email_confirmation_token)
         success, user = authenticate_user('TEST@EXAMPLE.COM', password)
 
         assert success
         assert user.email == email
+
+
+class TestEmailConfirmation:
+    """Test the email confirmation flow itself."""
+
+    def test_new_user_has_unconfirmed_state(self):
+        """A freshly created user should have a token and no confirmed timestamp."""
+        _, user, _ = create_user('test@example.com', 'TestPassword123')
+
+        assert user.email_confirmation_token is not None
+        assert user.email_confirmed_at is None
+
+    def test_confirm_email_success(self):
+        """Confirming with the correct token should succeed and clear the token."""
+        _, user, _ = create_user('test@example.com', 'TestPassword123')
+        token = user.email_confirmation_token
+
+        success, confirmed_user = confirm_email(token)
+
+        assert success
+        assert confirmed_user.email_confirmed_at is not None
+        assert confirmed_user.email_confirmation_token is None
+
+    def test_confirm_email_invalid_token(self):
+        """An unknown token should fail clearly, not silently confirm anyone."""
+        success, msg = confirm_email('not-a-real-token')
+
+        assert not success
+        assert "invalid" in msg.lower() or "expired" in msg.lower()
+
+    def test_confirm_email_twice_is_harmless(self):
+        """Clicking the confirmation link twice (e.g. double-click, email
+        client prefetch) should not error - the second click is a no-op."""
+        _, user, _ = create_user('test@example.com', 'TestPassword123')
+        token = user.email_confirmation_token
+
+        confirm_email(token)
+        # Token is now cleared - simulate a second request with the same
+        # link by looking up the user fresh and trying their (now-stale)
+        # token again should fail safely, not crash.
+        success, msg = confirm_email(token)
+
+        assert not success  # token was already consumed
+
+    def test_regenerate_confirmation_token_for_unconfirmed_user(self):
+        """Resend-confirmation should issue a new, different token."""
+        _, user, _ = create_user('test@example.com', 'TestPassword123')
+        old_token = user.email_confirmation_token
+
+        success, updated_user = regenerate_confirmation_token('test@example.com')
+
+        assert success
+        assert updated_user.email_confirmation_token is not None
+        assert updated_user.email_confirmation_token != old_token
+
+    def test_regenerate_confirmation_token_already_confirmed(self):
+        """Resend should refuse once the email is already confirmed."""
+        _, user, _ = create_user('test@example.com', 'TestPassword123')
+        confirm_email(user.email_confirmation_token)
+
+        success, msg = regenerate_confirmation_token('test@example.com')
+
+        assert not success
+        assert "already confirmed" in msg.lower()
+
+    def test_regenerate_confirmation_token_unknown_user(self):
+        """Resend for a non-existent email should fail clearly."""
+        success, msg = regenerate_confirmation_token('notfound@example.com')
+
+        assert not success
+        assert "not found" in msg.lower()

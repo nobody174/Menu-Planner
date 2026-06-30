@@ -55,7 +55,6 @@
                             {{ t.categories }} <span class="dropdown-arrow">▾</span>
                         </button>
                         <div class="category-dropdown-menu" id="categoryDropdownMenu">
-                            <label><input type="checkbox" value="Favorites"> ⭐ {{ t.favorites }}</label>
                             <div id="dynamicCategoriesList"></div>
                             <div class="dropdown-actions">
                                 <button onclick="applyCategories()" class="btn-apply">{{ t.apply }}</button>
@@ -212,14 +211,22 @@
             .then(function (themes) {
                 if (!Array.isArray(themes) || themes.length === 0) return;
 
+                themes.sort(function (a, b) {
+                    return (a.sort_order || 0) - (b.sort_order || 0);
+                });
+
                 themes.forEach(function (theme) {
                     var option = document.createElement('div');
                     option.className = 'theme-option';
                     option.dataset.theme = theme.id;
+                    var hint = theme.suggested
+                        ? '<span class="theme-option-hint">(' + _escapeHtml(window.AUTHOR_SUGGESTION_LABEL || "author's suggestion") + ')</span>'
+                        : '';
                     option.innerHTML =
                         '<div class="theme-option-content">' +
                             '<span class="theme-option-name">' + _escapeHtml(theme.name) + '</span>' +
                             '<span class="theme-option-desc">Preview</span>' +
+                            hint +
                         '</div>' +
                         '<span class="theme-preview-swatch" style="background:' + _escapeHtml(theme.preview_color) + ';"></span>';
 

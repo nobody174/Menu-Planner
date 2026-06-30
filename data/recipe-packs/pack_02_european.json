@@ -10,7 +10,7 @@
   },
   "packImage": "🌍",
   "packColor": "#4B7BA7",
-  "recipeCount": 67,
+  "recipeCount": 59,
   "estimatedCookTime": "30-90 minutes",
   "difficulty": "medium",
   "recipes": [
@@ -27,12 +27,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 60,
       "servings": 4,
-      "category": "Meat",
+      "category": "Pasta & Noodles",
       "tags": [
         "italian",
         "pasta",
         "comfort-food",
-        "classic"
+        "classic",
+        "cuisine:italian"
       ],
       "allergens": [
         "gluten"
@@ -150,12 +151,13 @@
       "difficulty": "medium",
       "cookTimeMinutes": 40,
       "servings": 4,
-      "category": "Other",
+      "category": "Pasta & Noodles",
       "tags": [
         "italian",
         "rice",
         "creamy",
-        "elegant"
+        "elegant",
+        "cuisine:italian"
       ],
       "allergens": [
         "dairy",
@@ -298,12 +300,13 @@
       "difficulty": "medium",
       "cookTimeMinutes": 60,
       "servings": 4,
-      "category": "Fish",
+      "category": "Soups & Stews",
       "tags": [
         "french",
         "seafood",
         "soup",
-        "classic"
+        "classic",
+        "cuisine:french"
       ],
       "allergens": [
         "fish",
@@ -445,12 +448,13 @@
       "difficulty": "medium",
       "cookTimeMinutes": 60,
       "servings": 6,
-      "category": "Meat",
+      "category": "Fish & Seafood",
       "tags": [
         "spanish",
         "rice",
         "seafood",
-        "festive"
+        "festive",
+        "cuisine:spanish"
       ],
       "allergens": [
         "shellfish",
@@ -604,12 +608,13 @@
       "difficulty": "hard",
       "cookTimeMinutes": 90,
       "servings": 6,
-      "category": "Meat",
+      "category": "Beef & Red Meat",
       "tags": [
         "greek",
         "eggplant",
         "layered",
-        "comfort-food"
+        "comfort-food",
+        "cuisine:greek"
       ],
       "allergens": [
         "dairy",
@@ -741,12 +746,13 @@
       "difficulty": "medium",
       "cookTimeMinutes": 90,
       "servings": 4,
-      "category": "Meat",
+      "category": "Chicken",
       "tags": [
         "french",
         "chicken",
         "wine",
-        "classic"
+        "classic",
+        "cuisine:french"
       ],
       "allergens": [],
       "ingredients": [
@@ -875,12 +881,14 @@
       "difficulty": "easy",
       "cookTimeMinutes": 30,
       "servings": 4,
-      "category": "Other",
+      "category": "Pasta & Noodles",
       "tags": [
         "italian",
         "pasta",
         "vegetarian",
-        "spicy"
+        "spicy",
+        "quick",
+        "cuisine:italian"
       ],
       "allergens": [
         "gluten"
@@ -987,12 +995,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 40,
       "servings": 4,
-      "category": "Meat",
+      "category": "Ground Meat & Sausages",
       "tags": [
         "swedish",
         "meatballs",
         "cream",
-        "comfort-food"
+        "comfort-food",
+        "cuisine:swedish"
       ],
       "allergens": [
         "gluten",
@@ -1115,12 +1124,14 @@
       "difficulty": "easy",
       "cookTimeMinutes": 30,
       "servings": 4,
-      "category": "Other",
+      "category": "Soups & Stews",
       "tags": [
         "spanish",
         "cold-soup",
         "vegetarian",
-        "summer"
+        "summer",
+        "quick",
+        "cuisine:spanish"
       ],
       "allergens": [],
       "ingredients": [
@@ -1247,12 +1258,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 45,
       "servings": 4,
-      "category": "Other",
+      "category": "Soups & Stews",
       "tags": [
         "french",
         "vegetable",
         "vegetarian",
-        "healthy"
+        "healthy",
+        "cuisine:french"
       ],
       "allergens": [],
       "ingredients": [
@@ -1381,12 +1393,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 20,
       "servings": 4,
-      "category": "Meat",
+      "category": "Beef & Red Meat",
       "tags": [
         "german",
         "fried",
         "quick",
-        "classic"
+        "classic",
+        "cuisine:german"
       ],
       "allergens": [
         "gluten",
@@ -1494,250 +1507,6 @@
       }
     },
     {
-      "id": "eu_012",
-      "title": {
-        "no": "Crème Brûlée",
-        "en": "Crème Brûlée"
-      },
-      "subtitle": {
-        "no": "Fransk kullglassert fløte-dessert",
-        "en": "French caramelized cream dessert"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 90,
-      "servings": 4,
-      "category": "Other",
-      "tags": [
-        "french",
-        "dessert",
-        "elegant",
-        "creamy"
-      ],
-      "allergens": [
-        "dairy",
-        "eggs"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Fløte (tykk)",
-            "en": "Cream (heavy)"
-          },
-          "amount": 400,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Melk",
-            "en": "Milk"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Eggeplommer",
-            "en": "Egg yolks"
-          },
-          "amount": 5,
-          "unit": {
-            "no": "stk",
-            "en": "pieces"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker (hvitt)",
-            "en": "Sugar (white)"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Vaniljeekstrakt",
-            "en": "Vanilla extract"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "ts",
-            "en": "tsp"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker (til crusting)",
-            "en": "Sugar (for crusting)"
-          },
-          "amount": 4,
-          "unit": {
-            "no": "ts",
-            "en": "tsp"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Heat fløten og melk til det er varmt men ikke kokende.",
-          "2. Visp eggeplommer med sukker til det er lett og gult.",
-          "3. Hell fløten langsomt i eggeplommen mens du rører konstant.",
-          "4. Tilsett vaniljeekstrakt.",
-          "5. Sil blandingen gjennom en fin sil.",
-          "6. Hell i små ramekiner eller kopjer.",
-          "7. Stelle them i et vannbad på 160°C i 25-30 minutter.",
-          "8. Kjøl i minst 4 timer.",
-          "9. Rett før servering, sprinkle sukker på toppen og kullglasér med en brenner."
-        ],
-        "en": [
-          "1. Heat cream and milk until warm but not boiling.",
-          "2. Whisk egg yolks with sugar until light and pale.",
-          "3. Slowly pour cream into yolks while stirring constantly.",
-          "4. Add vanilla extract.",
-          "5. Strain mixture through a fine sieve.",
-          "6. Pour into small ramekins or cups.",
-          "7. Bake in a water bath at 160°C for 25-30 minutes.",
-          "8. Chill for at least 4 hours.",
-          "9. Just before serving, sprinkle sugar on top and caramelize with a torch."
-        ]
-      }
-    },
-    {
-      "id": "eu_013",
-      "title": {
-        "no": "Tiramisu",
-        "en": "Tiramisu"
-      },
-      "subtitle": {
-        "no": "Italiensk lagdessert med kaffe og mascarpone",
-        "en": "Italian layered dessert with coffee and mascarpone"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 60,
-      "servings": 6,
-      "category": "Other",
-      "tags": [
-        "italian",
-        "dessert",
-        "layered",
-        "coffee"
-      ],
-      "allergens": [
-        "dairy",
-        "eggs",
-        "gluten"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Mascarpone",
-            "en": "Mascarpone"
-          },
-          "amount": 500,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Egg (eller pasteuriserte)",
-            "en": "Eggs (or pasteurized)"
-          },
-          "amount": 4,
-          "unit": {
-            "no": "stk",
-            "en": "pieces"
-          }
-        },
-        {
-          "name": {
-            "no": "Kaffe (sterk)",
-            "en": "Coffee (strong)"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Kakao-pulver",
-            "en": "Cocoa powder"
-          },
-          "amount": 30,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Savoiardi-kaker",
-            "en": "Savoiardi cookies"
-          },
-          "amount": 400,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Likør (valgfritt)",
-            "en": "Liqueur (optional)"
-          },
-          "amount": 3,
-          "unit": {
-            "no": "ss",
-            "en": "tbsp"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Visp eggeplommer med sukker til det er kremete.",
-          "2. Fold in mascarpone forsiktig.",
-          "3. Visp eggehviter stivt og fold inn i blandingen.",
-          "4. Bland kaffen sammen med likør hvis brukt.",
-          "5. Dipp savoiardi-kakene raskt i kaffeblanden.",
-          "6. Lag lag: savoiardi, mascarpone-creme, savoiardi, mascarpone-creme.",
-          "7. Kjøl i minst 6 timer (bedre over natten).",
-          "8. Strø kakao-pulver på toppen rett før servering."
-        ],
-        "en": [
-          "1. Whisk egg yolks with sugar until creamy.",
-          "2. Fold in mascarpone carefully.",
-          "3. Beat egg whites stiff and fold into mixture.",
-          "4. Combine coffee with liqueur if using.",
-          "5. Quickly dip savoiardi cookies in coffee mixture.",
-          "6. Layer: savoiardi, mascarpone cream, savoiardi, mascarpone cream.",
-          "7. Chill for at least 6 hours (better overnight).",
-          "8. Dust with cocoa powder just before serving."
-        ]
-      }
-    },
-    {
       "id": "eu_014",
       "title": {
         "no": "Spätzle",
@@ -1750,12 +1519,14 @@
       "difficulty": "easy",
       "cookTimeMinutes": 30,
       "servings": 4,
-      "category": "Other",
+      "category": "Pasta & Noodles",
       "tags": [
         "german",
         "pasta",
         "cheese",
-        "comfort-food"
+        "comfort-food",
+        "quick",
+        "cuisine:german"
       ],
       "allergens": [
         "gluten",
@@ -1888,12 +1659,13 @@
       "difficulty": "hard",
       "cookTimeMinutes": 180,
       "servings": 6,
-      "category": "Meat",
+      "category": "Soups & Stews",
       "tags": [
         "french",
         "beans",
         "slow-cooked",
-        "hearty"
+        "hearty",
+        "cuisine:french"
       ],
       "allergens": [],
       "ingredients": [
@@ -2037,12 +1809,13 @@
       "difficulty": "medium",
       "cookTimeMinutes": 180,
       "servings": 4,
-      "category": "Meat",
+      "category": "Soups & Stews",
       "tags": [
         "french",
         "slow-cooked",
         "comfort-food",
-        "wine"
+        "wine",
+        "cuisine:french"
       ],
       "allergens": [],
       "ingredients": [
@@ -2191,12 +1964,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 50,
       "servings": 4,
-      "category": "Other",
+      "category": "Soups & Stews",
       "tags": [
         "french",
         "vegetarian",
         "vegetables",
-        "comfort-food"
+        "comfort-food",
+        "cuisine:french"
       ],
       "allergens": [],
       "ingredients": [
@@ -2334,12 +2108,13 @@
       "difficulty": "medium",
       "cookTimeMinutes": 120,
       "servings": 4,
-      "category": "Meat",
+      "category": "Soups & Stews",
       "tags": [
         "hungarian",
         "slow-cooked",
         "comfort-food",
-        "spicy"
+        "spicy",
+        "cuisine:hungarian"
       ],
       "allergens": [],
       "ingredients": [
@@ -2477,12 +2252,15 @@
       "difficulty": "medium",
       "cookTimeMinutes": 30,
       "servings": 4,
-      "category": "Meat",
+      "category": "Other",
       "tags": [
         "austrian",
         "german",
         "fried",
-        "classic"
+        "classic",
+        "quick",
+        "cuisine:austrian",
+        "cuisine:german"
       ],
       "allergens": [
         "gluten",
@@ -2602,12 +2380,13 @@
       "difficulty": "medium",
       "cookTimeMinutes": 90,
       "servings": 6,
-      "category": "Meat",
+      "category": "Beef & Red Meat",
       "tags": [
         "greek",
         "baked",
         "comfort-food",
-        "gratin"
+        "gratin",
+        "cuisine:greek"
       ],
       "allergens": [
         "dairy",
@@ -2759,12 +2538,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 25,
       "servings": 4,
-      "category": "Meat",
+      "category": "Pasta & Noodles",
       "tags": [
         "italian",
         "pasta",
         "quick",
-        "classic"
+        "classic",
+        "cuisine:italian"
       ],
       "allergens": [
         "gluten",
@@ -2862,12 +2642,13 @@
       "difficulty": "medium",
       "cookTimeMinutes": 150,
       "servings": 6,
-      "category": "Meat",
+      "category": "Soups & Stews",
       "tags": [
         "french",
         "slow-cooked",
         "beans",
-        "comfort-food"
+        "comfort-food",
+        "cuisine:french"
       ],
       "allergens": [],
       "ingredients": [
@@ -3005,12 +2786,13 @@
       "difficulty": "medium",
       "cookTimeMinutes": 150,
       "servings": 4,
-      "category": "Meat",
+      "category": "Soups & Stews",
       "tags": [
         "italian",
         "slow-cooked",
         "comfort-food",
-        "classic"
+        "classic",
+        "cuisine:italian"
       ],
       "allergens": [],
       "ingredients": [
@@ -3159,12 +2941,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 60,
       "servings": 4,
-      "category": "Other",
+      "category": "Pork",
       "tags": [
         "french",
         "baked",
         "comfort-food",
-        "potatoes"
+        "potatoes",
+        "cuisine:french"
       ],
       "allergens": [
         "dairy"
@@ -3271,12 +3054,13 @@
       "difficulty": "hard",
       "cookTimeMinutes": 75,
       "servings": 4,
-      "category": "Meat",
+      "category": "Beef & Red Meat",
       "tags": [
         "british",
         "baked",
         "special-occasion",
-        "classic"
+        "classic",
+        "cuisine:british"
       ],
       "allergens": [
         "gluten",
@@ -3395,12 +3179,13 @@
       "difficulty": "medium",
       "cookTimeMinutes": 40,
       "servings": 4,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "french",
         "seafood",
         "baked",
-        "elegant"
+        "elegant",
+        "cuisine:french"
       ],
       "allergens": [
         "dairy",
@@ -3530,12 +3315,14 @@
       "difficulty": "easy",
       "cookTimeMinutes": 100,
       "servings": 4,
-      "category": "Meat",
+      "category": "Ground Meat & Sausages",
       "tags": [
         "french",
         "german",
         "slow-cooked",
-        "comfort-food"
+        "comfort-food",
+        "cuisine:french",
+        "cuisine:german"
       ],
       "allergens": [],
       "ingredients": [
@@ -3662,12 +3449,13 @@
       "difficulty": "medium",
       "cookTimeMinutes": 180,
       "servings": 6,
-      "category": "Meat",
+      "category": "Soups & Stews",
       "tags": [
         "german",
         "slow-cooked",
         "marinated",
-        "comfort-food"
+        "comfort-food",
+        "cuisine:german"
       ],
       "allergens": [
         "gluten"
@@ -3807,12 +3595,13 @@
       "difficulty": "medium",
       "cookTimeMinutes": 60,
       "servings": 4,
-      "category": "Fish",
+      "category": "Soups & Stews",
       "tags": [
         "french",
         "seafood",
         "soup",
-        "classic"
+        "classic",
+        "cuisine:french"
       ],
       "allergens": [
         "fish",
@@ -3964,12 +3753,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 35,
       "servings": 4,
-      "category": "Meat",
+      "category": "Soups & Stews",
       "tags": [
         "russian",
         "comfort-food",
         "creamy",
-        "quick"
+        "quick",
+        "cuisine:russian"
       ],
       "allergens": [
         "dairy"
@@ -4098,11 +3888,12 @@
       "difficulty": "easy",
       "cookTimeMinutes": 15,
       "servings": 2,
-      "category": "Meat",
+      "category": "Grill",
       "tags": [
         "street food",
         "quick",
-        "German"
+        "German",
+        "cuisine:german"
       ],
       "allergens": [
         "gluten",
@@ -4204,11 +3995,12 @@
       "difficulty": "medium",
       "cookTimeMinutes": 60,
       "servings": 4,
-      "category": "Meat",
+      "category": "Pork",
       "tags": [
         "braised",
         "German",
-        "comfort food"
+        "comfort food",
+        "cuisine:german"
       ],
       "allergens": [
         "gluten"
@@ -4335,11 +4127,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 25,
       "servings": 6,
-      "category": "Other",
+      "category": "Salads",
       "tags": [
         "salad",
         "side dish",
-        "German"
+        "German",
+        "quick",
+        "cuisine:german"
       ],
       "allergens": [
         "dairy"
@@ -4455,11 +4249,13 @@
       "difficulty": "medium",
       "cookTimeMinutes": 30,
       "servings": 4,
-      "category": "Other",
+      "category": "Pasta & Noodles",
       "tags": [
         "pasta",
         "German",
-        "side dish"
+        "side dish",
+        "quick",
+        "cuisine:german"
       ],
       "allergens": [
         "gluten",
@@ -4577,11 +4373,12 @@
       "difficulty": "hard",
       "cookTimeMinutes": 180,
       "servings": 4,
-      "category": "Meat",
+      "category": "Pork",
       "tags": [
         "roasted",
         "German",
-        "hearty"
+        "hearty",
+        "cuisine:german"
       ],
       "allergens": [],
       "ingredients": [
@@ -4685,154 +4482,6 @@
       }
     },
     {
-      "id": "eu_074",
-      "title": {
-        "no": "Schwarzwälder Kirschtorte",
-        "en": "Black Forest Cake"
-      },
-      "subtitle": {
-        "no": "Sjokoladekalke med kirsebær og fløte",
-        "en": "Chocolate cake with cherries and cream"
-      },
-      "difficulty": "hard",
-      "cookTimeMinutes": 120,
-      "servings": 8,
-      "category": "Other",
-      "tags": [
-        "cake",
-        "dessert",
-        "German",
-        "chocolate"
-      ],
-      "allergens": [
-        "gluten",
-        "eggs",
-        "dairy",
-        "nuts"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Mørk sjokolade",
-            "en": "Dark chocolate"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Smør",
-            "en": "Butter"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Egg",
-            "en": "Eggs"
-          },
-          "amount": 6,
-          "unit": {
-            "no": "stk",
-            "en": "pcs"
-          }
-        },
-        {
-          "name": {
-            "no": "Hvetemel",
-            "en": "Wheat flour"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Kakao",
-            "en": "Cocoa powder"
-          },
-          "amount": 50,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sterk fløte",
-            "en": "Heavy cream"
-          },
-          "amount": 500,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Kirsebær (konservert)",
-            "en": "Cherries (canned)"
-          },
-          "amount": 400,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Mandler (hakket)",
-            "en": "Almonds (chopped)"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Varmeovnen til 180C",
-          "2. Smelt sjokolade og smør, blande med sukker og egg",
-          "3. Fold inn mel og kakao",
-          "4. Hell deigen i kakeform og bak 35-40 minutter",
-          "5. La kaken kjøle seg ned helt",
-          "6. Pisk fløten til stiv, lag flere lag med kake, fløte og kirsebær",
-          "7. Topp med mandelflak og kirsebær"
-        ],
-        "en": [
-          "1. Preheat oven to 180C",
-          "2. Melt chocolate and butter, mix with sugar and eggs",
-          "3. Fold in flour and cocoa",
-          "4. Pour batter into cake pan and bake 35-40 minutes",
-          "5. Let cake cool completely",
-          "6. Whip cream until stiff, make layers with cake, cream and cherries",
-          "7. Top with almond flakes and cherries"
-        ]
-      }
-    },
-    {
       "id": "eu_075",
       "title": {
         "no": "Tafelspitz",
@@ -4845,11 +4494,12 @@
       "difficulty": "medium",
       "cookTimeMinutes": 150,
       "servings": 4,
-      "category": "Meat",
+      "category": "Beef & Red Meat",
       "tags": [
         "boiled",
         "Austrian",
-        "comfort food"
+        "comfort food",
+        "cuisine:austrian"
       ],
       "allergens": [],
       "ingredients": [
@@ -4962,390 +4612,6 @@
       }
     },
     {
-      "id": "eu_076",
-      "title": {
-        "no": "Apfelstrudel",
-        "en": "Apple Strudel"
-      },
-      "subtitle": {
-        "no": "Stekt epleposteier med kanel",
-        "en": "Baked apple pastry with cinnamon"
-      },
-      "difficulty": "hard",
-      "cookTimeMinutes": 90,
-      "servings": 8,
-      "category": "Other",
-      "tags": [
-        "pastry",
-        "dessert",
-        "Austrian",
-        "apple"
-      ],
-      "allergens": [
-        "gluten",
-        "eggs",
-        "dairy"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Strudeldeig",
-            "en": "Strudel dough"
-          },
-          "amount": 400,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Epler",
-            "en": "Apples"
-          },
-          "amount": 800,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Kanel",
-            "en": "Cinnamon"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "tsp",
-            "en": "tsp"
-          }
-        },
-        {
-          "name": {
-            "no": "Rosiner",
-            "en": "Raisins"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Mandler (hakket)",
-            "en": "Almonds (chopped)"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Smør",
-            "en": "Butter"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Brødkrummer",
-            "en": "Breadcrumbs"
-          },
-          "amount": 50,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Varmeovnen til 190C",
-          "2. Skrell og skjær epler i tynne skiver",
-          "3. Bland epler, sukker, kanel, rosiner og mandler",
-          "4. Rull ut strudeldeigen tynn",
-          "5. Brø smør og brødkrummer, spread på deigen",
-          "6. Fordel epleblanden på deigen og rull stramt",
-          "7. Plasser på stekt papir og bak 40-45 minutter"
-        ],
-        "en": [
-          "1. Preheat oven to 190C",
-          "2. Peel and slice apples thinly",
-          "3. Mix apples, sugar, cinnamon, raisins and almonds",
-          "4. Roll out strudel dough very thin",
-          "5. Brush butter and breadcrumbs on dough",
-          "6. Spread apple mixture on dough and roll tightly",
-          "7. Place on baking sheet and bake 40-45 minutes"
-        ]
-      }
-    },
-    {
-      "id": "eu_077",
-      "title": {
-        "no": "Sachertorte",
-        "en": "Sachertorte"
-      },
-      "subtitle": {
-        "no": "Sjokoladekalke med aprikos og glassur",
-        "en": "Chocolate cake with apricot and glaze"
-      },
-      "difficulty": "hard",
-      "cookTimeMinutes": 100,
-      "servings": 8,
-      "category": "Other",
-      "tags": [
-        "cake",
-        "dessert",
-        "Austrian",
-        "chocolate"
-      ],
-      "allergens": [
-        "gluten",
-        "eggs",
-        "dairy",
-        "nuts"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Mørk sjokolade",
-            "en": "Dark chocolate"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Smør",
-            "en": "Butter"
-          },
-          "amount": 120,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Egg (delt)",
-            "en": "Eggs (separated)"
-          },
-          "amount": 8,
-          "unit": {
-            "no": "stk",
-            "en": "pcs"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Hvetemel",
-            "en": "Wheat flour"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Aprikos syltetøy",
-            "en": "Apricot jam"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sjokoladeglassur",
-            "en": "Chocolate glaze"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Varmeovnen til 175C",
-          "2. Smelt sjokolade og smør sammen",
-          "3. Pisk eggeplommer og sukker til lyst",
-          "4. Fold i sjokolade og mel",
-          "5. Pisk eggerhviter til stiv, fold inn forsiking",
-          "6. Bak i 45-50 minutter",
-          "7. Brush med aprikos syltetøy når det kjøler, dekk med sjokoladeglassur"
-        ],
-        "en": [
-          "1. Preheat oven to 175C",
-          "2. Melt chocolate and butter together",
-          "3. Whisk egg yolks and sugar until light",
-          "4. Fold in chocolate and flour",
-          "5. Whip egg whites until stiff, fold into mixture",
-          "6. Bake for 45-50 minutes",
-          "7. Brush with apricot jam when cool, cover with chocolate glaze"
-        ]
-      }
-    },
-    {
-      "id": "eu_078",
-      "title": {
-        "no": "Kaiserschmarrn",
-        "en": "Kaiserschmarrn"
-      },
-      "subtitle": {
-        "no": "Revedt pannekake med plommesyltetøy",
-        "en": "Torn pancake with plum jam"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 30,
-      "servings": 4,
-      "category": "Other",
-      "tags": [
-        "dessert",
-        "pancake",
-        "Austrian"
-      ],
-      "allergens": [
-        "gluten",
-        "eggs",
-        "dairy"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Hvetemel",
-            "en": "Wheat flour"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Egg",
-            "en": "Eggs"
-          },
-          "amount": 5,
-          "unit": {
-            "no": "stk",
-            "en": "pcs"
-          }
-        },
-        {
-          "name": {
-            "no": "Melk",
-            "en": "Milk"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Smør",
-            "en": "Butter"
-          },
-          "amount": 50,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "tbsp",
-            "en": "tbsp"
-          }
-        },
-        {
-          "name": {
-            "no": "Plommesyltetøy",
-            "en": "Plum jam"
-          },
-          "amount": 250,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Vaniljesukker",
-            "en": "Vanilla sugar"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "tbsp",
-            "en": "tbsp"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Bland mel, egg, melk og vaniljesukker",
-          "2. Smelt smør i en stor stekepanne",
-          "3. Hell deigen i pannen og stek på medium varme",
-          "4. Når toppen blir gyllene, rip pannekaken i biter med to gafler",
-          "5. Stiek videre til bitene blir gyldne rundt omkring",
-          "6. Serv varmt med plommesyltetøy og fløte"
-        ],
-        "en": [
-          "1. Mix flour, eggs, milk and vanilla sugar",
-          "2. Melt butter in a large skillet",
-          "3. Pour batter into pan and cook on medium heat",
-          "4. When top turns golden, tear pancake into pieces with two forks",
-          "5. Continue cooking until pieces are golden all around",
-          "6. Serve hot with plum jam and cream"
-        ]
-      }
-    },
-    {
       "id": "eu_079",
       "title": {
         "no": "Rösti",
@@ -5358,11 +4624,13 @@
       "difficulty": "medium",
       "cookTimeMinutes": 25,
       "servings": 4,
-      "category": "Other",
+      "category": "Sides & Light Meals",
       "tags": [
         "potato",
         "side dish",
-        "Swiss"
+        "Swiss",
+        "quick",
+        "cuisine:swiss"
       ],
       "allergens": [],
       "ingredients": [
@@ -5463,7 +4731,9 @@
         "cheese",
         "melted",
         "Swiss",
-        "fondue"
+        "fondue",
+        "quick",
+        "cuisine:swiss"
       ],
       "allergens": [
         "dairy"
@@ -5573,7 +4843,9 @@
         "cheese",
         "fondue",
         "Swiss",
-        "melted"
+        "melted",
+        "quick",
+        "cuisine:swiss"
       ],
       "allergens": [
         "dairy",
@@ -5703,11 +4975,12 @@
       "difficulty": "medium",
       "cookTimeMinutes": 60,
       "servings": 4,
-      "category": "Meat",
+      "category": "Beef & Red Meat",
       "tags": [
         "casserole",
         "comfort food",
-        "British"
+        "British",
+        "cuisine:british"
       ],
       "allergens": [
         "dairy"
@@ -5860,11 +5133,12 @@
       "difficulty": "medium",
       "cookTimeMinutes": 60,
       "servings": 4,
-      "category": "Meat",
+      "category": "Beef & Red Meat",
       "tags": [
         "casserole",
         "comfort food",
-        "British"
+        "British",
+        "cuisine:british"
       ],
       "allergens": [
         "dairy"
@@ -6017,12 +5291,14 @@
       "difficulty": "medium",
       "cookTimeMinutes": 30,
       "servings": 4,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "fried",
         "fish",
         "British",
-        "street food"
+        "street food",
+        "quick",
+        "cuisine:british"
       ],
       "allergens": [
         "gluten",
@@ -6164,11 +5440,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 30,
       "servings": 4,
-      "category": "Meat",
+      "category": "Sides & Light Meals",
       "tags": [
         "sausage",
         "comfort food",
-        "British"
+        "British",
+        "quick",
+        "cuisine:british"
       ],
       "allergens": [
         "gluten",
@@ -6309,11 +5587,12 @@
       "difficulty": "medium",
       "cookTimeMinutes": 45,
       "servings": 4,
-      "category": "Meat",
+      "category": "Ground Meat & Sausages",
       "tags": [
         "baked",
         "comfort food",
-        "British"
+        "British",
+        "cuisine:british"
       ],
       "allergens": [
         "gluten",
@@ -6423,11 +5702,13 @@
       "difficulty": "medium",
       "cookTimeMinutes": 30,
       "servings": 2,
-      "category": "Meat",
+      "category": "Pork",
       "tags": [
         "breakfast",
         "full meal",
-        "British"
+        "British",
+        "quick",
+        "cuisine:british"
       ],
       "allergens": [
         "gluten",
@@ -6569,11 +5850,12 @@
       "difficulty": "hard",
       "cookTimeMinutes": 150,
       "servings": 4,
-      "category": "Meat",
+      "category": "Beef & Red Meat",
       "tags": [
         "pie",
         "British",
-        "comfort food"
+        "comfort food",
+        "cuisine:british"
       ],
       "allergens": [
         "gluten",
@@ -6719,172 +6001,6 @@
       }
     },
     {
-      "id": "eu_089",
-      "title": {
-        "no": "Sticky Toffee Pudding",
-        "en": "Sticky Toffee Pudding"
-      },
-      "subtitle": {
-        "no": "Søt puddingkake med toffee",
-        "en": "Sweet pudding cake with toffee"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 50,
-      "servings": 6,
-      "category": "Other",
-      "tags": [
-        "dessert",
-        "pudding",
-        "British",
-        "toffee"
-      ],
-      "allergens": [
-        "gluten",
-        "eggs",
-        "dairy"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Medjool dadler",
-            "en": "Medjool dates"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Varmt vann",
-            "en": "Hot water"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Smør",
-            "en": "Butter"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Mørksukkert",
-            "en": "Brown sugar"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Egg",
-            "en": "Eggs"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "stk",
-            "en": "pcs"
-          }
-        },
-        {
-          "name": {
-            "no": "Hvetemel",
-            "en": "Wheat flour"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Bakingpulver",
-            "en": "Baking powder"
-          },
-          "amount": 1.5,
-          "unit": {
-            "no": "tsp",
-            "en": "tsp"
-          }
-        },
-        {
-          "name": {
-            "no": "Vaniljeekstrakt",
-            "en": "Vanilla extract"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "tsp",
-            "en": "tsp"
-          }
-        },
-        {
-          "name": {
-            "no": "Toffee-saus (for å servere)",
-            "en": "Toffee sauce (to serve)"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Fløte (til servering)",
-            "en": "Cream (to serve)"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Varmeovnen til 175C",
-          "2. Hell varmt vann over dadler og la dem bli myke",
-          "3. Blands smør og sukkert til lett og luftig",
-          "4. Tilsett egg, bland godt",
-          "5. Fold inn mel og bakingpulver",
-          "6. Tilsett dadler med vannet og vanilj",
-          "7. Hell deigen i en smurt form",
-          "8. Bak 35-40 minutter",
-          "9. Gjør hull i puddingen med gaffel",
-          "10. Hell toffee-saus over",
-          "11. Serv varmt med fløte"
-        ],
-        "en": [
-          "1. Preheat oven to 175C",
-          "2. Pour hot water over dates and let them soften",
-          "3. Cream butter and sugar until light and fluffy",
-          "4. Add eggs, mix well",
-          "5. Fold in flour and baking powder",
-          "6. Add dates with water and vanilla",
-          "7. Pour batter into greased pan",
-          "8. Bake 35-40 minutes",
-          "9. Pierce pudding with fork",
-          "10. Pour toffee sauce over",
-          "11. Serve warm with cream"
-        ]
-      }
-    },
-    {
       "id": "eu_090",
       "title": {
         "no": "Irish Stew",
@@ -6897,11 +6013,12 @@
       "difficulty": "easy",
       "cookTimeMinutes": 90,
       "servings": 4,
-      "category": "Meat",
+      "category": "Soups & Stews",
       "tags": [
         "stew",
         "Irish",
-        "comfort food"
+        "comfort food",
+        "cuisine:irish"
       ],
       "allergens": [],
       "ingredients": [
@@ -7030,11 +6147,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 25,
       "servings": 4,
-      "category": "Other",
+      "category": "Sides & Light Meals",
       "tags": [
         "potatoes",
         "Irish",
-        "side dish"
+        "side dish",
+        "quick",
+        "cuisine:irish"
       ],
       "allergens": [
         "dairy"
@@ -7158,7 +6277,9 @@
       "tags": [
         "pancake",
         "Irish",
-        "potato"
+        "potato",
+        "quick",
+        "cuisine:irish"
       ],
       "allergens": [
         "gluten",
@@ -7279,11 +6400,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 20,
       "servings": 4,
-      "category": "Meat",
+      "category": "Grill",
       "tags": [
         "grilled",
         "Greek",
-        "skewers"
+        "skewers",
+        "quick",
+        "cuisine:greek"
       ],
       "allergens": [],
       "ingredients": [
@@ -7401,7 +6524,8 @@
       "tags": [
         "pie",
         "spinach",
-        "Greek"
+        "Greek",
+        "cuisine:greek"
       ],
       "allergens": [
         "gluten",
@@ -7537,11 +6661,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 10,
       "servings": 4,
-      "category": "Other",
+      "category": "Salads",
       "tags": [
         "salad",
         "Greek",
-        "fresh"
+        "fresh",
+        "quick",
+        "cuisine:greek"
       ],
       "allergens": [
         "dairy"
@@ -7685,11 +6811,12 @@
       "difficulty": "hard",
       "cookTimeMinutes": 90,
       "servings": 6,
-      "category": "Meat",
+      "category": "Pasta & Noodles",
       "tags": [
         "pasta",
         "baked",
-        "Greek"
+        "Greek",
+        "cuisine:greek"
       ],
       "allergens": [
         "gluten",
@@ -7835,11 +6962,12 @@
       "difficulty": "hard",
       "cookTimeMinutes": 60,
       "servings": 4,
-      "category": "Meat",
+      "category": "Beef & Red Meat",
       "tags": [
         "rolls",
         "Greek",
-        "rice"
+        "rice",
+        "cuisine:greek"
       ],
       "allergens": [],
       "ingredients": [
@@ -7969,170 +7097,6 @@
       }
     },
     {
-      "id": "eu_098",
-      "title": {
-        "no": "Baklava",
-        "en": "Baklava"
-      },
-      "subtitle": {
-        "no": "Gresk nøtt bakst med honning sirup",
-        "en": "Greek nut pastry with honey syrup"
-      },
-      "difficulty": "hard",
-      "cookTimeMinutes": 60,
-      "servings": 12,
-      "category": "Other",
-      "tags": [
-        "dessert",
-        "pastry",
-        "Greek",
-        "nuts"
-      ],
-      "allergens": [
-        "gluten",
-        "dairy",
-        "nuts"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Fillo-deig",
-            "en": "Phyllo dough"
-          },
-          "amount": 400,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Nøtter (hakket)",
-            "en": "Nuts (chopped)"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Smør (smeltet)",
-            "en": "Butter (melted)"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Kanel",
-            "en": "Cinnamon"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "tsp",
-            "en": "tsp"
-          }
-        },
-        {
-          "name": {
-            "no": "Nellik",
-            "en": "Clove"
-          },
-          "amount": 0.5,
-          "unit": {
-            "no": "tsp",
-            "en": "tsp"
-          }
-        },
-        {
-          "name": {
-            "no": "Honning",
-            "en": "Honey"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Vann",
-            "en": "Water"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sitron",
-            "en": "Lemon"
-          },
-          "amount": 0.5,
-          "unit": {
-            "no": "stk",
-            "en": "pc"
-          }
-        },
-        {
-          "name": {
-            "no": "Vaniljeekstrakt",
-            "en": "Vanilla extract"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "tsp",
-            "en": "tsp"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Varmeovnen til 170C",
-          "2. Bland nøtter, kanel og nellik",
-          "3. Smør en bakning med smør",
-          "4. Lag lag av fillo-deig med smør mellom",
-          "5. Halve eller tredje blandingen med nøtter",
-          "6. Legg flere lag fillo over",
-          "7. Kutt i diamanter",
-          "8. Bak 30-35 minutter til sprø og gyllene",
-          "9. Lage sirup av honning, vann, sukker, sitron og vanilje",
-          "10. Hell varm sirup over varmt bakverk"
-        ],
-        "en": [
-          "1. Preheat oven to 170C",
-          "2. Mix nuts, cinnamon and cloves",
-          "3. Butter a baking pan",
-          "4. Make layers of phyllo dough with butter between",
-          "5. Half or third the nut mixture",
-          "6. Place more phyllo layers over",
-          "7. Cut into diamonds",
-          "8. Bake 30-35 minutes until crispy and golden",
-          "9. Make syrup from honey, water, sugar, lemon and vanilla",
-          "10. Pour hot syrup over hot pastry"
-        ]
-      }
-    },
-    {
       "id": "eu_099",
       "title": {
         "no": "Sarma",
@@ -8145,11 +7109,12 @@
       "difficulty": "hard",
       "cookTimeMinutes": 90,
       "servings": 4,
-      "category": "Meat",
+      "category": "Beef & Red Meat",
       "tags": [
         "rolls",
         "Balkan",
-        "cabbage"
+        "cabbage",
+        "cuisine:balkan"
       ],
       "allergens": [
         "gluten"
@@ -8293,11 +7258,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 20,
       "servings": 4,
-      "category": "Meat",
+      "category": "Grill",
       "tags": [
         "grilled",
         "Balkan",
-        "meatballs"
+        "meatballs",
+        "quick",
+        "cuisine:balkan"
       ],
       "allergens": [
         "gluten"
@@ -8411,11 +7378,12 @@
       "difficulty": "hard",
       "cookTimeMinutes": 90,
       "servings": 6,
-      "category": "Meat",
+      "category": "Beef & Red Meat",
       "tags": [
         "pie",
         "Balkan",
-        "meat"
+        "meat",
+        "cuisine:balkan"
       ],
       "allergens": [
         "gluten",
@@ -8565,7 +7533,8 @@
       "tags": [
         "dumplings",
         "Polish",
-        "filled"
+        "filled",
+        "cuisine:polish"
       ],
       "allergens": [
         "gluten",
@@ -8713,11 +7682,12 @@
       "difficulty": "medium",
       "cookTimeMinutes": 120,
       "servings": 6,
-      "category": "Meat",
+      "category": "Soups & Stews",
       "tags": [
         "stew",
         "Polish",
-        "cabbage"
+        "cabbage",
+        "cuisine:polish"
       ],
       "allergens": [],
       "ingredients": [
@@ -8866,11 +7836,12 @@
       "difficulty": "hard",
       "cookTimeMinutes": 90,
       "servings": 4,
-      "category": "Meat",
+      "category": "Beef & Red Meat",
       "tags": [
         "rolls",
         "Polish",
-        "cabbage"
+        "cabbage",
+        "cuisine:polish"
       ],
       "allergens": [
         "gluten"
@@ -9014,11 +7985,12 @@
       "difficulty": "medium",
       "cookTimeMinutes": 60,
       "servings": 4,
-      "category": "Meat",
+      "category": "Chicken",
       "tags": [
         "chicken",
         "Hungarian",
-        "paprika"
+        "paprika",
+        "cuisine:hungarian"
       ],
       "allergens": [
         "dairy"

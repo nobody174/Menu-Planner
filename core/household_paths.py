@@ -103,14 +103,20 @@ def _seed_pantry(hdir: Path):
 
 def household_dir(household_id: str) -> Path:
     """Return (creating if needed) the data directory for a household, seeded
-    from the legacy global data/ files on first use."""
+    from the legacy global data/ files on first use. recipes_db.json starts
+    empty so households don't inherit global recipes."""
     hdir = HOUSEHOLDS_DIR / str(household_id)
     if not hdir.exists():
         hdir.mkdir(parents=True, exist_ok=True)
         for filename in _SEED_FILES:
             src = DATA_DIR / filename
             if src.exists():
-                shutil.copy(src, hdir / filename)
+                if filename == 'recipes_db.json':
+                    # Start empty so new households have a clean slate
+                    with open(hdir / filename, 'w', encoding='utf-8') as f:
+                        json.dump([], f)
+                else:
+                    shutil.copy(src, hdir / filename)
         _seed_pantry(hdir)
     return hdir
 
@@ -213,6 +219,43 @@ def categories_file(household_id: str) -> Path:
 
 def activity_log_file(household_id: str) -> Path:
     return household_dir(household_id) / 'activity_log.json'
+
+
+def imported_packs_file(household_id: str) -> Path:
+    return household_dir(household_id) / 'imported_packs.json'
+
+
+def load_imported_packs(household_id: str) -> dict:
+    """Display metadata (name, icon, color) for recipe packs this household
+    has imported, keyed by pack id - written at import time, read by the
+    "Manage Recipe Packs" page. Tracked separately from recipe categories so
+    importing a pack no longer overwrites a recipe's real dish-type category
+    with the pack name (see BACKLOG_2026-06-30.md B4b)."""
+    path = imported_packs_file(household_id)
+    if not path.exists():
+        return {}
+    try:
+        with open(path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+
+def save_imported_pack_metadata(household_id: str, pack_id: str, display_name: str, icon: str, color: str):
+    """Record (or update) display metadata for one imported pack."""
+    packs = load_imported_packs(household_id)
+    packs[pack_id] = {'display_name': display_name, 'icon': icon, 'color': color}
+    with open(imported_packs_file(household_id), 'w', encoding='utf-8') as f:
+        json.dump(packs, f, ensure_ascii=False, indent=2)
+
+
+def remove_imported_pack_metadata(household_id: str, pack_id: str):
+    """Forget a pack's display metadata once its recipes have all been removed."""
+    packs = load_imported_packs(household_id)
+    if pack_id in packs:
+        del packs[pack_id]
+        with open(imported_packs_file(household_id), 'w', encoding='utf-8') as f:
+            json.dump(packs, f, ensure_ascii=False, indent=2)
 
 
 def pantry_file(household_id: str) -> Path:

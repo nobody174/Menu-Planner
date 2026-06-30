@@ -76,6 +76,10 @@ data/token_cache.json
 *.temp
 .cache/
 
+# Fresh chat startup helpers (local reference, not for git)
+FRESH_CHAT_STARTUP.txt
+new_chat_fresh_menu_planner.md
+
 # OS
 Thumbs.db
 .DS_Store

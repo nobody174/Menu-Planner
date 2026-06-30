@@ -44,11 +44,18 @@ function generateMenuWithCategories() {
     const selectedCategories = Array.from(checkboxes).map(cb => cb.value);
 
     if (selectedCategories.length === 0) {
-        alert('Velg minst en kategori');
+        alert('Select at least one category');
         return;
     }
 
-    console.log('Generating menu with categories:', selectedCategories);
+    // Collect favorited recipe IDs from localStorage
+    const favoriteRecipeIds = [];
+    if (typeof localStorage !== 'undefined') {
+        const favs = JSON.parse(localStorage.getItem('menu-planner-favorites') || '[]');
+        favoriteRecipeIds.push(...favs);
+    }
+
+    console.log('Generating menu with categories:', selectedCategories, 'favorites:', favoriteRecipeIds.length);
 
     fetch('/api/regenerate', {
         method: 'POST',
@@ -56,7 +63,8 @@ function generateMenuWithCategories() {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            selected_categories: selectedCategories
+            selected_categories: selectedCategories,
+            favorite_recipe_ids: favoriteRecipeIds
         })
     })
     .then(response => response.json())

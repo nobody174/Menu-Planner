@@ -183,9 +183,12 @@ def get_member_by_id(member_id, household_id):
 
 
 def update_household(household_id, name=None):
-    """Update household details."""
-    if name is not None and (not name or not name.strip()):
-        return False, "Household name required"
+    """Update household details (currently just the name)."""
+    if name is not None and not name.strip():
+        return False, "Household name cannot be empty"
+
+    if name is None:
+        return False, "No changes to update"
 
     session = SessionLocal()
     try:
@@ -193,8 +196,7 @@ def update_household(household_id, name=None):
         if not household:
             return False, "Household not found"
 
-        if name:
-            household.name = name.strip()[:255]
+        household.name = name.strip()[:255]
 
         session.commit()
         return True, household

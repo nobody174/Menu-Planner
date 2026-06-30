@@ -25,13 +25,19 @@
         'Other': 'other_category'
     } %}
 
+    {% set pantry_items = [] %}
+
     {% for category, items in shopping_list.items() %}
-        {% if items %}
-        <div class="category-section">
+        {% set to_buy = items | rejectattr('in_pantry') | list %}
+        {% for item in items %}
+            {% if item.in_pantry %}{{ pantry_items.append((category, item)) or '' }}{% endif %}
+        {% endfor %}
+        {% if to_buy %}
+        <div class="category-section" data-category-key="{{ category }}">
             <h2 class="category-title">{{ t[category_keys.get(category, 'other_category')] if category_keys.get(category) else category }}</h2>
             <ul class="category-items">
-                {% for item in items %}
-                <li class="shopping-item{% if item.in_pantry %} in-pantry{% endif %}"
+                {% for item in to_buy %}
+                <li class="shopping-item"
                     data-ingredient="{{ item.ingredient }}"
                     data-quantity="{{ item.quantity }}"
                     data-unit="{{ item.unit }}">
@@ -39,7 +45,6 @@
                         <input type="checkbox" class="item-checkbox">
                         <span class="item-name">{{ item.ingredient }}</span>
                         <span class="item-qty">{{ item.quantity }}{{ item.unit }}</span>
-                        {% if item.in_pantry %}<span class="pantry-have-badge" title="{{ t.get('already_in_pantry', 'Already in your pantry') }}">✓ {{ t.get('have_it', 'have it') }}</span>{% endif %}
                     </label>
                     {% if item.allergens %}
                     <div class="item-allergens">
@@ -54,6 +59,30 @@
         </div>
         {% endif %}
     {% endfor %}
+
+    {% if pantry_items %}
+    <details class="category-section pantry-filtered-section">
+        <summary class="category-title pantry-filtered-summary">
+            {{ t.get('already_have_these', 'Already have these') }} ({{ pantry_items|length }})
+        </summary>
+        <p class="hint">{{ t.get('pantry_filtered_hint', "Filtered out of your shopping list because they're in your pantry. Don't actually have one? Uncheck it below to move it back up.") }}</p>
+        <ul class="category-items">
+            {% for category, item in pantry_items %}
+            <li class="shopping-item pantry-filtered-item"
+                data-ingredient="{{ item.ingredient }}"
+                data-quantity="{{ item.quantity }}"
+                data-unit="{{ item.unit }}"
+                data-category="{{ category }}">
+                <label class="checkbox-label">
+                    <input type="checkbox" class="pantry-restore-checkbox" checked title="{{ t.get('uncheck_to_restore', 'Uncheck to move back to the shopping list') }}">
+                    <span class="item-name">{{ item.ingredient }}</span>
+                    <span class="item-qty">{{ item.quantity }}{{ item.unit }}</span>
+                </label>
+            </li>
+            {% endfor %}
+        </ul>
+    </details>
+    {% endif %}
 </div>
 
 <!-- Integrations Modal -->
@@ -97,14 +126,31 @@
 
 
 <style>
-.pantry-have-badge {
-    font-size: 0.75rem;
-    color: var(--color-success, #3c3);
-    margin-left: 8px;
-    white-space: nowrap;
+.pantry-filtered-section {
+    opacity: 0.85;
 }
 
-.shopping-item.in-pantry .item-name {
+.pantry-filtered-summary {
+    cursor: pointer;
+    list-style: none;
+}
+
+.pantry-filtered-summary::-webkit-details-marker {
+    display: none;
+}
+
+.pantry-filtered-summary::before {
+    content: '▸';
+    display: inline-block;
+    margin-right: 6px;
+    transition: transform 0.15s;
+}
+
+.pantry-filtered-section[open] .pantry-filtered-summary::before {
+    transform: rotate(90deg);
+}
+
+.pantry-filtered-item .item-name {
     color: var(--color-text-secondary, #888);
 }
 
@@ -259,6 +305,57 @@ function getCheckedItems() {
 function uncheckAll() {
     document.querySelectorAll('.item-checkbox').forEach(function(cb) { cb.checked = false; });
 }
+
+// ── Pantry-filtered items ────────────────────────────────────────────────────
+// Items already in the pantry are filtered out of the main shopping list and
+// listed in a collapsible "Already have these" section instead. Unchecking
+// one there (meaning "actually, I don't have this") moves it back into its
+// real category section as a normal item to buy.
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.pantry-restore-checkbox').forEach(function(cb) {
+        cb.addEventListener('change', function() {
+            if (cb.checked) return; // only act when unchecking (restoring)
+            var li = cb.closest('.pantry-filtered-item');
+            var category = li.dataset.category;
+            var ingredient = li.dataset.ingredient;
+            var quantity = li.dataset.quantity;
+            var unit = li.dataset.unit;
+
+            // Find the matching category section by its raw (untranslated) key
+            var targetSection = document.querySelector('.category-section[data-category-key="' + category + '"]');
+            var targetList = targetSection ? targetSection.querySelector('.category-items') : null;
+
+            li.remove();
+
+            var newLi = document.createElement('li');
+            newLi.className = 'shopping-item';
+            newLi.dataset.ingredient = ingredient;
+            newLi.dataset.quantity = quantity;
+            newLi.dataset.unit = unit;
+            newLi.innerHTML =
+                '<label class="checkbox-label">' +
+                    '<input type="checkbox" class="item-checkbox">' +
+                    '<span class="item-name">' + ingredient + '</span>' +
+                    '<span class="item-qty">' + quantity + unit + '</span>' +
+                '</label>';
+            newLi.querySelector('.item-checkbox').addEventListener('change', function() {
+                var parentLi = this.closest('.shopping-item');
+                parentLi.style.opacity = this.checked ? '0.5' : '1';
+                saveCheckedItems();
+            });
+
+            if (targetList) {
+                targetList.appendChild(newLi);
+            } else {
+                // No matching section currently visible (e.g. it was the only
+                // pantry item in that category) - just drop it at the top of
+                // the shopping list so it isn't lost.
+                document.querySelector('.shopping-list').prepend(newLi);
+            }
+        });
+    });
+});
 
 function openIntegrationsMenu() {
     document.getElementById('integrationsModal').classList.add('active');

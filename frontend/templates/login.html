@@ -13,6 +13,21 @@
     </div>
     {% endif %}
 
+    {% if success %}
+    <div class="success-message">
+      {{ success }}
+    </div>
+    {% endif %}
+
+    {% if unconfirmed_email %}
+    <form method="POST" action="/resend-confirmation" class="auth-form" style="margin-bottom: 16px;">
+      <input type="hidden" name="email" value="{{ unconfirmed_email }}" />
+      <button type="submit" class="btn btn-secondary">
+        {{ t.get('resend_confirmation', 'Resend confirmation email') }}
+      </button>
+    </form>
+    {% endif %}
+
     <form method="POST" action="/login" class="auth-form">
       <div class="form-group">
         <label for="email">{{ t.get('email', 'Email') }}</label>
@@ -88,6 +103,15 @@
   .error-message {
     background: #fee;
     color: #c33;
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+
+  .success-message {
+    background: #efe;
+    color: #373;
     padding: 12px;
     border-radius: 4px;
     margin-bottom: 20px;

@@ -13,6 +13,11 @@
     </div>
     {% endif %}
 
+    {% if confirmation_sent %}
+    <div class="success-message">
+      {{ t.get('confirmation_sent', 'Almost there! We sent a confirmation link to %(email)s - click it to activate your account, then log in.') % {'email': email} }}
+    </div>
+    {% else %}
     <form method="POST" class="auth-form">
       {% if ref %}<input type="hidden" name="ref" value="{{ ref }}" />{% endif %}
       <div class="form-group">
@@ -56,6 +61,7 @@
         {{ t.get('signup', 'Sign Up') }}
       </button>
     </form>
+    {% endif %}
 
     <div class="auth-footer">
       <p>
@@ -103,6 +109,15 @@
   .error-message {
     background: #fee;
     color: #c33;
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+
+  .success-message {
+    background: #efe;
+    color: #373;
     padding: 12px;
     border-radius: 4px;
     margin-bottom: 20px;

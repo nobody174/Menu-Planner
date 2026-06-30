@@ -225,6 +225,47 @@ def _has_azure_creds():
     tenant_id = os.getenv('AZURE_TENANT_ID', '').strip()
     return bool(client_id and client_secret and tenant_id)
 
+def _send_confirmation_email(user):
+    """Email the user a confirmation link via Resend. Same fail-safe pattern
+    as _notify_admin_of_feedback below: if RESEND_API_KEY isn't configured,
+    log and skip rather than block signup - but note that without an actual
+    key set, NO ONE can confirm their email and therefore no one can log in,
+    so this must be configured before real users sign up against this build."""
+    api_key = os.getenv('RESEND_API_KEY', '').strip()
+    if not api_key:
+        logger.warning(f"RESEND_API_KEY not set - cannot send confirmation email to {user.email}. "
+                        f"This user cannot log in until email confirmation is sent some other way.")
+        return False
+
+    from_addr = os.getenv('RESEND_FROM_EMAIL', 'feedback@menuplanner.app').strip()
+    confirm_url = url_for('confirm_email_route', token=user.email_confirmation_token, _external=True)
+    body = (
+        f"Welcome to Menu Planner!\n\n"
+        f"Please confirm your email address to activate your account:\n\n"
+        f"{confirm_url}\n\n"
+        f"If you didn't sign up for Menu Planner, you can ignore this email."
+    )
+    try:
+        resp = requests.post(
+            'https://api.resend.com/emails',
+            headers={'Authorization': f'Bearer {api_key}', 'Content-Type': 'application/json'},
+            json={
+                'from': from_addr,
+                'to': [user.email],
+                'subject': 'Confirm your Menu Planner account',
+                'text': body,
+            },
+            timeout=10,
+        )
+        if resp.status_code >= 300:
+            logger.error(f"Resend confirmation email failed: {resp.status_code} {resp.text}")
+            return False
+        logger.info(f"Confirmation email sent to {user.email} (Resend id: {resp.json().get('id')})")
+        return True
+    except Exception as e:
+        logger.error(f"Resend confirmation email exception: {e}")
+        return False
+
 def _notify_admin_of_feedback(entry):
     """Email ADMIN_EMAIL via Resend when new feedback is submitted, so the
     developer doesn't have to manually check data/feedback.json or dig
@@ -987,7 +1028,17 @@ def add_recipe_page():
 @app.route('/all-recipes')
 def all_recipes_page():
     lang = _get_lang()
-    recipes = [_normalize_recipe(r, lang) for r in load_recipes_db()]
+    # Load both household recipes AND shared sample recipes (same as MenuGenerator does)
+    all_recipes = []
+    sample_recipes_path = DATA_DIR / 'sample_recipes.json'
+    if sample_recipes_path.exists():
+        try:
+            with open(sample_recipes_path, 'r', encoding='utf-8') as f:
+                all_recipes.extend(json.load(f))
+        except Exception:
+            pass
+    all_recipes.extend(load_recipes_db())
+    recipes = [_normalize_recipe(r, lang) for r in all_recipes]
     return render_template('all-recipes.html', recipes=recipes)
 
 @app.route('/settings')
@@ -1190,7 +1241,9 @@ def update_household_handler():
         return redirect(url_for('household_settings', error='Permission denied'))
 
     household_name = request.form.get('household_name', '').strip()
-    success, result = update_household(household_id, name=household_name)
+
+    name_to_update = household_name if household_name else None
+    success, result = update_household(household_id, name=name_to_update)
 
     if success:
         return redirect(url_for('household_settings', success='Household updated'))
@@ -1459,6 +1512,9 @@ def login_local():
 
     success, result = authenticate_user(email, password)
     if not success:
+        if result == 'EMAIL_NOT_CONFIRMED':
+            return render_template('login.html', email=email, unconfirmed_email=email,
+                                    error='Please confirm your email before logging in.'), 401
         return render_template('login.html', error=result, email=email), 401
 
     user = result
@@ -1468,6 +1524,35 @@ def login_local():
     session.pop('active_profile_id', None)
     logger.info(f"User logged in (local): {user.email}")
     return redirect(url_for('profile_picker'))
+
+@app.route('/confirm-email/<token>')
+def confirm_email_route(token):
+    """Land here from the link in the confirmation email. One-time use -
+    the token is cleared on success, so a second click just shows the
+    already-confirmed case rather than erroring."""
+    from core.auth_helpers import confirm_email
+    success, result = confirm_email(token)
+    if not success:
+        return render_template('login.html', error=result), 400
+    return render_template('login.html', success='Email confirmed! You can now log in.', email=result.email)
+
+@app.route('/resend-confirmation', methods=['POST'])
+def resend_confirmation():
+    """Re-send the confirmation email with a fresh token - the fallback for
+    a tester whose first email landed in spam or was sent to a typo'd
+    address they've since corrected via a new signup."""
+    from core.auth_helpers import regenerate_confirmation_token
+    email = request.form.get('email', '').strip()
+    if not email:
+        return render_template('login.html', error='Email required'), 400
+
+    success, result = regenerate_confirmation_token(email)
+    if not success:
+        return render_template('login.html', error=result, email=email), 400
+
+    _send_confirmation_email(result)
+    logger.info(f"Resent confirmation email to {result.email}")
+    return render_template('login.html', success='Confirmation email resent - please check your inbox.', email=email)
 
 @app.route('/welcome')
 def welcome():
@@ -1503,12 +1588,9 @@ def signup_local():
         return render_template('signup.html', error=result, email=email, ref=ref), 400
 
     user = result
-    session['user_id'] = str(user.id)
-    session['user_email'] = user.email
-    session['auth_type'] = 'local'
-    session.pop('active_profile_id', None)
-    logger.info(f"New user registered: {user.email}")
-    return redirect(url_for('profile_picker'))
+    logger.info(f"New user registered (pending email confirmation): {user.email}")
+    _send_confirmation_email(user)
+    return render_template('signup.html', email=email, ref=ref, confirmation_sent=True)
 
 # Azure/MSAL Authentication Routes
 @app.route('/login-azure')
@@ -1657,8 +1739,9 @@ def api_regenerate():
         from core.menu_generator import MenuGenerator
         data = request.get_json() or {}
         selected_categories = data.get('categories') or data.get('selected_categories') or ['Quick Dinners', 'Fish & Seafood', 'Vegetarian']
-        logger.info(f"Generating menu with categories: {selected_categories}")
-        generator = MenuGenerator(selected_categories=selected_categories, household_id=current_household_id())
+        favorite_recipe_ids = data.get('favorite_recipe_ids', [])
+        logger.info(f"Generating menu with categories: {selected_categories}, favorites: {len(favorite_recipe_ids)}")
+        generator = MenuGenerator(selected_categories=selected_categories, household_id=current_household_id(), favorite_recipe_ids=favorite_recipe_ids)
         menu = generator.run(num_dinners=6, save=True)
 
         from core.household_paths import append_activity
@@ -1673,11 +1756,14 @@ def api_regenerate():
         return jsonify({'status': 'error', 'message': str(e)}), 500
 
 def _sort_categories(categories):
-    """Imported recipe-pack categories always sort to the bottom; everything
-    else is alphabetical by display name. ('Favorites' isn't a real category
-    in this data - it's a separate hardcoded always-first entry in the nav
-    dropdown, so it doesn't need handling here.)"""
-    return sorted(categories, key=lambda c: (bool(c.get('imported')), c.get('name', c.get('name_en', '')).lower()))
+    """Favorites always sorts first; imported recipe-pack categories always
+    sort to the bottom; everything else in between is alphabetical by
+    display name."""
+    def sort_key(c):
+        if c.get('code') == 'favorites':
+            return (-1, '')
+        return (1 if c.get('imported') else 0, c.get('name', c.get('name_en', '')).lower())
+    return sorted(categories, key=sort_key)
 
 @app.route('/api/categories')
 def get_categories():
@@ -1690,6 +1776,15 @@ def get_categories():
     else:
         categories_file = Path(__file__).parent.parent / 'data' / 'categories.json'
     categories = []
+
+    # Add Favorites as a special first category (client-side only, stored in localStorage)
+    favorites_name = 'Favorites' if lang == 'en' else 'Favoritter'
+    categories.append({
+        'code': 'favorites',
+        'name': favorites_name,  # This is what gets passed back as the category value
+        'icon': '⭐'
+    })
+
     if categories_file.exists():
         try:
             with open(categories_file, 'r', encoding='utf-8') as f:
@@ -2134,18 +2229,25 @@ def api_recipe_packs_import():
         all_packs = get_available_recipe_packs()
         recipes_to_import = []
 
-        # Collect recipes from selected packs, keeping bilingual fields intact
-        new_categories = {}  # Changed from set to dict to store pack metadata
+        # Collect recipes from selected packs, keeping bilingual fields intact.
+        # The recipe's own dish-type category (Chicken, Salads, etc.) is kept
+        # as-is - it's what drives normal category-dropdown filtering and menu
+        # generation. Which pack a recipe came from is tracked separately via
+        # source_pack, purely for "Manage Recipe Packs" bookkeeping (grouping/
+        # removing everything imported from one pack) - it must NOT be used
+        # as the dish-type category, or imported recipes can only ever be
+        # found under their pack name instead of e.g. "Chicken" or "Salads".
+        pack_metadata = {}  # source_pack code -> display info, for categories.json bookkeeping
         for pack in all_packs:
             if pack['packId'] in pack_ids:
-                # Use pack name as the category for all recipes in this pack
-                pack_category = pack.get('packName', {})
-                if isinstance(pack_category, dict):
-                    pack_category_name = pack_category.get('en') or pack_category.get('no') or 'Imported Pack'
+                pack_name_field = pack.get('packName', {})
+                if isinstance(pack_name_field, dict):
+                    pack_display_name = pack_name_field.get('en') or pack_name_field.get('no') or 'Imported Pack'
                 else:
-                    pack_category_name = str(pack_category)
-                # Store pack metadata along with category name
-                new_categories[pack_category_name] = {
+                    pack_display_name = str(pack_name_field)
+
+                pack_metadata[pack['packId']] = {
+                    'display_name': pack_display_name,
                     'icon': pack.get('packImage', '📦'),
                     'color': pack.get('packColor', '#999999')
                 }
@@ -2153,8 +2255,8 @@ def api_recipe_packs_import():
                 for recipe in pack['recipes']:
                     # Normalize only non-bilingual technical fields, keep titles/descriptions as bilingual dicts
                     r = dict(recipe)
-                    # Override category with pack name
-                    r['category'] = pack_category_name
+                    # Track pack origin separately - do NOT touch r['category']
+                    r['source_pack'] = pack['packId']
                     # Store pack icon for display
                     r['packIcon'] = pack.get('packImage', '📦')
                     # Normalize difficulty if it's a bilingual dict
@@ -2179,44 +2281,23 @@ def api_recipe_packs_import():
         # Save updated database
         save_recipes_db(existing_recipes)
 
-        from core.household_paths import append_activity
+        from core.household_paths import append_activity, save_imported_pack_metadata
         append_activity(current_household_id(), current_actor_name(), f"Imported {imported_count} recipes from {len(pack_ids)} pack(s)")
 
-        # Add new categories to categories.json if they don't exist
-        if new_categories:
-            from core.household_paths import categories_file as _categories_file
-            categories_file = _categories_file(current_household_id())
-            existing_cats = []
-            if categories_file.exists():
-                try:
-                    with open(categories_file, 'r', encoding='utf-8') as f:
-                        existing_cats = json.load(f)
-                except Exception:
-                    pass
-            existing_cat_codes = {c.get('code', '').lower() for c in existing_cats}
-            for cat_name, cat_meta in new_categories.items():
-                cat_code = cat_name.lower().replace(' ', '_').replace('&', 'and')
-                if cat_code not in existing_cat_codes:
-                    existing_cats.append({
-                        'code': cat_code,
-                        'name_no': cat_name,
-                        'name_en': cat_name,
-                        'description_no': cat_name,
-                        'description_en': cat_name,
-                        'icon': cat_meta.get('icon', '📦'),
-                        'color': cat_meta.get('color', '#999999'),
-                        'imported': True
-                    })
-                    existing_cat_codes.add(cat_code)
-            with open(categories_file, 'w', encoding='utf-8') as f:
-                json.dump(existing_cats, f, ensure_ascii=False, indent=2)
+        # No categories.json bookkeeping needed here anymore - imported recipes
+        # keep their own real dish-type category (Chicken, Salads, etc.), which
+        # already exists in the household's category list. There's nothing
+        # new to register; a recipe is just findable under its existing
+        # category right away. Pack display metadata (for "Manage Recipe
+        # Packs") is tracked separately instead.
+        for pack_id, meta in pack_metadata.items():
+            save_imported_pack_metadata(current_household_id(), pack_id, meta['display_name'], meta['icon'], meta['color'])
 
         logger.info(f"Imported {imported_count} recipes from {len(pack_ids)} packs")
         return jsonify({
             'success': True,
             'imported_count': imported_count,
-            'message': f'Imported {imported_count} recipes',
-            'new_categories': list(new_categories.keys())
+            'message': f'Imported {imported_count} recipes'
         })
 
     except Exception as e:
@@ -2225,24 +2306,33 @@ def api_recipe_packs_import():
 
 @app.route('/api/recipe-packs/imported', methods=['GET'])
 def api_get_imported_packs():
-    """Get list of imported packs (detected by their categories in recipes_db.json)"""
+    """Get list of imported packs, grouped by source_pack (not by category -
+    a recipe's category is its own dish-type, e.g. Chicken/Salads, kept
+    separate from which pack it came from)."""
     try:
-        imported_packs = {}
+        from core.household_paths import load_imported_packs
+        pack_meta = load_imported_packs(current_household_id())
+
+        recipe_counts = {}
         recipes = load_recipes_db()
         for recipe in recipes:
-            cat = recipe.get('category', '')
-            if cat and cat not in imported_packs:
-                imported_packs[cat] = {
-                    'category_name': cat,
-                    'recipe_count': 0,
-                    'icon': recipe.get('packIcon', '📦')
-                }
-            if cat in imported_packs:
-                imported_packs[cat]['recipe_count'] += 1
+            pack_id = recipe.get('source_pack', '')
+            if pack_id:
+                recipe_counts[pack_id] = recipe_counts.get(pack_id, 0) + 1
+
+        packs = []
+        for pack_id, count in recipe_counts.items():
+            meta = pack_meta.get(pack_id, {})
+            packs.append({
+                'pack_id': pack_id,
+                'category_name': meta.get('display_name', pack_id),
+                'recipe_count': count,
+                'icon': meta.get('icon', '📦')
+            })
 
         return jsonify({
             'success': True,
-            'packs': list(imported_packs.values())
+            'packs': packs
         })
     except Exception as e:
         logger.error(f"Error getting imported packs: {e}")
@@ -2250,53 +2340,36 @@ def api_get_imported_packs():
 
 @app.route('/api/recipe-packs/remove', methods=['POST'])
 def api_remove_imported_pack():
-    """Remove an imported pack (all recipes with that category)"""
+    """Remove an imported pack (all recipes with that source_pack). Does NOT
+    touch categories.json - a recipe's dish-type category is its own, not
+    tied to which pack it came from, so removing a pack never needs to
+    remove a category."""
     try:
         data = request.get_json()
-        pack_category = data.get('category', '')
+        pack_id = data.get('pack_id', '')
 
-        if not pack_category:
-            return jsonify({'success': False, 'message': 'No category specified'}), 400
+        if not pack_id:
+            return jsonify({'success': False, 'message': 'No pack specified'}), 400
 
         recipes = load_recipes_db()
         removed_count = 0
 
         if recipes:
-            # Filter out recipes from this category
-            filtered_recipes = [r for r in recipes if r.get('category', '') != pack_category]
+            filtered_recipes = [r for r in recipes if r.get('source_pack', '') != pack_id]
             removed_count = len(recipes) - len(filtered_recipes)
 
-            # Save updated recipes
             save_recipes_db(filtered_recipes)
 
-            from core.household_paths import append_activity
-            append_activity(current_household_id(), current_actor_name(), f"Removed pack '{pack_category}' ({removed_count} recipes)")
+            from core.household_paths import append_activity, remove_imported_pack_metadata
+            append_activity(current_household_id(), current_actor_name(), f"Removed pack '{pack_id}' ({removed_count} recipes)")
+            remove_imported_pack_metadata(current_household_id(), pack_id)
 
-            logger.info(f"Removed {removed_count} recipes from pack category '{pack_category}'")
-
-        # Remove category from categories.json if it matches the pack name
-        from core.household_paths import categories_file as _categories_file
-        categories_file = _categories_file(current_household_id())
-        if categories_file.exists():
-            try:
-                with open(categories_file, 'r', encoding='utf-8') as f:
-                    categories = json.load(f)
-
-                # Filter out categories that match the pack name
-                filtered_categories = [c for c in categories if c.get('name_en', '') != pack_category]
-
-                # Save updated categories
-                with open(categories_file, 'w', encoding='utf-8') as f:
-                    json.dump(filtered_categories, f, ensure_ascii=False, indent=2)
-
-                logger.info(f"Removed category '{pack_category}' from categories.json")
-            except Exception as e:
-                logger.warning(f"Could not clean up category: {e}")
+            logger.info(f"Removed {removed_count} recipes from pack '{pack_id}'")
 
         return jsonify({
             'success': True,
             'removed_count': removed_count,
-            'message': f'Removed {removed_count} recipes from {pack_category}'
+            'message': f'Removed {removed_count} recipes'
         })
 
     except Exception as e:

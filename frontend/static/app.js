@@ -260,7 +260,7 @@ function refreshMenu() {
         fetch('/api/regenerate', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ categories: categories })
+            body: JSON.stringify({ categories: categories, favorite_recipe_ids: getFavoriteRecipes() })
         })
         .then(function(r) { return r.json(); })
         .then(function(data) {

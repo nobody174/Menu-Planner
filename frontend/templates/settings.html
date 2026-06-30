@@ -926,15 +926,9 @@ async function importSelectedPacks() {
         });
         var result = await resp.json();
         if (result.success) {
-            // Merge new categories into the user's saved selectedCategories
-            if (result.new_categories && result.new_categories.length > 0) {
-                var saved = [];
-                try { saved = JSON.parse(localStorage.getItem('selectedCategories') || '[]'); } catch(e) {}
-                result.new_categories.forEach(function(cat) {
-                    if (cat && !saved.includes(cat)) saved.push(cat);
-                });
-                localStorage.setItem('selectedCategories', JSON.stringify(saved));
-            }
+            // Imported recipes keep their own existing dish-type category
+            // (Chicken, Salads, etc.) rather than a new pack-name category,
+            // so there's nothing new to add to selectedCategories here.
             setStatus('importStatus', '✅ ' + result.imported_count + ' ' + STR.recipes_label + ' imported from ' + packIds.length + ' pack(s)!', 'success');
             setTimeout(function() {
                 closeRecipePacksModal();

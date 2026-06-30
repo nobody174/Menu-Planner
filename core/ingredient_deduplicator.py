@@ -306,6 +306,9 @@ class IngredientDeduplicator:
         return normalized
 
     def deduplicate_from_recipes(self, recipe_ids: List[str]) -> Dict:
+        """Build a shopping list from recipes as written - no serving-size
+        scaling. Users can edit a recipe's own ingredient list directly if
+        they want to adjust quantities for their household size."""
         all_ingredients = []
 
         for recipe_id in recipe_ids:
@@ -314,6 +317,7 @@ class IngredientDeduplicator:
                 ingredients = recipe.get('ingredients_included', [])
                 if not ingredients:
                     ingredients = self._normalize_ingredients(recipe.get('ingredients', []))
+
                 all_ingredients.extend(ingredients)
 
         deduplicated = self.deduplicate_ingredients(all_ingredients)

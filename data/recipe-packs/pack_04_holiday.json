@@ -10,7 +10,7 @@
   },
   "packImage": "🎄",
   "packColor": "#C41E3A",
-  "recipeCount": 62,
+  "recipeCount": 35,
   "estimatedCookTime": "45-180 minutes",
   "difficulty": "hard",
   "recipes": [
@@ -27,7 +27,7 @@
       "difficulty": "hard",
       "cookTimeMinutes": 180,
       "servings": 8,
-      "category": "Meat",
+      "category": "Chicken",
       "tags": [
         "christmas",
         "turkey",
@@ -142,409 +142,6 @@
       }
     },
     {
-      "id": "hol_002",
-      "title": {
-        "no": "Juleglogg",
-        "en": "Christmas Mulled Wine"
-      },
-      "subtitle": {
-        "no": "Tradisjonell varm juldrink",
-        "en": "Traditional warm Christmas drink"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 30,
-      "servings": 8,
-      "category": "Other",
-      "tags": [
-        "christmas",
-        "drink",
-        "warm",
-        "festive"
-      ],
-      "allergens": [],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Rødvin",
-            "en": "Red wine"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "liter",
-            "en": "liter"
-          }
-        },
-        {
-          "name": {
-            "no": "Brennevin (eller aquavit)",
-            "en": "Spirits (or aquavit)"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 75,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Kanelstang",
-            "en": "Cinnamon stick"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "stk",
-            "en": "pieces"
-          }
-        },
-        {
-          "name": {
-            "no": "Nellik",
-            "en": "Cloves"
-          },
-          "amount": 6,
-          "unit": {
-            "no": "stk",
-            "en": "pieces"
-          }
-        },
-        {
-          "name": {
-            "no": "Kardemomme",
-            "en": "Cardamom"
-          },
-          "amount": 3,
-          "unit": {
-            "no": "stk",
-            "en": "pieces"
-          }
-        },
-        {
-          "name": {
-            "no": "Ingefær (frisk)",
-            "en": "Ginger (fresh)"
-          },
-          "amount": 20,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Appelsin",
-            "en": "Orange"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "stk",
-            "en": "pieces"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Hell rødvin i en gryte.",
-          "2. Tilsett sukker, kanelstang, nellik, kardemomme og frisk ingefær.",
-          "3. Skjær appelsinene i tynne skiver og legg dem til.",
-          "4. Varm opp til ca. 65-70°C (ikke kok).",
-          "5. La det småsimre i 15-20 minutter.",
-          "6. Fjern fra varmen og tilsett brennevinen.",
-          "7. Server varmt i små kopper.",
-          "8. Tradisjonelt serveres med rosiner og mandler."
-        ],
-        "en": [
-          "1. Pour red wine into a pot.",
-          "2. Add sugar, cinnamon stick, cloves, cardamom and fresh ginger.",
-          "3. Slice oranges and add them.",
-          "4. Heat to about 65-70°C (do not boil).",
-          "5. Let simmer for 15-20 minutes.",
-          "6. Remove from heat and add spirits.",
-          "7. Serve hot in small cups.",
-          "8. Traditionally served with raisins and almonds."
-        ]
-      }
-    },
-    {
-      "id": "hol_003",
-      "title": {
-        "no": "Risengrynssgrytt",
-        "en": "Rice Pudding"
-      },
-      "subtitle": {
-        "no": "Tradisjonell juledessert",
-        "en": "Traditional Christmas pudding"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 45,
-      "servings": 6,
-      "category": "Other",
-      "tags": [
-        "christmas",
-        "pudding",
-        "dessert",
-        "traditional"
-      ],
-      "allergens": [
-        "dairy"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Risengryns",
-            "en": "Short grain rice"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Melk",
-            "en": "Milk"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "liter",
-            "en": "liter"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 50,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Salt",
-            "en": "Salt"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "ts",
-            "en": "tsp"
-          }
-        },
-        {
-          "name": {
-            "no": "Vaniljeekstrakt",
-            "en": "Vanilla extract"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "ts",
-            "en": "tsp"
-          }
-        },
-        {
-          "name": {
-            "no": "Mandler (hakket)",
-            "en": "Almonds (chopped)"
-          },
-          "amount": 50,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Rosiner",
-            "en": "Raisins"
-          },
-          "amount": 75,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Fløte",
-            "en": "Cream"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Kok melk i en gryte.",
-          "2. Tilsett risen og salt, la det småkoke i 25-30 minutter.",
-          "3. Rør av og til så risen ikke setter seg på bunnen.",
-          "4. Når risen er myk, tilsett sukker og vaniljeekstrakt.",
-          "5. Tilsett mandler og rosiner.",
-          "6. La det kjøle.",
-          "7. Visp fløten og fold den inn like før servering.",
-          "8. Server med rød syltør eller jordbær-syltetøy."
-        ],
-        "en": [
-          "1. Boil milk in a pot.",
-          "2. Add rice and salt, let simmer 25-30 minutes.",
-          "3. Stir occasionally so rice doesn't stick to bottom.",
-          "4. When rice is soft, add sugar and vanilla extract.",
-          "5. Add almonds and raisins.",
-          "6. Let cool.",
-          "7. Whip cream and fold in just before serving.",
-          "8. Serve with red jam or strawberry jam."
-        ]
-      }
-    },
-    {
-      "id": "hol_004",
-      "title": {
-        "no": "Julerollekake",
-        "en": "Christmas Roll Cake"
-      },
-      "subtitle": {
-        "no": "Norsk julerullet med fløte og jam",
-        "en": "Norwegian Christmas roll with cream and jam"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 60,
-      "servings": 8,
-      "category": "Other",
-      "tags": [
-        "christmas",
-        "cake",
-        "roll",
-        "festive"
-      ],
-      "allergens": [
-        "gluten",
-        "dairy",
-        "eggs"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Egg",
-            "en": "Eggs"
-          },
-          "amount": 4,
-          "unit": {
-            "no": "stk",
-            "en": "pieces"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Hvetemel",
-            "en": "Wheat flour"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Bakepulver",
-            "en": "Baking powder"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "ts",
-            "en": "tsp"
-          }
-        },
-        {
-          "name": {
-            "no": "Fløte (tykk)",
-            "en": "Cream (heavy)"
-          },
-          "amount": 400,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Syltetøy (til mitt)",
-            "en": "Jam (for filling)"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Pudringssukker",
-            "en": "Powdered sugar"
-          },
-          "amount": 50,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Visp egg og sukker til det er luftig og lyst.",
-          "2. Bland mel og bakepulver, fold inn i eggeblandingen.",
-          "3. Hell på en bakeplaat dekket med bakepapir.",
-          "4. Bak på 200°C i ca. 10-12 minutter.",
-          "5. Legg kaken ut på et nytt bakepapir mens det er varmt.",
-          "6. Spredt syltetøy på kaken.",
-          "7. Rull sammen mens den er varm.",
-          "8. Visp fløten med litt sukker.",
-          "9. Spredt fløte på hele rollen.",
-          "10. Frysing med pudringssukker.",
-          "11. Kjøl før servering."
-        ],
-        "en": [
-          "1. Whisk eggs and sugar until fluffy and pale.",
-          "2. Mix flour and baking powder, fold into egg mixture.",
-          "3. Spread on baking sheet lined with parchment.",
-          "4. Bake at 200°C for about 10-12 minutes.",
-          "5. Turn cake out on new parchment while hot.",
-          "6. Spread jam on cake.",
-          "7. Roll together while hot.",
-          "8. Whip cream with a bit of sugar.",
-          "9. Spread cream on entire roll.",
-          "10. Dust with powdered sugar.",
-          "11. Chill before serving."
-        ]
-      }
-    },
-    {
       "id": "hol_005",
       "title": {
         "no": "Påskekrim",
@@ -557,7 +154,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 120,
       "servings": 6,
-      "category": "Meat",
+      "category": "Beef & Red Meat",
       "tags": [
         "easter",
         "lamb",
@@ -685,7 +282,8 @@
         "easter",
         "bread",
         "holiday",
-        "italian"
+        "italian",
+        "cuisine:italian"
       ],
       "allergens": [
         "gluten",
@@ -843,12 +441,13 @@
       "difficulty": "easy",
       "cookTimeMinutes": 30,
       "servings": 4,
-      "category": "Fish",
+      "category": "Grill",
       "tags": [
         "summer",
         "grilled",
         "fish",
-        "festive"
+        "festive",
+        "quick"
       ],
       "allergens": [
         "fish"
@@ -953,7 +552,7 @@
       "difficulty": "hard",
       "cookTimeMinutes": 90,
       "servings": 6,
-      "category": "Meat",
+      "category": "Beef & Red Meat",
       "tags": [
         "newyear",
         "beef",
@@ -1080,7 +679,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 1440,
       "servings": 8,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "starter",
         "fish",
@@ -1204,421 +803,6 @@
       }
     },
     {
-      "id": "hol_010",
-      "title": {
-        "no": "Dessert: Sjokolade Mousse",
-        "en": "Dessert: Chocolate Mousse"
-      },
-      "subtitle": {
-        "no": "Elegant og lys sjokolade-mousse",
-        "en": "Elegant light chocolate mousse"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 30,
-      "servings": 4,
-      "category": "Other",
-      "tags": [
-        "dessert",
-        "chocolate",
-        "elegant",
-        "holiday"
-      ],
-      "allergens": [
-        "dairy",
-        "eggs"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Sjokolade (mørk)",
-            "en": "Chocolate (dark)"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Egg (eller pasteurisert)",
-            "en": "Eggs (or pasteurized)"
-          },
-          "amount": 4,
-          "unit": {
-            "no": "stk",
-            "en": "pieces"
-          }
-        },
-        {
-          "name": {
-            "no": "Fløte (tykk)",
-            "en": "Cream (heavy)"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 50,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Kaffe (svak)",
-            "en": "Coffee (strong)"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "ss",
-            "en": "tbsp"
-          }
-        },
-        {
-          "name": {
-            "no": "Vaniljeekstrakt",
-            "en": "Vanilla extract"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "ts",
-            "en": "tsp"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Smelt sjokoladen i en bolle over dampbad.",
-          "2. Del egg: eggeplommer i en bolle, egg-hviter i en annen.",
-          "3. Visp eggeplommer med sukker til det er kremete.",
-          "4. Fold in smeltet sjokolade.",
-          "5. Tilsett kaffe og vaniljeekstrakt.",
-          "6. Visp egg-hviter stivt og fold forsiktig inn.",
-          "7. Visp fløten stivt og fold forsiktig inn.",
-          "8. Fordel i glass eller skåler.",
-          "9. Kjøl minst 2 timer.",
-          "10. Server med kakaopulver eller sjokoladeflak."
-        ],
-        "en": [
-          "1. Melt chocolate in a bowl over double boiler.",
-          "2. Separate eggs: yolks in one bowl, whites in another.",
-          "3. Whisk yolks with sugar until creamy.",
-          "4. Fold in melted chocolate.",
-          "5. Add coffee and vanilla extract.",
-          "6. Beat egg whites stiff and fold in carefully.",
-          "7. Whip cream stiff and fold in carefully.",
-          "8. Divide into glasses or bowls.",
-          "9. Chill at least 2 hours.",
-          "10. Serve with cocoa powder or chocolate flakes."
-        ]
-      }
-    },
-    {
-      "id": "hol_011",
-      "title": {
-        "no": "Juletradisjon: Pepper Nuts",
-        "en": "Christmas Tradition: Pepper Nuts"
-      },
-      "subtitle": {
-        "no": "Tradisjonelle små krydderkaker",
-        "en": "Traditional small spice cookies"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 90,
-      "servings": 30,
-      "category": "Other",
-      "tags": [
-        "christmas",
-        "cookies",
-        "spice",
-        "traditional"
-      ],
-      "allergens": [
-        "gluten",
-        "nuts"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Hvetemel",
-            "en": "Wheat flour"
-          },
-          "amount": 250,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Smør",
-            "en": "Butter"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Brunsukkert",
-            "en": "Brown sugar"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Egg",
-            "en": "Eggs"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "stk",
-            "en": "pieces"
-          }
-        },
-        {
-          "name": {
-            "no": "Anise-frø",
-            "en": "Anise seeds"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "ts",
-            "en": "tsp"
-          }
-        },
-        {
-          "name": {
-            "no": "Kanelstang (pulver)",
-            "en": "Cinnamon (powder)"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "ts",
-            "en": "tsp"
-          }
-        },
-        {
-          "name": {
-            "no": "Pepper (sort, malt)",
-            "en": "Black pepper (ground)"
-          },
-          "amount": 0.5,
-          "unit": {
-            "no": "ts",
-            "en": "tsp"
-          }
-        },
-        {
-          "name": {
-            "no": "Nellik (pulver)",
-            "en": "Cloves (powder)"
-          },
-          "amount": 0.5,
-          "unit": {
-            "no": "ts",
-            "en": "tsp"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Blend smør og brunsukkert.",
-          "2. Visp inn egg.",
-          "3. Bland mel, anise-frø, kanel, pepper og nellik.",
-          "4. Tilsett til smørblanden.",
-          "5. Form små kuler.",
-          "6. Legg på en bakeplatt.",
-          "7. Bak på 170°C i ca. 10-12 minutter.",
-          "8. La dem kjøle på pannen før de flyttes.",
-          "9. Store i en hermetisk beholder."
-        ],
-        "en": [
-          "1. Cream butter and brown sugar.",
-          "2. Whisk in eggs.",
-          "3. Mix flour, anise seeds, cinnamon, pepper and cloves.",
-          "4. Add to butter mixture.",
-          "5. Form small balls.",
-          "6. Place on baking sheet.",
-          "7. Bake at 170°C for about 10-12 minutes.",
-          "8. Let cool on pan before moving.",
-          "9. Store in an airtight container."
-        ]
-      }
-    },
-    {
-      "id": "hol_012",
-      "title": {
-        "no": "Julebakst: Gingerbread House",
-        "en": "Christmas Baking: Gingerbread House"
-      },
-      "subtitle": {
-        "no": "Tradisjonell leikateklubb",
-        "en": "Traditional gingerbread house"
-      },
-      "difficulty": "hard",
-      "cookTimeMinutes": 240,
-      "servings": 8,
-      "category": "Other",
-      "tags": [
-        "christmas",
-        "gingerbread",
-        "building",
-        "festive"
-      ],
-      "allergens": [
-        "gluten",
-        "dairy",
-        "eggs"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Hvetemel",
-            "en": "Wheat flour"
-          },
-          "amount": 500,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Smør",
-            "en": "Butter"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Brunsukkert",
-            "en": "Brown sugar"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Egg",
-            "en": "Eggs"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "stk",
-            "en": "pieces"
-          }
-        },
-        {
-          "name": {
-            "no": "Ingefær (malt)",
-            "en": "Ginger (ground)"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "ts",
-            "en": "tsp"
-          }
-        },
-        {
-          "name": {
-            "no": "Kanel",
-            "en": "Cinnamon"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "ts",
-            "en": "tsp"
-          }
-        },
-        {
-          "name": {
-            "no": "Nellik (malt)",
-            "en": "Cloves (ground)"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "ts",
-            "en": "tsp"
-          }
-        },
-        {
-          "name": {
-            "no": "Glasur (til dekorasjon)",
-            "en": "Icing (for decoration)"
-          },
-          "amount": 500,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Godteri (til dekorasjon)",
-            "en": "Candies (for decoration)"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Blend smør og brunsukkert.",
-          "2. Visp inn egg.",
-          "3. Bland mel, ingefær, kanel og nellik.",
-          "4. Tilsett tørre ingredienser til smørblanden.",
-          "5. La deigen kjøle i minst 1 time.",
-          "6. Rull ut deigen på bakepapir.",
-          "7. Skjær hus-delene (vegger, tak, dør, vinduer).",
-          "8. Bak på 180°C i ca. 10-12 minutter.",
-          "9. La delene kjøle helt.",
-          "10. Bruk hvit glasur til å samle og dekorere huset.",
-          "11. Dekoré med godteri og andre detaljer.",
-          "12. La glasuren herdes før servering."
-        ],
-        "en": [
-          "1. Cream butter and brown sugar.",
-          "2. Whisk in eggs.",
-          "3. Mix flour, ginger, cinnamon and cloves.",
-          "4. Add dry ingredients to butter mixture.",
-          "5. Let dough cool for at least 1 hour.",
-          "6. Roll out dough on parchment paper.",
-          "7. Cut house pieces (walls, roof, door, windows).",
-          "8. Bake at 180°C for about 10-12 minutes.",
-          "9. Let pieces cool completely.",
-          "10. Use white icing to assemble and decorate house.",
-          "11. Decorate with candies and other details.",
-          "12. Let icing harden before serving."
-        ]
-      }
-    },
-    {
       "id": "hol_013",
       "title": {
         "no": "Juleskinke",
@@ -1631,7 +815,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 180,
       "servings": 8,
-      "category": "Meat",
+      "category": "Pork",
       "tags": [
         "holiday",
         "celebration",
@@ -1730,7 +914,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 40,
       "servings": 4,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "holiday",
         "celebration",
@@ -1842,7 +1026,7 @@
       "difficulty": "hard",
       "cookTimeMinutes": 150,
       "servings": 4,
-      "category": "Meat",
+      "category": "Chicken",
       "tags": [
         "holiday",
         "celebration",
@@ -1952,7 +1136,7 @@
       "difficulty": "hard",
       "cookTimeMinutes": 75,
       "servings": 4,
-      "category": "Meat",
+      "category": "Beef & Red Meat",
       "tags": [
         "holiday",
         "celebration",
@@ -2075,7 +1259,7 @@
       "difficulty": "hard",
       "cookTimeMinutes": 210,
       "servings": 6,
-      "category": "Meat",
+      "category": "Chicken",
       "tags": [
         "holiday",
         "celebration",
@@ -2185,7 +1369,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 150,
       "servings": 6,
-      "category": "Meat",
+      "category": "Pork",
       "tags": [
         "holiday",
         "celebration",
@@ -2271,120 +1455,6 @@
       }
     },
     {
-      "id": "hol_019",
-      "title": {
-        "no": "Risalamande",
-        "en": "Risalamande"
-      },
-      "subtitle": {
-        "no": "Dansk risdessert med mandler, kremet vaniljesaus og kirsebærsaus",
-        "en": "Danish rice dessert with almonds, creamy custard, and cherry sauce"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 45,
-      "servings": 4,
-      "category": "Other",
-      "tags": [
-        "holiday",
-        "celebration",
-        "festive",
-        "christmas",
-        "dessert"
-      ],
-      "allergens": [
-        "dairy",
-        "nuts"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Risgrøt (kald, ferdig kokt)",
-            "en": "Rice porridge (cold, pre-cooked)"
-          },
-          "amount": 500,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Kremfløte (pisket)",
-            "en": "Heavy cream (whipped)"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Mandler (hakket)",
-            "en": "Almonds (chopped)"
-          },
-          "amount": 75,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Vaniljesukker",
-            "en": "Vanilla sugar"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "spiseskje",
-            "en": "tbsp"
-          }
-        },
-        {
-          "name": {
-            "no": "Kirsebær (på saft, hele)",
-            "en": "Cherries (in syrup, whole)"
-          },
-          "amount": 400,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Maisennamel",
-            "en": "Cornstarch"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "spiseskje",
-            "en": "tbsp"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Rør den kalde risgrøten luftig med en gaffel for å løse opp klumper.",
-          "2. Bland inn hakkede mandler og vaniljesukker i risgrøten.",
-          "3. Visp kremfløten til den er pisket, men ikke for stiv.",
-          "4. Vend kremfløten forsiktig inn i risblandingen til en luftig konsistens.",
-          "5. Kok opp kirsebærsaften med maisennamel utrørt i litt vann til sausen tykner.",
-          "6. Avkjøl både risalamanden og kirsebærsausen i kjøleskapet.",
-          "7. Server risalamanden kald i skåler med varm eller kald kirsebærsaus over."
-        ],
-        "en": [
-          "1. Stir the cold rice porridge with a fork until light and lump-free.",
-          "2. Mix the chopped almonds and vanilla sugar into the rice porridge.",
-          "3. Whip the heavy cream until softly whipped, not too stiff.",
-          "4. Gently fold the whipped cream into the rice mixture until light and airy.",
-          "5. Bring the cherry syrup to a boil with cornstarch dissolved in a little water until the sauce thickens.",
-          "6. Chill both the risalamande and the cherry sauce in the refrigerator.",
-          "7. Serve the risalamande cold in bowls topped with warm or cold cherry sauce."
-        ]
-      }
-    },
-    {
       "id": "hol_020",
       "title": {
         "no": "Påskelammestek",
@@ -2397,7 +1467,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 120,
       "servings": 6,
-      "category": "Meat",
+      "category": "Beef & Red Meat",
       "tags": [
         "holiday",
         "celebration",
@@ -2496,7 +1566,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 60,
       "servings": 4,
-      "category": "Meat",
+      "category": "Chicken",
       "tags": [
         "holiday",
         "celebration",
@@ -2729,7 +1799,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 50,
       "servings": 4,
-      "category": "Meat",
+      "category": "Ground Meat & Sausages",
       "tags": [
         "holiday",
         "celebration",
@@ -2854,7 +1924,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 100,
       "servings": 6,
-      "category": "Meat",
+      "category": "Pork",
       "tags": [
         "holiday",
         "celebration",
@@ -2966,7 +2036,7 @@
       "difficulty": "hard",
       "cookTimeMinutes": 240,
       "servings": 12,
-      "category": "Meat",
+      "category": "Chicken",
       "tags": [
         "holiday",
         "traditional",
@@ -3064,7 +2134,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 180,
       "servings": 12,
-      "category": "Meat",
+      "category": "Pork",
       "tags": [
         "holiday",
         "traditional",
@@ -3149,489 +2219,6 @@
       }
     },
     {
-      "id": "hol_027",
-      "title": {
-        "no": "Julekake",
-        "en": "Christmas Cake"
-      },
-      "subtitle": {
-        "no": "Tradisjonell fruktkake med tørket frukt",
-        "en": "Traditional fruit cake with dried fruit"
-      },
-      "difficulty": "hard",
-      "cookTimeMinutes": 180,
-      "servings": 10,
-      "category": "Other",
-      "tags": [
-        "holiday",
-        "dessert",
-        "traditional"
-      ],
-      "allergens": [
-        "wheat",
-        "eggs",
-        "milk",
-        "nuts"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Mel",
-            "en": "Flour"
-          },
-          "amount": 400,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Smør",
-            "en": "Butter"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Egg",
-            "en": "Eggs"
-          },
-          "amount": 5,
-          "unit": {
-            "no": "stk",
-            "en": "pcs"
-          }
-        },
-        {
-          "name": {
-            "no": "Tørket frukt",
-            "en": "Dried fruit"
-          },
-          "amount": 500,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Sopp frukt i vann over natt",
-          "2. Bland smør og sukker",
-          "3. Pisk inn egg",
-          "4. Tilsett mel og frukt",
-          "5. Hellt i form",
-          "6. Bak på 150°C i 2 timer"
-        ],
-        "en": [
-          "1. Soak fruit in water overnight",
-          "2. Mix butter and sugar",
-          "3. Whisk in eggs",
-          "4. Add flour and fruit",
-          "5. Pour into pan",
-          "6. Bake at 150°C for 2 hours"
-        ]
-      }
-    },
-    {
-      "id": "hol_028",
-      "title": {
-        "no": "Pepperkaker",
-        "en": "Gingerbread Cookies"
-      },
-      "subtitle": {
-        "no": "Tradisjonelle kakemennisker med glassur",
-        "en": "Traditional gingerbread people with icing"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 60,
-      "servings": 24,
-      "category": "Other",
-      "tags": [
-        "holiday",
-        "cookies",
-        "traditional"
-      ],
-      "allergens": [
-        "wheat",
-        "eggs",
-        "gluten"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Mel",
-            "en": "Flour"
-          },
-          "amount": 400,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Smør",
-            "en": "Butter"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Honning",
-            "en": "Honey"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Ingefær",
-            "en": "Ginger"
-          },
-          "amount": 30,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Bland smør og sukker",
-          "2. Tilsett honning og ingefær",
-          "3. Tilsett mel",
-          "4. Rull deigen",
-          "5. Skjær figurer",
-          "6. Bak på 190°C i 10-12 minutter"
-        ],
-        "en": [
-          "1. Mix butter and sugar",
-          "2. Add honey and ginger",
-          "3. Add flour",
-          "4. Roll dough",
-          "5. Cut shapes",
-          "6. Bake at 190°C for 10-12 minutes"
-        ]
-      }
-    },
-    {
-      "id": "hol_029",
-      "title": {
-        "no": "Nisse Hatt",
-        "en": "Nisser Hat"
-      },
-      "subtitle": {
-        "no": "Sjokoladekaker formet som nisse-hatter",
-        "en": "Chocolate cakes shaped like gnome hats"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 40,
-      "servings": 12,
-      "category": "Other",
-      "tags": [
-        "holiday",
-        "dessert",
-        "chocolate"
-      ],
-      "allergens": [
-        "wheat",
-        "eggs",
-        "milk",
-        "chocolate"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Mørk sjokolade",
-            "en": "Dark chocolate"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Kokosmelk",
-            "en": "Coconut cream"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Kokosnøtt",
-            "en": "Shredded coconut"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Egg",
-            "en": "Egg white"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "stk",
-            "en": "pc"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Smelt sjokoladen",
-          "2. Bland med kokosmelk",
-          "3. Former små kjegler",
-          "4. Kjøl",
-          "5. Dekk med kokosnøtt"
-        ],
-        "en": [
-          "1. Melt chocolate",
-          "2. Mix with coconut cream",
-          "3. Shape small cones",
-          "4. Chill",
-          "5. Cover with coconut"
-        ]
-      }
-    },
-    {
-      "id": "hol_030",
-      "title": {
-        "no": "Moltekrem",
-        "en": "Cloudberry Cream"
-      },
-      "subtitle": {
-        "no": "Fløte og molte som klassisk dessert",
-        "en": "Cream and cloudberries as classic dessert"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 20,
-      "servings": 4,
-      "category": "Other",
-      "tags": [
-        "holiday",
-        "dessert",
-        "berry"
-      ],
-      "allergens": [
-        "milk"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Fløte",
-            "en": "Heavy cream"
-          },
-          "amount": 400,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 50,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Molte",
-            "en": "Cloudberries"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Vaniljestang",
-            "en": "Vanilla pod"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "stk",
-            "en": "pc"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Pisk fløte med sukker",
-          "2. Skrap vaniljefrø inn",
-          "3. Fold inn molte",
-          "4. Server kaldt"
-        ],
-        "en": [
-          "1. Whip cream with sugar",
-          "2. Scrape vanilla seeds in",
-          "3. Fold in cloudberries",
-          "4. Serve cold"
-        ]
-      }
-    },
-    {
-      "id": "hol_031",
-      "title": {
-        "no": "Julegrøt",
-        "en": "Christmas Rice Pudding"
-      },
-      "subtitle": {
-        "no": "Tradisjonell risgrøt med mandel",
-        "en": "Traditional rice pudding with almond"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 60,
-      "servings": 6,
-      "category": "Other",
-      "tags": [
-        "holiday",
-        "dessert",
-        "traditional"
-      ],
-      "allergens": [
-        "milk",
-        "nuts",
-        "wheat"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Ris",
-            "en": "Rice"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Melk",
-            "en": "Milk"
-          },
-          "amount": 800,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Vann",
-            "en": "Water"
-          },
-          "amount": 400,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 75,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Mandel",
-            "en": "Almond"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "hel",
-            "en": "whole"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Kok ris i vann i 10 minutter",
-          "2. Tilsett melk",
-          "3. Kok i 30 minutter til mørt",
-          "4. Tilsett sukker",
-          "5. Fordel mandelen blant grøten",
-          "6. Server varm"
-        ],
-        "en": [
-          "1. Cook rice in water for 10 minutes",
-          "2. Add milk",
-          "3. Cook for 30 minutes until soft",
-          "4. Add sugar",
-          "5. Hide almond in pudding",
-          "6. Serve warm"
-        ]
-      }
-    },
-    {
       "id": "hol_032",
       "title": {
         "no": "Levekål",
@@ -3644,7 +2231,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 70,
       "servings": 6,
-      "category": "Meat",
+      "category": "Ground Meat & Sausages",
       "tags": [
         "holiday",
         "traditional",
@@ -3833,7 +2420,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 40,
       "servings": 6,
-      "category": "Other",
+      "category": "Soups & Stews",
       "tags": [
         "holiday",
         "side",
@@ -3929,7 +2516,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 50,
       "servings": 6,
-      "category": "Other",
+      "category": "Beef & Red Meat",
       "tags": [
         "holiday",
         "side",
@@ -4025,7 +2612,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 40,
       "servings": 4,
-      "category": "Other",
+      "category": "Soups & Stews",
       "tags": [
         "holiday",
         "vegetarian",
@@ -4123,7 +2710,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 1440,
       "servings": 8,
-      "category": "Other",
+      "category": "Sides & Light Meals",
       "tags": [
         "holiday",
         "condiment",
@@ -4219,11 +2806,12 @@
       "difficulty": "medium",
       "cookTimeMinutes": 30,
       "servings": 4,
-      "category": "Other",
+      "category": "Soups & Stews",
       "tags": [
         "holiday",
         "traditional",
-        "soup"
+        "soup",
+        "quick"
       ],
       "allergens": [
         "milk"
@@ -4315,7 +2903,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 40,
       "servings": 4,
-      "category": "Fish",
+      "category": "Fish & Seafood",
       "tags": [
         "holiday",
         "elegant",
@@ -4414,7 +3002,7 @@
       "difficulty": "hard",
       "cookTimeMinutes": 90,
       "servings": 6,
-      "category": "Meat",
+      "category": "Beef & Red Meat",
       "tags": [
         "holiday",
         "traditional",
@@ -4510,7 +3098,7 @@
       "difficulty": "hard",
       "cookTimeMinutes": 100,
       "servings": 6,
-      "category": "Meat",
+      "category": "Beef & Red Meat",
       "tags": [
         "holiday",
         "elegant",
@@ -4608,7 +3196,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 35,
       "servings": 4,
-      "category": "Meat",
+      "category": "Chicken",
       "tags": [
         "holiday",
         "elegant",
@@ -4708,7 +3296,8 @@
       "tags": [
         "holiday",
         "cheese",
-        "appetizer"
+        "appetizer",
+        "quick"
       ],
       "allergens": [
         "milk",
@@ -4790,103 +3379,6 @@
       }
     },
     {
-      "id": "hol_044",
-      "title": {
-        "no": "Sjokoladefondue",
-        "en": "Chocolate Fondue"
-      },
-      "subtitle": {
-        "no": "Varm sjokoladefondue med frukt",
-        "en": "Warm chocolate fondue with fruit"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 20,
-      "servings": 4,
-      "category": "Other",
-      "tags": [
-        "holiday",
-        "dessert",
-        "chocolate"
-      ],
-      "allergens": [
-        "chocolate",
-        "milk"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Mørk sjokolade",
-            "en": "Dark chocolate"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Fløte",
-            "en": "Heavy cream"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Smør",
-            "en": "Butter"
-          },
-          "amount": 30,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Frukt",
-            "en": "Fresh fruit"
-          },
-          "amount": 600,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Marshmallow",
-            "en": "Marshmallows"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Hakk sjokoladen",
-          "2. Heat fløte og smør",
-          "3. Tilsett sjokolade og smelt",
-          "4. Hell i fonduegryte",
-          "5. Server med frukt og marshmallow"
-        ],
-        "en": [
-          "1. Chop chocolate",
-          "2. Heat cream and butter",
-          "3. Add chocolate and melt",
-          "4. Pour into fondue pot",
-          "5. Serve with fruit and marshmallows"
-        ]
-      }
-    },
-    {
       "id": "hol_045",
       "title": {
         "no": "Vinterkastrull",
@@ -4899,7 +3391,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 40,
       "servings": 6,
-      "category": "Other",
+      "category": "Sides & Light Meals",
       "tags": [
         "holiday",
         "side",
@@ -4993,7 +3485,7 @@
       "difficulty": "hard",
       "cookTimeMinutes": 180,
       "servings": 8,
-      "category": "Meat",
+      "category": "Pork",
       "tags": [
         "holiday",
         "traditional",
@@ -5089,11 +3581,12 @@
       "difficulty": "medium",
       "cookTimeMinutes": 30,
       "servings": 6,
-      "category": "Meat",
+      "category": "Ground Meat & Sausages",
       "tags": [
         "holiday",
         "traditional",
-        "comfort"
+        "comfort",
+        "quick"
       ],
       "allergens": [
         "meat",
@@ -5174,401 +3667,6 @@
       }
     },
     {
-      "id": "hol_048",
-      "title": {
-        "no": "Fruktpunsj",
-        "en": "Fruit Punch"
-      },
-      "subtitle": {
-        "no": "Varm punsj med frukt og krydder",
-        "en": "Warm punch with fruit and spices"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 30,
-      "servings": 8,
-      "category": "Other",
-      "tags": [
-        "holiday",
-        "drink",
-        "warm"
-      ],
-      "allergens": [
-        "alcohol"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Rødvin",
-            "en": "Red wine"
-          },
-          "amount": 500,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Appelsin",
-            "en": "Orange"
-          },
-          "amount": 3,
-          "unit": {
-            "no": "stk",
-            "en": "pcs"
-          }
-        },
-        {
-          "name": {
-            "no": "Sitron",
-            "en": "Lemon"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "stk",
-            "en": "pcs"
-          }
-        },
-        {
-          "name": {
-            "no": "Kanelstang",
-            "en": "Cinnamon stick"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "stk",
-            "en": "pcs"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 75,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Skjær frukt",
-          "2. Heat vin",
-          "3. Tilsett sukker og kanelstang",
-          "4. Tilsett frukt",
-          "5. Kok sakte i 15 minutter",
-          "6. Serv varm"
-        ],
-        "en": [
-          "1. Slice fruit",
-          "2. Heat wine",
-          "3. Add sugar and cinnamon",
-          "4. Add fruit",
-          "5. Simmer for 15 minutes",
-          "6. Serve hot"
-        ]
-      }
-    },
-    {
-      "id": "hol_049",
-      "title": {
-        "no": "Mandelkake",
-        "en": "Almond Cake"
-      },
-      "subtitle": {
-        "no": "Mandelkake med glasur",
-        "en": "Almond cake with glaze"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 50,
-      "servings": 8,
-      "category": "Other",
-      "tags": [
-        "holiday",
-        "dessert",
-        "almond"
-      ],
-      "allergens": [
-        "wheat",
-        "eggs",
-        "milk",
-        "nuts"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Mandelmel",
-            "en": "Almond flour"
-          },
-          "amount": 250,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Egg",
-            "en": "Eggs"
-          },
-          "amount": 4,
-          "unit": {
-            "no": "stk",
-            "en": "pcs"
-          }
-        },
-        {
-          "name": {
-            "no": "Smør",
-            "en": "Butter"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Mandler",
-            "en": "Whole almonds"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Blend smør og sukker",
-          "2. Pisk inn egg",
-          "3. Fold inn mandelmel",
-          "4. Hell i form",
-          "5. Top med hele mandler",
-          "6. Bak på 175°C i 35-40 minutter"
-        ],
-        "en": [
-          "1. Mix butter and sugar",
-          "2. Whisk in eggs",
-          "3. Fold in almond flour",
-          "4. Pour into pan",
-          "5. Top with whole almonds",
-          "6. Bake at 175°C for 35-40 minutes"
-        ]
-      }
-    },
-    {
-      "id": "hol_050",
-      "title": {
-        "no": "Appelsinkrem",
-        "en": "Orange Mousse"
-      },
-      "subtitle": {
-        "no": "Luftig appelsinkrem",
-        "en": "Airy orange mousse"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 30,
-      "servings": 4,
-      "category": "Other",
-      "tags": [
-        "holiday",
-        "dessert",
-        "mousse"
-      ],
-      "allergens": [
-        "eggs",
-        "milk"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Eggeplommer",
-            "en": "Egg yolks"
-          },
-          "amount": 3,
-          "unit": {
-            "no": "stk",
-            "en": "pcs"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 75,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Appelsinfjuice",
-            "en": "Orange juice"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Fløte",
-            "en": "Heavy cream"
-          },
-          "amount": 250,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Gelatine",
-            "en": "Gelatin"
-          },
-          "amount": 5,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Pisk eggeplommer med sukker",
-          "2. Tilsett appelsinfjuice",
-          "3. Oppløs gelatine",
-          "4. Pisk fløte til stiv",
-          "5. Fold sammen alle",
-          "6. Kjøl"
-        ],
-        "en": [
-          "1. Whisk egg yolks with sugar",
-          "2. Add orange juice",
-          "3. Dissolve gelatin",
-          "4. Whip cream until stiff",
-          "5. Fold together",
-          "6. Chill"
-        ]
-      }
-    },
-    {
-      "id": "hol_051",
-      "title": {
-        "no": "Sjokoladetryfler",
-        "en": "Chocolate Truffles"
-      },
-      "subtitle": {
-        "no": "Mørk sjokolade-tryfler",
-        "en": "Dark chocolate truffles"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 40,
-      "servings": 20,
-      "category": "Other",
-      "tags": [
-        "holiday",
-        "dessert",
-        "chocolate"
-      ],
-      "allergens": [
-        "chocolate",
-        "milk"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Mørk sjokolade",
-            "en": "Dark chocolate"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Fløte",
-            "en": "Heavy cream"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Kakao",
-            "en": "Cocoa powder"
-          },
-          "amount": 50,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Smør",
-            "en": "Butter"
-          },
-          "amount": 30,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Vaniljestang",
-            "en": "Vanilla pod"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "stk",
-            "en": "pc"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Heat fløte",
-          "2. Hell over hakket sjokolade",
-          "3. Tilsett smør og vaniljestang",
-          "4. Kjøl og former kuler",
-          "5. Rull i kakao"
-        ],
-        "en": [
-          "1. Heat cream",
-          "2. Pour over chopped chocolate",
-          "3. Add butter and vanilla",
-          "4. Cool and shape balls",
-          "5. Roll in cocoa"
-        ]
-      }
-    },
-    {
       "id": "hol_052",
       "title": {
         "no": "Vintergrønnsakssalat",
@@ -5581,11 +3679,12 @@
       "difficulty": "easy",
       "cookTimeMinutes": 30,
       "servings": 6,
-      "category": "Other",
+      "category": "Salads",
       "tags": [
         "holiday",
         "salad",
-        "vegetable"
+        "vegetable",
+        "quick"
       ],
       "allergens": [],
       "ingredients": [
@@ -5659,951 +3758,6 @@
           "3. Make dressing with vinegar and oil",
           "4. Mix",
           "5. Let sit in refrigerator before serving"
-        ]
-      }
-    },
-    {
-      "id": "hol_053",
-      "title": {
-        "no": "Punchjuice",
-        "en": "Punch Juice"
-      },
-      "subtitle": {
-        "no": "Juicebasis for punsj",
-        "en": "Juice base for punch"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 20,
-      "servings": 6,
-      "category": "Other",
-      "tags": [
-        "holiday",
-        "drink",
-        "juice"
-      ],
-      "allergens": [],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Appelsinfjuice",
-            "en": "Orange juice"
-          },
-          "amount": 600,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Sitronsaft",
-            "en": "Lemon juice"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Vann",
-            "en": "Water"
-          },
-          "amount": 400,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Gewürztraminer",
-            "en": "Gewürztraminer wine"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Bland alle juicer",
-          "2. Tilsett sukker og vann",
-          "3. Heat lett",
-          "4. Kjøl",
-          "5. Tilsett vin før servering"
-        ],
-        "en": [
-          "1. Mix all juices",
-          "2. Add sugar and water",
-          "3. Heat slightly",
-          "4. Cool",
-          "5. Add wine before serving"
-        ]
-      }
-    },
-    {
-      "id": "hol_054",
-      "title": {
-        "no": "Meliskrem",
-        "en": "Meringue Cream"
-      },
-      "subtitle": {
-        "no": "Lys og luftig meringue dessert",
-        "en": "Light and airy meringue dessert"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 40,
-      "servings": 4,
-      "category": "Other",
-      "tags": [
-        "holiday",
-        "dessert",
-        "meringue"
-      ],
-      "allergens": [
-        "eggs",
-        "milk"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Eggehviter",
-            "en": "Egg whites"
-          },
-          "amount": 4,
-          "unit": {
-            "no": "stk",
-            "en": "pcs"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Fløte",
-            "en": "Heavy cream"
-          },
-          "amount": 250,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Bringebær",
-            "en": "Raspberries"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sitron",
-            "en": "Lemon"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "stk",
-            "en": "pc"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Pisk eggehviter til stiv skum",
-          "2. Gradvis tilsett sukker",
-          "3. Pisk fløte",
-          "4. Fold sammen",
-          "5. Lag lag med bringebær",
-          "6. Server med sitronsaft"
-        ],
-        "en": [
-          "1. Whip egg whites until stiff",
-          "2. Gradually add sugar",
-          "3. Whip cream",
-          "4. Fold together",
-          "5. Layer with raspberries",
-          "6. Serve with lemon juice"
-        ]
-      }
-    },
-    {
-      "id": "hol_055",
-      "title": {
-        "no": "Kräm",
-        "en": "Dessert Cream"
-      },
-      "subtitle": {
-        "no": "Kremete dessert med frukt",
-        "en": "Creamy dessert with fruit"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 20,
-      "servings": 4,
-      "category": "Other",
-      "tags": [
-        "holiday",
-        "dessert",
-        "cream"
-      ],
-      "allergens": [
-        "milk"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Fløte",
-            "en": "Heavy cream"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Yoghurt",
-            "en": "Yogurt"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Honning",
-            "en": "Honey"
-          },
-          "amount": 50,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Frukt",
-            "en": "Mixed fruit"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Nøtter",
-            "en": "Nuts"
-          },
-          "amount": 50,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Pisk fløte til stiv",
-          "2. Fold inn yoghurt",
-          "3. Tilsett honning",
-          "4. Lag lag med frukt",
-          "5. Top med nøtter"
-        ],
-        "en": [
-          "1. Whip cream until stiff",
-          "2. Fold in yogurt",
-          "3. Add honey",
-          "4. Layer with fruit",
-          "5. Top with nuts"
-        ]
-      }
-    },
-    {
-      "id": "hol_056",
-      "title": {
-        "no": "Sorbet",
-        "en": "Sorbet"
-      },
-      "subtitle": {
-        "no": "Frukt-is med krystaller",
-        "en": "Fruit ice with crystals"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 480,
-      "servings": 6,
-      "category": "Other",
-      "tags": [
-        "holiday",
-        "dessert",
-        "frozen"
-      ],
-      "allergens": [],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Frukt",
-            "en": "Fresh fruit"
-          },
-          "amount": 600,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Vann",
-            "en": "Water"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Sitron",
-            "en": "Lemon"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "stk",
-            "en": "pc"
-          }
-        },
-        {
-          "name": {
-            "no": "Eddik",
-            "en": "Vinegar"
-          },
-          "amount": 15,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Lag sukkersirup",
-          "2. Blend frukt",
-          "3. Bland frukt og sirup",
-          "4. Tilsett sitron og eddik",
-          "5. Frys og stir hver time"
-        ],
-        "en": [
-          "1. Make sugar syrup",
-          "2. Blend fruit",
-          "3. Mix fruit and syrup",
-          "4. Add lemon and vinegar",
-          "5. Freeze and stir every hour"
-        ]
-      }
-    },
-    {
-      "id": "hol_057",
-      "title": {
-        "no": "Nøttetørk",
-        "en": "Nut Brittle"
-      },
-      "subtitle": {
-        "no": "Sprø karamell med nøtter",
-        "en": "Crispy caramel with nuts"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 30,
-      "servings": 10,
-      "category": "Other",
-      "tags": [
-        "holiday",
-        "candy",
-        "nuts"
-      ],
-      "allergens": [
-        "nuts"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Smør",
-            "en": "Butter"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Mandler",
-            "en": "Almonds"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Nøtter",
-            "en": "Mixed nuts"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Salt",
-            "en": "Salt"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Heat sukker til gyllen",
-          "2. Tilsett smør",
-          "3. Tilsett nøtter",
-          "4. Hell på bakepapir",
-          "5. Kjøl og bryt i stykker"
-        ],
-        "en": [
-          "1. Heat sugar until golden",
-          "2. Add butter",
-          "3. Add nuts",
-          "4. Pour on baking paper",
-          "5. Cool and break into pieces"
-        ]
-      }
-    },
-    {
-      "id": "hol_058",
-      "title": {
-        "no": "Syltetøy",
-        "en": "Jam"
-      },
-      "subtitle": {
-        "no": "Hjemmelaget bærsyltetøy",
-        "en": "Homemade berry jam"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 60,
-      "servings": 6,
-      "category": "Other",
-      "tags": [
-        "holiday",
-        "preserved",
-        "condiment"
-      ],
-      "allergens": [],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Bær",
-            "en": "Berries"
-          },
-          "amount": 800,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 600,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sitron",
-            "en": "Lemon"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "stk",
-            "en": "pc"
-          }
-        },
-        {
-          "name": {
-            "no": "Pektin",
-            "en": "Pectin"
-          },
-          "amount": 10,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Bland bær og sukker",
-          "2. La stå natten",
-          "3. Heat til koking",
-          "4. Tilsett sitron og pektin",
-          "5. Kok til riktig konsistens",
-          "6. Fyll i glass"
-        ],
-        "en": [
-          "1. Mix berries and sugar",
-          "2. Let sit overnight",
-          "3. Heat until boiling",
-          "4. Add lemon and pectin",
-          "5. Cook to right consistency",
-          "6. Fill jars"
-        ]
-      }
-    },
-    {
-      "id": "hol_059",
-      "title": {
-        "no": "Snøball",
-        "en": "Snowball"
-      },
-      "subtitle": {
-        "no": "Kokos og sjokolade konfekt",
-        "en": "Coconut and chocolate confection"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 30,
-      "servings": 20,
-      "category": "Other",
-      "tags": [
-        "holiday",
-        "candy",
-        "chocolate"
-      ],
-      "allergens": [
-        "coconut",
-        "chocolate",
-        "milk"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Kokosnøtt",
-            "en": "Shredded coconut"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Melk",
-            "en": "Condensed milk"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Smør",
-            "en": "Butter"
-          },
-          "amount": 50,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Hvit sjokolade",
-            "en": "White chocolate"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Kokosolje",
-            "en": "Coconut oil"
-          },
-          "amount": 20,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Bland kokosnøtt og melk",
-          "2. Former små kuler",
-          "3. Kjøl",
-          "4. Smelt sjokoladen",
-          "5. Dypp i sjokoladen"
-        ],
-        "en": [
-          "1. Mix coconut and condensed milk",
-          "2. Form small balls",
-          "3. Chill",
-          "4. Melt chocolate",
-          "5. Dip in chocolate"
-        ]
-      }
-    },
-    {
-      "id": "hol_060",
-      "title": {
-        "no": "Kandisert Frukt",
-        "en": "Candied Fruit"
-      },
-      "subtitle": {
-        "no": "Kandisert appelsin og sitron",
-        "en": "Candied orange and lemon"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 120,
-      "servings": 8,
-      "category": "Other",
-      "tags": [
-        "holiday",
-        "preserved",
-        "candy"
-      ],
-      "allergens": [],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Appelsin",
-            "en": "Orange"
-          },
-          "amount": 4,
-          "unit": {
-            "no": "stk",
-            "en": "pcs"
-          }
-        },
-        {
-          "name": {
-            "no": "Sitron",
-            "en": "Lemon"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "stk",
-            "en": "pcs"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 800,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Vann",
-            "en": "Water"
-          },
-          "amount": 600,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Skjær frukt i strimler",
-          "2. Kok i vann i 1 time",
-          "3. Dren",
-          "4. Lag en sukkersirup",
-          "5. Legg frukt i sirup",
-          "6. Kok i 30 minutter",
-          "7. Tørk"
-        ],
-        "en": [
-          "1. Cut fruit into strips",
-          "2. Cook in water for 1 hour",
-          "3. Drain",
-          "4. Make sugar syrup",
-          "5. Place fruit in syrup",
-          "6. Cook for 30 minutes",
-          "7. Dry"
-        ]
-      }
-    },
-    {
-      "id": "hol_061",
-      "title": {
-        "no": "Peppermint Krem",
-        "en": "Peppermint Cream"
-      },
-      "subtitle": {
-        "no": "Peppermint smør-krem",
-        "en": "Peppermint butter cream"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 30,
-      "servings": 12,
-      "category": "Other",
-      "tags": [
-        "holiday",
-        "candy",
-        "mint"
-      ],
-      "allergens": [
-        "milk"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Smør",
-            "en": "Butter"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Powdered sugar"
-          },
-          "amount": 250,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Peppermint",
-            "en": "Peppermint extract"
-          },
-          "amount": 10,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Melk",
-            "en": "Milk"
-          },
-          "amount": 30,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Sjokolade",
-            "en": "Chocolate coating"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Blend smør og sukker",
-          "2. Tilsett peppermint og melk",
-          "3. Rør godt",
-          "4. Former små kuler",
-          "5. Dypp i sjokolade"
-        ],
-        "en": [
-          "1. Blend butter and sugar",
-          "2. Add peppermint and milk",
-          "3. Mix well",
-          "4. Form small balls",
-          "5. Dip in chocolate"
-        ]
-      }
-    },
-    {
-      "id": "hol_062",
-      "title": {
-        "no": "Nativitet Kake",
-        "en": "Nativity Cake"
-      },
-      "subtitle": {
-        "no": "Dekorativ sjokoladebrutt",
-        "en": "Decorative chocolate confection"
-      },
-      "difficulty": "hard",
-      "cookTimeMinutes": 90,
-      "servings": 10,
-      "category": "Other",
-      "tags": [
-        "holiday",
-        "dessert",
-        "chocolate"
-      ],
-      "allergens": [
-        "chocolate",
-        "milk",
-        "eggs"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Mørk sjokolade",
-            "en": "Dark chocolate"
-          },
-          "amount": 400,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Smør",
-            "en": "Butter"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Egg",
-            "en": "Eggs"
-          },
-          "amount": 3,
-          "unit": {
-            "no": "stk",
-            "en": "pcs"
-          }
-        },
-        {
-          "name": {
-            "no": "Mel",
-            "en": "Flour"
-          },
-          "amount": 50,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Smelt sjokoladen",
-          "2. Bland med smør og sukker",
-          "3. Pisk inn egg",
-          "4. Fold inn mel",
-          "5. Hell i form",
-          "6. Bak på 160°C i 40 minutter"
-        ],
-        "en": [
-          "1. Melt chocolate",
-          "2. Mix with butter and sugar",
-          "3. Whisk in eggs",
-          "4. Fold in flour",
-          "5. Pour into pan",
-          "6. Bake at 160°C for 40 minutes"
         ]
       }
     }

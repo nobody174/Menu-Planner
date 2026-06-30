@@ -1,0 +1,469 @@
+{
+  "_note": "Drink recipes (mulled wine, punch, glogg) removed from the dinner recipe packs on 2026-06-30. Not desserts, but not dinner dishes either - kept intact here for a possible future holiday-drinks feature.",
+  "recipeCount": 4,
+  "recipes": [
+    {
+      "id": "nd_096",
+      "title": {
+        "no": "Gløgg",
+        "en": "Glögg"
+      },
+      "subtitle": {
+        "no": "Varm fruktdrikk med vin og krydder",
+        "en": "Warm fruit drink with wine and spices"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 8,
+      "category": "Other",
+      "tags": [
+        "drink",
+        "warm",
+        "spiced",
+        "holiday"
+      ],
+      "allergens": [
+        "alcohol",
+        "nuts"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Rødt vin",
+            "en": "Red wine"
+          },
+          "amount": 750,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Kanelstang",
+            "en": "Cinnamon stick"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Nellik",
+            "en": "Cloves"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Kardesamom",
+            "en": "Cardamom"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Rosiner",
+            "en": "Raisins"
+          },
+          "amount": 75,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Mandler",
+            "en": "Almonds"
+          },
+          "amount": 75,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kombiner vin, vann og sukker i en kjele",
+          "2. Tilsett kanelstang, nellik og kardesamom",
+          "3. Heat sakte til det blir varmt, ikke kokt",
+          "4. Sil bort krydderne",
+          "5. Tilsett rosiner og mandler",
+          "6. Serv varm i kopper"
+        ],
+        "en": [
+          "1. Combine wine, water and sugar in a pot",
+          "2. Add cinnamon stick, cloves and cardamom",
+          "3. Heat slowly until warm, do not boil",
+          "4. Strain out spices",
+          "5. Add raisins and almonds",
+          "6. Serve warm in cups"
+        ]
+      },
+      "_original_pack": "pack_03_nordic.json"
+    },
+    {
+      "id": "hol_002",
+      "title": {
+        "no": "Juleglogg",
+        "en": "Christmas Mulled Wine"
+      },
+      "subtitle": {
+        "no": "Tradisjonell varm juldrink",
+        "en": "Traditional warm Christmas drink"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 8,
+      "category": "Other",
+      "tags": [
+        "christmas",
+        "drink",
+        "warm",
+        "festive"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Rødvin",
+            "en": "Red wine"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "liter",
+            "en": "liter"
+          }
+        },
+        {
+          "name": {
+            "no": "Brennevin (eller aquavit)",
+            "en": "Spirits (or aquavit)"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 75,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kanelstang",
+            "en": "Cinnamon stick"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Nellik",
+            "en": "Cloves"
+          },
+          "amount": 6,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Kardemomme",
+            "en": "Cardamom"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "Ingefær (frisk)",
+            "en": "Ginger (fresh)"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Appelsin",
+            "en": "Orange"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pieces"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Hell rødvin i en gryte.",
+          "2. Tilsett sukker, kanelstang, nellik, kardemomme og frisk ingefær.",
+          "3. Skjær appelsinene i tynne skiver og legg dem til.",
+          "4. Varm opp til ca. 65-70°C (ikke kok).",
+          "5. La det småsimre i 15-20 minutter.",
+          "6. Fjern fra varmen og tilsett brennevinen.",
+          "7. Server varmt i små kopper.",
+          "8. Tradisjonelt serveres med rosiner og mandler."
+        ],
+        "en": [
+          "1. Pour red wine into a pot.",
+          "2. Add sugar, cinnamon stick, cloves, cardamom and fresh ginger.",
+          "3. Slice oranges and add them.",
+          "4. Heat to about 65-70°C (do not boil).",
+          "5. Let simmer for 15-20 minutes.",
+          "6. Remove from heat and add spirits.",
+          "7. Serve hot in small cups.",
+          "8. Traditionally served with raisins and almonds."
+        ]
+      },
+      "_original_pack": "pack_04_holiday.json"
+    },
+    {
+      "id": "hol_048",
+      "title": {
+        "no": "Fruktpunsj",
+        "en": "Fruit Punch"
+      },
+      "subtitle": {
+        "no": "Varm punsj med frukt og krydder",
+        "en": "Warm punch with fruit and spices"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 8,
+      "category": "Other",
+      "tags": [
+        "holiday",
+        "drink",
+        "warm"
+      ],
+      "allergens": [
+        "alcohol"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Rødvin",
+            "en": "Red wine"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Appelsin",
+            "en": "Orange"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Sitron",
+            "en": "Lemon"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Kanelstang",
+            "en": "Cinnamon stick"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 75,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skjær frukt",
+          "2. Heat vin",
+          "3. Tilsett sukker og kanelstang",
+          "4. Tilsett frukt",
+          "5. Kok sakte i 15 minutter",
+          "6. Serv varm"
+        ],
+        "en": [
+          "1. Slice fruit",
+          "2. Heat wine",
+          "3. Add sugar and cinnamon",
+          "4. Add fruit",
+          "5. Simmer for 15 minutes",
+          "6. Serve hot"
+        ]
+      },
+      "_original_pack": "pack_04_holiday.json"
+    },
+    {
+      "id": "hol_053",
+      "title": {
+        "no": "Punchjuice",
+        "en": "Punch Juice"
+      },
+      "subtitle": {
+        "no": "Juicebasis for punsj",
+        "en": "Juice base for punch"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 20,
+      "servings": 6,
+      "category": "Other",
+      "tags": [
+        "holiday",
+        "drink",
+        "juice"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Appelsinfjuice",
+            "en": "Orange juice"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Sitronsaft",
+            "en": "Lemon juice"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Gewürztraminer",
+            "en": "Gewürztraminer wine"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland alle juicer",
+          "2. Tilsett sukker og vann",
+          "3. Heat lett",
+          "4. Kjøl",
+          "5. Tilsett vin før servering"
+        ],
+        "en": [
+          "1. Mix all juices",
+          "2. Add sugar and water",
+          "3. Heat slightly",
+          "4. Cool",
+          "5. Add wine before serving"
+        ]
+      },
+      "_original_pack": "pack_04_holiday.json"
+    }
+  ]
+}

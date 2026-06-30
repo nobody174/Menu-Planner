@@ -38,6 +38,13 @@ class User(Base):
     # NULL means no PIN set yet - falls back to requiring the full password.
     pin_hash = Column(String(255), nullable=True)
 
+    # Email confirmation: login is blocked until this is set (see
+    # core/auth_helpers.py create_user/confirm_email). NULL = not yet
+    # confirmed. email_confirmation_token is cleared once used, so a stale
+    # token can't be replayed after confirmation already happened.
+    email_confirmed_at = Column(DateTime, nullable=True)
+    email_confirmation_token = Column(String(64), nullable=True, index=True)
+
     # Relationships
     households = relationship('Household', back_populates='owner')
     household_members = relationship('HouseholdMember', back_populates='user')
@@ -54,6 +61,12 @@ class Household(Base):
     owner_id = Column(String(36), ForeignKey('users.id'), nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+    # Unused (servings-based shopping list scaling was removed 2026-06-30 -
+    # households just edit a recipe's own ingredient list if they need to
+    # adjust quantities). Column kept rather than dropped to avoid an extra
+    # migration; safe to ignore.
+    default_servings = Column(Integer, default=4, nullable=False)
 
     # Relationships
     owner = relationship('User', back_populates='households')
