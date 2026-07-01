@@ -44,7 +44,7 @@ function generateMenuWithCategories() {
     const selectedCategories = Array.from(checkboxes).map(cb => cb.value);
 
     if (selectedCategories.length === 0) {
-        alert('Select at least one category');
+        pmAlert('⚠️', 'No categories selected', 'Select at least one category');
         return;
     }
 
@@ -73,12 +73,12 @@ function generateMenuWithCategories() {
             console.log('Menu generated successfully');
             location.reload(); // Refresh to show new menu
         } else {
-            alert('Feil ved generering av meny: ' + data.message);
+            pmAlert('❌', 'Feil', 'Feil ved generering av meny: ' + data.message);
         }
     })
     .catch(error => {
         console.error('Error:', error);
-        alert('Feil ved generering av meny');
+        pmAlert('❌', 'Feil', 'Feil ved generering av meny');
     });
 }
 </script>

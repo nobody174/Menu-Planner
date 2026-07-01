@@ -1237,7 +1237,8 @@ details[open] > summary .delete-arrow { transform: rotate(90deg); }
 function showDeleteConfirmModal() {
   const passwordInput = document.getElementById('delete-password-input');
   if (!passwordInput.value) {
-    alert('Please enter your password');
+    pmAlert('⚠️', 'Password required', 'Please enter your password');
+    return;
     return;
   }
   document.getElementById('delete-password').value = passwordInput.value;
