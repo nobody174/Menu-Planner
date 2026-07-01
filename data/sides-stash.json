@@ -1,6 +1,6 @@
 {
   "_note": "Side dishes removed from dinner packs - preserved for a future Sides feature.",
-  "recipeCount": 20,
+  "recipeCount": 21,
   "recipes": [
     {
       "id": "no_052",
@@ -2086,6 +2086,107 @@
         ]
       },
       "_original_pack": "salater_category"
+    },
+    {
+      "id": "no_073",
+      "title": {
+        "no": "Medisterpølse",
+        "en": "Sausage"
+      },
+      "subtitle": {
+        "no": "Klassisk norsk pølse",
+        "en": "Classic Norwegian sausage"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 20,
+      "servings": 4,
+      "category": "Ground Meat & Sausages",
+      "tags": [
+        "sausage",
+        "traditional",
+        "quick",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "meat",
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "kjøtt",
+            "en": "meat"
+          },
+          "amount": 700,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "fett",
+            "en": "fat"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "løk",
+            "en": "onion"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "salt",
+            "en": "salt"
+          },
+          "amount": 15,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "pølsehylser",
+            "en": "sausage casings"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "meter",
+            "en": "m"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Hakk kjøtt og fett",
+          "2. Hakk løk",
+          "3. Bland alt med salt",
+          "4. Fylt hylserne",
+          "5. Kok i varmt vann 20 minutter",
+          "6. Kjøl før serving"
+        ],
+        "en": [
+          "1. Chop meat and fat",
+          "2. Chop onion",
+          "3. Mix all with salt",
+          "4. Fill casings",
+          "5. Cook in hot water 20 minutes",
+          "6. Cool before serving"
+        ]
+      },
+      "_original_pack": "pack_ground_meat_sausages"
     }
   ]
 }
