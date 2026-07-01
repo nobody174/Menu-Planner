@@ -1686,11 +1686,16 @@ def delete_own_account():
 # ── Admin panel ───────────────────────────────────────────────────────────────
 
 def _is_admin():
-    """Check if the currently logged-in user is the site admin (matches ADMIN_EMAIL env var)."""
+    """Check if the currently logged-in user is the site admin.
+    Must match ADMIN_EMAIL AND not be acting as a family member profile."""
     admin_email = os.getenv('ADMIN_EMAIL', '').strip().lower()
     if not admin_email:
         return False
-    return session.get('user_email', '').lower() == admin_email
+    if session.get('user_email', '').lower() != admin_email:
+        return False
+    if session.get('active_profile_id'):
+        return False
+    return True
 
 @app.route('/admin')
 def admin_panel():
