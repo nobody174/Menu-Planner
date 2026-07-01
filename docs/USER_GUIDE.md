@@ -141,7 +141,7 @@ Under **Settings** you'll find:
 
 | Section | What it does |
 |---|---|
-| Basisvarer | Manage your pantry |
+| Pantry | Manage your pantry |
 | Manage Categories | Add, rename, merge or remove categories |
 | Activity Log | See who did what in your household |
 | PIN | Set a 4-digit PIN for quick profile switching |
