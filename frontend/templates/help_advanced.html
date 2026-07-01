@@ -109,7 +109,7 @@
 
     <section>
         <h2>How Categories Work</h2>
-        <p>Every category has a <strong>code</strong> (internal ID, never changes) and a <strong>name</strong> (what you see, can be renamed freely). Renaming is always safe — the code linking recipes to categories never changes.</p>
+        <p>Every category has a <strong>code</strong> (internal ID, never changes) and a <strong>name</strong> (what you see, can be renamed freely). Renaming is always safe — so you can rename "Chicken" to "Chicken Dinners" without breaking anything.</p>
         <h3>The Self-Heal System</h3>
         <p>When you load categories, the app checks the base seed file and automatically adds any new categories added to the system after your household was created. But it never overwrites categories you've renamed, and never re-adds categories you've explicitly deleted.</p>
         <p>Deleted categories are tracked in a tombstone list (<code>removed_categories</code>). If you delete "Grill" it won't come back — even if the base seed still has it.</p>

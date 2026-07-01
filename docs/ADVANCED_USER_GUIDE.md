@@ -36,7 +36,7 @@ name_en: "Chicken"
 name_no: "Kylling"
 ```
 
-This means you can rename "Chicken" to "Kyllingmiddager" without breaking any recipes — the code stays the same.
+This means you can rename "Chicken" to "Chicken Dinners" without breaking any recipes — the code stays the same.
 
 ### The Self-Heal System
 
