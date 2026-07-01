@@ -250,8 +250,8 @@ Built in a single day across 10 phases:
 |-------|---------------|
 | 1 | Remove scrapers, set up clean project structure |
 | 2 | Remove hardcoded credentials, create `.env` template |
-| 3 | Update file headers, remove HelloFresh references |
-| 4 | Replace scraped HelloFresh recipes with public sample recipes |
+| 3 | Clean up file headers and references |
+| 4 | Replace initial recipes with proper public sample recipes |
 | 5 | Dynamic category system |
 | 6 | Parameterise family name (no hardcoded references) |
 | 7 | Bilingual support (Norwegian + English, persistent toggle) |
@@ -272,12 +272,11 @@ Built in a single day across 10 phases:
 
 **Initial Pi-Menu commit — core features ready for deployment.**
 
-The project started as a local Raspberry Pi meal planner with:
+The project started as a personal Raspberry Pi meal planner built for my own family:
 - Weekly menu generation from a local recipe JSON file
 - Shopping list with ingredient deduplication
-- Norwegian UI (hardcoded)
-- HelloFresh-scraped recipes (later replaced with public recipes)
+- Norwegian UI
 - Single-household, single-user design
-- Flask running locally on Pi at port 5000
+- Flask running locally on the Pi at port 5000
 
-This was the starting point. Everything above describes the journey from a Pi-only local tool to a full cloud-hosted multi-household web app at **menuplanner.no**.
+What started as a tool just for us quickly showed potential for other families too. Everything above describes the journey from a Pi-only local tool to a full cloud-hosted multi-household web app at **menuplanner.no**.
