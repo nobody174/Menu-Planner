@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+{% block title %}{% if lang == 'no' %}Om prosjektet{% else %}About{% endif %} – Menu Planner{% endblock %}
+{% block content %}
+<div class="about-page">
+
+{% set lang = request.cookies.get('pi_language', 'en') %}
+{% if lang == 'no' %}
+
+    <h1>👨‍👩‍👧‍👦 Om Menu Planner</h1>
+
+    <section class="about-story">
+        <h2>Historien bak</h2>
+        <p>
+            Menu Planner ble laget av en far fra Vestfold, Norge — en selvlært IT-type som alltid har hatt noe på gang.
+            En kveld satt han med en Raspberry Pi han ikke visste hva han skulle bruke til, og tenkte:
+            <em>"Det må da gå an å lage noe nyttig med denne."</em>
+        </p>
+        <p>
+            Familien på fem — mamma, pappa og tre unger (pluss hunden) — hadde det samme problemet
+            som alle andre familier med barn: <strong>hva er det til middag denne uken?</strong>
+            Spørsmålet som dukker opp hver eneste mandag, og som ingen egentlig har svaret på.
+        </p>
+        <p>
+            Det som startet som et lite hobbyprosjekt på kjøkkenbenken hjemme ble raskt til noe
+            hele familien faktisk brukte hver uke. Og da kom tanken: <em>dette er ikke bare et problem vi har.
+            Dette er et problem alle barnefamilier har.</em>
+        </p>
+        <p>
+            Så ble Menu Planner det det er i dag — en gratis app for alle familier som vil bruke
+            mindre tid på å lure på hva de skal ha til middag, og mer tid på å faktisk nyte måltidet sammen.
+        </p>
+    </section>
+
+    <section class="about-values">
+        <h2>Hva vi tror på</h2>
+        <ul>
+            <li>🍽️ <strong>Enkelt er best</strong> — planlegging av middag skal ikke være et prosjekt i seg selv</li>
+            <li>👨‍👩‍👧‍👦 <strong>Familien først</strong> — appen er bygget for ekte familier med travle hverdager</li>
+            <li>🇳🇴 <strong>Norsk hjerte</strong> — laget i Norge, for norske (og internasjonale) familier</li>
+            <li>🔓 <strong>Åpen kildekode</strong> — gratis å bruke, ærlig og gjennomsiktig</li>
+            <li>🐾 <strong>Hunden teller ikke</strong> — men den er absolutt med i familiebildet</li>
+        </ul>
+    </section>
+
+    <section class="about-creator">
+        <h2>Hvem står bak?</h2>
+        <p>
+            <strong>nobody174</strong> — en far fra Vestfold med lidenskap for teknologi og det å bygge ting.
+            Selvlært programmerer med lang bakgrunn innen IT. Bruker fritiden på å lage ting han synes
+            verden (eller i det minste familien) trenger.
+        </p>
+        <p>
+            Menu Planner er ett av mange prosjekter. Vil du se hva annet som er på gang?
+        </p>
+        <a href="https://www.patreon.com/Nobody174" class="btn-about-patreon" target="_blank" rel="noopener">
+            🎨 Følg nobody174 på Patreon
+        </a>
+    </section>
+
+    <section class="about-feedback">
+        <h2>Tilbakemelding?</h2>
+        <p>
+            Menu Planner er i aktiv utvikling. Har du ideer, fant en feil, eller bare vil si at du liker appen?
+            Det betyr enormt mye å høre fra folk som faktisk bruker den.
+        </p>
+        <a href="/feedback" class="btn-about-feedback">💬 Send tilbakemelding</a>
+        <a href="https://github.com/nobody174/Menu-Planner" class="btn-about-github" target="_blank" rel="noopener">⭐ GitHub</a>
+    </section>
+
+{% else %}
+
+    <h1>👨‍👩‍👧‍👦 About Menu Planner</h1>
+
+    <section class="about-story">
+        <h2>The Story</h2>
+        <p>
+            Menu Planner was built by a dad from Vestfold, Norway — a self-taught IT guy who always
+            has something on the go. One evening he found himself with a Raspberry Pi and no real plan
+            for what to do with it. So he thought: <em>"There must be something useful I can make with this."</em>
+        </p>
+        <p>
+            His family of five — mum, dad, three kids, and a dog — had the same problem every other
+            family with children has: <strong>what are we having for dinner this week?</strong>
+            The question that comes up every Monday, and that nobody ever really has an answer to.
+        </p>
+        <p>
+            What started as a small hobby project on the kitchen table quickly became something the
+            whole family actually used every week. And then came the thought: <em>this isn't just our problem.
+            This is every family's problem.</em>
+        </p>
+        <p>
+            So Menu Planner became what it is today — a free app for families who want to spend less
+            time wondering what's for dinner, and more time actually enjoying the meal together.
+        </p>
+    </section>
+
+    <section class="about-values">
+        <h2>What We Believe In</h2>
+        <ul>
+            <li>🍽️ <strong>Simple is best</strong> — planning dinner shouldn't be a project in itself</li>
+            <li>👨‍👩‍👧‍👦 <strong>Family first</strong> — built for real families with busy lives</li>
+            <li>🇳🇴 <strong>Norwegian heart</strong> — made in Norway, for families everywhere</li>
+            <li>🔓 <strong>Open source</strong> — free to use, honest and transparent</li>
+            <li>🐾 <strong>The dog doesn't count</strong> — but is absolutely part of the family</li>
+        </ul>
+    </section>
+
+    <section class="about-creator">
+        <h2>Who's Behind It?</h2>
+        <p>
+            <strong>nobody174</strong> — a dad from Vestfold with a passion for technology and building things.
+            Self-taught programmer with a long background in IT. Spends free time making things he thinks
+            the world (or at least the family) could use.
+        </p>
+        <p>
+            Menu Planner is one of many projects. Want to see what else is in the works?
+        </p>
+        <a href="https://www.patreon.com/Nobody174" class="btn-about-patreon" target="_blank" rel="noopener">
+            🎨 Follow nobody174 on Patreon
+        </a>
+    </section>
+
+    <section class="about-feedback">
+        <h2>Got Feedback?</h2>
+        <p>
+            Menu Planner is actively developed. Have an idea, found a bug, or just want to say
+            you like the app? Hearing from people who actually use it means the world.
+        </p>
+        <a href="/feedback" class="btn-about-feedback">💬 Send Feedback</a>
+        <a href="https://github.com/nobody174/Menu-Planner" class="btn-about-github" target="_blank" rel="noopener">⭐ GitHub</a>
+    </section>
+
+{% endif %}
+
+</div>
+
+<style>
+.about-page { max-width: 720px; margin: 30px auto; padding: 0 20px 60px; }
+.about-page h1 { color: var(--color-primary, #d97706); margin-bottom: 30px; font-size: 1.8rem; }
+.about-page section { margin-bottom: 40px; }
+.about-page h2 { color: var(--color-text-primary, #1a1a1a); border-bottom: 2px solid var(--color-primary, #d97706); padding-bottom: 6px; margin-bottom: 16px; }
+.about-page p { color: var(--color-text-secondary, #444); line-height: 1.8; margin-bottom: 12px; font-size: 1rem; }
+.about-page em { color: var(--color-text-primary, #1a1a1a); font-style: italic; }
+.about-page strong { color: var(--color-text-primary, #1a1a1a); }
+.about-values ul { list-style: none; padding: 0; }
+.about-values li { padding: 8px 0; color: var(--color-text-secondary, #444); font-size: 0.95rem; line-height: 1.6; }
+.btn-about-patreon, .btn-about-feedback, .btn-about-github {
+    display: inline-block; padding: 10px 20px; border-radius: 8px; text-decoration: none;
+    font-weight: 600; font-size: 0.95rem; margin-right: 10px; margin-top: 8px; transition: opacity 0.2s;
+}
+.btn-about-patreon { background: #FF424D; color: white; }
+.btn-about-feedback { background: var(--color-primary, #d97706); color: white; }
+.btn-about-github { background: var(--color-border, #e5e7eb); color: var(--color-text-primary, #1a1a1a); }
+.btn-about-patreon:hover, .btn-about-feedback:hover, .btn-about-github:hover { opacity: 0.85; }
+</style>
+{% endblock %}

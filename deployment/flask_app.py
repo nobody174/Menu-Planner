@@ -1208,6 +1208,11 @@ def api_merge_category():
 
     return jsonify({'success': True, 'categories': _sort_categories(remaining), 'moved': moved})
 
+@app.route('/about')
+def about_page():
+    lang = _get_lang()
+    return render_template('about.html', lang=lang)
+
 @app.route('/help/advanced')
 def help_advanced():
     lang = _get_lang()
