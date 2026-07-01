@@ -591,6 +591,9 @@ _DAY_TRANSLATIONS = {
 
 @app.route('/')
 def dashboard():
+    if not session.get('user_id'):
+        return redirect(url_for('welcome'))
+
     menu = load_menu()
     if not menu:
         return render_template('error.html', message='No menu generated yet'), 404
