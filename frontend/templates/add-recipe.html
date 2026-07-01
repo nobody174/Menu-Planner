@@ -210,9 +210,12 @@ function loadCategoryDropdown() {
             }
             cats.forEach(function(cat) {
                 var opt = document.createElement('option');
-                opt.value = cat.name_en || cat.name || '';
-                opt.textContent = opt.value;
-                select.appendChild(opt);
+                var categoryName = cat.name || cat.name_en || '';
+                opt.value = categoryName;
+                opt.textContent = categoryName;
+                if (categoryName) {
+                    select.appendChild(opt);
+                }
             });
             if (currentValue) {
                 select.value = currentValue;
