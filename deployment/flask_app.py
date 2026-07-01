@@ -1210,11 +1210,13 @@ def api_merge_category():
 
 @app.route('/help/advanced')
 def help_advanced():
-    return render_template('help_advanced.html')
+    lang = _get_lang()
+    return render_template('help_advanced.html', lang=lang)
 
 @app.route('/help/tips')
 def help_tips():
-    return render_template('help_tips.html')
+    lang = _get_lang()
+    return render_template('help_tips.html', lang=lang)
 
 @app.route('/feedback')
 def feedback_page():

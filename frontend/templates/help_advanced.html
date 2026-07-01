@@ -1,7 +1,95 @@
 {% extends "base.html" %}
-{% block title %}Advanced Guide – Menu Planner{% endblock %}
+{% block title %}{% if lang == 'no' %}Avansert guide{% else %}Advanced Guide{% endif %} – Menu Planner{% endblock %}
 {% block content %}
 <div class="help-page">
+
+{% if lang == 'no' %}
+
+    <h1>🔧 Avansert brukerveiledning</h1>
+
+    <section>
+        <h2>Slik fungerer systemet</h2>
+        <p>Hver husholdning har sitt eget isolerte datarom. Alt — oppskrifter, menyer, basisvarer, kategorier — er lagret per husholdning og deles aldri mellom husholdninger.</p>
+        <table class="help-table">
+            <tr><th>Data</th><th>Hva lagres</th></tr>
+            <tr><td><code>recipes_db</code></td><td>Alle husholdningens oppskrifter (importerte + manuelt lagt til)</td></tr>
+            <tr><td><code>categories</code></td><td>Kategoriliste med koder, navn og ikoner</td></tr>
+            <tr><td><code>weekly_menu</code></td><td>Ukens genererte meny</td></tr>
+            <tr><td><code>pantry</code></td><td>Liste over basisvarer (tospråklig)</td></tr>
+            <tr><td><code>activity_log</code></td><td>Tidsstemplet revisjonslogg (maks 200 oppføringer)</td></tr>
+            <tr><td><code>removed_categories</code></td><td>Liste over slettede kategorikoder</td></tr>
+            <tr><td><code>imported_packs</code></td><td>Metadata for importerte oppskriftspakker</td></tr>
+        </table>
+    </section>
+
+    <section>
+        <h2>Slik fungerer kategorier</h2>
+        <p>Hver kategori har en <strong>kode</strong> (intern ID, endres aldri) og et <strong>navn</strong> (det du ser, kan endres fritt). Omdøping er alltid trygt — koden som kobler oppskrifter til kategorier endres aldri.</p>
+        <h3>Selvhelingssystemet</h3>
+        <p>Når du laster kategorier, sjekker appen basisfilen og legger automatisk til nye kategorier som ble lagt til systemet etter at husholdningen din ble opprettet. Men den overskriver aldri kategorier du har omdøpt, og legger aldri til kategorier du har slettet med vilje.</p>
+        <p>Slettede kategorier spores i en tombstone-liste (<code>removed_categories</code>). Hvis du sletter "Grill" kommer den ikke tilbake — selv om basisfilen fortsatt har den.</p>
+    </section>
+
+    <section>
+        <h2>Slik fungerer oppskriftspakker</h2>
+        <h3>Importflyt</h3>
+        <ol>
+            <li>Du klikker <strong>Importer pakke</strong></li>
+            <li>Alle oppskrifter legges til husholdningens oppskriftsdatabase</li>
+            <li>Pakkemetadata (navn, ikon, farge) lagres</li>
+            <li>Nye kategorier i pakken legges til listen din (merket som importert)</li>
+        </ol>
+        <h3>Reimport av en pakke</h3>
+        <p>Hvis du reimporterer en pakke du allerede har, blir eksisterende oppskrifter <strong>ikke duplisert</strong>. Bare nye oppskrifter (lagt til siden sist import) legges til.</p>
+        <h3>Fjerne en pakke</h3>
+        <p>Gå til <strong>Alle oppskrifter → Administrer pakker → Fjern</strong>. Dette sletter alle pakkens oppskrifter fra databasen. Oppskrifter du manuelt har flyttet til andre kategorier beholdes — de tilhører deg nå.</p>
+    </section>
+
+    <section>
+        <h2>Slik fungerer menygenerering</h2>
+        <ol>
+            <li><strong>Last oppskrifter</strong> — laster husholdningens oppskrifter + delte basisoppskrifter</li>
+            <li><strong>Filtrer etter kategori</strong> — beholder bare oppskrifter i valgte kategorier</li>
+            <li><strong>Deduplicering</strong> — nedprioriterer nylig serverte oppskrifter for variasjon</li>
+            <li><strong>Proteinbalanse</strong> — prøver å ikke servere samme proteintype flere dager på rad</li>
+            <li><strong>Velg 6</strong> — velger tilfeldig 6 oppskrifter fra det filtrerte utvalget</li>
+            <li><strong>Lagre</strong> — skriver menyen til husholdningsposten</li>
+        </ol>
+        <p>Hvis de valgte kategoriene har null oppskrifter, returnerer appen en feil i stedet for å generere en tom meny.</p>
+    </section>
+
+    <section>
+        <h2>Slik fungerer basisvarer</h2>
+        <p>Basisvarer lagres som små bokstaver. Appen har en innebygd oversettelsesliste som kobler engelsk ↔ norsk for ~100 vanlige matvarer.</p>
+        <p>Når du legger til "sitron" → "lemon" lagres også automatisk. Når du fjerner "sitron" → "lemon" fjernes også. Varer som er identiske på begge språk (f.eks. "salt") vises alltid uavhengig av språkinnstilling.</p>
+    </section>
+
+    <section>
+        <h2>Aktivitetslogg</h2>
+        <p>Aktivitetsloggen registrerer alle viktige handlinger i husholdningen — hvem som la til/redigerte/slettet oppskrifter, hvem som genererte menyer, hvem som endret kategorier. Viser profilnavn eller e-post, handlingen og tidsstempel. Maks 200 oppføringer. Bare husholdningseieren kan se den (under Innstillinger).</p>
+    </section>
+
+    <section>
+        <h2>Avanserte arbeidsflyter</h2>
+        <h3>Sette opp en ny husholdning</h3>
+        <ol>
+            <li>Importer 2-3 oppskriftspakker som passer familiens smak</li>
+            <li>Legg til 5-10 av familiens egne oppskrifter manuelt</li>
+            <li>Gi kategoriene navn som passer hvordan du faktisk lager mat</li>
+            <li>Oppdater basisvarene — fjern det du aldri har, legg til det du alltid har</li>
+            <li>Generer din første meny med alle kategorier valgt</li>
+        </ol>
+        <h3>Flerhusholdnings-oppsett</h3>
+        <p>Hver husholdning er helt separat — oppskrifter, menyer og basisvarer deles aldri. Bytt mellom dem via husholdningsvelgeren.</p>
+    </section>
+
+    <div class="help-nav">
+        <a href="#" onclick="openHelpModal(); return false;">📖 Hurtigstartguide</a>
+        <a href="/help/tips">💡 Tips & triks</a>
+    </div>
+
+{% else %}
+
     <h1>🔧 Advanced User Guide</h1>
 
     <section>
@@ -84,6 +172,9 @@
         <a href="#" onclick="openHelpModal(); return false;">📖 Quick Start Guide</a>
         <a href="/help/tips">💡 Tips & Tricks</a>
     </div>
+
+{% endif %}
+
 </div>
 
 <style>

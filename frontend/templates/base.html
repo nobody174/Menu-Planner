@@ -151,10 +151,44 @@
     <div id="help-modal" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.5); align-items:center; justify-content:center;">
         <div style="background:var(--color-surface,#fff); border-radius:16px; max-width:640px; width:90%; max-height:80vh; overflow:hidden; display:flex; flex-direction:column; box-shadow:0 20px 60px rgba(0,0,0,0.3);">
             <div style="padding:20px 24px 16px; border-bottom:1px solid var(--color-border,#e5e7eb); display:flex; align-items:center; justify-content:space-between;">
-                <h2 style="margin:0; font-size:1.2rem; color:var(--color-text-primary,#1a1a1a);">📖 Quick Start Guide</h2>
+                <h2 style="margin:0; font-size:1.2rem; color:var(--color-text-primary,#1a1a1a);">📖 {{ t.get('quick_start_guide', 'Quick Start Guide') }}</h2>
                 <button onclick="closeHelpModal()" style="background:none; border:none; font-size:1.5rem; cursor:pointer; color:var(--color-text-secondary,#666); line-height:1;">×</button>
             </div>
             <div style="padding:20px 24px; overflow-y:auto; color:var(--color-text-primary,#1a1a1a); line-height:1.7; font-size:0.95rem;">
+
+                {% set lang = request.cookies.get('pi_language', 'en') %}
+                {% if lang == 'no' %}
+
+                <h3 style="margin-top:0; color:var(--color-primary,#d97706);">👋 Velkommen til Menu Planner!</h3>
+                <p>Slik kommer du i gang på noen enkle steg:</p>
+
+                <h4>1. Importer oppskriftspakker</h4>
+                <p>Gå til <strong>Alle oppskrifter → Importer pakke</strong> og velg en eller flere pakker. Dette fyller husholdningen din med ferdiglagde oppskrifter med én gang.</p>
+
+                <h4>2. Generer din første meny</h4>
+                <p>Klikk på <strong>Generer meny</strong> i toppmenyen. Velg kategoriene du vil ha oppskrifter fra, og klikk <strong>Generer</strong>. Du får 6 middager planlagt for uken!</p>
+
+                <h4>3. Regenerer til du er fornøyd</h4>
+                <p>Ikke fornøyd med resultatet? Bare trykk <strong>Generer meny</strong> igjen. Det er gratis og øyeblikkelig — regenerer så mange ganger du vil.</p>
+
+                <h4>4. Sett opp Basisvarer</h4>
+                <p>Gå til <strong>Innstillinger → Basisvarer</strong> og legg til ingredienser du alltid har hjemme. Disse blir automatisk markert på handlelisten.</p>
+
+                <h4>5. Sjekk handlelisten</h4>
+                <p>Etter at du har generert en meny, klikk <strong>Handleliste</strong> for å se alle ingredienser for uken samlet på ett sted.</p>
+
+                <h4>6. Legg til egne oppskrifter</h4>
+                <p>Klikk <strong>+ Legg til oppskrift</strong> for å legge til familiens egne oppskrifter. Gi dem en kategori så dukker de opp i fremtidige menyer.</p>
+
+                <hr style="border:none; border-top:1px solid var(--color-border,#e5e7eb); margin:16px 0;">
+                <p style="font-size:0.85rem; color:var(--color-text-secondary,#666);">
+                    Vil du lære mer?
+                    <a href="/help/advanced" style="color:var(--color-primary,#d97706);">Avansert guide</a> ·
+                    <a href="/help/tips" style="color:var(--color-primary,#d97706);">Tips & triks</a>
+                </p>
+
+                {% else %}
+
                 <h3 style="margin-top:0; color:var(--color-primary,#d97706);">👋 Welcome to Menu Planner!</h3>
                 <p>Here's how to get started in a few simple steps:</p>
 
@@ -182,6 +216,8 @@
                     <a href="/help/advanced" style="color:var(--color-primary,#d97706);">Advanced Guide</a> ·
                     <a href="/help/tips" style="color:var(--color-primary,#d97706);">Tips & Tricks</a>
                 </p>
+
+                {% endif %}
             </div>
         </div>
     </div>

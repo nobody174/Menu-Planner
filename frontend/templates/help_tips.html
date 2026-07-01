@@ -1,7 +1,92 @@
 {% extends "base.html" %}
-{% block title %}Tips & Tricks – Menu Planner{% endblock %}
+{% block title %}{% if lang == 'no' %}Tips & triks{% else %}Tips & Tricks{% endif %} – Menu Planner{% endblock %}
 {% block content %}
 <div class="help-page">
+
+{% if lang == 'no' %}
+
+    <h1>💡 Tips & triks for erfarne brukere</h1>
+
+    <section>
+        <h2>🍽️ Menygenerering</h2>
+        <ul>
+            <li><strong>Velg 4-6 kategorier</strong> for best variasjon — én kategori betyr samme type mat hele uken.</li>
+            <li><strong>10-15+ oppskrifter per kategori</strong> er ideelt. For få = gjentakelser. For mange = noen oppskrifter velges aldri.</li>
+            <li><strong>Regenerer fritt</strong> — dedupliseringssystemet husker nylige menyer, så du får fortsatt variasjon.</li>
+            <li><strong>Favoritter + andre kategorier</strong> kan velges samtidig — flott for en blanding av trygge valg og nye ting.</li>
+            <li>Lag en <strong>"Trygge Middager"</strong>-kategori med 8-10 oppskrifter hele familien elsker. Generer bare fra den på slitsomme uker — ingen diskusjoner ved middagsbordet.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>📂 Kategorier</h2>
+        <ul>
+            <li><strong>Gi nytt navn fritt</strong> — den interne koden endres aldri, så omdøping er alltid trygt.</li>
+            <li>Lag en <strong>"Helgemiddag"</strong>-kategori for oppskrifter som tar lengre tid — Lasagne, slowcooker, BBQ. Velg den bare når du har tid.</li>
+            <li>Bruk <strong>"Ukategorisert"</strong> som venteområde. Se gjennom det jevnlig og flytt oppskrifter til riktige kategorier.</li>
+            <li>Bruk <strong>Slå sammen med...</strong> med én gang du oppdager dupliserte kategorier.</li>
+            <li>Hold kategoriene under <strong>12 totalt</strong>. Mer enn det gjør generatorskjermen rotete.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>🥗 Oppskrifter</h2>
+        <ul>
+            <li>Bruk <strong>Kommentarfeltet</strong> til familienotater: "Ungene liker ikke løk", "Bruk 600g kjøtt i stedet for 500g for rester", "Bestemors versjon — dobbelt hvitløk".</li>
+            <li><strong>Rediger tilberedningstiden ærlig</strong> — hvis en oppskrift sier 20 min men tar deg 45, oppdater den. Nøyaktige tider gjør ukesplanlegging mye enklere.</li>
+            <li><strong>Importer først, tilpass etterpå</strong> — importer en pakke for å få en base, rediger deretter enkeltoppskrifter slik familien faktisk lager dem.</li>
+            <li>Gjør en <strong>jevnlig opprydding</strong> i Alle oppskrifter — fjern oppskrifter du importerte men aldri lager.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>🧅 Basisvarer</h2>
+        <ul>
+            <li><strong>Gjør ett stort oppsett først</strong> — gå gjennom standardlisten og fjern ting du genuint aldri har.</li>
+            <li>Legg til <strong>husholdningens egne basisvarer</strong>: krydderblandinger, sauser (soyasaus, chilisaus), hermetikk du alltid har på lager.</li>
+            <li>Å legge til "sitron" lagrer også "lemon" automatisk — basisvarene er tospråklige under panseret.</li>
+            <li>Sjekk handlelisten <strong>etter generering</strong> — grå varer = du har dem allerede. Hvis for mye er grått, er kanskje basisvarelisten din for generøs.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>👨‍👩‍👧 Husholdning og profiler</h2>
+        <ul>
+            <li>Gi alle sin egen <strong>profil</strong> — selv barn. Aktivitetsloggen viser hvem som gjorde hva, og profilbytte er ett trykk.</li>
+            <li>Sett en 4-sifret <strong>PIN</strong> for rask bytting til eierprofilen på delte enheter.</li>
+            <li>Gi partneren din <strong>Redaktør</strong>-rolle slik at de kan legge til oppskrifter og regenerere menyer uten fullt passord.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>🚀 Proffe arbeidsflyter</h2>
+        <h3>Søndagsrutinen</h3>
+        <ol>
+            <li>Åpne Menu Planner</li>
+            <li>Klikk Generer meny</li>
+            <li>Velg kategorier for uken</li>
+            <li>Regenerer til du er fornøyd</li>
+            <li>Åpne Handleliste</li>
+            <li>Dra på butikken</li>
+        </ol>
+        <p>Under 5 minutter når du først er satt opp.</p>
+
+        <h3>Sesongoppdatering (4× i året)</h3>
+        <ol>
+            <li>Se gjennom kategorier — legg til sesongbaserte (Grill for sommer, Supper for vinter)</li>
+            <li>Importer nye oppskriftspakker</li>
+            <li>Fjern oppskrifter du ikke lagde hele sesongen</li>
+            <li>Oppdater basisvarene med sesongvarer</li>
+        </ol>
+    </section>
+
+    <div class="help-nav">
+        <a href="#" onclick="openHelpModal(); return false;">📖 Hurtigstartguide</a>
+        <a href="/help/advanced">🔧 Avansert guide</a>
+    </div>
+
+{% else %}
+
     <h1>💡 Power User Tips & Tricks</h1>
 
     <section>
@@ -11,7 +96,7 @@
             <li><strong>10-15+ recipes per category</strong> is the sweet spot. Too few = repeats. Too many = some recipes never get picked.</li>
             <li><strong>Regenerate freely</strong> — the deduplication system remembers recent menus, so you still get variety.</li>
             <li><strong>Favourites + other categories</strong> can be selected together — great for a mix of safe bets and new things.</li>
-            <li>Create a <strong>"Trygge Middager"</strong> (Safe Dinners) category with 8-10 crowd-pleasers. Generate from just that category on tough weeks — no debates at the dinner table.</li>
+            <li>Create a <strong>"Safe Dinners"</strong> category with 8-10 crowd-pleasers. Generate from just that on tough weeks — no debates at the dinner table.</li>
         </ul>
     </section>
 
@@ -21,7 +106,7 @@
             <li><strong>Rename freely</strong> — the internal code never changes, so renaming is always safe.</li>
             <li>Create a <strong>"Weekend"</strong> category for recipes that take longer — Lasagne, slow cooker dishes, BBQ. Select it only when you have time.</li>
             <li>Use <strong>"Uncategorized"</strong> as a holding area. Periodically review and move recipes to proper categories.</li>
-            <li>Use <strong>Merge into...</strong> immediately when you spot duplicate categories — the longer you wait, the messier it gets.</li>
+            <li>Use <strong>Merge into...</strong> immediately when you spot duplicate categories.</li>
             <li>Keep categories below <strong>12 total</strong>. More than that makes the generator screen cluttered.</li>
         </ul>
     </section>
@@ -81,6 +166,9 @@
         <a href="#" onclick="openHelpModal(); return false;">📖 Quick Start Guide</a>
         <a href="/help/advanced">🔧 Advanced Guide</a>
     </div>
+
+{% endif %}
+
 </div>
 
 <style>

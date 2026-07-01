@@ -163,7 +163,7 @@ Takes under 5 minutes once you're set up properly.
 4. Update your pantry with seasonal staples
 
 ### The "Crowd Pleaser" Fallback
-Made a category called **Trygge Middager** (Safe Dinners) with 8-10 recipes the whole family loves without complaint. When you're tired, just generate from that category only. No debates, no "I don't like this" — guaranteed peace at the dinner table.
+Create a category called **Safe Dinners** with 8-10 recipes the whole family loves without complaint. When you're tired, just generate from that category only. No debates, no "I don't like this" — guaranteed peace at the dinner table.
 
 ---
 
