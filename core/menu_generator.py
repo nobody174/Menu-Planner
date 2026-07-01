@@ -120,8 +120,28 @@ class MenuGenerator:
             except Exception as e:
                 logger.error(f"Error loading {RECIPES_DB_FILE}: {e}")
 
-        # Also load this household's imported pack recipes
-        if self.recipes_imported_file.exists():
+        # Load household's imported recipes from database (primary) or file (fallback)
+        if self.household_id:
+            try:
+                from database.database import SessionLocal
+                from database.models import Household
+                db = SessionLocal()
+                try:
+                    household = db.query(Household).filter(Household.id == self.household_id).first()
+                    if household and household.recipes_db:
+                        all_recipes.extend(household.recipes_db)
+                        logger.info(f"Loaded {len(household.recipes_db)} recipes from database")
+                finally:
+                    db.close()
+            except Exception as e:
+                logger.error(f"Failed to load recipes from database: {e}, trying file fallback")
+                if self.recipes_imported_file.exists():
+                    try:
+                        with open(self.recipes_imported_file, 'r', encoding='utf-8') as f:
+                            all_recipes.extend(json.load(f))
+                    except Exception as fe:
+                        logger.error(f"Error loading {self.recipes_imported_file}: {fe}")
+        elif self.recipes_imported_file.exists():
             try:
                 with open(self.recipes_imported_file, 'r', encoding='utf-8') as f:
                     all_recipes.extend(json.load(f))
@@ -377,7 +397,7 @@ class MenuGenerator:
                 'title': recipe['title'],
                 'title_no': title_no,
                 'title_en': title_en,
-                'time_minutes': recipe.get('time_minutes', 0),
+                'time_minutes': recipe.get('time_minutes') or recipe.get('cookTimeMinutes') or 0,
                 'difficulty': recipe.get('difficulty', ''),
                 'protein': protein_type,
                 'subtitle_no': subtitle_no,
