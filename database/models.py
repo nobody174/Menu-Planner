@@ -72,6 +72,15 @@ class Household(Base):
     # migration; safe to ignore.
     default_servings = Column(Integer, default=4, nullable=False)
 
+    # JSONB columns for household data storage (replaces file-based storage)
+    recipes_db = Column(JSON, nullable=True)
+    pantry = Column(JSON, nullable=True)
+    weekly_menu = Column(JSON, nullable=True)
+    categories = Column(JSON, nullable=True)
+    activity_log = Column(JSON, nullable=True)
+    removed_categories = Column(JSON, nullable=True)
+    imported_packs = Column(JSON, nullable=True)
+
     # Relationships
     owner = relationship('User', back_populates='households')
     members = relationship('HouseholdMember', back_populates='household', cascade='all, delete-orphan')

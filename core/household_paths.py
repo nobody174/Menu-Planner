@@ -345,3 +345,114 @@ def load_activity(household_id: str):
             return list(reversed(json.load(f)))
     except Exception:
         return []
+
+
+# Database-backed functions for F4 migration (PostgreSQL JSONB storage)
+def load_recipes_db_from_db(household):
+    """Load recipes_db from database JSONB column."""
+    if household.recipes_db is None:
+        return []
+    return household.recipes_db if isinstance(household.recipes_db, list) else []
+
+
+def load_pantry_from_db(household):
+    """Load pantry from database JSONB column."""
+    if household.pantry is None:
+        return []
+    return household.pantry if isinstance(household.pantry, list) else []
+
+
+def load_categories_from_db(household):
+    """Load categories from database JSONB column with self-heal logic."""
+    if household.categories is None:
+        return []
+    categories = household.categories if isinstance(household.categories, list) else []
+
+    # Self-heal logic: ensure base categories are present
+    try:
+        base_path = SEED_DIR / 'categories.json'
+        if base_path.exists():
+            with open(base_path, 'r', encoding='utf-8') as f:
+                base_cats = json.load(f)
+        else:
+            base_cats = []
+    except Exception:
+        base_cats = []
+
+    removed_codes = load_removed_categories(household.id) if hasattr(household, 'id') else set()
+    existing_codes = {c.get('code') for c in categories if isinstance(c, dict)}
+    missing = [c for c in base_cats
+               if c.get('code') not in existing_codes and c.get('code') not in removed_codes]
+
+    if missing:
+        categories.extend(missing)
+
+    return categories
+
+
+def load_weekly_menu_from_db(household):
+    """Load weekly_menu from database JSONB column."""
+    if household.weekly_menu is None:
+        return {}
+    return household.weekly_menu if isinstance(household.weekly_menu, dict) else {}
+
+
+def load_activity_from_db(household):
+    """Load activity_log from database JSONB column."""
+    if household.activity_log is None:
+        return []
+    log = household.activity_log if isinstance(household.activity_log, list) else []
+    return list(reversed(log))
+
+
+def load_imported_packs_from_db(household):
+    """Load imported_packs from database JSONB column."""
+    if household.imported_packs is None:
+        return {}
+    return household.imported_packs if isinstance(household.imported_packs, dict) else {}
+
+
+def save_recipes_db_to_db(household, recipes_data):
+    """Save recipes_db to database JSONB column."""
+    household.recipes_db = recipes_data
+
+
+def save_pantry_to_db(household, pantry_items):
+    """Save pantry to database JSONB column."""
+    household.pantry = sorted(set(pantry_items))
+
+
+def save_categories_to_db(household, categories_data):
+    """Save categories to database JSONB column."""
+    household.categories = categories_data
+
+
+def save_weekly_menu_to_db(household, menu_data):
+    """Save weekly_menu to database JSONB column."""
+    household.weekly_menu = menu_data
+
+
+def save_activity_to_db(household, activity_entries):
+    """Save activity_log to database JSONB column (capped at 200 entries)."""
+    household.activity_log = activity_entries[-200:] if len(activity_entries) > 200 else activity_entries
+
+
+def save_imported_packs_to_db(household, packs_data):
+    """Save imported_packs to database JSONB column."""
+    household.imported_packs = packs_data
+
+
+def append_activity_to_db(household, actor: str, action: str):
+    """Append entry to activity log in database."""
+    from datetime import datetime
+
+    entries = load_activity_from_db(household) if household.activity_log else []
+    # Reverse back to original order (load_activity_from_db reverses for display)
+    entries = list(reversed(entries))
+
+    entries.append({
+        'timestamp': datetime.now().isoformat(),
+        'actor': actor,
+        'action': action,
+    })
+    save_activity_to_db(household, entries)
