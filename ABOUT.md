@@ -1,12 +1,16 @@
 # About Menu Planner
 
+> **Menu Planner — Your stress-free dinner solution!**
+
+---
+
 ## The Story
 
 Menu Planner was built by a dad from Vestfold, Norway — a self-taught IT guy who always
 has something on the go. One evening he found himself with a Raspberry Pi and no real plan
 for what to do with it. So he thought: *"There must be something useful I can make with this."*
 
-His family of five — mum, dad, three kids, and a dog — had the same problem every other
+His family of five — mum, dad and three kids — had the same problem every other
 family with children has: **what are we having for dinner this week?**
 The question that comes up every Monday, and that nobody ever really has an answer to.
 
@@ -14,8 +18,25 @@ What started as a small hobby project on the kitchen table quickly became someth
 whole family actually used every week. And then came the thought: *this isn't just our problem.
 This is every family's problem.*
 
-So Menu Planner became what it is today — a free app for families who want to spend less
+So Menu Planner became what it is today — an app built for families who want to spend less
 time wondering what's for dinner, and more time actually enjoying the meal together.
+
+---
+
+## 💡 Why I Built This
+
+Every week the same question appears: **"What should we eat?"**
+
+Menu Planner solves that by giving you:
+
+- 📚 A recipe library you build yourself
+- 🗓️ Automatic weekly menus from your recipes
+- 🛒 Deduplicated shopping lists
+- 🌍 Bilingual support (Norwegian + English)
+- 🎨 Beautiful themes
+- 👨‍👩‍👧‍👦 Household management for the whole family
+
+It makes weekly planning simple, fast, and actually fun.
 
 ---
 
@@ -24,8 +45,7 @@ time wondering what's for dinner, and more time actually enjoying the meal toget
 - 🍽️ **Simple is best** — planning dinner shouldn't be a project in itself
 - 👨‍👩‍👧‍👦 **Family first** — built for real families with busy lives
 - 🇳🇴 **Norwegian heart** — made in Norway, for families everywhere
-- 🔓 **Open source** — free to use, honest and transparent
-- 🐾 **The dog doesn't count** — but is absolutely part of the family
+- 🔓 **Open source** — honest and transparent
 
 ---
 
@@ -43,7 +63,7 @@ Menu Planner is one of many projects. Want to see what else is in the works?
 
 ## Try It
 
-**[menuplanner.no](https://menuplanner.no)** — free for families, no ads, no tracking.
+**[menuplanner.no](https://menuplanner.no)** — currently free during the early access period. No ads, no tracking.
 
 ---
 
