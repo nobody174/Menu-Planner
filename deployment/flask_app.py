@@ -418,6 +418,57 @@ def current_household_id():
 
     return None
 
+
+def current_household():
+    """Get the current household ORM object from the database."""
+    household_id = current_household_id()
+    if not household_id:
+        return None
+    from database.database import SessionLocal
+    from database.models import Household
+    db = SessionLocal()
+    try:
+        return db.query(Household).filter(Household.id == household_id).first()
+    finally:
+        db.close()
+
+
+def _load_pantry_db():
+    """Load pantry from database (with fallback to file)."""
+    household = current_household()
+    if household:
+        from core.household_paths import load_pantry_from_db
+        return load_pantry_from_db(household)
+
+    # Fallback to file-based for migration period
+    from core.household_paths import load_pantry
+    return load_pantry(current_household_id())
+
+
+def _save_pantry_db(items):
+    """Save pantry to database (with fallback to file)."""
+    household = current_household()
+    if household:
+        from core.household_paths import save_pantry_to_db
+        from database.database import SessionLocal
+
+        save_pantry_to_db(household, items)
+        db = SessionLocal()
+        try:
+            db.merge(household)
+            db.commit()
+        except Exception as e:
+            db.rollback()
+            print(f"Error saving pantry to database: {e}")
+        finally:
+            db.close()
+        return
+
+    # Fallback to file-based for migration period
+    from core.household_paths import save_pantry
+    save_pantry(current_household_id(), items)
+
+
 def current_actor_name():
     """Name to attribute edits/actions to: active profile if one is picked,
     otherwise the logged-in account's email."""
@@ -529,41 +580,73 @@ def inject_config():
 # ── Helpers ──────────────────────────────────────────────────────────────────
 
 def load_menu():
-    from core.household_paths import menu_file
-    household_id = current_household_id()
-    if not household_id:
+    """Load weekly menu from database JSONB column."""
+    household = current_household()
+    if not household:
+        # Fallback to file-based for migration period
+        from core.household_paths import menu_file
+        household_id = current_household_id()
+        if not household_id:
+            return None
+        path = menu_file(household_id)
+        if path.exists():
+            with open(path, 'r', encoding='utf-8') as f:
+                return json.load(f)
         return None
-    path = menu_file(household_id)
-    if path.exists():
-        with open(path, 'r', encoding='utf-8') as f:
-            return json.load(f)
-    return None
+
+    from core.household_paths import load_weekly_menu_from_db
+    return load_weekly_menu_from_db(household)
+
 
 def load_recipes_db():
-    from core.household_paths import recipes_db_file
-    household_id = current_household_id()
-    if not household_id:
+    """Load recipes from database JSONB column."""
+    household = current_household()
+    if not household:
+        # Fallback to file-based for migration period
+        from core.household_paths import recipes_db_file
+        household_id = current_household_id()
+        if not household_id:
+            return []
+        path = recipes_db_file(household_id)
+        if path.exists():
+            with open(path, 'r', encoding='utf-8') as f:
+                return json.load(f)
         return []
-    path = recipes_db_file(household_id)
-    if path.exists():
-        with open(path, 'r', encoding='utf-8') as f:
-            return json.load(f)
-    return []
+
+    from core.household_paths import load_recipes_db_from_db
+    return load_recipes_db_from_db(household)
+
 
 def save_recipes_db(recipes):
-    from core.household_paths import recipes_db_file
-    import tempfile, os
-    household_id = current_household_id()
-    path = recipes_db_file(household_id)
-    # Write to a temp file in the same directory first, then rename atomically
-    # so a crash/interrupt mid-write never leaves a partially-written (broken)
-    # recipes_db.json behind.
-    dir_ = path.parent
-    with tempfile.NamedTemporaryFile('w', encoding='utf-8', dir=dir_, delete=False, suffix='.tmp') as tf:
-        json.dump(recipes, tf, ensure_ascii=False, indent=2)
-        tf.write('\n')
-        tmp_path = tf.name
-    os.replace(tmp_path, path)
+    """Save recipes to database JSONB column."""
+    household = current_household()
+    if not household:
+        # Fallback to file-based for migration period
+        from core.household_paths import recipes_db_file
+        import tempfile, os
+        household_id = current_household_id()
+        path = recipes_db_file(household_id)
+        dir_ = path.parent
+        with tempfile.NamedTemporaryFile('w', encoding='utf-8', dir=dir_, delete=False, suffix='.tmp') as tf:
+            json.dump(recipes, tf, ensure_ascii=False, indent=2)
+            tf.write('\n')
+            tmp_path = tf.name
+        os.replace(tmp_path, path)
+        return
+
+    from core.household_paths import save_recipes_db_to_db
+    from database.database import SessionLocal
+
+    save_recipes_db_to_db(household, recipes)
+    db = SessionLocal()
+    try:
+        db.merge(household)
+        db.commit()
+    except Exception as e:
+        db.rollback()
+        print(f"Error saving recipes to database: {e}")
+    finally:
+        db.close()
 
 def find_recipe(recipe_id):
     # Search household recipes_db.json first, then global sample_recipes.json
@@ -788,9 +871,9 @@ def api_get_pantry():
     the other language are hidden, even though they're still stored (adding
     'lemon' in English also silently stores 'sitron' so it's there if the
     household switches to Norwegian later)."""
-    from core.household_paths import load_pantry, pantry_item_language
+    from core.household_paths import pantry_item_language
     lang = _get_lang()
-    pantry = load_pantry(current_household_id())
+    pantry = _load_pantry_db()
     visible = [p for p in pantry if pantry_item_language(p) in (lang, 'both')]
     return jsonify({'success': True, 'pantry': sorted(visible)})
 
@@ -801,14 +884,13 @@ def api_add_pantry_item():
     in sync no matter which language the household views it in later. Items
     with no known translation (anything custom the household typed) are just
     stored as-is."""
-    from core.household_paths import load_pantry, save_pantry, append_activity, pantry_item_translation
+    from core.household_paths import pantry_item_translation, pantry_item_language
     data = request.get_json() or {}
     item = (data.get('item') or '').strip().lower()
     if not item:
         return jsonify({'success': False, 'message': 'No item provided'}), 400
 
-    household_id = current_household_id()
-    pantry = load_pantry(household_id)
+    pantry = list(_load_pantry_db())
     added = False
     if item not in pantry:
         pantry.append(item)
@@ -818,11 +900,16 @@ def api_add_pantry_item():
         pantry.append(translation)
         added = True
     if added:
-        save_pantry(household_id, pantry)
-        append_activity(household_id, current_actor_name(), f"Added '{item}' to pantry")
+        _save_pantry_db(pantry)
+        household = current_household()
+        if household:
+            from core.household_paths import append_activity_to_db
+            append_activity_to_db(household, current_actor_name(), f"Added '{item}' to pantry")
+        else:
+            from core.household_paths import append_activity
+            append_activity(current_household_id(), current_actor_name(), f"Added '{item}' to pantry")
 
     lang = _get_lang()
-    from core.household_paths import pantry_item_language
     visible = [p for p in pantry if pantry_item_language(p) in (lang, 'both')]
     return jsonify({'success': True, 'pantry': sorted(visible)})
 
@@ -830,27 +917,38 @@ def api_add_pantry_item():
 def api_remove_pantry_item():
     """Removing a known staple also removes its translation in the other
     language, so e.g. removing 'sugar' also removes 'sukker'."""
-    from core.household_paths import load_pantry, save_pantry, append_activity, pantry_item_translation
+    from core.household_paths import pantry_item_translation, pantry_item_language
     data = request.get_json() or {}
     item = (data.get('item') or '').strip().lower()
     if not item:
         return jsonify({'success': False, 'message': 'No item provided'}), 400
 
-    household_id = current_household_id()
     translation = pantry_item_translation(item)
     to_remove = {item}
     if translation:
         to_remove.add(translation)
-    pantry = [p for p in load_pantry(household_id) if p not in to_remove]
-    save_pantry(household_id, pantry)
-    append_activity(household_id, current_actor_name(), f"Removed '{item}' from pantry")
+    pantry = [p for p in _load_pantry_db() if p not in to_remove]
+    _save_pantry_db(pantry)
+    household = current_household()
+    if household:
+        from core.household_paths import append_activity_to_db
+        append_activity_to_db(household, current_actor_name(), f"Removed '{item}' from pantry")
+    else:
+        from core.household_paths import append_activity
+        append_activity(current_household_id(), current_actor_name(), f"Removed '{item}' from pantry")
 
     lang = _get_lang()
-    from core.household_paths import pantry_item_language
     visible = [p for p in pantry if pantry_item_language(p) in (lang, 'both')]
     return jsonify({'success': True, 'pantry': sorted(visible)})
 
 def _load_household_categories(household_id):
+    """Load categories from database (with fallback to file)."""
+    household = current_household()
+    if household:
+        from core.household_paths import load_categories_from_db
+        return load_categories_from_db(household)
+
+    # Fallback to file-based for migration period
     from core.household_paths import categories_file
     path = categories_file(household_id)
     if not path.exists():
@@ -858,7 +956,27 @@ def _load_household_categories(household_id):
     with open(path, 'r', encoding='utf-8') as f:
         return json.load(f)
 
+
 def _save_household_categories(household_id, categories):
+    """Save categories to database (with fallback to file)."""
+    household = current_household()
+    if household:
+        from core.household_paths import save_categories_to_db
+        from database.database import SessionLocal
+
+        save_categories_to_db(household, categories)
+        db = SessionLocal()
+        try:
+            db.merge(household)
+            db.commit()
+        except Exception as e:
+            db.rollback()
+            print(f"Error saving categories to database: {e}")
+        finally:
+            db.close()
+        return
+
+    # Fallback to file-based for migration period
     from core.household_paths import categories_file
     path = categories_file(household_id)
     with open(path, 'w', encoding='utf-8') as f:
