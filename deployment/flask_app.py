@@ -447,26 +447,27 @@ def _load_pantry_db():
 
 def _save_pantry_db(items):
     """Save pantry to database (with fallback to file)."""
-    household = current_household()
-    if household:
-        from core.household_paths import save_pantry_to_db
+    household_id = current_household_id()
+    if household_id:
         from database.database import SessionLocal
+        from database.models import Household
 
-        save_pantry_to_db(household, items)
         db = SessionLocal()
         try:
-            db.merge(household)
-            db.commit()
+            household = db.query(Household).filter(Household.id == household_id).first()
+            if household:
+                household.pantry = sorted(set(items))
+                db.commit()
+                return
         except Exception as e:
             db.rollback()
             print(f"Error saving pantry to database: {e}")
         finally:
             db.close()
-        return
 
     # Fallback to file-based for migration period
     from core.household_paths import save_pantry
-    save_pantry(current_household_id(), items)
+    save_pantry(household_id, items)
 
 
 def current_actor_name():
@@ -634,14 +635,15 @@ def save_recipes_db(recipes):
         os.replace(tmp_path, path)
         return
 
-    from core.household_paths import save_recipes_db_to_db
     from database.database import SessionLocal
+    from database.models import Household as HouseholdModel
 
-    save_recipes_db_to_db(household, recipes)
     db = SessionLocal()
     try:
-        db.merge(household)
-        db.commit()
+        h = db.query(HouseholdModel).filter(HouseholdModel.id == household.id).first()
+        if h:
+            h.recipes_db = recipes
+            db.commit()
     except Exception as e:
         db.rollback()
         print(f"Error saving recipes to database: {e}")
@@ -959,16 +961,17 @@ def _load_household_categories(household_id):
 
 def _save_household_categories(household_id, categories):
     """Save categories to database (with fallback to file)."""
-    household = current_household()
-    if household:
-        from core.household_paths import save_categories_to_db
+    if household_id:
         from database.database import SessionLocal
+        from database.models import Household
 
-        save_categories_to_db(household, categories)
         db = SessionLocal()
         try:
-            db.merge(household)
-            db.commit()
+            household = db.query(Household).filter(Household.id == household_id).first()
+            if household:
+                household.categories = categories
+                db.commit()
+                return
         except Exception as e:
             db.rollback()
             print(f"Error saving categories to database: {e}")
