@@ -167,6 +167,7 @@
                 <form id="pantry-add-form" class="pantry-add-form">
                     <input type="text" id="pantry-add-input" placeholder="{{ t.get('add_pantry_item', 'Add item') }}" autocomplete="off" />
                     <button type="submit" class="btn btn-secondary">+</button>
+                    <button type="button" class="btn btn-secondary" onclick="resetPantryToDefaults()" title="{{ t.get('reset_pantry_hint', 'Restore the default list of common staples') }}">{{ t.get('reset_to_defaults', 'Reset to defaults') }}</button>
                 </form>
                 <ul id="pantry-list" class="pantry-list">
                     {% for item in pantry %}
@@ -222,6 +223,15 @@
                 }
             });
         });
+
+        function resetPantryToDefaults() {
+            if (!confirm('{{ t.get("reset_pantry_confirm", "Reset pantry to default staples? Your current pantry will be replaced.") }}')) return;
+            fetch('/api/pantry/reset', { method: 'POST' })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.success) renderPantryList(data.pantry);
+            });
+        }
 
         function removePantryItem(item) {
             fetch('/api/pantry/remove', {

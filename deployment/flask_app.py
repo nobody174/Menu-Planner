@@ -935,6 +935,37 @@ def api_add_pantry_item():
     visible = [p for p in pantry if pantry_item_language(p) in (lang, 'both')]
     return jsonify({'success': True, 'pantry': sorted(visible)})
 
+@app.route('/api/pantry/reset', methods=['POST'])
+def api_reset_pantry():
+    """Reset pantry to default staples from pantry_staples.json seed file."""
+    from core.household_paths import SEED_DIR
+    import json as _json
+    household_id = current_household_id()
+    if not household_id:
+        return jsonify({'success': False, 'message': 'Not authenticated'}), 401
+
+    staples_path = SEED_DIR / 'pantry_staples.json'
+    if not staples_path.exists():
+        return jsonify({'success': False, 'message': 'No default staples file found'}), 404
+
+    try:
+        with open(staples_path, 'r', encoding='utf-8') as f:
+            pairs = _json.load(f).get('pantry_staples', [])
+        items = set()
+        for pair in pairs:
+            if pair.get('en'):
+                items.add(pair['en'].strip().lower())
+            if pair.get('no'):
+                items.add(pair['no'].strip().lower())
+        _save_pantry_db(sorted(items))
+
+        from core.household_paths import pantry_item_language
+        lang = _get_lang()
+        visible = sorted(p for p in items if pantry_item_language(p) in (lang, 'both'))
+        return jsonify({'success': True, 'pantry': visible})
+    except Exception as e:
+        return jsonify({'success': False, 'message': str(e)}), 500
+
 @app.route('/api/pantry/remove', methods=['POST'])
 def api_remove_pantry_item():
     """Removing a known staple also removes its translation in the other
