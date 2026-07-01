@@ -1,6 +1,6 @@
 {
   "_note": "Side dishes removed from dinner packs - preserved for a future Sides feature.",
-  "recipeCount": 16,
+  "recipeCount": 20,
   "recipes": [
     {
       "id": "no_052",
@@ -1627,6 +1627,465 @@
         ]
       },
       "_original_pack": "pack_sides_light_meals"
+    },
+    {
+      "id": "no_094",
+      "title": {
+        "no": "Italiensk Salat",
+        "en": "Italian Salad"
+      },
+      "subtitle": {
+        "no": "Klassisk italiensk grønnsakssalat",
+        "en": "Classic Italian vegetable salad"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 30,
+      "servings": 6,
+      "category": "Salads",
+      "tags": [
+        "salad",
+        "traditional",
+        "side",
+        "quick"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Rødkål",
+            "en": "Red cabbage"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Gulrot",
+            "en": "Carrots"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Mais",
+            "en": "Corn"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Erter",
+            "en": "Peas"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Eddik",
+            "en": "Vinegar"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skjær kål og gulrot i små biter",
+          "2. Bland alle grønnsakene",
+          "3. Lag en dressing med eddik og sukker",
+          "4. Hell dressingen over salaten",
+          "5. La stå i kjøleskapet minst 2 timer før servering"
+        ],
+        "en": [
+          "1. Cut cabbage and carrots into small pieces",
+          "2. Mix all vegetables",
+          "3. Make a dressing with vinegar and sugar",
+          "4. Pour dressing over salad",
+          "5. Let sit in refrigerator for at least 2 hours before serving"
+        ]
+      },
+      "_original_pack": "salater_category"
+    },
+    {
+      "id": "no_095",
+      "title": {
+        "no": "Potetsalat",
+        "en": "Potato Salad"
+      },
+      "subtitle": {
+        "no": "Norsk potetsalat med løk og dressing",
+        "en": "Norwegian potato salad with onion and dressing"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 40,
+      "servings": 6,
+      "category": "Salads",
+      "tags": [
+        "salad",
+        "traditional",
+        "side"
+      ],
+      "allergens": [
+        "milk"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Surmelk",
+            "en": "Sour cream"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Sennepemustart",
+            "en": "Mustard"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Dill",
+            "en": "Dill"
+          },
+          "amount": 15,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok poteter til møre",
+          "2. La kjøle og skjær i kuber",
+          "3. Hakk løk fint",
+          "4. Bland surmelk og sennep",
+          "5. Bland poteter, løk og dressing",
+          "6. Topp med dill"
+        ],
+        "en": [
+          "1. Cook potatoes until tender",
+          "2. Cool and cut into cubes",
+          "3. Chop onion finely",
+          "4. Mix sour cream and mustard",
+          "5. Mix potatoes, onion and dressing",
+          "6. Top with dill"
+        ]
+      },
+      "_original_pack": "salater_category"
+    },
+    {
+      "id": "sum_004",
+      "title": {
+        "no": "Potet-og-Agurk Salat",
+        "en": "Potato and Cucumber Salad"
+      },
+      "subtitle": {
+        "no": "Klassisk nordisk sommersalat",
+        "en": "Classic Nordic summer salad"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 25,
+      "servings": 4,
+      "category": "Salads",
+      "tags": [
+        "salad",
+        "potato",
+        "summer",
+        "nordic",
+        "quick",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Poteter (kokt)",
+            "en": "Potatoes (cooked)"
+          },
+          "amount": 800,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Agurk",
+            "en": "Cucumber"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "medium",
+            "en": "medium"
+          }
+        },
+        {
+          "name": {
+            "no": "Rød løk",
+            "en": "Red onion"
+          },
+          "amount": 0.5,
+          "unit": {
+            "no": "medium",
+            "en": "medium"
+          }
+        },
+        {
+          "name": {
+            "no": "Rømme",
+            "en": "Sour cream"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Eddik",
+            "en": "Vinegar"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Dill (frisk)",
+            "en": "Dill (fresh)"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. La de kokte potetene kjøle.",
+          "2. Skjær potetene i terninger.",
+          "3. Skjær agurken og løken i små biter.",
+          "4. Bland rømmen, eddiken, dill, salt og pepper.",
+          "5. Tilsett poteter, agurk og løk.",
+          "6. Rør godt.",
+          "7. La det hvile i kjøleskapet før servering.",
+          "8. Server kald som en perfekt grillsalat."
+        ],
+        "en": [
+          "1. Let cooked potatoes cool.",
+          "2. Dice the potatoes.",
+          "3. Cut cucumber and onion into small pieces.",
+          "4. Mix sour cream, vinegar, dill, salt and pepper.",
+          "5. Add potatoes, cucumber and onion.",
+          "6. Toss well.",
+          "7. Let rest in refrigerator before serving.",
+          "8. Serve cold as a perfect grill salad."
+        ]
+      },
+      "_original_pack": "salater_category"
+    },
+    {
+      "id": "sum_008",
+      "title": {
+        "no": "Rekesalat",
+        "en": "Shrimp Salad"
+      },
+      "subtitle": {
+        "no": "Lett og elegante rekesalat",
+        "en": "Light and elegant shrimp salad"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 20,
+      "servings": 4,
+      "category": "Salads",
+      "tags": [
+        "salad",
+        "shrimp",
+        "seafood",
+        "summer",
+        "quick"
+      ],
+      "allergens": [
+        "shellfish"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Rekér (kokt)",
+            "en": "Shrimp (cooked)"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Salat (blandet)",
+            "en": "Salad (mixed)"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Agurk",
+            "en": "Cucumber"
+          },
+          "amount": 0.5,
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomat (kjertel)",
+            "en": "Tomato (cherry)"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Dill (frisk)",
+            "en": "Dill (fresh)"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Sitron",
+            "en": "Lemon"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
+        },
+        {
+          "name": {
+            "no": "Olivenolje",
+            "en": "Olive oil"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Legg salaten på en tallerken.",
+          "2. Topp med rekene.",
+          "3. Tilsett agurkskiver og kjersel-tomat.",
+          "4. Dryss med dill.",
+          "5. Bland olivenolje med sitron-saft.",
+          "6. Hell dressingen over.",
+          "7. Server kald og frisk."
+        ],
+        "en": [
+          "1. Place salad on a plate.",
+          "2. Top with shrimp.",
+          "3. Add cucumber slices and cherry tomatoes.",
+          "4. Sprinkle with dill.",
+          "5. Mix olive oil with lemon juice.",
+          "6. Pour dressing over.",
+          "7. Serve cold and fresh."
+        ]
+      },
+      "_original_pack": "salater_category"
     }
   ]
 }
