@@ -196,6 +196,37 @@ var STR = {
     server_error_msg:             '{{ t.server_error_msg }}'
 };
 
+function loadCategoryDropdown() {
+    var select = document.getElementById('category');
+    var currentValue = select.value;
+
+    fetch('/api/categories')
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+            var cats = Array.isArray(data) ? data : (data.categories || []);
+            var options = select.querySelectorAll('option[value!=""]');
+            for (var i = options.length - 1; i >= 0; i--) {
+                options[i].remove();
+            }
+            cats.forEach(function(cat) {
+                var opt = document.createElement('option');
+                opt.value = cat.name_en || cat.name || '';
+                opt.textContent = opt.value;
+                select.appendChild(opt);
+            });
+            if (currentValue) {
+                select.value = currentValue;
+            }
+        })
+        .catch(function(err) {
+            console.error('Failed to load categories:', err);
+        });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    loadCategoryDropdown();
+});
+
 document.getElementById('recipeForm').addEventListener('submit', function(e) {
     e.preventDefault();
 

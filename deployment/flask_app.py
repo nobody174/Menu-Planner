@@ -1625,9 +1625,12 @@ def confirm_email_route(token):
     already-confirmed case rather than erroring."""
     from core.auth_helpers import confirm_email
     success, result = confirm_email(token)
-    if not success:
+    if success:
+        return render_template('login.html', success='✓ Email confirmed! You can now log in.', email=result.email)
+    elif result == "Invalid or expired confirmation link":
+        return render_template('login.html', error='Email confirmation failed: link expired or incorrect token. You can still log in if your email was confirmed.'), 400
+    else:
         return render_template('login.html', error=result), 400
-    return render_template('login.html', success='Email confirmed! You can now log in.', email=result.email)
 
 @app.route('/resend-confirmation', methods=['POST'])
 def resend_confirmation():
