@@ -115,7 +115,6 @@
                                 <a href="#" class="settings-item" onclick="openHelpModal(); toggleSettingsMenu(event);">📖 Quick Start Guide</a>
                                 <a href="/help/advanced" class="settings-item">🔧 Advanced Guide</a>
                                 <a href="/help/tips" class="settings-item">💡 Tips & Tricks</a>
-                                <a href="/about" class="settings-item">👨‍👩‍👧‍👦 {{ t.get('about', 'About') }}</a>
                             </div>
                             <div class="settings-divider"></div>
                             <div id="nav-auth-section">
@@ -238,7 +237,7 @@
     </main>
 
     <footer class="footer">
-        <p>Menu Planner &copy; 2026 | Originally built for Raspberry Pi | Created by <a href="{{ github_url }}" target="_blank">{{ creator }}</a></p>
+        <p>Menu Planner &copy; 2026 | Created by <a href="{{ github_url }}" target="_blank">{{ creator }}</a> | <a href="/about">{{ t.get('about', 'About') }}</a></p>
         <p style="font-size: 0.8em; margin-top: 4px;"><a href="{{ patreon_url }}" target="_blank">{{ t.support_patreon }}</a> • Built with Claude Code</p>
     </footer>
 
