@@ -1,109 +1,220 @@
-# Menu Planner Architecture
+# Menu Planner — System Architecture
+
+Last updated: 2026-07-02
+
+---
 
 ## System Overview
 
-Menu Planner is a weekly meal planning system that:
-1. Loads recipes from user-provided Excel templates
-2. Generates weekly menus with selected recipes
-3. Deduplicates ingredients for shopping lists
-4. Syncs with Microsoft To Do (optional)
-5. Sends email notifications (optional)
+Menu Planner is a multi-household meal planning web app that:
+1. Manages recipe collections per household (add manually or import recipe packs)
+2. Generates 6-dinner weekly menus from selected categories
+3. Deduplicates ingredients and produces a shopping list
+4. Tracks pantry items to grey out items already at home
+5. Sends confirmation and password reset emails
 
-## Core Components
+---
 
-### 1. Data Management
-- **recipes_db.json**: User's recipe database
-- **categories.json**: Recipe categories (configurable)
-- **weekly_menu.json**: Current week's menu and shopping list
-- **pantry_staples.json**: Ingredients that don't need to be shopped
+## Infrastructure
 
-### 2. Menu Generation
-- **menu_generator.py**: Randomly selects recipes from user database
-- Respects category preferences
-- Ensures nutritional variety
-- Avoids duplicate recipes in same week
-
-### 3. Ingredient Processing
-- **ingredient_deduplicator.py**: 
-  - Fuzzy matches ingredients (90%+ similarity)
-  - Aggregates quantities across recipes
-  - Filters pantry staples
-  - Categorizes by type (proteins, vegetables, etc.)
-  - Generates shopping list
-
-### 4. Integration Features
-- **to_do_sync.py**: Microsoft Graph API integration
-  - Syncs menu to To Do lists
-  - Syncs shopping list to To Do lists
-- **email_notifier.py**: Email notifications
-  - Sends weekly menu summaries
-  - Sends shopping lists
-- **scheduler.py**: Background task scheduler
-  - Runs menu generation on schedule (default: Saturday 9am)
-  - Sends emails on schedule (default: Friday 6pm)
-
-### 5. Web Interface
-- **flask_app.py**: Flask web application
-  - View weekly menus
-  - Browse recipes
-  - Add/edit recipes
-  - Configure settings
-  - Language toggle (Norwegian/English)
-
-## Deployment Architecture
-
-### Development (Windows/Mac)
 ```
-Flask App (http://localhost:5000)
-  ├── Config & Environment Variables
-  ├── Recipe Database
-  ├── Menu Generator
-  ├── Ingredient Deduplicator
-  └── Optional: To Do Sync, Email Notifier
+User (browser)
+    ↓
+Cloudflare (DNS + SSL for menuplanner.no)
+    ↓
+Render.com (web service — Flask + gunicorn)
+    ↓
+Neon.tech (PostgreSQL — all household data)
+    ↓
+Resend.com (transactional email — confirmation + password reset)
 ```
 
-### Production (Raspberry Pi / Server)
+---
+
+## Database — PostgreSQL (Neon)
+
+SQLAlchemy ORM + Alembic migrations.
+
+### Key Tables
+
+| Table | Purpose |
+|---|---|
+| `users` | Accounts (email, password hash, referral, PIN, email confirmation) |
+| `households` | Family workspaces + all JSONB data columns |
+| `household_members` | User ↔ Household roles (owner/editor/viewer) + family profiles |
+| `recipes` | Individual recipe rows (currently unused — recipes stored in JSONB) |
+| `recipe_ingredients` | Ingredient rows (currently unused — stored in JSONB) |
+| `weekly_menus` | Menu rows (currently unused — stored in JSONB) |
+| `shopping_lists` | Shopping list rows (currently unused — stored in JSONB) |
+
+### Household JSONB Columns
+
+All active household data lives in JSONB columns on the `households` table:
+
+| Column | Contains |
+|---|---|
+| `recipes_db` | All household recipes (imported + manually added) |
+| `categories` | Category list with codes, names, icons, imported flag |
+| `weekly_menu` | Current week's generated menu and shopping list |
+| `pantry` | Pantry items as lowercase strings (bilingual) |
+| `activity_log` | Timestamped audit entries (capped at 200) |
+| `removed_categories` | Tombstone list of deleted category codes |
+| `imported_packs` | Display metadata for imported recipe packs |
+
+---
+
+## Backend — Flask (`deployment/flask_app.py`)
+
+Single-file Flask app with all routes and API endpoints.
+
+### Key Route Groups
+
+| Routes | Purpose |
+|---|---|
+| `/`, `/shopping` | Main pages (menu, shopping list) |
+| `/api/regenerate` | Generate new weekly menu |
+| `/api/recipe-packs/*` | Import / remove recipe packs |
+| `/api/pantry/*` | Add, remove, reset pantry items |
+| `/api/categories/*` | Add, rename, merge, delete categories |
+| `/api/add-recipe`, `/api/edit-recipe`, `/api/delete-recipe` | Recipe CRUD |
+| `/help/advanced`, `/help/tips` | In-app help guides |
+| `/login`, `/signup`, `/logout`, `/confirm-email`, `/reset-password` | Auth flows |
+| `/settings`, `/household-settings` | Settings pages |
+| `/admin` | Admin panel (ADMIN_EMAIL gated) |
+
+### Key Helpers
+
+| Function | Purpose |
+|---|---|
+| `current_household_id()` | Resolves active household from session |
+| `current_household()` | Returns Household ORM object from DB |
+| `_load_pantry_db()` | Loads pantry from JSONB (seeds from file first time) |
+| `_save_pantry_db()` | Saves pantry to JSONB via fresh DB session |
+| `_load_household_categories()` | Loads categories from JSONB |
+| `_save_household_categories()` | Saves categories to JSONB |
+| `load_menu()` | Loads weekly menu from JSONB |
+| `load_recipes_db()` | Loads recipes from JSONB |
+| `save_recipes_db()` | Saves recipes to JSONB |
+
+---
+
+## Core Modules
+
+### `core/menu_generator.py`
+- Loads recipes from household JSONB + shared `sample_recipes.json`
+- Filters by selected categories
+- Deduplicates recently served recipes (avoids repeats)
+- Balances protein types across the week
+- Picks 6 recipes randomly from filtered pool
+- Saves generated menu to `Household.weekly_menu` JSONB
+
+### `core/household_paths.py`
+- Database-backed load/save functions for all JSONB columns
+- File-based fallbacks for local dev
+- Self-heal logic for categories (adds new base categories, never re-adds deleted ones)
+- Bilingual pantry pairing (`pantry_staples.json` translations)
+- `removed_categories` tombstone system
+
+### `core/ingredient_deduplicator.py`
+- Fuzzy-matches ingredient names across recipes (90%+ similarity)
+- Aggregates quantities
+- Categorises by type (proteins, veg, dairy etc.)
+- Produces structured shopping list
+
+### `core/auth_helpers.py`
+- User creation, authentication, email confirmation
+- Password reset token generation
+- PIN hashing (bcrypt)
+- Account deletion (cascades through household, members, data)
+
+---
+
+## Frontend
+
+### Static files (`frontend/static/`)
+
+| File | Purpose |
+|---|---|
+| `app.js` | Main application logic (menu generation, recipe management, UI interactions) |
+| `style.css` | Base styles |
+| `i18n.json` | All translations (NO + EN, keyed as `key_no` / `key_en`) |
+| `language-manager.js` | Language detection + switching via cookie |
+| `measurements.js` | Metric ↔ imperial conversion |
+| `themes/` | 8 themes (CSS custom properties) + theme switcher |
+| `manifest.json` | PWA manifest |
+| `sw.js` | Service worker (offline support) |
+
+### Templates (`frontend/templates/`)
+
+Jinja2 HTML templates. `base.html` contains the nav bar, settings dropdown, help modal, and all shared JS.
+
+---
+
+## Recipe Data
+
+### Recipe Packs (`data/recipe-packs/`)
+12 JSON packs, imported on demand per household. Each pack has `pack_id`, `display_name`, `icon`, `color`, and a `recipes` array.
+
+### Stashed Recipes (not in menus)
+| File | Contents |
+|---|---|
+| `data/sides-stash.json` | 21 side dishes (potatoes, salads, breads etc.) |
+| `data/dessert-stash.json` | 90 dessert recipes |
+| `data/drinks-stash.json` | 4 drink recipes |
+
+### Seed Data (`data-seed/` or `data/`)
+| File | Purpose |
+|---|---|
+| `sample_recipes.json` | 10 shared base recipes visible to all households |
+| `categories.json` | Base category list (self-healed into households) |
+| `pantry_staples.json` | ~100 bilingual EN↔NO staple pairs |
+
+---
+
+## Authentication & Security
+
+- Passwords hashed with `pbkdf2:sha256` (werkzeug)
+- Email confirmation required before login
+- Password reset via one-time token (1 hour expiry)
+- Session cookies with `SECRET_KEY`
+- Role-based access: owner / editor / viewer
+- Profile picker with optional PIN (prevents accidental changes by kids etc.)
+- Admin panel gated by `ADMIN_EMAIL` env var
+
+---
+
+## Email — Resend
+
+Transactional emails only:
+- **Signup confirmation** — user must click link to activate account
+- **Password reset** — one-time link, expires in 1 hour
+
+No marketing emails, no scheduled emails.
+
+---
+
+## CI/CD — GitHub Actions
+
+| Workflow | Runs on | Checks |
+|---|---|---|
+| `tests.yml` | Push / PR | Unit tests |
+| `lint.yml` | Push / PR | Black, flake8, pylint, isort |
+| `security.yml` | Push / PR | Bandit, Safety, CodeQL |
+| `build.yml` | Push / PR | Cross-platform dependency install |
+| `frontend-checks.yml` | Push / PR | HTML, CSS, i18n coverage |
+| `data-validation.yml` | Push / PR | JSON validity, recipe structure |
+| `release.yml` | Version tags | Release creation |
+
+Auto-deploy to Render triggers on every push to `public-release-v1` branch via GitHub webhook.
+
+---
+
+## Local Development
+
+```bash
+# Uses SQLite automatically when DATABASE_URL is not set
+python -m flask --app deployment.flask_app run --debug
 ```
-Systemd Service
-  └── Flask App (HTTPS, gunicorn)
-      ├── Background Scheduler
-      ├── To Do Sync (optional)
-      ├── Email Notifier (optional)
-      └── Recipe Database
-```
 
-## Data Flow
-
-1. **User adds recipes** → Excel template → Import script → recipes_db.json
-2. **Menu generation** (Saturday 9am) →
-   - Menu generator selects 5 recipes
-   - Ingredient deduplicator creates shopping list
-   - weekly_menu.json created
-3. **Email notification** (Friday 6pm) →
-   - Menu summary sent to email
-   - Shopping list sent to email
-4. **To Do sync** (optional) →
-   - Menu items synced to To Do lists
-   - Shopping items synced to To Do lists
-
-## Configuration
-
-All configuration via environment variables (.env file):
-- Azure credentials (optional - for To Do sync)
-- Email settings (optional)
-- Household name
-- Scheduler times
-- Flask settings
-
-No hardcoded credentials or personal data.
-
-## Technology Stack
-
-- **Backend**: Python 3.9+
-- **Framework**: Flask
-- **Scheduling**: APScheduler
-- **Database**: JSON files
-- **Authentication**: Azure AD (optional)
-- **Frontend**: HTML, CSS, JavaScript
-- **Email**: SMTP (Gmail or custom)
-- **Deployment**: systemd (Linux) or Docker
+SQLite DB: `menu_planner.db` in project root.
+Alembic migrations apply to both SQLite (dev) and PostgreSQL (prod).

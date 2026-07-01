@@ -1,396 +1,215 @@
-# Menu Planner Developer Guide
+# Menu Planner — Developer Guide
 
-This guide is for developers who want to contribute to Menu Planner or extend it with custom features.
+Last updated: 2026-07-02
+
+For the complete technical architecture, see `SYSTEM_ARCHITECTURE.md`.
+For the recipe pack JSON format, see `RECIPE_PACK_FORMAT.md`.
+
+---
 
 ## Project Structure
 
 ```
 Menu-Planner/
-├── core/                     # Core application logic
-│   ├── __init__.py
-│   ├── error_handler.py      # Centralized error handling
-│   ├── ingredient_deduplicator.py
-│   ├── menu_generator.py
-│   ├── pantry_staples.json
-│   └── todo_sync.py
-├── deployment/               # Flask web application
-│   ├── flask_app.py         # Entry point, routes & API endpoints
-│   ├── auth.py              # Microsoft authentication
-│   ├── email_notifier.py
-│   └── scheduler.py
-├── frontend/                 # Web interface
+├── core/                          # Core logic
+│   ├── menu_generator.py          # Menu generation algorithm
+│   ├── ingredient_deduplicator.py # Shopping list deduplication
+│   ├── household_paths.py         # JSONB load/save functions
+│   ├── household_helpers.py       # Household/member queries
+│   ├── auth_helpers.py            # Auth: create user, login, reset, delete
+│   └── error_handler.py           # Centralised error handling
+├── database/
+│   ├── models.py                  # SQLAlchemy models (User, Household, HouseholdMember)
+│   └── database.py                # DB engine + SessionLocal
+├── alembic/
+│   └── versions/                  # Migration scripts (add new ones here)
+├── deployment/
+│   ├── flask_app.py               # ALL routes, API endpoints, helpers
+│   ├── email_notifier.py          # Resend email sending
+│   ├── scheduler.py               # APScheduler background jobs
+│   └── to_do_sync.py              # Microsoft To Do integration (optional)
+├── frontend/
 │   ├── static/
-│   │   ├── app.js           # Main application logic
-│   │   ├── style.css        # Styling
-│   │   ├── i18n.json        # Translations
-│   │   ├── language-manager.js
-│   │   ├── measurements.js
-│   │   ├── manifest.json    # PWA manifest
-│   │   ├── sw.js            # Service worker
-│   │   └── themes/          # Theme files
-│   └── templates/           # Jinja2 templates
-├── scripts/                  # Utility scripts
-│   ├── pi-menu-cli.py       # CLI interface
-│   ├── category-editor.py   # Category management
-│   ├── import_recipes.py    # Recipe importer
-│   └── test-local.py        # Local test suite
-├── data/                     # Application data
-│   ├── sample_recipes.json
-│   ├── categories.json
-│   └── weekly_menu.json
-├── docs/                     # Documentation
-├── config.py                # Configuration
-├── requirements.txt          # Python dependencies
-└── README.md
+│   │   ├── app.js                 # Main UI logic
+│   │   ├── style.css              # Base styles
+│   │   ├── i18n.json              # ALL translations (key_no / key_en)
+│   │   ├── language-manager.js    # Language switching
+│   │   ├── measurements.js        # Metric ↔ imperial conversion
+│   │   ├── manifest.json          # PWA manifest
+│   │   ├── sw.js                  # Service worker
+│   │   └── themes/                # CSS theme files + registry
+│   └── templates/                 # Jinja2 HTML templates
+│       ├── base.html              # Nav, settings dropdown, help modal
+│       ├── settings.html          # User settings page
+│       ├── household-settings.html
+│       ├── help_advanced.html     # Advanced guide (bilingual)
+│       └── help_tips.html         # Tips & tricks (bilingual)
+├── data/
+│   ├── recipe-packs/              # 12 importable recipe packs
+│   ├── sample_recipes.json        # 10 shared base recipes
+│   ├── categories.json            # Base category seed
+│   ├── pantry_staples.json        # ~100 bilingual EN↔NO staples
+│   ├── sides-stash.json           # 21 side dishes (not in menus)
+│   ├── dessert-stash.json         # 90 desserts (not in menus)
+│   └── drinks-stash.json          # 4 drinks (not in menus)
+├── scripts/
+│   └── backfill_household_data.py # One-time JSONB migration tool
+├── tests/
+│   └── test_f4_jsonb_storage.py   # JSONB storage tests
+├── docs/                          # All documentation
+├── requirements.txt
+├── Procfile                       # Render start command
+├── runtime.txt                    # Python version (3.11.9)
+├── CHANGELOG.md                   # Full project history
+├── BACKLOG_2026-07-01.md          # Active tasks
+├── FEATURE_ROADMAP.md             # Planned features
+└── new_chat_fresh_menu_planner.md # Context file for new Claude sessions
 ```
 
-## Development Setup
+---
 
-### 1. Clone & Environment
+## Local Development Setup
+
+### Prerequisites
+- Python 3.11+
+- Git
+
+### Setup
 
 ```bash
 git clone https://github.com/nobody174/Menu-Planner.git
 cd Menu-Planner
-python3 -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
+
+python -m venv venv
+venv\Scripts\activate       # Windows
+# source venv/bin/activate  # Mac/Linux
+
 pip install -r requirements.txt
+
+# Run without DATABASE_URL to use local SQLite
+python deployment/flask_app.py
 ```
 
-### 2. Configuration
+Open http://localhost:5000
+
+### With PostgreSQL Locally
 
 ```bash
-cp .env.template .env
-# Edit .env with your settings (optional for local dev)
+# Set DATABASE_URL before running
+$env:DATABASE_URL="postgresql://user:pass@host/dbname"
+alembic upgrade head
+python deployment/flask_app.py
 ```
-
-### 3. Run Locally
-
-```bash
-python3 deployment/flask_app.py
-# Open http://localhost:5000
-```
-
-## Architecture
-
-### Menu Generation Pipeline
-
-```
-1. Load recipes from JSON
-   ↓
-2. Filter by category & allergens
-   ↓
-3. Select 5-6 recipes with variety
-   ↓
-4. Deduplicate ingredients
-   ↓
-5. Categorize by type
-   ↓
-6. Save to weekly_menu.json
-```
-
-### Data Flow
-
-```
-Frontend (HTML/JS)
-     ↓
-Flask Routes (deployment/flask_app.py)
-     ↓
-Core Logic (core/)
-     ↓
-Data Files (data/*.json)
-```
-
-## Key Modules
-
-### MenuGenerator (core/menu_generator.py)
-
-Generates weekly menus from recipes.
-
-```python
-from core.menu_generator import MenuGenerator
-
-gen = MenuGenerator(selected_categories=['familie', 'rask'])
-gen.load_recipes()
-gen.filter_recipes()
-menu = gen.generate_menu(num_dinners=5)
-menu.save()
-```
-
-### ErrorHandler (core/error_handler.py)
-
-Centralized error handling with custom exceptions.
-
-```python
-from core.error_handler import (
-    PIMenuError, RecipeLoadError,
-    handle_error, validate_recipe
-)
-
-try:
-    # Your code
-except PIMenuError as e:
-    result = handle_error(e, "context")
-```
-
-### LanguageManager (frontend/static/language-manager.js)
-
-Client-side language switching.
-
-```javascript
-window.languageManager.setLanguage('en');
-window.languageManager.applyLanguage();
-const text = window.languageManager.t('menu_en');
-```
-
-### MeasurementConverter (frontend/static/measurements.js)
-
-Unit conversion (metric ↔ imperial).
-
-```javascript
-const converted = window.measurementConverter.convertUnit(
-    500, 'g', 'oz'
-);  // {quantity: 17.64, unit: 'oz'}
-```
-
-## Common Tasks
-
-### Add a New API Endpoint
-
-1. Add route in `deployment/flask_app.py`:
-
-```python
-@app.route('/api/my-endpoint')
-def my_endpoint():
-    try:
-        data = request.get_json()
-        # Process
-        return jsonify({'status': 'success', 'data': result})
-    except Exception as e:
-        logger.error(f"Error: {e}")
-        return jsonify({'status': 'error', 'message': str(e)}), 500
-```
-
-2. Call from frontend:
-
-```javascript
-fetch('/api/my-endpoint', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({key: 'value'})
-})
-.then(r => r.json())
-.then(data => console.log(data));
-```
-
-### Add a Translation
-
-1. Edit `frontend/static/i18n.json`:
-
-```json
-{
-  "my_key_no": "Norsk tekst",
-  "my_key_en": "English text"
-}
-```
-
-2. Use in template:
-
-```html
-<span data-i18n="my_key">Loading...</span>
-```
-
-Or in JavaScript:
-
-```javascript
-const text = window.languageManager.t('my_key');
-```
-
-### Add a New Category
-
-Option 1: CLI tool
-
-```bash
-python3 scripts/category-editor.py --add
-```
-
-Option 2: Edit `data/categories.json` directly:
-
-```json
-{
-  "code": "new-category",
-  "name_no": "Ny Kategori",
-  "name_en": "New Category",
-  "icon": "🍕",
-  "color": "#FF6B6B"
-}
-```
-
-### Add Sample Recipes
-
-Edit `data/sample_recipes.json` or import via Excel:
-
-```bash
-python3 scripts/import_recipes.py your_recipes.xlsx
-```
-
-## Testing
-
-### Run Local Test Suite
-
-```bash
-python3 scripts/test-local.py
-```
-
-Tests:
-- Configuration loading
-- Recipe & category loading
-- Menu generation
-- Language manager
-- Measurement conversion
-- Error handling
-- Static assets
-
-### Manual Testing
-
-```bash
-# List recipes
-python3 scripts/pi-menu-cli.py recipes list
-
-# Count recipes
-python3 scripts/pi-menu-cli.py recipes count
-
-# Validate config
-python3 scripts/pi-menu-cli.py validate
-
-# Generate menu
-python3 scripts/pi-menu-cli.py menu generate
-```
-
-## Code Style
-
-### Python
-
-- PEP 8 compliant
-- Type hints for new code
-- Docstrings for public functions
-- Error handling with custom exceptions
-
-### JavaScript
-
-- Vanilla JS (no frameworks)
-- Camel case for functions/variables
-- Comments for complex logic
-
-### HTML/CSS
-
-- Semantic HTML
-- BEM-like class naming
-- CSS custom properties for theming
-- Mobile-first responsive design
-
-## Debugging
-
-### Enable Debug Mode
-
-Edit `deployment/flask_app.py`:
-
-```python
-app.config['DEBUG'] = True
-```
-
-### Check Logs
-
-```bash
-tail -f logs/flask_app.log
-tail -f logs/pi-menu.log
-```
-
-### Browser Console
-
-Press F12 to open developer tools and check:
-- Console for JavaScript errors
-- Network tab for API calls
-- Application tab for localStorage
-
-## Git Workflow
-
-1. Create feature branch:
-   ```bash
-   git checkout -b feature/my-feature
-   ```
-
-2. Make changes and test:
-   ```bash
-   python3 scripts/test-local.py
-   ```
-
-3. Commit with clear message:
-   ```bash
-   git commit -m "feature: add new feature
-
-   Description of what was added.
-   Why it's useful.
-   ```
-
-4. Push and create PR:
-   ```bash
-   git push origin feature/my-feature
-   ```
-
-## Performance Tips
-
-1. **Lazy load data**: Load recipes only when needed
-2. **Cache JSON**: Use localStorage for categories, language
-3. **Minimize API calls**: Batch requests when possible
-4. **Optimize images**: Keep theme images small
-5. **Use service worker**: Already implemented for offline support
-
-## Security Checklist
-
-- [ ] No hardcoded credentials
-- [ ] Environment variables for secrets
-- [ ] Input validation on forms
-- [ ] SQL injection prevention (N/A - no DB)
-- [ ] XSS prevention (escape HTML)
-- [ ] CSRF tokens on POST
-- [ ] HTTPS in production
-
-## Deployment
-
-### Development
-```bash
-python3 deployment/flask_app.py
-```
-
-### Production (Raspberry Pi)
-```bash
-# Create systemd service
-sudo systemctl enable pi-menu
-sudo systemctl start pi-menu
-```
-
-## Getting Help
-
-- **GitHub Issues**: Report bugs or request features
-- **GitHub Discussions**: Ask questions
-- **Code Comments**: Complex logic needs explanation
-- **Documentation**: Keep docs up-to-date
-
-## Contribution Checklist
-
-- [ ] Tests pass locally
-- [ ] Code follows style guide
-- [ ] No hardcoded secrets
-- [ ] Documentation updated
-- [ ] Commit message is clear
-
-## Useful Resources
-
-- [Flask Documentation](https://flask.palletsprojects.com/)
-- [Jinja2 Templates](https://jinja.palletsprojects.com/)
-- [Python Logging](https://docs.python.org/3/library/logging.html)
-- [Git Workflow](https://git-scm.com/book/en/v2)
 
 ---
 
-Happy coding! 🍽️
+## Adding a Database Migration
+
+1. Edit `database/models.py` with your changes
+2. Create a new migration file in `alembic/versions/`
+3. Set `down_revision` to the current head (`python -m alembic heads`)
+4. Write `upgrade()` and `downgrade()` functions
+5. Test: `alembic upgrade head` and `alembic downgrade -1`
+
+Example migration:
+```python
+revision = 'abc123def456'
+down_revision = 'previous_revision_id'
+
+def upgrade():
+    op.add_column('households', sa.Column('new_field', sa.JSON(), nullable=True))
+
+def downgrade():
+    op.drop_column('households', 'new_field')
+```
+
+---
+
+## Adding a New Route
+
+All routes live in `deployment/flask_app.py`. Add your route near related routes.
+
+```python
+@app.route('/api/my-feature', methods=['POST'])
+def my_feature():
+    if not session.get('user_id'):
+        return jsonify({'success': False}), 401
+    # ... your logic
+    return jsonify({'success': True})
+```
+
+---
+
+## Adding Translations
+
+All UI strings go in `frontend/static/i18n.json` as paired keys:
+
+```json
+"my_new_key_no": "Norsk tekst",
+"my_new_key_en": "English text"
+```
+
+In templates: `{{ t.get('my_new_key', 'Fallback') }}`
+In JS: keys are passed via `STR = { ... }` blocks in templates.
+
+---
+
+## JSONB Save Pattern
+
+**Always use a fresh session — never db.merge() on detached objects:**
+
+```python
+from database.database import SessionLocal
+from database.models import Household
+
+db = SessionLocal()
+try:
+    household = db.query(Household).filter(Household.id == household_id).first()
+    if household:
+        household.pantry = sorted(new_items)
+        db.commit()
+except Exception as e:
+    db.rollback()
+    print(f"Error: {e}")
+finally:
+    db.close()
+```
+
+---
+
+## Deployment
+
+Push to `public-release-v1` → Render auto-deploys.
+
+**Build command (Render):**
+```
+python3.11 -m pip install --break-system-packages -r requirements.txt && python3.11 -m alembic upgrade head
+```
+
+**Start command (Render):**
+```
+python3.11 -m gunicorn -b 0.0.0.0:$PORT deployment.flask_app:app
+```
+
+See `DEPLOYMENT_F4.md` for full Render + Neon setup instructions.
+
+---
+
+## Running Tests
+
+```bash
+pytest tests/ -v
+```
+
+---
+
+## CI/CD
+
+GitHub Actions runs automatically on every push:
+- `tests.yml` — unit tests
+- `lint.yml` — code style
+- `security.yml` — vulnerability scan
+- `build.yml` — cross-platform dependency check
+- `data-validation.yml` — JSON structure validation
+
+See `.github/workflows/README.md` for details.

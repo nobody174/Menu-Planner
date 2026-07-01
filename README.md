@@ -1,164 +1,120 @@
 # Menu Planner
 
-*Originally built for Raspberry Pi — now runs anywhere Python does.*
-
-A Python/Flask web application for families to organize recipes, generate weekly menus, and create shopping lists.
+A web application for families to plan weekly dinners, manage recipes, and generate shopping lists — available at **[menuplanner.no](https://menuplanner.no)**.
 
 **Created by:** [nobody174](https://github.com/nobody174)
 **License:** MIT
 **Support:** [Patreon](https://www.patreon.com/Nobody174/posts/menu-planner-161473082)
 
+---
+
 ## Features
 
-✅ **Recipe Management** - Add your own recipes via web form or import from Excel
-✅ **Sample Recipes** - 10 bilingual sample recipes included to get started
-✅ **Menu Generation** - Automatically generate weekly menus from your recipes
-✅ **Shopping Lists** - Automatically deduplicated ingredient lists
-✅ **Bilingual Support** - Norwegian & English with one-click toggle
-✅ **Categories** - Organize recipes (Family, Quick, Vegetarian, Fish, Meat, Other)
-✅ **Microsoft To Do Sync** - Push shopping lists to To Do lists (optional)
-✅ **Email Notifications** - Weekly menu summaries via email (optional)
-✅ **Responsive Design** - Works on desktop, tablet, and mobile
-✅ **Multiple Themes** - 9+ beautiful themes to choose from
-✅ **Open Source** - 100% free, no tracking, no accounts needed
+✅ **Recipe Management** — Add your own recipes via web form or import recipe packs
+✅ **Weekly Menu Generation** — Auto-generate 6 dinners per week from your recipe collection
+✅ **Shopping Lists** — Auto-deduplicated ingredient list for the whole week
+✅ **Pantry Tracking** — Mark ingredients you already have; they're greyed out on the shopping list
+✅ **Recipe Packs** — 12+ curated packs (Norwegian, Italian, Tex-Mex, Grills, Salads and more)
+✅ **Bilingual** — Full Norwegian & English support, one-click language toggle
+✅ **Household Management** — Multiple users, roles (owner/editor/viewer), family profiles
+✅ **Categories** — Fully customisable (add, rename, merge, delete)
+✅ **Multiple Themes** — 8+ themes to choose from
+✅ **Favourites** — Star recipes, generate menus from favourites only
+✅ **Activity Log** — See who added/changed what in the household
+✅ **Email Confirmation & Password Reset** — via Resend
+✅ **Responsive Design** — Works on desktop, tablet and mobile
+✅ **PWA** — Installable on mobile home screen
+✅ **Open Source** — Free to self-host
 
-## Quick Start
+---
+
+## Live App
+
+**[menuplanner.no](https://menuplanner.no)**
+
+Hosted on Render.com (web) + Neon.tech (PostgreSQL).
+
+---
+
+## Self-Hosting
 
 ### Prerequisites
 
-- Python 3.9+
+- Python 3.11+
+- PostgreSQL database (or Neon free tier)
 - Git
-- pip (Python package manager)
 
-### Installation (5 minutes)
+### Setup
 
 ```bash
-# 1. Clone repository
+# 1. Clone
 git clone https://github.com/nobody174/Menu-Planner.git
 cd Menu-Planner
 
-# 2. Create & activate virtual environment
+# 2. Create virtual environment
 python3 -m venv venv
-source venv/bin/activate
-# On Windows: venv\Scripts\activate
+source venv/bin/activate  # Windows: venv\Scripts\activate
 
 # 3. Install dependencies
 pip install -r requirements.txt
 
-# 4. Configure (edit .env with your family name)
+# 4. Configure environment variables
 cp .env.template .env
-nano .env  # Edit: HOUSEHOLD_NAME=Your Family
+# Edit .env: set DATABASE_URL, SECRET_KEY, FLASK_ENV
 
-# 5. Start the app
-python3 deployment/flask_app.py
+# 5. Run database migrations
+alembic upgrade head
+
+# 6. Start
+gunicorn -b 0.0.0.0:5000 deployment.flask_app:app
 ```
 
-**Open browser:** http://localhost:5000
+### Required Environment Variables
 
-### First Steps
+| Variable | Description |
+|---|---|
+| `DATABASE_URL` | PostgreSQL connection string |
+| `SECRET_KEY` | Flask session secret (generate with `openssl rand -hex 32`) |
+| `FLASK_ENV` | `production` or `development` |
+| `RESEND_API_KEY` | For email confirmation + password reset ([resend.com](https://resend.com)) |
+| `RESEND_FROM_EMAIL` | Sending address (e.g. `noreply@yourdomain.no`) |
+| `ADMIN_EMAIL` | Your email — grants access to `/admin` panel |
 
-1. **Explore sample recipes** - 10 bilingual recipes included as examples
-2. **Add your recipes** - Click "Legg til oppskrift" (Add Recipe) and fill in the form
-3. **Generate menu** - Click "Generer ny meny" (Generate Menu)
-4. **Create shopping list** - Click "Handleliste" (Shopping List)
-5. **Customize** - Change language, theme, and categories in Settings
-
-## Configuration
-
-Edit `.env`:
-
-```ini
-# Your family name
-HOUSEHOLD_NAME=My Family
-
-# Optional: Microsoft To Do sync
-AZURE_CLIENT_ID=
-AZURE_CLIENT_SECRET=
-AZURE_TENANT_ID=
-
-# Optional: Email notifications
-EMAIL_USERNAME=your-email@gmail.com
-EMAIL_PASSWORD=app-password
-EMAIL_RECIPIENTS=family@example.com
-EMAIL_SEND_ENABLED=false
-```
-
-## Usage
-
-### 1. Add Recipes
-
-- Download Excel template from `templates/`
-- Fill in your family recipes
-- Import via web interface or CLI:
-  ```bash
-  python3 scripts/import_recipes.py my_recipes.xlsx
-  ```
-
-### 2. Generate Menu
-
-- Click "Generer ny meny" (Generate New Menu)
-- Select preferred categories
-- Weekly menu is generated automatically
-
-### 3. Create Shopping List
-
-- Click "Handleliste" (Shopping List)
-- Review automatically deduplicated ingredients
-- Print or sync to To Do lists
-
-### 4. Customize
-
-- Change language: Settings → Språk
-- Switch theme: Settings → Tema
-- Edit categories: `data/categories.json`
-
-## Command-Line Tools
-
-Manage Menu Planner from the terminal:
-
-```bash
-# List all recipes
-python3 scripts/pi-menu-cli.py recipes list
-
-# Count recipes by category
-python3 scripts/pi-menu-cli.py recipes count
-
-# Validate recipe data
-python3 scripts/pi-menu-cli.py recipes validate
-
-# List categories
-python3 scripts/pi-menu-cli.py categories list
-
-# Generate weekly menu
-python3 scripts/pi-menu-cli.py menu generate
-
-# Validate configuration
-python3 scripts/pi-menu-cli.py validate
-
-# Manage categories
-python3 scripts/category-editor.py --list
-python3 scripts/category-editor.py --add
-python3 scripts/category-editor.py --backup
-```
+---
 
 ## Documentation
 
-- **[Setup Guide](docs/SETUP_GUIDE.md)** - Installation & configuration
-- **[Excel Template Guide](docs/EXCEL_GUIDE.md)** - How to add recipes
-- **[FAQ](docs/FAQ.md)** - Common questions & troubleshooting
-- **[Architecture](ARCHITECTURE.md)** - System design & data flow
+| Document | Purpose |
+|---|---|
+| [User Guide](docs/USER_GUIDE.md) | Getting started for new users |
+| [Advanced Guide](docs/ADVANCED_USER_GUIDE.md) | How the system works under the hood |
+| [Tips & Tricks](docs/TIPS_AND_TRICKS.md) | Power user tips |
+| [Recipe Pack Format](docs/RECIPE_PACK_FORMAT.md) | How to write new recipe packs (developer) |
+| [Developer Guide](docs/DEVELOPER_GUIDE.md) | Project structure and contribution guide |
+| [Deployment Guide](DEPLOYMENT_F4.md) | Render + Neon deployment instructions |
+| [Changelog](CHANGELOG.md) | Full history of all work done |
+| [Feature Roadmap](FEATURE_ROADMAP.md) | Planned features |
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Backend | Python 3.11, Flask 3.0 |
+| Database | PostgreSQL (Neon) + SQLAlchemy + Alembic |
+| Frontend | Vanilla JS, CSS custom properties, Jinja2 templates |
+| Hosting | Render.com (web) |
+| Email | Resend |
+| DNS / SSL | Cloudflare |
+| CI/CD | GitHub Actions |
+
+---
 
 ## License
 
-MIT License - See [LICENSE](LICENSE) file
+MIT License — see [LICENSE](LICENSE)
 
 ## Credits
 
-**Creator:** [nobody174](https://github.com/nobody174)
-
 Built with [Flask](https://flask.palletsprojects.com/) and [Claude Code](https://claude.com/claude-code).
-
-## Support
-
-- **GitHub:** [Menu-Planner](https://github.com/nobody174/Menu-Planner)
-- **Patreon:** [Support on Patreon](https://www.patreon.com/Nobody174/posts/menu-planner-161473082)
