@@ -248,7 +248,7 @@ Built in a single day across 10 phases:
 
 | Phase | What Was Built |
 |-------|---------------|
-| 1 | Remove scrapers, set up clean project structure |
+| 1 | Clean up project structure and remove early prototype code |
 | 2 | Remove hardcoded credentials, create `.env` template |
 | 3 | Clean up file headers and references |
 | 4 | Replace initial recipes with proper public sample recipes |

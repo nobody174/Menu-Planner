@@ -78,24 +78,6 @@ FLASK_PORT = 5000
 FLASK_DEBUG = False  # Set to True only for development
 
 # ============================================================================
-# SCRAPER SETTINGS
-# ============================================================================
-
-SCRAPER_RATE_LIMIT = 1.5  # Seconds between requests (respect HelloFresh servers)
-SCRAPER_TIMEOUT = 15  # Request timeout in seconds
-RECIPE_CATEGORIES = {
-    "Populære": "https://www.hellofresh.no/recipes/mest-populaere-oppskrifter",
-    "Familie": "https://www.hellofresh.no/recipes/familie",
-    "Rask Middag": "https://www.hellofresh.no/recipes/rask-mat"
-}
-
-# Future categories (Phase 3):
-# "Italiensk": "https://www.hellofresh.no/recipes/italienske-oppskrifter",
-# "Thaimat": "https://www.hellofresh.no/recipes/thailandske-oppskrifter",
-# "Kinesisk": "https://www.hellofresh.no/recipes/kinesiske-oppskrifter",
-# ... etc
-
-# ============================================================================
 # MENU GENERATION SETTINGS
 # ============================================================================
 
@@ -145,7 +127,7 @@ TO_DO_GRAPH_API_ENDPOINT = "https://graph.microsoft.com/v1.0"
 
 """
 Environment variables to set before running:
-  
+
   AZURE_CLIENT_SECRET    - Your Azure app client secret
   EMAIL_USERNAME         - Gmail/SMTP username
   EMAIL_PASSWORD         - Gmail/SMTP password (or app-specific password)
