@@ -212,6 +212,10 @@ class MenuGenerator:
                 self.recipes_db.append(recipe_copy)
 
         logger.info(f"Loaded {len(self.recipes_db)} recipes (filtered by {self.selected_categories})")
+
+        if len(self.recipes_db) == 0 and self.selected_categories:
+            logger.warning(f"No recipes found for selected categories: {self.selected_categories}")
+
         return len(self.recipes_db) > 0
 
     def contains_orange(self, text: str) -> bool:

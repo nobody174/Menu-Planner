@@ -1951,6 +1951,9 @@ def api_regenerate():
         generator = MenuGenerator(selected_categories=selected_categories, household_id=current_household_id(), favorite_recipe_ids=favorite_recipe_ids)
         menu = generator.run(num_dinners=6, save=True)
 
+        if not menu or not menu.get('dinners'):
+            return jsonify({'status': 'error', 'message': 'No recipes available for selected categories. Please select different categories or add recipes.'}), 400
+
         from core.household_paths import append_activity
         append_activity(current_household_id(), current_actor_name(), "Regenerated the weekly menu")
 
