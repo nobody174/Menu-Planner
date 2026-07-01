@@ -265,15 +265,24 @@ def reset_password(token, new_password):
 
 
 def delete_user_account(user_id):
-    """Delete a user and all their data. Handles FK constraints in correct order."""
+    """Delete a user and all their data. Handles FK constraints in correct order
+    and removes household folders from disk."""
     session = SessionLocal()
     try:
+        import shutil
         from database.models import Household, HouseholdMember
+        from core.household_paths import HOUSEHOLDS_DIR
+
         owned_ids = [
             h.id for h in session.query(Household).filter(Household.owner_id == user_id).all()
         ]
+
         for hid in owned_ids:
             session.query(HouseholdMember).filter(HouseholdMember.household_id == hid).delete()
+            household_folder = HOUSEHOLDS_DIR / str(hid)
+            if household_folder.exists():
+                shutil.rmtree(household_folder)
+
         session.query(HouseholdMember).filter(HouseholdMember.user_id == user_id).delete()
         session.query(Household).filter(Household.owner_id == user_id).delete()
         session.query(User).filter(User.id == user_id).delete()

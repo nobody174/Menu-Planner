@@ -936,7 +936,8 @@ def api_rename_category():
 
 @app.route('/api/categories/remove', methods=['POST'])
 def api_remove_category():
-    """Owner-only: remove a category from this household's category list."""
+    """Owner-only: remove a category from this household's category list.
+    Moves all recipes in the deleted category to 'Uncategorized'."""
     if not acting_role_is_owner():
         return jsonify({'success': False, 'message': 'Permission denied'}), 403
 
@@ -950,16 +951,42 @@ def api_remove_category():
         return jsonify({'success': False, 'message': 'Category code required'}), 400
 
     categories = _load_household_categories(household_id)
-    remaining = [c for c in categories if c.get('code') != code]
-    if len(remaining) == len(categories):
+    cat_to_delete = next((c for c in categories if c.get('code') == code), None)
+    if not cat_to_delete:
         return jsonify({'success': False, 'message': 'Category not found'}), 404
 
+    cat_names_to_move = {cat_to_delete.get('name_en', ''), cat_to_delete.get('name_no', '')}
+
+    uncategorized = next((c for c in categories if c.get('code') == 'uncategorized'), None)
+    if not uncategorized:
+        uncategorized = {
+            'code': 'uncategorized',
+            'name_en': 'Uncategorized',
+            'name_no': 'Ukategorisert',
+        }
+        categories.append(uncategorized)
+
+    uncategorized_name = uncategorized.get(f'name_{_get_lang()}') or uncategorized.get('name_en', 'Uncategorized')
+
+    recipes = load_recipes_db()
+    moved = 0
+    for r in recipes:
+        if r.get('category') in cat_names_to_move:
+            r['category'] = uncategorized_name
+            moved += 1
+    if moved:
+        save_recipes_db(recipes)
+
+    remaining = [c for c in categories if c.get('code') != code]
     _save_household_categories(household_id, remaining)
     from core.household_paths import append_activity, mark_category_removed
     mark_category_removed(household_id, code)
-    append_activity(household_id, current_actor_name(), f"Removed category '{code}'")
+    msg = f"Removed category '{code}'"
+    if moved:
+        msg += f" ({moved} recipes moved to Uncategorized)"
+    append_activity(household_id, current_actor_name(), msg)
 
-    return jsonify({'success': True, 'categories': _sort_categories(remaining)})
+    return jsonify({'success': True, 'categories': _sort_categories(remaining), 'recipes_moved': moved})
 
 @app.route('/api/categories/merge', methods=['POST'])
 def api_merge_category():
