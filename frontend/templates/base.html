@@ -71,6 +71,9 @@
                     <button class="help-btn" aria-label="Quick Start Guide" title="Quick Start Guide" onclick="openHelpModal()">❓</button>
                 </li>
                 <li class="nav-item">
+                    <button class="help-btn" aria-label="Install as App" title="Install as App" onclick="openInstallModal()">📱</button>
+                </li>
+                <li class="nav-item">
                     <div class="nav-settings-menu">
                         <button id="settings-btn" class="settings-btn" aria-label="{{ t.settings }}" title="{{ t.settings }}" onclick="toggleSettingsMenu(event)">⚙️</button>
                         <div id="settings-dropdown" class="settings-dropdown">
@@ -147,6 +150,90 @@
         </div>
     </nav>
 
+    <!-- Install as App Modal -->
+    <div id="install-modal" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.5); align-items:center; justify-content:center;">
+        <div style="background:var(--color-surface,#fff); border-radius:16px; max-width:560px; width:90%; max-height:80vh; overflow:hidden; display:flex; flex-direction:column; box-shadow:0 20px 60px rgba(0,0,0,0.3);">
+            <div style="padding:20px 24px 16px; border-bottom:1px solid var(--color-border,#e5e7eb); display:flex; align-items:center; justify-content:space-between;">
+                <h2 style="margin:0; font-size:1.2rem; color:var(--color-text-primary,#1a1a1a);">📱 {% if request.cookies.get('pi_language','en') == 'no' %}Installer som app{% else %}Install as App{% endif %}</h2>
+                <button onclick="closeInstallModal()" style="background:none; border:none; font-size:1.5rem; cursor:pointer; color:var(--color-text-secondary,#666); line-height:1;">×</button>
+            </div>
+            <div style="padding:20px 24px; overflow-y:auto; color:var(--color-text-primary,#1a1a1a); line-height:1.7; font-size:0.95rem;">
+                {% set lang = request.cookies.get('pi_language', 'en') %}
+                {% if lang == 'no' %}
+                <p>Menu Planner fungerer som en ekte app på mobilen din — ingen App Store eller Play Store nødvendig!</p>
+                <h4 style="color:var(--color-primary,#d97706); margin-top:16px;">🍎 iPhone / iPad (Safari)</h4>
+                <ol style="padding-left:20px; margin:8px 0;">
+                    <li>Åpne <strong>menuplanner.no</strong> i Safari</li>
+                    <li>Trykk på <strong>Del-knappen</strong> (firkant med pil opp) nederst på skjermen</li>
+                    <li>Scroll ned og trykk <strong>"Legg til på Hjem-skjermen"</strong></li>
+                    <li>Trykk <strong>"Legg til"</strong> øverst til høyre</li>
+                    <li>Ferdig! 🎉 App-ikonet vises på hjemskjermen</li>
+                </ol>
+                <h4 style="color:var(--color-primary,#d97706); margin-top:16px;">🤖 Android (Chrome)</h4>
+                <ol style="padding-left:20px; margin:8px 0;">
+                    <li>Åpne <strong>menuplanner.no</strong> i Chrome</li>
+                    <li>Trykk på <strong>menyknappen</strong> (tre prikker øverst til høyre)</li>
+                    <li>Trykk <strong>"Legg til på startskjermen"</strong> eller <strong>"Installer app"</strong></li>
+                    <li>Trykk <strong>"Installer"</strong></li>
+                    <li>Ferdig! 🎉 Menu Planner åpner nå som en ekte app</li>
+                </ol>
+                <p style="margin-top:16px; font-size:0.85rem; color:var(--color-text-secondary,#666);">💡 Tips: Android viser av og til et <strong>"Installer app"</strong>-banner automatisk nederst på siden. Trykk på det!</p>
+                {% else %}
+                <p>Menu Planner works like a real app on your phone — no App Store or Play Store needed!</p>
+                <h4 style="color:var(--color-primary,#d97706); margin-top:16px;">🍎 iPhone / iPad (Safari)</h4>
+                <ol style="padding-left:20px; margin:8px 0;">
+                    <li>Open <strong>menuplanner.no</strong> in Safari</li>
+                    <li>Tap the <strong>Share button</strong> (box with arrow) at the bottom of the screen</li>
+                    <li>Scroll down and tap <strong>"Add to Home Screen"</strong></li>
+                    <li>Tap <strong>"Add"</strong> in the top right</li>
+                    <li>Done! 🎉 The app icon appears on your home screen</li>
+                </ol>
+                <h4 style="color:var(--color-primary,#d97706); margin-top:16px;">🤖 Android (Chrome)</h4>
+                <ol style="padding-left:20px; margin:8px 0;">
+                    <li>Open <strong>menuplanner.no</strong> in Chrome</li>
+                    <li>Tap the <strong>menu button</strong> (three dots, top right)</li>
+                    <li>Tap <strong>"Add to Home Screen"</strong> or <strong>"Install app"</strong></li>
+                    <li>Tap <strong>"Install"</strong></li>
+                    <li>Done! 🎉 Menu Planner now opens like a real app</li>
+                </ol>
+                <p style="margin-top:16px; font-size:0.85rem; color:var(--color-text-secondary,#666);">💡 Tip: Android sometimes shows an <strong>"Install app"</strong> banner automatically at the bottom of the page. Just tap that!</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- About Modal -->
+    <div id="about-modal" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.5); align-items:center; justify-content:center;">
+        <div style="background:var(--color-surface,#fff); border-radius:16px; max-width:620px; width:90%; max-height:85vh; overflow:hidden; display:flex; flex-direction:column; box-shadow:0 20px 60px rgba(0,0,0,0.3);">
+            <div style="padding:20px 24px 16px; border-bottom:1px solid var(--color-border,#e5e7eb); display:flex; align-items:center; justify-content:space-between;">
+                <h2 style="margin:0; font-size:1.2rem; color:var(--color-text-primary,#1a1a1a);">👨‍👩‍👧‍👦 {% if request.cookies.get('pi_language','en') == 'no' %}Om Menu Planner{% else %}About Menu Planner{% endif %}</h2>
+                <button onclick="closeAboutModal()" style="background:none; border:none; font-size:1.5rem; cursor:pointer; color:var(--color-text-secondary,#666); line-height:1;">×</button>
+            </div>
+            <div style="padding:20px 24px; overflow-y:auto; color:var(--color-text-primary,#1a1a1a); line-height:1.7; font-size:0.95rem;">
+                {% set lang = request.cookies.get('pi_language', 'en') %}
+                {% if lang == 'no' %}
+                <p style="font-style:italic; color:var(--color-text-secondary,#666);">Din stressfrie middagsløsning!</p>
+                <p>Menu Planner ble laget av en far fra Vestfold, Norge — en selvlært IT-type som alltid har hatt noe på gang. En kveld satt han med en Raspberry Pi han ikke visste hva han skulle bruke til, og tenkte: <em>"Det må da gå an å lage noe nyttig med denne."</em></p>
+                <p>Familien på fem — mamma, pappa og tre unger — hadde det samme problemet som alle andre familier med barn: <strong>hva er det til middag denne uken?</strong> Det som startet som et hobbyprosjekt ble raskt til noe hele familien faktisk brukte hver uke.</p>
+                <p><em>Dette er ikke bare vårt problem. Dette er et problem alle barnefamilier har.</em></p>
+                <h4 style="color:var(--color-primary,#d97706);">💡 Hvorfor vi laget den</h4>
+                <p>Hver uke det samme spørsmålet: <strong>"Hva skal vi ha til middag?"</strong> Menu Planner gir deg et oppskriftsbibliotek, automatiske ukesmenyer, handlelister uten duplikater og tospråklig støtte — enkelt, raskt og faktisk gøy.</p>
+                <p style="margin-top:16px;"><strong>nobody174</strong> — en far fra Vestfold med lidenskap for teknologi og det å bygge ting.</p>
+                <a href="https://www.patreon.com/Nobody174" target="_blank" rel="noopener" style="display:inline-block; margin-top:8px; padding:8px 16px; background:#FF424D; color:white; border-radius:8px; text-decoration:none; font-weight:600;">🎨 Følg nobody174 på Patreon</a>
+                {% else %}
+                <p style="font-style:italic; color:var(--color-text-secondary,#666);">Your stress-free dinner solution!</p>
+                <p>Menu Planner was built by a dad from Vestfold, Norway — a self-taught IT guy who always has something on the go. One evening he found himself with a Raspberry Pi and no real plan for what to do with it. So he thought: <em>"There must be something useful I can make with this."</em></p>
+                <p>His family of five — mum, dad and three kids — had the same problem every other family with children has: <strong>what are we having for dinner this week?</strong> What started as a hobby project quickly became something the whole family actually used every week.</p>
+                <p><em>This isn't just our problem. This is every family's problem.</em></p>
+                <h4 style="color:var(--color-primary,#d97706);">💡 Why I Built This</h4>
+                <p>Every week the same question: <strong>"What should we eat?"</strong> Menu Planner gives you a recipe library, automatic weekly menus, deduplicated shopping lists and bilingual support — simple, fast, and actually fun.</p>
+                <p style="margin-top:16px;"><strong>nobody174</strong> — a dad from Vestfold with a passion for technology and building things.</p>
+                <a href="https://www.patreon.com/Nobody174" target="_blank" rel="noopener" style="display:inline-block; margin-top:8px; padding:8px 16px; background:#FF424D; color:white; border-radius:8px; text-decoration:none; font-weight:600;">🎨 Follow nobody174 on Patreon</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
     <!-- Help Modal -->
     <div id="help-modal" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.5); align-items:center; justify-content:center;">
         <div style="background:var(--color-surface,#fff); border-radius:16px; max-width:640px; width:90%; max-height:80vh; overflow:hidden; display:flex; flex-direction:column; box-shadow:0 20px 60px rgba(0,0,0,0.3);">
@@ -184,7 +271,8 @@
                 <p style="font-size:0.85rem; color:var(--color-text-secondary,#666);">
                     Vil du lære mer? 🍴
                     <a href="/help/advanced" style="color:var(--color-primary,#d97706);">Avansert guide</a> ·
-                    <a href="/help/tips" style="color:var(--color-primary,#d97706);">Tips & triks</a>
+                    <a href="/help/tips" style="color:var(--color-primary,#d97706);">Tips & triks</a> ·
+                    <a href="#" onclick="closeHelpModal(); openInstallModal();" style="color:var(--color-primary,#d97706);">📱 Installer som app</a>
                 </p>
 
                 {% else %}
@@ -214,7 +302,8 @@
                 <p style="font-size:0.85rem; color:var(--color-text-secondary,#666);">
                     Want to dig deeper? 🍴
                     <a href="/help/advanced" style="color:var(--color-primary,#d97706);">Advanced Guide</a> ·
-                    <a href="/help/tips" style="color:var(--color-primary,#d97706);">Tips & Tricks</a>
+                    <a href="/help/tips" style="color:var(--color-primary,#d97706);">Tips & Tricks</a> ·
+                    <a href="#" onclick="closeHelpModal(); openInstallModal();" style="color:var(--color-primary,#d97706);">📱 Install as App</a>
                 </p>
 
                 {% endif %}
@@ -237,7 +326,7 @@
     </main>
 
     <footer class="footer">
-        <p>Menu Planner &copy; 2026 | Created by <a href="{{ github_url }}" target="_blank">{{ creator }}</a> | <a href="/about">{{ t.get('about', 'About') }}</a></p>
+        <p>Menu Planner &copy; 2026 | Created by <a href="{{ github_url }}" target="_blank">{{ creator }}</a> | <a href="#" onclick="openAboutModal()">{{ t.get('about', 'About') }}</a></p>
         <p style="font-size: 0.8em; margin-top: 4px;"><a href="{{ patreon_url }}" target="_blank">{{ t.support_patreon }}</a> • Built with Claude Code</p>
     </footer>
 
@@ -375,6 +464,32 @@
                 .catch(function(err){ console.log('SW registration failed', err); });
         });
     }
+
+    function openInstallModal() {
+        document.getElementById('install-modal').style.display = 'flex';
+        document.addEventListener('keydown', _installEsc);
+    }
+    function closeInstallModal() {
+        document.getElementById('install-modal').style.display = 'none';
+        document.removeEventListener('keydown', _installEsc);
+    }
+    function _installEsc(e) { if (e.key === 'Escape') closeInstallModal(); }
+    document.getElementById('install-modal').addEventListener('click', function(e) {
+        if (e.target === this) closeInstallModal();
+    });
+
+    function openAboutModal() {
+        document.getElementById('about-modal').style.display = 'flex';
+        document.addEventListener('keydown', _aboutEsc);
+    }
+    function closeAboutModal() {
+        document.getElementById('about-modal').style.display = 'none';
+        document.removeEventListener('keydown', _aboutEsc);
+    }
+    function _aboutEsc(e) { if (e.key === 'Escape') closeAboutModal(); }
+    document.getElementById('about-modal').addEventListener('click', function(e) {
+        if (e.target === this) closeAboutModal();
+    });
 
     function openHelpModal() {
         var m = document.getElementById('help-modal');
