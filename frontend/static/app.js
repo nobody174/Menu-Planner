@@ -275,13 +275,12 @@ function refreshMenu() {
         .then(function(r) { return r.json(); })
         .then(function(data) {
             if (data.status === 'success') {
-                // Skip the "menu is ready" completion popup - the page reload
-                // makes it obvious the menu changed, the extra dialog is noise.
+                // Redirect to main page to show newly generated menu
                 var stored = localStorage.getItem('menu-planner-language');
                 if (stored) {
                     document.cookie = 'pi_language=' + stored + '; path=/; max-age=31536000; SameSite=Lax';
                 }
-                location.reload();
+                location.href = '/';
             } else {
                 pmAlert('❌', _t('generation_failed'), _t('generation_error') + ': ' + (data.message || ''));
                 if (navLink) { navLink.textContent = _t('generate_menu'); navLink.style.opacity = ''; }
