@@ -121,7 +121,7 @@
         "en": "Classic Norwegian meatballs with brown gravy"
       },
       "difficulty": "easy",
-      "cookTimeMinutes": 30,
+      "cookTimeMinutes": 45,
       "servings": 4,
       "category": "Ground Meat & Sausages",
       "tags": [
@@ -200,22 +200,107 @@
             "no": "etter smak",
             "en": "to taste"
           }
+        },
+        {
+          "name": {
+            "no": "Smør (til saus)",
+            "en": "Butter (for gravy)"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvetemel",
+            "en": "Wheat flour"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Kjøttkraft eller buljong",
+            "en": "Beef stock or broth"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "dl",
+            "en": "dl"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper (til saus)",
+            "en": "Salt and pepper (for gravy)"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        },
+        {
+          "name": {
+            "no": "Poteter",
+            "en": "Potatoes"
+          },
+          "amount": 8,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Gulrøtter",
+            "en": "Carrots"
+          },
+          "amount": 7,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Tyttebærsyltetøy",
+            "en": "Lingonberry jam"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "glass",
+            "en": "jar"
+          }
         }
       ],
       "instructions": {
         "no": [
-          "1. Bløtlegg brødet i melk.",
-          "2. Bland kjøttdeig, brød, egg, løk, salt og pepper.",
-          "3. Form til mindre kuler.",
-          "4. Steik kullene i en panne med smør til de er gylne.",
-          "5. Server med potetmos, grønnsaker og brunsaus."
+          "1. Bløtlegg brødet i melk i 5 minutter.",
+          "2. Bland kjøttdeig, brød, egg, løk, salt og pepper til en jevn farse.",
+          "3. Form farsen til runde kaker med hendene.",
+          "4. Stek kjøttkakene i smør på middels varme, ca. 4-5 min på hver side til de er gylne og gjennomstekte. Ta ut og hold varme.",
+          "5. Saus: Smelt smør i samme panne. Tilsett hvetemel og rør godt mens det steker i 2 minutter til det blir lyst brunt.",
+          "6. Hell i kjøttkraft gradvis mens du rører hele tiden slik at det ikke klumper seg. La sausen koke opp og tykne. Smak til med salt og pepper.",
+          "7. Poteter: Skrell og kok poteter i saltet vann i ca. 20 minutter til de er møre.",
+          "8. Gulrøtter: Skrell og skjær gulrøttene i biter. Kok i lettsaltet vann i 10-15 minutter.",
+          "9. Server kjøttkakene med saus, poteter, gulrøtter og tyttebærsyltetøy ved siden av."
         ],
         "en": [
-          "1. Soak bread in milk.",
-          "2. Mix ground meat, bread, egg, onion, salt and pepper.",
-          "3. Form into small balls.",
-          "4. Fry the balls in a pan with butter until golden.",
-          "5. Serve with mashed potatoes, vegetables and brown gravy."
+          "1. Soak the bread in milk for 5 minutes.",
+          "2. Mix ground meat, bread, egg, onion, salt and pepper into a smooth mixture.",
+          "3. Shape the mixture into round patties with your hands.",
+          "4. Fry the meatballs in butter on medium heat, about 4-5 minutes each side until golden and cooked through. Remove and keep warm.",
+          "5. Gravy: Melt butter in the same pan. Add flour and stir well while frying for 2 minutes until lightly browned.",
+          "6. Gradually pour in beef stock while stirring constantly to avoid lumps. Let the gravy come to a boil and thicken. Season with salt and pepper.",
+          "7. Potatoes: Peel and boil potatoes in salted water for about 20 minutes until tender.",
+          "8. Carrots: Peel and cut carrots into pieces. Boil in lightly salted water for 10-15 minutes.",
+          "9. Serve the meatballs with gravy, potatoes, carrots and lingonberry jam on the side."
         ]
       }
     },
