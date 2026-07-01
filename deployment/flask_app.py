@@ -483,7 +483,7 @@ def inject_config():
     household_id = session.get('current_household_id')
     is_household_owner = False
     can_edit_menu = True
-    is_app_admin = bool(ADMIN_EMAIL and user_email and user_email.strip().lower() == ADMIN_EMAIL)
+    is_app_admin = _is_admin()
     active_avatar_type = None
     active_avatar_value = None
     if household_id:
