@@ -4569,19 +4569,21 @@
       "instructions": {
         "no": [
           "1. Skjær fisken i små terninger.",
-          "2. Bland soyasaus og sesamolje, og vend fisken i marinaden. La trekke i kjøleskap i 10-15 minutter.",
-          "3. Fordel kokt sushiris i fire boller.",
-          "4. Legg den marinerte fisken på toppen av risen i hver bolle.",
-          "5. Topp med avokado, agurk og edamamebønner.",
-          "6. Strø over sesamfrø og server umiddelbart."
+          "2. Bland soyasaus og sesamolje og vend fisken i marinaden.",
+          "3. La fisken marinere i kjøleskapet i 10-15 minutter.",
+          "4. Fordel kokt sushiris i fire boller.",
+          "5. Legg den marinerte fisken på toppen av risen i hver bolle.",
+          "6. Topp med avokado, agurk og edamamebønner.",
+          "7. Strø over sesamfrø og server umiddelbart."
         ],
         "en": [
           "1. Cut the fish into small cubes.",
-          "2. Mix soy sauce and sesame oil, and toss the fish in the marinade. Let sit in the fridge for 10-15 minutes.",
-          "3. Divide the cooked sushi rice into four bowls.",
-          "4. Place the marinated fish on top of the rice in each bowl.",
-          "5. Top with avocado, cucumber and edamame beans.",
-          "6. Sprinkle with sesame seeds and serve immediately."
+          "2. Mix soy sauce and sesame oil and toss the fish in the marinade.",
+          "3. Let the fish marinate in the fridge for 10-15 minutes.",
+          "4. Divide the cooked sushi rice into four bowls.",
+          "5. Place the marinated fish on top of the rice in each bowl.",
+          "6. Top with avocado, cucumber and edamame beans.",
+          "7. Sprinkle with sesame seeds and serve immediately."
         ]
       }
     },

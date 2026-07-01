@@ -167,19 +167,21 @@
           "1. Finhakk løk og hvitløk.",
           "2. Brun kjøttdeigen i en panne på middels-høy varme.",
           "3. Tilsett løk og hvitløk, stek til løken er blank.",
-          "4. Krydre med spisskummen, paprikapulver og chilipulver. Stek 2-3 minutter til.",
-          "5. Varm tortillaene i en tørr panne eller i ovnen.",
-          "6. Kutt tomat og salat, riv osten.",
-          "7. Sett sammen tacoene med kjøttdeig og toppinger etter ønske."
+          "4. Krydre med spisskummen, paprikapulver og chilipulver.",
+          "5. Rør og stek i 2-3 minutter til.",
+          "6. Varm tortillaene i en tørr panne eller i ovnen.",
+          "7. Kutt tomat og salat, riv osten.",
+          "8. Sett sammen tacoene med kjøttdeig og toppinger etter ønske."
         ],
         "en": [
           "1. Finely chop onion and garlic.",
           "2. Brown the ground beef in a pan over medium-high heat.",
           "3. Add onion and garlic, cook until the onion is translucent.",
-          "4. Season with cumin, paprika powder and chili powder. Cook 2-3 minutes more.",
-          "5. Warm the tortillas in a dry pan or in the oven.",
-          "6. Dice the tomato and lettuce, grate the cheese.",
-          "7. Assemble the tacos with the beef and your choice of toppings."
+          "4. Season with cumin, paprika powder and chili powder.",
+          "5. Stir and cook for 2-3 more minutes.",
+          "6. Warm the tortillas in a dry pan or in the oven.",
+          "7. Dice the tomato and lettuce, grate the cheese.",
+          "8. Assemble the tacos with the beef and your choice of toppings."
         ]
       }
     },
@@ -302,22 +304,25 @@
         "no": [
           "1. Kok kyllingfileten til den er gjennomstekt, og riv den i strimler.",
           "2. Finhakk løken og fres den blank i olje.",
-          "3. Tilsett hermetiske tomater, chilipulver og spisskummen. La det småkoke i 10 minutter til en saus.",
-          "4. Bland litt av sausen med kyllingen.",
-          "5. Fyll tortillaene med kyllingblandingen og rull dem sammen.",
-          "6. Legg dem i en ildfast form, hell over resten av sausen og dryss over ost.",
-          "7. Stek i ovnen på 200°C i 20 minutter til osten er gyllen og putrende."
+          "3. Tilsett hermetiske tomater, chilipulver og spisskummen.",
+          "4. La det småkoke i 10 minutter til en saus.",
+          "5. Bland litt av sausen med kyllingen.",
+          "6. Fyll tortillaene med kyllingblandingen og rull dem sammen.",
+          "7. Legg dem i en ildfast form, hell over resten av sausen og dryss over ost.",
+          "8. Stek i ovnen på 200°C i 20 minutter til osten er gyllen og putrende."
         ],
         "en": [
           "1. Cook the chicken breast through, then shred it into strips.",
           "2. Finely chop the onion and sauté until translucent in oil.",
-          "3. Add canned tomatoes, chili powder and cumin. Simmer for 10 minutes into a sauce.",
-          "4. Mix some of the sauce with the chicken.",
-          "5. Fill the tortillas with the chicken mixture and roll them up.",
-          "6. Place them in a baking dish, pour over the remaining sauce and sprinkle with cheese.",
-          "7. Bake in the oven at 200°C (400°F) for 20 minutes until the cheese is golden and bubbling."
+          "3. Add canned tomatoes, chili powder and cumin.",
+          "4. Simmer for 10 minutes until it becomes a sauce.",
+          "5. Mix some of the sauce with the chicken.",
+          "6. Fill the tortillas with the chicken mixture and roll them up.",
+          "7. Place them in a baking dish, pour over the remaining sauce and sprinkle with cheese.",
+          "8. Bake in the oven at 200°C (400°F) for 20 minutes until the cheese is golden and bubbling."
         ]
-      }
+      },
+      "recipeCount": 4
     },
     {
       "id": "tex_003",
