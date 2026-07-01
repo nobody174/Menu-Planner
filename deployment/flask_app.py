@@ -1292,11 +1292,8 @@ def settings_page():
 
     categories = []
     if household_id:
-        from core.household_paths import categories_file
-        path = categories_file(household_id)
-        if path.exists():
-            with open(path, 'r', encoding='utf-8') as f:
-                raw_cats = json.load(f)
+        raw_cats = _load_household_categories(household_id)
+        if raw_cats:
             lang = _get_lang()
             # Skip pack-name pseudo-categories (imported: true) here too -
             # same reasoning as /api/categories: recipes never carry one of
@@ -1319,9 +1316,9 @@ def settings_page():
 
     pantry = []
     if household_id:
-        from core.household_paths import load_pantry, pantry_item_language
+        from core.household_paths import pantry_item_language
         lang = _get_lang()
-        pantry = sorted(p for p in load_pantry(household_id) if pantry_item_language(p) in (lang, 'both'))
+        pantry = sorted(p for p in _load_pantry_db() if pantry_item_language(p) in (lang, 'both'))
 
     return render_template('settings.html', activity_log=activity_log, referral_code=referral_code,
                             categories=categories, has_pin=has_pin, pantry=pantry)
