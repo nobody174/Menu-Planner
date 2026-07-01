@@ -411,8 +411,28 @@ class MenuGenerator:
             logger.error("Menu is empty. Cannot save.")
             return False
 
-        self.menu_output_file.parent.mkdir(parents=True, exist_ok=True)
+        # Save to database if household_id is set
+        if self.household_id:
+            try:
+                from database.database import SessionLocal
+                from database.models import Household
+                from core.household_paths import save_weekly_menu_to_db
 
+                db = SessionLocal()
+                try:
+                    household = db.query(Household).filter(Household.id == self.household_id).first()
+                    if household:
+                        save_weekly_menu_to_db(household, menu)
+                        db.commit()
+                        logger.info(f"Menu saved to database for household {self.household_id}")
+                        return True
+                finally:
+                    db.close()
+            except Exception as e:
+                logger.error(f"Failed to save menu to database: {e}, falling back to file")
+
+        # Fallback to file-based storage
+        self.menu_output_file.parent.mkdir(parents=True, exist_ok=True)
         with open(self.menu_output_file, 'w', encoding='utf-8') as f:
             json.dump(menu, f, ensure_ascii=False, indent=2)
 
