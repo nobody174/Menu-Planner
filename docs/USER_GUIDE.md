@@ -113,13 +113,13 @@ Star any recipe to mark it as a **Favourite**. When generating a menu you can se
 
 ---
 
-## Pantry (Basisvarer)
+## Pantry
 
 The pantry is your list of ingredients you **always have at home**. These get highlighted on the shopping list so you don't buy things you already have.
 
 ### Managing Your Pantry
 
-Go to **Settings** → **Basisvarer**:
+Go to **Settings** → **Pantry**:
 
 - **Add item**: type in the box and press Enter or **+**
 - **Remove item**: click any item to remove it
