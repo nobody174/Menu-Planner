@@ -225,11 +225,13 @@
         });
 
         function resetPantryToDefaults() {
-            if (!confirm('{{ t.get("reset_pantry_confirm", "Reset pantry to default staples? Your current pantry will be replaced.") }}')) return;
-            fetch('/api/pantry/reset', { method: 'POST' })
-            .then(function(r) { return r.json(); })
-            .then(function(data) {
-                if (data.success) renderPantryList(data.pantry);
+            pmConfirm('🧂', '{{ t.get("reset_to_defaults", "Reset to defaults") }}', '{{ t.get("reset_pantry_confirm", "Reset pantry to default staples? Your current pantry will be replaced.") }}').then(function(confirmed) {
+                if (!confirmed) return;
+                fetch('/api/pantry/reset', { method: 'POST' })
+                .then(function(r) { return r.json(); })
+                .then(function(data) {
+                    if (data.success) renderPantryList(data.pantry);
+                });
             });
         }
 
