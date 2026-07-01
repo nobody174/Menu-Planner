@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% block title %}Tips & Tricks – Menu Planner{% endblock %}
+{% block content %}
+<div class="help-page">
+    <h1>💡 Power User Tips & Tricks</h1>
+
+    <section>
+        <h2>🍽️ Menu Generation</h2>
+        <ul>
+            <li><strong>Select 4-6 categories</strong> for best variety — one category means the same type of food all week.</li>
+            <li><strong>10-15+ recipes per category</strong> is the sweet spot. Too few = repeats. Too many = some recipes never get picked.</li>
+            <li><strong>Regenerate freely</strong> — the deduplication system remembers recent menus, so you still get variety.</li>
+            <li><strong>Favourites + other categories</strong> can be selected together — great for a mix of safe bets and new things.</li>
+            <li>Create a <strong>"Trygge Middager"</strong> (Safe Dinners) category with 8-10 crowd-pleasers. Generate from just that category on tough weeks — no debates at the dinner table.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>📂 Categories</h2>
+        <ul>
+            <li><strong>Rename freely</strong> — the internal code never changes, so renaming is always safe.</li>
+            <li>Create a <strong>"Weekend"</strong> category for recipes that take longer — Lasagne, slow cooker dishes, BBQ. Select it only when you have time.</li>
+            <li>Use <strong>"Uncategorized"</strong> as a holding area. Periodically review and move recipes to proper categories.</li>
+            <li>Use <strong>Merge into...</strong> immediately when you spot duplicate categories — the longer you wait, the messier it gets.</li>
+            <li>Keep categories below <strong>12 total</strong>. More than that makes the generator screen cluttered.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>🥗 Recipes</h2>
+        <ul>
+            <li>Use the <strong>Comment field</strong> for family notes: "Kids don't like the onion", "Use 600g instead of 500g for leftovers", "Grandma's version — double the garlic".</li>
+            <li><strong>Edit cook times honestly</strong> — if a recipe says 20 min but takes you 45, update it. Accurate times make weekly planning much easier.</li>
+            <li><strong>Import first, customise second</strong> — import a pack to get a base, then edit individual recipes to match how your family actually makes them.</li>
+            <li>Do a <strong>regular cleanup</strong> in All Recipes — remove recipes you imported but never cook.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>🧅 Pantry (Basisvarer)</h2>
+        <ul>
+            <li><strong>Do one big setup first</strong> — go through the default list and remove things you genuinely never have.</li>
+            <li>Add your <strong>household-specific staples</strong>: spice blends, condiments (soy sauce, hot sauce), tinned goods you always stock.</li>
+            <li>Adding "lemon" also stores "sitron" automatically — the pantry is bilingual under the hood.</li>
+            <li>Check the shopping list <strong>after generating</strong> — greyed items = you already have them. If too much is greyed out, your pantry list might be too generous.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>👨‍👩‍👧 Household & Profiles</h2>
+        <ul>
+            <li>Give everyone their own <strong>profile</strong> — even kids. The activity log shows who did what, and profile switching is one tap.</li>
+            <li>Set a 4-digit <strong>PIN</strong> for quick owner profile switching on shared devices.</li>
+            <li>Give your partner <strong>Editor</strong> role so they can add recipes and regenerate menus without needing the full password.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>🚀 Pro Workflows</h2>
+        <h3>The Sunday Reset</h3>
+        <ol>
+            <li>Open Menu Planner</li>
+            <li>Click Generate Menu</li>
+            <li>Select your categories for the week</li>
+            <li>Regenerate until you're happy</li>
+            <li>Open Shopping List</li>
+            <li>Go shopping</li>
+        </ol>
+        <p>Under 5 minutes once you're set up properly.</p>
+
+        <h3>The Season Refresh (4× a year)</h3>
+        <ol>
+            <li>Review categories — add seasonal ones (Grill for summer, Supper for winter)</li>
+            <li>Import any new recipe packs</li>
+            <li>Remove recipes you didn't cook all season</li>
+            <li>Update your pantry with seasonal staples</li>
+        </ol>
+    </section>
+
+    <div class="help-nav">
+        <a href="#" onclick="openHelpModal(); return false;">📖 Quick Start Guide</a>
+        <a href="/help/advanced">🔧 Advanced Guide</a>
+    </div>
+</div>
+
+<style>
+.help-page { max-width: 760px; margin: 30px auto; padding: 0 20px 60px; }
+.help-page h1 { color: var(--color-primary, #d97706); margin-bottom: 30px; }
+.help-page h2 { color: var(--color-text-primary, #1a1a1a); border-bottom: 2px solid var(--color-primary, #d97706); padding-bottom: 6px; margin-top: 36px; }
+.help-page h3 { color: var(--color-text-primary, #1a1a1a); margin-top: 20px; }
+.help-page p, .help-page li { color: var(--color-text-secondary, #444); line-height: 1.7; }
+.help-page ul, .help-page ol { padding-left: 20px; }
+.help-nav { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--color-border, #e5e7eb); display: flex; gap: 20px; }
+.help-nav a { color: var(--color-primary, #d97706); text-decoration: none; font-weight: 600; }
+.help-nav a:hover { text-decoration: underline; }
+</style>
+{% endblock %}

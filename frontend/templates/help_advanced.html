@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% block title %}Advanced Guide – Menu Planner{% endblock %}
+{% block content %}
+<div class="help-page">
+    <h1>🔧 Advanced User Guide</h1>
+
+    <section>
+        <h2>How the System Works</h2>
+        <p>Each household has its own isolated data space. Everything — recipes, menus, pantry, categories — is stored per household and never shared between households.</p>
+        <table class="help-table">
+            <tr><th>Data</th><th>What it stores</th></tr>
+            <tr><td><code>recipes_db</code></td><td>All household recipes (imported + manually added)</td></tr>
+            <tr><td><code>categories</code></td><td>Category list with codes, names and icons</td></tr>
+            <tr><td><code>weekly_menu</code></td><td>Current week's generated menu</td></tr>
+            <tr><td><code>pantry</code></td><td>List of pantry item strings (bilingual)</td></tr>
+            <tr><td><code>activity_log</code></td><td>Timestamped audit trail (capped at 200 entries)</td></tr>
+            <tr><td><code>removed_categories</code></td><td>Tombstone list of deleted category codes</td></tr>
+            <tr><td><code>imported_packs</code></td><td>Metadata for imported recipe packs</td></tr>
+        </table>
+    </section>
+
+    <section>
+        <h2>How Categories Work</h2>
+        <p>Every category has a <strong>code</strong> (internal ID, never changes) and a <strong>name</strong> (what you see, can be renamed freely). Renaming is always safe — the code linking recipes to categories never changes.</p>
+        <h3>The Self-Heal System</h3>
+        <p>When you load categories, the app checks the base seed file and automatically adds any new categories added to the system after your household was created. But it never overwrites categories you've renamed, and never re-adds categories you've explicitly deleted.</p>
+        <p>Deleted categories are tracked in a tombstone list (<code>removed_categories</code>). If you delete "Grill" it won't come back — even if the base seed still has it.</p>
+    </section>
+
+    <section>
+        <h2>How Recipe Packs Work</h2>
+        <h3>Import Flow</h3>
+        <ol>
+            <li>You click <strong>Import Pack</strong></li>
+            <li>All recipes are added to your household's recipe database</li>
+            <li>Pack metadata (name, icon, colour) is saved</li>
+            <li>Any new categories in the pack are added to your list (tagged as imported)</li>
+        </ol>
+        <h3>Re-importing a Pack</h3>
+        <p>If you re-import a pack you already have, existing recipes are <strong>not duplicated</strong>. Only new recipes (added since your last import) are added.</p>
+        <h3>Removing a Pack</h3>
+        <p>Go to <strong>All Recipes → Manage Packs → Remove</strong>. This deletes all pack recipes from your database. Any recipes you manually moved to other categories are kept — they're yours now.</p>
+    </section>
+
+    <section>
+        <h2>How Menu Generation Works</h2>
+        <ol>
+            <li><strong>Load recipes</strong> — loads your household recipes + shared base recipes</li>
+            <li><strong>Filter by category</strong> — keeps only recipes in your selected categories</li>
+            <li><strong>Deduplicate</strong> — deprioritises recently served recipes for variety</li>
+            <li><strong>Protein balance</strong> — tries not to serve the same protein type multiple days in a row</li>
+            <li><strong>Pick 6</strong> — randomly selects 6 recipes from the filtered pool</li>
+            <li><strong>Save</strong> — writes the menu to your household record</li>
+        </ol>
+        <p>If the selected categories have zero recipes, the app returns an error instead of generating an empty menu.</p>
+    </section>
+
+    <section>
+        <h2>How the Pantry Works</h2>
+        <p>Pantry items are stored as lowercase strings. The app has a built-in translation table mapping English ↔ Norwegian for ~100 common staples.</p>
+        <p>When you add "lemon" → "sitron" is also stored automatically. When you remove "lemon" → "sitron" is also removed. Items that are identical in both languages (e.g. "salt") always show regardless of language setting.</p>
+    </section>
+
+    <section>
+        <h2>Activity Log</h2>
+        <p>The activity log records every significant action in the household — who added/edited/deleted recipes, who generated menus, who changed categories. Shows the profile name or email, the action, and a timestamp. Capped at 200 entries. Only the household owner can see it (under Settings).</p>
+    </section>
+
+    <section>
+        <h2>Advanced Workflows</h2>
+        <h3>Setting Up a New Household</h3>
+        <ol>
+            <li>Import 2-3 recipe packs matching your family's taste</li>
+            <li>Add 5-10 of your own family recipes manually</li>
+            <li>Rename categories to match how you actually cook</li>
+            <li>Update your pantry — remove what you never have, add what you always have</li>
+            <li>Generate your first menu with all categories selected</li>
+        </ol>
+        <h3>Multi-Household Setup</h3>
+        <p>Each household is completely separate — recipes, menus and pantry are never shared. Switch between them via the household selector.</p>
+    </section>
+
+    <div class="help-nav">
+        <a href="#" onclick="openHelpModal(); return false;">📖 Quick Start Guide</a>
+        <a href="/help/tips">💡 Tips & Tricks</a>
+    </div>
+</div>
+
+<style>
+.help-page { max-width: 760px; margin: 30px auto; padding: 0 20px 60px; }
+.help-page h1 { color: var(--color-primary, #d97706); margin-bottom: 30px; }
+.help-page h2 { color: var(--color-text-primary, #1a1a1a); border-bottom: 2px solid var(--color-primary, #d97706); padding-bottom: 6px; margin-top: 36px; }
+.help-page h3 { color: var(--color-text-primary, #1a1a1a); margin-top: 20px; }
+.help-page p, .help-page li { color: var(--color-text-secondary, #444); line-height: 1.7; }
+.help-page ol, .help-page ul { padding-left: 20px; }
+.help-page code { background: var(--color-border, #f0f0f0); padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
+.help-table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+.help-table th, .help-table td { padding: 8px 12px; border: 1px solid var(--color-border, #e5e7eb); font-size: 0.9rem; text-align: left; }
+.help-table th { background: var(--color-surface, #f9f9f9); font-weight: 600; }
+.help-nav { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--color-border, #e5e7eb); display: flex; gap: 20px; }
+.help-nav a { color: var(--color-primary, #d97706); text-decoration: none; font-weight: 600; }
+.help-nav a:hover { text-decoration: underline; }
+</style>
+{% endblock %}

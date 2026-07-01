@@ -1208,6 +1208,14 @@ def api_merge_category():
 
     return jsonify({'success': True, 'categories': _sort_categories(remaining), 'moved': moved})
 
+@app.route('/help/advanced')
+def help_advanced():
+    return render_template('help_advanced.html')
+
+@app.route('/help/tips')
+def help_tips():
+    return render_template('help_tips.html')
+
 @app.route('/feedback')
 def feedback_page():
     """Simple feedback form for trial testers - any logged-in user can report."""

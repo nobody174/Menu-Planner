@@ -68,6 +68,9 @@
                 </li>
                 {% endif %}
                 <li class="nav-item">
+                    <button class="help-btn" aria-label="Quick Start Guide" title="Quick Start Guide" onclick="openHelpModal()">❓</button>
+                </li>
+                <li class="nav-item">
                     <div class="nav-settings-menu">
                         <button id="settings-btn" class="settings-btn" aria-label="{{ t.settings }}" title="{{ t.settings }}" onclick="toggleSettingsMenu(event)">⚙️</button>
                         <div id="settings-dropdown" class="settings-dropdown">
@@ -107,6 +110,13 @@
                             {% endif %}
                             {% endif %}
                             <div class="settings-divider"></div>
+                            <div class="settings-section">
+                                <div class="settings-section-title">{{ t.get('help', 'Help') }}</div>
+                                <a href="#" class="settings-item" onclick="openHelpModal(); toggleSettingsMenu(event);">📖 Quick Start Guide</a>
+                                <a href="/help/advanced" class="settings-item">🔧 Advanced Guide</a>
+                                <a href="/help/tips" class="settings-item">💡 Tips & Tricks</a>
+                            </div>
+                            <div class="settings-divider"></div>
                             <div id="nav-auth-section">
                                 {% if is_authenticated %}
                                     <span id="nav-user-display-settings" style="font-size:0.85rem; color:var(--color-text-secondary,#888); padding:8px 16px; display:flex; align-items:center; gap:8px;">
@@ -136,6 +146,45 @@
             </ul>
         </div>
     </nav>
+
+    <!-- Help Modal -->
+    <div id="help-modal" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.5); align-items:center; justify-content:center;">
+        <div style="background:var(--color-surface,#fff); border-radius:16px; max-width:640px; width:90%; max-height:80vh; overflow:hidden; display:flex; flex-direction:column; box-shadow:0 20px 60px rgba(0,0,0,0.3);">
+            <div style="padding:20px 24px 16px; border-bottom:1px solid var(--color-border,#e5e7eb); display:flex; align-items:center; justify-content:space-between;">
+                <h2 style="margin:0; font-size:1.2rem; color:var(--color-text-primary,#1a1a1a);">📖 Quick Start Guide</h2>
+                <button onclick="closeHelpModal()" style="background:none; border:none; font-size:1.5rem; cursor:pointer; color:var(--color-text-secondary,#666); line-height:1;">×</button>
+            </div>
+            <div style="padding:20px 24px; overflow-y:auto; color:var(--color-text-primary,#1a1a1a); line-height:1.7; font-size:0.95rem;">
+                <h3 style="margin-top:0; color:var(--color-primary,#d97706);">👋 Welcome to Menu Planner!</h3>
+                <p>Here's how to get started in a few simple steps:</p>
+
+                <h4>1. Import Recipe Packs</h4>
+                <p>Go to <strong>All Recipes → Import Pack</strong> and choose one or more recipe packs. This fills your household with ready-made recipes instantly.</p>
+
+                <h4>2. Generate Your First Menu</h4>
+                <p>Click <strong>Generate Menu</strong> in the top bar. Select the categories you want recipes from, then click <strong>Generate</strong>. You'll get 6 dinners planned for the week!</p>
+
+                <h4>3. Regenerate Until You're Happy</h4>
+                <p>Not happy with a result? Just hit <strong>Generate Menu</strong> again. It's free and instant — regenerate as many times as you like.</p>
+
+                <h4>4. Set Up Your Pantry (Basisvarer)</h4>
+                <p>Go to <strong>Settings → Basisvarer</strong> and add ingredients you always have at home. These get greyed out on your shopping list automatically.</p>
+
+                <h4>5. Check the Shopping List</h4>
+                <p>After generating a menu, click <strong>Shopping List</strong> to see all ingredients for the week in one place.</p>
+
+                <h4>6. Add Your Own Recipes</h4>
+                <p>Click <strong>+ Add Recipe</strong> in the menu to add your own family recipes. Give them a category and they'll appear in future menus.</p>
+
+                <hr style="border:none; border-top:1px solid var(--color-border,#e5e7eb); margin:16px 0;">
+                <p style="font-size:0.85rem; color:var(--color-text-secondary,#666);">
+                    Want to learn more?
+                    <a href="/help/advanced" style="color:var(--color-primary,#d97706);">Advanced Guide</a> ·
+                    <a href="/help/tips" style="color:var(--color-primary,#d97706);">Tips & Tricks</a>
+                </p>
+            </div>
+        </div>
+    </div>
 
     <main class="container">
         {% with messages = get_flashed_messages(with_categories=true) %}
@@ -290,6 +339,36 @@
                 .catch(function(err){ console.log('SW registration failed', err); });
         });
     }
+
+    function openHelpModal() {
+        var m = document.getElementById('help-modal');
+        m.style.display = 'flex';
+        document.addEventListener('keydown', _helpEsc);
+    }
+    function closeHelpModal() {
+        var m = document.getElementById('help-modal');
+        m.style.display = 'none';
+        document.removeEventListener('keydown', _helpEsc);
+    }
+    function _helpEsc(e) { if (e.key === 'Escape') closeHelpModal(); }
+    document.getElementById('help-modal').addEventListener('click', function(e) {
+        if (e.target === this) closeHelpModal();
+    });
     </script>
+
+    <style>
+    .help-btn {
+        background: none;
+        border: none;
+        font-size: 1.25rem;
+        cursor: pointer;
+        padding: 6px 8px;
+        border-radius: 8px;
+        line-height: 1;
+        opacity: 0.75;
+        transition: opacity 0.2s;
+    }
+    .help-btn:hover { opacity: 1; }
+    </style>
 </body>
 </html>
