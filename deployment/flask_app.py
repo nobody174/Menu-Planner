@@ -434,15 +434,35 @@ def current_household():
 
 
 def _load_pantry_db():
-    """Load pantry from database (with fallback to file)."""
-    household = current_household()
-    if household:
-        from core.household_paths import load_pantry_from_db
-        return load_pantry_from_db(household)
+    """Load pantry from database. If not yet migrated, seed from file into DB."""
+    household_id = current_household_id()
+    if not household_id:
+        return []
 
-    # Fallback to file-based for migration period
-    from core.household_paths import load_pantry
-    return load_pantry(current_household_id())
+    from database.database import SessionLocal
+    from database.models import Household
+
+    db = SessionLocal()
+    try:
+        household = db.query(Household).filter(Household.id == household_id).first()
+        if not household:
+            return []
+
+        # If pantry already in database, return it
+        if household.pantry is not None:
+            return household.pantry if isinstance(household.pantry, list) else []
+
+        # First time: seed from file into database
+        from core.household_paths import load_pantry
+        file_pantry = load_pantry(household_id)
+        household.pantry = sorted(set(file_pantry)) if file_pantry else []
+        db.commit()
+        return household.pantry
+    except Exception as e:
+        print(f"Error loading pantry from database: {e}")
+        return []
+    finally:
+        db.close()
 
 
 def _save_pantry_db(items):
