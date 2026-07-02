@@ -1325,8 +1325,15 @@ def settings_page():
     activity_log = []
     household_id = current_household_id()
     if household_id and session.get('user_id') and acting_role_is_owner():
-        from core.household_paths import load_activity
-        activity_log = load_activity(household_id)[:50]
+        from database.database import SessionLocal
+        from database.models import Household as _H
+        _db = SessionLocal()
+        try:
+            _hh = _db.query(_H).filter(_H.id == household_id).first()
+            if _hh and _hh.activity_log:
+                activity_log = list(reversed(_hh.activity_log))[:50]
+        finally:
+            _db.close()
 
     referral_code = None
     user_id = session.get('user_id')
