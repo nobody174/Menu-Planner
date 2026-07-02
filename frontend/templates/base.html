@@ -204,31 +204,82 @@
 
     <!-- About Modal -->
     <div id="about-modal" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.5); align-items:center; justify-content:center;">
-        <div style="background:var(--color-surface,#fff); border-radius:16px; max-width:620px; width:90%; max-height:85vh; overflow:hidden; display:flex; flex-direction:column; box-shadow:0 20px 60px rgba(0,0,0,0.3);">
-            <div style="padding:20px 24px 16px; border-bottom:1px solid var(--color-border,#e5e7eb); display:flex; align-items:center; justify-content:space-between;">
+        <div style="background:var(--color-surface,#fff); border-radius:16px; max-width:660px; width:90%; max-height:90vh; display:flex; flex-direction:column; box-shadow:0 20px 60px rgba(0,0,0,0.3);">
+            <div style="padding:20px 24px 16px; border-bottom:1px solid var(--color-border,#e5e7eb); display:flex; align-items:center; justify-content:space-between; flex-shrink:0;">
                 <h2 style="margin:0; font-size:1.2rem; color:var(--color-text-primary,#1a1a1a);">👨‍👩‍👧‍👦 {% if request.cookies.get('pi_language','en') == 'no' %}Om Menu Planner{% else %}About Menu Planner{% endif %}</h2>
                 <button onclick="closeAboutModal()" style="background:none; border:none; font-size:1.5rem; cursor:pointer; color:var(--color-text-secondary,#666); line-height:1;">×</button>
             </div>
-            <div style="padding:20px 24px; overflow-y:auto; color:var(--color-text-primary,#1a1a1a); line-height:1.7; font-size:0.95rem;">
+            <div style="padding:20px 24px 24px; overflow-y:auto; color:var(--color-text-primary,#1a1a1a); line-height:1.7; font-size:0.95rem; flex:1;">
                 {% set lang = request.cookies.get('pi_language', 'en') %}
                 {% if lang == 'no' %}
-                <p style="font-style:italic; color:var(--color-text-secondary,#666);">Din stressfrie middagsløsning!</p>
+                <p style="font-style:italic; color:var(--color-text-secondary,#666); margin-top:0;">Din stressfrie middagsløsning!</p>
+
+                <h3 style="color:var(--color-primary,#d97706); border-bottom:2px solid var(--color-primary,#d97706); padding-bottom:6px;">Historien bak</h3>
                 <p>Menu Planner ble laget av en far fra Vestfold, Norge — en selvlært IT-type som alltid har hatt noe på gang. En kveld satt han med en Raspberry Pi han ikke visste hva han skulle bruke til, og tenkte: <em>"Det må da gå an å lage noe nyttig med denne."</em></p>
                 <p>Familien på fem — mamma, pappa og tre unger — hadde det samme problemet som alle andre familier med barn: <strong>hva er det til middag denne uken?</strong> Det som startet som et hobbyprosjekt ble raskt til noe hele familien faktisk brukte hver uke.</p>
                 <p><em>Dette er ikke bare vårt problem. Dette er et problem alle barnefamilier har.</em></p>
-                <h4 style="color:var(--color-primary,#d97706);">💡 Hvorfor vi laget den</h4>
-                <p>Hver uke det samme spørsmålet: <strong>"Hva skal vi ha til middag?"</strong> Menu Planner gir deg et oppskriftsbibliotek, automatiske ukesmenyer, handlelister uten duplikater og tospråklig støtte — enkelt, raskt og faktisk gøy.</p>
-                <p style="margin-top:16px;"><strong>nobody174</strong> — en far fra Vestfold med lidenskap for teknologi og det å bygge ting.</p>
-                <a href="https://www.patreon.com/Nobody174" target="_blank" rel="noopener" style="display:inline-block; margin-top:8px; padding:8px 16px; background:#FF424D; color:white; border-radius:8px; text-decoration:none; font-weight:600;">🎨 Følg nobody174 på Patreon</a>
+                <p>Så ble Menu Planner det det er i dag — en app bygget for familier som vil bruke mindre tid på å lure på hva de skal ha til middag, og mer tid på å faktisk nyte måltidet sammen.</p>
+
+                <h3 style="color:var(--color-primary,#d97706); border-bottom:2px solid var(--color-primary,#d97706); padding-bottom:6px; margin-top:24px;">💡 Hvorfor vi laget den</h3>
+                <p>Hver uke det samme spørsmålet: <strong>"Hva skal vi ha til middag?"</strong></p>
+                <p>Menu Planner løser det ved å gi deg:</p>
+                <ul style="padding-left:20px;">
+                    <li>📚 Et oppskriftsbibliotek du bygger selv</li>
+                    <li>🗓️ Automatiske ukesmenyer fra dine oppskrifter</li>
+                    <li>🛒 Handlelister uten duplikater</li>
+                    <li>🌍 Tospråklig støtte (norsk + engelsk)</li>
+                    <li>🎨 Vakre temaer</li>
+                    <li>👨‍👩‍👧‍👦 Husholdningsadministrasjon for hele familien</li>
+                </ul>
+                <p>Det gjør ukesplanleggingen enkel, rask — og faktisk gøy.</p>
+
+                <h3 style="color:var(--color-primary,#d97706); border-bottom:2px solid var(--color-primary,#d97706); padding-bottom:6px; margin-top:24px;">Hva vi tror på</h3>
+                <ul style="padding-left:20px; list-style:none;">
+                    <li>🍽️ <strong>Enkelt er best</strong> — planlegging av middag skal ikke være et prosjekt i seg selv</li>
+                    <li>👨‍👩‍👧‍👦 <strong>Familien først</strong> — appen er bygget for ekte familier med travle hverdager</li>
+                    <li>🇳🇴 <strong>Norsk hjerte</strong> — laget i Norge, for familier overalt</li>
+                    <li>🔓 <strong>Åpen kildekode</strong> — ærlig og gjennomsiktig</li>
+                </ul>
+
+                <h3 style="color:var(--color-primary,#d97706); border-bottom:2px solid var(--color-primary,#d97706); padding-bottom:6px; margin-top:24px;">Hvem står bak?</h3>
+                <p><strong>nobody174</strong> — en far fra Vestfold med lidenskap for teknologi og det å bygge ting. Selvlært programmerer med lang bakgrunn innen IT.</p>
+                <a href="https://www.patreon.com/Nobody174" target="_blank" rel="noopener" style="display:inline-block; margin-top:8px; padding:10px 20px; background:#FF424D; color:white; border-radius:8px; text-decoration:none; font-weight:600;">🎨 Følg nobody174 på Patreon</a>
+                <a href="/feedback" style="display:inline-block; margin-top:8px; margin-left:8px; padding:10px 20px; background:var(--color-primary,#d97706); color:white; border-radius:8px; text-decoration:none; font-weight:600;">💬 Send tilbakemelding</a>
+
                 {% else %}
-                <p style="font-style:italic; color:var(--color-text-secondary,#666);">Your stress-free dinner solution!</p>
+                <p style="font-style:italic; color:var(--color-text-secondary,#666); margin-top:0;">Your stress-free dinner solution!</p>
+
+                <h3 style="color:var(--color-primary,#d97706); border-bottom:2px solid var(--color-primary,#d97706); padding-bottom:6px;">The Story</h3>
                 <p>Menu Planner was built by a dad from Vestfold, Norway — a self-taught IT guy who always has something on the go. One evening he found himself with a Raspberry Pi and no real plan for what to do with it. So he thought: <em>"There must be something useful I can make with this."</em></p>
                 <p>His family of five — mum, dad and three kids — had the same problem every other family with children has: <strong>what are we having for dinner this week?</strong> What started as a hobby project quickly became something the whole family actually used every week.</p>
                 <p><em>This isn't just our problem. This is every family's problem.</em></p>
-                <h4 style="color:var(--color-primary,#d97706);">💡 Why I Built This</h4>
-                <p>Every week the same question: <strong>"What should we eat?"</strong> Menu Planner gives you a recipe library, automatic weekly menus, deduplicated shopping lists and bilingual support — simple, fast, and actually fun.</p>
-                <p style="margin-top:16px;"><strong>nobody174</strong> — a dad from Vestfold with a passion for technology and building things.</p>
-                <a href="https://www.patreon.com/Nobody174" target="_blank" rel="noopener" style="display:inline-block; margin-top:8px; padding:8px 16px; background:#FF424D; color:white; border-radius:8px; text-decoration:none; font-weight:600;">🎨 Follow nobody174 on Patreon</a>
+                <p>So Menu Planner became what it is today — an app built for families who want to spend less time wondering what's for dinner, and more time actually enjoying the meal together.</p>
+
+                <h3 style="color:var(--color-primary,#d97706); border-bottom:2px solid var(--color-primary,#d97706); padding-bottom:6px; margin-top:24px;">💡 Why I Built This</h3>
+                <p>Every week the same question: <strong>"What should we eat?"</strong></p>
+                <p>Menu Planner solves that by giving you:</p>
+                <ul style="padding-left:20px;">
+                    <li>📚 A recipe library you build yourself</li>
+                    <li>🗓️ Automatic weekly menus from your recipes</li>
+                    <li>🛒 Deduplicated shopping lists</li>
+                    <li>🌍 Bilingual support (Norwegian + English)</li>
+                    <li>🎨 Beautiful themes</li>
+                    <li>👨‍👩‍👧‍👦 Household management for the whole family</li>
+                </ul>
+                <p>It makes weekly planning simple, fast, and actually fun.</p>
+
+                <h3 style="color:var(--color-primary,#d97706); border-bottom:2px solid var(--color-primary,#d97706); padding-bottom:6px; margin-top:24px;">What We Believe In</h3>
+                <ul style="padding-left:20px; list-style:none;">
+                    <li>🍽️ <strong>Simple is best</strong> — planning dinner shouldn't be a project in itself</li>
+                    <li>👨‍👩‍👧‍👦 <strong>Family first</strong> — built for real families with busy lives</li>
+                    <li>🇳🇴 <strong>Norwegian heart</strong> — made in Norway, for families everywhere</li>
+                    <li>🔓 <strong>Open source</strong> — honest and transparent</li>
+                </ul>
+
+                <h3 style="color:var(--color-primary,#d97706); border-bottom:2px solid var(--color-primary,#d97706); padding-bottom:6px; margin-top:24px;">Who's Behind It?</h3>
+                <p><strong>nobody174</strong> — a dad from Vestfold with a passion for technology and building things. Self-taught programmer with a long background in IT.</p>
+                <a href="https://www.patreon.com/Nobody174" target="_blank" rel="noopener" style="display:inline-block; margin-top:8px; padding:10px 20px; background:#FF424D; color:white; border-radius:8px; text-decoration:none; font-weight:600;">🎨 Follow nobody174 on Patreon</a>
+                <a href="/feedback" style="display:inline-block; margin-top:8px; margin-left:8px; padding:10px 20px; background:var(--color-primary,#d97706); color:white; border-radius:8px; text-decoration:none; font-weight:600;">💬 Send Feedback</a>
                 {% endif %}
             </div>
         </div>
