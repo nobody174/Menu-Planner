@@ -1097,6 +1097,11 @@ a:focus-visible {
   margin-top: 8px;
   z-index: 1000;
   display: none;
+  /* Menu can be taller than short mobile viewports - without this the
+     bottom items (user info, logout) render off-screen with no way to
+     reach them, since the panel itself never scrolls. */
+  max-height: calc(100vh - 90px);
+  overflow-y: auto;
 }
 
 .settings-dropdown.open {

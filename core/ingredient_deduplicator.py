@@ -7,6 +7,7 @@
 
 import json
 import logging
+import re
 from pathlib import Path
 from typing import List, Dict, Tuple
 from collections import defaultdict
@@ -57,9 +58,46 @@ UNIT_CONVERSIONS = {
     'tsp': {'to_base': 5, 'base': 'ml'},
     'stk': {'to_base': 1, 'base': 'stk'},
     'piece': {'to_base': 1, 'base': 'stk'},
+    'pieces': {'to_base': 1, 'base': 'stk'},
+    'pcs': {'to_base': 1, 'base': 'stk'},
     'clove': {'to_base': 1, 'base': 'stk'},
     'slice': {'to_base': 1, 'base': 'stk'},
 }
+
+# Cutting/prep descriptors that show up appended to ingredient names in recipe
+# data (e.g. "Gulrot, i skiver" / "Carrot, sliced") - these describe how to
+# prepare the ingredient for the recipe, not something you can buy pre-made,
+# so they need to be stripped before the name reaches the shopping list.
+PREP_DESCRIPTOR_WORDS = [
+    # Norwegian
+    'i skiver', 'tynne skiver', 'skiver', 'i biter', 'biter', 'i terninger',
+    'terninger', 'strimler', 'i strimler', 'revet', 'raspet', 'hakket',
+    'fint hakket', 'grovhakket', 'knust', 'moset', 'skåret', 'kuttet', 'tynt',
+    # English
+    'thin slices', 'thinly sliced', 'sliced', 'slices', 'diced', 'chopped',
+    'finely chopped', 'roughly chopped', 'grated', 'shredded', 'minced',
+    'cubed', 'crushed', 'mashed', 'cut',
+]
+
+_PREP_PAREN_RE = re.compile(
+    r'\(\s*(?:' + '|'.join(re.escape(w) for w in PREP_DESCRIPTOR_WORDS) + r')\s*\)',
+    re.IGNORECASE,
+)
+_PREP_SUFFIX_RE = re.compile(
+    r',\s*(?:' + '|'.join(re.escape(w) for w in PREP_DESCRIPTOR_WORDS) + r')\s*$',
+    re.IGNORECASE,
+)
+
+
+def strip_prep_descriptors(name: str) -> str:
+    """Remove cutting/prep instructions from an ingredient name, e.g.
+    "Gulrot, i skiver" -> "Gulrot", "Cucumber (thin slices)" -> "Cucumber".
+    Leaves names without a recognized prep descriptor untouched."""
+    if not name:
+        return name
+    cleaned = _PREP_PAREN_RE.sub('', name)
+    cleaned = _PREP_SUFFIX_RE.sub('', cleaned)
+    return cleaned.strip().rstrip(',').strip()
 
 INGREDIENT_CATEGORIES = {
     'Proteins': ['kj øtt', 'beef', 'chicken', 'fish', 'salmon', 'laks', 'cod', 'torsk',
@@ -182,7 +220,7 @@ class IngredientDeduplicator:
             if not ingredient.get('name'):
                 continue
 
-            name = ingredient['name'].strip()
+            name = strip_prep_descriptors(ingredient['name'].strip())
             logger.info(f"  Checking ingredient: '{name}'")
 
             if self.is_pantry_staple(name):
@@ -247,7 +285,12 @@ class IngredientDeduplicator:
                     if total_quantity >= 1000:
                         total_quantity /= 1000
                         primary_unit = 'l'
-                elif primary_unit.lower() in ['stk', 'piece', 'pieces']:
+                    elif total_quantity >= 100:
+                        # More natural for cooking/shopping than a raw ml count
+                        # (e.g. 300 ml milk -> 3 dl milk).
+                        total_quantity /= 100
+                        primary_unit = 'dl'
+                elif primary_unit.lower() in ['stk', 'piece', 'pieces', 'pcs']:
                     primary_unit = 'pieces'
 
                 if total_quantity > 0:

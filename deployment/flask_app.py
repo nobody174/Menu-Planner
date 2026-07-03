@@ -12,7 +12,7 @@ import secrets
 import requests
 from pathlib import Path
 from flask import Flask, render_template, jsonify, request, session, redirect, url_for
-from datetime import datetime
+from datetime import datetime, timedelta
 import sys
 from dotenv import load_dotenv
 
@@ -224,6 +224,11 @@ app.config['SECRET_KEY'] = os.environ.get('FLASK_SECRET_KEY', secrets.token_hex(
 app.config['SESSION_COOKIE_SECURE'] = IS_PRODUCTION
 app.config['SESSION_COOKIE_HTTPONLY'] = True
 app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
+
+# Sessions default to browser-session-only cookies, which get dropped when an
+# installed PWA is fully closed (common on mobile), forcing a relogin every
+# time. Login routes set session.permanent = True to opt into this lifetime.
+app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=30)
 
 # Disable Jinja2 cache in development for faster iteration
 if not IS_PRODUCTION:
@@ -817,6 +822,8 @@ def shopping_list():
     if not menu or 'shopping_list' not in menu:
         return render_template('error.html', message='No shopping list available'), 404
 
+    from core.ingredient_deduplicator import strip_prep_descriptors
+
     lang = _get_lang()
     if lang == 'no':
         # Rebuild shopping list ingredient names in Norwegian from the recipe data
@@ -863,16 +870,28 @@ def shopping_list():
                     elif ing.get('name_en'):
                         en = (ing.get('name_en') or '').strip().lower()
                         no = (ing.get('name_no') or '').strip()
+                    # Strip prep/cutting descriptors ("i skiver", "(sliced)", etc)
+                    # so this matches the equally-stripped keys the shopping
+                    # list was deduplicated under, and so the Norwegian name
+                    # itself doesn't leak the same prep text either.
+                    en = strip_prep_descriptors(en).lower()
+                    no = strip_prep_descriptors(no)
                     if en and no:
                         name_map[en] = no
-        # Translate shopping list ingredient names
+        # Translate shopping list ingredient names and units
+        unit_translations_no = {'pieces': 'stk', 'piece': 'stk', 'pcs': 'stk'}
         for category, items in en_shopping.items():
             new_items = []
             for item in items:
                 new_item = dict(item)
-                en_name = item.get('ingredient', '').strip().lower()
+                en_name = strip_prep_descriptors(item.get('ingredient', '')).strip().lower()
                 if en_name in name_map:
                     new_item['ingredient'] = name_map[en_name]
+                else:
+                    new_item['ingredient'] = strip_prep_descriptors(item.get('ingredient', ''))
+                unit = str(item.get('unit', '')).strip().lower()
+                if unit in unit_translations_no:
+                    new_item['unit'] = unit_translations_no[unit]
                 new_items.append(new_item)
             shopping[category] = new_items
     else:
@@ -1802,6 +1821,7 @@ def login_local():
         return render_template('login.html', error=result, email=email), 401
 
     user = result
+    session.permanent = True
     session['user_id'] = str(user.id)
     session['user_email'] = user.email
     session['auth_type'] = 'local'
@@ -2027,6 +2047,7 @@ def callback():
             logger.error(f"Auth callback error: {err}")
             return render_template('error.html', message=f'Login failed: {err}'), 400
 
+        session.permanent = True
         session['access_token'] = result['access_token']
         session.pop('auth_flow', None)
         session['auth_type'] = 'azure'
