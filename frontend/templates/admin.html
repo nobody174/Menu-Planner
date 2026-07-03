@@ -12,6 +12,17 @@
   <div style="background:#fee; color:#c33; border:1px solid #fcc; border-radius:6px; padding:12px; margin-bottom:16px;">{{ request.args.get('error') }}</div>
   {% endif %}
 
+  <h2 style="margin-top:32px;">Maintenance</h2>
+  <div style="border:1px solid #eee; border-radius:8px; padding:16px; margin-bottom:16px;">
+    <p style="margin:0 0 10px; font-size:0.9rem; color:#555;">
+      Re-normalize measurement units (e.g. "tbsp"/"tsp" → "ss"/"ts") in recipes households already imported before the fix went in. Fixing the seed data only affects <em>future</em> imports - this updates what's already in each household's database.
+    </p>
+    <form method="POST" action="{{ url_for('admin_normalize_recipe_units') }}"
+          onsubmit="event.preventDefault(); pmConfirm('🔧', 'Normalize Recipe Units', 'Re-normalize measurement units across every household\'s already-imported recipes?').then(function(ok){ if(ok) event.target.submit(); });">
+      <button type="submit" class="btn btn-secondary">Normalize Recipe Units for All Households</button>
+    </form>
+  </div>
+
   <h2 style="margin-top:32px;">Users ({{ users|length }})</h2>
   <table style="width:100%; border-collapse:collapse; font-size:0.9rem;">
     <thead>

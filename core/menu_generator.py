@@ -366,7 +366,9 @@ class MenuGenerator:
         shopping_list = self.deduplicator.deduplicate_from_recipes(recipe_ids)['shopping_list']
 
         week_start = self.get_next_monday()
-        week_end = week_start + timedelta(days=5)  # Monday to Saturday = 5 days difference
+        # week_end should reflect however many dinners actually got generated
+        # (F10: user-selectable day count), not always assume Mon-Sat.
+        week_end = week_start + timedelta(days=max(0, len(selected_recipes) - 1))
 
         dinners = []
         for i, recipe in enumerate(selected_recipes):

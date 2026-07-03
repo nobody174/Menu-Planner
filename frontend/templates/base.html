@@ -61,6 +61,18 @@
                         </button>
                         <div class="category-dropdown-menu" id="categoryDropdownMenu">
                             <div id="dynamicCategoriesList"></div>
+                            <div class="dropdown-divider"></div>
+                            <div class="dropdown-day-count">
+                                <label for="dayCountSelect">{{ t.number_of_days }}</label>
+                                <select id="dayCountSelect">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6" selected>6</option>
+                                </select>
+                            </div>
                             <div class="dropdown-actions">
                                 <button onclick="applyCategories()" class="btn-apply">{{ t.apply }}</button>
                             </div>

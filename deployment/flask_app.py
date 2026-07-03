@@ -1958,6 +1958,60 @@ def admin_panel():
         db.close()
     return render_template('admin.html', users=users_data)
 
+@app.route('/admin/normalize-recipe-units', methods=['POST'])
+def admin_normalize_recipe_units():
+    """One-time maintenance action: households that imported recipe packs
+    before the unit-normalization fix (tbsp/tsp -> ss/ts, etc; see B20/B15)
+    have that stale, already-copied-in data permanently baked into their own
+    recipes_db column - fixing the seed files only helps *future* imports.
+    This walks every household's already-imported recipes and re-applies the
+    same normalization directly to their DB copy."""
+    if not _is_admin():
+        return redirect(url_for('dashboard'))
+
+    from database.models import Household as _Household
+    from database.database import SessionLocal as _SessionLocal
+    from core.ingredient_deduplicator import normalize_no_unit
+
+    db = _SessionLocal()
+    households_changed = 0
+    ingredients_fixed = 0
+    try:
+        households = db.query(_Household).all()
+        for household in households:
+            recipes = household.recipes_db
+            if not isinstance(recipes, list):
+                continue
+            changed = False
+            for recipe in recipes:
+                if not isinstance(recipe, dict):
+                    continue
+                for field in ('ingredients', 'ingredients_included', 'ingredients_not_included'):
+                    for ing in recipe.get(field, []) or []:
+                        if not isinstance(ing, dict):
+                            continue
+                        unit = ing.get('unit')
+                        new_unit = normalize_no_unit(unit)
+                        if new_unit != unit:
+                            ing['unit'] = new_unit
+                            changed = True
+                            ingredients_fixed += 1
+            if changed:
+                # Reassign (not just mutate in place) so SQLAlchemy's JSONB
+                # change tracking actually notices the update.
+                household.recipes_db = recipes
+                households_changed += 1
+        db.commit()
+    except Exception as e:
+        db.rollback()
+        logger.error(f"Error normalizing recipe units: {e}")
+        return redirect(url_for('admin_panel', error=f'Normalization failed: {e}'))
+    finally:
+        db.close()
+
+    logger.info(f"Admin normalized recipe units: {ingredients_fixed} ingredients across {households_changed} households")
+    return redirect(url_for('admin_panel', success=f'Normalized {ingredients_fixed} ingredient units across {households_changed} households'))
+
 @app.route('/admin/delete-user', methods=['POST'])
 def admin_delete_user():
     if not _is_admin():
@@ -2159,9 +2213,14 @@ def api_regenerate():
         data = request.get_json() or {}
         selected_categories = data.get('categories') or data.get('selected_categories') or ['Quick Dinners', 'Fish & Seafood', 'Vegetarian']
         favorite_recipe_ids = data.get('favorite_recipe_ids', [])
-        logger.info(f"Generating menu with categories: {selected_categories}, favorites: {len(favorite_recipe_ids)}")
+        try:
+            num_dinners = int(data.get('num_dinners', 6))
+        except (TypeError, ValueError):
+            num_dinners = 6
+        num_dinners = max(1, min(6, num_dinners))
+        logger.info(f"Generating menu with categories: {selected_categories}, favorites: {len(favorite_recipe_ids)}, num_dinners: {num_dinners}")
         generator = MenuGenerator(selected_categories=selected_categories, household_id=current_household_id(), favorite_recipe_ids=favorite_recipe_ids)
-        menu = generator.run(num_dinners=6, save=True)
+        menu = generator.run(num_dinners=num_dinners, save=True)
 
         if not menu or not menu.get('dinners'):
             return jsonify({'status': 'error', 'message': 'No recipes available for selected categories. Please select different categories or add recipes.'}), 400

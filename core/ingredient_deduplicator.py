@@ -89,6 +89,49 @@ _PREP_SUFFIX_RE = re.compile(
 )
 
 
+# Canonical Norwegian unit strings for the messy/English variants that show
+# up in imported recipe data. Keys are lowercased for matching; values are
+# the exact string to normalize to.
+UNIT_MAP_NO = {
+    'tbsp': 'ss',
+    'tsp': 'ts',
+    'spiseskjeer': 'ss',
+    'spiseskje': 'ss',
+    'teskje': 'ts',
+    'teskjeer': 'ts',
+    'tsk': 'ts',
+    'spsk': 'ss',
+    'after taste': 'etter smak',
+    'efter smak': 'etter smak',
+    'medium': 'middels',
+    'small': 'liten',
+    'large': 'stor',
+    'bunch': 'bunt',
+    'skivor': 'skiver',
+    'pcs': 'stk',
+    'piece': 'stk',
+    'pieces': 'stk',
+}
+
+
+def normalize_no_unit(unit) -> object:
+    """Normalize a recipe ingredient's Norwegian unit string to a canonical
+    form (e.g. "tbsp" -> "ss"). Works on both the bilingual dict shape
+    ({'no': ..., 'en': ...}) and a plain string; returns the same shape it
+    was given. Non-string/dict input is returned unchanged."""
+    if isinstance(unit, dict):
+        no_val = (unit.get('no') or '').strip()
+        mapped = UNIT_MAP_NO.get(no_val.lower())
+        if mapped and no_val != mapped:
+            unit = dict(unit)
+            unit['no'] = mapped
+        return unit
+    if isinstance(unit, str):
+        mapped = UNIT_MAP_NO.get(unit.strip().lower())
+        return mapped if mapped else unit
+    return unit
+
+
 def strip_prep_descriptors(name: str) -> str:
     """Remove cutting/prep instructions from an ingredient name, e.g.
     "Gulrot, i skiver" -> "Gulrot", "Cucumber (thin slices)" -> "Cucumber".

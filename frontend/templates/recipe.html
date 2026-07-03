@@ -16,6 +16,22 @@
                 style="padding: 8px 16px; background: var(--color-secondary, #d97706); color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.9rem;">
             ✎ {{ t.edit if t.get('edit') else 'Edit' }}
         </button>
+        <select id="recipe-swap-dropdown"
+                data-recipe-id="{{ recipe.id }}"
+                data-recipe-title="{{ recipe.title }}"
+                style="padding: 8px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.9rem;">
+            <option value="">{{ t.swap_day }}</option>
+            <option value="Monday">{{ t.monday }}</option>
+            <option value="Tuesday">{{ t.tuesday }}</option>
+            <option value="Wednesday">{{ t.wednesday }}</option>
+            <option value="Thursday">{{ t.thursday }}</option>
+            <option value="Friday">{{ t.friday }}</option>
+            <option value="Saturday">{{ t.saturday }}</option>
+        </select>
+        <button onclick="confirmDeleteThisRecipe('{{ recipe.id }}', '{{ recipe.title|replace("'", "\\'") }}')"
+                style="padding: 8px 16px; background: none; border: 1px solid #fca5a5; border-radius: 6px; cursor: pointer; font-size: 0.9rem; color: #dc2626;">
+            🗑️ {{ t.delete_label }}
+        </button>
     </div>
     {% if recipe.subtitle %}
     <h2 class="subtitle">{{ recipe.subtitle }}</h2>
@@ -129,8 +145,76 @@
 </div>
 
 <script>
+var STR_SWAPPED = '{{ t.recipe_swapped }}';
+var STR_ADDED_TO = '{{ t.added_to_day }}';
+var STR_COULD_NOT_SWAP = '{{ t.could_not_swap }}';
+var STR_SERVER_ERROR = '{{ t.server_error }}';
+var STR_SERVER_ERROR_MSG = '{{ t.server_error_msg }}';
+var STR_DELETE_CONFIRM_TITLE = '{{ t.delete_recipe_confirm_title }}';
+var STR_DELETE_CONFIRM_MSG = '{{ t.delete_recipe_confirm_msg }}';
+var STR_DELETED_TITLE = '{{ t.recipe_deleted_title }}';
+var STR_DELETED_MSG = '{{ t.recipe_deleted_msg }}';
+var STR_COULD_NOT_DELETE = '{{ t.could_not_delete }}';
+
 function openEditRecipe(recipeId) {
     window.location.href = `/edit-recipe/${recipeId}`;
+}
+
+document.getElementById('recipe-swap-dropdown').addEventListener('change', function() {
+    var day = this.value;
+    if (!day) return;
+    var recipeId = this.getAttribute('data-recipe-id');
+    var recipeTitle = this.getAttribute('data-recipe-title');
+    swapRecipeForDay(recipeId, recipeTitle, day);
+    this.value = '';
+});
+
+function swapRecipeForDay(recipeId, recipeTitle, day) {
+    fetch('/api/swap-recipe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ recipe_id: recipeId, recipe_title: recipeTitle, day: day })
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+        if (data.status === 'success') {
+            pmAlert('✅', STR_SWAPPED, recipeTitle + ' ' + STR_ADDED_TO + ' ' + day + '.');
+        } else {
+            pmAlert('❌', STR_SERVER_ERROR, data.message || STR_COULD_NOT_SWAP);
+        }
+    })
+    .catch(function() {
+        pmAlert('❌', STR_SERVER_ERROR, STR_SERVER_ERROR_MSG);
+    });
+}
+
+function confirmDeleteThisRecipe(recipeId, recipeTitle) {
+    var msg = STR_DELETE_CONFIRM_MSG.replace('%s', recipeTitle);
+    pmConfirm('🗑️', STR_DELETE_CONFIRM_TITLE, msg).then(function(confirmed) {
+        if (confirmed) deleteThisRecipe(recipeId, recipeTitle);
+    });
+}
+
+function deleteThisRecipe(recipeId, recipeTitle) {
+    fetch('/api/delete-recipe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ recipe_id: recipeId })
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+        if (data.status === 'success') {
+            localStorage.removeItem('favorite-' + recipeId);
+            pmAlert('✅', STR_DELETED_TITLE, '"' + recipeTitle + '" ' + STR_DELETED_MSG).then(function() {
+                window.location.href = '/all-recipes';
+            });
+        } else {
+            pmAlert('❌', STR_SERVER_ERROR, data.message || STR_COULD_NOT_DELETE);
+        }
+    })
+    .catch(function() {
+        pmAlert('❌', STR_SERVER_ERROR, STR_COULD_NOT_DELETE);
+    });
 }
 
 function toggleCommentEdit(recipeId) {

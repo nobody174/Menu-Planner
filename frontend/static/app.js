@@ -241,9 +241,23 @@ function applyCategories() {
     });
     localStorage.setItem('selectedCategories', JSON.stringify(cats));
 
+    var daySelect = document.getElementById('dayCountSelect');
+    if (daySelect) localStorage.setItem('selectedDayCount', daySelect.value);
+
     var menu = document.getElementById('categoryDropdownMenu');
     if (menu) menu.classList.remove('open');
 }
+
+function getSelectedDayCount() {
+    var saved = localStorage.getItem('selectedDayCount');
+    var n = saved ? parseInt(saved, 10) : 6;
+    return (n >= 1 && n <= 6) ? n : 6;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    var daySelect = document.getElementById('dayCountSelect');
+    if (daySelect) daySelect.value = String(getSelectedDayCount());
+});
 
 // ── Menu generation ───────────────────────────────────────────────────────────
 
@@ -270,7 +284,7 @@ function refreshMenu() {
         fetch('/api/regenerate', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ categories: categories, favorite_recipe_ids: getFavoriteRecipes() })
+            body: JSON.stringify({ categories: categories, favorite_recipe_ids: getFavoriteRecipes(), num_dinners: getSelectedDayCount() })
         })
         .then(function(r) { return r.json(); })
         .then(function(data) {
