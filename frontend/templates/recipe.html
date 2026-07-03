@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="recipe-header">
-    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px; flex-wrap: wrap;">
         <h1 style="margin: 0;">{{ recipe.title }}</h1>
         <button id="favoriteBtn" class="favorite-btn"
                 onclick="toggleFavorite('{{ recipe.id }}', this)"
@@ -12,6 +12,8 @@
                 style="background: none; border: none; font-size: 28px; cursor: pointer; padding: 4px 8px; border-radius: 8px; transition: all 0.2s;">
             ☆
         </button>
+    </div>
+    <div class="recipe-actions-row" style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 12px;">
         <button onclick="openEditRecipe('{{ recipe.id }}')"
                 style="padding: 8px 16px; background: var(--color-secondary, #d97706); color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.9rem;">
             ✎ {{ t.edit if t.get('edit') else 'Edit' }}

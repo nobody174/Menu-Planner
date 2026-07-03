@@ -43,9 +43,9 @@
                 <span style="font-size:0.95rem;">{{ t.weekly_menu }}</span>
             </a>
             {% if is_authenticated %}
-            <span class="avatar-circle nav-current-user" title="{{ active_profile_name or user_email }}" style="width:40px;height:40px;font-size:20px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;color:white;font-weight:700;background:{{ avatar_color(active_profile_name or user_email) }};margin-left:10px;">
+            <a href="{{ url_for('profile_picker') }}" class="avatar-circle nav-current-user" title="{{ t.get('switch_profile', 'Switch profile') }}: {{ active_profile_name or user_email }}" style="width:40px;height:40px;font-size:20px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;color:white;font-weight:700;background:{{ avatar_color(active_profile_name or user_email) }};margin-left:10px;cursor:pointer;text-decoration:none;">
                 {{ avatar_display(active_profile_name or user_email, active_avatar_type, active_avatar_value) }}
-            </span>
+            </a>
             {% endif %}
             <ul class="nav-menu">
                 <li class="nav-item">
