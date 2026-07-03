@@ -68,7 +68,7 @@
           },
           "amount": 2,
           "unit": {
-            "no": "medium",
+            "no": "middels",
             "en": "medium"
           }
         },
@@ -204,7 +204,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "medium",
+            "no": "middels",
             "en": "medium"
           }
         },
@@ -502,7 +502,7 @@
           },
           "amount": 2,
           "unit": {
-            "no": "medium",
+            "no": "middels",
             "en": "medium"
           }
         },
@@ -619,7 +619,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "tsk",
+            "no": "ts",
             "en": "tsp"
           }
         }
@@ -712,7 +712,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "tsp",
+            "no": "ts",
             "en": "tsp"
           }
         },
@@ -723,7 +723,7 @@
           },
           "amount": 0.5,
           "unit": {
-            "no": "tsp",
+            "no": "ts",
             "en": "tsp"
           }
         },
@@ -856,7 +856,7 @@
             "en": "Cinnamon"
           },
           "unit": {
-            "no": "tsp",
+            "no": "ts",
             "en": "tsp"
           },
           "amount": 0.5
@@ -890,7 +890,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "after taste",
+            "no": "etter smak",
             "en": "to taste"
           }
         }

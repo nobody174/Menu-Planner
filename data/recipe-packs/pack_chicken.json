@@ -77,7 +77,7 @@
           },
           "amount": 2,
           "unit": {
-            "no": "medium",
+            "no": "middels",
             "en": "medium"
           }
         },
@@ -191,7 +191,7 @@
           },
           "amount": 3,
           "unit": {
-            "no": "tbsp",
+            "no": "ss",
             "en": "tbsp"
           }
         },
@@ -268,7 +268,7 @@
           },
           "amount": 3,
           "unit": {
-            "no": "tbsp",
+            "no": "ss",
             "en": "tbsp"
           }
         },
@@ -279,7 +279,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "after taste",
+            "no": "etter smak",
             "en": "to taste"
           }
         }
@@ -500,7 +500,7 @@
           },
           "amount": 3,
           "unit": {
-            "no": "spiseskjeer",
+            "no": "ss",
             "en": "tbsp"
           }
         },
@@ -511,7 +511,7 @@
           },
           "amount": 2,
           "unit": {
-            "no": "spiseskjeer",
+            "no": "ss",
             "en": "tbsp"
           }
         },

@@ -364,8 +364,11 @@ def load_pantry_from_db(household):
 
 def load_categories_from_db(household):
     """Load categories from database JSONB column with self-heal logic."""
-    if household.categories is None:
-        return []
+    # Note: households whose 'categories' column was never seeded (None)
+    # used to return [] here immediately, skipping the self-heal block below
+    # entirely - meaning "Manage Categories" stayed permanently empty for
+    # them (base_cats never got merged in), even though adding a custom
+    # category worked fine (it just appended to an empty list).
     categories = household.categories if isinstance(household.categories, list) else []
 
     # Self-heal logic: ensure base categories are present

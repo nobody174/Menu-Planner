@@ -2565,12 +2565,31 @@ def api_swap_recipe():
         if not updated:
             return jsonify({'status': 'error', 'message': f'Day {day} not found in menu'}), 404
 
-        # Save the updated menu
-        from core.household_paths import menu_file, append_activity
-        with open(menu_file(current_household_id()), 'w', encoding='utf-8') as f:
-            json.dump(menu, f, ensure_ascii=False, indent=2)
+        # Save the updated menu. Menus live in the household's DB row, not
+        # the flat file, once a household exists - writing only to the file
+        # here silently discarded the swap (menu kept loading the old DB
+        # copy on every subsequent page view).
+        household_id = current_household_id()
+        household = current_household()
+        if household:
+            from database.database import SessionLocal
+            from database.models import Household
+            from core.household_paths import save_weekly_menu_to_db, append_activity_to_db
 
-        append_activity(current_household_id(), current_actor_name(), f"Swapped {day}'s dinner to '{recipe['title']}'")
+            db = SessionLocal()
+            try:
+                db_household = db.query(Household).filter(Household.id == household.id).first()
+                if db_household:
+                    save_weekly_menu_to_db(db_household, menu)
+                    append_activity_to_db(db_household, current_actor_name(), f"Swapped {day}'s dinner to '{recipe['title']}'")
+                    db.commit()
+            finally:
+                db.close()
+        else:
+            from core.household_paths import menu_file, append_activity
+            with open(menu_file(household_id), 'w', encoding='utf-8') as f:
+                json.dump(menu, f, ensure_ascii=False, indent=2)
+            append_activity(household_id, current_actor_name(), f"Swapped {day}'s dinner to '{recipe['title']}'")
 
         logger.info(f"Swapped recipe for {day}: {recipe['title']}")
         return jsonify({'status': 'success', 'message': f'Recipe swapped for {day}'})

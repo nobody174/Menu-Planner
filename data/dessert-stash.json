@@ -640,7 +640,7 @@
           },
           "amount": 2,
           "unit": {
-            "no": "teskje",
+            "no": "ts",
             "en": "teaspoons"
           }
         }
@@ -868,7 +868,7 @@
           },
           "amount": 2,
           "unit": {
-            "no": "teskje",
+            "no": "ts",
             "en": "teaspoons"
           }
         }
@@ -1662,7 +1662,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "spiseskje",
+            "no": "ss",
             "en": "tablespoon"
           }
         },
@@ -1673,7 +1673,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "teskje",
+            "no": "ts",
             "en": "teaspoon"
           }
         },
@@ -1798,7 +1798,7 @@
           },
           "amount": 2,
           "unit": {
-            "no": "teskje",
+            "no": "ts",
             "en": "teaspoons"
           }
         }
@@ -2516,7 +2516,7 @@
           },
           "amount": 2,
           "unit": {
-            "no": "tsp",
+            "no": "ts",
             "en": "tsp"
           }
         },
@@ -2790,7 +2790,7 @@
           },
           "amount": 2,
           "unit": {
-            "no": "tbsp",
+            "no": "ss",
             "en": "tbsp"
           }
         },
@@ -2812,7 +2812,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "tbsp",
+            "no": "ss",
             "en": "tbsp"
           }
         }
@@ -2936,7 +2936,7 @@
           },
           "amount": 1.5,
           "unit": {
-            "no": "tsp",
+            "no": "ts",
             "en": "tsp"
           }
         },
@@ -2947,7 +2947,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "tsp",
+            "no": "ts",
             "en": "tsp"
           }
         },
@@ -3070,7 +3070,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "tsp",
+            "no": "ts",
             "en": "tsp"
           }
         },
@@ -3081,7 +3081,7 @@
           },
           "amount": 0.5,
           "unit": {
-            "no": "tsp",
+            "no": "ts",
             "en": "tsp"
           }
         },
@@ -3136,7 +3136,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "tsp",
+            "no": "ts",
             "en": "tsp"
           }
         }
@@ -3900,7 +3900,7 @@
           },
           "amount": 2,
           "unit": {
-            "no": "teskje",
+            "no": "ts",
             "en": "tsp"
           }
         },
@@ -4331,7 +4331,7 @@
           },
           "amount": 2,
           "unit": {
-            "no": "teskje",
+            "no": "ts",
             "en": "tsp"
           }
         },
@@ -4481,7 +4481,7 @@
           },
           "amount": 2,
           "unit": {
-            "no": "teskje",
+            "no": "ts",
             "en": "tsp"
           }
         }
@@ -4605,7 +4605,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "teskje",
+            "no": "ts",
             "en": "tsp"
           }
         }
@@ -4730,7 +4730,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "teskje",
+            "no": "ts",
             "en": "tsp"
           }
         }
@@ -5798,7 +5798,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "spiseskje",
+            "no": "ss",
             "en": "tbsp"
           }
         },
@@ -5820,7 +5820,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "spiseskje",
+            "no": "ss",
             "en": "tbsp"
           }
         }
@@ -7398,7 +7398,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "teskje",
+            "no": "ts",
             "en": "tsp"
           }
         },
@@ -7641,7 +7641,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "teskje",
+            "no": "ts",
             "en": "teaspoon"
           }
         }
@@ -7744,7 +7744,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "teskje",
+            "no": "ts",
             "en": "teaspoon"
           }
         },
@@ -7946,7 +7946,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "teskje",
+            "no": "ts",
             "en": "teaspoon"
           }
         },
@@ -7957,7 +7957,7 @@
           },
           "amount": 3,
           "unit": {
-            "no": "teskje",
+            "no": "ts",
             "en": "teaspoons"
           }
         }
@@ -8138,7 +8138,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "teskje",
+            "no": "ts",
             "en": "teaspoon"
           }
         }

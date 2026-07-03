@@ -571,17 +571,21 @@
 
     <style>
     .help-btn {
-        background: none;
+        /* Some emoji (notably U+2753 "?") render with their own red/orange
+           glyph coloring, which disappears against a red navbar theme
+           (e.g. pop-art-diner) when there's no background behind it. A
+           faint white backdrop keeps it visible against any navbar color. */
+        background: rgba(255,255,255,0.18);
         border: none;
         font-size: 1.25rem;
         cursor: pointer;
         padding: 6px 8px;
         border-radius: 8px;
         line-height: 1;
-        opacity: 0.75;
-        transition: opacity 0.2s;
+        opacity: 0.9;
+        transition: opacity 0.2s, background 0.2s;
     }
-    .help-btn:hover { opacity: 1; }
+    .help-btn:hover { opacity: 1; background: rgba(255,255,255,0.3); }
     </style>
 </body>
 </html>

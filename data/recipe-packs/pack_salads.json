@@ -301,7 +301,7 @@
           },
           "amount": 2,
           "unit": {
-            "no": "tbsp",
+            "no": "ss",
             "en": "tbsp"
           }
         },
@@ -312,7 +312,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "after taste",
+            "no": "etter smak",
             "en": "to taste"
           }
         }
@@ -434,7 +434,7 @@
           },
           "amount": 3,
           "unit": {
-            "no": "tbsp",
+            "no": "ss",
             "en": "tbsp"
           }
         },
@@ -445,7 +445,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "tsp",
+            "no": "ts",
             "en": "tsp"
           }
         },
@@ -456,7 +456,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "after taste",
+            "no": "etter smak",
             "en": "to taste"
           }
         }
@@ -615,7 +615,7 @@
           },
           "amount": 4,
           "unit": {
-            "no": "medium",
+            "no": "middels",
             "en": "medium"
           }
         },
@@ -626,7 +626,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "large",
+            "no": "stor",
             "en": "large"
           }
         },
@@ -637,7 +637,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "medium",
+            "no": "middels",
             "en": "medium"
           }
         },
@@ -751,7 +751,7 @@
           },
           "amount": 4,
           "unit": {
-            "no": "medium",
+            "no": "middels",
             "en": "medium"
           }
         },
@@ -874,7 +874,7 @@
           },
           "amount": 2,
           "unit": {
-            "no": "medium",
+            "no": "middels",
             "en": "medium"
           }
         },
@@ -896,7 +896,7 @@
           },
           "amount": 0.5,
           "unit": {
-            "no": "medium",
+            "no": "middels",
             "en": "medium"
           }
         },
@@ -1023,7 +1023,7 @@
           },
           "amount": 0.25,
           "unit": {
-            "no": "medium",
+            "no": "middels",
             "en": "medium"
           }
         },
@@ -1285,7 +1285,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "medium",
+            "no": "middels",
             "en": "medium"
           }
         },
@@ -1427,7 +1427,7 @@
           },
           "amount": 3,
           "unit": {
-            "no": "spiseskjeer",
+            "no": "ss",
             "en": "tbsp"
           }
         },
@@ -1438,7 +1438,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "spiseskje",
+            "no": "ss",
             "en": "tbsp"
           }
         },
@@ -1572,7 +1572,7 @@
           },
           "amount": 3,
           "unit": {
-            "no": "spiseskjeer",
+            "no": "ss",
             "en": "tbsp"
           }
         },
@@ -1583,7 +1583,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "spiseskje",
+            "no": "ss",
             "en": "tbsp"
           }
         },
@@ -1594,7 +1594,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "teskje",
+            "no": "ts",
             "en": "tsp"
           }
         }
@@ -1716,7 +1716,7 @@
           },
           "amount": 4,
           "unit": {
-            "no": "spiseskjeer",
+            "no": "ss",
             "en": "tbsp"
           }
         },
@@ -1727,7 +1727,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "spiseskje",
+            "no": "ss",
             "en": "tbsp"
           }
         }
@@ -1826,7 +1826,7 @@
           },
           "amount": 3,
           "unit": {
-            "no": "spiseskjeer",
+            "no": "ss",
             "en": "tbsp"
           }
         },
@@ -1848,7 +1848,7 @@
           },
           "amount": 3,
           "unit": {
-            "no": "spiseskjeer",
+            "no": "ss",
             "en": "tbsp"
           }
         },
@@ -1859,7 +1859,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "teskje",
+            "no": "ts",
             "en": "tsp"
           }
         }
@@ -1948,7 +1948,7 @@
           },
           "amount": 3,
           "unit": {
-            "no": "spiseskjeer",
+            "no": "ss",
             "en": "tbsp"
           }
         },
@@ -1970,7 +1970,7 @@
           },
           "amount": 2,
           "unit": {
-            "no": "spiseskjeer",
+            "no": "ss",
             "en": "tbsp"
           }
         },
@@ -2082,7 +2082,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "spiseskje",
+            "no": "ss",
             "en": "tbsp"
           }
         },
@@ -2104,7 +2104,7 @@
           },
           "amount": 3,
           "unit": {
-            "no": "spiseskjeer",
+            "no": "ss",
             "en": "tbsp"
           }
         }
@@ -2174,7 +2174,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "teskje",
+            "no": "ts",
             "en": "tsp"
           }
         },
@@ -2185,7 +2185,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "teskje",
+            "no": "ts",
             "en": "tsp"
           }
         },
@@ -2240,7 +2240,7 @@
           },
           "amount": 2,
           "unit": {
-            "no": "spiseskjeer",
+            "no": "ss",
             "en": "tbsp"
           }
         }
@@ -2352,7 +2352,7 @@
           },
           "amount": 3,
           "unit": {
-            "no": "spiseskjeer",
+            "no": "ss",
             "en": "tbsp"
           }
         },
@@ -2363,7 +2363,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "spiseskje",
+            "no": "ss",
             "en": "tbsp"
           }
         },

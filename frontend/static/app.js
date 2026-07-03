@@ -355,7 +355,17 @@ function toggleSettingsMenu(event) {
     event.stopPropagation();
     var dropdown = document.getElementById('settings-dropdown');
     if (dropdown) {
+        var opening = !dropdown.classList.contains('open');
         dropdown.classList.toggle('open');
+        if (opening) {
+            // A fixed CSS max-height can't know how far down the button
+            // actually sits (varies by theme/viewport), so the dropdown's
+            // bottom could still render past the visible screen with no way
+            // to reach it. Cap it to the real remaining space instead.
+            var rect = dropdown.getBoundingClientRect();
+            var available = window.innerHeight - rect.top - 12;
+            dropdown.style.maxHeight = Math.max(120, available) + 'px';
+        }
     }
 }
 

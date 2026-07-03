@@ -66,7 +66,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "medium",
+            "no": "middels",
             "en": "medium"
           }
         },
@@ -186,7 +186,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "medium",
+            "no": "middels",
             "en": "medium"
           }
         },
@@ -358,7 +358,7 @@
           },
           "amount": 2,
           "unit": {
-            "no": "spiseskjeer",
+            "no": "ss",
             "en": "tablespoons"
           }
         },
@@ -592,7 +592,7 @@
           },
           "amount": 2,
           "unit": {
-            "no": "teskje",
+            "no": "ts",
             "en": "teaspoons"
           }
         },
@@ -702,7 +702,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "small",
+            "no": "liten",
             "en": "small"
           }
         },
@@ -966,7 +966,7 @@
           },
           "amount": 0.5,
           "unit": {
-            "no": "tsp",
+            "no": "ts",
             "en": "tsp"
           }
         },
@@ -977,7 +977,7 @@
           },
           "amount": 3,
           "unit": {
-            "no": "tbsp",
+            "no": "ss",
             "en": "tbsp"
           }
         }
@@ -1080,7 +1080,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "small",
+            "no": "liten",
             "en": "small"
           }
         },
@@ -1182,7 +1182,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "medium",
+            "no": "middels",
             "en": "medium"
           }
         },
@@ -1306,7 +1306,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "medium",
+            "no": "middels",
             "en": "medium"
           }
         },
@@ -1874,7 +1874,7 @@
           },
           "amount": 2,
           "unit": {
-            "no": "teskje",
+            "no": "ts",
             "en": "tsp"
           }
         },
@@ -1994,7 +1994,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "teskje",
+            "no": "ts",
             "en": "tsp"
           }
         },
@@ -2005,7 +2005,7 @@
           },
           "amount": 3,
           "unit": {
-            "no": "spsk",
+            "no": "ss",
             "en": "tbsp"
           }
         }
