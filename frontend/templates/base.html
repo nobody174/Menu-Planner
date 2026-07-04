@@ -115,9 +115,8 @@
                             <div class="settings-divider"></div>
                             {% if is_authenticated %}
                             <div class="settings-section">
-                                <div class="settings-section-title">{{ t.get('household', 'Household') }}</div>
                                 <a href="#" class="settings-submenu-item" onclick="toggleSettingsSubmenu('household-submenu', event)">
-                                    {{ t.get('household', 'Household') }} <span class="submenu-arrow">›</span>
+                                    {{ t.settings }} <span class="submenu-arrow">›</span>
                                 </a>
                                 <div id="household-submenu" class="theme-submenu" style="display:none;">
                                     {% if is_household_owner %}
@@ -139,7 +138,6 @@
                             <div class="settings-divider"></div>
                             {% endif %}
                             <div class="settings-section">
-                                <div class="settings-section-title">{{ t.theme }}</div>
                                 <a href="#" class="settings-submenu-item" onclick="toggleSettingsSubmenu('theme-submenu', event)">
                                     {{ t.choose_theme }} <span class="submenu-arrow">›</span>
                                 </a>
@@ -149,7 +147,6 @@
                             </div>
                             <div class="settings-divider"></div>
                             <div class="settings-section">
-                                <div class="settings-section-title">{{ t.get('help', 'Help') }}</div>
                                 <a href="#" class="settings-submenu-item" onclick="toggleSettingsSubmenu('help-submenu', event)">
                                     {{ t.get('help', 'Help') }} <span class="submenu-arrow">›</span>
                                 </a>
