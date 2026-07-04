@@ -2634,11 +2634,45 @@ def api_swap_recipe():
             recipe = find_recipe(recipe_id)
             if not recipe:
                 return jsonify({'status': 'error', 'message': 'Recipe not found'}), 404
+
+            # Mirror MenuGenerator.generate_menu()'s field derivation exactly -
+            # this used to only set recipe_id/title/time_minutes/difficulty,
+            # leaving title_no/title_en/subtitle_no/subtitle_en/protein/
+            # image_url stale from whatever recipe used to be on this day.
+            # The dashboard prefers title_en/title_no over the raw 'title'
+            # field when resolving what to display, so it kept silently
+            # showing the OLD recipe's name even though the swap "worked".
+            from core.menu_generator import MenuGenerator, PROTEIN_IMAGES
+
+            title = recipe.get('title')
+            if isinstance(title, dict):
+                title_en = title.get('en', '')
+                title_no = title.get('no', '')
+            else:
+                title_en = recipe.get('title_en', title or '')
+                title_no = recipe.get('title_no', title or '')
+
+            subtitle = recipe.get('subtitle')
+            if isinstance(subtitle, dict):
+                subtitle_en = subtitle.get('en', '')
+                subtitle_no = subtitle.get('no', '')
+            else:
+                subtitle_en = recipe.get('subtitle_en', subtitle or '')
+                subtitle_no = recipe.get('subtitle_no', subtitle or '')
+
+            protein_type = MenuGenerator().get_protein_type(title_en or title_no or '', subtitle_en or subtitle_no or '')
+
             target['recipe_id'] = recipe['id']
             target['title'] = recipe['title']
-            target['time_minutes'] = recipe.get('time_minutes', 0)
+            target['title_no'] = title_no
+            target['title_en'] = title_en
+            target['time_minutes'] = recipe.get('time_minutes') or recipe.get('cookTimeMinutes') or 0
             target['difficulty'] = recipe.get('difficulty', '')
-            recipe_title = recipe['title']
+            target['protein'] = protein_type
+            target['subtitle_no'] = subtitle_no
+            target['subtitle_en'] = subtitle_en
+            target['image_url'] = PROTEIN_IMAGES.get(protein_type, PROTEIN_IMAGES.get('vegetarian'))
+            recipe_title = title_en or title_no or 'Recipe'
 
         # Save the updated menu. Menus live in the household's DB row, not
         # the flat file, once a household exists - writing only to the file
