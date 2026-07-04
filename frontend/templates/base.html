@@ -110,41 +110,21 @@
                             <a href="{{ url_for('whats_new') }}" class="settings-item">🆕 {{ t.get('whats_new', "What's New") }}</a>
                             <a href="{{ url_for('whats_planned') }}" class="settings-item">🔮 {{ t.get('whats_planned', "What's Planned") }}</a>
                             <div class="settings-divider"></div>
-                            <div class="settings-section">
-                                <div class="settings-section-title">{{ t.theme }}</div>
-                                <a href="#" class="settings-submenu-item" onclick="openThemeMenu(event)">
-                                    {{ t.choose_theme }} <span class="submenu-arrow">›</span>
-                                </a>
-                                <div id="theme-submenu" class="theme-submenu" style="display:none;">
-                                    <!-- Populated dynamically from theme-registry.json -->
-                                </div>
-                            </div>
-                            <div class="settings-divider"></div>
-                            {% if is_authenticated and is_household_owner %}
-                            <a href="{{ url_for('household_settings') }}" class="settings-item">{{ t.get('household', 'Household') }}</a>
-                            <a href="/settings" class="settings-item">{{ t.settings }}</a>
-                            {% endif %}
-                            {% if is_app_admin %}
-                            <a href="{{ url_for('admin_panel') }}" class="settings-item" style="color:#dc2626;">🔧 Admin</a>
-                            {% endif %}
                             <a href="/all-recipes" class="settings-item">{{ t.all_recipes }}</a>
                             <a href="/add-recipe" class="settings-item">+ {{ t.add_recipe }}</a>
+                            <div class="settings-divider"></div>
                             {% if is_authenticated %}
-                            <a href="/feedback" class="settings-item">💬 {{ t.get('send_feedback', 'Send Feedback') }}</a>
-                            {% if is_app_admin %}
-                            <a href="/feedback/list" class="settings-item">📋 View Feedback</a>
-                            {% endif %}
-                            {% endif %}
-                            <div class="settings-divider"></div>
                             <div class="settings-section">
-                                <div class="settings-section-title">{{ t.get('help', 'Help') }}</div>
-                                <a href="#" class="settings-item" onclick="openHelpModal(); toggleSettingsMenu(event);">📖 Quick Start Guide</a>
-                                <a href="/help/advanced" class="settings-item">🔧 Advanced Guide</a>
-                                <a href="/help/tips" class="settings-item">💡 Tips & Tricks</a>
-                            </div>
-                            <div class="settings-divider"></div>
-                            <div id="nav-auth-section">
-                                {% if is_authenticated %}
+                                <div class="settings-section-title">{{ t.get('household', 'Household') }}</div>
+                                <a href="#" class="settings-submenu-item" onclick="toggleSettingsSubmenu('household-submenu', event)">
+                                    {{ t.get('household', 'Household') }} <span class="submenu-arrow">›</span>
+                                </a>
+                                <div id="household-submenu" class="theme-submenu" style="display:none;">
+                                    {% if is_household_owner %}
+                                    <a href="{{ url_for('household_settings') }}" class="settings-item">{{ t.get('household', 'Household') }}</a>
+                                    <a href="/settings" class="settings-item">{{ t.settings }}</a>
+                                    <div class="settings-divider"></div>
+                                    {% endif %}
                                     <span id="nav-user-display-settings" style="font-size:0.85rem; color:var(--color-text-secondary,#888); padding:8px 16px; display:flex; align-items:center; gap:8px;">
                                         <span class="avatar-circle" style="width:32px;height:32px;font-size:16px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;color:white;font-weight:700;background:{{ avatar_color(active_profile_name or user_email) }};flex-shrink:0;">
                                             {{ avatar_display(active_profile_name or user_email, active_avatar_type, active_avatar_value) }}
@@ -154,6 +134,50 @@
                                     <a href="{{ url_for('profile_picker') }}" class="settings-item" style="color: var(--color-text-primary, #333);">
                                         {{ t.get('switch_profile', 'Switch Profile') }}
                                     </a>
+                                </div>
+                            </div>
+                            <div class="settings-divider"></div>
+                            {% endif %}
+                            <div class="settings-section">
+                                <div class="settings-section-title">{{ t.theme }}</div>
+                                <a href="#" class="settings-submenu-item" onclick="toggleSettingsSubmenu('theme-submenu', event)">
+                                    {{ t.choose_theme }} <span class="submenu-arrow">›</span>
+                                </a>
+                                <div id="theme-submenu" class="theme-submenu" style="display:none;">
+                                    <!-- Populated dynamically from theme-registry.json -->
+                                </div>
+                            </div>
+                            <div class="settings-divider"></div>
+                            <div class="settings-section">
+                                <div class="settings-section-title">{{ t.get('help', 'Help') }}</div>
+                                <a href="#" class="settings-submenu-item" onclick="toggleSettingsSubmenu('help-submenu', event)">
+                                    {{ t.get('help', 'Help') }} <span class="submenu-arrow">›</span>
+                                </a>
+                                <div id="help-submenu" class="theme-submenu" style="display:none;">
+                                    <a href="#" class="settings-item" onclick="openHelpModal(); toggleSettingsMenu(event);">📖 Quick Start Guide</a>
+                                    <a href="/help/advanced" class="settings-item">🔧 Advanced Guide</a>
+                                    <a href="/help/tips" class="settings-item">💡 Tips & Tricks</a>
+                                </div>
+                            </div>
+                            {% if is_authenticated %}
+                            <div class="settings-divider"></div>
+                            <div class="settings-section">
+                                <div class="settings-section-title">{{ t.get('feedback', 'Feedback') }}</div>
+                                <a href="#" class="settings-submenu-item" onclick="toggleSettingsSubmenu('feedback-submenu', event)">
+                                    {{ t.get('feedback', 'Feedback') }} <span class="submenu-arrow">›</span>
+                                </a>
+                                <div id="feedback-submenu" class="theme-submenu" style="display:none;">
+                                    <a href="/feedback" class="settings-item">💬 {{ t.get('send_feedback', 'Send Feedback') }}</a>
+                                    {% if is_app_admin %}
+                                    <a href="/feedback/list" class="settings-item">📋 View Feedback</a>
+                                    <a href="{{ url_for('admin_panel') }}" class="settings-item" style="color:#dc2626;">🔧 Admin</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            {% endif %}
+                            <div class="settings-divider"></div>
+                            <div id="nav-auth-section">
+                                {% if is_authenticated %}
                                     <a href="/logout" class="settings-item settings-logout" style="color: var(--color-text-primary, #333);">
                                         {{ t.get('logout', 'Logout') }}
                                     </a>
@@ -427,8 +451,10 @@
     window.addEventListener('pageshow', function() {
         var dropdown = document.getElementById('settings-dropdown');
         if (dropdown) dropdown.classList.remove('open');
-        var themeSubmenu = document.getElementById('theme-submenu');
-        if (themeSubmenu) themeSubmenu.style.display = 'none';
+        ['theme-submenu', 'household-submenu', 'help-submenu', 'feedback-submenu'].forEach(function(id) {
+            var submenu = document.getElementById(id);
+            if (submenu) submenu.style.display = 'none';
+        });
         if (document.activeElement && document.activeElement !== document.body) {
             document.activeElement.blur();
         }

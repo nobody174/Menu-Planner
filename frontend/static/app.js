@@ -398,10 +398,10 @@ function toggleSettingsMenu(event) {
     }
 }
 
-function openThemeMenu(event) {
+function toggleSettingsSubmenu(submenuId, event) {
     event.preventDefault();
     event.stopPropagation();
-    var submenu = document.getElementById('theme-submenu');
+    var submenu = document.getElementById(submenuId);
     if (submenu) {
         submenu.style.display = submenu.style.display === 'none' ? 'block' : 'none';
     }
