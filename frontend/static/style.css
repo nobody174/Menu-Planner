@@ -117,6 +117,27 @@ a:hover {
   padding: 0 var(--spacing-lg);
 }
 
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: 1px solid var(--color-border, #ddd);
+  color: var(--color-text-secondary, #666);
+  padding: 6px 14px;
+  border-radius: var(--radius-md, 6px);
+  font-size: var(--font-size-sm, 0.85rem);
+  font-family: inherit;
+  cursor: pointer;
+  margin-bottom: var(--spacing-md, 16px);
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.back-btn:hover {
+  background: var(--color-hover-bg, rgba(0,0,0,0.05));
+  color: var(--color-text-primary, #1a1a1a);
+}
+
 /* ── Navbar ── */
 .navbar {
   background-color: var(--color-primary);

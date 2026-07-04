@@ -389,6 +389,12 @@
     </div>
 
     <main class="container">
+        {% if is_authenticated and request.path != '/' %}
+        <button type="button" class="back-btn" onclick="goBack()" aria-label="{{ t.get('back', 'Back') }}">
+            ← {{ t.get('back', 'Back') }}
+        </button>
+        {% endif %}
+
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
                 {% for category, message in messages %}
@@ -406,6 +412,20 @@
         <p>Menu Planner &copy; 2026 | Created by <a href="{{ github_url }}" target="_blank">{{ creator }}</a> | <a href="#" onclick="openAboutModal()">{{ t.get('about', 'About') }}</a></p>
         <p style="font-size: 0.8em; margin-top: 4px;"><a href="{{ patreon_url }}" target="_blank">{{ t.support_patreon }}</a> • Built with Claude Code</p>
     </footer>
+
+    <script>
+    function goBack() {
+        // Plain browser back - lets "Back" mean whatever page the user
+        // actually came from, instead of a hardcoded link to some assumed
+        // parent page. Falls back to the dashboard if there's no history to
+        // go back to (e.g. the page was opened directly from a bookmark).
+        if (window.history.length > 1) {
+            window.history.back();
+        } else {
+            window.location.href = '/';
+        }
+    }
+    </script>
 
     <script>
     // Server-rendered i18n strings available synchronously before app.js loads.

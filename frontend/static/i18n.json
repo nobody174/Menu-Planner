@@ -580,5 +580,7 @@
   "profile_name_no": "Navn",
   "profile_name_en": "Name",
   "rename_no": "Endre navn",
-  "rename_en": "Rename"
+  "rename_en": "Rename",
+  "back_no": "Tilbake",
+  "back_en": "Back"
 }
