@@ -414,6 +414,23 @@
     </footer>
 
     <script>
+    // When the "Back" button (or the browser's own back/forward) restores a
+    // page from the bfcache, the DOM comes back exactly as it looked the
+    // moment the user navigated away - including a settings dropdown left
+    // open (e.g. they opened it, clicked "Household", then hit Back), or an
+    // input that still had focus (which can silently re-pop the mobile
+    // keyboard, e.g. a PIN field the user had clicked into). Reset both on
+    // restore.
+    window.addEventListener('pageshow', function() {
+        var dropdown = document.getElementById('settings-dropdown');
+        if (dropdown) dropdown.classList.remove('open');
+        var themeSubmenu = document.getElementById('theme-submenu');
+        if (themeSubmenu) themeSubmenu.style.display = 'none';
+        if (document.activeElement && document.activeElement !== document.body) {
+            document.activeElement.blur();
+        }
+    });
+
     function goBack() {
         // Plain browser back - lets "Back" mean whatever page the user
         // actually came from, instead of a hardcoded link to some assumed
