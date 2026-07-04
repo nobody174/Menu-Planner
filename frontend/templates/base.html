@@ -106,13 +106,10 @@
                                     {% if lang == 'en' %}<span aria-hidden="true">➤</span>{% endif %}
                                 </button>
                             </div>
-                            <div class="settings-divider"></div>
                             <a href="{{ url_for('whats_new') }}" class="settings-item">🆕 {{ t.get('whats_new', "What's New") }}</a>
                             <a href="{{ url_for('whats_planned') }}" class="settings-item">🔮 {{ t.get('whats_planned', "What's Planned") }}</a>
-                            <div class="settings-divider"></div>
                             <a href="/all-recipes" class="settings-item">{{ t.all_recipes }}</a>
                             <a href="/add-recipe" class="settings-item">+ {{ t.add_recipe }}</a>
-                            <div class="settings-divider"></div>
                             {% if is_authenticated %}
                             <div class="settings-section">
                                 <a href="#" class="settings-submenu-item" onclick="toggleSettingsSubmenu('household-submenu', event)">
@@ -122,7 +119,6 @@
                                     {% if is_household_owner %}
                                     <a href="{{ url_for('household_settings') }}" class="settings-item">{{ t.get('household', 'Household') }}</a>
                                     <a href="/settings" class="settings-item">{{ t.settings }}</a>
-                                    <div class="settings-divider"></div>
                                     {% endif %}
                                     <span id="nav-user-display-settings" style="font-size:0.85rem; color:var(--color-text-secondary,#888); padding:8px 16px; display:flex; align-items:center; gap:8px;">
                                         <span class="avatar-circle" style="width:32px;height:32px;font-size:16px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;color:white;font-weight:700;background:{{ avatar_color(active_profile_name or user_email) }};flex-shrink:0;">
@@ -135,7 +131,6 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="settings-divider"></div>
                             {% endif %}
                             <div class="settings-section">
                                 <a href="#" class="settings-submenu-item" onclick="toggleSettingsSubmenu('theme-submenu', event)">
@@ -145,7 +140,6 @@
                                     <!-- Populated dynamically from theme-registry.json -->
                                 </div>
                             </div>
-                            <div class="settings-divider"></div>
                             <div class="settings-section">
                                 <a href="#" class="settings-submenu-item" onclick="toggleSettingsSubmenu('help-submenu', event)">
                                     {{ t.get('help', 'Help') }} <span class="submenu-arrow">›</span>
@@ -157,7 +151,6 @@
                                 </div>
                             </div>
                             {% if is_authenticated %}
-                            <div class="settings-divider"></div>
                             <div class="settings-section">
                                 <a href="#" class="settings-submenu-item" onclick="toggleSettingsSubmenu('feedback-submenu', event)">
                                     {{ t.get('feedback', 'Feedback') }} <span class="submenu-arrow">›</span>
@@ -171,7 +164,6 @@
                                 </div>
                             </div>
                             {% endif %}
-                            <div class="settings-divider"></div>
                             <div id="nav-auth-section">
                                 {% if is_authenticated %}
                                     <a href="/logout" class="settings-item settings-logout" style="color: var(--color-text-primary, #333);">
