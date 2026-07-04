@@ -1232,6 +1232,11 @@ def about_page():
     lang = _get_lang()
     return render_template('about.html', lang=lang)
 
+@app.route('/whats-new')
+def whats_new():
+    lang = _get_lang()
+    return render_template('whats_new.html', lang=lang)
+
 @app.route('/help/advanced')
 def help_advanced():
     lang = _get_lang()

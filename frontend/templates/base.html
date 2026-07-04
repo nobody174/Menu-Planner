@@ -107,6 +107,8 @@
                                 </button>
                             </div>
                             <div class="settings-divider"></div>
+                            <a href="{{ url_for('whats_new') }}" class="settings-item">🆕 {{ t.get('whats_new', "What's New") }}</a>
+                            <div class="settings-divider"></div>
                             <div class="settings-section">
                                 <div class="settings-section-title">{{ t.theme }}</div>
                                 <a href="#" class="settings-submenu-item" onclick="openThemeMenu(event)">

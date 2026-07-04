@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block title %}{% if lang == 'no' %}Nyheter{% else %}What's New{% endif %} – Menu Planner{% endblock %}
+{% block content %}
+<div class="help-page">
+
+{% if lang == 'no' %}
+
+    <h1>🆕 Nyheter</h1>
+    <p style="font-size:1.05rem; color:var(--color-text-secondary,#555); margin-bottom:30px;">De siste forbedringene og rettelsene i Menu Planner, i vanlig språk.</p>
+
+    <section>
+        <h2>2026-07-05</h2>
+        <ul>
+            <li>Lagt til en <strong>"Tilbake"</strong>-knapp øverst på hver side, slik at du enkelt kan gå tilbake dit du nettopp var — uten å navigere gjennom menyen på nytt.</li>
+            <li><strong>Bytt dag</strong> fungerer nå som en ordentlig bytting: hvis oppskriften du velger allerede står en annen dag denne uken, bytter de to dagene plass i stedet for at den ene forsvinner.</li>
+            <li>Fjernet "Slett"-knappen inne på selve oppskriftssiden — den forvirret med "fjern fra ukens meny". Sletting finnes fortsatt på Alle oppskrifter, der det er tydelig at det gjelder oppskriftskatalogen din.</li>
+            <li>Tydeligere visning av valgt språk — pil ved siden av valgt språk i innstillinger, og et lite flagg ved siden av profilbildet ditt.</li>
+            <li>Snarveien "Kom i gang" er omorganisert til å reflektere hvordan appen faktisk er ment å brukes: legg til egne oppskrifter først, importerte pakker er en mal/midlertidig løsning.</li>
+            <li>Rettet en feil der hovedsiden fortsatt viste den gamle oppskriften etter at du byttet inn en helt ny oppskrift på en dag.</li>
+            <li>Rettet et par visningsfeil i innstillingsmenyen (dukket opp utenfor skjermen på enkelte skjermstørrelser, eller ble stående åpen etter at du trykket "Tilbake").</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2026-07-03 til 2026-07-04</h2>
+        <ul>
+            <li>Du kan nå <strong>velge hvor mange dager</strong> menyen skal genereres for (1-6), i stedet for alltid 6.</li>
+            <li>"Bytt dag" og "Slett oppskrift" er nå tilgjengelig direkte inne på oppskriftssiden, i tillegg til Alle oppskrifter.</li>
+            <li>Handlelisten viser nå riktige norske enheter (f.eks. "ss"/"ts"/"stk" i stedet for engelske forkortelser), og fjerner tilberedningsinstrukser som "i skiver" fra varenavnene.</li>
+            <li>Rettet flere måleenhetsfeil i importerte oppskrifter (blandet norsk/engelsk).</li>
+            <li>Rettet en feil der "Bytt dag" sa at den lyktes, men ingenting faktisk endret seg.</li>
+            <li>Rettet at kategorilisten under Innstillinger kunne være tom for enkelte husholdninger.</li>
+            <li>Forbedret mobilvisning: husholdningsinnstillinger, innstillingsmenyen og PIN-boksen oppførte seg alle bedre på små skjermer.</li>
+            <li>Appen skal nå holde deg innlogget lenger, og en feil som kunne gi "Oops!"-feilmeldinger er rettet.</li>
+        </ul>
+    </section>
+
+{% else %}
+
+    <h1>🆕 What's New</h1>
+    <p style="font-size:1.05rem; color:var(--color-text-secondary,#555); margin-bottom:30px;">The latest improvements and fixes in Menu Planner, in plain language.</p>
+
+    <section>
+        <h2>2026-07-05</h2>
+        <ul>
+            <li>Added a <strong>"Back"</strong> button at the top of every page, so you can easily return to wherever you just were — without navigating through the menu again.</li>
+            <li><strong>Change day</strong> now works as a true swap: if the recipe you pick is already planned for a different day this week, the two days trade places instead of one silently disappearing.</li>
+            <li>Removed the "Delete" button from inside the recipe page itself — it was confusing with "remove from this week's menu". Delete is still available on All Recipes, where it's clear it applies to your recipe catalog.</li>
+            <li>Clearer indicator of your selected language — an arrow next to the active language in settings, and a small flag next to your avatar.</li>
+            <li>The Quick Start Guide has been reordered to reflect how the app is actually meant to be used: add your own recipes first, imported packs are a template/temporary option.</li>
+            <li>Fixed a bug where the main dashboard kept showing the old recipe after swapping in a brand-new one on a day.</li>
+            <li>Fixed a couple of display glitches in the settings menu (rendering off-screen on some screen sizes, or staying open after pressing "Back").</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2026-07-03 to 2026-07-04</h2>
+        <ul>
+            <li>You can now <strong>choose how many days</strong> to generate a menu for (1-6), instead of always 6.</li>
+            <li>"Change day" and "Delete recipe" are now available directly from inside the recipe page too, not just All Recipes.</li>
+            <li>The shopping list now shows correct Norwegian units (e.g. "ss"/"ts"/"stk" instead of English abbreviations), and strips prep instructions like "sliced" out of ingredient names.</li>
+            <li>Fixed several measurement unit errors in imported recipes (mixed Norwegian/English).</li>
+            <li>Fixed a bug where "Change day" reported success but nothing actually changed.</li>
+            <li>Fixed the category list under Settings sometimes appearing empty for some households.</li>
+            <li>Improved mobile display: household settings, the settings menu, and the PIN box all behave better on small screens.</li>
+            <li>The app should now keep you logged in for longer, and a bug that could cause "Oops!" error pages has been fixed.</li>
+        </ul>
+    </section>
+
+{% endif %}
+
+</div>
+
+<style>
+.help-page { max-width: 760px; margin: 30px auto; padding: 0 20px 60px; }
+.help-page h1 { color: var(--color-primary, #d97706); margin-bottom: 30px; }
+.help-page h2 { color: var(--color-text-primary, #1a1a1a); border-bottom: 2px solid var(--color-primary, #d97706); padding-bottom: 6px; margin-top: 36px; }
+.help-page p, .help-page li { color: var(--color-text-secondary, #444); line-height: 1.7; }
+.help-page ul, .help-page ol { padding-left: 20px; }
+</style>
+{% endblock %}
