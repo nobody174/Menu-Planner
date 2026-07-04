@@ -379,6 +379,21 @@ function toggleSettingsMenu(event) {
             var rect = dropdown.getBoundingClientRect();
             var available = window.innerHeight - rect.top - 12;
             dropdown.style.maxHeight = Math.max(120, available) + 'px';
+
+            // The dropdown is right-aligned to its button by default
+            // (CSS `right: 0`), expanding leftward - fine when the button
+            // sits on the right side of the nav, but if the button ends up
+            // near the left edge (narrow viewport, wrapped nav, browser
+            // zoom/text scaling), that leftward expansion runs off the left
+            // of the screen with no way to reach those items either. Clamp
+            // it back onto the screen if that happens.
+            if (rect.left < 8) {
+                dropdown.style.right = 'auto';
+                dropdown.style.left = '8px';
+            } else {
+                dropdown.style.right = '';
+                dropdown.style.left = '';
+            }
         }
     }
 }
