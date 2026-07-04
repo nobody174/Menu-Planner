@@ -2591,7 +2591,13 @@ def api_edit_recipe():
 
 @app.route('/api/swap-recipe', methods=['POST'])
 def api_swap_recipe():
-    """Swap a recipe for a specific weekday in the current menu"""
+    """Move a recipe to a chosen weekday in the current menu.
+
+    If the recipe is already planned for a different day this week, the two
+    days trade places entirely (a true swap - nothing is lost or
+    duplicated). If the recipe isn't currently in this week's menu at all
+    (e.g. picking a brand-new recipe from the catalog), it's simply inserted
+    into the target day, replacing whatever was already planned there."""
     try:
         data = request.get_json() or {}
         recipe_id = data.get('recipe_id')
@@ -2604,25 +2610,35 @@ def api_swap_recipe():
         if not menu:
             return jsonify({'status': 'error', 'message': 'No menu generated yet'}), 404
 
-        # Find the dinner for this day and replace it
-        updated = False
-        for dinner in menu.get('dinners', []):
-            if dinner['day'] == day:
-                # Find the new recipe
-                recipe = find_recipe(recipe_id)
-                if not recipe:
-                    return jsonify({'status': 'error', 'message': 'Recipe not found'}), 404
-
-                # Replace the dinner
-                dinner['recipe_id'] = recipe['id']
-                dinner['title'] = recipe['title']
-                dinner['time_minutes'] = recipe.get('time_minutes', 0)
-                dinner['difficulty'] = recipe.get('difficulty', '')
-                updated = True
-                break
-
-        if not updated:
+        dinners = menu.get('dinners', [])
+        target = next((d for d in dinners if d['day'] == day), None)
+        if not target:
             return jsonify({'status': 'error', 'message': f'Day {day} not found in menu'}), 404
+
+        source = next((d for d in dinners if d.get('recipe_id') == recipe_id and d is not target), None)
+        swapped_with_day = None
+
+        if source:
+            # True swap - exchange everything except the 'day' field itself.
+            source_day, target_day = source['day'], target['day']
+            source_copy, target_copy = dict(source), dict(target)
+            source.clear()
+            source.update(target_copy)
+            source['day'] = source_day
+            target.clear()
+            target.update(source_copy)
+            target['day'] = target_day
+            swapped_with_day = source_day
+            recipe_title = target['title']
+        else:
+            recipe = find_recipe(recipe_id)
+            if not recipe:
+                return jsonify({'status': 'error', 'message': 'Recipe not found'}), 404
+            target['recipe_id'] = recipe['id']
+            target['title'] = recipe['title']
+            target['time_minutes'] = recipe.get('time_minutes', 0)
+            target['difficulty'] = recipe.get('difficulty', '')
+            recipe_title = recipe['title']
 
         # Save the updated menu. Menus live in the household's DB row, not
         # the flat file, once a household exists - writing only to the file
@@ -2630,6 +2646,8 @@ def api_swap_recipe():
         # copy on every subsequent page view).
         household_id = current_household_id()
         household = current_household()
+        activity_msg = (f"Swapped {day} and {swapped_with_day}" if swapped_with_day
+                        else f"Swapped {day}'s dinner to '{recipe_title}'")
         if household:
             from database.database import SessionLocal
             from database.models import Household
@@ -2640,7 +2658,7 @@ def api_swap_recipe():
                 db_household = db.query(Household).filter(Household.id == household.id).first()
                 if db_household:
                     save_weekly_menu_to_db(db_household, menu)
-                    append_activity_to_db(db_household, current_actor_name(), f"Swapped {day}'s dinner to '{recipe['title']}'")
+                    append_activity_to_db(db_household, current_actor_name(), activity_msg)
                     db.commit()
             finally:
                 db.close()
@@ -2648,10 +2666,10 @@ def api_swap_recipe():
             from core.household_paths import menu_file, append_activity
             with open(menu_file(household_id), 'w', encoding='utf-8') as f:
                 json.dump(menu, f, ensure_ascii=False, indent=2)
-            append_activity(household_id, current_actor_name(), f"Swapped {day}'s dinner to '{recipe['title']}'")
+            append_activity(household_id, current_actor_name(), activity_msg)
 
-        logger.info(f"Swapped recipe for {day}: {recipe['title']}")
-        return jsonify({'status': 'success', 'message': f'Recipe swapped for {day}'})
+        logger.info(activity_msg)
+        return jsonify({'status': 'success', 'message': activity_msg, 'swapped_with_day': swapped_with_day})
 
     except Exception as e:
         logger.error(f"Error swapping recipe: {e}")

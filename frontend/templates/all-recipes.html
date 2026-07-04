@@ -291,12 +291,17 @@ document.querySelectorAll('.swap-dropdown').forEach(function(dropdown) {
         var recipeId    = this.getAttribute('data-recipe-id');
         var recipeTitle = this.getAttribute('data-recipe-title');
         if (!day) return;
-        swapRecipeForDay(recipeId, recipeTitle, day);
+        swapRecipeForDay(recipeId, recipeTitle, day, this);
         this.value = '';
     });
 });
 
-function swapRecipeForDay(recipeId, recipeTitle, day) {
+function dayLabel(day, dropdown) {
+    var opt = dropdown && dropdown.querySelector('option[value="' + day + '"]');
+    return opt ? opt.textContent : day;
+}
+
+function swapRecipeForDay(recipeId, recipeTitle, day, dropdownEl) {
     fetch('/api/swap-recipe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -305,7 +310,10 @@ function swapRecipeForDay(recipeId, recipeTitle, day) {
     .then(function(r) { return r.json(); })
     .then(function(data) {
         if (data.status === 'success') {
-            pmAlert('✅', STR_SWAPPED, recipeTitle + ' ' + STR_ADDED_TO + ' ' + day + '.').then(function() {
+            var msg = data.swapped_with_day
+                ? dayLabel(day, dropdownEl) + ' ⇄ ' + dayLabel(data.swapped_with_day, dropdownEl)
+                : recipeTitle + ' ' + STR_ADDED_TO + ' ' + dayLabel(day, dropdownEl) + '.';
+            pmAlert('✅', STR_SWAPPED, msg).then(function() {
                 loadWeeklyMenu();
                 location.reload();
             });
