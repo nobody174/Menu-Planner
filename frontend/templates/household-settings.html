@@ -106,7 +106,7 @@
     <!-- Add Profile Section (Owner/Editor only) -->
     {% if can_manage %}
     <div class="add-member-section">
-      <h3>{{ t.get('add_profile', 'Add Family Profile') }}</h3>
+      <h3>{{ t.get('add_profile_title', 'Add Family Profile') }}</h3>
       <p class="hint">{{ t.get('add_profile_hint', "For family members who don't need their own login - they'll appear as a profile to pick after you sign in.") }}
         ({{ profile_count }}/{{ max_profiles }})</p>
 
@@ -181,30 +181,6 @@
     </div>
   </div>
   {% endif %}
-
-  <!-- Create an Additional Household Section -->
-  <div class="settings-card">
-    <h2>{{ t.get('create_another_household', 'Create Another Household') }}</h2>
-    <p class="hint">{{ t.get('create_another_household_hint', "This won't change your current household — it adds a separate one (e.g. for a second home or a different group) that you can switch to above.") }}</p>
-
-    <form method="POST" action="{{ url_for('create_household_handler') }}" class="create-household-form">
-      <div class="form-group">
-        <label for="new-household-name">{{ t.get('household_name', 'Household Name') }}</label>
-        <input
-          type="text"
-          id="new-household-name"
-          name="household_name"
-          required
-          placeholder="e.g. Smith Family, Roommates, etc."
-          maxlength="255"
-        />
-      </div>
-
-      <button type="submit" class="btn btn-secondary">
-        {{ t.get('create_household', 'Create Household') }}
-      </button>
-    </form>
-  </div>
 
   {% else %}
   <!-- No Household Prompt -->
