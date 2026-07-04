@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}{% if lang == 'no' %}Kommer snart{% else %}What's Planned{% endif %} – Menu Planner{% endblock %}
+{% block content %}
+<div class="help-page">
+
+{% if lang == 'no' %}
+
+    <h1>🔮 Kommer snart</h1>
+    <p style="font-size:1.05rem; color:var(--color-text-secondary,#555); margin-bottom:30px;">Dette jobber vi med å planlegge — ingen garanti for når (eller om!) det kommer, men her er hva som ligger på idélisten.</p>
+
+    <ul class="planned-list">
+        <li><span class="planned-icon">🎨</span> <strong>Nye temaer</strong> — ordentlige temaer med egen stil, ikke bare fargebytte (bl.a. mørk modus)</li>
+        <li><span class="planned-icon">🍰</span> <strong>Bla i desserter og drikke</strong> — velg og legg til i ukens meny</li>
+        <li><span class="planned-icon">🥗</span> <strong>Velg dine egne tilbehør</strong> — velg tilbehør som passer til middagen</li>
+        <li><span class="planned-icon">🌍</span> <strong>Verdensretter-pakke</strong> — en eller to retter fra land verden over</li>
+        <li><span class="planned-icon">🖼️</span> <strong>Nye avatarstiler</strong> — flere alternativer utover emoji</li>
+    </ul>
+
+    <p style="margin-top:30px; font-size:0.95rem;">💬 Har du en idé, eller mening om noe av dette? <a href="/feedback">Send oss en tilbakemelding</a> — vi leser alt!</p>
+
+{% else %}
+
+    <h1>🔮 What's Planned</h1>
+    <p style="font-size:1.05rem; color:var(--color-text-secondary,#555); margin-bottom:30px;">Here's what's on the idea list — no promises on when (or if!) each one lands, but this is the direction we're thinking.</p>
+
+    <ul class="planned-list">
+        <li><span class="planned-icon">🎨</span> <strong>New themes</strong> — real design-language themes, not just colour swaps (including a dark mode)</li>
+        <li><span class="planned-icon">🍰</span> <strong>Browse desserts & drinks</strong> — pick and add them to your weekly plan</li>
+        <li><span class="planned-icon">🥗</span> <strong>Pick your own sides</strong> — choose side dishes to go with dinner</li>
+        <li><span class="planned-icon">🌍</span> <strong>World cuisine recipe pack</strong> — a dish or two from countries around the globe</li>
+        <li><span class="planned-icon">🖼️</span> <strong>New avatar styles</strong> — more options beyond emoji</li>
+    </ul>
+
+    <p style="margin-top:30px; font-size:0.95rem;">💬 Got an idea, or thoughts on any of this? <a href="/feedback">Send us feedback</a> — we read all of it!</p>
+
+{% endif %}
+
+</div>
+
+<style>
+.help-page { max-width: 760px; margin: 30px auto; padding: 0 20px 60px; }
+.help-page h1 { color: var(--color-primary, #d97706); margin-bottom: 30px; }
+.help-page p, .help-page li { color: var(--color-text-secondary, #444); line-height: 1.7; }
+.planned-list { list-style: none; padding: 0; margin: 0; }
+.planned-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  background: var(--color-surface, #fff);
+  border: 1px solid var(--color-border, #eee);
+  border-radius: 8px;
+}
+.planned-icon { font-size: 1.3rem; line-height: 1.4; }
+</style>
+{% endblock %}

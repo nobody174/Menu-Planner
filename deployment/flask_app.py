@@ -1237,6 +1237,11 @@ def whats_new():
     lang = _get_lang()
     return render_template('whats_new.html', lang=lang)
 
+@app.route('/whats-planned')
+def whats_planned():
+    lang = _get_lang()
+    return render_template('whats_planned.html', lang=lang)
+
 @app.route('/help/advanced')
 def help_advanced():
     lang = _get_lang()
