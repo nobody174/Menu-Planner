@@ -241,9 +241,23 @@ function applyCategories() {
     });
     localStorage.setItem('selectedCategories', JSON.stringify(cats));
 
+    var daySelect = document.getElementById('dayCountSelect');
+    if (daySelect) localStorage.setItem('selectedDayCount', daySelect.value);
+
     var menu = document.getElementById('categoryDropdownMenu');
     if (menu) menu.classList.remove('open');
 }
+
+function getSelectedDayCount() {
+    var saved = localStorage.getItem('selectedDayCount');
+    var n = saved ? parseInt(saved, 10) : 6;
+    return (n >= 1 && n <= 6) ? n : 6;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    var daySelect = document.getElementById('dayCountSelect');
+    if (daySelect) daySelect.value = String(getSelectedDayCount());
+});
 
 // ── Menu generation ───────────────────────────────────────────────────────────
 
@@ -270,7 +284,7 @@ function refreshMenu() {
         fetch('/api/regenerate', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ categories: categories, favorite_recipe_ids: getFavoriteRecipes() })
+            body: JSON.stringify({ categories: categories, favorite_recipe_ids: getFavoriteRecipes(), num_dinners: getSelectedDayCount() })
         })
         .then(function(r) { return r.json(); })
         .then(function(data) {
@@ -355,14 +369,39 @@ function toggleSettingsMenu(event) {
     event.stopPropagation();
     var dropdown = document.getElementById('settings-dropdown');
     if (dropdown) {
+        var opening = !dropdown.classList.contains('open');
         dropdown.classList.toggle('open');
+        if (opening) {
+            // A fixed CSS max-height can't know how far down the button
+            // actually sits (varies by theme/viewport), so the dropdown's
+            // bottom could still render past the visible screen with no way
+            // to reach it. Cap it to the real remaining space instead.
+            var rect = dropdown.getBoundingClientRect();
+            var available = window.innerHeight - rect.top - 12;
+            dropdown.style.maxHeight = Math.max(120, available) + 'px';
+
+            // The dropdown is right-aligned to its button by default
+            // (CSS `right: 0`), expanding leftward - fine when the button
+            // sits on the right side of the nav, but if the button ends up
+            // near the left edge (narrow viewport, wrapped nav, browser
+            // zoom/text scaling), that leftward expansion runs off the left
+            // of the screen with no way to reach those items either. Clamp
+            // it back onto the screen if that happens.
+            if (rect.left < 8) {
+                dropdown.style.right = 'auto';
+                dropdown.style.left = '8px';
+            } else {
+                dropdown.style.right = '';
+                dropdown.style.left = '';
+            }
+        }
     }
 }
 
-function openThemeMenu(event) {
+function toggleSettingsSubmenu(submenuId, event) {
     event.preventDefault();
     event.stopPropagation();
-    var submenu = document.getElementById('theme-submenu');
+    var submenu = document.getElementById(submenuId);
     if (submenu) {
         submenu.style.display = submenu.style.display === 'none' ? 'block' : 'none';
     }

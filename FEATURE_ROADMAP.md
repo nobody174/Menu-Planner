@@ -1,6 +1,6 @@
 # Menu Planner — Feature Roadmap
 
-Last updated: 2026-07-02
+Last updated: 2026-07-04
 
 ---
 
@@ -43,13 +43,23 @@ Last updated: 2026-07-02
 - In-app help system (Quick Start modal, Advanced Guide, Tips & Tricks) — bilingual
 - Reset pantry to defaults button
 - All popups use themed `pmAlert`/`pmConfirm` (no browser defaults)
+- Selectable number of menu days (1-6) when generating (F10)
+- "Change day" and "Delete recipe" available from inside the recipe detail page (F12)
+- Nav avatar clickable → switch profile/user
+- Mobile testing pass (2026-07-03/04): fixed household settings overflow, shopping list unit/translation issues, settings dropdown cutoff, PIN autofocus, swap-recipe persistence, empty categories list, and a service worker bug that permanently cached stale pages — see `CHANGELOG.md`
+
+### Infrastructure (cont'd)
+- Render deploy is now actually automatic on push to `public-release-v1` (the previous GitHub Actions deploy step was silently dead — gated on a `main` branch that doesn't exist in this repo)
+- Admin panel maintenance action to backfill measurement-unit fixes into already-imported household recipe data
 
 ---
 
 ## 🚧 Active Backlog (see BACKLOG_2026-07-01.md)
 
 ### Bugs
-- **B12:** Remove second "menu ready" popup after generation (page reload is enough)
+- **B17:** Intermittent relogin/"Oops!" errors — fix shipped, monitoring for recurrence
+- **B28:** Two recipes have broken combined-ingredient units, need manual splitting
+- Activity log may be silently dropping some entries (detached-session bug) — needs audit
 
 ### Upcoming Features
 | # | Feature | Notes |
@@ -59,9 +69,9 @@ Last updated: 2026-07-02
 | F3 | Avatar upgrade (DiceBear) | Replace emoji picker with generated pixel art |
 | F5 | Around the World recipe pack | 1-2 iconic dishes per country, bilingual |
 | F6 | Future ideas page | 💡 page for family/friends to see what's coming |
-| F7 | Test delete account end-to-end | Feature built, needs full validation |
 | F8 | Sides stash feature | Browse + pick sides to go with weekly menu |
 | F9 | Dessert system on dinner planner | Pick dessert days, separate shopping list section |
+| F11 | Family-of-4 portion note | Recipes don't indicate default serving size anywhere |
 
 ---
 

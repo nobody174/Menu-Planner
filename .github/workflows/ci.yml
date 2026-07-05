@@ -104,24 +104,22 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-  # Job 3: Deploy to Railway (only on main branch, on successful test)
+  # Job 3: Deploy to Render (only on public-release-v1, on successful test)
   deploy:
-    name: Deploy to Railway
+    name: Deploy to Render
     runs-on: ubuntu-latest
     needs: test
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: github.ref == 'refs/heads/public-release-v1' && github.event_name == 'push'
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Deploy to Railway
-        uses: railway-app/actions@v1
-        with:
-          token: ${{ secrets.RAILWAY_TOKEN }}
-          service: ${{ secrets.RAILWAY_SERVICE_ID }}
+      - name: Trigger Render deploy
+        run: |
+          if [ -z "${{ secrets.RENDER_DEPLOY_HOOK_URL }}" ]; then
+            echo "::error::RENDER_DEPLOY_HOOK_URL secret is not set - skipping deploy trigger"
+            exit 1
+          fi
+          curl -fsS -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
 
       - name: Post deployment message
         run: |
-          echo "✅ Deployed to Railway successfully!"
-          echo "URL: https://${{ secrets.RAILWAY_DOMAIN }}"
+          echo "✅ Triggered Render deploy for menuplanner.no"

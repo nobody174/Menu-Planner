@@ -19,8 +19,15 @@ if DATABASE_URL.startswith('sqlite'):
         poolclass=StaticPool
     )
 else:
-    # PostgreSQL
-    engine = create_engine(DATABASE_URL, echo=False)
+    # PostgreSQL. pool_pre_ping tests each connection with a lightweight
+    # query before handing it out and transparently reconnects if it's gone
+    # stale - without it, the first request after the app or DB has been
+    # idle for a while (common on Render) reuses a dead connection and blows
+    # up with a generic 500 "Oops!" page that a refresh then silently fixes
+    # (the retry gets a fresh connection). pool_recycle is a second safety
+    # net for managed Postgres providers that close idle connections
+    # server-side before the client even notices.
+    engine = create_engine(DATABASE_URL, echo=False, pool_pre_ping=True, pool_recycle=280)
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()

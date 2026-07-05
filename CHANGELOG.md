@@ -5,6 +5,37 @@ See `BACKLOG_2026-07-01.md` for open tasks and `FEATURE_ROADMAP.md` for planned 
 
 ---
 
+## 2026-07-03 to 2026-07-04
+
+Mobile testing pass plus follow-up user feedback rounds. Most items below were found on live mobile testing, fixed, deployed, and confirmed fixed by re-testing on the live site.
+
+### 🐛 Bug Fixes — confirmed
+- **B12:** Second "menu ready" popup after generation removed — only the initial confirmation remains
+- **B13:** Household settings page overflowed horizontally on mobile portrait — stacked the members table into cards, fixed text wrapping
+- **B14 / B20:** Shopping list and recipe ingredient units had cutting/prep descriptors leaking in ("Gulrot, i skiver" instead of "Gulrot") and inconsistent/English units in Norwegian recipes ("tbsp"/"tsp" instead of "ss"/"ts", "pcs" instead of "stk", plus several other variants). Fixed the seed recipe data (214 units normalized across 13 files) and added an admin "Normalize Recipe Units for All Households" action to backfill already-imported household data (370 units fixed across 2 households)
+- **B16:** Shopping list now converts small ml quantities to dl for more natural units (300 ml → 3 dl)
+- **B18 / B22:** Settings (cogwheel) dropdown was cut off at the bottom on short mobile screens; fixed to dynamically size to actual available viewport space instead of a fixed guess
+- **B19:** Mobile keyboard was popping open on a hidden PIN box when entering Household/Settings — removed a redundant `autofocus` attribute
+- **B21:** "Change day" (swap recipe) on the All Recipes page reported success but never actually changed anything — it was writing to an abandoned flat file instead of the household's database row
+- **B23:** Pop-Art Diner theme's "?" quick-start button was invisible against its red navbar (the emoji glyph itself is red) — added a contrast backdrop
+- **B24:** Settings → Manage Categories list was permanently empty for some households due to a logic bug skipping the base-category merge
+- **B25:** The service worker cached every page cache-first forever — the first time any page loaded on a device, it froze that HTML snapshot and never refetched, so any server-side change (swapped day, deletion, etc.) silently never appeared again on already-visited pages. Rewrote to network-first for page navigations, cache-first only for static assets
+- **B26:** "Add Family Profile" and "Create Another Household" sections on household settings showed in English regardless of selected language — several translation keys were missing from `i18n.json` entirely
+
+### 🐛 Bug Fixes — shipped, still monitoring
+- **B17:** App required relogin after being away / installed as a PWA, plus intermittent "Oops!" server errors. Added persistent 30-day sessions and `pool_pre_ping`/`pool_recycle` on the Postgres connection (stale connections after Render idles out were the likely cause of the Oops errors). Recurrence should be watched over a few more days of normal use.
+
+### 🔧 Infrastructure
+- GitHub Actions deploy step was silently dead — it only ran `if: github.ref == 'refs/heads/main'`, but this repo has no `main` branch (only `public-release-v1`), so it had never fired. Replaced with a Render deploy hook triggered on every push to `public-release-v1` that passes tests, so deploys are now actually automatic
+
+### ✨ Improvements / Features
+- **F10:** Menu generation now supports a user-selectable number of days (1-6) via a dropdown in the Categories nav panel, instead of always generating 6 dinners
+- **F12:** Recipe detail page now has "Change day" and "Delete recipe" (with confirmation) actions, matching what All Recipes already had; button layout fixed to wrap onto its own row instead of overflowing off-screen
+- Nav avatar is now clickable, linking to the profile picker to switch users/profiles
+- **B27:** Removed "Create Another Household" — it created a second household under the same account, which overlapped confusingly with refer-a-friend and wasn't a supported use case
+
+---
+
 ## 2026-07-02
 
 ### 📁 Documentation Cleanup

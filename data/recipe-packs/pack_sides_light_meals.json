@@ -68,7 +68,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "teskje",
+            "no": "ts",
             "en": "teaspoon"
           }
         },
@@ -90,7 +90,7 @@
           },
           "amount": 4,
           "unit": {
-            "no": "spiseskjeer",
+            "no": "ss",
             "en": "tablespoons"
           }
         },
@@ -101,7 +101,7 @@
           },
           "amount": 4,
           "unit": {
-            "no": "spiseskjeer",
+            "no": "ss",
             "en": "tablespoons"
           }
         },
@@ -112,7 +112,7 @@
           },
           "amount": 4,
           "unit": {
-            "no": "spiseskjeer",
+            "no": "ss",
             "en": "tablespoons"
           }
         }
@@ -767,7 +767,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "after taste",
+            "no": "etter smak",
             "en": "to taste"
           }
         },
@@ -778,7 +778,7 @@
           },
           "amount": 4,
           "unit": {
-            "no": "tbsp",
+            "no": "ss",
             "en": "tbsp"
           }
         },
@@ -789,7 +789,7 @@
           },
           "amount": 2,
           "unit": {
-            "no": "tbsp",
+            "no": "ss",
             "en": "tbsp"
           }
         }
@@ -916,7 +916,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "tbsp",
+            "no": "ss",
             "en": "tbsp"
           }
         },
@@ -927,7 +927,7 @@
           },
           "amount": 2,
           "unit": {
-            "no": "tbsp",
+            "no": "ss",
             "en": "tbsp"
           }
         },
@@ -938,7 +938,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "after taste",
+            "no": "etter smak",
             "en": "to taste"
           }
         }
@@ -1051,7 +1051,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "after taste",
+            "no": "etter smak",
             "en": "to taste"
           }
         },
@@ -1062,7 +1062,7 @@
           },
           "amount": 2,
           "unit": {
-            "no": "tbsp",
+            "no": "ss",
             "en": "tbsp"
           }
         }
@@ -1124,7 +1124,7 @@
           },
           "amount": 4,
           "unit": {
-            "no": "skivor",
+            "no": "skiver",
             "en": "slices"
           }
         },
@@ -1168,7 +1168,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "small",
+            "no": "liten",
             "en": "small"
           }
         },
@@ -1268,7 +1268,7 @@
           },
           "amount": 1,
           "unit": {
-            "no": "medium",
+            "no": "middels",
             "en": "medium"
           }
         },
@@ -1279,7 +1279,7 @@
           },
           "amount": 4,
           "unit": {
-            "no": "skivor",
+            "no": "skiver",
             "en": "slices"
           }
         },
@@ -1699,7 +1699,7 @@
           },
           "amount": 2,
           "unit": {
-            "no": "spiseskjeer",
+            "no": "ss",
             "en": "tbsp"
           }
         }

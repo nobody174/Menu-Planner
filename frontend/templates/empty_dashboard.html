@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}{{ household_name }} {{ t.weekly_menu }}{% endblock %}
+
+{% block content %}
+<div class="error-container">
+    <div class="error-box">
+        <h1>👋 {{ t.get('welcome_no_menu_title', "Let's plan your first week!") }}</h1>
+        <p class="error-message">{{ t.get('welcome_no_menu_msg', 'Pick a few categories from the menu above, then hit Generate Menu to create your first weekly plan.') }}</p>
+        <a href="#" onclick="refreshMenu(); return false;" class="btn btn-primary">{{ t.generate_menu }}</a>
+    </div>
+</div>
+{% endblock %}

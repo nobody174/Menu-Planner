@@ -47,7 +47,7 @@ document.getElementById('feedbackForm').addEventListener('submit', async functio
         description: document.getElementById('description').value.trim()
     };
 
-    statusEl.textContent = '{{ t.get("sending", "Sending...") }}';
+    statusEl.textContent = {{ t.get("sending", "Sending...")|tojson }};
     statusEl.style.color = '#666';
 
     try {
@@ -58,15 +58,15 @@ document.getElementById('feedbackForm').addEventListener('submit', async functio
         });
         var result = await response.json();
         if (result.success) {
-            statusEl.textContent = '{{ t.get("feedback_thanks", "Thanks! Your feedback was sent.") }}';
+            statusEl.textContent = {{ t.get("feedback_thanks", "Thanks! Your feedback was sent.")|tojson }};
             statusEl.style.color = 'var(--color-success, #16a34a)';
             document.getElementById('feedbackForm').reset();
         } else {
-            statusEl.textContent = '{{ t.get("server_error", "Something went wrong") }}: ' + (result.message || '');
+            statusEl.textContent = {{ t.get("server_error", "Something went wrong")|tojson }} + ': ' + (result.message || '');
             statusEl.style.color = 'red';
         }
     } catch (err) {
-        statusEl.textContent = '{{ t.get("server_error", "Something went wrong") }}: ' + err.message;
+        statusEl.textContent = {{ t.get("server_error", "Something went wrong")|tojson }} + ': ' + err.message;
         statusEl.style.color = 'red';
     }
 });

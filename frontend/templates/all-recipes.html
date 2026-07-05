@@ -62,7 +62,7 @@
                             </div>
                             <div style="display: flex; gap: 16px; font-size: 0.9rem; color: #666; margin-bottom: 8px; flex-wrap: wrap;">
                                 <span class="category-badge">{{ recipe.category }}</span>
-                                <span>⏱️ {{ recipe.time_minutes }} {{ t.minutes }}</span>
+                                <span>⏱️ {{ recipe.time_minutes|format_minutes }}</span>
                                 <span>📊 {{ recipe.difficulty }}</span>
                             </div>
                             {% if recipe.description %}
@@ -90,6 +90,7 @@
                                 <option value="Friday">{{ t.friday }}</option>
                                 <option value="Saturday">{{ t.saturday }}</option>
                             </select>
+                            {% if can_edit_menu %}
                             <button class="delete-recipe-btn"
                                     data-recipe-id="{{ recipe.id }}"
                                     data-recipe-title="{{ recipe.title }}"
@@ -97,6 +98,7 @@
                                     style="background: none; border: 1px solid #fca5a5; border-radius: 4px; padding: 5px 10px; cursor: pointer; font-size: 0.8rem; color: #dc2626; transition: all 0.2s;">
                                 {{ t.delete_label }}
                             </button>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -173,20 +175,20 @@
 
 <script>
 var LANG = '{{ lang }}';
-var STR_COULD_NOT_LOAD = '{{ t.could_not_load_menu }}';
-var STR_MINUTES = '{{ t.minutes }}';
-var STR_SWAPPED = '{{ t.recipe_swapped }}';
-var STR_ADDED_TO = '{{ t.added_to_day }}';
-var STR_COULD_NOT_SWAP = '{{ t.could_not_swap }}';
-var STR_SERVER_ERROR = '{{ t.server_error }}';
-var STR_SERVER_ERROR_MSG = '{{ t.server_error_msg }}';
-var STR_DELETE_CONFIRM_TITLE = '{{ t.delete_recipe_confirm_title }}';
-var STR_DELETE_CONFIRM_MSG = '{{ t.delete_recipe_confirm_msg }}';
-var STR_DELETED_TITLE = '{{ t.recipe_deleted_title }}';
-var STR_DELETED_MSG = '{{ t.recipe_deleted_msg }}';
-var STR_COULD_NOT_DELETE = '{{ t.could_not_delete }}';
-var STR_FAV_ADD = '{{ t.favorite_add }}';
-var STR_FAV_REMOVE = '{{ t.favorite_remove }}';
+var STR_COULD_NOT_LOAD = {{ t.could_not_load_menu|tojson }};
+var STR_MINUTES = {{ t.minutes|tojson }};
+var STR_SWAPPED = {{ t.recipe_swapped|tojson }};
+var STR_ADDED_TO = {{ t.added_to_day|tojson }};
+var STR_COULD_NOT_SWAP = {{ t.could_not_swap|tojson }};
+var STR_SERVER_ERROR = {{ t.server_error|tojson }};
+var STR_SERVER_ERROR_MSG = {{ t.server_error_msg|tojson }};
+var STR_DELETE_CONFIRM_TITLE = {{ t.delete_recipe_confirm_title|tojson }};
+var STR_DELETE_CONFIRM_MSG = {{ t.delete_recipe_confirm_msg|tojson }};
+var STR_DELETED_TITLE = {{ t.recipe_deleted_title|tojson }};
+var STR_DELETED_MSG = {{ t.recipe_deleted_msg|tojson }};
+var STR_COULD_NOT_DELETE = {{ t.could_not_delete|tojson }};
+var STR_FAV_ADD = {{ t.favorite_add|tojson }};
+var STR_FAV_REMOVE = {{ t.favorite_remove|tojson }};
 
 async function loadWeeklyMenu() {
     try {
@@ -203,7 +205,7 @@ async function loadWeeklyMenu() {
                 '<a href="/recipe/' + _esc(dinner.recipe_id) + '" style="text-decoration:none;cursor:pointer;">' +
                     '<p class="menu-day-title">' + _esc(dinner.title) + '</p>' +
                 '</a>' +
-                '<div class="menu-day-time">⏱️ ' + dinner.time_minutes + ' ' + STR_MINUTES + '</div>';
+                '<div class="menu-day-time">⏱️ ' + _formatMinutes(dinner.time_minutes) + '</div>';
             listEl.appendChild(dayEl);
         });
     } catch(err) {
@@ -291,12 +293,17 @@ document.querySelectorAll('.swap-dropdown').forEach(function(dropdown) {
         var recipeId    = this.getAttribute('data-recipe-id');
         var recipeTitle = this.getAttribute('data-recipe-title');
         if (!day) return;
-        swapRecipeForDay(recipeId, recipeTitle, day);
+        swapRecipeForDay(recipeId, recipeTitle, day, this);
         this.value = '';
     });
 });
 
-function swapRecipeForDay(recipeId, recipeTitle, day) {
+function dayLabel(day, dropdown) {
+    var opt = dropdown && dropdown.querySelector('option[value="' + day + '"]');
+    return opt ? opt.textContent : day;
+}
+
+function swapRecipeForDay(recipeId, recipeTitle, day, dropdownEl) {
     fetch('/api/swap-recipe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -305,7 +312,10 @@ function swapRecipeForDay(recipeId, recipeTitle, day) {
     .then(function(r) { return r.json(); })
     .then(function(data) {
         if (data.status === 'success') {
-            pmAlert('✅', STR_SWAPPED, recipeTitle + ' ' + STR_ADDED_TO + ' ' + day + '.').then(function() {
+            var msg = data.swapped_with_day
+                ? dayLabel(day, dropdownEl) + ' ⇄ ' + dayLabel(data.swapped_with_day, dropdownEl)
+                : recipeTitle + ' ' + STR_ADDED_TO + ' ' + dayLabel(day, dropdownEl) + '.';
+            pmAlert('✅', STR_SWAPPED, msg).then(function() {
                 loadWeeklyMenu();
                 location.reload();
             });
@@ -320,6 +330,18 @@ function swapRecipeForDay(recipeId, recipeTitle, day) {
 
 function _esc(str) {
     return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// Mirrors the server-side format_minutes Jinja filter (deployment/flask_app.py) -
+// past 60 minutes, show hours (+ leftover minutes) instead of a raw, easy-to-
+// misread number like "1440 min" for a 24-hour cure/marinade time.
+function _formatMinutes(value) {
+    var minutes = parseInt(value, 10);
+    if (isNaN(minutes)) return value;
+    if (minutes < 60) return minutes + ' ' + STR_MINUTES;
+    var hours = Math.floor(minutes / 60);
+    var mins = minutes % 60;
+    return mins === 0 ? (hours + ' h') : (hours + ' h ' + mins + ' ' + STR_MINUTES);
 }
 
 // ---- Favorites ----

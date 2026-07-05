@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="recipe-header">
-    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px; flex-wrap: wrap;">
         <h1 style="margin: 0;">{{ recipe.title }}</h1>
         <button id="favoriteBtn" class="favorite-btn"
                 onclick="toggleFavorite('{{ recipe.id }}', this)"
@@ -12,10 +12,24 @@
                 style="background: none; border: none; font-size: 28px; cursor: pointer; padding: 4px 8px; border-radius: 8px; transition: all 0.2s;">
             ☆
         </button>
+    </div>
+    <div class="recipe-actions-row" style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 12px;">
         <button onclick="openEditRecipe('{{ recipe.id }}')"
                 style="padding: 8px 16px; background: var(--color-secondary, #d97706); color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.9rem;">
             ✎ {{ t.edit if t.get('edit') else 'Edit' }}
         </button>
+        <select id="recipe-swap-dropdown"
+                data-recipe-id="{{ recipe.id }}"
+                data-recipe-title="{{ recipe.title }}"
+                style="padding: 8px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.9rem;">
+            <option value="">{{ t.swap_day }}</option>
+            <option value="Monday">{{ t.monday }}</option>
+            <option value="Tuesday">{{ t.tuesday }}</option>
+            <option value="Wednesday">{{ t.wednesday }}</option>
+            <option value="Thursday">{{ t.thursday }}</option>
+            <option value="Friday">{{ t.friday }}</option>
+            <option value="Saturday">{{ t.saturday }}</option>
+        </select>
     </div>
     {% if recipe.subtitle %}
     <h2 class="subtitle">{{ recipe.subtitle }}</h2>
@@ -25,7 +39,7 @@
             <strong>{{ t.difficulty_label }}:</strong> {{ recipe.difficulty }}
         </span>
         <span class="meta-item">
-            <strong>{{ t.time_label }}:</strong> {{ recipe.time_minutes }} {{ t.minutes }}
+            <strong>{{ t.time_label }}:</strong> {{ recipe.time_minutes|format_minutes }}
         </span>
         <span class="meta-item">
             <strong>{{ t.type_label }}:</strong> {{ recipe.category }}
@@ -129,8 +143,50 @@
 </div>
 
 <script>
+var STR_SWAPPED = {{ t.recipe_swapped|tojson }};
+var STR_ADDED_TO = {{ t.added_to_day|tojson }};
+var STR_COULD_NOT_SWAP = {{ t.could_not_swap|tojson }};
+var STR_SERVER_ERROR = {{ t.server_error|tojson }};
+var STR_SERVER_ERROR_MSG = {{ t.server_error_msg|tojson }};
+
 function openEditRecipe(recipeId) {
     window.location.href = `/edit-recipe/${recipeId}`;
+}
+
+document.getElementById('recipe-swap-dropdown').addEventListener('change', function() {
+    var day = this.value;
+    if (!day) return;
+    var recipeId = this.getAttribute('data-recipe-id');
+    var recipeTitle = this.getAttribute('data-recipe-title');
+    swapRecipeForDay(recipeId, recipeTitle, day, this);
+    this.value = '';
+});
+
+function dayLabel(day, dropdown) {
+    var opt = dropdown && dropdown.querySelector('option[value="' + day + '"]');
+    return opt ? opt.textContent : day;
+}
+
+function swapRecipeForDay(recipeId, recipeTitle, day, dropdownEl) {
+    fetch('/api/swap-recipe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ recipe_id: recipeId, recipe_title: recipeTitle, day: day })
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+        if (data.status === 'success') {
+            var msg = data.swapped_with_day
+                ? dayLabel(day, dropdownEl) + ' ⇄ ' + dayLabel(data.swapped_with_day, dropdownEl)
+                : recipeTitle + ' ' + STR_ADDED_TO + ' ' + dayLabel(day, dropdownEl) + '.';
+            pmAlert('✅', STR_SWAPPED, msg);
+        } else {
+            pmAlert('❌', STR_SERVER_ERROR, data.message || STR_COULD_NOT_SWAP);
+        }
+    })
+    .catch(function() {
+        pmAlert('❌', STR_SERVER_ERROR, STR_SERVER_ERROR_MSG);
+    });
 }
 
 function toggleCommentEdit(recipeId) {

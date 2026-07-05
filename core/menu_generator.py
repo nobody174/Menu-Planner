@@ -69,6 +69,23 @@ PROTEIN_IMAGES = {
     'soup': '/static/images/meal-soup.jpg',
 }
 
+# Fallback when no title/subtitle keyword matches (B42): imported-pack and
+# custom recipes often have titles that don't literally contain a protein
+# word (e.g. "Gravlax" is fish, but doesn't contain "fish"/"salmon"), so they
+# fell back to the generic plate icon even when their category clearly
+# indicates the protein. Only the unambiguous categories are mapped here -
+# categories that mix proteins (Pasta & Noodles, Salads, Quick Dinners, Grill,
+# Sides, Tex-Mex) are deliberately left unmapped rather than guessed.
+CATEGORY_PROTEIN_FALLBACK = {
+    'Chicken': 'chicken',
+    'Beef & Red Meat': 'beef',
+    'Ground Meat & Sausages': 'beef',
+    'Fish & Seafood': 'fish',
+    'Pork': 'pork',
+    'Vegetarian': 'vegetarian',
+    'Soups & Stews': 'soup',
+}
+
 
 class MenuGenerator:
     def __init__(self, seed: Optional[int] = None, selected_categories: Optional[List[str]] = None,
@@ -289,12 +306,19 @@ class MenuGenerator:
         logger.info(f"Filtered recipes: {len(self.filtered_recipes)} (removed {len(self.recipes_db) - len(self.filtered_recipes)} with orange)")
         return len(self.filtered_recipes)
 
-    def get_protein_type(self, recipe_title: str, recipe_subtitle: str = '') -> str:
+    def get_protein_type(self, recipe_title: str, recipe_subtitle: str = '', category: str = '') -> str:
         combined_text = (recipe_title + ' ' + recipe_subtitle).lower()
 
         for protein_type, keywords in PROTEIN_KEYWORDS.items():
             if any(keyword in combined_text for keyword in keywords):
                 return protein_type
+
+        # B42: title/subtitle keyword matching often misses imported/custom
+        # recipes whose name doesn't literally contain a protein word (e.g.
+        # "Gravlax"). Fall back to the recipe's own category when it
+        # unambiguously implies one, before giving up to 'other'.
+        if category in CATEGORY_PROTEIN_FALLBACK:
+            return CATEGORY_PROTEIN_FALLBACK[category]
 
         return 'other'
 
@@ -328,7 +352,7 @@ class MenuGenerator:
                     subtitle_str = subtitle.get('en') or subtitle.get('no') or ''
                 else:
                     subtitle_str = subtitle or ''
-                protein = self.get_protein_type(title_str, subtitle_str)
+                protein = self.get_protein_type(title_str, subtitle_str, recipe.get('category', ''))
 
                 if last_protein and protein == last_protein:
                     continue
@@ -349,7 +373,7 @@ class MenuGenerator:
                     subtitle_str = subtitle.get('en') or subtitle.get('no') or ''
                 else:
                     subtitle_str = subtitle or ''
-                best_protein = self.get_protein_type(title_str, subtitle_str)
+                best_protein = self.get_protein_type(title_str, subtitle_str, best_recipe.get('category', ''))
 
             selected_recipes.append(best_recipe)
             available_recipes.remove(best_recipe)
@@ -366,7 +390,9 @@ class MenuGenerator:
         shopping_list = self.deduplicator.deduplicate_from_recipes(recipe_ids)['shopping_list']
 
         week_start = self.get_next_monday()
-        week_end = week_start + timedelta(days=5)  # Monday to Saturday = 5 days difference
+        # week_end should reflect however many dinners actually got generated
+        # (F10: user-selectable day count), not always assume Mon-Sat.
+        week_end = week_start + timedelta(days=max(0, len(selected_recipes) - 1))
 
         dinners = []
         for i, recipe in enumerate(selected_recipes):
@@ -390,7 +416,7 @@ class MenuGenerator:
             protein_title = title_en or title_no or ''
             protein_subtitle = subtitle_en or subtitle_no or ''
 
-            protein_type = self.get_protein_type(protein_title, protein_subtitle)
+            protein_type = self.get_protein_type(protein_title, protein_subtitle, recipe.get('category', ''))
             dinners.append({
                 'day': DAYS[i],
                 'recipe_id': recipe['id'],

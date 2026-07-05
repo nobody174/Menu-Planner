@@ -54,7 +54,7 @@
                     <span class="recipe-row-cat">{{ recipe.category }}</span>
                 </div>
                 <div class="recipe-row-meta">
-                    <span>⏱️ {{ recipe.time_minutes }} {{ t.minutes }}</span>
+                    <span>⏱️ {{ recipe.time_minutes|format_minutes }}</span>
                     <span>📊 {{ recipe.difficulty }}</span>
                 </div>
             </div>

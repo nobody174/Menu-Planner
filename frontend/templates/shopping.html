@@ -44,7 +44,7 @@
                     <label class="checkbox-label">
                         <input type="checkbox" class="item-checkbox">
                         <span class="item-name">{{ item.ingredient }}</span>
-                        <span class="item-qty">{{ item.quantity }}{{ item.unit }}</span>
+                        <span class="item-qty">{{ item.quantity }} {{ item.unit }}</span>
                     </label>
                     {% if item.allergens %}
                     <div class="item-allergens">
@@ -76,7 +76,7 @@
                 <label class="checkbox-label">
                     <input type="checkbox" class="pantry-restore-checkbox" checked title="{{ t.get('uncheck_to_restore', 'Uncheck to move back to the shopping list') }}">
                     <span class="item-name">{{ item.ingredient }}</span>
-                    <span class="item-qty">{{ item.quantity }}{{ item.unit }}</span>
+                    <span class="item-qty">{{ item.quantity }} {{ item.unit }}</span>
                 </label>
             </li>
             {% endfor %}
@@ -337,7 +337,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 '<label class="checkbox-label">' +
                     '<input type="checkbox" class="item-checkbox">' +
                     '<span class="item-name">' + ingredient + '</span>' +
-                    '<span class="item-qty">' + quantity + unit + '</span>' +
+                    '<span class="item-qty">' + quantity + ' ' + unit + '</span>' +
                 '</label>';
             newLi.querySelector('.item-checkbox').addEventListener('change', function() {
                 var parentLi = this.closest('.shopping-item');

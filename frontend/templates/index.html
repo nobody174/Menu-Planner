@@ -22,7 +22,7 @@
           <div class="card-header">
               <div class="card-header-left">
                   <h2 class="day-name">{{ dinner.day }}</h2>
-                  <span class="meal-time">{{ dinner.time_minutes }} {{ t.minutes }}</span>
+                  <span class="meal-time">{{ dinner.time_minutes|format_minutes }}</span>
               </div>
               <div class="card-header-icon">
                   {%- if dinner.protein == 'chicken' -%}
@@ -45,11 +45,15 @@
               </div>
           </div>
           <div class="card-body">
-              <h3 class="recipe-title">{{ dinner.title }}</h3>
+              <h3 class="recipe-title">{{ dinner.title if dinner.recipe_id else t.get('empty_slot', 'No recipe assigned') }}</h3>
+              {% if dinner.recipe_id %}
               <p class="difficulty">{{ dinner.difficulty }}</p>
+              {% endif %}
           </div>
           <div class="card-footer">
+              {% if dinner.recipe_id %}
               <a href="/recipe/{{ dinner.recipe_id }}" class="btn btn-primary">{{ t.view_recipe }}</a>
+              {% endif %}
           </div>
       </div>
       {% endfor %}
@@ -138,11 +142,11 @@
         </div>
         <div class="tc-card-img-overlay">
           <span class="tc-day-badge">📅 {{ dinner.day }}</span>
-          <span class="tc-time-badge">🕐 {{ dinner.time_minutes }} {{ t.minutes }}</span>
+          <span class="tc-time-badge">🕐 {{ dinner.time_minutes|format_minutes }}</span>
         </div>
       </div>
       <div class="tc-card-body">
-        <h3 class="tc-card-title">{{ dinner.title }}</h3>
+        <h3 class="tc-card-title">{{ dinner.title if dinner.recipe_id else t.get('empty_slot', 'No recipe assigned') }}</h3>
         {% if dinner.subtitle %}
         <p class="tc-card-desc">{{ dinner.subtitle }}</p>
         {% endif %}
@@ -156,9 +160,11 @@
               <span class="tc-tag">{{ dinner.difficulty }}</span>
             {% endif %}
           </div>
+          {% if dinner.recipe_id %}
           <a href="/recipe/{{ dinner.recipe_id }}" class="tc-recipe-link">
             {{ t.view_recipe }} <span class="tc-arrow">→</span>
           </a>
+          {% endif %}
         </div>
       </div>
     </div>

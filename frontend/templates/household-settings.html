@@ -63,19 +63,19 @@
                 {{ avatar_display(label, member.avatar_type, member.avatar_value) }}
               </span>
             </td>
-            <td>
+            <td data-label="{{ t.get('name', 'Name') }}">
               {{ member.display_name or member.email }}
               {% if not member.is_profile and member.display_name %}<span style="color: var(--color-text-secondary, #888);">({{ member.email }})</span>{% endif %}
               {% if member.is_profile %}<em class="profile-tag">{{ t.get('profile', 'Profile') }}</em>{% endif %}
             </td>
-            <td>
+            <td data-label="{{ t.get('role', 'Role') }}">
               <span class="role-badge" data-role="{{ member.role }}">
                 {{ member.role }}
               </span>
             </td>
-            <td>{{ member.joined_at or 'N/A' }}</td>
+            <td data-label="{{ t.get('joined', 'Joined') }}">{{ member.joined_at or 'N/A' }}</td>
             {% if can_manage and member.user_id != user_id %}
-            <td>
+            <td data-label="{{ t.get('actions', 'Actions') }}">
               {% if is_owner %}
               <button class="btn-small" onclick="openRoleMenu('{{ member.member_id }}', '{{ member.role }}', {{ 'true' if member.is_profile else 'false' }})">
                 {{ t.get('change_role', 'Change Role') }}
@@ -89,7 +89,7 @@
               </button>
             </td>
             {% elif member.user_id == user_id %}
-            <td>
+            <td data-label="{{ t.get('actions', 'Actions') }}">
               <em>{{ t.get('you', 'You') }}</em>
               {{ member.display_name or '' }}
               <button class="btn-small" onclick="renameMember('{{ member.member_id }}', '{{ member.display_name or member.email }}')">
@@ -106,7 +106,7 @@
     <!-- Add Profile Section (Owner/Editor only) -->
     {% if can_manage %}
     <div class="add-member-section">
-      <h3>{{ t.get('add_profile', 'Add Family Profile') }}</h3>
+      <h3>{{ t.get('add_profile_title', 'Add Family Profile') }}</h3>
       <p class="hint">{{ t.get('add_profile_hint', "For family members who don't need their own login - they'll appear as a profile to pick after you sign in.") }}
         ({{ profile_count }}/{{ max_profiles }})</p>
 
@@ -181,30 +181,6 @@
     </div>
   </div>
   {% endif %}
-
-  <!-- Create an Additional Household Section -->
-  <div class="settings-card">
-    <h2>{{ t.get('create_another_household', 'Create Another Household') }}</h2>
-    <p class="hint">{{ t.get('create_another_household_hint', "This won't change your current household — it adds a separate one (e.g. for a second home or a different group) that you can switch to above.") }}</p>
-
-    <form method="POST" action="{{ url_for('create_household_handler') }}" class="create-household-form">
-      <div class="form-group">
-        <label for="new-household-name">{{ t.get('household_name', 'Household Name') }}</label>
-        <input
-          type="text"
-          id="new-household-name"
-          name="household_name"
-          required
-          placeholder="e.g. Smith Family, Roommates, etc."
-          maxlength="255"
-        />
-      </div>
-
-      <button type="submit" class="btn btn-secondary">
-        {{ t.get('create_household', 'Create Household') }}
-      </button>
-    </form>
-  </div>
 
   {% else %}
   <!-- No Household Prompt -->
@@ -594,6 +570,112 @@
     background: #f9f9f9;
     border-radius: 4px;
     margin-bottom: 10px;
+  }
+
+  @media (max-width: 768px) {
+    html, body {
+      overflow-x: hidden;
+    }
+
+    .household-settings {
+      padding: 12px;
+      max-width: 100%;
+      overflow-x: hidden;
+      box-sizing: border-box;
+    }
+
+    .settings-card {
+      overflow-x: hidden;
+      box-sizing: border-box;
+    }
+
+    .info-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2px;
+    }
+
+    .info-row span {
+      width: 100%;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .management-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .management-section h3 {
+      width: 100%;
+    }
+
+    .btn-warning {
+      margin-right: 0;
+    }
+
+    /* Members table becomes stacked cards on narrow screens instead of
+       overflowing horizontally - each row's cells get re-labelled via
+       data-label and laid out as a block. */
+    .members-table,
+    .members-table thead,
+    .members-table tbody,
+    .members-table th,
+    .members-table td,
+    .members-table tr {
+      display: block;
+    }
+
+    .members-table thead {
+      display: none;
+    }
+
+    .members-table tr {
+      border: 1px solid #eee;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      padding: 8px 12px;
+    }
+
+    .members-table td {
+      border-bottom: none;
+      padding: 6px 0;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+      white-space: normal;
+      max-width: 100%;
+    }
+
+    .members-table td span {
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .members-table td:not(:first-child)::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 2px;
+    }
+
+    .members-table td:first-child {
+      display: flex;
+      align-items: center;
+    }
+
+    .members-table td:last-child {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .members-table td:last-child .btn-small {
+      margin-right: 0;
+    }
   }
 
   .household-name {
