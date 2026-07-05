@@ -462,7 +462,25 @@ a:hover {
   font-size: 0.72rem;
   color: var(--color-warning);
   margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
+
+/* Small color cue so difficulty can be scanned at a glance without reading
+   the text - added per the 2026-07-06 design critique. Falls back to the
+   warning color (amber) for any unrecognized value. */
+.difficulty-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: var(--color-warning);
+}
+.difficulty-dot[data-difficulty="easy"] { background: #22c55e; }
+.difficulty-dot[data-difficulty="medium"] { background: #f59e0b; }
+.difficulty-dot[data-difficulty="hard"] { background: #ef4444; }
 
 .protein-badge {
   align-self: flex-start;

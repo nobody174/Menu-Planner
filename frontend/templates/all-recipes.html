@@ -63,7 +63,7 @@
                             <div style="display: flex; gap: 16px; font-size: 0.9rem; color: #666; margin-bottom: 8px; flex-wrap: wrap;">
                                 <span class="category-badge">{{ recipe.category }}</span>
                                 <span>⏱️ {{ recipe.time_minutes|format_minutes }}</span>
-                                <span>📊 {{ recipe.difficulty }}</span>
+                                <span><span class="difficulty-dot" data-difficulty="{{ recipe.difficulty|lower }}"></span>{{ recipe.difficulty }}</span>
                             </div>
                             {% if recipe.description %}
                             <p style="margin: 0; color: #555; font-size: 0.9rem;">{{ recipe.description[:100] }}...</p>

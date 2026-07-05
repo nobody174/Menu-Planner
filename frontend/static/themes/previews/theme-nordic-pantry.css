@@ -219,7 +219,12 @@
 
 /* --- Card Header --- */
 [data-theme="nordic-pantry"] .card-header {
-  background-color: #4A3728;
+  /* Shorthand, not background-color: base style.css's .card-header sets a
+     hardcoded navy gradient via the `background` shorthand (background-image).
+     Setting only background-color here left that navy gradient-image
+     un-cleared, so it silently painted over this color - the card header
+     rendered navy instead of this theme's warm brown. */
+  background: #4A3728;
   padding: 1rem 1.2rem 0.95rem;
   display: flex;
   align-items: center;

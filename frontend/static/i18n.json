@@ -447,8 +447,10 @@
   "print_recipe_en": "Print Recipe",
   "open_source_no": "Open source. Lisens: MIT",
   "open_source_en": "Open source. License: MIT",
-  "export_sync_no": "Eksporter & Synkroniser",
-  "export_sync_en": "Export & Sync",
+  "export_sync_no": "Eksporter",
+  "export_sync_en": "Export",
+  "export_shopping_list_no": "Eksporter Handleliste",
+  "export_shopping_list_en": "Export Shopping List",
   "export_formats_no": "Eksportformater",
   "export_formats_en": "Export Formats",
   "task_managers_no": "Oppgavebehandlere",
@@ -620,5 +622,9 @@
   "help_no": "Hjelp",
   "help_en": "Help",
   "feedback_no": "Tilbakemelding",
-  "feedback_en": "Feedback"
+  "feedback_en": "Feedback",
+  "preferences_group_no": "Innstillinger",
+  "preferences_group_en": "Preferences",
+  "advanced_group_no": "Avansert",
+  "advanced_group_en": "Advanced"
 }

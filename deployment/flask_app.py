@@ -885,12 +885,24 @@ def dashboard():
         # Always normalize & translate difficulty
         d = dinner.get('difficulty', '')
         d_normalized = _normalize_difficulty(d)
+        # Keep the normalized (English, lowercase) level around separately for
+        # the difficulty color-dot indicator, since dinner['difficulty'] below
+        # gets overwritten with the translated display string.
+        dinner['difficulty_level'] = d_normalized.lower()
         dinner['difficulty'] = diff_map.get(d_normalized, d_normalized)
         # Resolve title to correct language (use _no/_en fields from menu JSON)
         dinner['title'] = dinner.get(f'title_{lang}') or dinner.get('title_en') or dinner.get('title') or ''
         # Also resolve subtitle if available
         if f'subtitle_{lang}' in dinner or 'subtitle_en' in dinner:
             dinner['subtitle'] = dinner.get(f'subtitle_{lang}') or dinner.get('subtitle_en') or dinner.get('subtitle') or ''
+        # Self-heal stale "0 MIN" entries saved before recipes consistently
+        # carried a time_minutes field (some pack recipes only ever had
+        # cookTimeMinutes) - look the recipe back up rather than leaving a
+        # 0 baked into the saved menu forever.
+        if not dinner.get('time_minutes'):
+            source_recipe = find_recipe(dinner.get('recipe_id'))
+            if source_recipe:
+                dinner['time_minutes'] = source_recipe.get('time_minutes') or source_recipe.get('cookTimeMinutes') or 0
     logger.info("Dashboard accessed")
     return render_template('index.html', menu=menu)
 
@@ -2261,13 +2273,22 @@ def api_menu():
         return jsonify({'error': 'No menu generated yet'}), 404
     lang = _get_lang()
     day_map = _DAY_TRANSLATIONS.get(lang, {})
-    if day_map:
-        import copy
-        menu = copy.deepcopy(menu)
-        for dinner in menu.get('dinners', []):
-            if dinner.get('day') in day_map:
-                dinner['day'] = day_map[dinner['day']]
-            dinner['title'] = _resolve(dinner.get('title'), lang)
+    import copy
+    menu = copy.deepcopy(menu)
+    for dinner in menu.get('dinners', []):
+        if dinner.get('day') in day_map:
+            dinner['day'] = day_map[dinner['day']]
+        # Always resolve the title to a plain string for this language -
+        # titles are stored as bilingual {'en':..., 'no':...} dicts, and
+        # skipping this (previously only done when a day_map existed, i.e.
+        # Norwegian) left the raw dict in place for English, which the
+        # sidebar JS then stringified as "[object Object]".
+        dinner['title'] = _resolve(dinner.get('title'), lang)
+        # Same stale-"0 MIN" self-heal as the dashboard route.
+        if not dinner.get('time_minutes'):
+            source_recipe = find_recipe(dinner.get('recipe_id'))
+            if source_recipe:
+                dinner['time_minutes'] = source_recipe.get('time_minutes') or source_recipe.get('cookTimeMinutes') or 0
     logger.info("API menu endpoint accessed")
     return jsonify(menu)
 

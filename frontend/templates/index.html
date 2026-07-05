@@ -47,7 +47,7 @@
           <div class="card-body">
               <h3 class="recipe-title">{{ dinner.title if dinner.recipe_id else t.get('empty_slot', 'No recipe assigned') }}</h3>
               {% if dinner.recipe_id %}
-              <p class="difficulty">{{ dinner.difficulty }}</p>
+              <p class="difficulty"><span class="difficulty-dot" data-difficulty="{{ dinner.difficulty_level }}"></span>{{ dinner.difficulty }}</p>
               {% endif %}
           </div>
           <div class="card-footer">
@@ -157,7 +157,7 @@
               <span class="tc-tag">{{ cat }}</span>
               {% endfor %}
             {% elif dinner.difficulty %}
-              <span class="tc-tag">{{ dinner.difficulty }}</span>
+              <span class="tc-tag"><span class="difficulty-dot" data-difficulty="{{ dinner.difficulty_level }}"></span>{{ dinner.difficulty }}</span>
             {% endif %}
           </div>
           {% if dinner.recipe_id %}

@@ -225,7 +225,11 @@
 
 /* --- Card Header --- */
 [data-theme="pop-art-diner"] .card-header {
-  background-color: #D32F2F;
+  /* Shorthand, not background-color - see theme-nordic-pantry.css for why:
+     base style.css's .card-header sets an opaque navy gradient-image via
+     the `background` shorthand, which a background-color-only override
+     never clears. */
+  background: #D32F2F;
   padding: 0.85rem 1.1rem;
   display: flex;
   align-items: center;

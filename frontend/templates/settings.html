@@ -18,6 +18,7 @@
             </p>
         </section>
         {% endif %}
+        <div class="settings-group-label">{{ t.get('preferences_group', 'Preferences') }}</div>
         <!-- Language Settings -->
         <section class="settings-section">
             <h2>{{ t.language_section }}</h2>
@@ -337,6 +338,7 @@
             });
         }
         </script>
+        <div class="settings-group-label">{{ t.get('advanced_group', 'Advanced') }}</div>
         <!-- Recipe Packs Import -->
         <section class="settings-section">
             <h2>{{ t.recipe_packs_section }}</h2>
@@ -481,6 +483,14 @@
 .settings-section > p {
     color: var(--color-text-secondary, #666);
     margin-bottom: 16px;
+}
+.settings-group-label {
+    font-size: 0.75em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-secondary, #999);
+    margin: 8px 0 -12px 4px;
 }
 .language-buttons,
 .action-buttons {

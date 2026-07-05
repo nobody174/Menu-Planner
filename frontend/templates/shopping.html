@@ -9,7 +9,7 @@
     <div class="shopping-actions">
         <button onclick="window.print()" class="btn btn-secondary">{{ t.print }}</button>
         <button onclick="uncheckAll()" class="btn btn-secondary">{{ t.reset }}</button>
-        <button onclick="openIntegrationsMenu()" class="btn btn-primary">📤 Export & Sync</button>
+        <button onclick="openIntegrationsMenu()" class="btn btn-primary">📤 {{ t.get('export_sync', 'Export') }}</button>
     </div>
 
 </div>
@@ -89,7 +89,7 @@
 <div id="integrationsModal" class="pm-overlay">
     <div class="pm-modal-box" style="max-width: 600px;">
         <div class="pm-modal-header">
-            <h2>📤 Export & Sync Shopping List</h2>
+            <h2>📤 {{ t.get('export_shopping_list', 'Export Shopping List') }}</h2>
             <button class="pm-close-btn" onclick="closeIntegrationsMenu()">✕</button>
         </div>
         <div class="integrations-grid">
