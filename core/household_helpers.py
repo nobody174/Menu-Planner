@@ -96,7 +96,7 @@ def get_household_members(household_id):
                     'avatar_value': member.avatar_value,
                     'email': None,
                     'role': member.role,
-                    'joined_at': member.joined_at.isoformat() if member.joined_at else None
+                    'joined_at': member.joined_at.strftime('%b %d, %Y') if member.joined_at else None
                 })
             else:
                 user = session.query(User).filter(User.id == member.user_id).first()
@@ -105,12 +105,20 @@ def get_household_members(household_id):
                         'member_id': str(member.id),
                         'user_id': str(member.user_id),
                         'is_profile': False,
-                        'display_name': member.display_name or user.email,
+                        # Leave display_name as None when unset (rather than
+                        # falling back to the email here) - the template
+                        # already does `member.display_name or member.email`
+                        # for the main label, and separately shows the email
+                        # in parentheses only when a *real* display_name is
+                        # set. Defaulting it to the email here made that
+                        # parenthetical check always true, showing the same
+                        # email twice: "user@example.com (user@example.com)".
+                        'display_name': member.display_name,
                         'avatar_type': member.avatar_type,
                         'avatar_value': member.avatar_value,
                         'email': user.email,
                         'role': member.role,
-                        'joined_at': member.joined_at.isoformat() if member.joined_at else None
+                        'joined_at': member.joined_at.strftime('%b %d, %Y') if member.joined_at else None
                     })
 
         return result

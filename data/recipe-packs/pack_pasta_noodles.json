@@ -874,13 +874,35 @@
         },
         {
           "name": {
-            "no": "Béchamel (melk, smør, mel)",
-            "en": "Béchamel (milk, butter, flour)"
+            "no": "Melk (til béchamel)",
+            "en": "Milk (for béchamel)"
           },
           "amount": 600,
           "unit": {
-            "no": "ml/100g/50g",
-            "en": "ml/g/g"
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør (til béchamel)",
+            "en": "Butter (for béchamel)"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Mel (til béchamel)",
+            "en": "Flour (for béchamel)"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
           }
         },
         {

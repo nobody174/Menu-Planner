@@ -1677,13 +1677,24 @@
         },
         {
           "name": {
-            "no": "Smør og melk",
-            "en": "Butter and milk"
+            "no": "Smør (til potetmos)",
+            "en": "Butter (for mash)"
           },
           "amount": 50,
           "unit": {
-            "no": "gram/100ml",
-            "en": "g/ml"
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk (til potetmos)",
+            "en": "Milk (for mash)"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
           }
         },
         {

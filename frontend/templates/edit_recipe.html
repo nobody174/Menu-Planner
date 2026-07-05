@@ -59,6 +59,29 @@
 </form>
 
 <script>
+// Same parsing as Add Recipe (B39) - the documented format is "name, quantity,
+// unit" (e.g. "Lasagna sheets, 250, g"); falls back to the whole line as the
+// name if it doesn't match, so plain single-word ingredients still work.
+function parseIngredientLine(line) {
+    var parts = line.split(',').map(function(p) { return p.trim(); }).filter(Boolean);
+    if (parts.length >= 3) {
+        var qty = parseFloat(parts[1].replace(',', '.'));
+        return {
+            name: parts[0],
+            quantity: isNaN(qty) ? parts[1] : qty,
+            unit: parts.slice(2).join(', '),
+            allergens: []
+        };
+    }
+    if (parts.length === 2) {
+        var maybeQty = parseFloat(parts[1].replace(',', '.'));
+        if (!isNaN(maybeQty)) {
+            return { name: parts[0], quantity: maybeQty, unit: '', allergens: [] };
+        }
+    }
+    return { name: line, quantity: '', unit: '', allergens: [] };
+}
+
 document.getElementById('editForm').addEventListener('submit', async function(e) {
     e.preventDefault();
 
@@ -68,7 +91,7 @@ document.getElementById('editForm').addEventListener('submit', async function(e)
     try {
         const ingredients = document.getElementById('ingredients').value
             .split('\n').map(function(l) { return l.trim(); }).filter(Boolean)
-            .map(function(line) { return { quantity: '', unit: '', name: line, allergens: [] }; });
+            .map(parseIngredientLine);
 
         if (ingredients.length === 0) {
             statusEl.textContent = 'Please enter at least one ingredient';

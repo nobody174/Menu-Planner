@@ -61,6 +61,17 @@
 
 html, body {
   transition: background-color var(--transition-base), color var(--transition-base);
+  /* B47: decorative fixed-position elements (theme background "orbs") are
+     deliberately positioned partly off-canvas (e.g. right:-120px) to bleed
+     off the edge of the viewport. Fixed-position elements aren't clipped by
+     a parent's overflow, so on narrow (mobile) viewports they were adding to
+     the page's horizontal scroll extent, letting the whole page scroll
+     sideways. Clamping horizontal overflow at the document root contains
+     them without needing to touch every theme's individual orb/decoration
+     styles. max-width:100vw as a backstop for any content genuinely wider
+     than the viewport that vw-based scroll clamping alone wouldn't catch. */
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 body {

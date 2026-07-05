@@ -35,11 +35,17 @@
                     <label for="time">{{ t.time }} *</label>
                     <select id="time" name="time" required>
                         <option value="">{{ t.select }}</option>
+                        <option value="10">10 {{ t.minutes }}</option>
+                        <option value="15">15 {{ t.minutes }}</option>
                         <option value="20">20 {{ t.minutes }}</option>
                         <option value="30">30 {{ t.minutes }}</option>
+                        <option value="45">45 {{ t.minutes }}</option>
                         <option value="60">60 {{ t.minutes }}</option>
+                        <option value="75">75 {{ t.minutes }}</option>
                         <option value="90">90 {{ t.minutes }}</option>
-                        <option value="120">120+ {{ t.minutes }}</option>
+                        <option value="120">120 {{ t.minutes }}</option>
+                        <option value="150">150 {{ t.minutes }}</option>
+                        <option value="180">180+ {{ t.minutes }}</option>
                     </select>
                 </div>
 
@@ -240,6 +246,32 @@ if (document.readyState === 'loading') {
     loadCategoryDropdown();
 }
 
+// Parses one ingredients-textarea line into {name, quantity, unit}. The form's
+// own hint text documents "name, quantity, unit" (e.g. "Lasagna sheets, 250, g"),
+// but until now that format was never actually parsed - the whole line was
+// always stored as the name with quantity/unit hardcoded empty (B39). Falls
+// back to treating the whole line as the name if it doesn't match the
+// documented format, so plain single-word ingredients ("Salt") still work.
+function parseIngredientLine(line) {
+    var parts = line.split(',').map(function(p) { return p.trim(); }).filter(Boolean);
+    if (parts.length >= 3) {
+        var qty = parseFloat(parts[1].replace(',', '.'));
+        return {
+            name: parts[0],
+            quantity: isNaN(qty) ? parts[1] : qty,
+            unit: parts.slice(2).join(', '),
+            allergens: []
+        };
+    }
+    if (parts.length === 2) {
+        var maybeQty = parseFloat(parts[1].replace(',', '.'));
+        if (!isNaN(maybeQty)) {
+            return { name: parts[0], quantity: maybeQty, unit: '', allergens: [] };
+        }
+    }
+    return { name: line, quantity: '', unit: '', allergens: [] };
+}
+
 document.getElementById('recipeForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
@@ -260,9 +292,7 @@ document.getElementById('recipeForm').addEventListener('submit', function(e) {
         difficulty:   document.getElementById('difficulty').value,
         time_minutes: parseInt(document.getElementById('time').value) || 30,
         category:     document.getElementById('category').value,
-        ingredients:  ingredients.map(function(ing) {
-            return { quantity: '', unit: '', name: ing, allergens: [] };
-        }),
+        ingredients:  ingredients.map(parseIngredientLine),
         instructions: instructions.map(function(inst, idx) {
             return { step: idx + 1, title: 'Step ' + (idx + 1), description: inst };
         }),

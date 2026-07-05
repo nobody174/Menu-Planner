@@ -39,7 +39,7 @@
             <strong>{{ t.difficulty_label }}:</strong> {{ recipe.difficulty }}
         </span>
         <span class="meta-item">
-            <strong>{{ t.time_label }}:</strong> {{ recipe.time_minutes }} {{ t.minutes }}
+            <strong>{{ t.time_label }}:</strong> {{ recipe.time_minutes|format_minutes }}
         </span>
         <span class="meta-item">
             <strong>{{ t.type_label }}:</strong> {{ recipe.category }}
@@ -143,11 +143,11 @@
 </div>
 
 <script>
-var STR_SWAPPED = '{{ t.recipe_swapped }}';
-var STR_ADDED_TO = '{{ t.added_to_day }}';
-var STR_COULD_NOT_SWAP = '{{ t.could_not_swap }}';
-var STR_SERVER_ERROR = '{{ t.server_error }}';
-var STR_SERVER_ERROR_MSG = '{{ t.server_error_msg }}';
+var STR_SWAPPED = {{ t.recipe_swapped|tojson }};
+var STR_ADDED_TO = {{ t.added_to_day|tojson }};
+var STR_COULD_NOT_SWAP = {{ t.could_not_swap|tojson }};
+var STR_SERVER_ERROR = {{ t.server_error|tojson }};
+var STR_SERVER_ERROR_MSG = {{ t.server_error_msg|tojson }};
 
 function openEditRecipe(recipeId) {
     window.location.href = `/edit-recipe/${recipeId}`;

@@ -109,7 +109,9 @@
                             <a href="{{ url_for('whats_new') }}" class="settings-item">🆕 {{ t.get('whats_new', "What's New") }}</a>
                             <a href="{{ url_for('whats_planned') }}" class="settings-item">🔮 {{ t.get('whats_planned', "What's Planned") }}</a>
                             <a href="/all-recipes" class="settings-item">{{ t.all_recipes }}</a>
+                            {% if can_edit_menu %}
                             <a href="/add-recipe" class="settings-item">+ {{ t.add_recipe }}</a>
+                            {% endif %}
                             {% if is_authenticated %}
                             <div class="settings-section">
                                 <a href="#" class="settings-submenu-item" onclick="toggleSettingsSubmenu('household-submenu', event)">
@@ -357,7 +359,7 @@
                 <p>Klikk på <strong>Handleliste</strong> etter at du har generert en meny. Alt du trenger for uken, samlet på ett sted. Nederst på listen ser du hva som ble filtrert bort fordi det står i basisvarene dine — dobbeltsjekk at du faktisk har alt det før du drar. Ta listen med på butikken og nyt helgen.</p>
 
                 <h4>6. 📦 Trenger du litt starthjelp? Bruk ferdige oppskriftspakker</h4>
-                <p>Gå til <strong>Alle oppskrifter → Importer pakke</strong> for å raskt fylle husholdningen med middagsidéer — nyttig som mal eller midlertidig løsning mens du legger inn dine egne oppskrifter (se punkt 1). Merk: importerte oppskrifter er beregnet for en familie på 4 — juster mengdene etter din husstands størrelse.</p>
+                <p>Gå til <strong>Innstillinger → Oppskriftssamlinger</strong> for å raskt fylle husholdningen med middagsidéer — nyttig som mal eller midlertidig løsning mens du legger inn dine egne oppskrifter (se punkt 1). Merk: importerte oppskrifter er beregnet for en familie på 4 — juster mengdene etter din husstands størrelse.</p>
 
                 <hr style="border:none; border-top:1px solid var(--color-border,#e5e7eb); margin:16px 0;">
                 <p style="font-size:0.85rem; color:var(--color-text-secondary,#666);">
@@ -388,7 +390,7 @@
                 <p>Click <strong>Shopping List</strong> after generating your menu. Everything you need for the week, all in one place. At the very bottom of the list, you'll see what got filtered out because it's in your pantry — double-check you actually have it all before you head out. Take the list to the shops and enjoy your weekend.</p>
 
                 <h4>6. 📦 Still need a hand? Use ready-made recipe packs</h4>
-                <p>Go to <strong>All Recipes → Import Pack</strong> to quickly fill your household with dinner ideas — handy as a template or temporary solution while you add your own recipes (see step 1). Note: imported recipes are sized for a family of 4 — adjust quantities to match your household.</p>
+                <p>Go to <strong>Settings → Recipe Packs</strong> to quickly fill your household with dinner ideas — handy as a template or temporary solution while you add your own recipes (see step 1). Note: imported recipes are sized for a family of 4 — adjust quantities to match your household.</p>
 
                 <hr style="border:none; border-top:1px solid var(--color-border,#e5e7eb); margin:16px 0;">
                 <p style="font-size:0.85rem; color:var(--color-text-secondary,#666);">

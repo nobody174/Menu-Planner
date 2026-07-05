@@ -57,6 +57,18 @@ def _resolve(val, lang):
         return val.get(lang) or val.get('en') or val.get('no') or ''
     return val or ''
 
+import re as _re
+_STEP_PREFIX_RE = _re.compile(r'^\s*\d+\s*[\.\):]\s*')
+
+def _strip_step_prefix(text):
+    """Strip a leading '1.'/'1)'/'1:' style step number from an instruction
+    string. Recipe data commonly has the step number baked into the text
+    itself, and the recipe page also renders its own auto-generated "Step N"
+    heading - without this, both show up together (B40)."""
+    if not isinstance(text, str):
+        return text
+    return _STEP_PREFIX_RE.sub('', text, count=1)
+
 # Difficulty normalisation map (Norwegian → English)
 _DIFFICULTY_MAP = {
     'enkel': 'Easy', 'easy': 'Easy',
@@ -71,8 +83,43 @@ def _normalize_difficulty(val):
         return 'Easy'
     return _DIFFICULTY_MAP.get(str(val).lower(), val)
 
+def _split_broken_combined_ingredients(recipe):
+    """B28: two shipped recipes (eu_096, eu_083) bundle multiple ingredients into
+    a single line sharing one nonsensical combined unit (e.g. "ml/100g/50g"),
+    which can't be displayed, deduplicated, or summed sensibly. The recipe-pack
+    source files have since been corrected, but any household that already
+    imported the old data before that fix still has the broken combined line
+    stored in its own recipes_db. Rather than risk a direct data migration,
+    split those two known-broken lines into their real separate ingredients
+    here at read time, so every place recipes are read (detail page, edit,
+    shopping list) sees the corrected data regardless of when it was imported."""
+    if recipe.get('id') not in ('eu_096', 'eu_083'):
+        return recipe
+    ings = recipe.get('ingredients', [])
+    for i, ing in enumerate(ings):
+        name = ing.get('name') if isinstance(ing, dict) else None
+        name_en = name.get('en', '') if isinstance(name, dict) else ''
+        if recipe['id'] == 'eu_096' and 'chamel' in name_en:
+            recipe = dict(recipe)
+            recipe['ingredients'] = ings[:i] + [
+                {'name': {'no': 'Melk (til béchamel)', 'en': 'Milk (for béchamel)'}, 'amount': 600, 'unit': {'no': 'ml', 'en': 'ml'}},
+                {'name': {'no': 'Smør (til béchamel)', 'en': 'Butter (for béchamel)'}, 'amount': 100, 'unit': {'no': 'gram', 'en': 'g'}},
+                {'name': {'no': 'Mel (til béchamel)', 'en': 'Flour (for béchamel)'}, 'amount': 50, 'unit': {'no': 'gram', 'en': 'g'}},
+            ] + ings[i + 1:]
+            break
+        if recipe['id'] == 'eu_083' and 'Butter and milk' in name_en:
+            recipe = dict(recipe)
+            recipe['ingredients'] = ings[:i] + [
+                {'name': {'no': 'Smør (til potetmos)', 'en': 'Butter (for mash)'}, 'amount': 50, 'unit': {'no': 'gram', 'en': 'g'}},
+                {'name': {'no': 'Melk (til potetmos)', 'en': 'Milk (for mash)'}, 'amount': 100, 'unit': {'no': 'ml', 'en': 'ml'}},
+            ] + ings[i + 1:]
+            break
+    return recipe
+
+
 def _normalize_recipe(recipe, lang='en'):
     """Flatten all bilingual dict fields in a recipe to plain strings for the given lang."""
+    recipe = _split_broken_combined_ingredients(recipe)
     r = dict(recipe)
     # Handle both formats: bilingual dict {'no': ..., 'en': ...} and separate _no/_en fields
     # Prefer language-specific _no/_en fields, fall back to dict format, then fallback to plain string
@@ -140,15 +187,15 @@ def _normalize_recipe(recipe, lang='en'):
     raw_inst = r.get('instructions', [])
     if isinstance(raw_inst, dict):
         steps = raw_inst.get(lang) or raw_inst.get('en') or []
-        r['instructions'] = [{'step': i+1, 'description': s} for i, s in enumerate(steps)]
+        r['instructions'] = [{'step': i+1, 'description': _strip_step_prefix(s)} for i, s in enumerate(steps)]
     elif isinstance(raw_inst, list) and raw_inst:
         # Already a list — normalise any dict entries
         norm = []
         for i, s in enumerate(raw_inst):
             if isinstance(s, dict):
-                norm.append({'step': s.get('step', i+1), 'description': _resolve(s.get('description'), lang)})
+                norm.append({'step': s.get('step', i+1), 'description': _strip_step_prefix(_resolve(s.get('description'), lang))})
             else:
-                norm.append({'step': i+1, 'description': str(s)})
+                norm.append({'step': i+1, 'description': _strip_step_prefix(str(s))})
         r['instructions'] = norm
 
     return r
@@ -218,6 +265,26 @@ ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL', '').strip().lower()
 
 app.config['JSON_SORT_KEYS'] = False
 app.config['TEMPLATES_AUTO_RELOAD'] = not IS_PRODUCTION
+
+@app.template_filter('format_minutes')
+def format_minutes(value):
+    """Render a recipe's time_minutes as human-friendly duration text.
+
+    Plain "1440 min" for a cook time that's actually 24 hours (e.g. a cured/
+    marinated dish like Gravlax) reads as a typo or a bug, not a real prep
+    time. Past 60 minutes, switch to hours (plus leftover minutes when they
+    don't divide evenly), matching how a person would actually say it.
+    """
+    try:
+        minutes = int(value)
+    except (TypeError, ValueError):
+        return value
+    if minutes < 60:
+        return f"{minutes} min"
+    hours, mins = divmod(minutes, 60)
+    if mins == 0:
+        return f"{hours} h"
+    return f"{hours} h {mins} min"
 app.config['SECRET_KEY'] = os.environ.get('FLASK_SECRET_KEY', secrets.token_hex(32))
 
 # Security: Use secure cookies in production
@@ -410,12 +477,25 @@ def current_household_id():
     if not user_id:
         return None
 
-    household_id = session.get('current_household_id')
-    if household_id:
-        return household_id
-
     from core.household_helpers import get_user_households
     households = get_user_households(user_id)
+    household_id = session.get('current_household_id')
+
+    if household_id:
+        # Cross-account leak guard: `current_household_id` lives in the
+        # session cookie, and login only ever popped `active_profile_id` -
+        # not this key. On a shared browser (or anywhere sessions persist
+        # across logins), logging in as a second account reused the first
+        # account's still-set household id verbatim, with nothing checking
+        # that the *new* user_id actually belongs to it. That let one
+        # account transparently read and write another account's entire
+        # household (menu, recipes, pantry, activity log) just by logging
+        # in on the same browser afterward. Only trust the session's
+        # household id if the current user is actually a member of it.
+        if any(str(h.id) == str(household_id) for h in households):
+            return household_id
+        session.pop('current_household_id', None)
+
     if households:
         household_id = str(households[0].id)
         session['current_household_id'] = household_id
@@ -434,6 +514,39 @@ def current_household():
     db = SessionLocal()
     try:
         return db.query(Household).filter(Household.id == household_id).first()
+    finally:
+        db.close()
+
+
+def log_activity(action_msg):
+    """Record one activity-log entry for the current household.
+
+    This is the single correct way to log an action. Households are DB-backed
+    once created, so this always opens its own fresh session, re-queries the
+    household by id, appends the entry, and commits - mirroring the pattern
+    already proven correct in the swap-recipe route. Using a `household`
+    object obtained elsewhere (e.g. from `current_household()`) doesn't work:
+    that helper closes its session before returning, so the object is
+    detached and mutating it (as `append_activity_to_db` does) never
+    persists. Falls back to the legacy file-based log only if there's no
+    database-backed household yet (pre-migration period).
+    """
+    household_id = current_household_id()
+    if not household_id:
+        return
+
+    from database.database import SessionLocal
+    from database.models import Household
+    from core.household_paths import append_activity_to_db, append_activity
+
+    db = SessionLocal()
+    try:
+        db_household = db.query(Household).filter(Household.id == household_id).first()
+        if db_household:
+            append_activity_to_db(db_household, current_actor_name(), action_msg)
+            db.commit()
+        else:
+            append_activity(household_id, current_actor_name(), action_msg)
     finally:
         db.close()
 
@@ -624,6 +737,32 @@ def load_menu():
     return load_weekly_menu_from_db(household)
 
 
+def save_menu(menu):
+    """Save the weekly menu, DB-backed households first, file as fallback.
+    Mirrors the save pattern already proven correct in /api/swap-recipe:
+    opens its own fresh session and re-queries the household by id rather
+    than reusing a possibly-detached object, so the write actually commits."""
+    household_id = current_household_id()
+    household = current_household()
+    if household:
+        from database.database import SessionLocal
+        from database.models import Household
+        from core.household_paths import save_weekly_menu_to_db
+
+        db = SessionLocal()
+        try:
+            db_household = db.query(Household).filter(Household.id == household.id).first()
+            if db_household:
+                save_weekly_menu_to_db(db_household, menu)
+                db.commit()
+        finally:
+            db.close()
+    else:
+        from core.household_paths import menu_file
+        with open(menu_file(household_id), 'w', encoding='utf-8') as f:
+            json.dump(menu, f, ensure_ascii=False, indent=2)
+
+
 def load_recipes_db():
     """Load recipes from database JSONB column."""
     household = current_household()
@@ -706,7 +845,13 @@ def dashboard():
 
     menu = load_menu()
     if not menu:
-        return render_template('error.html', message='No menu generated yet'), 404
+        # This isn't a real error - it's simply what a brand-new household's
+        # very first visit looks like, before they've generated their first
+        # menu. Rendering the generic "Oops!" error page here (as if
+        # something had gone wrong) was a rough first impression for every
+        # new household. Show a friendly welcome + a direct "Generate Menu"
+        # button instead - no HTTP error status either, since nothing failed.
+        return render_template('empty_dashboard.html')
     lang = _get_lang()
     # Translate day names, difficulty, and categories for the current language
     day_map = _DAY_TRANSLATIONS.get(lang, {})
@@ -783,9 +928,10 @@ def edit_recipe(recipe_id):
     lang = _get_lang()
     recipe = _normalize_recipe(recipe, lang)
 
-    # Format ingredients as one readable line per ingredient (matching the
-    # plain-text style Add Recipe already uses), instead of dumping the raw
-    # {name, quantity, unit} structure as JSON for someone to hand-edit.
+    # Format ingredients as one readable line per ingredient, using the same
+    # "name, quantity, unit" format documented in the Add/Edit Recipe hint
+    # text (see B39) - so re-saving without touching a line round-trips
+    # correctly instead of silently losing quantity/unit on every edit.
     ingredients_list = recipe.get('ingredients_included', recipe.get('ingredients', []))
     ingredient_lines = []
     for ing in ingredients_list:
@@ -793,8 +939,10 @@ def edit_recipe(recipe_id):
             qty = ing.get('quantity', '')
             unit = ing.get('unit', '')
             name = ing.get('name', '')
-            prefix = ' '.join(str(p) for p in (qty, unit) if p)
-            ingredient_lines.append(f"{prefix} {name}".strip() if prefix else name)
+            if qty or unit:
+                ingredient_lines.append(', '.join(str(p) for p in (name, qty, unit) if p))
+            else:
+                ingredient_lines.append(name)
         else:
             ingredient_lines.append(str(ing))
     ingredients_text = '\n'.join(ingredient_lines)
@@ -822,7 +970,7 @@ def shopping_list():
     if not menu or 'shopping_list' not in menu:
         return render_template('error.html', message='No shopping list available'), 404
 
-    from core.ingredient_deduplicator import strip_prep_descriptors
+    from core.ingredient_deduplicator import strip_prep_descriptors, normalize_no_unit
 
     lang = _get_lang()
     if lang == 'no':
@@ -878,8 +1026,13 @@ def shopping_list():
                     no = strip_prep_descriptors(no)
                     if en and no:
                         name_map[en] = no
-        # Translate shopping list ingredient names and units
-        unit_translations_no = {'pieces': 'stk', 'piece': 'stk', 'pcs': 'stk'}
+        # Translate shopping list ingredient names and units. Units go through
+        # the same normalize_no_unit()/UNIT_MAP_NO used for recipe ingredients
+        # (see B15/B20/B45) - this route used to have its own much smaller,
+        # separate unit map here (only pieces/piece/pcs -> stk), which is why
+        # tbsp/tsp/bunch etc. kept showing up in English even after those
+        # earlier fixes: this was a different code path that never got the
+        # same mapping applied.
         for category, items in en_shopping.items():
             new_items = []
             for item in items:
@@ -889,9 +1042,7 @@ def shopping_list():
                     new_item['ingredient'] = name_map[en_name]
                 else:
                     new_item['ingredient'] = strip_prep_descriptors(item.get('ingredient', ''))
-                unit = str(item.get('unit', '')).strip().lower()
-                if unit in unit_translations_no:
-                    new_item['unit'] = unit_translations_no[unit]
+                new_item['unit'] = normalize_no_unit(item.get('unit', ''))
                 new_items.append(new_item)
             shopping[category] = new_items
     else:
@@ -942,13 +1093,7 @@ def api_add_pantry_item():
         added = True
     if added:
         _save_pantry_db(pantry)
-        household = current_household()
-        if household:
-            from core.household_paths import append_activity_to_db
-            append_activity_to_db(household, current_actor_name(), f"Added '{item}' to pantry")
-        else:
-            from core.household_paths import append_activity
-            append_activity(current_household_id(), current_actor_name(), f"Added '{item}' to pantry")
+        log_activity(f"Added '{item}' to pantry")
 
     lang = _get_lang()
     visible = [p for p in pantry if pantry_item_language(p) in (lang, 'both')]
@@ -1001,13 +1146,7 @@ def api_remove_pantry_item():
         to_remove.add(translation)
     pantry = [p for p in _load_pantry_db() if p not in to_remove]
     _save_pantry_db(pantry)
-    household = current_household()
-    if household:
-        from core.household_paths import append_activity_to_db
-        append_activity_to_db(household, current_actor_name(), f"Removed '{item}' from pantry")
-    else:
-        from core.household_paths import append_activity
-        append_activity(current_household_id(), current_actor_name(), f"Removed '{item}' from pantry")
+    log_activity(f"Removed '{item}' from pantry")
 
     lang = _get_lang()
     visible = [p for p in pantry if pantry_item_language(p) in (lang, 'both')]
@@ -1086,8 +1225,7 @@ def api_add_category():
         'color': '#999999',
     })
     _save_household_categories(household_id, categories)
-    from core.household_paths import append_activity
-    append_activity(household_id, current_actor_name(), f"Added category '{name}'")
+    log_activity(f"Added category '{name}'")
 
     return jsonify({'success': True, 'categories': _sort_categories(categories)})
 
@@ -1120,8 +1258,7 @@ def api_rename_category():
         return jsonify({'success': False, 'message': 'Category not found'}), 404
 
     _save_household_categories(household_id, categories)
-    from core.household_paths import append_activity
-    append_activity(household_id, current_actor_name(), f"Renamed category to '{new_name}'")
+    log_activity(f"Renamed category to '{new_name}'")
 
     return jsonify({'success': True, 'categories': _sort_categories(categories)})
 
@@ -1170,12 +1307,12 @@ def api_remove_category():
 
     remaining = [c for c in categories if c.get('code') != code]
     _save_household_categories(household_id, remaining)
-    from core.household_paths import append_activity, mark_category_removed
+    from core.household_paths import mark_category_removed
     mark_category_removed(household_id, code)
     msg = f"Removed category '{code}'"
     if moved:
         msg += f" ({moved} recipes moved to Uncategorized)"
-    append_activity(household_id, current_actor_name(), msg)
+    log_activity(msg)
 
     return jsonify({'success': True, 'categories': _sort_categories(remaining), 'recipes_moved': moved})
 
@@ -1220,10 +1357,9 @@ def api_merge_category():
 
     remaining = [c for c in categories if c.get('code') != from_code]
     _save_household_categories(household_id, remaining)
-    from core.household_paths import append_activity, mark_category_removed
+    from core.household_paths import mark_category_removed
     mark_category_removed(household_id, from_code)
-    append_activity(household_id, current_actor_name(),
-                     f"Merged category '{from_cat.get('name_en')}' into '{into_cat.get('name_en')}' ({moved} recipe(s) moved)")
+    log_activity(f"Merged category '{from_cat.get('name_en')}' into '{into_cat.get('name_en')}' ({moved} recipe(s) moved)")
 
     return jsonify({'success': True, 'categories': _sort_categories(remaining), 'moved': moved})
 
@@ -1836,6 +1972,11 @@ def login_local():
     session['user_email'] = user.email
     session['auth_type'] = 'local'
     session.pop('active_profile_id', None)
+    # Clear any household id left over from a previous login in this same
+    # browser session - current_household_id() now independently verifies
+    # membership too, but clearing it here as well means a fresh login
+    # always starts from a clean slate rather than relying on that check.
+    session.pop('current_household_id', None)
     logger.info(f"User logged in (local): {user.email}")
     return redirect(url_for('profile_picker'))
 
@@ -2235,8 +2376,7 @@ def api_regenerate():
         if not menu or not menu.get('dinners'):
             return jsonify({'status': 'error', 'message': 'No recipes available for selected categories. Please select different categories or add recipes.'}), 400
 
-        from core.household_paths import append_activity
-        append_activity(current_household_id(), current_actor_name(), "Regenerated the weekly menu")
+        log_activity("Regenerated the weekly menu")
 
         logger.info("Menu regenerated via API")
         return jsonify({'status': 'success', 'menu': menu})
@@ -2257,14 +2397,19 @@ def _sort_categories(categories):
 
 @app.route('/api/categories')
 def get_categories():
-    """Get all available categories from this household's categories.json, translated to current language"""
+    """Get all available categories for this household, translated to current language.
+
+    Previously read this household's categories.json file directly - but
+    add/rename/remove/merge all write through _load_household_categories()/
+    _save_household_categories(), which are DB-backed (with file as a
+    migration-period fallback only). For any household that's already
+    DB-backed, that meant categories added/renamed/removed via the API were
+    saved correctly, but this listing endpoint (which drives the category
+    filter dropdown, Add Recipe's category select, etc.) never reflected any
+    of it - it kept reading the stale, untouched flat file. Fixed to use the
+    same DB-aware loader as the rest of the category routes."""
     lang = _get_lang()
     household_id = current_household_id()
-    if household_id:
-        from core.household_paths import categories_file as _categories_file
-        categories_file = _categories_file(household_id)
-    else:
-        categories_file = Path(__file__).parent.parent / 'data' / 'categories.json'
     categories = []
 
     # Add Favorites as a special first category (client-side only, stored in localStorage)
@@ -2275,25 +2420,33 @@ def get_categories():
         'icon': '⭐'
     })
 
-    if categories_file.exists():
-        try:
-            with open(categories_file, 'r', encoding='utf-8') as f:
-                raw_cats = json.load(f)
-                # Translate to current language. Skip pack-name pseudo-categories
-                # (imported: true) - recipes now keep their own real dish-type
-                # category through import (see B4b), so a recipe can never have
-                # one of these as its category anymore. Selecting one in the
-                # dropdown would always show an empty list, which is confusing -
-                # better to not offer it at all than show a dead-end option.
-                for cat in raw_cats:
-                    if cat.get('imported'):
-                        continue
-                    translated = dict(cat)
-                    # Add 'name' field with the translated category name
-                    translated['name'] = cat.get(f'name_{lang}') or cat.get('name_en') or cat.get('code')
-                    categories.append(translated)
-        except Exception as e:
-            logger.error(f"Error loading categories: {e}")
+    if household_id:
+        raw_cats = _load_household_categories(household_id)
+    else:
+        # No household selected (rare/edge case) - fall back to the base
+        # default category list rather than a per-household file.
+        raw_cats = []
+        base_file = Path(__file__).parent.parent / 'data' / 'categories.json'
+        if base_file.exists():
+            try:
+                with open(base_file, 'r', encoding='utf-8') as f:
+                    raw_cats = json.load(f)
+            except Exception as e:
+                logger.error(f"Error loading base categories: {e}")
+
+    # Translate to current language. Skip pack-name pseudo-categories
+    # (imported: true) - recipes now keep their own real dish-type
+    # category through import (see B4b), so a recipe can never have
+    # one of these as its category anymore. Selecting one in the
+    # dropdown would always show an empty list, which is confusing -
+    # better to not offer it at all than show a dead-end option.
+    for cat in raw_cats:
+        if not isinstance(cat, dict) or cat.get('imported'):
+            continue
+        translated = dict(cat)
+        translated['name'] = cat.get(f'name_{lang}') or cat.get('name_en') or cat.get('code')
+        categories.append(translated)
+
     return jsonify(_sort_categories(categories))
 
 @app.route('/api/export-shopping-list', methods=['POST'])
@@ -2511,8 +2664,7 @@ def api_add_recipe():
         recipes.append(recipe)
         save_recipes_db(recipes)
 
-        from core.household_paths import append_activity
-        append_activity(current_household_id(), current_actor_name(), f"Added recipe '{recipe['title']}'")
+        log_activity(f"Added recipe '{recipe['title']}'")
 
         logger.info(f"Added recipe: {recipe['title']} (ID: {recipe['id']})")
         return jsonify({'status': 'success', 'message': f"✅ {recipe['title']} saved!", 'recipe_id': recipe['id']})
@@ -2539,8 +2691,36 @@ def api_delete_recipe():
 
         save_recipes_db(recipes)
 
-        from core.household_paths import append_activity
-        append_activity(current_household_id(), current_actor_name(), f"Deleted recipe '{recipe_id}'")
+        # B36: deleting a recipe that's still on the current weekly menu used
+        # to leave the day pointing at a now-missing recipe_id - the
+        # dashboard kept showing its stale title/time/difficulty, and
+        # clicking into it 404'd ("Recipe not found"). Clear any day that
+        # referenced this recipe so it shows as an empty slot instead of a
+        # dangling reference.
+        menu = load_menu()
+        if menu and menu.get('dinners'):
+            menu_changed = False
+            for dinner in menu['dinners']:
+                if dinner.get('recipe_id') == recipe_id:
+                    dinner['recipe_id'] = ''
+                    dinner['title'] = ''
+                    dinner['title_no'] = ''
+                    dinner['title_en'] = ''
+                    dinner['subtitle'] = ''
+                    dinner['subtitle_no'] = ''
+                    dinner['subtitle_en'] = ''
+                    dinner['image_url'] = ''
+                    dinner['protein'] = ''
+                    dinner['difficulty'] = ''
+                    # Keep this numeric (not '') - index.html's weekly-summary
+                    # widget does `menu.dinners | sum(attribute='time_minutes')`,
+                    # which throws if any entry is a string instead of a number.
+                    dinner['time_minutes'] = 0
+                    menu_changed = True
+            if menu_changed:
+                save_menu(menu)
+
+        log_activity(f"Deleted recipe '{recipe_id}'")
 
         logger.info(f"Deleted recipe: {recipe_id}")
         return jsonify({'status': 'success', 'message': f'Recipe {recipe_id} deleted'})
@@ -2589,8 +2769,7 @@ def api_edit_recipe():
         # Save updated recipes
         save_recipes_db(recipes)
 
-        from core.household_paths import append_activity
-        append_activity(current_household_id(), current_actor_name(), f"Edited recipe '{title}'")
+        log_activity(f"Edited recipe '{title}'")
 
         logger.info(f"Updated recipe: {title} (ID: {recipe_id})")
         return jsonify({'status': 'success', 'message': f"✅ {title} updated!", 'recipe_id': recipe_id})
@@ -2670,7 +2849,7 @@ def api_swap_recipe():
                 subtitle_en = recipe.get('subtitle_en', subtitle or '')
                 subtitle_no = recipe.get('subtitle_no', subtitle or '')
 
-            protein_type = MenuGenerator().get_protein_type(title_en or title_no or '', subtitle_en or subtitle_no or '')
+            protein_type = MenuGenerator().get_protein_type(title_en or title_no or '', subtitle_en or subtitle_no or '', recipe.get('category', ''))
 
             target['recipe_id'] = recipe['id']
             target['title'] = recipe['title']
@@ -2842,6 +3021,16 @@ def api_recipe_packs_import():
                     # Ensure time_minutes is set (may be cookTimeMinutes in pack)
                     if 'time_minutes' not in r or not r.get('time_minutes'):
                         r['time_minutes'] = r.get('cookTimeMinutes', 30)
+                    # Normalize ingredient units to Norwegian canonical form
+                    # (tbsp -> ss, bunch -> bunt, etc; see B15/B20) at import
+                    # time, not just via the one-off admin backfill route -
+                    # otherwise packs imported after that backfill keep raw
+                    # English units forever (B45).
+                    from core.ingredient_deduplicator import normalize_no_unit
+                    for ing_field in ('ingredients', 'ingredients_included', 'ingredients_not_included'):
+                        for ing in r.get(ing_field, []) or []:
+                            if isinstance(ing, dict) and 'unit' in ing:
+                                ing['unit'] = normalize_no_unit(ing['unit'])
                     recipes_to_import.append(r)
 
         # Load existing recipes database.
@@ -2857,8 +3046,8 @@ def api_recipe_packs_import():
         # Save updated database
         save_recipes_db(existing_recipes)
 
-        from core.household_paths import append_activity, save_imported_pack_metadata
-        append_activity(current_household_id(), current_actor_name(), f"Imported {imported_count} recipes from {len(pack_ids)} pack(s)")
+        from core.household_paths import save_imported_pack_metadata
+        log_activity(f"Imported {imported_count} recipes from {len(pack_ids)} pack(s)")
 
         # No categories.json bookkeeping needed here anymore - imported recipes
         # keep their own real dish-type category (Chicken, Salads, etc.), which
@@ -2936,8 +3125,8 @@ def api_remove_imported_pack():
 
             save_recipes_db(filtered_recipes)
 
-            from core.household_paths import append_activity, remove_imported_pack_metadata
-            append_activity(current_household_id(), current_actor_name(), f"Removed pack '{pack_id}' ({removed_count} recipes)")
+            from core.household_paths import remove_imported_pack_metadata
+            log_activity(f"Removed pack '{pack_id}' ({removed_count} recipes)")
             remove_imported_pack_metadata(current_household_id(), pack_id)
 
             logger.info(f"Removed {removed_count} recipes from pack '{pack_id}'")
@@ -3004,8 +3193,7 @@ def api_recipes_import():
         # Save updated database
         save_recipes_db(existing_recipes)
 
-        from core.household_paths import append_activity
-        append_activity(current_household_id(), current_actor_name(), f"Imported {imported_count} recipes from file")
+        log_activity(f"Imported {imported_count} recipes from file")
 
         logger.info(f"Imported {imported_count} recipes from user file")
         return jsonify({
@@ -3036,4 +3224,4 @@ if __name__ == '__main__':
     logger.info(f"Running from: {__file__}")
 
     # HTTP only — local home network use, no "Not Secure" warning
-    app.run(host='0.0.0.0', port=5000, debug=False)
+    app.run(host='0.0.0.0', port=5000, debug=True)

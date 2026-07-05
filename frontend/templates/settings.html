@@ -13,7 +13,7 @@
                 {{ (active_profile_name or user_email)[0]|upper if (active_profile_name or user_email) else '?' }}
             </span>
             <p class="settings-info" style="margin:0;">
-                Signed in as <strong>{{ active_profile_name or user_email }}</strong>
+                {{ t.get('signed_in_as', 'Signed in as') }} <strong>{{ active_profile_name or user_email }}</strong>
                 {% if active_profile_name and active_profile_name != user_email %}<span style="color: var(--color-text-secondary, #888);">({{ user_email }})</span>{% endif %}
             </p>
         </section>
@@ -187,7 +187,7 @@
             if (items.length === 0) {
                 var emptyLi = document.createElement('li');
                 emptyLi.className = 'pantry-empty-msg';
-                emptyLi.textContent = '{{ t.get("pantry_empty", "Your pantry is empty.") }}';
+                emptyLi.textContent = {{ t.get("pantry_empty", "Your pantry is empty.")|tojson }};
                 list.appendChild(emptyLi);
                 return;
             }
@@ -195,7 +195,7 @@
                 var li = document.createElement('li');
                 li.className = 'pantry-item';
                 li.dataset.item = item;
-                li.title = '{{ t.get("click_to_remove", "Click to remove") }}';
+                li.title = {{ t.get("click_to_remove", "Click to remove")|tojson }};
                 li.onclick = function() { removePantryItem(item); };
                 var span = document.createElement('span');
                 span.textContent = item;
@@ -351,13 +351,13 @@
                 var renameBtn = document.createElement('button');
                 renameBtn.type = 'button';
                 renameBtn.className = 'btn-small';
-                renameBtn.textContent = '{{ t.get("rename", "Rename") }}';
+                renameBtn.textContent = {{ t.get("rename", "Rename")|tojson }};
                 renameBtn.onclick = function() { renameCategory(cat.code, name); };
 
                 var mergeBtn = document.createElement('button');
                 mergeBtn.type = 'button';
                 mergeBtn.className = 'btn-small';
-                mergeBtn.textContent = '{{ t.get("merge_into", "Merge into...") }}';
+                mergeBtn.textContent = {{ t.get("merge_into", "Merge into...")|tojson }};
                 mergeBtn.onclick = function() { openMergeMenu(cat.code); };
 
                 var removeBtn = document.createElement('button');
@@ -430,8 +430,8 @@
         {% if is_household_owner %}
         <!-- Activity Log (owner only) -->
         <section class="settings-section">
-            <h2>Activity Log</h2>
-            <p>Who did what in this household's menu, recipes, and pantry.</p>
+            <h2>{{ t.get('activity_log', 'Activity Log') }}</h2>
+            <p>{{ t.get('activity_log_desc', "Who did what in this household's menu, recipes, and pantry.") }}</p>
             {% if activity_log %}
             <div class="activity-log">
                 {% for entry in activity_log %}

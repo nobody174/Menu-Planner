@@ -102,7 +102,12 @@ UNIT_MAP_NO = {
     'tsk': 'ts',
     'spsk': 'ss',
     'after taste': 'etter smak',
+    'to taste': 'etter smak',
     'efter smak': 'etter smak',
+    'tablespoons': 'ss',
+    'teaspoons': 'ts',
+    'tablespoon': 'ss',
+    'teaspoon': 'ts',
     'medium': 'middels',
     'small': 'liten',
     'large': 'stor',
@@ -111,6 +116,8 @@ UNIT_MAP_NO = {
     'pcs': 'stk',
     'piece': 'stk',
     'pieces': 'stk',
+    'clove': 'fedd',
+    'cloves': 'fedd',
 }
 
 
