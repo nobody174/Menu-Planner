@@ -43,7 +43,9 @@
                 <span style="font-size:0.95rem;">{{ t.weekly_menu }}</span>
             </a>
             {% if is_authenticated %}
-            <span title="{{ t.norwegian if lang == 'no' else t.english }}" style="font-size:1.1rem; margin-left:10px;" aria-hidden="true">{{ '🇳🇴' if lang == 'no' else '🇬🇧' }}</span>
+            <button type="button" class="nav-lang-toggle" onclick="switchLanguage('{{ 'en' if lang == 'no' else 'no' }}')" title="{{ t.get('switch_to_english', 'Switch to English') if lang == 'no' else t.get('switch_to_norwegian', 'Switch to Norwegian') }}" style="background:none; border:none; padding:0; margin-left:10px; cursor:pointer; display:inline-flex; align-items:center; line-height:0;">
+                <img src="{{ url_for('static', filename='flags/' + ('no' if lang == 'no' else 'gb') + '.svg') }}" alt="{{ 'NO' if lang == 'no' else 'GB' }}" width="22" height="16" style="border-radius:2px; display:block;">
+            </button>
             <a href="{{ url_for('profile_picker') }}" class="avatar-circle nav-current-user" title="{{ t.get('switch_profile', 'Switch profile') }}: {{ active_profile_name or user_email }}" style="width:40px;height:40px;font-size:20px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;color:white;font-weight:700;background:{{ avatar_color(active_profile_name or user_email) }};margin-left:6px;cursor:pointer;text-decoration:none;">
                 {{ avatar_display(active_profile_name or user_email, active_avatar_type, active_avatar_value) }}
             </a>
@@ -95,17 +97,6 @@
                     <div class="nav-settings-menu">
                         <button id="settings-btn" class="settings-btn" aria-label="{{ t.settings }}" title="{{ t.settings }}" onclick="toggleSettingsMenu(event)">⚙️</button>
                         <div id="settings-dropdown" class="settings-dropdown">
-                            <div class="settings-section">
-                                <div class="settings-section-title">{{ t.language }}</div>
-                                <button class="settings-item" onclick="switchLanguage('no')" style="text-align: left; display: flex; align-items: center; justify-content: space-between;">
-                                    <span id="lang-no-btn">🇳🇴 {{ t.norwegian }}</span>
-                                    {% if lang == 'no' %}<span aria-hidden="true">➤</span>{% endif %}
-                                </button>
-                                <button class="settings-item" onclick="switchLanguage('en')" style="text-align: left; display: flex; align-items: center; justify-content: space-between;">
-                                    <span id="lang-en-btn">🇬🇧 {{ t.english }}</span>
-                                    {% if lang == 'en' %}<span aria-hidden="true">➤</span>{% endif %}
-                                </button>
-                            </div>
                             <a href="{{ url_for('whats_new') }}" class="settings-item">🆕 {{ t.get('whats_new', "What's New") }}</a>
                             <a href="{{ url_for('whats_planned') }}" class="settings-item">🔮 {{ t.get('whats_planned', "What's Planned") }}</a>
                             <a href="/all-recipes" class="settings-item">{{ t.all_recipes }}</a>

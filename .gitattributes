@@ -1,1 +1,6 @@
+# Normalize all text files to LF line endings, regardless of which OS
+# (Windows or Ubuntu) checks them out or commits them. This prevents the
+# whole repo from showing as "modified" just from switching machines.
+* text=auto eol=lf
+
 *.sh text eol=lf

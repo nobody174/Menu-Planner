@@ -18,81 +18,15 @@
             </p>
         </section>
         {% endif %}
-
-        {% if is_household_owner %}
-        <section class="settings-section">
-            <h2>{{ t.get('owner_pin', 'Owner PIN') }}</h2>
-            <p>{{ t.get('owner_pin_hint', 'Set a 4-digit PIN so switching back to Owner on a shared device is quick - no need to type the full account password every time.') }}</p>
-            <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
-                <input type="password" inputmode="numeric" pattern="[0-9]*" maxlength="4" id="pin-input"
-                       placeholder="{{ t.get('pin', 'PIN') }}"
-                       style="width:100px; padding:8px; border:1px solid var(--color-border,#ddd); border-radius:4px;" />
-                <button type="button" class="btn btn-secondary" onclick="savePin()">{{ t.get('save_pin', 'Save PIN') }}</button>
-                {% if has_pin %}
-                <button type="button" class="btn btn-secondary" onclick="clearPin()">{{ t.get('remove_pin', 'Remove PIN') }}</button>
-                {% endif %}
-            </div>
-            <p id="pin-status-msg" class="settings-info" style="display:none; font-size:0.85em;"></p>
-        </section>
-        <script>
-        function savePin() {
-            var input = document.getElementById('pin-input');
-            var pin = input.value.trim();
-            var msg = document.getElementById('pin-status-msg');
-            fetch('/api/account/set-pin', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ pin: pin })
-            })
-            .then(function(r) { return r.json(); })
-            .then(function(data) {
-                msg.style.display = 'block';
-                msg.textContent = data.message;
-                msg.style.color = data.success ? 'var(--color-success,#3c3)' : 'var(--color-danger,#dc2626)';
-                if (data.success) setTimeout(function() { location.reload(); }, 1000);
-            });
-        }
-
-        function clearPin() {
-            fetch('/api/account/clear-pin', { method: 'POST' })
-                .then(function() { location.reload(); });
-        }
-        </script>
-        {% endif %}
-
-        {% if referral_code %}
-        <section class="settings-section">
-            <h2>{{ t.get('refer_a_friend', 'Refer a Friend') }}</h2>
-            <p>{{ t.get('refer_a_friend_desc', 'Like using this? Share your link - friends who sign up get their own separate household, and we keep track of who invited whom.') }}</p>
-            <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
-                <input type="text" id="referral-link" readonly value="{{ request.url_root.rstrip('/') }}{{ url_for('signup') }}?ref={{ referral_code }}"
-                       style="flex:1; min-width:240px; padding:8px; border:1px solid var(--color-border,#ddd); border-radius:4px; font-size:0.85em;" />
-                <button type="button" class="btn btn-secondary" onclick="copyReferralLink()">{{ t.get('copy_link', 'Copy Link') }}</button>
-            </div>
-            <p id="referral-copied-msg" class="settings-info" style="display:none; font-size:0.85em; color:var(--color-success,#3c3);">{{ t.get('link_copied', 'Link copied!') }}</p>
-        </section>
-        <script>
-        function copyReferralLink() {
-            var input = document.getElementById('referral-link');
-            navigator.clipboard.writeText(input.value).then(function() {
-                var msg = document.getElementById('referral-copied-msg');
-                msg.style.display = 'block';
-                setTimeout(function() { msg.style.display = 'none'; }, 2000);
-            });
-        }
-        </script>
-        {% endif %}
-
         <!-- Language Settings -->
         <section class="settings-section">
             <h2>{{ t.language_section }}</h2>
             <p>{{ t.language_desc }}</p>
             <div class="language-buttons">
-                <button onclick="switchLanguage('no')" class="btn {% if lang == 'no' %}btn-primary{% else %}btn-secondary{% endif %}">🇳🇴 {{ t.norwegian }}</button>
-                <button onclick="switchLanguage('en')" class="btn {% if lang == 'en' %}btn-primary{% else %}btn-secondary{% endif %}">🇬🇧 {{ t.english }}</button>
+                <button onclick="switchLanguage('no')" class="btn {% if lang == 'no' %}btn-primary{% else %}btn-secondary{% endif %}"><img src="{{ url_for('static', filename='flags/no.svg') }}" alt="NO" width="18" height="13" style="border-radius:2px; vertical-align:middle; margin-right:6px;">{{ t.norwegian }}</button>
+                <button onclick="switchLanguage('en')" class="btn {% if lang == 'en' %}btn-primary{% else %}btn-secondary{% endif %}"><img src="{{ url_for('static', filename='flags/gb.svg') }}" alt="GB" width="18" height="13" style="border-radius:2px; vertical-align:middle; margin-right:6px;">{{ t.english }}</button>
             </div>
         </section>
-
         <!-- Theme Settings -->
         <section class="settings-section">
             <h2>{{ t.theme_section }}</h2>
@@ -127,27 +61,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- Recipe Packs Import -->
-        <section class="settings-section">
-            <h2>{{ t.recipe_packs_section }}</h2>
-            <p>{{ t.recipe_packs_desc }}</p>
-            <div class="action-buttons">
-                <button onclick="openRecipePacksModal()" class="btn btn-primary">📦 {{ t.import_recipe_packs }}</button>
-                <a href="/recipe-packs/manage" class="btn btn-secondary">{{ t.manage_packs }}</a>
-            </div>
-        </section>
-
-        <!-- Personal Recipe Arsenal -->
-        <section class="settings-section">
-            <h2>{{ t.personal_arsenal_section }}</h2>
-            <p>{{ t.personal_arsenal_desc }}</p>
-            <div class="action-buttons">
-                <button onclick="exportAllRecipes()" class="btn btn-primary">💾 {{ t.export_all_recipes }}</button>
-                <button onclick="openImportModal()" class="btn btn-secondary">📥 {{ t.import_from_file }}</button>
-            </div>
-        </section>
-
         <!-- Recipe Management -->
         <section class="settings-section">
             <h2>{{ t.recipes_section }}</h2>
@@ -157,99 +70,6 @@
                 <a href="/all-recipes" class="btn btn-secondary">{{ t.view_all_recipes }}</a>
             </div>
         </section>
-
-        <!-- My Pantry -->
-        <section class="settings-section">
-            <details class="settings-collapsible">
-                <summary><h2>{{ t.get('my_pantry', 'My Pantry') }}</h2></summary>
-                <p>{{ t.get('pantry_hint', "Add items you already have at home - they'll be marked on the shopping list.") }}</p>
-                <p class="pantry-hint-click">{{ t.get('pantry_click_hint', 'Click an item to remove it.') }}</p>
-                <form id="pantry-add-form" class="pantry-add-form">
-                    <input type="text" id="pantry-add-input" placeholder="{{ t.get('add_pantry_item', 'Add item') }}" autocomplete="off" />
-                    <button type="submit" class="btn btn-secondary">+</button>
-                    <button type="button" class="btn btn-secondary" onclick="resetPantryToDefaults()" title="{{ t.get('reset_pantry_hint', 'Restore the default list of common staples') }}">{{ t.get('reset_to_defaults', 'Reset to defaults') }}</button>
-                </form>
-                <ul id="pantry-list" class="pantry-list">
-                    {% for item in pantry %}
-                    <li class="pantry-item" data-item="{{ item }}" onclick="removePantryItem('{{ item }}')" title="{{ t.get('click_to_remove', 'Click to remove') }}">
-                        <span>{{ item }}</span>
-                    </li>
-                    {% else %}
-                    <li class="pantry-empty-msg">{{ t.get('pantry_empty', 'Your pantry is empty.') }}</li>
-                    {% endfor %}
-                </ul>
-            </details>
-        </section>
-        <script>
-        function renderPantryList(items) {
-            var list = document.getElementById('pantry-list');
-            list.innerHTML = '';
-            if (items.length === 0) {
-                var emptyLi = document.createElement('li');
-                emptyLi.className = 'pantry-empty-msg';
-                emptyLi.textContent = {{ t.get("pantry_empty", "Your pantry is empty.")|tojson }};
-                list.appendChild(emptyLi);
-                return;
-            }
-            items.forEach(function(item) {
-                var li = document.createElement('li');
-                li.className = 'pantry-item';
-                li.dataset.item = item;
-                li.title = {{ t.get("click_to_remove", "Click to remove")|tojson }};
-                li.onclick = function() { removePantryItem(item); };
-                var span = document.createElement('span');
-                span.textContent = item;
-                li.appendChild(span);
-                list.appendChild(li);
-            });
-        }
-
-        document.getElementById('pantry-add-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            var input = document.getElementById('pantry-add-input');
-            var item = input.value.trim();
-            if (!item) return;
-
-            fetch('/api/pantry/add', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ item: item })
-            })
-            .then(function(r) { return r.json(); })
-            .then(function(data) {
-                if (data.success) {
-                    renderPantryList(data.pantry);
-                    input.value = '';
-                }
-            });
-        });
-
-        function resetPantryToDefaults() {
-            pmConfirm('🧂', '{{ t.get("reset_to_defaults", "Reset to defaults") }}', '{{ t.get("reset_pantry_confirm", "Reset pantry to default staples? Your current pantry will be replaced.") }}').then(function(confirmed) {
-                if (!confirmed) return;
-                fetch('/api/pantry/reset', { method: 'POST' })
-                .then(function(r) { return r.json(); })
-                .then(function(data) {
-                    if (data.success) renderPantryList(data.pantry);
-                });
-            });
-        }
-
-        function removePantryItem(item) {
-            fetch('/api/pantry/remove', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ item: item })
-            })
-            .then(function(r) { return r.json(); })
-            .then(function(data) {
-                if (data.success) {
-                    renderPantryList(data.pantry);
-                }
-            });
-        }
-        </script>
-
         <!-- Manage Categories -->
         <section class="settings-section">
             <details class="settings-collapsible">
@@ -426,7 +246,177 @@
             });
         });
         </script>
+        <!-- My Pantry -->
+        <section class="settings-section">
+            <details class="settings-collapsible">
+                <summary><h2>{{ t.get('my_pantry', 'My Pantry') }}</h2></summary>
+                <p>{{ t.get('pantry_hint', "Add items you already have at home - they'll be marked on the shopping list.") }}</p>
+                <p class="pantry-hint-click">{{ t.get('pantry_click_hint', 'Click an item to remove it.') }}</p>
+                <form id="pantry-add-form" class="pantry-add-form">
+                    <input type="text" id="pantry-add-input" placeholder="{{ t.get('add_pantry_item', 'Add item') }}" autocomplete="off" />
+                    <button type="submit" class="btn btn-secondary">+</button>
+                    <button type="button" class="btn btn-secondary" onclick="resetPantryToDefaults()" title="{{ t.get('reset_pantry_hint', 'Restore the default list of common staples') }}">{{ t.get('reset_to_defaults', 'Reset to defaults') }}</button>
+                </form>
+                <ul id="pantry-list" class="pantry-list">
+                    {% for item in pantry %}
+                    <li class="pantry-item" data-item="{{ item }}" onclick="removePantryItem('{{ item }}')" title="{{ t.get('click_to_remove', 'Click to remove') }}">
+                        <span>{{ item }}</span>
+                    </li>
+                    {% else %}
+                    <li class="pantry-empty-msg">{{ t.get('pantry_empty', 'Your pantry is empty.') }}</li>
+                    {% endfor %}
+                </ul>
+            </details>
+        </section>
+        <script>
+        function renderPantryList(items) {
+            var list = document.getElementById('pantry-list');
+            list.innerHTML = '';
+            if (items.length === 0) {
+                var emptyLi = document.createElement('li');
+                emptyLi.className = 'pantry-empty-msg';
+                emptyLi.textContent = {{ t.get("pantry_empty", "Your pantry is empty.")|tojson }};
+                list.appendChild(emptyLi);
+                return;
+            }
+            items.forEach(function(item) {
+                var li = document.createElement('li');
+                li.className = 'pantry-item';
+                li.dataset.item = item;
+                li.title = {{ t.get("click_to_remove", "Click to remove")|tojson }};
+                li.onclick = function() { removePantryItem(item); };
+                var span = document.createElement('span');
+                span.textContent = item;
+                li.appendChild(span);
+                list.appendChild(li);
+            });
+        }
 
+        document.getElementById('pantry-add-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var input = document.getElementById('pantry-add-input');
+            var item = input.value.trim();
+            if (!item) return;
+
+            fetch('/api/pantry/add', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ item: item })
+            })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.success) {
+                    renderPantryList(data.pantry);
+                    input.value = '';
+                }
+            });
+        });
+
+        function resetPantryToDefaults() {
+            pmConfirm('🧂', '{{ t.get("reset_to_defaults", "Reset to defaults") }}', '{{ t.get("reset_pantry_confirm", "Reset pantry to default staples? Your current pantry will be replaced.") }}').then(function(confirmed) {
+                if (!confirmed) return;
+                fetch('/api/pantry/reset', { method: 'POST' })
+                .then(function(r) { return r.json(); })
+                .then(function(data) {
+                    if (data.success) renderPantryList(data.pantry);
+                });
+            });
+        }
+
+        function removePantryItem(item) {
+            fetch('/api/pantry/remove', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ item: item })
+            })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.success) {
+                    renderPantryList(data.pantry);
+                }
+            });
+        }
+        </script>
+        <!-- Recipe Packs Import -->
+        <section class="settings-section">
+            <h2>{{ t.recipe_packs_section }}</h2>
+            <p>{{ t.recipe_packs_desc }}</p>
+            <div class="action-buttons">
+                <button onclick="openRecipePacksModal()" class="btn btn-primary">📦 {{ t.import_recipe_packs }}</button>
+                <a href="/recipe-packs/manage" class="btn btn-secondary">{{ t.manage_packs }}</a>
+            </div>
+        </section>
+        <!-- Personal Recipe Arsenal -->
+        <section class="settings-section">
+            <h2>{{ t.personal_arsenal_section }}</h2>
+            <p>{{ t.personal_arsenal_desc }}</p>
+            <div class="action-buttons">
+                <button onclick="exportAllRecipes()" class="btn btn-primary">💾 {{ t.export_all_recipes }}</button>
+                <button onclick="openImportModal()" class="btn btn-secondary">📥 {{ t.import_from_file }}</button>
+            </div>
+        </section>
+        {% if is_household_owner %}
+        <section class="settings-section">
+            <h2>{{ t.get('owner_pin', 'Owner PIN') }}</h2>
+            <p>{{ t.get('owner_pin_hint', 'Set a 4-digit PIN so switching back to Owner on a shared device is quick - no need to type the full account password every time.') }}</p>
+            <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+                <input type="password" inputmode="numeric" pattern="[0-9]*" maxlength="4" id="pin-input"
+                       placeholder="{{ t.get('pin', 'PIN') }}"
+                       style="width:100px; padding:8px; border:1px solid var(--color-border,#ddd); border-radius:4px;" />
+                <button type="button" class="btn btn-secondary" onclick="savePin()">{{ t.get('save_pin', 'Save PIN') }}</button>
+                {% if has_pin %}
+                <button type="button" class="btn btn-secondary" onclick="clearPin()">{{ t.get('remove_pin', 'Remove PIN') }}</button>
+                {% endif %}
+            </div>
+            <p id="pin-status-msg" class="settings-info" style="display:none; font-size:0.85em;"></p>
+        </section>
+        <script>
+        function savePin() {
+            var input = document.getElementById('pin-input');
+            var pin = input.value.trim();
+            var msg = document.getElementById('pin-status-msg');
+            fetch('/api/account/set-pin', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ pin: pin })
+            })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                msg.style.display = 'block';
+                msg.textContent = data.message;
+                msg.style.color = data.success ? 'var(--color-success,#3c3)' : 'var(--color-danger,#dc2626)';
+                if (data.success) setTimeout(function() { location.reload(); }, 1000);
+            });
+        }
+
+        function clearPin() {
+            fetch('/api/account/clear-pin', { method: 'POST' })
+                .then(function() { location.reload(); });
+        }
+        </script>
+        {% endif %}
+        {% if referral_code %}
+        <section class="settings-section">
+            <h2>{{ t.get('refer_a_friend', 'Refer a Friend') }}</h2>
+            <p>{{ t.get('refer_a_friend_desc', 'Like using this? Share your link - friends who sign up get their own separate household, and we keep track of who invited whom.') }}</p>
+            <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+                <input type="text" id="referral-link" readonly value="{{ request.url_root.rstrip('/') }}{{ url_for('signup') }}?ref={{ referral_code }}"
+                       style="flex:1; min-width:240px; padding:8px; border:1px solid var(--color-border,#ddd); border-radius:4px; font-size:0.85em;" />
+                <button type="button" class="btn btn-secondary" onclick="copyReferralLink()">{{ t.get('copy_link', 'Copy Link') }}</button>
+            </div>
+            <p id="referral-copied-msg" class="settings-info" style="display:none; font-size:0.85em; color:var(--color-success,#3c3);">{{ t.get('link_copied', 'Link copied!') }}</p>
+        </section>
+        <script>
+        function copyReferralLink() {
+            var input = document.getElementById('referral-link');
+            navigator.clipboard.writeText(input.value).then(function() {
+                var msg = document.getElementById('referral-copied-msg');
+                msg.style.display = 'block';
+                setTimeout(function() { msg.style.display = 'none'; }, 2000);
+            });
+        }
+        </script>
+        {% endif %}
         {% if is_household_owner %}
         <!-- Activity Log (owner only) -->
         <section class="settings-section">
@@ -447,7 +437,6 @@
             {% endif %}
         </section>
         {% endif %}
-
         <!-- About -->
         <section class="settings-section">
             <h2>{{ t.about_section }}</h2>
