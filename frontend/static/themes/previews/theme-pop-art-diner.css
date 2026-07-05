@@ -110,7 +110,10 @@
 
 /* --- Hero --- */
 [data-theme="pop-art-diner"] .hero {
-  background-color: #1A1A2E;
+  /* Shorthand, not background-color - same bug as this theme's .card-header:
+     base style.css's .hero sets an opaque navy gradient via the `background`
+     shorthand, which a background-color-only override never clears. */
+  background: #1A1A2E;
   border: 4px solid #1A1A2E;
   border-radius: 0;
   margin: 2rem auto;

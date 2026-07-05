@@ -118,7 +118,11 @@
 
 /* --- Hero --- */
 [data-theme="chalkboard-bistro"] .hero {
-  background-color: #343730;
+  /* Shorthand, not background-color - base style.css's .hero sets an opaque
+     navy gradient via the `background` shorthand, which a background-color-
+     only override never clears (same bug as .card-header, see
+     theme-nordic-pantry.css). */
+  background: #343730;
   border: 2px solid rgba(245, 240, 232, 0.15);
   border-radius: 4px;
   margin: 2rem auto;
@@ -341,7 +345,7 @@
 
 /* Force settings dropdown to not inherit theme styles */
 [data-theme="chalkboard-bistro"] .theme-submenu {
-  
+
   gap: 0 !important;
   padding: 8px 0 !important;
   row-gap: 0 !important;
@@ -388,7 +392,7 @@
 
 /* Force settings dropdown to not inherit theme styles */
 [data-theme="chalkboard-bistro"] .theme-submenu {
-  
+
   gap: 0 !important;
   padding: 8px 0 !important;
   row-gap: 0 !important;
@@ -406,4 +410,3 @@
 [data-theme="chalkboard-bistro"] .theme-submenu .theme-option-content {
   gap: 2px !important;
 }
-

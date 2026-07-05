@@ -42,7 +42,7 @@
             <strong>{{ t.time_label }}:</strong> {{ recipe.time_minutes|format_minutes }}
         </span>
         <span class="meta-item">
-            <strong>{{ t.type_label }}:</strong> {{ recipe.category }}
+            <strong>{{ t.type_label }}:</strong> {{ recipe.category_display or recipe.category }}
         </span>
     </div>
 </div>

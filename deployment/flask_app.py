@@ -57,6 +57,41 @@ def _resolve(val, lang):
         return val.get(lang) or val.get('en') or val.get('no') or ''
     return val or ''
 
+_BASE_CATEGORY_TRANSLATIONS = None
+
+def _translate_category_name(category_en, lang):
+    """Translate a recipe's category (always stored in English, e.g.
+    'Fish & Seafood') to the current language, using data/categories.json as
+    the source of truth (it already has correct name_no values for every
+    built-in category - Fisk & Sjømat, Biff & Rødt Kjøtt, Svin, Sider & Lette
+    Måltider, etc.). Previously only the dashboard route translated
+    categories, via a hand-maintained dict that was missing several
+    categories (Pork, Beef & Red Meat, Sides & Light Meals) - and nowhere
+    else (All Recipes cards, recipe detail page) translated categories at
+    all, which is why category tags stayed in English regardless of
+    language (B46). A household's own custom categories won't have a
+    translation here and pass through unchanged, which is correct - they
+    were typed in whatever language the user typed them in.
+    Deliberately does NOT touch the 'category' field itself, only returns a
+    display string - filtering/matching logic elsewhere compares against the
+    raw English category value and must keep working unchanged."""
+    global _BASE_CATEGORY_TRANSLATIONS
+    if lang == 'en' or not category_en:
+        return category_en or ''
+    if _BASE_CATEGORY_TRANSLATIONS is None:
+        _BASE_CATEGORY_TRANSLATIONS = {}
+        base_file = Path(__file__).parent.parent / 'data' / 'categories.json'
+        try:
+            with open(base_file, 'r', encoding='utf-8') as f:
+                for cat in json.load(f):
+                    name_en = cat.get('name_en')
+                    name_no = cat.get('name_no')
+                    if name_en and name_no:
+                        _BASE_CATEGORY_TRANSLATIONS[name_en] = name_no
+        except Exception as e:
+            print(f"WARNING: Could not load base categories.json for translation: {e}")
+    return _BASE_CATEGORY_TRANSLATIONS.get(category_en, category_en)
+
 import re as _re
 _STEP_PREFIX_RE = _re.compile(r'^\s*\d+\s*[\.\):]\s*')
 
@@ -145,6 +180,10 @@ def _normalize_recipe(recipe, lang='en'):
 
     # Difficulty: flatten + normalise
     r['difficulty'] = _normalize_difficulty(_resolve(r.get('difficulty'), lang))
+
+    # Translated display name for the category tag (B46) - keep r['category']
+    # itself untouched in English, since filter/search logic depends on it.
+    r['category_display'] = _translate_category_name(r.get('category', ''), lang)
 
     # Ingredients: support pack schema, sample_recipes _no/_en fields, and simple strings
     new_ings = []
@@ -861,24 +900,15 @@ def dashboard():
         'Medium': t_dict.get('medium', 'Medium'),
         'Hard': t_dict.get('hard', 'Hard'),
     }
-    # Category translation map
-    cat_map = {
-        'Quick Dinners': t_dict.get('quick_dinners', 'Quick Dinners'),
-        'Pasta & Noodles': t_dict.get('pasta_noodles', 'Pasta & Noodles'),
-        'Chicken': t_dict.get('chicken', 'Chicken'),
-        'Ground Meat & Sausages': t_dict.get('ground_meat', 'Ground Meat & Sausages'),
-        'Fish & Seafood': t_dict.get('fish_seafood', 'Fish & Seafood'),
-        'Taco & Tex-Mex': t_dict.get('taco_texmex', 'Taco & Tex-Mex'),
-        'Grill': t_dict.get('grill', 'Grill'),
-        'Soups & Stews': t_dict.get('soups_stews', 'Soups & Stews'),
-        'Vegetarian': t_dict.get('vegetarian', 'Vegetarian'),
-        'Homemade': t_dict.get('homemade', 'Homemade'),
-    }
     import copy
     menu = copy.deepcopy(menu)
-    # Translate categories
+    # Translate categories - uses the shared _translate_category_name() helper
+    # (backed by data/categories.json) instead of a hand-maintained dict, so
+    # every built-in category translates correctly, not just the ones
+    # someone remembered to list here (this previously missed Pork, Beef &
+    # Red Meat, and Sides & Light Meals entirely - B46).
     if menu.get('selected_categories'):
-        menu['selected_categories'] = [cat_map.get(c, c) for c in menu['selected_categories']]
+        menu['selected_categories'] = [_translate_category_name(c, lang) for c in menu['selected_categories']]
     for dinner in menu.get('dinners', []):
         if dinner.get('day') in day_map:
             dinner['day'] = day_map[dinner['day']]
