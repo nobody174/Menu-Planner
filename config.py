@@ -30,18 +30,6 @@ for directory in [DATA_DIR, RECIPES_CACHE_DIR, LOGS_DIR]:
     directory.mkdir(parents=True, exist_ok=True)
 
 # ============================================================================
-# AZURE / MICROSOFT GRAPH API
-# ============================================================================
-
-AZURE_CLIENT_ID = os.getenv("AZURE_CLIENT_ID", "")
-AZURE_CLIENT_SECRET = os.getenv("AZURE_CLIENT_SECRET", "")
-AZURE_TENANT_ID = os.getenv("AZURE_TENANT_ID", "")
-AZURE_USERNAME = os.getenv("AZURE_USERNAME", "")  # Your Microsoft account email
-AZURE_PASSWORD = os.getenv("AZURE_PASSWORD", "")  # Your Microsoft account password (for test only)
-TO_DO_LIST_NAME = "Handleliste"
-SHOPPING_LIST_NAME = "Handleliste"
-
-# ============================================================================
 # EMAIL CONFIGURATION
 # ============================================================================
 
@@ -119,8 +107,6 @@ TIMEZONE = "Europe/Oslo"
 # API ENDPOINTS
 # ============================================================================
 
-TO_DO_GRAPH_API_ENDPOINT = "https://graph.microsoft.com/v1.0"
-
 # ============================================================================
 # NOTES
 # ============================================================================
@@ -128,13 +114,11 @@ TO_DO_GRAPH_API_ENDPOINT = "https://graph.microsoft.com/v1.0"
 """
 Environment variables to set before running:
 
-  AZURE_CLIENT_SECRET    - Your Azure app client secret
   EMAIL_USERNAME         - Gmail/SMTP username
   EMAIL_PASSWORD         - Gmail/SMTP password (or app-specific password)
   EMAIL_SEND_ENABLED     - Set to "true" to enable email sending
 
 Example .env file:
-  AZURE_CLIENT_SECRET=your-secret-here
   EMAIL_USERNAME=your-email@gmail.com
   EMAIL_PASSWORD=your-app-password
   EMAIL_SEND_ENABLED=true

@@ -8,6 +8,8 @@ from database.models import User
 import re
 import secrets
 import string
+import time
+import threading
 
 
 def is_valid_email(email):
@@ -334,14 +336,49 @@ def clear_pin(user_id):
         session.close()
 
 
+# In-memory PIN attempt tracker (added 2026-07-05 security pass). A 4-digit
+# PIN is only 10,000 combinations, brute-forceable without some form of
+# rate-limiting. This is a lightweight, per-process lockout (not persisted
+# across restarts, not shared across gunicorn workers) - good enough to stop
+# casual/scripted guessing without needing a Redis dependency or a database
+# migration for a single-Pi/small-scale deployment. Revisit with a shared
+# store if this ever runs with multiple workers under real attack traffic.
+_PIN_MAX_ATTEMPTS = 5
+_PIN_LOCKOUT_SECONDS = 300  # 5 minutes
+_pin_attempts = {}  # user_id (str) -> [fail_count, first_fail_timestamp]
+_pin_attempts_lock = threading.Lock()
+
+
 def verify_pin(user_id, pin):
     """Check a PIN against the account's stored pin_hash. Returns False if no
-    PIN has ever been set (caller should fall back to full-password auth)."""
+    PIN has ever been set (caller should fall back to full-password auth),
+    or if this account is currently locked out from too many recent wrong
+    attempts."""
+    user_id = str(user_id)
+    now = time.time()
+
+    with _pin_attempts_lock:
+        count, first_fail = _pin_attempts.get(user_id, (0, now))
+        if count >= _PIN_MAX_ATTEMPTS:
+            if (now - first_fail) < _PIN_LOCKOUT_SECONDS:
+                return False  # still locked out
+            # Lockout window expired - reset and allow this attempt through.
+            _pin_attempts.pop(user_id, None)
+
     session = SessionLocal()
     try:
         user = session.query(User).filter(User.id == user_id).first()
         if not user or not user.pin_hash:
             return False
-        return verify_password(user.pin_hash, pin)
+        ok = verify_password(user.pin_hash, pin)
     finally:
         session.close()
+
+    with _pin_attempts_lock:
+        if ok:
+            _pin_attempts.pop(user_id, None)
+        else:
+            count, first_fail = _pin_attempts.get(user_id, (0, now))
+            _pin_attempts[user_id] = (count + 1, first_fail if count else now)
+
+    return ok

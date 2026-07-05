@@ -1,3 +1,42 @@
+// ── CSRF protection (added 2026-07-05) ────────────────────────────────────────
+// Wrap the global fetch() so every same-origin, state-changing request
+// (POST/PUT/PATCH/DELETE) automatically carries the X-CSRFToken header that
+// Flask-WTF's CSRFProtect checks server-side. This covers the whole app's
+// existing fetch() calls without needing to edit each one individually.
+(function() {
+    var originalFetch = window.fetch;
+    var CSRF_METHODS = ['POST', 'PUT', 'PATCH', 'DELETE'];
+
+    function getCsrfToken() {
+        var meta = document.querySelector('meta[name="csrf-token"]');
+        return meta ? meta.getAttribute('content') : '';
+    }
+
+    function isSameOrigin(url) {
+        try {
+            return new URL(url, window.location.href).origin === window.location.origin;
+        } catch (e) {
+            return true; // relative URLs resolve fine above; default to same-origin
+        }
+    }
+
+    window.fetch = function(input, init) {
+        init = init || {};
+        var method = (init.method || 'GET').toUpperCase();
+        var url = typeof input === 'string' ? input : (input && input.url) || '';
+
+        if (CSRF_METHODS.indexOf(method) !== -1 && isSameOrigin(url)) {
+            init.headers = init.headers || {};
+            if (init.headers instanceof Headers) {
+                init.headers.set('X-CSRFToken', getCsrfToken());
+            } else {
+                init.headers['X-CSRFToken'] = getCsrfToken();
+            }
+        }
+        return originalFetch.call(this, input, init);
+    };
+})();
+
 // ── i18n helper ───────────────────────────────────────────────────────────────
 // Safe wrapper: always returns a string, never exposes missing key names.
 function _t(key) {

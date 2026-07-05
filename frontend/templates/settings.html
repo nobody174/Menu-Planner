@@ -1091,6 +1091,7 @@ function _esc(str) {
         {{ t.get('delete_confirm_msg', 'To confirm, enter your password:') }}
       </p>
       <form id="delete-account-form" method="POST" action="{{ url_for('delete_own_account') }}" style="display:none;">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
         <input type="password" name="password" id="delete-password" required>
       </form>
       <div style="display:flex; gap:10px; flex-wrap:wrap;">

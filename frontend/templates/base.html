@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{% block title %}Menu Planner{% endblock %}</title>
     <script>
         // Set the user's chosen theme BEFORE any CSS loads, so the page never
@@ -552,33 +553,6 @@
                 .replace(/"/g, '&quot;');
         }
     });
-
-    // ── Auth status ────────────────────────────────────────────────────────
-    Promise.all([
-        fetch('/api/user').then(function(r){ return r.json(); }),
-        fetch('/api/check-azure-creds').then(function(r){ return r.json(); })
-    ])
-        .then(function(results){
-            var userdata = results[0];
-            var credsdata = results[1];
-            var loginItem  = document.getElementById('nav-login-item');
-            var logoutItem = document.getElementById('nav-logout-item');
-            var userDisp   = document.getElementById('nav-user-display-settings');
-            var authSec    = document.getElementById('nav-auth-section');
-            if (!authSec) return;
-
-            // Only show auth section if Azure credentials are configured
-            if (!credsdata.has_creds) return;
-
-            authSec.style.display = '';
-            if (userdata.authenticated) {
-                if (userDisp) { userDisp.textContent = userdata.name || userdata.email || ''; userDisp.style.display = 'block'; }
-                if (logoutItem) logoutItem.style.display = '';
-            } else {
-                if (loginItem) loginItem.style.display = '';
-            }
-        })
-        .catch(function(){});
 
     // ── Service Worker (PWA) ───────────────────────────────────────────────
     if ('serviceWorker' in navigator) {

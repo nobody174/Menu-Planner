@@ -297,6 +297,17 @@ app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
 # time. Login routes set session.permanent = True to opt into this lifetime.
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=30)
 
+# CSRF protection (added 2026-07-05 engineering security pass) - previously
+# every state-changing POST route (recipe CRUD, pantry, household/member
+# management, account deletion, admin actions) had no CSRF defense at all,
+# meaning any of them could be triggered cross-site while a user was logged
+# in, just by getting them to load a malicious page. Traditional <form
+# method="post"> submissions carry a hidden csrf_token field (see
+# frontend/templates); fetch()-based JSON requests send it via the
+# X-CSRFToken header, added automatically by the fetch wrapper in app.js.
+from flask_wtf import CSRFProtect
+csrf = CSRFProtect(app)
+
 # Disable Jinja2 cache in development for faster iteration
 if not IS_PRODUCTION:
     app.jinja_env.cache = None
@@ -305,13 +316,6 @@ logger.info(f"Flask templates: {app.template_folder}")
 logger.info(f"Flask static: {app.static_folder}")
 
 # ── Context Processors ───────────────────────────────────────────────────────
-
-def _has_azure_creds():
-    """Check if Azure credentials are configured."""
-    client_id = os.getenv('AZURE_CLIENT_ID', '').strip()
-    client_secret = os.getenv('AZURE_CLIENT_SECRET', '').strip()
-    tenant_id = os.getenv('AZURE_TENANT_ID', '').strip()
-    return bool(client_id and client_secret and tenant_id)
 
 def _send_confirmation_email(user):
     """Email the user a confirmation link via Resend. Same fail-safe pattern
@@ -462,7 +466,7 @@ def _restore_remembered_profile():
     if session.get('user_id') and not session.get('active_profile_id'):
         remembered_id = request.cookies.get('remembered_profile_id')
         if remembered_id:
-            household_id = session.get('current_household_id')
+            household_id = current_household_id()
             if household_id:
                 from core.household_helpers import get_member_by_id
                 member = get_member_by_id(remembered_id, household_id)
@@ -622,7 +626,7 @@ def acting_role_is_owner():
     if not user_id:
         return False
 
-    household_id = session.get('current_household_id')
+    household_id = current_household_id()
     if not household_id:
         return False
 
@@ -643,7 +647,7 @@ def acting_role_can_edit():
     if not user_id:
         return False
 
-    household_id = session.get('current_household_id')
+    household_id = current_household_id()
     if not household_id:
         return False
 
@@ -667,10 +671,10 @@ def inject_config():
     user_email = session.get('user_email')
     user_id = session.get('user_id')
     auth_type = session.get('auth_type')
-    is_authenticated = bool(user_id and user_email) or bool(session.get('access_token'))
+    is_authenticated = bool(user_id and user_email)
 
     household_name = os.getenv('HOUSEHOLD_NAME', 'Menu Planner')
-    household_id = session.get('current_household_id')
+    household_id = current_household_id()
     is_household_owner = False
     can_edit_menu = True
     is_app_admin = _is_admin()
@@ -703,7 +707,6 @@ def inject_config():
         'patreon_url': 'https://www.patreon.com/c/Nobody174',
         'lang': lang,
         't': t,
-        'has_azure_creds': _has_azure_creds(),
         'is_authenticated': is_authenticated,
         'user_email': user_email,
         'user_id': user_id,
@@ -825,9 +828,6 @@ def find_recipe(recipe_id):
         except Exception:
             pass
     return next((r for r in all_recipes if r['id'] == recipe_id), None)
-
-def _redirect_uri():
-    return os.getenv("AZURE_REDIRECT_URI", "http://pi-menu.local:5000/callback")
 
 # ── Page routes ───────────────────────────────────────────────────────────────
 
@@ -1076,6 +1076,8 @@ def api_add_pantry_item():
     in sync no matter which language the household views it in later. Items
     with no known translation (anything custom the household typed) are just
     stored as-is."""
+    if not acting_role_can_edit():
+        return jsonify({'success': False, 'message': 'Viewers cannot edit the pantry'}), 403
     from core.household_paths import pantry_item_translation, pantry_item_language
     data = request.get_json() or {}
     item = (data.get('item') or '').strip().lower()
@@ -1107,6 +1109,8 @@ def api_reset_pantry():
     household_id = current_household_id()
     if not household_id:
         return jsonify({'success': False, 'message': 'Not authenticated'}), 401
+    if not acting_role_can_edit():
+        return jsonify({'success': False, 'message': 'Viewers cannot edit the pantry'}), 403
 
     staples_path = SEED_DIR / 'pantry_staples.json'
     if not staples_path.exists():
@@ -1134,6 +1138,8 @@ def api_reset_pantry():
 def api_remove_pantry_item():
     """Removing a known staple also removes its translation in the other
     language, so e.g. removing 'sugar' also removes 'sukker'."""
+    if not acting_role_can_edit():
+        return jsonify({'success': False, 'message': 'Viewers cannot edit the pantry'}), 403
     from core.household_paths import pantry_item_translation, pantry_item_language
     data = request.get_json() or {}
     item = (data.get('item') or '').strip().lower()
@@ -1416,7 +1422,7 @@ def api_submit_feedback():
         'title': title,
         'description': description,
         'submitted_by': session.get('user_email', 'unknown'),
-        'household_id': session.get('current_household_id'),
+        'household_id': current_household_id(),
     }
 
     feedback_file = DATA_DIR / 'feedback.json'
@@ -1483,7 +1489,7 @@ def all_recipes_page():
 def settings_page():
     """Owner-only: account/referral details and the activity log live here, so
     non-owner profiles (kids, viewers, editors) have no business seeing this page."""
-    household_id_for_check = session.get('current_household_id')
+    household_id_for_check = current_household_id()
     if household_id_for_check and not acting_role_is_owner():
         return redirect(url_for('dashboard'))
 
@@ -1579,19 +1585,19 @@ def household_settings():
 
     from core.household_helpers import get_user_households, get_household_members, get_household
 
-    household_id_for_check = session.get('current_household_id')
-    if household_id_for_check and not acting_role_is_owner():
+    # Resolve the active household through current_household_id(), which
+    # re-validates that it actually belongs to the CURRENT user before
+    # trusting it (see B50) - previously this route read the raw session
+    # value directly into a household_id and rendered it with no ownership
+    # check at all, the same shape of bug as B50.
+    active_household_id = current_household_id()
+    if active_household_id and not acting_role_is_owner():
         return redirect(url_for('settings_page', error='Only the household owner can access household settings'))
 
     # Get all user's households
     all_households = get_user_households(user_id)
 
-    # Try to get current household (from session or first one)
-    current_household_id = session.get('current_household_id')
-    current_household = None
-
-    if current_household_id:
-        current_household = get_household(current_household_id)
+    current_household = get_household(active_household_id) if active_household_id else None
 
     if not current_household and all_households:
         current_household = all_households[0]
@@ -1680,7 +1686,7 @@ def update_household_handler():
     if not user_id:
         return redirect(url_for('login_page'))
 
-    household_id = session.get('current_household_id')
+    household_id = current_household_id()
     if not household_id:
         return redirect(url_for('household_settings', error='No household selected'))
 
@@ -1706,7 +1712,7 @@ def delete_household_handler():
     if not user_id:
         return redirect(url_for('login_page'))
 
-    household_id = session.get('current_household_id')
+    household_id = current_household_id()
     if not household_id:
         return redirect(url_for('household_settings', error='No household selected'))
 
@@ -1730,12 +1736,12 @@ def profile_picker():
     from core.household_helpers import get_user_households, get_household_members
 
     all_households = get_user_households(user_id)
-    current_household_id = session.get('current_household_id')
+    active_household_id = current_household_id()
     current_household = None
 
-    if current_household_id:
+    if active_household_id:
         from core.household_helpers import get_household
-        current_household = get_household(current_household_id)
+        current_household = get_household(active_household_id)
 
     if not current_household and all_households:
         current_household = all_households[0]
@@ -1780,7 +1786,7 @@ def select_profile():
             if not success:
                 return redirect(url_for('profile_picker', owner_password_error='Incorrect password'))
 
-        household_id = session.get('current_household_id')
+        household_id = current_household_id()
         from core.household_helpers import get_household_members
         owner_name = session.get('user_email')
         if household_id:
@@ -1794,7 +1800,7 @@ def select_profile():
         response.delete_cookie('remembered_profile_id')
         return response
 
-    household_id = session.get('current_household_id')
+    household_id = current_household_id()
     from core.household_helpers import get_member_by_id
     member = get_member_by_id(member_id, household_id)
 
@@ -1816,7 +1822,7 @@ def add_household_profile():
     if not user_id:
         return redirect(url_for('login_page'))
 
-    household_id = session.get('current_household_id')
+    household_id = current_household_id()
     if not household_id:
         return redirect(url_for('household_settings', error='No household selected'))
 
@@ -1846,7 +1852,7 @@ def api_remove_household_member():
     if not user_id:
         return jsonify({'error': 'Not authenticated'}), 401
 
-    household_id = session.get('current_household_id')
+    household_id = current_household_id()
     member_id = request.form.get('member_id')
 
     from core.household_helpers import remove_household_member
@@ -1869,7 +1875,7 @@ def api_set_avatar():
     if not user_id:
         return jsonify({'error': 'Not authenticated'}), 401
 
-    household_id = session.get('current_household_id')
+    household_id = current_household_id()
     member_id = request.form.get('member_id')
     emoji = request.form.get('emoji', '')
 
@@ -1898,7 +1904,7 @@ def api_rename_member():
     if not acting_role_is_owner():
         return jsonify({'error': 'Permission denied'}), 403
 
-    household_id = session.get('current_household_id')
+    household_id = current_household_id()
     member_id = request.form.get('member_id')
     display_name = request.form.get('display_name', '')
 
@@ -1922,7 +1928,7 @@ def api_update_member_role():
     if not user_id:
         return jsonify({'error': 'Not authenticated'}), 401
 
-    household_id = session.get('current_household_id')
+    household_id = current_household_id()
     member_id = request.form.get('member_id')
     new_role = request.form.get('role')
 
@@ -1934,11 +1940,6 @@ def api_update_member_role():
         return jsonify({'success': True, 'message': message})
     else:
         return jsonify({'error': message}), 403
-
-@app.route('/api/check-azure-creds')
-def check_azure_creds():
-    """API endpoint to check if Azure credentials are configured."""
-    return jsonify({'has_creds': _has_azure_creds()})
 
 # ── Auth routes ───────────────────────────────────────────────────────────────
 
@@ -2066,7 +2067,7 @@ def delete_own_account():
     # Clean up the household folder if it exists
     from core.household_paths import HOUSEHOLDS_DIR
     import shutil
-    household_id = session.get('current_household_id')
+    household_id = current_household_id()
     if household_id:
         hdir = HOUSEHOLDS_DIR / str(household_id)
         if hdir.exists():
@@ -2215,66 +2216,14 @@ def signup_local():
     _send_confirmation_email(user)
     return render_template('signup.html', email=email, ref=ref, confirmation_sent=True)
 
-# Azure/MSAL Authentication Routes
-@app.route('/login-azure')
-def login_azure():
-    """Initiate Azure/Microsoft login flow."""
-    try:
-        from auth import build_msal_app, get_auth_url
-        msal_app = build_msal_app(_redirect_uri())
-        flow = get_auth_url(msal_app, _redirect_uri())
-        session['auth_flow'] = flow
-        logger.info("User redirecting to Microsoft login")
-        return redirect(flow['auth_uri'])
-    except Exception as e:
-        logger.error(f"Azure login error: {e}")
-        return render_template('login.html', error='Azure login not configured'), 500
-
 @app.route('/login')
 def login():
     """Redirect to login page (for backward compatibility)."""
     return redirect(url_for('login_page'))
 
-@app.route('/callback')
-def callback():
-    """Handle Azure/MSAL callback."""
-    try:
-        from auth import build_msal_app, acquire_token_by_auth_code_flow, get_user_info
-        flow = session.get('auth_flow')
-        if not flow:
-            return render_template('error.html', message='Session expired. Please try logging in again.'), 400
-
-        msal_app = build_msal_app(_redirect_uri())
-        result = acquire_token_by_auth_code_flow(msal_app, flow, request.args.to_dict())
-
-        if 'error' in result:
-            err = result.get('error_description', result.get('error', 'Unknown error'))
-            logger.error(f"Auth callback error: {err}")
-            return render_template('error.html', message=f'Login failed: {err}'), 400
-
-        session.permanent = True
-        session['access_token'] = result['access_token']
-        session.pop('auth_flow', None)
-        session['auth_type'] = 'azure'
-
-        try:
-            user = get_user_info(result['access_token'])
-            session['user_name'] = user.get('displayName', user.get('userPrincipalName', 'User'))
-            session['user_email'] = user.get('userPrincipalName', '')
-        except Exception:
-            session['user_name'] = 'User'
-            session['user_email'] = ''
-
-        logger.info(f"User authenticated (Azure): {session.get('user_email')}")
-        return redirect('/')
-
-    except Exception as e:
-        logger.error(f"Callback exception: {e}")
-        return render_template('error.html', message=f'Authentication error: {str(e)}'), 500
-
 @app.route('/logout')
 def logout():
-    """Log out user (handles both local and Azure auth)."""
+    """Log out the current user."""
     user_email = session.get('user_email', 'User')
     auth_type = session.get('auth_type', 'unknown')
     session.clear()
@@ -2296,44 +2245,12 @@ def api_user():
             'auth_type': auth_type or 'unknown'
         })
 
-    # Fallback for Azure-only sessions (legacy)
-    if session.get('access_token'):
-        try:
-            from auth import is_authorised
-            if is_authorised():
-                return jsonify({
-                    'authenticated': True,
-                    'email': session.get('user_email', ''),
-                    'auth_type': 'azure'
-                })
-        except Exception:
-            pass
-
     return jsonify({'authenticated': False})
 
-@app.route('/api/debug-token')
-def debug_token():
-    """Decode the JWT token header to see account type — remove this route after debugging."""
-    if 'access_token' not in session:
-        return jsonify({'error': 'Not logged in'}), 401
-    import base64, json as _json
-    token = session['access_token']
-    try:
-        parts = token.split('.')
-        # Pad and decode the payload (part 1)
-        payload_b64 = parts[1] + '=='
-        payload = _json.loads(base64.urlsafe_b64decode(payload_b64))
-        return jsonify({
-            'tid': payload.get('tid'),          # tenant id — 9188... = personal MSA
-            'aud': payload.get('aud'),
-            'scp': payload.get('scp'),          # scopes granted
-            'upn': payload.get('upn'),
-            'email': payload.get('email'),
-            'unique_name': payload.get('unique_name'),
-            'idp': payload.get('idp'),          # identity provider
-        })
-    except Exception as e:
-        return jsonify({'error': str(e), 'token_prefix': token[:40]})
+# NOTE: /api/debug-token was removed 2026-07-05 security pass - it decoded
+# and returned the logged-in user's Azure JWT claims to anyone with an
+# authenticated session, left in from earlier debugging despite its own
+# docstring saying to remove it.
 
 # ── API routes ────────────────────────────────────────────────────────────────
 
@@ -2516,15 +2433,15 @@ def api_export_shopping_list():
 
 @app.route('/api/sync-shopping-list', methods=['POST'])
 def api_sync_shopping_list():
-    """Universal shopping list sync endpoint for all services."""
+    """Shopping list sync endpoint. Only Apple Reminders (plain ICS download,
+    no account/token needed) is supported. Microsoft To Do, Todoist, and
+    TickTick sync were removed 2026-07-05 - they required each user to obtain
+    and paste their own API token/Azure credentials, which is real setup
+    friction and support burden for a friends-and-family/public audience.
+    See BACKLOG_2026-07-01.md for the note to re-add if users actually ask."""
     try:
-        from shopping_integrations import (
-            sync_todoist, sync_ticktick
-        )
-        from auth import get_access_token, sync_shopping_list_to_todo
-
         data = request.get_json() or {}
-        service = data.get('service', 'microsoft').lower()
+        service = data.get('service', 'reminders').lower()
         full_shopping_list = data.get('shopping_list', {})
         selected_items = data.get('items', [])
 
@@ -2546,61 +2463,7 @@ def api_sync_shopping_list():
 
         logger.info(f"Filtered: {len(filtered)} categories, total items: {sum(len(v) for v in filtered.values())}")
 
-        # Route to appropriate service
-        if service == 'microsoft':
-            token = get_access_token() or session.get('access_token')
-            if not token:
-                return jsonify({
-                    'success': False,
-                    'requires_config': True,
-                    'message': 'Microsoft To Do not configured. Follow the setup guide: Read docs/INTEGRATION_SETUP_GUIDE.md section "Microsoft To Do" and add AZURE_CLIENT_ID, AZURE_CLIENT_SECRET, and AZURE_TENANT_ID to your .env file, then restart Flask.'
-                }), 401
-            result = sync_shopping_list_to_todo(token, filtered)
-            return jsonify({
-                'success': True,
-                'message': f"Synced {result.get('added', 0)} items to Microsoft To Do ✓"
-            })
-
-        elif service == 'todoist':
-            api_token = os.getenv('TODOIST_API_TOKEN') or ''
-            if not api_token:
-                return jsonify({
-                    'success': False,
-                    'requires_config': True,
-                    'message': 'Todoist API token not configured. Get it from: https://todoist.com/app/settings/integrations/developer'
-                }), 401
-            result = sync_todoist(filtered, api_token)
-            if result.get('success'):
-                return jsonify({
-                    'success': True,
-                    'message': f"Synced {result.get('added', 0)} items to Todoist ✓"
-                })
-            else:
-                return jsonify({
-                    'success': False,
-                    'error': result.get('error', 'Unknown error'),
-                    'requires_config': True,
-                    'message': 'Todoist sync failed. Check API token.'
-                }), 500
-
-        elif service == 'ticktick':
-            api_token = os.getenv('TICKTICK_API_TOKEN') or ''
-            if not api_token:
-                return jsonify({
-                    'success': False,
-                    'requires_config': True,
-                    'message': 'TickTick API token not configured. Get it from: https://ticktick.com/user/myprofile'
-                }), 401
-            result = sync_ticktick(filtered, api_token)
-            if result.get('success'):
-                return jsonify({
-                    'success': True,
-                    'message': f"Synced {result.get('added', 0)} items to TickTick ✓"
-                })
-            else:
-                return jsonify({'success': False, 'error': result.get('error'), 'requires_config': True, 'message': 'TickTick sync failed. Verify your API token is correct.'}), 500
-
-        elif service == 'reminders':
+        if service == 'reminders':
             # Return ICS file for Apple Reminders as direct download
             from shopping_integrations import export_ics
             from flask import send_file
@@ -2629,6 +2492,8 @@ def api_sync_shopping_list():
 @app.route('/api/add-recipe', methods=['POST'])
 def api_add_recipe():
     """Add a manually created recipe to recipes_db.json and backup the form"""
+    if not acting_role_can_edit():
+        return jsonify({'status': 'error', 'message': 'Viewers cannot add recipes'}), 403
     try:
         import uuid
         from datetime import datetime
@@ -2676,6 +2541,8 @@ def api_add_recipe():
 @app.route('/api/delete-recipe', methods=['POST'])
 def api_delete_recipe():
     """Delete a recipe from recipes_db.json by ID."""
+    if not acting_role_can_edit():
+        return jsonify({'status': 'error', 'message': 'Viewers cannot delete recipes'}), 403
     try:
         data = request.get_json() or {}
         recipe_id = data.get('recipe_id')
@@ -2731,6 +2598,8 @@ def api_delete_recipe():
 @app.route('/api/edit-recipe', methods=['POST'])
 def api_edit_recipe():
     """Edit an existing recipe in recipes_db.json by ID"""
+    if not acting_role_can_edit():
+        return jsonify({'status': 'error', 'message': 'Viewers cannot edit recipes'}), 403
     try:
         data = request.get_json() or {}
         recipe_id = data.get('recipe_id')
@@ -2787,6 +2656,8 @@ def api_swap_recipe():
     duplicated). If the recipe isn't currently in this week's menu at all
     (e.g. picking a brand-new recipe from the catalog), it's simply inserted
     into the target day, replacing whatever was already planned there."""
+    if not acting_role_can_edit():
+        return jsonify({'status': 'error', 'message': 'Viewers cannot change the menu'}), 403
     try:
         data = request.get_json() or {}
         recipe_id = data.get('recipe_id')
@@ -2974,6 +2845,8 @@ def api_recipe_packs_list():
 @app.route('/api/recipe-packs/import', methods=['POST'])
 def api_recipe_packs_import():
     """Import selected recipe packs into user's recipe database"""
+    if not acting_role_can_edit():
+        return jsonify({'success': False, 'message': 'Viewers cannot import recipe packs'}), 403
     try:
         data = request.get_json()
         pack_ids = data.get('packIds', [])
@@ -3109,6 +2982,8 @@ def api_remove_imported_pack():
     touch categories.json - a recipe's dish-type category is its own, not
     tied to which pack it came from, so removing a pack never needs to
     remove a category."""
+    if not acting_role_can_edit():
+        return jsonify({'success': False, 'message': 'Viewers cannot remove recipe packs'}), 403
     try:
         data = request.get_json()
         pack_id = data.get('pack_id', '')
@@ -3167,6 +3042,8 @@ def api_recipes_export():
 @app.route('/api/recipes/import', methods=['POST'])
 def api_recipes_import():
     """Import recipes from user-provided JSON file"""
+    if not acting_role_can_edit():
+        return jsonify({'success': False, 'message': 'Viewers cannot import recipes'}), 403
     try:
         data = request.get_json()
         recipes_to_import = data.get('recipes', [])

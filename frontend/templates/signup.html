@@ -19,6 +19,7 @@
     </div>
     {% else %}
     <form method="POST" class="auth-form">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
       {% if ref %}<input type="hidden" name="ref" value="{{ ref }}" />{% endif %}
       <div class="form-group">
         <label for="email">{{ t.get('email', 'Email') }}</label>
@@ -69,14 +70,6 @@
         <a href="{{ url_for('login_page') }}">{{ t.get('login', 'Login') }}</a>
       </p>
     </div>
-
-    {% if has_azure_creds %}
-    <div class="divider">{{ t.get('or', 'or') }}</div>
-
-    <a href="{{ url_for('login_azure') }}" class="btn btn-microsoft">
-      {{ t.get('signup_microsoft', 'Sign up with Microsoft') }}
-    </a>
-    {% endif %}
   </div>
 </div>
 
@@ -186,16 +179,6 @@
     background: #5568d3;
   }
 
-  .btn-microsoft {
-    background: #0078d4;
-    color: white;
-    margin-top: 20px;
-  }
-
-  .btn-microsoft:hover {
-    background: #006cbf;
-  }
-
   .auth-footer {
     text-align: center;
     font-size: 14px;
@@ -213,12 +196,5 @@
     text-decoration: underline;
   }
 
-  .divider {
-    text-align: center;
-    margin: 30px 0 20px;
-    color: #ccc;
-    font-size: 12px;
-    text-transform: uppercase;
-  }
 </style>
 {% endblock %}

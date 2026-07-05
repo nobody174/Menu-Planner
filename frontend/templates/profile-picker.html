@@ -22,6 +22,7 @@
     {% for member in members %}
     {% if member.is_profile %}
     <form method="POST" action="{{ url_for('select_profile') }}" class="profile-form">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
       <input type="hidden" name="member_id" value="{{ member.member_id }}" />
       <button type="submit" class="profile-tile">
         <span class="avatar-circle large" style="background:{{ avatar_color(member.display_name) }}">
@@ -40,6 +41,7 @@
 
   <div id="owner-password-modal" class="owner-password-overlay">
     <form method="POST" action="{{ url_for('select_profile') }}" class="owner-password-box">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
       <input type="hidden" name="is_account_holder" value="1" />
       {% if owner_has_pin %}
       <h3>{{ t.get('confirm_owner_pin', 'Enter PIN to act as Owner') }}</h3>

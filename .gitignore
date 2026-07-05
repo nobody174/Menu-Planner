@@ -69,6 +69,7 @@ logs/
 data/recipes_cache/
 data/token_cache.json
 *.db
+*.db-journal
 *.sqlite
 
 # Temporary files

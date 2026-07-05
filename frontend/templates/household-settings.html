@@ -112,6 +112,7 @@
 
       {% if profile_count < max_profiles %}
       <form method="POST" action="{{ url_for('add_household_profile') }}" class="add-member-form">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
         <div class="form-group">
           <label for="profile-name">{{ t.get('profile_name', 'Name') }}</label>
           <input
@@ -171,6 +172,7 @@
       <div class="household-item">
         <span class="household-name">{{ household.name }}</span>
         <form method="POST" action="{{ url_for('set_current_household') }}" style="display:inline;">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
           <input type="hidden" name="household_id" value="{{ household.id }}" />
           <button type="submit" class="btn-small">
             {{ t.get('switch', 'Switch') }}
@@ -188,6 +190,7 @@
     <p>{{ t.get('no_household', 'No household selected. Create one or join an existing one.') }}</p>
 
     <form method="POST" action="{{ url_for('create_household_handler') }}" class="create-household-form">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
       <div class="form-group">
         <label for="new-household-name">{{ t.get('household_name', 'Household Name') }}</label>
         <input
@@ -217,6 +220,7 @@
     </div>
 
     <form method="POST" action="{{ url_for('update_household_handler') }}" class="modal-form">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
       <div class="form-group">
         <label for="new-name">{{ t.get('new_name', 'New Name') }}</label>
         <input
@@ -249,6 +253,7 @@
     <p>{{ t.get('delete_warning', 'Are you sure? This cannot be undone.') }}</p>
 
     <form method="POST" action="{{ url_for('delete_household_handler') }}" class="modal-form">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
       <div class="modal-buttons">
         <button type="submit" class="btn btn-danger">{{ t.get('delete', 'Delete') }}</button>
         <button type="button" class="btn btn-secondary" onclick="closeDeleteModal()">
