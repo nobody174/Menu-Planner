@@ -81,10 +81,6 @@ data/token_cache.json
 FRESH_CHAT_STARTUP.txt
 new_chat_fresh_menu_planner.md
 
-# Pending commit message, written by Claude ahead of a DEPLOY.bat run -
-# picked up automatically, then cleared after a successful commit. Never
-# meant to be committed itself.
-NEXT_COMMIT_MSG.txt
 
 # OS
 Thumbs.db

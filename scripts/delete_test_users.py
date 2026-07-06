@@ -3,10 +3,12 @@
 Delete all test users from the database.
 
 Usage:
-  Railway (PostgreSQL):
-    railway run --service Menu-Planner python scripts/delete_test_users.py
+  Render (PostgreSQL):
+    Run via the Render Shell for this service, or locally with the
+    production DATABASE_URL set:
+      DATABASE_URL=<production-url> python scripts/delete_test_users.py
 
-  Or, from Railway Postgres shell via web console:
+  Or, from the Render Postgres dashboard's Query console:
     Run the SQL commands in scripts/delete_test_users.sql
 
 WARNING: This is destructive and cannot be undone. Use only when intentional.
@@ -23,12 +25,12 @@ def get_connection():
 
     if not db_url:
         print("ERROR: DATABASE_URL not set")
-        print("  - For Railway: run via 'railway run --service Menu-Planner python scripts/delete_test_users.py'")
-        print("  - Alternatively, use Railway web console Data tab to run scripts/delete_test_users.sql")
+        print("  - For Render: run via the Render Shell, or set DATABASE_URL locally to the production value")
+        print("  - Alternatively, use the Render Postgres dashboard's Query console to run scripts/delete_test_users.sql")
         sys.exit(1)
 
-    # Parse PostgreSQL URL (Railway format: postgresql://user:pass@host:port/dbname)
-    # We pass SSL required since Railway uses encrypted connections
+    # Parse PostgreSQL URL (postgresql://user:pass@host:port/dbname)
+    # We pass SSL required since Render uses encrypted connections
     if db_url.startswith('postgresql://') or db_url.startswith('postgres://'):
         try:
             conn = psycopg2.connect(db_url, sslmode='require')

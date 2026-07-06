@@ -30,7 +30,7 @@ logger = logging.getLogger(__name__)
 DATA_DIR = Path(__file__).parent.parent / 'data'
 
 # Static seed content reads from here instead of DATA_DIR - see the matching
-# comment in deployment/flask_app.py for why (Railway's persistent volume
+# comment in deployment/flask_app.py for why (Render's persistent disk
 # at DATA_DIR never overwrites existing files, so static seed data shipped
 # in the image needs a separate, always-fresh path to actually take effect).
 SEED_DIR = Path(__file__).parent.parent / 'data-seed'

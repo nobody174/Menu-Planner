@@ -3,7 +3,9 @@
 Delete a user and all their associated data cleanly.
 
 Usage:
-  railway run --service Menu-Planner python scripts/delete_user.py user@email.com
+  Run via the Render Shell for this service, or locally with the
+  production DATABASE_URL set:
+    DATABASE_URL=<production-url> python scripts/delete_user.py user@email.com
 
 Deletes in the correct order to respect foreign key constraints:
   household_members -> households -> users

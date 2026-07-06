@@ -7,18 +7,9 @@ See `BACKLOG_2026-07-01.md` for open tasks and `FEATURE_ROADMAP.md` for planned 
 
 ## 2026-07-06 (8)
 
-### Added `DEPLOY.bat` - one-click guarded deploy script
+### Deploy tooling: tried a one-click script, reverted in favor of Claude Code
 
-Cowork (this session) has no access to the owner's local GitHub credentials and, per its own operating rules, won't accept a token/password to bridge that gap - Claude Code in VS Code can push because it runs on the owner's own machine and inherits the already-authenticated git config there, not because of any special grant. To cut manual git-command typing down to one double-click without crossing that line, added `DEPLOY.bat`:
-
-1. Runs the full local test suite against a throwaway SQLite DB, aborts immediately if anything is red.
-2. Shows `git status --short` and asks for confirmation before touching anything.
-3. Commits (skips cleanly if there's nothing staged) and pushes to `public-release-v1`.
-4. If the GitHub CLI (`gh`) is installed, targets the specific `ci.yml` run (not a random one - this repo runs 7 workflows on push, only `ci.yml` has the Render-deploy-trigger job) and watches it live, failing loudly if it goes red.
-5. Prints a reminder that this does NOT create a GitHub Release/tag (that's `git tag vX.Y.Z && git push github vX.Y.Z`, separate from every day pushes - current tags are v1.0.0 and v1.1.0).
-6. Picks up `NEXT_COMMIT_MSG.txt` as a pre-written commit message when Claude leaves one ready (gitignored, deleted after a successful commit) - falls back to a manual prompt otherwise.
-
-Also sets `git config core.fileMode false` at the top, since this environment's mounted-drive file-permission-bit noise was making `git status` look far scarier than reality throughout tonight's work.
+Briefly added `DEPLOY.bat` (a guarded test-then-commit-then-push-then-watch-CI script) as a workaround for Cowork not holding push credentials to this repo. Owner discussed it with Claude Code and decided to keep deploys there instead, since it already runs on the owner's own machine with full git/gh access and the established commit-message conventions for this project - removed `DEPLOY.bat` and its supporting `NEXT_COMMIT_MSG.txt` mechanism again the same day.
 
 ---
 

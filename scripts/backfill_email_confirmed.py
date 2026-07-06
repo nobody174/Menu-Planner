@@ -3,10 +3,12 @@
 Mark all unconfirmed users as confirmed (grandfathering).
 
 Usage:
-  Railway (PostgreSQL):
-    railway run --service Menu-Planner python scripts/backfill_email_confirmed.py
+  Render (PostgreSQL):
+    Run via the Render Shell for this service, or locally with the
+    production DATABASE_URL set:
+      DATABASE_URL=<production-url> python scripts/backfill_email_confirmed.py
 
-  Or, from Railway Postgres shell via web console:
+  Or, from the Render Postgres dashboard's Query console:
     Run the SQL commands in scripts/backfill_email_confirmed.sql
 
 This is useful when deploying the email confirmation feature without
@@ -25,12 +27,12 @@ def get_connection():
 
     if not db_url:
         print("ERROR: DATABASE_URL not set")
-        print("  - For Railway: run via 'railway run --service Menu-Planner python scripts/backfill_email_confirmed.py'")
-        print("  - Alternatively, use Railway web console Data tab to run scripts/backfill_email_confirmed.sql")
+        print("  - For Render: run via the Render Shell, or set DATABASE_URL locally to the production value")
+        print("  - Alternatively, use the Render Postgres dashboard's Query console to run scripts/backfill_email_confirmed.sql")
         sys.exit(1)
 
-    # Parse PostgreSQL URL (Railway format: postgresql://user:pass@host:port/dbname)
-    # We pass SSL required since Railway uses encrypted connections
+    # Parse PostgreSQL URL (postgresql://user:pass@host:port/dbname)
+    # We pass SSL required since Render uses encrypted connections
     if db_url.startswith('postgresql://') or db_url.startswith('postgres://'):
         try:
             conn = psycopg2.connect(db_url, sslmode='require')

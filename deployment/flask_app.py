@@ -320,11 +320,11 @@ CACHE_DIR = DATA_DIR / 'recipes_cache'
 
 # Static recipe/category seed content (sample_recipes.json, recipe-packs/,
 # the base categories.json, pantry_staples.json, dessert/drinks stashes)
-# is read from here instead of DATA_DIR. On Railway, DATA_DIR sits on a
-# persistent volume that's deliberately never overwritten on redeploy (so
+# is read from here instead of DATA_DIR. On Render, DATA_DIR sits on a
+# persistent disk that's deliberately never overwritten on redeploy (so
 # real household data survives across deploys) - but that also means any
 # fix to these static seed files would silently never reach production,
-# since the volume's stale copy from whenever it was first created always
+# since the disk's stale copy from whenever it was first created always
 # wins. SEED_DIR points at a pristine, always-fresh-from-the-image copy the
 # Dockerfile bakes in at /app/data-seed specifically so static content isn't
 # subject to the volume's no-clobber protection. Falls back to DATA_DIR
@@ -518,7 +518,7 @@ def _send_password_reset_email(user):
 def _notify_admin_of_feedback(entry):
     """Email ADMIN_EMAIL via Resend when new feedback is submitted, so the
     developer doesn't have to manually check data/feedback.json or dig
-    through Railway's dashboard to notice a new tester report. No-ops
+    through Render's dashboard to notice a new tester report. No-ops
     silently (just logs) if RESEND_API_KEY isn't configured yet - this must
     never block or break the actual feedback submission."""
     api_key = os.getenv('RESEND_API_KEY', '').strip()
