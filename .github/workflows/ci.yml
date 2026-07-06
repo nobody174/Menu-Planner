@@ -128,7 +128,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install bandit safety
       - name: Bandit (fails on high-severity findings only)
-        run: bandit -r core/ deployment/ -ll
+        run: bandit -r core/ deployment/ --severity-level high
       - name: Safety dependency check (reported, non-blocking)
         run: safety check || true
 
