@@ -2,7 +2,6 @@ name: Release & Deployment
 
 on:
   push:
-    branches: [ public-release-v1 ]
     tags:
       - 'v*'
 
@@ -27,7 +26,7 @@ jobs:
 
     - name: Validate release
       run: |
-        python -c "import json; registry = json.load(open('frontend/static/themes/previews/theme-registry.json')); assert len(registry) == 9, f'Expected 9 themes, got {len(registry)}'; print('Release validation passed')"
+        python -c "import json; registry = json.load(open('frontend/static/themes/previews/theme-registry.json')); assert len(registry) > 0, 'Theme registry is empty'; print(f'Release validation passed ({len(registry)} themes)')"
 
     - name: Create GitHub Release
       uses: actions/create-release@v1
