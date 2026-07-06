@@ -10,7 +10,7 @@
   },
   "packImage": "🐟",
   "packColor": "#999999",
-  "recipeCount": 43,
+  "recipeCount": 42,
   "estimatedCookTime": "varies",
   "difficulty": "varies",
   "recipes": [
@@ -1151,107 +1151,6 @@
           "3. Place herring and onion in",
           "4. Let marinate 30 min",
           "5. Serve cold"
-        ]
-      }
-    },
-    {
-      "id": "no_032",
-      "title": {
-        "no": "Gravlaks",
-        "en": "Cured Salmon"
-      },
-      "subtitle": {
-        "no": "Hjemmelaget gravlaks",
-        "en": "Homemade cured salmon"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 0,
-      "servings": 8,
-      "category": "Fish & Seafood",
-      "tags": [
-        "salmon",
-        "cured",
-        "delicacy",
-        "cuisine:norwegian"
-      ],
-      "allergens": [
-        "fish"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "laksefillet",
-            "en": "salmon fillet"
-          },
-          "amount": 1000,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "salt",
-            "en": "salt"
-          },
-          "amount": 50,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "sukker",
-            "en": "sugar"
-          },
-          "amount": 25,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "dill",
-            "en": "dill"
-          },
-          "amount": 30,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "sitron",
-            "en": "lemon"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "stykk",
-            "en": "piece"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Bland salt og sukker",
-          "2. Hakk dill",
-          "3. Gni laksen med blandingen og dill",
-          "4. Legg på bakepapir",
-          "5. Vikle inn og legg vekt på",
-          "6. Kjølskåls 2-3 dager",
-          "7. Skjær tynne skiver"
-        ],
-        "en": [
-          "1. Mix salt and sugar",
-          "2. Chop dill",
-          "3. Rub salmon with mixture and dill",
-          "4. Place on baking paper",
-          "5. Wrap and weight down",
-          "6. Chill 2-3 days",
-          "7. Slice thinly"
         ]
       }
     },
@@ -3595,7 +3494,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 30,
       "servings": 6,
-      "category": "Fish & Seafood",
+      "category": "Light Meals",
       "tags": [
         "traditional",
         "nordic",
@@ -3994,7 +3893,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 1440,
       "servings": 8,
-      "category": "Fish & Seafood",
+      "category": "Light Meals",
       "tags": [
         "starter",
         "fish",

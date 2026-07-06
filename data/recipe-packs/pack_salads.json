@@ -10,7 +10,7 @@
   },
   "packImage": "🥬",
   "packColor": "#999999",
-  "recipeCount": 21,
+  "recipeCount": 20,
   "estimatedCookTime": "varies",
   "difficulty": "varies",
   "recipes": [
@@ -27,7 +27,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 10,
       "servings": 1,
-      "category": "Salads",
+      "category": "Light Meals",
       "tags": [
         "sandwich",
         "shrimp",
@@ -127,7 +127,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 10,
       "servings": 1,
-      "category": "Salads",
+      "category": "Light Meals",
       "tags": [
         "sandwich",
         "egg",
@@ -227,7 +227,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 25,
       "servings": 6,
-      "category": "Salads",
+      "category": "Light Meals",
       "tags": [
         "salad",
         "side dish",
@@ -340,7 +340,7 @@
       "id": "eu_095",
       "title": {
         "no": "Horiatiki",
-        "en": "Greek Salad"
+        "en": "Greek Salad (Horiatiki)"
       },
       "subtitle": {
         "no": "Gresk salat med tomat, agurk og feta",
@@ -352,7 +352,9 @@
       "category": "Salads",
       "tags": [
         "salad",
-        "Greek",
+        "greek",
+        "vegetarian",
+        "summer",
         "fresh",
         "quick",
         "cuisine:greek"
@@ -471,7 +473,7 @@
           "6. Bland olivolje, eddiksyre og oregano",
           "7. Hell dressing over salaten",
           "8. Krydre med salt og pepper",
-          "9. La salaten hvile 10 minutter før servering"
+          "9. La salaten hvile 10 minutter før servering. Server kald - perfekt som sommermiddag eller forrett."
         ],
         "en": [
           "1. Cut tomatoes into wedges",
@@ -482,7 +484,7 @@
           "6. Mix olive oil, vinegar and oregano",
           "7. Pour dressing over salad",
           "8. Season with salt and pepper",
-          "9. Let salad rest 10 minutes before serving"
+          "9. Let the salad rest 10 minutes before serving. Serve cold - perfect as a summer dinner or starter."
         ]
       }
     },
@@ -499,7 +501,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 30,
       "servings": 6,
-      "category": "Salads",
+      "category": "Light Meals",
       "tags": [
         "holiday",
         "salad",
@@ -579,142 +581,6 @@
           "3. Make dressing with vinegar and oil",
           "4. Mix",
           "5. Let sit in refrigerator before serving"
-        ]
-      }
-    },
-    {
-      "id": "sum_001",
-      "title": {
-        "no": "Gresk Salat",
-        "en": "Greek Salad"
-      },
-      "subtitle": {
-        "no": "Klassisk sommerslat med feta og oliven",
-        "en": "Classic summer salad with feta and olives"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 15,
-      "servings": 4,
-      "category": "Salads",
-      "tags": [
-        "salad",
-        "greek",
-        "vegetarian",
-        "summer",
-        "quick",
-        "cuisine:greek"
-      ],
-      "allergens": [
-        "dairy"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Tomat",
-            "en": "Tomato"
-          },
-          "amount": 4,
-          "unit": {
-            "no": "middels",
-            "en": "medium"
-          }
-        },
-        {
-          "name": {
-            "no": "Agurk",
-            "en": "Cucumber"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "stor",
-            "en": "large"
-          }
-        },
-        {
-          "name": {
-            "no": "Rød løk",
-            "en": "Red onion"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "middels",
-            "en": "medium"
-          }
-        },
-        {
-          "name": {
-            "no": "Oliven",
-            "en": "Olives"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Feta-ost",
-            "en": "Feta cheese"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Olivenolje",
-            "en": "Olive oil"
-          },
-          "amount": 5,
-          "unit": {
-            "no": "ss",
-            "en": "tbsp"
-          }
-        },
-        {
-          "name": {
-            "no": "Rødvineddik",
-            "en": "Red wine vinegar"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "ss",
-            "en": "tbsp"
-          }
-        },
-        {
-          "name": {
-            "no": "Oregano",
-            "en": "Oregano"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "ts",
-            "en": "tsp"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Hakk tomater, agurk og løk i biter.",
-          "2. Legg dem i en stor salat-bolle.",
-          "3. Tilsett oliven og knust feta-ost.",
-          "4. Bland olivenolje, rødvineddik og oregano.",
-          "5. Hell dressingen over salaten.",
-          "6. Rør godt og la den hvile i 10 minutter.",
-          "7. Server kald som en ideal sommermåltid eller forrett."
-        ],
-        "en": [
-          "1. Chop tomatoes, cucumber and onion into chunks.",
-          "2. Place them in a large salad bowl.",
-          "3. Add olives and crumbled feta cheese.",
-          "4. Mix olive oil, red wine vinegar and oregano.",
-          "5. Pour dressing over salad.",
-          "6. Toss well and let rest 10 minutes.",
-          "7. Serve cold as an ideal summer meal or starter."
         ]
       }
     },
@@ -970,7 +836,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 15,
       "servings": 4,
-      "category": "Salads",
+      "category": "Light Meals",
       "tags": [
         "salad",
         "strawberry",
@@ -1764,7 +1630,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 25,
       "servings": 4,
-      "category": "Salads",
+      "category": "Light Meals",
       "tags": [
         "summer",
         "fresh",
@@ -1896,7 +1762,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 15,
       "servings": 4,
-      "category": "Salads",
+      "category": "Light Meals",
       "tags": [
         "summer",
         "fresh",
@@ -2411,7 +2277,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 15,
       "servings": 2,
-      "category": "Salads",
+      "category": "Light Meals",
       "tags": [
         "salad",
         "thai",
@@ -2510,7 +2376,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 20,
       "servings": 4,
-      "category": "Salads",
+      "category": "Light Meals",
       "tags": [
         "middle eastern",
         "salad",

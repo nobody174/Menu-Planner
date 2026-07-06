@@ -5,6 +5,66 @@ See `BACKLOG_2026-07-01.md` for open tasks and `FEATURE_ROADMAP.md` for planned 
 
 ---
 
+## 2026-07-06 (8)
+
+### Added `DEPLOY.bat` - one-click guarded deploy script
+
+Cowork (this session) has no access to the owner's local GitHub credentials and, per its own operating rules, won't accept a token/password to bridge that gap - Claude Code in VS Code can push because it runs on the owner's own machine and inherits the already-authenticated git config there, not because of any special grant. To cut manual git-command typing down to one double-click without crossing that line, added `DEPLOY.bat`:
+
+1. Runs the full local test suite against a throwaway SQLite DB, aborts immediately if anything is red.
+2. Shows `git status --short` and asks for confirmation before touching anything.
+3. Commits (skips cleanly if there's nothing staged) and pushes to `public-release-v1`.
+4. If the GitHub CLI (`gh`) is installed, targets the specific `ci.yml` run (not a random one - this repo runs 7 workflows on push, only `ci.yml` has the Render-deploy-trigger job) and watches it live, failing loudly if it goes red.
+5. Prints a reminder that this does NOT create a GitHub Release/tag (that's `git tag vX.Y.Z && git push github vX.Y.Z`, separate from every day pushes - current tags are v1.0.0 and v1.1.0).
+6. Picks up `NEXT_COMMIT_MSG.txt` as a pre-written commit message when Claude leaves one ready (gitignored, deleted after a successful commit) - falls back to a manual prompt otherwise.
+
+Also sets `git config core.fileMode false` at the top, since this environment's mounted-drive file-permission-bit noise was making `git status` look far scarier than reality throughout tonight's work.
+
+---
+
+## 2026-07-06 (7)
+
+### Added "Import Recipe Packs" button to the All Recipes page
+
+`docs/USER_GUIDE.md` already documented "Go to All Recipes → Import Pack" as the fastest way to get started, but that button never actually existed there - only in Settings. Added it (linking to the existing `/recipe-packs/manage` page, reusing the existing `import_recipe_packs` i18n key rather than adding a duplicate). Verified live on the local instance via browser.
+
+Also verified, in response to questions about live vs. local state: the local instance's All Recipes page shows 277 recipes (267 pack recipes + 10 starter samples) exactly matching the expected math, "Light Meals" renders correctly in the category dropdown, and a search for "tikka" surfaces "Chicken Tikka Masala 🌍" from the Around the World pack filed correctly under Chicken - confirming the app-side logic has no bug. The category dropdown intentionally has no "Around the World" entry, since it's a themed pack spanning multiple existing dish categories rather than a category itself.
+
+Also discovered: nothing from this session (security pass, bug fixes, concurrency lock, today's recipe audit) had been pushed to git except one earlier commit for the Around the World pack + feature flags - explaining why the live site didn't reflect most of today's changes. Owner opted to commit and push everything; hit a filesystem cache-coherence issue with the mounted drive during `git add` (`.git/index.lock` reported as both present and absent within the same shell), so handed off exact commit/push commands for the owner to run directly rather than risk corrupting the repo via an unreliable mount.
+
+---
+
+## 2026-07-06 (6)
+
+### Follow-up on the dinner-suitability audit
+
+- **Merged duplicate Greek Salads** (`eu_095`/"Horiatiki" + `sum_001`) into one recipe at `eu_095`, keeping the more precise weight-based ingredient amounts and folding in the "great as a summer dinner or starter" serving note.
+- **Merged all 3 Bouillabaisse recipes** (`eu_003`, `eu_029`, `sum_099`) into one at `eu_029`: kept the technically correct staggered-cooking method (build the broth first, add firm fish before delicate shellfish so nothing overcooks), added the traditional bread + rouille serving note, and fixed a real data error along the way - `sum_099` called for 10g of saffron, which is wildly overpriced/inedible in that quantity; corrected to a realistic pinch.
+- **Renamed the "Sides & Light Meals" category to "Light Meals"** everywhere (`data/categories.json`, every recipe's `category` field across all packs, the pack's own display name/description, `docs/RECIPE_PACK_FORMAT.md`, and two code comments in `flask_app.py`) - done specifically so the name doesn't clash with the planned F8 sides/appetizer feature later. Note: this only touched the seed data and code; four existing per-household `data/households/*/categories.json` snapshots on disk still say the old name and weren't touched (out of scope - those are live household data, not seed content).
+- Explained the 397 vs. 270 recipe-count discrepancy the owner flagged: 397 total recipe entries across everything = 270 in real importable dinner packs + 117 in the hidden dessert/drinks/sides stashes (which have no import path into "All Recipes" at all) + 10 default starter samples. The live count of 270 lines up exactly with the importable-pack total - nothing was missing.
+- Hit this session's known file-truncation quirk again (this time as stray null-byte injection, not truncation) while editing two code comments in `flask_app.py` - caught immediately via `py_compile` returning a null-byte error, fixed by stripping the null bytes from the otherwise-correct-length file and diffing against the last verified backup to confirm only the intended lines changed.
+- Full 50-test suite passing throughout; 384 unique recipe IDs remain (397 minus the 3 recipes removed by the two merges), zero duplicates, all touched JSON files validated.
+
+---
+
+## 2026-07-06 (5)
+
+### 🍽️ Dinner-suitability audit and cleanup
+
+Reviewed all 398 recipes across every pack and stash for whether they actually work as a dinner main for 4 (vs. side/appetizer/dessert/snack/condiment). Delivered as a spreadsheet (`recipe_dinner_audit.xlsx`) with per-recipe classification, flag, reason and suggested role. 62 flagged; owner reviewed each bucket and decided:
+
+- **Moved out of dinner packs entirely**: Pancakes and Christmas Rice Porridge → `dessert-stash.json` (genuine desserts); Black Pudding → `sides-stash.json` (breakfast/side component, not sweet enough for dessert-stash); Liver Paste and Thai Green Curry Paste → `sides-stash.json` (condiments/spreads, not standalone dinners - the curry paste in particular was a flavor base with no protein/rice, not a finished dish).
+- **Deleted**: `no_032` "Cured Salmon" - an exact-title duplicate of `nd_021` in the same pack, with a broken `cookTimeMinutes: 0` (vs. `nd_021`'s correct 30 min).
+- **Recategorized to "Sides & Light Meals"** (kept in their original pack files, just given the accurate category so they're easy to filter/uncheck): 29 recipes spanning starters (gravlax, satay, cured sausage, hummus platters), sides (Boxty, Jansson's Temptation, Rösti-adjacent salads), and sandwich/snack items previously mis-filed under Chicken, Fish & Seafood, Grill, Ground Meat & Sausages, Other, Salads, Soups & Stews and Taco & Tex-Mex.
+- **Explicitly kept as dinner mains** despite reading "appetizer-ish" on paper: Greek Salad (both copies), Caprese Salad, and Crab Salad - confirmed as real family dinner dishes, especially in summer.
+- **Left untouched**: 10 "light dinner" borderline items (Spanakopita, Gado-Gado, Greek Gemista, various grilled-chicken/halloumi salads, Potato Soup, etc.) - owner confirmed these work as legitimate light summer dinners as-is.
+
+Verified after every step: JSON validity + `recipeCount` matching actual list length on every touched file, zero duplicate recipe IDs across all 397 remaining recipes (398 minus the one deletion), and the full 50-test suite passing.
+
+Also surfaced (not yet acted on): several near-duplicate recipes across packs worth a future dedup pass (Bouillabaisse ×3, Chicken Enchiladas ×2, two Cheese Fondues, and a cluster of "cured meat" recipes with a broken `cookTimeMinutes: 0` instead of a real cure time - Cured Leg, Cured Roe, Cured Ham, Cured Meat Platter). A future F8 ("Appetizers & Sides") feature was discussed as the eventual real home for the starter-style recipes currently just parked under "Sides & Light Meals".
+
+---
+
 ## 2026-07-06 (4)
 
 ### 🧱 Hidden foundation for dessert/drinks browsing (F2) and side stash (F8)

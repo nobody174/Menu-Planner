@@ -1,6 +1,6 @@
 {
   "_note": "Desserts, cakes, cookies, waffles, and sweet buns removed from the dinner recipe packs on 2026-06-30. Kept here intact (full ingredients + instructions) for the future Dessert system feature (see BACKLOG_2026-06-30.md item F2) instead of being deleted outright.",
-  "recipeCount": 87,
+  "recipeCount": 89,
   "recipes": [
     {
       "id": "no_014",
@@ -9822,6 +9822,248 @@
         ]
       },
       "_original_pack": "pack_04_holiday.json"
+    },
+    {
+      "id": "nd_090",
+      "title": {
+        "no": "Pandekager",
+        "en": "Pancakes"
+      },
+      "subtitle": {
+        "no": "Tynne søte pannekaker",
+        "en": "Thin sweet pancakes"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 20,
+      "servings": 4,
+      "category": "Other",
+      "tags": [
+        "pancake",
+        "breakfast",
+        "sweet",
+        "quick",
+        "cuisine:international"
+      ],
+      "allergens": [
+        "wheat",
+        "milk",
+        "eggs"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Mel",
+            "en": "Flour"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Eggs"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland mel og salt",
+          "2. Lage krater og tilsett egg",
+          "3. Gradvis tilsett melk",
+          "4. Bland til glattt deig",
+          "5. Sterk små mengder på varmt smør",
+          "6. Sterk hver side til lys gyllen",
+          "7. Server med syltetøy eller sjokolade"
+        ],
+        "en": [
+          "1. Mix flour and salt",
+          "2. Make a well and add eggs",
+          "3. Gradually add milk",
+          "4. Mix to smooth batter",
+          "5. Fry small amounts on hot butter",
+          "6. Fry each side until light golden",
+          "7. Serve with jam or chocolate"
+        ]
+      },
+      "source_pack_origin": "pack_other"
+    },
+    {
+      "id": "hol_022",
+      "title": {
+        "no": "Julegrøt med Mandel",
+        "en": "Christmas Rice Porridge with Hidden Almond"
+      },
+      "subtitle": {
+        "no": "Tradisjonell risgrøt servert på julaften med en gjemt mandel for lykke",
+        "en": "Traditional rice porridge served on Christmas Eve with a hidden almond for luck"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 50,
+      "servings": 4,
+      "category": "Other",
+      "tags": [
+        "holiday",
+        "celebration",
+        "festive",
+        "christmas",
+        "cuisine:danish"
+      ],
+      "allergens": [
+        "dairy",
+        "nuts"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Grøtris",
+            "en": "Pudding rice"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 1200,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Vann",
+            "en": "Water"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Kanelsukker",
+            "en": "Cinnamon sugar"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Hel mandel",
+            "en": "Whole almond"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "piece"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "klump",
+            "en": "knob"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok risen i vann i ca. 5 minutter til vannet er nesten kokt inn.",
+          "2. Tilsett melken og la grøten småkoke under omrøring i 30-35 minutter til risen er mør.",
+          "3. Rør innom jevnlig slik at grøten ikke setter seg fast i bunnen.",
+          "4. Tilsett salt og rør inn en klump smør mot slutten.",
+          "5. Skyll en hel mandel og legg den ned i grøten uten at noen ser hvor.",
+          "6. Hell grøten i serveringsskåler.",
+          "7. Strø kanelsukker over og server varm, den som finner mandelen får lykke det neste året."
+        ],
+        "en": [
+          "1. Boil the rice in water for about 5 minutes until the water is nearly absorbed.",
+          "2. Add the milk and let the porridge simmer while stirring for 30-35 minutes until the rice is tender.",
+          "3. Stir regularly so the porridge does not stick to the bottom of the pot.",
+          "4. Add salt and stir in a knob of butter toward the end.",
+          "5. Rinse a whole almond and hide it in the porridge without anyone seeing where.",
+          "6. Pour the porridge into serving bowls.",
+          "7. Sprinkle with cinnamon sugar and serve hot; whoever finds the almond gets good luck for the coming year."
+        ]
+      },
+      "source_pack_origin": "pack_other"
     }
   ]
 }

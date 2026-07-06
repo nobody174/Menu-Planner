@@ -1,12 +1,12 @@
 {
   "packId": "pack_sides_light_meals",
   "packName": {
-    "en": "Sides & Light Meals",
-    "no": "Sider & Lette Måltider"
+    "en": "Light Meals",
+    "no": "Lette Måltider"
   },
   "packDescription": {
-    "en": "Sides & Light Meals recipes from across all our collections",
-    "no": "Sider & Lette Måltider-oppskrifter fra alle samlingene våre"
+    "en": "Light meals and quick dishes from across all our collections",
+    "no": "Lette retter og raske middager fra alle samlingene våre"
   },
   "packImage": "🥪",
   "packColor": "#999999",
@@ -27,7 +27,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 40,
       "servings": 4,
-      "category": "Sides & Light Meals",
+      "category": "Light Meals",
       "tags": [
         "traditional",
         "norwegian",
@@ -151,7 +151,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 5,
       "servings": 1,
-      "category": "Sides & Light Meals",
+      "category": "Light Meals",
       "tags": [
         "sandwich",
         "cheese",
@@ -237,7 +237,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 5,
       "servings": 1,
-      "category": "Sides & Light Meals",
+      "category": "Light Meals",
       "tags": [
         "sandwich",
         "pâté",
@@ -335,7 +335,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 5,
       "servings": 1,
-      "category": "Sides & Light Meals",
+      "category": "Light Meals",
       "tags": [
         "sandwich",
         "beef",
@@ -433,7 +433,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 5,
       "servings": 1,
-      "category": "Sides & Light Meals",
+      "category": "Light Meals",
       "tags": [
         "sandwich",
         "caviar",
@@ -533,7 +533,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 5,
       "servings": 1,
-      "category": "Sides & Light Meals",
+      "category": "Light Meals",
       "tags": [
         "sandwich",
         "lamb",
@@ -631,7 +631,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 0,
       "servings": 6,
-      "category": "Sides & Light Meals",
+      "category": "Light Meals",
       "tags": [
         "cured meat",
         "charcuterie",
@@ -728,7 +728,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 25,
       "servings": 4,
-      "category": "Sides & Light Meals",
+      "category": "Light Meals",
       "tags": [
         "potato",
         "side dish",
@@ -830,7 +830,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 30,
       "servings": 4,
-      "category": "Sides & Light Meals",
+      "category": "Light Meals",
       "tags": [
         "sausage",
         "comfort food",
@@ -977,7 +977,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 25,
       "servings": 4,
-      "category": "Sides & Light Meals",
+      "category": "Light Meals",
       "tags": [
         "potatoes",
         "Irish",
@@ -1103,7 +1103,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 20,
       "servings": 2,
-      "category": "Sides & Light Meals",
+      "category": "Light Meals",
       "tags": [
         "danish",
         "sandwich",
@@ -1238,7 +1238,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 20,
       "servings": 4,
-      "category": "Sides & Light Meals",
+      "category": "Light Meals",
       "tags": [
         "scandinavian",
         "seafood",
@@ -1351,7 +1351,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 20,
       "servings": 4,
-      "category": "Sides & Light Meals",
+      "category": "Light Meals",
       "tags": [
         "traditional",
         "nordic",
@@ -1488,7 +1488,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 40,
       "servings": 4,
-      "category": "Sides & Light Meals",
+      "category": "Light Meals",
       "tags": [
         "traditional",
         "nordic",
@@ -1613,7 +1613,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 15,
       "servings": 4,
-      "category": "Sides & Light Meals",
+      "category": "Light Meals",
       "tags": [
         "summer",
         "fresh",
@@ -1736,7 +1736,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 20,
       "servings": 2,
-      "category": "Sides & Light Meals",
+      "category": "Light Meals",
       "tags": [
         "sandwich",
         "asian",
@@ -1836,7 +1836,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 20,
       "servings": 4,
-      "category": "Sides & Light Meals",
+      "category": "Light Meals",
       "tags": [
         "middle eastern",
         "appetizer",

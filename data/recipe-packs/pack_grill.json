@@ -27,7 +27,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 15,
       "servings": 2,
-      "category": "Grill",
+      "category": "Light Meals",
       "tags": [
         "street food",
         "quick",
@@ -1522,7 +1522,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 25,
       "servings": 4,
-      "category": "Grill",
+      "category": "Light Meals",
       "tags": [
         "summer",
         "fresh",
@@ -1877,7 +1877,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 40,
       "servings": 4,
-      "category": "Grill",
+      "category": "Light Meals",
       "tags": [
         "grilled",
         "asian",

@@ -66,7 +66,7 @@ Always lowercase in JSON.
 | `"Vegetarian"` | Vegetar |
 | `"Homemade"` | Hjemmelaget |
 | `"Salads"` | Salater |
-| `"Sides & Light Meals"` | Tilbehør (→ sides-stash, not in menus) |
+| `"Light Meals"` | Lette Måltider (sandwiches, platters, quick light dishes - name deliberately avoids "Sides" so it doesn't clash with the planned F8 sides/appetizer feature) |
 
 ---
 

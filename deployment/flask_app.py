@@ -63,10 +63,10 @@ def _translate_category_name(category_en, lang):
     """Translate a recipe's category (always stored in English, e.g.
     'Fish & Seafood') to the current language, using data/categories.json as
     the source of truth (it already has correct name_no values for every
-    built-in category - Fisk & Sjømat, Biff & Rødt Kjøtt, Svin, Sider & Lette
+    built-in category - Fisk & Sjømat, Biff & Rødt Kjøtt, Svin, Lette
     Måltider, etc.). Previously only the dashboard route translated
     categories, via a hand-maintained dict that was missing several
-    categories (Pork, Beef & Red Meat, Sides & Light Meals) - and nowhere
+    categories (Pork, Beef & Red Meat, Light Meals) - and nowhere
     else (All Recipes cards, recipe detail page) translated categories at
     all, which is why category tags stayed in English regardless of
     language (B46). A household's own custom categories won't have a
@@ -1031,7 +1031,7 @@ def dashboard():
     # (backed by data/categories.json) instead of a hand-maintained dict, so
     # every built-in category translates correctly, not just the ones
     # someone remembered to list here (this previously missed Pork, Beef &
-    # Red Meat, and Sides & Light Meals entirely - B46).
+    # Red Meat, and Light Meals entirely - B46).
     if menu.get('selected_categories'):
         menu['selected_categories'] = [_translate_category_name(c, lang) for c in menu['selected_categories']]
     for dinner in menu.get('dinners', []):

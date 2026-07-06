@@ -1,6 +1,6 @@
 {
   "_note": "Side dishes removed from dinner packs - preserved for a future Sides feature.",
-  "recipeCount": 21,
+  "recipeCount": 24,
   "recipes": [
     {
       "id": "no_052",
@@ -15,7 +15,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 40,
       "servings": 8,
-      "category": "Sides & Light Meals",
+      "category": "Light Meals",
       "tags": [
         "bread",
         "flatbread",
@@ -107,7 +107,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 20,
       "servings": 6,
-      "category": "Sides & Light Meals",
+      "category": "Light Meals",
       "tags": [
         "bread",
         "flatbread",
@@ -186,7 +186,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 30,
       "servings": 6,
-      "category": "Sides & Light Meals",
+      "category": "Light Meals",
       "tags": [
         "bread",
         "potato",
@@ -290,7 +290,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 25,
       "servings": 4,
-      "category": "Sides & Light Meals",
+      "category": "Light Meals",
       "tags": [
         "side",
         "traditional",
@@ -390,7 +390,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 30,
       "servings": 4,
-      "category": "Sides & Light Meals",
+      "category": "Light Meals",
       "tags": [
         "side",
         "traditional",
@@ -489,7 +489,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 20,
       "servings": 4,
-      "category": "Sides & Light Meals",
+      "category": "Light Meals",
       "tags": [
         "side",
         "traditional",
@@ -575,7 +575,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 40,
       "servings": 4,
-      "category": "Sides & Light Meals",
+      "category": "Light Meals",
       "tags": [
         "side",
         "traditional",
@@ -675,7 +675,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 120,
       "servings": 10,
-      "category": "Sides & Light Meals",
+      "category": "Light Meals",
       "tags": [
         "bread",
         "rye",
@@ -790,7 +790,7 @@
       "difficulty": "hard",
       "cookTimeMinutes": 180,
       "servings": 12,
-      "category": "Sides & Light Meals",
+      "category": "Light Meals",
       "tags": [
         "bread",
         "rye",
@@ -917,7 +917,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 25,
       "servings": 4,
-      "category": "Sides & Light Meals",
+      "category": "Light Meals",
       "tags": [
         "vegetables",
         "side dish",
@@ -1040,7 +1040,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 30,
       "servings": 4,
-      "category": "Sides & Light Meals",
+      "category": "Light Meals",
       "tags": [
         "vegetables",
         "side dish",
@@ -1150,7 +1150,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 35,
       "servings": 4,
-      "category": "Sides & Light Meals",
+      "category": "Light Meals",
       "tags": [
         "vegetables",
         "side dish",
@@ -1250,7 +1250,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 30,
       "servings": 4,
-      "category": "Sides & Light Meals",
+      "category": "Light Meals",
       "tags": [
         "vegetables",
         "roasted",
@@ -1347,7 +1347,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 20,
       "servings": 4,
-      "category": "Sides & Light Meals",
+      "category": "Light Meals",
       "tags": [
         "vegetables",
         "side dish",
@@ -1447,7 +1447,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 1440,
       "servings": 8,
-      "category": "Sides & Light Meals",
+      "category": "Light Meals",
       "tags": [
         "holiday",
         "condiment",
@@ -1545,7 +1545,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 40,
       "servings": 6,
-      "category": "Sides & Light Meals",
+      "category": "Light Meals",
       "tags": [
         "holiday",
         "side",
@@ -2187,6 +2187,332 @@
         ]
       },
       "_original_pack": "pack_ground_meat_sausages"
+    },
+    {
+      "id": "nd_070",
+      "title": {
+        "no": "Svartpølse",
+        "en": "Black Pudding"
+      },
+      "subtitle": {
+        "no": "Tradisjonell dansk blodpølse",
+        "en": "Traditional Danish blood sausage"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 60,
+      "servings": 6,
+      "category": "Ground Meat & Sausages",
+      "tags": [
+        "sausage",
+        "traditional",
+        "savory",
+        "cuisine:nordic"
+      ],
+      "allergens": [
+        "meat",
+        "grains"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Grissblod",
+            "en": "Pig blood"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Fett",
+            "en": "Pork fat"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Rugmel",
+            "en": "Rye flour"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Krydder",
+            "en": "Spices"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 10,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Pølsehylse",
+            "en": "Sausage casing"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "meter",
+            "en": "m"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Hakk fett og løk fint",
+          "2. Bland blod, fett, rugmel, løk og krydder",
+          "3. Fylt pølsehylsen forsiktig med blandingen",
+          "4. Kok pølsen i 45 minutter ved 75°C",
+          "5. La avkjøle og server med løk og stekt mel"
+        ],
+        "en": [
+          "1. Finely chop fat and onion",
+          "2. Mix blood, fat, rye flour, onion and spices",
+          "3. Carefully fill sausage casing with mixture",
+          "4. Cook sausage for 45 minutes at 75°C",
+          "5. Cool and serve with onion and fried flour"
+        ]
+      },
+      "source_pack_origin": "pack_ground_meat_sausages"
+    },
+    {
+      "id": "no_078",
+      "title": {
+        "no": "Mølje",
+        "en": "Liver Paste"
+      },
+      "subtitle": {
+        "no": "Klassisk leverpostei",
+        "en": "Classic liver paste"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 45,
+      "servings": 6,
+      "category": "Other",
+      "tags": [
+        "liver",
+        "paste",
+        "traditional",
+        "cuisine:norwegian"
+      ],
+      "allergens": [
+        "meat",
+        "dairy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "lever",
+            "en": "liver"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "fett",
+            "en": "fat"
+          },
+          "amount": 250,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "melk",
+            "en": "milk"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "egg",
+            "en": "eggs"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stykk",
+            "en": "pieces"
+          }
+        },
+        {
+          "name": {
+            "no": "salt og krydder",
+            "en": "salt and spices"
+          },
+          "amount": 5,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Hakk lever og fett",
+          "2. Bland med melk og egg",
+          "3. Tilsett salt og krydder",
+          "4. Hell i form",
+          "5. Bak i vannskål på 160°C 35 minutter",
+          "6. Kjøl før serving"
+        ],
+        "en": [
+          "1. Chop liver and fat",
+          "2. Mix with milk and eggs",
+          "3. Add salt and spices",
+          "4. Pour into mold",
+          "5. Bake in water bath at 160°C 35 minutes",
+          "6. Cool before serving"
+        ]
+      },
+      "source_pack_origin": "pack_other"
+    },
+    {
+      "id": "sum_070",
+      "title": {
+        "no": "Thaiisk Grøn Karrypaste",
+        "en": "Thai Green Curry Paste"
+      },
+      "subtitle": {
+        "no": "Hemlagd karrypaste med grøne chiliar",
+        "en": "Homemade curry paste with green chilies"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 20,
+      "servings": 4,
+      "category": "Other",
+      "tags": [
+        "spice",
+        "curry",
+        "asian",
+        "quick",
+        "cuisine:asian"
+      ],
+      "allergens": [
+        "nuts"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Grøne chiliar",
+            "en": "Green chilies"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 40,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Ingefær",
+            "en": "Ginger"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Siamsalat",
+            "en": "Thai basil"
+          },
+          "amount": 20,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kokosmelk",
+            "en": "Coconut milk"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Limettar",
+            "en": "Lime juice"
+          },
+          "amount": 30,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Blend alle ingrediensene sammen",
+          "2. Bruk i thaiisk karry eller lagre i kjøleskapet"
+        ],
+        "en": [
+          "1. Blend all ingredients together",
+          "2. Use in Thai curry or store in refrigerator"
+        ]
+      },
+      "source_pack_origin": "pack_other"
     }
   ]
 }

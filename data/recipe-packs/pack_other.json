@@ -10,110 +10,10 @@
   },
   "packImage": "🍽️",
   "packColor": "#999999",
-  "recipeCount": 22,
+  "recipeCount": 18,
   "estimatedCookTime": "varies",
   "difficulty": "varies",
   "recipes": [
-    {
-      "id": "no_078",
-      "title": {
-        "no": "Mølje",
-        "en": "Liver Paste"
-      },
-      "subtitle": {
-        "no": "Klassisk leverpostei",
-        "en": "Classic liver paste"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 45,
-      "servings": 6,
-      "category": "Other",
-      "tags": [
-        "liver",
-        "paste",
-        "traditional",
-        "cuisine:norwegian"
-      ],
-      "allergens": [
-        "meat",
-        "dairy"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "lever",
-            "en": "liver"
-          },
-          "amount": 500,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "fett",
-            "en": "fat"
-          },
-          "amount": 250,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "melk",
-            "en": "milk"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "egg",
-            "en": "eggs"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "stykk",
-            "en": "pieces"
-          }
-        },
-        {
-          "name": {
-            "no": "salt og krydder",
-            "en": "salt and spices"
-          },
-          "amount": 5,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Hakk lever og fett",
-          "2. Bland med melk og egg",
-          "3. Tilsett salt og krydder",
-          "4. Hell i form",
-          "5. Bak i vannskål på 160°C 35 minutter",
-          "6. Kjøl før serving"
-        ],
-        "en": [
-          "1. Chop liver and fat",
-          "2. Mix with milk and eggs",
-          "3. Add salt and spices",
-          "4. Pour into mold",
-          "5. Bake in water bath at 160°C 35 minutes",
-          "6. Cool before serving"
-        ]
-      }
-    },
     {
       "id": "no_093",
       "title": {
@@ -127,7 +27,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 1440,
       "servings": 6,
-      "category": "Other",
+      "category": "Light Meals",
       "tags": [
         "traditional",
         "marinated",
@@ -237,7 +137,7 @@
       "difficulty": "hard",
       "cookTimeMinutes": 90,
       "servings": 8,
-      "category": "Other",
+      "category": "Light Meals",
       "tags": [
         "traditional",
         "offal",
@@ -738,7 +638,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 30,
       "servings": 4,
-      "category": "Other",
+      "category": "Light Meals",
       "tags": [
         "pancake",
         "Irish",
@@ -1159,7 +1059,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 240,
       "servings": 2,
-      "category": "Other",
+      "category": "Light Meals",
       "tags": [
         "scandinavian",
         "bread",
@@ -1275,7 +1175,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 75,
       "servings": 4,
-      "category": "Other",
+      "category": "Light Meals",
       "tags": [
         "traditional",
         "nordic",
@@ -1400,7 +1300,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 25,
       "servings": 20,
-      "category": "Other",
+      "category": "Light Meals",
       "tags": [
         "cookies",
         "seeds",
@@ -1499,121 +1399,6 @@
       }
     },
     {
-      "id": "nd_090",
-      "title": {
-        "no": "Pandekager",
-        "en": "Pancakes"
-      },
-      "subtitle": {
-        "no": "Tynne søte pannekaker",
-        "en": "Thin sweet pancakes"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 20,
-      "servings": 4,
-      "category": "Other",
-      "tags": [
-        "pancake",
-        "breakfast",
-        "sweet",
-        "quick",
-        "cuisine:international"
-      ],
-      "allergens": [
-        "wheat",
-        "milk",
-        "eggs"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Mel",
-            "en": "Flour"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Melk",
-            "en": "Milk"
-          },
-          "amount": 400,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Egg",
-            "en": "Eggs"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "stk",
-            "en": "pcs"
-          }
-        },
-        {
-          "name": {
-            "no": "Salt",
-            "en": "Salt"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Sukker",
-            "en": "Sugar"
-          },
-          "amount": 20,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Smør",
-            "en": "Butter"
-          },
-          "amount": 30,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Bland mel og salt",
-          "2. Lage krater og tilsett egg",
-          "3. Gradvis tilsett melk",
-          "4. Bland til glattt deig",
-          "5. Sterk små mengder på varmt smør",
-          "6. Sterk hver side til lys gyllen",
-          "7. Server med syltetøy eller sjokolade"
-        ],
-        "en": [
-          "1. Mix flour and salt",
-          "2. Make a well and add eggs",
-          "3. Gradually add milk",
-          "4. Mix to smooth batter",
-          "5. Fry small amounts on hot butter",
-          "6. Fry each side until light golden",
-          "7. Serve with jam or chocolate"
-        ]
-      }
-    },
-    {
       "id": "hol_006",
       "title": {
         "no": "Påskebrød (Panartonone)",
@@ -1626,7 +1411,7 @@
       "difficulty": "hard",
       "cookTimeMinutes": 240,
       "servings": 8,
-      "category": "Other",
+      "category": "Light Meals",
       "tags": [
         "easter",
         "bread",
@@ -1778,131 +1563,6 @@
       }
     },
     {
-      "id": "hol_022",
-      "title": {
-        "no": "Julegrøt med Mandel",
-        "en": "Christmas Rice Porridge with Hidden Almond"
-      },
-      "subtitle": {
-        "no": "Tradisjonell risgrøt servert på julaften med en gjemt mandel for lykke",
-        "en": "Traditional rice porridge served on Christmas Eve with a hidden almond for luck"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 50,
-      "servings": 4,
-      "category": "Other",
-      "tags": [
-        "holiday",
-        "celebration",
-        "festive",
-        "christmas",
-        "cuisine:danish"
-      ],
-      "allergens": [
-        "dairy",
-        "nuts"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Grøtris",
-            "en": "Pudding rice"
-          },
-          "amount": 200,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Melk",
-            "en": "Milk"
-          },
-          "amount": 1200,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Vann",
-            "en": "Water"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Salt",
-            "en": "Salt"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "ts",
-            "en": "tsp"
-          }
-        },
-        {
-          "name": {
-            "no": "Kanelsukker",
-            "en": "Cinnamon sugar"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "ss",
-            "en": "tbsp"
-          }
-        },
-        {
-          "name": {
-            "no": "Hel mandel",
-            "en": "Whole almond"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "stk",
-            "en": "piece"
-          }
-        },
-        {
-          "name": {
-            "no": "Smør",
-            "en": "Butter"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "klump",
-            "en": "knob"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Kok risen i vann i ca. 5 minutter til vannet er nesten kokt inn.",
-          "2. Tilsett melken og la grøten småkoke under omrøring i 30-35 minutter til risen er mør.",
-          "3. Rør innom jevnlig slik at grøten ikke setter seg fast i bunnen.",
-          "4. Tilsett salt og rør inn en klump smør mot slutten.",
-          "5. Skyll en hel mandel og legg den ned i grøten uten at noen ser hvor.",
-          "6. Hell grøten i serveringsskåler.",
-          "7. Strø kanelsukker over og server varm, den som finner mandelen får lykke det neste året."
-        ],
-        "en": [
-          "1. Boil the rice in water for about 5 minutes until the water is nearly absorbed.",
-          "2. Add the milk and let the porridge simmer while stirring for 30-35 minutes until the rice is tender.",
-          "3. Stir regularly so the porridge does not stick to the bottom of the pot.",
-          "4. Add salt and stir in a knob of butter toward the end.",
-          "5. Rinse a whole almond and hide it in the porridge without anyone seeing where.",
-          "6. Pour the porridge into serving bowls.",
-          "7. Sprinkle with cinnamon sugar and serve hot; whoever finds the almond gets good luck for the coming year."
-        ]
-      }
-    },
-    {
       "id": "hol_033",
       "title": {
         "no": "Romarinpotet",
@@ -1915,7 +1575,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 45,
       "servings": 6,
-      "category": "Other",
+      "category": "Light Meals",
       "tags": [
         "holiday",
         "side",
@@ -2008,7 +1668,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 30,
       "servings": 6,
-      "category": "Other",
+      "category": "Light Meals",
       "tags": [
         "holiday",
         "cheese",
@@ -2092,109 +1752,6 @@
           "3. Add cheese gradually",
           "4. Stir until smooth",
           "5. Serve with bread cubes"
-        ]
-      }
-    },
-    {
-      "id": "sum_070",
-      "title": {
-        "no": "Thaiisk Grøn Karrypaste",
-        "en": "Thai Green Curry Paste"
-      },
-      "subtitle": {
-        "no": "Hemlagd karrypaste med grøne chiliar",
-        "en": "Homemade curry paste with green chilies"
-      },
-      "difficulty": "easy",
-      "cookTimeMinutes": 20,
-      "servings": 4,
-      "category": "Other",
-      "tags": [
-        "spice",
-        "curry",
-        "asian",
-        "quick",
-        "cuisine:asian"
-      ],
-      "allergens": [
-        "nuts"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Grøne chiliar",
-            "en": "Green chilies"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Hvitløk",
-            "en": "Garlic"
-          },
-          "amount": 40,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Ingefær",
-            "en": "Ginger"
-          },
-          "amount": 30,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Siamsalat",
-            "en": "Thai basil"
-          },
-          "amount": 20,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Kokosmelk",
-            "en": "Coconut milk"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Limettar",
-            "en": "Lime juice"
-          },
-          "amount": 30,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Blend alle ingrediensene sammen",
-          "2. Bruk i thaiisk karry eller lagre i kjøleskapet"
-        ],
-        "en": [
-          "1. Blend all ingredients together",
-          "2. Use in Thai curry or store in refrigerator"
         ]
       }
     },
@@ -2306,7 +1863,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 40,
       "servings": 4,
-      "category": "Other",
+      "category": "Light Meals",
       "tags": [
         "asian",
         "appetizer",

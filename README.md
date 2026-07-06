@@ -92,6 +92,7 @@ gunicorn -b 0.0.0.0:5000 deployment.flask_app:app
 | [Recipe Pack Format](docs/RECIPE_PACK_FORMAT.md) | How to write new recipe packs (developer) |
 | [Developer Guide](docs/DEVELOPER_GUIDE.md) | Project structure and contribution guide |
 | [Deployment Guide](DEPLOYMENT_F4.md) | Render + Neon deployment instructions |
+| `DEPLOY.bat` | One-click guarded deploy: runs tests, commits, pushes to `public-release-v1`, watches GitHub Actions (which triggers the Render deploy hook on green) |
 | [Changelog](CHANGELOG.md) | Full history of all work done |
 | [Feature Roadmap](FEATURE_ROADMAP.md) | Planned features |
 

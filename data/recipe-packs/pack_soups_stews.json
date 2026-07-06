@@ -10,7 +10,7 @@
   },
   "packImage": "🍲",
   "packColor": "#999999",
-  "recipeCount": 42,
+  "recipeCount": 40,
   "estimatedCookTime": "varies",
   "difficulty": "varies",
   "recipes": [
@@ -1410,154 +1410,6 @@
       }
     },
     {
-      "id": "eu_003",
-      "title": {
-        "no": "Bouillabaisse",
-        "en": "Bouillabaisse"
-      },
-      "subtitle": {
-        "no": "Fransk fisksuppe fra Provence",
-        "en": "French fish soup from Provence"
-      },
-      "difficulty": "medium",
-      "cookTimeMinutes": 60,
-      "servings": 4,
-      "category": "Soups & Stews",
-      "tags": [
-        "french",
-        "seafood",
-        "soup",
-        "classic",
-        "cuisine:french"
-      ],
-      "allergens": [
-        "fish",
-        "shellfish",
-        "saffron"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Blandede fisker",
-            "en": "Mixed fish"
-          },
-          "amount": 800,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Blåskjell",
-            "en": "Mussels"
-          },
-          "amount": 500,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Tomat (frisk eller konservert)",
-            "en": "Tomato (fresh or canned)"
-          },
-          "amount": 600,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Løk",
-            "en": "Onion"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "middels",
-            "en": "medium"
-          }
-        },
-        {
-          "name": {
-            "no": "Hvitløk",
-            "en": "Garlic"
-          },
-          "amount": 4,
-          "unit": {
-            "no": "fedd",
-            "en": "cloves"
-          }
-        },
-        {
-          "name": {
-            "no": "Saffran",
-            "en": "Saffron"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "g",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Buljong (fisk)",
-            "en": "Fish broth"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "liter",
-            "en": "liter"
-          }
-        },
-        {
-          "name": {
-            "no": "Fennikkel",
-            "en": "Fennel"
-          },
-          "amount": 1,
-          "unit": {
-            "no": "stengel",
-            "en": "stalk"
-          }
-        },
-        {
-          "name": {
-            "no": "Olivenolje",
-            "en": "Olive oil"
-          },
-          "amount": 3,
-          "unit": {
-            "no": "ss",
-            "en": "tbsp"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Heat olivenolje og steik løk, hvitløk og fennikkel.",
-          "2. Tilsett tomater og la det koke i 10 minutter.",
-          "3. Hell på fiskbuljongen og saffran.",
-          "4. Tilsett fiskene og la det koke i 15 minutter.",
-          "5. Tilsett blåskjellene og kok til de åpner seg.",
-          "6. Smak til med salt og pepper.",
-          "7. Server i dype skåler med brød og rouille."
-        ],
-        "en": [
-          "1. Heat olive oil and fry onion, garlic and fennel.",
-          "2. Add tomatoes and let simmer for 10 minutes.",
-          "3. Pour in fish broth and saffron.",
-          "4. Add fish and cook for 15 minutes.",
-          "5. Add mussels and cook until they open.",
-          "6. Season with salt and pepper.",
-          "7. Serve in deep bowls with bread and rouille."
-        ]
-      }
-    },
-    {
       "id": "eu_009",
       "title": {
         "no": "Gazpacho",
@@ -1570,7 +1422,7 @@
       "difficulty": "easy",
       "cookTimeMinutes": 30,
       "servings": 4,
-      "category": "Soups & Stews",
+      "category": "Light Meals",
       "tags": [
         "spanish",
         "cold-soup",
@@ -2871,8 +2723,8 @@
         "en": "Bouillabaisse"
       },
       "subtitle": {
-        "no": "Fransk fiskesuppe fra Marseille med safran",
-        "en": "French fish soup from Marseille with saffron"
+        "no": "Tradisjonell fransk fiskesuppe fra Marseille med safran, servert med rouille",
+        "en": "Traditional French fish soup from Marseille with saffron, served with rouille"
       },
       "difficulty": "medium",
       "cookTimeMinutes": 60,
@@ -2887,7 +2739,8 @@
       ],
       "allergens": [
         "fish",
-        "shellfish"
+        "shellfish",
+        "gluten"
       ],
       "ingredients": [
         {
@@ -2895,7 +2748,7 @@
             "no": "Blandet fisk (filet)",
             "en": "Mixed fish (fillets)"
           },
-          "amount": 600,
+          "amount": 700,
           "unit": {
             "no": "gram",
             "en": "g"
@@ -2916,17 +2769,6 @@
           "name": {
             "no": "Blåskjell",
             "en": "Mussels"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Tomat (hermetisk, hakket)",
-            "en": "Tomato (canned, chopped)"
           },
           "amount": 400,
           "unit": {
@@ -2961,10 +2803,21 @@
             "no": "Hvitløk",
             "en": "Garlic"
           },
-          "amount": 3,
+          "amount": 4,
           "unit": {
             "no": "fedd",
             "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomat (hermetisk, hakket)",
+            "en": "Tomato (canned, chopped)"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
           }
         },
         {
@@ -2983,7 +2836,7 @@
             "no": "Fiskekraft",
             "en": "Fish stock"
           },
-          "amount": 700,
+          "amount": 800,
           "unit": {
             "no": "ml",
             "en": "ml"
@@ -3003,22 +2856,22 @@
       ],
       "instructions": {
         "no": [
-          "1. Surr løk, fennikel og hvitløk i olivenolje i en stor gryte til de er møre.",
-          "2. Tilsett tomat, safran og fiskekraft, kok opp.",
-          "3. La suppebasen småkoke i 15-20 minutter slik at smakene utvikler seg.",
-          "4. Tilsett fiskefiletene først og kok i 5 minutter.",
-          "5. Ha i reker og blåskjell, og kok videre 4-5 minutter til skjellene har åpnet seg.",
+          "1. Surr løk, fennikel og hvitløk i olivenolje i en stor gryte til de er myke.",
+          "2. Tilsett tomat og safran, hell i fiskekraften og kok opp.",
+          "3. La suppebasen småkoke i 15-20 minutter så smakene utvikler seg.",
+          "4. Legg i fiskefiletene og kok forsiktig i 5 minutter.",
+          "5. Tilsett reker og blåskjell, kok videre 4-5 minutter til blåskjellene har åpnet seg og reken er rosa.",
           "6. Smak til med salt og pepper.",
-          "7. Server varm med godt brød og gjerne en aioli-dressing på siden."
+          "7. Server varm i dype skåler med ristet brød og gjerne en rouille (hvitløk-safran-majones) ved siden av."
         ],
         "en": [
           "1. Sauté onion, fennel and garlic in olive oil in a large pot until softened.",
-          "2. Add tomato, saffron and fish stock, and bring to a boil.",
+          "2. Add tomato and saffron, pour in the fish stock and bring to a boil.",
           "3. Let the soup base simmer for 15-20 minutes to develop the flavors.",
-          "4. Add the fish fillets first and cook for 5 minutes.",
-          "5. Add the shrimp and mussels, and cook for another 4-5 minutes until the mussels have opened.",
+          "4. Add the fish fillets and cook gently for 5 minutes.",
+          "5. Add the shrimp and mussels, and cook for another 4-5 minutes until the mussels have opened and the shrimp are pink.",
           "6. Season with salt and pepper.",
-          "7. Serve hot with good bread and, if desired, an aioli dressing on the side."
+          "7. Serve hot in deep bowls with toasted bread and, if you like, a rouille (garlic-saffron mayonnaise) on the side."
         ]
       }
     },
@@ -4407,7 +4260,7 @@
       "difficulty": "medium",
       "cookTimeMinutes": 30,
       "servings": 4,
-      "category": "Soups & Stews",
+      "category": "Light Meals",
       "tags": [
         "holiday",
         "traditional",
@@ -5071,107 +4924,6 @@
           "3. Add all vegetables",
           "4. Cook for 30-35 minutes",
           "5. Season and serve"
-        ]
-      }
-    },
-    {
-      "id": "sum_099",
-      "title": {
-        "no": "Fransk Bouillabaisse",
-        "en": "French Bouillabaisse"
-      },
-      "subtitle": {
-        "no": "Tradisjonell provençalsk fisk-suppe",
-        "en": "Traditional Provençal fish soup"
-      },
-      "difficulty": "hard",
-      "cookTimeMinutes": 50,
-      "servings": 4,
-      "category": "Soups & Stews",
-      "tags": [
-        "french",
-        "seafood",
-        "soup",
-        "cuisine:french"
-      ],
-      "allergens": [
-        "fish",
-        "shellfish",
-        "gluten"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Fiskbuljong",
-            "en": "Fish broth"
-          },
-          "amount": 800,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Forskjellige fiskesorter",
-            "en": "Various fish"
-          },
-          "amount": 800,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Tomat",
-            "en": "Tomato"
-          },
-          "amount": 400,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Safran",
-            "en": "Saffron"
-          },
-          "amount": 10,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Olje",
-            "en": "Olive oil"
-          },
-          "amount": 60,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Heat olje og sauté løk",
-          "2. Tilsett tomat og safran",
-          "3. Helle buljong over",
-          "4. Kok i 20 minutter",
-          "5. Tilsett fisk",
-          "6. Kok videre til fisk er mørt"
-        ],
-        "en": [
-          "1. Heat oil and sauté onion",
-          "2. Add tomato and saffron",
-          "3. Pour broth over",
-          "4. Cook for 20 minutes",
-          "5. Add fish",
-          "6. Cook until fish is tender"
         ]
       }
     }

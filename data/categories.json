@@ -46,10 +46,10 @@
   },
   {
     "code": "sides_light",
-    "name_no": "Sider & Lette Måltider",
-    "name_en": "Sides & Light Meals",
-    "description_no": "Smørrebrød, sandwicher og lette tilbehør",
-    "description_en": "Sandwiches, open sandwiches and light side dishes",
+    "name_no": "Lette Måltider",
+    "name_en": "Light Meals",
+    "description_no": "Smørrebrød, sandwicher og andre raske lette retter",
+    "description_en": "Sandwiches, platters and other quick light dishes",
     "icon": "🥪",
     "color": "#B0A990"
   },

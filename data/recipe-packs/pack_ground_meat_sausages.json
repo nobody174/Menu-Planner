@@ -10,7 +10,7 @@
   },
   "packImage": "🌭",
   "packColor": "#999999",
-  "recipeCount": 20,
+  "recipeCount": 19,
   "estimatedCookTime": "varies",
   "difficulty": "varies",
   "recipes": [
@@ -1799,126 +1799,6 @@
       }
     },
     {
-      "id": "nd_070",
-      "title": {
-        "no": "Svartpølse",
-        "en": "Black Pudding"
-      },
-      "subtitle": {
-        "no": "Tradisjonell dansk blodpølse",
-        "en": "Traditional Danish blood sausage"
-      },
-      "difficulty": "hard",
-      "cookTimeMinutes": 60,
-      "servings": 6,
-      "category": "Ground Meat & Sausages",
-      "tags": [
-        "sausage",
-        "traditional",
-        "savory",
-        "cuisine:nordic"
-      ],
-      "allergens": [
-        "meat",
-        "grains"
-      ],
-      "ingredients": [
-        {
-          "name": {
-            "no": "Grissblod",
-            "en": "Pig blood"
-          },
-          "amount": 500,
-          "unit": {
-            "no": "ml",
-            "en": "ml"
-          }
-        },
-        {
-          "name": {
-            "no": "Fett",
-            "en": "Pork fat"
-          },
-          "amount": 300,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Rugmel",
-            "en": "Rye flour"
-          },
-          "amount": 100,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Løk",
-            "en": "Onion"
-          },
-          "amount": 150,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Krydder",
-            "en": "Spices"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "ts",
-            "en": "tsp"
-          }
-        },
-        {
-          "name": {
-            "no": "Salt",
-            "en": "Salt"
-          },
-          "amount": 10,
-          "unit": {
-            "no": "gram",
-            "en": "g"
-          }
-        },
-        {
-          "name": {
-            "no": "Pølsehylse",
-            "en": "Sausage casing"
-          },
-          "amount": 2,
-          "unit": {
-            "no": "meter",
-            "en": "m"
-          }
-        }
-      ],
-      "instructions": {
-        "no": [
-          "1. Hakk fett og løk fint",
-          "2. Bland blod, fett, rugmel, løk og krydder",
-          "3. Fylt pølsehylsen forsiktig med blandingen",
-          "4. Kok pølsen i 45 minutter ved 75°C",
-          "5. La avkjøle og server med løk og stekt mel"
-        ],
-        "en": [
-          "1. Finely chop fat and onion",
-          "2. Mix blood, fat, rye flour, onion and spices",
-          "3. Carefully fill sausage casing with mixture",
-          "4. Cook sausage for 45 minutes at 75°C",
-          "5. Cool and serve with onion and fried flour"
-        ]
-      }
-    },
-    {
       "id": "nd_071",
       "title": {
         "no": "Rullepølse",
@@ -2040,7 +1920,7 @@
       "difficulty": "hard",
       "cookTimeMinutes": 1440,
       "servings": 8,
-      "category": "Ground Meat & Sausages",
+      "category": "Light Meals",
       "tags": [
         "cured",
         "traditional",
