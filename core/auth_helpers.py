@@ -14,7 +14,7 @@ import threading
 
 def is_valid_email(email):
     """Validate email format."""
-    pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+    pattern = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
     return re.match(pattern, email) is not None
 
 
@@ -36,7 +36,7 @@ def is_valid_password(password):
 
 def hash_password(password):
     """Hash a password using werkzeug."""
-    return generate_password_hash(password, method='pbkdf2:sha256')
+    return generate_password_hash(password, method="pbkdf2:sha256")
 
 
 def verify_password(password_hash, password):
@@ -58,7 +58,7 @@ def _generate_referral_code(session):
     """8-char uppercase alphanumeric code, unique among existing users."""
     alphabet = string.ascii_uppercase + string.digits
     while True:
-        code = ''.join(secrets.choice(alphabet) for _ in range(8))
+        code = "".join(secrets.choice(alphabet) for _ in range(8))
         if not session.query(User).filter(User.referral_code == code).first():
             return code
 
@@ -76,7 +76,11 @@ def get_user_by_referral_code(code):
         return None
     session = SessionLocal()
     try:
-        return session.query(User).filter(User.referral_code == code.strip().upper()).first()
+        return (
+            session.query(User)
+            .filter(User.referral_code == code.strip().upper())
+            .first()
+        )
     finally:
         session.close()
 
@@ -112,7 +116,11 @@ def create_user(email, password, referred_by_code=None):
         referred_by_user_id = None
         referred_by_code_clean = None
         if referred_by_code:
-            referrer = session.query(User).filter(User.referral_code == referred_by_code.strip().upper()).first()
+            referrer = (
+                session.query(User)
+                .filter(User.referral_code == referred_by_code.strip().upper())
+                .first()
+            )
             if referrer:
                 referred_by_user_id = referrer.id
                 referred_by_code_clean = referrer.referral_code
@@ -123,7 +131,7 @@ def create_user(email, password, referred_by_code=None):
             referral_code=referral_code,
             referred_by_user_id=referred_by_user_id,
             referred_by_code=referred_by_code_clean,
-            email_confirmation_token=_generate_confirmation_token()
+            email_confirmation_token=_generate_confirmation_token(),
         )
         session.add(user)
         session.commit()
@@ -170,7 +178,9 @@ def confirm_email(token):
 
     session = SessionLocal()
     try:
-        user = session.query(User).filter(User.email_confirmation_token == token).first()
+        user = (
+            session.query(User).filter(User.email_confirmation_token == token).first()
+        )
         if not user:
             return False, "Invalid or expired confirmation link"
 
@@ -178,6 +188,7 @@ def confirm_email(token):
             return True, user  # already confirmed - clicking the link twice is harmless
 
         from datetime import datetime
+
         user.email_confirmed_at = datetime.utcnow()
         user.email_confirmation_token = None  # one-time use, prevents replay
         session.commit()
@@ -219,6 +230,7 @@ def request_password_reset(email):
     """Generate a password reset token. Always returns True even if email not
     found — never reveals whether an account exists (prevents enumeration)."""
     from datetime import datetime
+
     email = email.lower().strip()
     session = SessionLocal()
     try:
@@ -240,6 +252,7 @@ def request_password_reset(email):
 def reset_password(token, new_password):
     """Reset password via a valid token. Tokens expire after 1 hour."""
     from datetime import datetime, timedelta
+
     if not token:
         return False, "Missing reset token"
     valid, msg = is_valid_password(new_password)
@@ -276,16 +289,23 @@ def delete_user_account(user_id):
         from core.household_paths import HOUSEHOLDS_DIR
 
         owned_ids = [
-            h.id for h in session.query(Household).filter(Household.owner_id == user_id).all()
+            h.id
+            for h in session.query(Household)
+            .filter(Household.owner_id == user_id)
+            .all()
         ]
 
         for hid in owned_ids:
-            session.query(HouseholdMember).filter(HouseholdMember.household_id == hid).delete()
+            session.query(HouseholdMember).filter(
+                HouseholdMember.household_id == hid
+            ).delete()
             household_folder = HOUSEHOLDS_DIR / str(hid)
             if household_folder.exists():
                 shutil.rmtree(household_folder)
 
-        session.query(HouseholdMember).filter(HouseholdMember.user_id == user_id).delete()
+        session.query(HouseholdMember).filter(
+            HouseholdMember.user_id == user_id
+        ).delete()
         session.query(Household).filter(Household.owner_id == user_id).delete()
         session.query(User).filter(User.id == user_id).delete()
         session.commit()

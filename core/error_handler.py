@@ -95,6 +95,7 @@ def handle_error(
             "timestamp": datetime.now().isoformat(),
         }
 
+
 def validate_recipe(recipe: Dict) -> tuple[bool, Optional[str]]:
     """
     Validate recipe structure.

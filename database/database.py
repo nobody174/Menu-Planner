@@ -7,16 +7,14 @@ from dotenv import load_dotenv
 load_dotenv()
 
 DATABASE_URL = os.getenv(
-    'DATABASE_URL',
-    'sqlite:///./menu_planner.db'  # Default to SQLite for local dev if no env var
+    "DATABASE_URL",
+    "sqlite:///./menu_planner.db",  # Default to SQLite for local dev if no env var
 )
 
 # Use StaticPool for SQLite (thread-safe for development)
-if DATABASE_URL.startswith('sqlite'):
+if DATABASE_URL.startswith("sqlite"):
     engine = create_engine(
-        DATABASE_URL,
-        connect_args={'check_same_thread': False},
-        poolclass=StaticPool
+        DATABASE_URL, connect_args={"check_same_thread": False}, poolclass=StaticPool
     )
 else:
     # PostgreSQL. pool_pre_ping tests each connection with a lightweight
@@ -27,10 +25,13 @@ else:
     # (the retry gets a fresh connection). pool_recycle is a second safety
     # net for managed Postgres providers that close idle connections
     # server-side before the client even notices.
-    engine = create_engine(DATABASE_URL, echo=False, pool_pre_ping=True, pool_recycle=280)
+    engine = create_engine(
+        DATABASE_URL, echo=False, pool_pre_ping=True, pool_recycle=280
+    )
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
+
 
 # Create a singleton db instance for Flask integration
 class Database:
@@ -48,7 +49,9 @@ class Database:
     def drop_all(self):
         self.Base.metadata.drop_all(bind=self.engine)
 
+
 db = Database()
+
 
 def init_db():
     """Initialize database (create all tables)."""

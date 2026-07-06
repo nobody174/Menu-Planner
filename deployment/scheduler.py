@@ -20,33 +20,33 @@ from email_notifier import EmailNotifier
 
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler('logs/scheduler.log'),
-        logging.StreamHandler()
-    ]
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    handlers=[logging.FileHandler("logs/scheduler.log"), logging.StreamHandler()],
 )
 logger = logging.getLogger(__name__)
+
 
 class MenuScheduler:
     def __init__(self):
         self.scheduler = BackgroundScheduler()
         self.scheduler.daemon = True
 
-        self.client_id = os.getenv('AZURE_CLIENT_ID', '')
-        self.client_secret = os.getenv('AZURE_CLIENT_SECRET', '')
-        self.tenant_id = os.getenv('AZURE_TENANT_ID', '')
+        self.client_id = os.getenv("AZURE_CLIENT_ID", "")
+        self.client_secret = os.getenv("AZURE_CLIENT_SECRET", "")
+        self.tenant_id = os.getenv("AZURE_TENANT_ID", "")
 
-        self.email_username = os.getenv('EMAIL_USERNAME', '')
-        self.email_password = os.getenv('EMAIL_PASSWORD', '')
-        self.email_recipient = os.getenv('EMAIL_RECIPIENT', 'your-email@gmail.com')
+        self.email_username = os.getenv("EMAIL_USERNAME", "")
+        self.email_password = os.getenv("EMAIL_PASSWORD", "")
+        self.email_recipient = os.getenv("EMAIL_RECIPIENT", "your-email@gmail.com")
 
     def generate_menu(self):
         try:
             logger.info("=== GENERATING MENU ===")
             generator = MenuGenerator()
             menu = generator.run(num_dinners=5, save=True)
-            logger.info(f"Menu generated successfully: {len(menu.get('dinners', []))} dinners")
+            logger.info(
+                f"Menu generated successfully: {len(menu.get('dinners', []))} dinners"
+            )
             return menu
         except Exception as e:
             logger.error(f"Failed to generate menu: {e}")
@@ -55,7 +55,9 @@ class MenuScheduler:
     def sync_to_do(self, menu):
         try:
             if not self.client_secret:
-                logger.warning("Azure client secret not configured - skipping To Do sync")
+                logger.warning(
+                    "Azure client secret not configured - skipping To Do sync"
+                )
                 return False
 
             logger.info("=== SYNCING TO DO ===")
@@ -82,15 +84,17 @@ class MenuScheduler:
             from pathlib import Path
             import json
 
-            menu_file = Path('data/weekly_menu.json')
+            menu_file = Path("data/weekly_menu.json")
             if not menu_file.exists():
                 logger.error("Menu file not found for email")
                 return False
 
-            with open(menu_file, 'r', encoding='utf-8') as f:
+            with open(menu_file, "r", encoding="utf-8") as f:
                 menu = json.load(f)
 
-            notifier = EmailNotifier(self.email_username, self.email_password, self.email_recipient)
+            notifier = EmailNotifier(
+                self.email_username, self.email_password, self.email_recipient
+            )
             success = notifier.send_menu_email(menu)
 
             if success:
@@ -128,12 +132,12 @@ class MenuScheduler:
 
             self.scheduler.add_job(
                 self.scheduled_job,
-                trigger='cron',
-                day_of_week='sat',
+                trigger="cron",
+                day_of_week="sat",
                 hour=9,
                 minute=0,
-                id='menu_generation',
-                name='Weekly menu generation and sync'
+                id="menu_generation",
+                name="Weekly menu generation and sync",
             )
 
             self.scheduler.start()
@@ -162,6 +166,7 @@ def main():
 
     try:
         import time
+
         while True:
             time.sleep(1)
     except KeyboardInterrupt:
@@ -169,5 +174,5 @@ def main():
         scheduler.shutdown()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

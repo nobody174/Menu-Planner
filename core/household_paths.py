@@ -12,19 +12,19 @@ import json
 import shutil
 from pathlib import Path
 
-DATA_DIR = Path(__file__).parent.parent / 'data'
-HOUSEHOLDS_DIR = DATA_DIR / 'households'
+DATA_DIR = Path(__file__).parent.parent / "data"
+HOUSEHOLDS_DIR = DATA_DIR / "households"
 
 # Static seed content (categories.json's base list, pantry_staples.json) is
 # read from here instead of DATA_DIR - see the matching comment in
 # deployment/flask_app.py for why. household data (HOUSEHOLDS_DIR) stays on
 # DATA_DIR/the volume, only the read-only seed source moves.
-SEED_DIR = Path(__file__).parent.parent / 'data-seed'
+SEED_DIR = Path(__file__).parent.parent / "data-seed"
 if not SEED_DIR.exists():
     SEED_DIR = DATA_DIR
 
-_SEED_FILES = ('weekly_menu.json', 'recipes_db.json', 'categories.json')
-_PANTRY_STAPLES_FILE = SEED_DIR / 'pantry_staples.json'
+_SEED_FILES = ("weekly_menu.json", "recipes_db.json", "categories.json")
+_PANTRY_STAPLES_FILE = SEED_DIR / "pantry_staples.json"
 
 _pantry_translation_cache = None
 
@@ -41,11 +41,11 @@ def _pantry_translations():
     en_to_no, no_to_en = {}, {}
     if _PANTRY_STAPLES_FILE.exists():
         try:
-            with open(_PANTRY_STAPLES_FILE, 'r', encoding='utf-8') as f:
-                pairs = json.load(f).get('pantry_staples', [])
+            with open(_PANTRY_STAPLES_FILE, "r", encoding="utf-8") as f:
+                pairs = json.load(f).get("pantry_staples", [])
             for pair in pairs:
-                en = pair.get('en', '').strip().lower()
-                no = pair.get('no', '').strip().lower()
+                en = pair.get("en", "").strip().lower()
+                no = pair.get("no", "").strip().lower()
                 if en and no:
                     en_to_no[en] = no
                     no_to_en[no] = en
@@ -68,10 +68,10 @@ def pantry_item_language(item: str) -> str:
     is_en = item in en_to_no
     is_no = item in no_to_en
     if is_en and is_no:
-        return 'both'
+        return "both"
     if is_no:
-        return 'no'
-    return 'en'
+        return "no"
+    return "en"
 
 
 def pantry_item_translation(item: str):
@@ -95,15 +95,15 @@ def _seed_pantry(hdir: Path):
     if not _PANTRY_STAPLES_FILE.exists():
         return
     try:
-        with open(_PANTRY_STAPLES_FILE, 'r', encoding='utf-8') as f:
-            pairs = json.load(f).get('pantry_staples', [])
+        with open(_PANTRY_STAPLES_FILE, "r", encoding="utf-8") as f:
+            pairs = json.load(f).get("pantry_staples", [])
         items = set()
         for pair in pairs:
-            if pair.get('en'):
-                items.add(pair['en'].strip().lower())
-            if pair.get('no'):
-                items.add(pair['no'].strip().lower())
-        with open(hdir / 'pantry.json', 'w', encoding='utf-8') as f:
+            if pair.get("en"):
+                items.add(pair["en"].strip().lower())
+            if pair.get("no"):
+                items.add(pair["no"].strip().lower())
+        with open(hdir / "pantry.json", "w", encoding="utf-8") as f:
             json.dump(sorted(items), f, ensure_ascii=False, indent=2)
     except Exception:
         pass
@@ -119,9 +119,9 @@ def household_dir(household_id: str) -> Path:
         for filename in _SEED_FILES:
             src = SEED_DIR / filename
             if src.exists():
-                if filename == 'recipes_db.json':
+                if filename == "recipes_db.json":
                     # Start empty so new households have a clean slate
-                    with open(hdir / filename, 'w', encoding='utf-8') as f:
+                    with open(hdir / filename, "w", encoding="utf-8") as f:
                         json.dump([], f)
                 else:
                     shutil.copy(src, hdir / filename)
@@ -130,15 +130,15 @@ def household_dir(household_id: str) -> Path:
 
 
 def menu_file(household_id: str) -> Path:
-    return household_dir(household_id) / 'weekly_menu.json'
+    return household_dir(household_id) / "weekly_menu.json"
 
 
 def recipes_db_file(household_id: str) -> Path:
-    return household_dir(household_id) / 'recipes_db.json'
+    return household_dir(household_id) / "recipes_db.json"
 
 
 def _removed_categories_file(household_id: str) -> Path:
-    return household_dir(household_id) / 'removed_categories.json'
+    return household_dir(household_id) / "removed_categories.json"
 
 
 def load_removed_categories(household_id: str):
@@ -151,7 +151,7 @@ def load_removed_categories(household_id: str):
     if not path.exists():
         return set()
     try:
-        with open(path, 'r', encoding='utf-8') as f:
+        with open(path, "r", encoding="utf-8") as f:
             return set(json.load(f))
     except Exception:
         return set()
@@ -163,7 +163,7 @@ def mark_category_removed(household_id: str, code: str):
     removed = load_removed_categories(household_id)
     removed.add(code)
     path = _removed_categories_file(household_id)
-    with open(path, 'w', encoding='utf-8') as f:
+    with open(path, "w", encoding="utf-8") as f:
         json.dump(sorted(removed), f, ensure_ascii=False, indent=2)
 
 
@@ -176,61 +176,64 @@ def categories_file(household_id: str) -> Path:
     the household explicitly deleted (tracked in removed_categories.json)
     are never re-added by this self-heal, even if they still exist in the
     base seed file."""
-    path = household_dir(household_id) / 'categories.json'
-    base_path = SEED_DIR / 'categories.json'
+    path = household_dir(household_id) / "categories.json"
+    base_path = SEED_DIR / "categories.json"
 
     if not path.exists() or not base_path.exists():
         return path
 
     try:
-        with open(path, 'r', encoding='utf-8') as f:
+        with open(path, "r", encoding="utf-8") as f:
             household_cats = json.load(f)
-        with open(base_path, 'r', encoding='utf-8') as f:
+        with open(base_path, "r", encoding="utf-8") as f:
             base_cats = json.load(f)
     except Exception:
         return path
 
     removed_codes = load_removed_categories(household_id)
-    existing_codes = {c.get('code') for c in household_cats}
-    missing = [c for c in base_cats
-               if c.get('code') not in existing_codes and c.get('code') not in removed_codes]
+    existing_codes = {c.get("code") for c in household_cats}
+    missing = [
+        c
+        for c in base_cats
+        if c.get("code") not in existing_codes and c.get("code") not in removed_codes
+    ]
     changed = False
 
     if missing:
         household_cats.extend(missing)
-        existing_codes.update(c.get('code') for c in missing)
+        existing_codes.update(c.get("code") for c in missing)
         changed = True
 
     # One-time cleanup: 'rask' ("Quick Dinner") and 'quick_dinners' ("Quick
     # Dinners") were accidentally added as two separate categories for the
     # same thing in an earlier fix. Drop the redundant older one if both
     # ended up present, the same way the seed file itself was corrected.
-    if 'rask' in existing_codes and 'quick_dinners' in existing_codes:
-        household_cats = [c for c in household_cats if c.get('code') != 'rask']
+    if "rask" in existing_codes and "quick_dinners" in existing_codes:
+        household_cats = [c for c in household_cats if c.get("code") != "rask"]
         changed = True
 
     # Backfill the 'imported' flag onto built-in recipe-pack categories that
     # were seeded before this flag existed, so sort order (imported packs at
     # the bottom) works for households created before this fix too.
-    base_imported_codes = {c.get('code') for c in base_cats if c.get('imported')}
+    base_imported_codes = {c.get("code") for c in base_cats if c.get("imported")}
     for c in household_cats:
-        if c.get('code') in base_imported_codes and not c.get('imported'):
-            c['imported'] = True
+        if c.get("code") in base_imported_codes and not c.get("imported"):
+            c["imported"] = True
             changed = True
 
     if changed:
-        with open(path, 'w', encoding='utf-8') as f:
+        with open(path, "w", encoding="utf-8") as f:
             json.dump(household_cats, f, ensure_ascii=False, indent=2)
 
     return path
 
 
 def activity_log_file(household_id: str) -> Path:
-    return household_dir(household_id) / 'activity_log.json'
+    return household_dir(household_id) / "activity_log.json"
 
 
 def imported_packs_file(household_id: str) -> Path:
-    return household_dir(household_id) / 'imported_packs.json'
+    return household_dir(household_id) / "imported_packs.json"
 
 
 def load_imported_packs(household_id: str) -> dict:
@@ -243,17 +246,19 @@ def load_imported_packs(household_id: str) -> dict:
     if not path.exists():
         return {}
     try:
-        with open(path, 'r', encoding='utf-8') as f:
+        with open(path, "r", encoding="utf-8") as f:
             return json.load(f)
     except Exception:
         return {}
 
 
-def save_imported_pack_metadata(household_id: str, pack_id: str, display_name: str, icon: str, color: str):
+def save_imported_pack_metadata(
+    household_id: str, pack_id: str, display_name: str, icon: str, color: str
+):
     """Record (or update) display metadata for one imported pack."""
     packs = load_imported_packs(household_id)
-    packs[pack_id] = {'display_name': display_name, 'icon': icon, 'color': color}
-    with open(imported_packs_file(household_id), 'w', encoding='utf-8') as f:
+    packs[pack_id] = {"display_name": display_name, "icon": icon, "color": color}
+    with open(imported_packs_file(household_id), "w", encoding="utf-8") as f:
         json.dump(packs, f, ensure_ascii=False, indent=2)
 
 
@@ -262,16 +267,16 @@ def remove_imported_pack_metadata(household_id: str, pack_id: str):
     packs = load_imported_packs(household_id)
     if pack_id in packs:
         del packs[pack_id]
-        with open(imported_packs_file(household_id), 'w', encoding='utf-8') as f:
+        with open(imported_packs_file(household_id), "w", encoding="utf-8") as f:
             json.dump(packs, f, ensure_ascii=False, indent=2)
 
 
 def pantry_file(household_id: str) -> Path:
-    return household_dir(household_id) / 'pantry.json'
+    return household_dir(household_id) / "pantry.json"
 
 
 def _pantry_seeded_marker(household_id: str) -> Path:
-    return household_dir(household_id) / '.pantry_seeded'
+    return household_dir(household_id) / ".pantry_seeded"
 
 
 def load_pantry(household_id: str):
@@ -289,7 +294,7 @@ def load_pantry(household_id: str):
         existing = []
         if path.exists():
             try:
-                with open(path, 'r', encoding='utf-8') as f:
+                with open(path, "r", encoding="utf-8") as f:
                     existing = json.load(f)
             except Exception:
                 existing = []
@@ -300,7 +305,7 @@ def load_pantry(household_id: str):
     if not path.exists():
         return []
     try:
-        with open(path, 'r', encoding='utf-8') as f:
+        with open(path, "r", encoding="utf-8") as f:
             return json.load(f)
     except Exception:
         return []
@@ -308,7 +313,7 @@ def load_pantry(household_id: str):
 
 def save_pantry(household_id: str, items):
     path = pantry_file(household_id)
-    with open(path, 'w', encoding='utf-8') as f:
+    with open(path, "w", encoding="utf-8") as f:
         json.dump(sorted(set(items)), f, ensure_ascii=False, indent=2)
 
 
@@ -320,19 +325,21 @@ def append_activity(household_id: str, actor: str, action: str):
     entries = []
     if path.exists():
         try:
-            with open(path, 'r', encoding='utf-8') as f:
+            with open(path, "r", encoding="utf-8") as f:
                 entries = json.load(f)
         except Exception:
             entries = []
 
-    entries.append({
-        'timestamp': datetime.now().isoformat(),
-        'actor': actor,
-        'action': action,
-    })
+    entries.append(
+        {
+            "timestamp": datetime.now().isoformat(),
+            "actor": actor,
+            "action": action,
+        }
+    )
     entries = entries[-200:]  # cap log size
 
-    with open(path, 'w', encoding='utf-8') as f:
+    with open(path, "w", encoding="utf-8") as f:
         json.dump(entries, f, ensure_ascii=False, indent=2)
 
 
@@ -341,7 +348,7 @@ def load_activity(household_id: str):
     if not path.exists():
         return []
     try:
-        with open(path, 'r', encoding='utf-8') as f:
+        with open(path, "r", encoding="utf-8") as f:
             return list(reversed(json.load(f)))
     except Exception:
         return []
@@ -373,19 +380,24 @@ def load_categories_from_db(household):
 
     # Self-heal logic: ensure base categories are present
     try:
-        base_path = SEED_DIR / 'categories.json'
+        base_path = SEED_DIR / "categories.json"
         if base_path.exists():
-            with open(base_path, 'r', encoding='utf-8') as f:
+            with open(base_path, "r", encoding="utf-8") as f:
                 base_cats = json.load(f)
         else:
             base_cats = []
     except Exception:
         base_cats = []
 
-    removed_codes = load_removed_categories(household.id) if hasattr(household, 'id') else set()
-    existing_codes = {c.get('code') for c in categories if isinstance(c, dict)}
-    missing = [c for c in base_cats
-               if c.get('code') not in existing_codes and c.get('code') not in removed_codes]
+    removed_codes = (
+        load_removed_categories(household.id) if hasattr(household, "id") else set()
+    )
+    existing_codes = {c.get("code") for c in categories if isinstance(c, dict)}
+    missing = [
+        c
+        for c in base_cats
+        if c.get("code") not in existing_codes and c.get("code") not in removed_codes
+    ]
 
     if missing:
         categories.extend(missing)
@@ -412,7 +424,9 @@ def load_imported_packs_from_db(household):
     """Load imported_packs from database JSONB column."""
     if household.imported_packs is None:
         return {}
-    return household.imported_packs if isinstance(household.imported_packs, dict) else {}
+    return (
+        household.imported_packs if isinstance(household.imported_packs, dict) else {}
+    )
 
 
 def save_recipes_db_to_db(household, recipes_data):
@@ -437,7 +451,9 @@ def save_weekly_menu_to_db(household, menu_data):
 
 def save_activity_to_db(household, activity_entries):
     """Save activity_log to database JSONB column (capped at 200 entries)."""
-    household.activity_log = activity_entries[-200:] if len(activity_entries) > 200 else activity_entries
+    household.activity_log = (
+        activity_entries[-200:] if len(activity_entries) > 200 else activity_entries
+    )
 
 
 def save_imported_packs_to_db(household, packs_data):
@@ -453,9 +469,11 @@ def append_activity_to_db(household, actor: str, action: str):
     # Reverse back to original order (load_activity_from_db reverses for display)
     entries = list(reversed(entries))
 
-    entries.append({
-        'timestamp': datetime.now().isoformat(),
-        'actor': actor,
-        'action': action,
-    })
+    entries.append(
+        {
+            "timestamp": datetime.now().isoformat(),
+            "actor": actor,
+            "action": action,
+        }
+    )
     save_activity_to_db(household, entries)

@@ -16,19 +16,24 @@ from email.mime.multipart import MIMEMultipart
 
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler('logs/email_notifier.log'),
-        logging.StreamHandler()
-    ]
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    handlers=[logging.FileHandler("logs/email_notifier.log"), logging.StreamHandler()],
 )
 logger = logging.getLogger(__name__)
 
-DATA_DIR = Path('data')
-MENU_FILE = DATA_DIR / 'weekly_menu.json'
+DATA_DIR = Path("data")
+MENU_FILE = DATA_DIR / "weekly_menu.json"
+
 
 class EmailNotifier:
-    def __init__(self, sender_email: str, sender_password: str, recipient_email: str, smtp_server: str = 'smtp.gmail.com', smtp_port: int = 587):
+    def __init__(
+        self,
+        sender_email: str,
+        sender_password: str,
+        recipient_email: str,
+        smtp_server: str = "smtp.gmail.com",
+        smtp_port: int = 587,
+    ):
         self.sender_email = sender_email
         self.sender_password = sender_password
         self.recipient_email = recipient_email
@@ -36,20 +41,24 @@ class EmailNotifier:
         self.smtp_port = smtp_port
 
     def generate_menu_email(self, menu: dict) -> str:
-        dinners = menu.get('dinners', [])
-        shopping = menu.get('shopping_list', {})
+        dinners = menu.get("dinners", [])
+        shopping = menu.get("shopping_list", {})
 
-        dinners_text = '\n'.join([
-            f"{d['day']:12} | {d['title']:50} | {d['time_minutes']} min"
-            for d in dinners
-        ])
+        dinners_text = "\n".join(
+            [
+                f"{d['day']:12} | {d['title']:50} | {d['time_minutes']} min"
+                for d in dinners
+            ]
+        )
 
-        shopping_text = ''
+        shopping_text = ""
         for category, items in shopping.items():
             if items:
                 shopping_text += f"\n{category}:\n"
                 for item in items:
-                    shopping_text += f"  - {item['ingredient']}: {item['quantity']} {item['unit']}\n"
+                    shopping_text += (
+                        f"  - {item['ingredient']}: {item['quantity']} {item['unit']}\n"
+                    )
 
         html = f"""
         <html>
@@ -94,12 +103,12 @@ class EmailNotifier:
 
     def send_email(self, subject: str, html_body: str) -> bool:
         try:
-            message = MIMEMultipart('alternative')
-            message['Subject'] = subject
-            message['From'] = self.sender_email
-            message['To'] = self.recipient_email
+            message = MIMEMultipart("alternative")
+            message["Subject"] = subject
+            message["From"] = self.sender_email
+            message["To"] = self.recipient_email
 
-            part = MIMEText(html_body, 'html', 'utf-8')
+            part = MIMEText(html_body, "html", "utf-8")
             message.attach(part)
 
             with smtplib.SMTP(self.smtp_server, self.smtp_port) as server:
@@ -115,7 +124,7 @@ class EmailNotifier:
             return False
 
     def send_menu_email(self, menu: dict) -> bool:
-        week_start = menu.get('week_start', 'this week')
+        week_start = menu.get("week_start", "this week")
         subject = f"Din ukemeny - {week_start}"
 
         html_body = self.generate_menu_email(menu)
@@ -127,7 +136,7 @@ class EmailNotifier:
             logger.error("Menu file not found")
             return False
 
-        with open(MENU_FILE, 'r', encoding='utf-8') as f:
+        with open(MENU_FILE, "r", encoding="utf-8") as f:
             menu = json.load(f)
 
         logger.info("Sending menu email notification")
@@ -138,7 +147,7 @@ def test_email(sender_email: str, sender_password: str, recipient_email: str):
     notifier = EmailNotifier(sender_email, sender_password, recipient_email)
 
     if MENU_FILE.exists():
-        with open(MENU_FILE, 'r', encoding='utf-8') as f:
+        with open(MENU_FILE, "r", encoding="utf-8") as f:
             menu = json.load(f)
         success = notifier.send_menu_email(menu)
         if success:
@@ -149,10 +158,10 @@ def test_email(sender_email: str, sender_password: str, recipient_email: str):
         logger.warning("Menu file not found for testing")
 
 
-if __name__ == '__main__':
-    sender_email = os.getenv('EMAIL_USERNAME', 'your-email@gmail.com')
-    sender_password = os.getenv('EMAIL_PASSWORD', 'your-app-password')
-    recipient_email = os.getenv('EMAIL_RECIPIENT', 'your-email@gmail.com')
+if __name__ == "__main__":
+    sender_email = os.getenv("EMAIL_USERNAME", "your-email@gmail.com")
+    sender_password = os.getenv("EMAIL_PASSWORD", "your-app-password")
+    recipient_email = os.getenv("EMAIL_RECIPIENT", "your-email@gmail.com")
 
     logger.info("Testing email notifier")
     test_email(sender_email, sender_password, recipient_email)
