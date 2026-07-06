@@ -177,6 +177,10 @@ jobs:
     if: github.ref == 'refs/heads/public-release-v1' && github.event_name == 'push'
 
     steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: Trigger Render deploy
         run: |
           if [ -z "${{ secrets.RENDER_DEPLOY_HOOK_URL }}" ]; then
@@ -200,3 +204,21 @@ jobs:
 
       - name: Post deployment message
         run: echo "Triggered and confirmed Render deploy for menuplanner.no"
+
+      - name: Auto-tag patch version
+        run: |
+          git fetch --tags
+          latest=$(git tag -l 'v*.*.*' | sort -V | tail -n1)
+          if [ -z "$latest" ]; then
+            new_tag="v1.0.0"
+          else
+            major=$(echo "$latest" | sed 's/^v//' | cut -d. -f1)
+            minor=$(echo "$latest" | sed 's/^v//' | cut -d. -f2)
+            patch=$(echo "$latest" | sed 's/^v//' | cut -d. -f3)
+            new_tag="v${major}.${minor}.$((patch + 1))"
+          fi
+          echo "Latest tag: ${latest:-none}. Tagging deploy as $new_tag."
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag -a "$new_tag" -m "Auto-tagged deploy to menuplanner.no"
+          git push origin "$new_tag"
