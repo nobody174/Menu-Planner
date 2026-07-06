@@ -1,0 +1,14 @@
+{
+  "name": "menu-planner",
+  "version": "1.0.0",
+  "description": "Playwright cross-browser/cross-device visual regression suite for Menu Planner (menuplanner.no). The app itself is Python/Flask - see requirements.txt.",
+  "private": true,
+  "scripts": {
+    "test:e2e": "playwright test",
+    "test:e2e:update": "playwright test --update-snapshots"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.61.1",
+    "@types/node": "^26.1.0"
+  }
+}

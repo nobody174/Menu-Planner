@@ -85,3 +85,12 @@ new_chat_fresh_menu_planner.md
 # OS
 Thumbs.db
 .DS_Store
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+e2e/.auth/
+e2e_test.db
