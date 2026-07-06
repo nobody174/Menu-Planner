@@ -24,12 +24,12 @@ hidden routes that use it.
 import json
 from pathlib import Path
 
-_DATA_DIR = Path(__file__).parent.parent / 'data'
+_DATA_DIR = Path(__file__).parent.parent / "data"
 
 _STASH_FILES = {
-    'dessert': 'dessert-stash.json',
-    'drinks': 'drinks-stash.json',
-    'sides': 'sides-stash.json',
+    "dessert": "dessert-stash.json",
+    "drinks": "drinks-stash.json",
+    "sides": "sides-stash.json",
 }
 
 
@@ -39,39 +39,41 @@ def _load_stash(stash_name):
     500s - it just shows nothing)."""
     filename = _STASH_FILES.get(stash_name)
     if not filename:
-        raise ValueError(f"Unknown stash '{stash_name}', expected one of {list(_STASH_FILES)}")
+        raise ValueError(
+            f"Unknown stash '{stash_name}', expected one of {list(_STASH_FILES)}"
+        )
     path = _DATA_DIR / filename
     if not path.exists():
         return []
     try:
-        with open(path, 'r', encoding='utf-8') as f:
+        with open(path, "r", encoding="utf-8") as f:
             data = json.load(f)
     except (json.JSONDecodeError, OSError):
         return []
-    return data.get('recipes', []) if isinstance(data, dict) else []
+    return data.get("recipes", []) if isinstance(data, dict) else []
 
 
 def load_dessert_stash():
     """All recipes kept for the future dessert-browsing / dessert-planner
     features (F2, F9)."""
-    return _load_stash('dessert')
+    return _load_stash("dessert")
 
 
 def load_drinks_stash():
     """All recipes kept for the future drinks-browsing feature (F2)."""
-    return _load_stash('drinks')
+    return _load_stash("drinks")
 
 
 def load_sides_stash():
     """All recipes kept for the future side-stash feature (F8)."""
-    return _load_stash('sides')
+    return _load_stash("sides")
 
 
 def find_in_stash(stash_name, recipe_id):
     """Look up a single recipe by id within one stash. Returns None if not
     found - used by detail views once those exist."""
     for recipe in _load_stash(stash_name):
-        if recipe.get('id') == recipe_id:
+        if recipe.get("id") == recipe_id:
             return recipe
     return None
 
@@ -87,5 +89,5 @@ def suggest_dessert_for_menu(exclude_ids=None):
     or None if the stash is empty. `exclude_ids` lets a future caller avoid
     repeating a dessert already used elsewhere in the same week."""
     exclude_ids = set(exclude_ids or [])
-    candidates = [r for r in load_dessert_stash() if r.get('id') not in exclude_ids]
+    candidates = [r for r in load_dessert_stash() if r.get("id") not in exclude_ids]
     return candidates[0] if candidates else None
