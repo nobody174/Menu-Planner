@@ -3818,7 +3818,9 @@ def api_reroll_recipe():
                     404,
                 )
 
-            used_recipe_ids = {d.get("recipe_id") for d in dinners if d.get("recipe_id")}
+            used_recipe_ids = {
+                d.get("recipe_id") for d in dinners if d.get("recipe_id")
+            }
 
             current_recipe = find_recipe(target.get("recipe_id"))
             current_category = (
