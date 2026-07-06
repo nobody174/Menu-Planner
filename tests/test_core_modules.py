@@ -30,7 +30,7 @@ def test_json_files_valid():
         'data/categories.json',
         'frontend/static/i18n.json',
         'frontend/static/themes/previews/theme-registry.json',
-        'pantry_staples.json'
+        'data/pantry_staples.json'
     ]
 
     for json_file in json_files:

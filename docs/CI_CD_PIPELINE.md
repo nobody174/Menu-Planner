@@ -90,6 +90,24 @@ A manual minor/major bump (`git tag vX.Y.0 && git push github vX.Y.0`) is
 separate from this flow and only done on request, for a change that feels
 like a milestone rather than a routine patch.
 
+## Rollback
+
+If a deploy to `public-release-v1` causes a problem in production:
+
+1. **Check Render's Logs tab** first to understand what's actually failing
+   (database connection, an unhandled exception, a missing env var).
+2. **Revert the problem commit** on `public-release-v1` (`git revert
+   <sha>`), or check out the previous auto-tagged version (`git tag -l
+   'v*'` to find it) and push that state through the normal PR flow above
+   — don't force-push directly to `public-release-v1`, it's branch-protected
+   and a force-push would be rejected anyway.
+3. **Pushing the revert through the same PR-and-merge flow** re-triggers
+   Stage 3, which redeploys the last-good code and re-confirms `/health`.
+4. If the problem is data-related rather than code (e.g. a bad migration),
+   check `alembic current` against the Neon database via the Render Shell
+   before assuming a code revert alone will fix it — some issues need a
+   corresponding data fix, not just a code rollback.
+
 ## Keeping this doc in sync
 
 This diagram is a static snapshot, not generated from `ci.yml` — it will

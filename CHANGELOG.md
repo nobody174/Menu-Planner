@@ -5,6 +5,43 @@ See `BACKLOG_2026-07-01.md` for open tasks and `FEATURE_ROADMAP.md` for planned 
 
 ---
 
+## 2026-07-06 (9)
+
+### Project cleanup: removed stale files, consolidated docs
+
+Full audit of the repo for obsolete/duplicate/stale files (see chat for
+the full proposal). Deleted: a root-level `pantry_staples.json` that
+duplicated `data/pantry_staples.json` in an older schema and was never
+actually read by any code; `data/recipe-pack-experiments/` (30 JSON
+files across 5 sub-folders, confirmed unreferenced anywhere — leftover
+iteration snapshots from an earlier recipe-pack reorg); `summary.md` (a
+disposable single-session status report, superseded by this file);
+`deployment/.env` and `deployment/.env.template` (real leftover
+Pi-era config referencing Azure/Todoist/Trello/Notion sync — all
+already-removed features, and not even loaded by the app, which only
+reads the root `.env`); `scripts/test-api.py`, `test-local.py`,
+`pi-menu-cli.py`, `category-editor.py` (confirmed to operate on flat
+JSON files directly rather than the household/Postgres model the app
+has used since the JSONB migration - genuinely obsolete, not just
+old-looking). Archived (moved to `scripts/archive/`, not deleted, since
+a from-scratch fresh-install scenario might still need them):
+`seed_recipes.py`, `backfill_household_data.py`,
+`backfill_email_confirmed.py` (+ its `.sql` pair) - all one-time
+migration scripts already run against production. Merged
+`DEPLOYMENT_F4.md` (the original Railway→Render/Neon migration runbook)
+into this changelog as history (see the 2026-07-01 entry below) and its
+still-relevant rollback plan into `docs/CI_CD_PIPELINE.md`; deleted the
+standalone file. Deleted `.github/workflows/README.md` (duplicated
+`docs/CI_CD_PIPELINE.md` almost entirely; kept the doc with the diagram).
+Moved `ABOUT.md`, `BACKLOG_2026-07-01.md`, `FEATURE_ROADMAP.md`, and
+`SYSTEM_ARCHITECTURE.md` from the repo root into `docs/` for a cleaner
+root directory; updated every cross-reference. Fixed `config.py`'s
+`PANTRY_STAPLES_PATH`, which pointed at a `core/pantry_staples.json`
+that has never existed in this repo (dead constant, unrelated to the
+file deletions above - the app actually resolves the real pantry
+staples path through `SEED_DIR`/`core/household_paths.py`, not this
+constant).
+
 ## 2026-07-06 (8)
 
 ### Deploy tooling: tried a one-click script, reverted in favor of Claude Code

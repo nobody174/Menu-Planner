@@ -53,16 +53,20 @@ Menu-Planner/
 │   ├── dessert-stash.json         # 90 desserts (not in menus)
 │   └── drinks-stash.json          # 4 drinks (not in menus)
 ├── scripts/
-│   └── backfill_household_data.py # One-time JSONB migration tool
+│   ├── delete_user.py             # Admin: delete a user + their data
+│   ├── delete_test_users.py       # Admin: bulk-delete test accounts
+│   └── archive/                   # One-time migration scripts, already run
 ├── tests/
-│   └── test_f4_jsonb_storage.py   # JSONB storage tests
-├── docs/                          # All documentation
+│   ├── test_auth.py
+│   ├── test_core_modules.py
+│   └── test_household.py
+├── docs/                          # All documentation (guides, backlog,
+│                                   # roadmap, architecture, about)
 ├── requirements.txt
 ├── Procfile                       # Render start command
 ├── runtime.txt                    # Python version (3.11.9)
 ├── CHANGELOG.md                   # Full project history
-├── BACKLOG_2026-07-01.md          # Active tasks
-├── FEATURE_ROADMAP.md             # Planned features
+├── CLAUDE.md                      # Working instructions / deploy flow
 └── new_chat_fresh_menu_planner.md # Context file for new Claude sessions
 ```
 
@@ -191,7 +195,9 @@ python3.11 -m pip install --break-system-packages -r requirements.txt && python3
 python3.11 -m gunicorn -b 0.0.0.0:$PORT deployment.flask_app:app
 ```
 
-See `DEPLOYMENT_F4.md` for full Render + Neon setup instructions.
+See [SYSTEM_ARCHITECTURE.md](SYSTEM_ARCHITECTURE.md) for the current
+Render + Neon infrastructure, and
+[CI_CD_PIPELINE.md](CI_CD_PIPELINE.md) for how a deploy actually happens.
 
 ---
 
@@ -205,11 +211,9 @@ pytest tests/ -v
 
 ## CI/CD
 
-GitHub Actions runs automatically on every push:
-- `tests.yml` — unit tests
-- `lint.yml` — code style
-- `security.yml` — vulnerability scan
-- `build.yml` — cross-platform dependency check
-- `data-validation.yml` — JSON structure validation
-
-See `.github/workflows/README.md` for details.
+A single staged pipeline (`.github/workflows/ci.yml`) runs on every push to
+`main` and on every pull request into `public-release-v1`: lint/format and
+data/frontend validation first, then tests/security/build once those pass,
+then a production deploy (only on a merge into `public-release-v1`). See
+[docs/CI_CD_PIPELINE.md](CI_CD_PIPELINE.md) for the full pipeline diagram
+and branch model.
