@@ -98,12 +98,10 @@
                     <div class="nav-settings-menu">
                         <button id="settings-btn" class="settings-btn" aria-label="{{ t.settings }}" title="{{ t.settings }}" onclick="toggleSettingsMenu(event)">⚙️</button>
                         <div id="settings-dropdown" class="settings-dropdown">
-                            <a href="{{ url_for('whats_new') }}" class="settings-item">🆕 {{ t.get('whats_new', "What's New") }}</a>
-                            <a href="{{ url_for('whats_planned') }}" class="settings-item">🔮 {{ t.get('whats_planned', "What's Planned") }}</a>
-                            <a href="/all-recipes" class="settings-item">{{ t.all_recipes }}</a>
                             {% if can_edit_menu %}
                             <a href="/add-recipe" class="settings-item">+ {{ t.add_recipe }}</a>
                             {% endif %}
+                            <a href="/all-recipes" class="settings-item">{{ t.all_recipes }}</a>
                             {% if is_authenticated %}
                             <div class="settings-section">
                                 <a href="#" class="settings-submenu-item" onclick="toggleSettingsSubmenu('household-submenu', event)">
@@ -142,6 +140,8 @@
                                     <a href="#" class="settings-item" onclick="openHelpModal(); toggleSettingsMenu(event);">📖 Quick Start Guide</a>
                                     <a href="/help/advanced" class="settings-item">🔧 Advanced Guide</a>
                                     <a href="/help/tips" class="settings-item">💡 Tips & Tricks</a>
+                                    <a href="{{ url_for('whats_new') }}" class="settings-item">🆕 {{ t.get('whats_new', "What's New") }}</a>
+                                    <a href="{{ url_for('whats_planned') }}" class="settings-item">🔮 {{ t.get('whats_planned', "What's Planned") }}</a>
                                 </div>
                             </div>
                             {% if is_authenticated %}
