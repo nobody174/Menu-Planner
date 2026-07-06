@@ -4,10 +4,11 @@
 
 - **`main`** — day-to-day working branch. Pushes here run the full CI
   pipeline but never deploy.
-- **`public-release-v1`** — production branch. A push here that passes the
-  full pipeline triggers a live deploy to menuplanner.no via a Render
-  webhook. Ship a change by merging `main` into `public-release-v1` and
-  pushing that, once you're confident in it (tested locally first).
+- **`public-release-v1`** — production branch. Protected: GitHub rejects
+  any direct push here unless all 8 required status checks have already
+  passed on that exact commit. Ship a change via a pull request from
+  `main` — once every check is green, merging the PR triggers a live
+  deploy to menuplanner.no via a Render webhook.
 
 ## ci.yml — the real pipeline
 
