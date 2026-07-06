@@ -11,7 +11,7 @@ import logging
 import secrets
 import requests
 from pathlib import Path
-from flask import Flask, render_template, jsonify, request, session, redirect, url_for
+from flask import Flask, render_template, jsonify, request, session, redirect, url_for, abort
 from datetime import datetime, timedelta
 import sys
 from dotenv import load_dotenv
@@ -91,6 +91,50 @@ def _translate_category_name(category_en, lang):
         except Exception as e:
             print(f"WARNING: Could not load base categories.json for translation: {e}")
     return _BASE_CATEGORY_TRANSLATIONS.get(category_en, category_en)
+
+# Canonical allergen translations (B46 remaining scope). Different recipe
+# sources authored allergen tags in different languages with no bilingual
+# dict structure at all (unlike title/ingredients): the 10 built-in sample
+# recipes store raw Norwegian strings ('fisk', 'melk', 'soya'), while
+# imported recipe packs store raw English strings ('fish', 'dairy', 'soy',
+# 'eggs', 'wheat', 'nuts', etc.) - so the same allergen showed up in
+# whichever language it happened to be authored in, regardless of the
+# site's current language. Keyed by every raw spelling seen in the data,
+# mapping to a single canonical {'en':..., 'no':...} pair.
+_ALLERGEN_TRANSLATIONS = {}
+def _register_allergen(display_en, display_no, *raw_keys):
+    entry = {'en': display_en, 'no': display_no}
+    for k in raw_keys:
+        _ALLERGEN_TRANSLATIONS[k.lower()] = entry
+
+_register_allergen('Gluten', 'Gluten', 'gluten')
+_register_allergen('Dairy', 'Melk', 'dairy', 'melk', 'milk')
+_register_allergen('Fish', 'Fisk', 'fish', 'fisk')
+_register_allergen('Meat', 'Kjøtt', 'meat', 'kjøtt', 'kjott')
+_register_allergen('Shellfish', 'Skalldyr', 'shellfish', 'skalldyr')
+_register_allergen('Egg', 'Egg', 'egg', 'eggs')
+_register_allergen('Wheat', 'Hvete', 'wheat', 'hvete')
+_register_allergen('Nuts', 'Nøtter', 'nuts', 'nøtter', 'notter')
+_register_allergen('Saffron', 'Safran', 'saffron', 'safran')
+_register_allergen('Sesame', 'Sesam', 'sesame', 'sesam')
+_register_allergen('Alcohol', 'Alkohol', 'alcohol', 'alkohol')
+_register_allergen('Mustard', 'Sennep', 'mustard', 'sennep')
+_register_allergen('Soy', 'Soya', 'soy', 'soya')
+_register_allergen('Grains', 'Korn', 'grains', 'korn')
+_register_allergen('Wine', 'Vin', 'wine', 'vin')
+
+def _translate_allergen(raw, lang):
+    """Translate a single allergen tag to the current language, regardless
+    of which language it happens to be stored in. Falls back to the raw
+    value, capitalized, for anything not in the canonical list above (an
+    unrecognized custom allergen someone typed in, for example) - same
+    graceful-degradation approach as _translate_category_name()."""
+    if not raw:
+        return raw or ''
+    entry = _ALLERGEN_TRANSLATIONS.get(str(raw).strip().lower())
+    if entry:
+        return entry.get(lang) or entry.get('en') or raw
+    return str(raw).strip().capitalize()
 
 import re as _re
 _STEP_PREFIX_RE = _re.compile(r'^\s*\d+\s*[\.\):]\s*')
@@ -184,6 +228,12 @@ def _normalize_recipe(recipe, lang='en'):
     # Translated display name for the category tag (B46) - keep r['category']
     # itself untouched in English, since filter/search logic depends on it.
     r['category_display'] = _translate_category_name(r.get('category', ''), lang)
+
+    # Translated allergen tags (B46) - see _translate_allergen() above for why
+    # this was inconsistent (sample recipes stored Norwegian, packs stored
+    # English, with no per-language field at all).
+    if r.get('allergens'):
+        r['allergens'] = [_translate_allergen(a, lang) for a in r['allergens']]
 
     # Ingredients: support pack schema, sample_recipes _no/_en fields, and simple strings
     new_ings = []
@@ -296,6 +346,42 @@ app = Flask(__name__,
 # Configuration
 FLASK_ENV = os.environ.get('FLASK_ENV', 'development')
 IS_PRODUCTION = FLASK_ENV == 'production'
+
+# --- Local-only feature flags -----------------------------------------
+# Hidden, developer-only switches for in-progress features (dessert/drink
+# browsing, side stash, dessert planner integration) that aren't ready for
+# public users yet. ALL flags default to OFF - nothing here changes what a
+# public user sees unless the matching env var is explicitly set in a local
+# .env file. Never set any of these in the production Render environment.
+# See docs/FEATURE_FLAGS.md for the full list and how to enable one locally.
+def _flag_enabled(env_var):
+    return os.environ.get(env_var, '').strip().lower() in ('1', 'true', 'yes', 'on')
+
+FEATURE_FLAGS = {
+    # F2: Dessert + drink browsing
+    'desserts_drinks': _flag_enabled('FEATURE_DESSERTS_DRINKS'),
+    # F8: Side stash feature
+    'side_stash': _flag_enabled('FEATURE_SIDE_STASH'),
+    # F9: Dessert system in the dinner planner
+    'dessert_planner': _flag_enabled('FEATURE_DESSERT_PLANNER'),
+}
+if IS_PRODUCTION and any(FEATURE_FLAGS.values()):
+    # Belt-and-suspenders: these are meant for local testing only. If one
+    # somehow ends up set in the production environment, log it loudly
+    # rather than silently exposing an unfinished feature to real users.
+    logging.getLogger(__name__).warning(
+        "One or more hidden feature flags are enabled in a PRODUCTION "
+        "environment: %s - this is unexpected, these are for local dev "
+        "testing only.",
+        [k for k, v in FEATURE_FLAGS.items() if v]
+    )
+
+def feature_enabled(name):
+    """Check whether a hidden/local-only feature flag is on. Use this in
+    routes and templates instead of reading FEATURE_FLAGS directly, so
+    there's one place to change the lookup logic later (e.g. per-household
+    overrides) without touching every call site."""
+    return FEATURE_FLAGS.get(name, False)
 
 # The app's own developer/admin - NOT a household owner. Gates the in-app
 # feedback list specifically to this one account, regardless of which
@@ -561,6 +647,44 @@ def current_household():
         db.close()
 
 
+import contextlib
+
+@contextlib.contextmanager
+def locked_household():
+    """Open one DB session and lock the current household's row with
+    SELECT ... FOR UPDATE for the lifetime of the `with` block, so a
+    concurrent request touching the same household (e.g. two menu swaps,
+    or a swap racing a regenerate) blocks until this one commits, instead
+    of both reading stale data and one silently overwriting the other's
+    change on save. Only a real risk once the app runs with more than one
+    gunicorn worker/thread (it doesn't today), but this closes the gap
+    before that becomes an actual bug rather than after.
+
+    Yields (db_session, household) - household is None if there's no
+    DB-backed household for this request (e.g. file-storage fallback,
+    which doesn't need locking - there's no concurrent access to a single
+    Pi's local file). Callers must do ALL of their read + mutate + save
+    for this household inside the `with` block, using the yielded
+    `household` object (NOT `current_household()`, which returns a
+    detached object from an already-closed session)."""
+    household_id = current_household_id()
+    if not household_id:
+        yield None, None
+        return
+    from database.database import SessionLocal
+    from database.models import Household
+    db = SessionLocal()
+    try:
+        household = db.query(Household).filter(Household.id == household_id).with_for_update().first()
+        yield db, household
+        db.commit()
+    except Exception:
+        db.rollback()
+        raise
+    finally:
+        db.close()
+
+
 def log_activity(action_msg):
     """Record one activity-log entry for the current household.
 
@@ -756,6 +880,7 @@ def inject_config():
         'is_app_admin': is_app_admin,
         'active_avatar_type': active_avatar_type,
         'active_avatar_value': active_avatar_value,
+        'feature_flags': FEATURE_FLAGS,
     }
 
 # ── Helpers ──────────────────────────────────────────────────────────────────
@@ -1095,6 +1220,12 @@ def shopping_list():
     for category, items in shopping.items():
         for item in items:
             item['in_pantry'] = item.get('ingredient', '').strip().lower() in pantry
+            # Same allergen-tag translation as _normalize_recipe() (B46) -
+            # shopping list items aggregate per-ingredient allergens from
+            # whichever recipes contributed them, in whatever language each
+            # one happened to be authored in.
+            if item.get('allergens'):
+                item['allergens'] = [_translate_allergen(a, lang) for a in item['allergens']]
 
     return render_template('shopping.html', shopping_list=shopping, pantry=sorted(pantry))
 
@@ -2324,6 +2455,14 @@ def api_menu():
 
 @app.route('/api/regenerate', methods=['POST'])
 def api_regenerate():
+    """Build a fresh weekly menu from the selected categories/favorites and
+    save it, replacing whatever menu existed before.
+
+    The save happens inside locked_household() (row-locked via
+    SELECT ... FOR UPDATE) rather than through MenuGenerator's own separate
+    save session, so a regenerate can't land in between a concurrent
+    swap-recipe's read and write and get silently overwritten (or overwrite
+    it) - both now go through the same lock on this household's row."""
     if not acting_role_can_edit():
         return jsonify({'status': 'error', 'message': 'Viewers cannot regenerate the menu'}), 403
 
@@ -2339,12 +2478,23 @@ def api_regenerate():
         num_dinners = max(1, min(6, num_dinners))
         logger.info(f"Generating menu with categories: {selected_categories}, favorites: {len(favorite_recipe_ids)}, num_dinners: {num_dinners}")
         generator = MenuGenerator(selected_categories=selected_categories, household_id=current_household_id(), favorite_recipe_ids=favorite_recipe_ids)
-        menu = generator.run(num_dinners=num_dinners, save=True)
+        # save=False: persistence now happens below, inside locked_household(),
+        # instead of through the generator's own separate save session.
+        menu = generator.run(num_dinners=num_dinners, save=False)
 
         if not menu or not menu.get('dinners'):
             return jsonify({'status': 'error', 'message': 'No recipes available for selected categories. Please select different categories or add recipes.'}), 400
 
-        log_activity("Regenerated the weekly menu")
+        with locked_household() as (db, household):
+            if household:
+                from core.household_paths import save_weekly_menu_to_db, append_activity_to_db
+                save_weekly_menu_to_db(household, menu)
+                append_activity_to_db(household, current_actor_name(), "Regenerated the weekly menu")
+            else:
+                # No DB-backed household (file-storage fallback) - fall back
+                # to the generator's own file-based save path.
+                generator.save_menu(menu)
+                log_activity("Regenerated the weekly menu")
 
         logger.info("Menu regenerated via API")
         return jsonify({'status': 'success', 'menu': menu})
@@ -2706,7 +2856,14 @@ def api_swap_recipe():
     days trade places entirely (a true swap - nothing is lost or
     duplicated). If the recipe isn't currently in this week's menu at all
     (e.g. picking a brand-new recipe from the catalog), it's simply inserted
-    into the target day, replacing whatever was already planned there."""
+    into the target day, replacing whatever was already planned there.
+
+    Read + mutate + save all happen inside one locked_household() session
+    (row-locked via SELECT ... FOR UPDATE) rather than a separate read
+    session followed by a separate write session - the old pattern had a
+    real read-modify-write race window between the two, where a concurrent
+    request touching the same household could silently lose this swap on
+    save."""
     if not acting_role_can_edit():
         return jsonify({'status': 'error', 'message': 'Viewers cannot change the menu'}), 403
     try:
@@ -2717,101 +2874,108 @@ def api_swap_recipe():
         if not recipe_id or not day:
             return jsonify({'status': 'error', 'message': 'Recipe ID and day required'}), 400
 
-        menu = load_menu()
-        if not menu:
-            return jsonify({'status': 'error', 'message': 'No menu generated yet'}), 404
-
-        dinners = menu.get('dinners', [])
-        target = next((d for d in dinners if d['day'] == day), None)
-        if not target:
-            return jsonify({'status': 'error', 'message': f'Day {day} not found in menu'}), 404
-
-        source = next((d for d in dinners if d.get('recipe_id') == recipe_id and d is not target), None)
-        swapped_with_day = None
-
-        if source:
-            # True swap - exchange everything except the 'day' field itself.
-            source_day, target_day = source['day'], target['day']
-            source_copy, target_copy = dict(source), dict(target)
-            source.clear()
-            source.update(target_copy)
-            source['day'] = source_day
-            target.clear()
-            target.update(source_copy)
-            target['day'] = target_day
-            swapped_with_day = source_day
-            recipe_title = target['title']
-        else:
-            recipe = find_recipe(recipe_id)
-            if not recipe:
-                return jsonify({'status': 'error', 'message': 'Recipe not found'}), 404
-
-            # Mirror MenuGenerator.generate_menu()'s field derivation exactly -
-            # this used to only set recipe_id/title/time_minutes/difficulty,
-            # leaving title_no/title_en/subtitle_no/subtitle_en/protein/
-            # image_url stale from whatever recipe used to be on this day.
-            # The dashboard prefers title_en/title_no over the raw 'title'
-            # field when resolving what to display, so it kept silently
-            # showing the OLD recipe's name even though the swap "worked".
-            from core.menu_generator import MenuGenerator, PROTEIN_IMAGES
-
-            title = recipe.get('title')
-            if isinstance(title, dict):
-                title_en = title.get('en', '')
-                title_no = title.get('no', '')
-            else:
-                title_en = recipe.get('title_en', title or '')
-                title_no = recipe.get('title_no', title or '')
-
-            subtitle = recipe.get('subtitle')
-            if isinstance(subtitle, dict):
-                subtitle_en = subtitle.get('en', '')
-                subtitle_no = subtitle.get('no', '')
-            else:
-                subtitle_en = recipe.get('subtitle_en', subtitle or '')
-                subtitle_no = recipe.get('subtitle_no', subtitle or '')
-
-            protein_type = MenuGenerator().get_protein_type(title_en or title_no or '', subtitle_en or subtitle_no or '', recipe.get('category', ''))
-
-            target['recipe_id'] = recipe['id']
-            target['title'] = recipe['title']
-            target['title_no'] = title_no
-            target['title_en'] = title_en
-            target['time_minutes'] = recipe.get('time_minutes') or recipe.get('cookTimeMinutes') or 0
-            target['difficulty'] = recipe.get('difficulty', '')
-            target['protein'] = protein_type
-            target['subtitle_no'] = subtitle_no
-            target['subtitle_en'] = subtitle_en
-            target['image_url'] = PROTEIN_IMAGES.get(protein_type, PROTEIN_IMAGES.get('vegetarian'))
-            recipe_title = title_en or title_no or 'Recipe'
-
-        # Save the updated menu. Menus live in the household's DB row, not
-        # the flat file, once a household exists - writing only to the file
-        # here silently discarded the swap (menu kept loading the old DB
-        # copy on every subsequent page view).
         household_id = current_household_id()
-        household = current_household()
-        activity_msg = (f"Swapped {day} and {swapped_with_day}" if swapped_with_day
-                        else f"Swapped {day}'s dinner to '{recipe_title}'")
-        if household:
-            from database.database import SessionLocal
-            from database.models import Household
-            from core.household_paths import save_weekly_menu_to_db, append_activity_to_db
 
-            db = SessionLocal()
-            try:
-                db_household = db.query(Household).filter(Household.id == household.id).first()
-                if db_household:
-                    save_weekly_menu_to_db(db_household, menu)
-                    append_activity_to_db(db_household, current_actor_name(), activity_msg)
-                    db.commit()
-            finally:
-                db.close()
-        else:
-            from core.household_paths import menu_file, append_activity
-            with open(menu_file(household_id), 'w', encoding='utf-8') as f:
-                json.dump(menu, f, ensure_ascii=False, indent=2)
-            append_activity(household_id, current_actor_name(), activity_msg)
+        with locked_household() as (db, household):
+            if household:
+                from core.household_paths import load_weekly_menu_from_db, save_weekly_menu_to_db, append_activity_to_db
+                menu = load_weekly_menu_from_db(household)
+            else:
+                # No DB-backed household (file-storage fallback) - no
+                # locking needed, there's no concurrent access to a single
+                # Pi's local file.
+                menu = load_menu()
+
+            if not menu:
+                return jsonify({'status': 'error', 'message': 'No menu generated yet'}), 404
+
+            dinners = menu.get('dinners', [])
+            target = next((d for d in dinners if d['day'] == day), None)
+            if not target:
+                return jsonify({'status': 'error', 'message': f'Day {day} not found in menu'}), 404
+
+            source = next((d for d in dinners if d.get('recipe_id') == recipe_id and d is not target), None)
+            swapped_with_day = None
+
+            if source:
+                # True swap - exchange everything except the 'day' field itself.
+                source_day, target_day = source['day'], target['day']
+                source_copy, target_copy = dict(source), dict(target)
+                source.clear()
+                source.update(target_copy)
+                source['day'] = source_day
+                target.clear()
+                target.update(source_copy)
+                target['day'] = target_day
+                swapped_with_day = source_day
+                # Resolve to a plain string for the activity log - target['title']
+                # can still be the raw bilingual {'en':..., 'no':...} dict after
+                # the swap above, which previously got embedded into the log
+                # message as Python's dict repr (e.g. "{'no': '...', 'en': '...'}")
+                # instead of the actual recipe name.
+                _swap_title = target.get('title')
+                recipe_title = (target.get('title_en') or target.get('title_no')
+                                 or (_swap_title if isinstance(_swap_title, str) else '')
+                                 or 'Recipe')
+            else:
+                recipe = find_recipe(recipe_id)
+                if not recipe:
+                    return jsonify({'status': 'error', 'message': 'Recipe not found'}), 404
+
+                # Mirror MenuGenerator.generate_menu()'s field derivation exactly -
+                # this used to only set recipe_id/title/time_minutes/difficulty,
+                # leaving title_no/title_en/subtitle_no/subtitle_en/protein/
+                # image_url stale from whatever recipe used to be on this day.
+                # The dashboard prefers title_en/title_no over the raw 'title'
+                # field when resolving what to display, so it kept silently
+                # showing the OLD recipe's name even though the swap "worked".
+                from core.menu_generator import MenuGenerator, PROTEIN_IMAGES
+
+                title = recipe.get('title')
+                if isinstance(title, dict):
+                    title_en = title.get('en', '')
+                    title_no = title.get('no', '')
+                else:
+                    title_en = recipe.get('title_en', title or '')
+                    title_no = recipe.get('title_no', title or '')
+
+                subtitle = recipe.get('subtitle')
+                if isinstance(subtitle, dict):
+                    subtitle_en = subtitle.get('en', '')
+                    subtitle_no = subtitle.get('no', '')
+                else:
+                    subtitle_en = recipe.get('subtitle_en', subtitle or '')
+                    subtitle_no = recipe.get('subtitle_no', subtitle or '')
+
+                protein_type = MenuGenerator().get_protein_type(title_en or title_no or '', subtitle_en or subtitle_no or '', recipe.get('category', ''))
+
+                target['recipe_id'] = recipe['id']
+                target['title'] = recipe['title']
+                target['title_no'] = title_no
+                target['title_en'] = title_en
+                target['time_minutes'] = recipe.get('time_minutes') or recipe.get('cookTimeMinutes') or 0
+                target['difficulty'] = recipe.get('difficulty', '')
+                target['protein'] = protein_type
+                target['subtitle_no'] = subtitle_no
+                target['subtitle_en'] = subtitle_en
+                target['image_url'] = PROTEIN_IMAGES.get(protein_type, PROTEIN_IMAGES.get('vegetarian'))
+                recipe_title = title_en or title_no or 'Recipe'
+
+            activity_msg = (f"Swapped {day} and {swapped_with_day}" if swapped_with_day
+                            else f"Swapped {day}'s dinner to '{recipe_title}'")
+
+            # Save the updated menu. Menus live in the household's DB row, not
+            # the flat file, once a household exists - writing only to the file
+            # here silently discarded the swap (menu kept loading the old DB
+            # copy on every subsequent page view).
+            if household:
+                save_weekly_menu_to_db(household, menu)
+                append_activity_to_db(household, current_actor_name(), activity_msg)
+            else:
+                from core.household_paths import menu_file, append_activity
+                with open(menu_file(household_id), 'w', encoding='utf-8') as f:
+                    json.dump(menu, f, ensure_ascii=False, indent=2)
+                append_activity(household_id, current_actor_name(), activity_msg)
 
         logger.info(activity_msg)
         return jsonify({'status': 'success', 'message': activity_msg, 'swapped_with_day': swapped_with_day})
@@ -3073,6 +3237,55 @@ def manage_recipe_packs():
     lang = _get_lang()
     recipes = [_normalize_recipe(r, lang) for r in load_recipes_db()]
     return render_template('recipe-packs-manage.html', recipes=recipes)
+
+# ── Hidden feature foundation: dessert/drinks browsing (F2), side stash (F8) ─
+# Gated behind FEATURE_FLAGS (see the block right after IS_PRODUCTION, and
+# docs/FEATURE_FLAGS.md). Every route below 404s outright when its flag is
+# off, so the public build behaves exactly as if these routes don't exist -
+# this is deliberate over hiding a nav link, since a stray direct URL guess
+# shouldn't reveal in-progress functionality either. Data loading lives in
+# core/stash_library.py, kept isolated from the recipe-pack/menu code so
+# this can be reshaped later without touching anything public-facing.
+
+@app.route('/desserts-drinks')
+def desserts_drinks_page():
+    """Hidden dev-only browser for the dessert + drinks stash (F2 foundation)."""
+    if not feature_enabled('desserts_drinks'):
+        abort(404)
+    from core.stash_library import load_dessert_stash, load_drinks_stash
+    lang = _get_lang()
+    desserts = [_normalize_recipe(r, lang) for r in load_dessert_stash()]
+    drinks = [_normalize_recipe(r, lang) for r in load_drinks_stash()]
+    return render_template('desserts-drinks.html', desserts=desserts, drinks=drinks)
+
+@app.route('/api/desserts-drinks/list')
+def api_desserts_drinks_list():
+    if not feature_enabled('desserts_drinks'):
+        abort(404)
+    from core.stash_library import load_dessert_stash, load_drinks_stash
+    lang = _get_lang()
+    return jsonify({
+        'desserts': [_normalize_recipe(r, lang) for r in load_dessert_stash()],
+        'drinks': [_normalize_recipe(r, lang) for r in load_drinks_stash()],
+    })
+
+@app.route('/sides-stash')
+def sides_stash_page():
+    """Hidden dev-only browser for the side-dish stash (F8 foundation)."""
+    if not feature_enabled('side_stash'):
+        abort(404)
+    from core.stash_library import load_sides_stash
+    lang = _get_lang()
+    sides = [_normalize_recipe(r, lang) for r in load_sides_stash()]
+    return render_template('sides-stash.html', sides=sides)
+
+@app.route('/api/sides-stash/list')
+def api_sides_stash_list():
+    if not feature_enabled('side_stash'):
+        abort(404)
+    from core.stash_library import load_sides_stash
+    lang = _get_lang()
+    return jsonify({'sides': [_normalize_recipe(r, lang) for r in load_sides_stash()]})
 
 # ── Personal Recipe Arsenal API ───────────────────────────────────────────────
 

@@ -1,0 +1,2508 @@
+{
+  "packId": "pack_around_the_world",
+  "packName": {
+    "no": "Rundt Jorden",
+    "en": "Around the World"
+  },
+  "packDescription": {
+    "no": "Ett ikonisk måltid fra hvert av 16 land — originale oppskrifter inspirert av klassiske, tradisjonelle tilberedningsmåter fra hele verden.",
+    "en": "One iconic dish from each of 16 countries — original recipes inspired by classic, traditional preparations from around the world."
+  },
+  "packImage": "🌍",
+  "packColor": "#2E86AB",
+  "recipeCount": 16,
+  "estimatedCookTime": "varies",
+  "difficulty": "varies",
+  "recipes": [
+    {
+      "id": "wld_001",
+      "title": {
+        "no": "Spaghetti Carbonara",
+        "en": "Spaghetti Carbonara"
+      },
+      "subtitle": {
+        "no": "Klassisk italiensk pasta med egg, ost og pancetta",
+        "en": "Classic Italian pasta with egg, cheese and pancetta"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Pasta & Noodles",
+      "tags": [
+        "traditional",
+        "pasta",
+        "cuisine:italian"
+      ],
+      "allergens": [
+        "gluten",
+        "egg",
+        "milk"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Spaghetti",
+            "en": "Spaghetti"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Pancetta eller bacon, i terninger",
+            "en": "Pancetta or bacon, diced"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Eggs"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Pecorino eller parmesan, revet",
+            "en": "Pecorino or parmesan, grated"
+          },
+          "amount": 80,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok spaghettien i godt saltet vann til al dente.",
+          "2. Stek pancetta og hvitløk i en panne til sprøtt.",
+          "3. Visp egg og revet ost sammen i en bolle.",
+          "4. Ha av varmen, bland varm pasta med pancetta.",
+          "5. Rør inn eggeblandingen raskt av varmen slik at det blir kremet, ikke stekt.",
+          "6. Spe med litt av kokevannet ved behov. Server straks med ekstra ost og pepper."
+        ],
+        "en": [
+          "1. Cook the spaghetti in well-salted water until al dente.",
+          "2. Fry the pancetta and garlic in a pan until crisp.",
+          "3. Whisk the eggs and grated cheese together in a bowl.",
+          "4. Off the heat, toss the hot pasta with the pancetta.",
+          "5. Quickly stir in the egg mixture off the heat so it turns creamy, not scrambled.",
+          "6. Loosen with a splash of pasta water if needed. Serve immediately with extra cheese and pepper."
+        ]
+      }
+    },
+    {
+      "id": "wld_002",
+      "title": {
+        "no": "Ratatouille",
+        "en": "Ratatouille"
+      },
+      "subtitle": {
+        "no": "Provençalsk grønnsaksgryte",
+        "en": "Provençal vegetable stew"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 50,
+      "servings": 4,
+      "category": "Vegetarian",
+      "tags": [
+        "traditional",
+        "vegetarian",
+        "cuisine:french"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Aubergine",
+            "en": "Eggplant"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Squash",
+            "en": "Zucchini"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Paprika",
+            "en": "Bell pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomater",
+            "en": "Tomatoes"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Olivenolje",
+            "en": "Olive oil"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Frisk timian",
+            "en": "Fresh thyme"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Skjær alle grønnsakene i grove terninger.",
+          "2. Surr løk og hvitløk i olivenolje til blank.",
+          "3. Tilsett aubergine og paprika, stek noen minutter.",
+          "4. Tilsett squash og tomater, krydre med timian, salt og pepper.",
+          "5. La det småkoke under lokk i 30-35 minutter til grønnsakene er møre.",
+          "6. Server varm eller lunken, gjerne med brød."
+        ],
+        "en": [
+          "1. Cut all the vegetables into rough dice.",
+          "2. Sweat the onion and garlic in olive oil until translucent.",
+          "3. Add the eggplant and bell pepper, cook for a few minutes.",
+          "4. Add the zucchini and tomatoes, season with thyme, salt and pepper.",
+          "5. Simmer covered for 30-35 minutes until the vegetables are tender.",
+          "6. Serve warm or at room temperature, ideally with bread."
+        ]
+      }
+    },
+    {
+      "id": "wld_003",
+      "title": {
+        "no": "Kylling- og Reke-paella",
+        "en": "Chicken and Shrimp Paella"
+      },
+      "subtitle": {
+        "no": "Spansk risrett med safran",
+        "en": "Spanish saffron rice dish"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 55,
+      "servings": 4,
+      "category": "Other",
+      "tags": [
+        "traditional",
+        "rice",
+        "cuisine:spanish"
+      ],
+      "allergens": [
+        "shellfish"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Rundkornet ris (paella-ris)",
+            "en": "Short-grain paella rice"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kyllingfilet, i biter",
+            "en": "Chicken breast, cubed"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Reker",
+            "en": "Shrimp"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Paprika",
+            "en": "Bell pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomater, hakkede",
+            "en": "Chopped tomatoes"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kyllingkraft",
+            "en": "Chicken stock"
+          },
+          "amount": 700,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Safrantråder",
+            "en": "Saffron threads"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "klype",
+            "en": "pinch"
+          }
+        },
+        {
+          "name": {
+            "no": "Olivenolje",
+            "en": "Olive oil"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Brun kyllingbitene i olivenolje i en vid panne eller paellapanne, ta ut og sett til side.",
+          "2. Surr løk, paprika og hvitløk i samme panne.",
+          "3. Tilsett tomater og la det koke inn litt.",
+          "4. Rør inn risen slik at kornene dekkes av fettet.",
+          "5. Hell i kraften og safran, ha kyllingen tilbake i pannen.",
+          "6. La det koke uten lokk og uten omrøring i ca. 18-20 minutter.",
+          "7. Legg reken oppå de siste 5 minuttene til den er gjennomstekt.",
+          "8. La hvile 5 minutter før servering."
+        ],
+        "en": [
+          "1. Brown the chicken pieces in olive oil in a wide pan or paella pan, remove and set aside.",
+          "2. Sauté the onion, bell pepper and garlic in the same pan.",
+          "3. Add the tomatoes and let them cook down slightly.",
+          "4. Stir in the rice so the grains are coated in the fat.",
+          "5. Pour in the stock and saffron, return the chicken to the pan.",
+          "6. Simmer uncovered without stirring for about 18-20 minutes.",
+          "7. Lay the shrimp on top for the last 5 minutes until cooked through.",
+          "8. Let rest for 5 minutes before serving."
+        ]
+      }
+    },
+    {
+      "id": "wld_004",
+      "title": {
+        "no": "Moussaka",
+        "en": "Moussaka"
+      },
+      "subtitle": {
+        "no": "Gresk aubergine- og kjøttdeiggrateng med bechamel",
+        "en": "Greek eggplant and ground meat bake with bechamel"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 90,
+      "servings": 6,
+      "category": "Ground Meat & Sausages",
+      "tags": [
+        "traditional",
+        "baked",
+        "cuisine:greek"
+      ],
+      "allergens": [
+        "milk",
+        "gluten",
+        "egg"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Aubergine, i skiver",
+            "en": "Eggplant, sliced"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Kjøttdeig (lam eller storfe)",
+            "en": "Ground meat (lamb or beef)"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Hermetiske tomater, hakkede",
+            "en": "Canned tomatoes, chopped"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kanel",
+            "en": "Cinnamon"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Smør",
+            "en": "Butter"
+          },
+          "amount": 60,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvetemel",
+            "en": "Wheat flour"
+          },
+          "amount": 60,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Melk",
+            "en": "Milk"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Egg"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Parmesan, revet",
+            "en": "Parmesan, grated"
+          },
+          "amount": 60,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Olivenolje",
+            "en": "Olive oil"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Salt auberginskivene og la dem renne av seg 20 minutter, tørk av og stek gyllen i olivenolje.",
+          "2. Brun kjøttdeig med løk og hvitløk.",
+          "3. Tilsett tomater og kanel, la det småkoke 15 minutter til en tykk saus.",
+          "4. Lag bechamel: smelt smør, visp inn mel, spe gradvis med melk til jevn saus.",
+          "5. Ta av varmen og visp inn egg og halvparten av osten.",
+          "6. Lag lag i en ildfast form: aubergine, kjøttsaus, aubergine, avslutt med bechamel.",
+          "7. Dryss over resten av osten og stek på 180°C i 35-40 minutter til gyllen.",
+          "8. La hvile 10 minutter før servering."
+        ],
+        "en": [
+          "1. Salt the eggplant slices and let them drain for 20 minutes, pat dry and fry golden in olive oil.",
+          "2. Brown the ground meat with the onion and garlic.",
+          "3. Add tomatoes and cinnamon, simmer for 15 minutes into a thick sauce.",
+          "4. Make the bechamel: melt butter, whisk in flour, gradually add milk to a smooth sauce.",
+          "5. Off the heat, whisk in the egg and half the cheese.",
+          "6. Layer in a baking dish: eggplant, meat sauce, eggplant, finishing with bechamel.",
+          "7. Sprinkle the rest of the cheese on top and bake at 180°C for 35-40 minutes until golden.",
+          "8. Let rest for 10 minutes before serving."
+        ]
+      }
+    },
+    {
+      "id": "wld_005",
+      "title": {
+        "no": "Chicken Tikka Masala",
+        "en": "Chicken Tikka Masala"
+      },
+      "subtitle": {
+        "no": "Grillet kylling i kremet tomat- og krydderisaus",
+        "en": "Grilled chicken in a creamy spiced tomato sauce"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 50,
+      "servings": 4,
+      "category": "Chicken",
+      "tags": [
+        "traditional",
+        "curry",
+        "cuisine:indian"
+      ],
+      "allergens": [
+        "milk"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kyllingfilet, i biter",
+            "en": "Chicken breast, cubed"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Naturell yoghurt",
+            "en": "Plain yogurt"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Garam masala",
+            "en": "Garam masala"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Spisskummen",
+            "en": "Cumin"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Ingefær, revet",
+            "en": "Ginger, grated"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Hermetiske tomater",
+            "en": "Canned tomatoes"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Fløte",
+            "en": "Heavy cream"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Nøytral olje",
+            "en": "Neutral oil"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland kylling med yoghurt, halvparten av garam masala og spisskummen, la marinere minst 30 minutter.",
+          "2. Stek kyllingbitene i en het panne til de får farge, ta ut og sett til side.",
+          "3. Surr løk, hvitløk og ingefær i olje til myk.",
+          "4. Tilsett resten av krydderet og tomatene, la det småkoke 10 minutter.",
+          "5. Rør inn fløten og ha kyllingen tilbake i sausen.",
+          "6. La det trekke videre 10-15 minutter til kyllingen er gjennomstekt og sausen tykk.",
+          "7. Server med ris eller naanbrød."
+        ],
+        "en": [
+          "1. Mix the chicken with yogurt, half the garam masala and cumin, marinate for at least 30 minutes.",
+          "2. Sear the chicken pieces in a hot pan until browned, remove and set aside.",
+          "3. Sauté the onion, garlic and ginger in oil until soft.",
+          "4. Add the remaining spices and the tomatoes, simmer for 10 minutes.",
+          "5. Stir in the cream and return the chicken to the sauce.",
+          "6. Continue simmering for 10-15 minutes until the chicken is cooked through and the sauce has thickened.",
+          "7. Serve with rice or naan bread."
+        ]
+      }
+    },
+    {
+      "id": "wld_006",
+      "title": {
+        "no": "Pad Thai",
+        "en": "Pad Thai"
+      },
+      "subtitle": {
+        "no": "Stekte risnudler med reker, egg og peanøtter",
+        "en": "Stir-fried rice noodles with shrimp, egg and peanuts"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 35,
+      "servings": 4,
+      "category": "Pasta & Noodles",
+      "tags": [
+        "traditional",
+        "stir-fry",
+        "cuisine:thai"
+      ],
+      "allergens": [
+        "shellfish",
+        "egg",
+        "nuts",
+        "fish",
+        "soy"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Risnudler",
+            "en": "Rice noodles"
+          },
+          "amount": 250,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Reker",
+            "en": "Shrimp"
+          },
+          "amount": 250,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Egg",
+            "en": "Eggs"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Tofu, i terninger",
+            "en": "Tofu, cubed"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Fiskesaus",
+            "en": "Fish sauce"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Tamarindpasta",
+            "en": "Tamarind paste"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Brunt sukker",
+            "en": "Brown sugar"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Vårløk",
+            "en": "Spring onion"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Bønnespirer",
+            "en": "Bean sprouts"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Peanøtter, hakkede",
+            "en": "Peanuts, chopped"
+          },
+          "amount": 50,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Nøytral olje",
+            "en": "Neutral oil"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Lime",
+            "en": "Lime"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bløtlegg risnudlene i varmt vann til myke, la renne av.",
+          "2. Visp sammen fiskesaus, tamarindpasta og brunt sukker til en saus.",
+          "3. Stek reker og tofu i olje i en wok til reken er gjennomstekt, ta ut.",
+          "4. Sprek egget i samme wok og rør raskt om.",
+          "5. Tilsett nudlene og sausen, vend godt sammen.",
+          "6. Ha reker, tofu, vårløk og bønnespirer tilbake, vend raskt.",
+          "7. Server dryss med peanøtter og limebåter ved siden av."
+        ],
+        "en": [
+          "1. Soak the rice noodles in hot water until soft, then drain.",
+          "2. Whisk together the fish sauce, tamarind paste and brown sugar into a sauce.",
+          "3. Fry the shrimp and tofu in oil in a wok until the shrimp is cooked through, remove.",
+          "4. Crack the egg into the same wok and scramble quickly.",
+          "5. Add the noodles and the sauce, toss well together.",
+          "6. Return the shrimp, tofu, spring onion and bean sprouts, toss briefly.",
+          "7. Serve sprinkled with peanuts and lime wedges on the side."
+        ]
+      }
+    },
+    {
+      "id": "wld_007",
+      "title": {
+        "no": "Teriyaki-laks",
+        "en": "Teriyaki Salmon"
+      },
+      "subtitle": {
+        "no": "Japansk laks glassert med søt soyasaus",
+        "en": "Japanese salmon glazed in sweet soy sauce"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 25,
+      "servings": 4,
+      "category": "Fish & Seafood",
+      "tags": [
+        "traditional",
+        "grilled",
+        "cuisine:japanese"
+      ],
+      "allergens": [
+        "fish",
+        "soy",
+        "gluten",
+        "sesame"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Laksefilet",
+            "en": "Salmon fillet"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Soyasaus",
+            "en": "Soy sauce"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Mirin",
+            "en": "Mirin"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Sake",
+            "en": "Sake"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Sesamfrø",
+            "en": "Sesame seeds"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Vårløk",
+            "en": "Spring onion"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland soyasaus, mirin, sake og sukker i en kjele og kok opp til det tykner litt.",
+          "2. Stek laksefileten i en panne med skinnsiden ned til sprø.",
+          "3. Snu laksen og hell teriyakisausen over.",
+          "4. La den småkoke og glasere laksen i 3-4 minutter til gjennomstekt.",
+          "5. Dryss over sesamfrø og hakket vårløk, server med ris."
+        ],
+        "en": [
+          "1. Mix the soy sauce, mirin, sake and sugar in a saucepan and bring to a boil until slightly thickened.",
+          "2. Fry the salmon fillet skin-side down in a pan until crisp.",
+          "3. Flip the salmon and pour over the teriyaki sauce.",
+          "4. Let it simmer and glaze the salmon for 3-4 minutes until cooked through.",
+          "5. Sprinkle with sesame seeds and chopped spring onion, serve with rice."
+        ]
+      }
+    },
+    {
+      "id": "wld_008",
+      "title": {
+        "no": "Kung Pao-kylling",
+        "en": "Kung Pao Chicken"
+      },
+      "subtitle": {
+        "no": "Wokstekt kylling med peanøtter og chili",
+        "en": "Stir-fried chicken with peanuts and chili"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 30,
+      "servings": 4,
+      "category": "Chicken",
+      "tags": [
+        "traditional",
+        "stir-fry",
+        "spicy",
+        "cuisine:chinese"
+      ],
+      "allergens": [
+        "soy",
+        "nuts",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kyllingfilet, i terninger",
+            "en": "Chicken breast, cubed"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Peanøtter",
+            "en": "Peanuts"
+          },
+          "amount": 80,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Tørket chili",
+            "en": "Dried chili"
+          },
+          "amount": 6,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Ingefær, revet",
+            "en": "Ginger, grated"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Soyasaus",
+            "en": "Soy sauce"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Riseddik",
+            "en": "Rice vinegar"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Sukker",
+            "en": "Sugar"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Maisennamel",
+            "en": "Cornstarch"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Vårløk",
+            "en": "Spring onion"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Nøytral olje",
+            "en": "Neutral oil"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland soyasaus, riseddik, sukker og maisennamel til en saus.",
+          "2. Wok-stek kyllingen i olje til gyllen og gjennomstekt, ta ut.",
+          "3. Stek tørket chili, hvitløk og ingefær kort i samme wok.",
+          "4. Ha kyllingen tilbake og hell over sausen, rør til den tykner.",
+          "5. Vend inn peanøtter og vårløk rett før servering.",
+          "6. Server med kokt ris."
+        ],
+        "en": [
+          "1. Mix the soy sauce, rice vinegar, sugar and cornstarch into a sauce.",
+          "2. Stir-fry the chicken in oil until golden and cooked through, remove.",
+          "3. Briefly fry the dried chili, garlic and ginger in the same wok.",
+          "4. Return the chicken and pour over the sauce, stirring until it thickens.",
+          "5. Fold in the peanuts and spring onion just before serving.",
+          "6. Serve with steamed rice."
+        ]
+      }
+    },
+    {
+      "id": "wld_009",
+      "title": {
+        "no": "Kyllingenchiladas",
+        "en": "Chicken Enchiladas"
+      },
+      "subtitle": {
+        "no": "Rullede tortillas med kylling og salsasaus",
+        "en": "Rolled tortillas with chicken and salsa sauce"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 45,
+      "servings": 4,
+      "category": "Taco & Tex-Mex",
+      "tags": [
+        "traditional",
+        "baked",
+        "cuisine:mexican"
+      ],
+      "allergens": [
+        "milk",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kokt, most kylling",
+            "en": "Cooked, shredded chicken"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Tortillas",
+            "en": "Tortillas"
+          },
+          "amount": 8,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Hermetiske tomater",
+            "en": "Canned tomatoes"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Chilipulver",
+            "en": "Chili powder"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Spisskummen",
+            "en": "Cumin"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Revet ost",
+            "en": "Shredded cheese"
+          },
+          "amount": 150,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Rømme",
+            "en": "Sour cream"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Nøytral olje",
+            "en": "Neutral oil"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Surr løk og hvitløk i olje, tilsett tomater, chilipulver og spisskummen.",
+          "2. La sausen småkoke 10 minutter, mos til jevn konsistens.",
+          "3. Bland litt av sausen med den kokte kyllingen.",
+          "4. Fyll tortillaene med kyllingblandingen og rull sammen.",
+          "5. Legg rullene i en ildfast form, hell resten av sausen over.",
+          "6. Dryss over ost og stek på 200°C i 20 minutter til boblende.",
+          "7. Server med rømme."
+        ],
+        "en": [
+          "1. Sauté the onion and garlic in oil, add the tomatoes, chili powder and cumin.",
+          "2. Simmer the sauce for 10 minutes, blend until smooth.",
+          "3. Mix a little of the sauce with the cooked chicken.",
+          "4. Fill the tortillas with the chicken mixture and roll up.",
+          "5. Place the rolls in a baking dish, pour the rest of the sauce over.",
+          "6. Sprinkle with cheese and bake at 200°C for 20 minutes until bubbling.",
+          "7. Serve with sour cream."
+        ]
+      }
+    },
+    {
+      "id": "wld_010",
+      "title": {
+        "no": "Klassisk Amerikansk Burger",
+        "en": "Classic American Burger"
+      },
+      "subtitle": {
+        "no": "Grillet oksekjøttburger med ost og dressing",
+        "en": "Grilled beef burger with cheese and dressing"
+      },
+      "difficulty": "easy",
+      "cookTimeMinutes": 25,
+      "servings": 4,
+      "category": "Beef & Red Meat",
+      "tags": [
+        "traditional",
+        "grilled",
+        "cuisine:american"
+      ],
+      "allergens": [
+        "gluten",
+        "milk",
+        "egg",
+        "mustard"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kjøttdeig av storfe",
+            "en": "Ground beef"
+          },
+          "amount": 600,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Burgerbrød",
+            "en": "Burger buns"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Ostesskiver",
+            "en": "Cheese slices"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Salat",
+            "en": "Lettuce"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "blader",
+            "en": "leaves"
+          }
+        },
+        {
+          "name": {
+            "no": "Tomat, i skiver",
+            "en": "Tomato, sliced"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk, i ringer",
+            "en": "Onion, sliced into rings"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Sennep",
+            "en": "Mustard"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Ketchup",
+            "en": "Ketchup"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Form kjøttdeigen til fire jevne burgere, krydre med salt og pepper.",
+          "2. Grill eller stek burgerne 3-4 minutter på hver side.",
+          "3. Legg ost på burgerne de siste minuttene så den smelter.",
+          "4. Rist burgerbrødene lett.",
+          "5. Smør brødene med sennep og ketchup.",
+          "6. Legg burger, salat, tomat og løk mellom brødhalvdelene og server."
+        ],
+        "en": [
+          "1. Shape the ground beef into four even patties, season with salt and pepper.",
+          "2. Grill or fry the patties for 3-4 minutes on each side.",
+          "3. Add cheese to the patties for the last minute so it melts.",
+          "4. Lightly toast the buns.",
+          "5. Spread the buns with mustard and ketchup.",
+          "6. Layer the patty, lettuce, tomato and onion between the bun halves and serve."
+        ]
+      }
+    },
+    {
+      "id": "wld_011",
+      "title": {
+        "no": "Kylling-tagine med Aprikoser",
+        "en": "Chicken Tagine with Apricots"
+      },
+      "subtitle": {
+        "no": "Marokkansk gryte med kylling, aprikoser og krydder",
+        "en": "Moroccan stew with chicken, apricots and spices"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 60,
+      "servings": 4,
+      "category": "Chicken",
+      "tags": [
+        "traditional",
+        "stew",
+        "cuisine:moroccan"
+      ],
+      "allergens": [
+        "nuts"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kyllinglår",
+            "en": "Chicken thighs"
+          },
+          "amount": 700,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Tørkede aprikoser",
+            "en": "Dried apricots"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Kanel",
+            "en": "Cinnamon"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Spisskummen",
+            "en": "Cumin"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Ingefær, malt",
+            "en": "Ground ginger"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Kyllingkraft",
+            "en": "Chicken stock"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Mandler, ristede",
+            "en": "Almonds, toasted"
+          },
+          "amount": 40,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Olivenolje",
+            "en": "Olive oil"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Brun kyllinglårene i olivenolje, ta ut og sett til side.",
+          "2. Surr løk og hvitløk i samme gryte til myke.",
+          "3. Tilsett kanel, spisskummen og ingefær, stek kort til det dufter.",
+          "4. Ha kyllingen tilbake i gryten sammen med kraften og aprikosene.",
+          "5. La det småkoke under lokk i 35-40 minutter til kyllingen er mør.",
+          "6. Dryss over ristede mandler og server med couscous."
+        ],
+        "en": [
+          "1. Brown the chicken thighs in olive oil, remove and set aside.",
+          "2. Sauté the onion and garlic in the same pot until soft.",
+          "3. Add the cinnamon, cumin and ginger, cook briefly until fragrant.",
+          "4. Return the chicken to the pot along with the stock and apricots.",
+          "5. Simmer covered for 35-40 minutes until the chicken is tender.",
+          "6. Sprinkle with toasted almonds and serve with couscous."
+        ]
+      }
+    },
+    {
+      "id": "wld_012",
+      "title": {
+        "no": "Lam-köfte med Yoghurtsaus",
+        "en": "Lamb Köfte with Yogurt Sauce"
+      },
+      "subtitle": {
+        "no": "Grillede kjøttboller av lam med kald yoghurtsaus",
+        "en": "Grilled lamb meatballs with a cool yogurt sauce"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 35,
+      "servings": 4,
+      "category": "Beef & Red Meat",
+      "tags": [
+        "traditional",
+        "grilled",
+        "cuisine:turkish"
+      ],
+      "allergens": [
+        "milk"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Kjøttdeig av lam",
+            "en": "Ground lamb"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk, finhakket",
+            "en": "Onion, finely chopped"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Spisskummen",
+            "en": "Cumin"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Paprikapulver",
+            "en": "Paprika powder"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Fersk persille, hakket",
+            "en": "Fresh parsley, chopped"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Naturell yoghurt",
+            "en": "Plain yogurt"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk til saus",
+            "en": "Garlic for sauce"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "fedd",
+            "en": "clove"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland kjøttdeig med løk, hvitløk, spisskummen, paprikapulver, persille, salt og pepper.",
+          "2. Form deigen til avlange kjøttboller rundt spyd eller uten.",
+          "3. Grill eller stek köftene 4-5 minutter på hver side til gjennomstekt.",
+          "4. Rør sammen yoghurt med finrevet hvitløk og litt salt til sausen.",
+          "5. Server köftene med yoghurtsausen og flatbrød ved siden av."
+        ],
+        "en": [
+          "1. Mix the ground lamb with onion, garlic, cumin, paprika, parsley, salt and pepper.",
+          "2. Shape the mixture into oblong meatballs, on skewers or free-form.",
+          "3. Grill or fry the köfte for 4-5 minutes on each side until cooked through.",
+          "4. Stir the yogurt with finely grated garlic and a little salt for the sauce.",
+          "5. Serve the köfte with the yogurt sauce and flatbread on the side."
+        ]
+      }
+    },
+    {
+      "id": "wld_013",
+      "title": {
+        "no": "Sauerbraten",
+        "en": "Sauerbraten"
+      },
+      "subtitle": {
+        "no": "Tysk syrlig marinert oksestek",
+        "en": "German tangy marinated beef roast"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 180,
+      "servings": 6,
+      "category": "Beef & Red Meat",
+      "tags": [
+        "traditional",
+        "braised",
+        "cuisine:german"
+      ],
+      "allergens": [
+        "gluten",
+        "sulphites"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Oksestek",
+            "en": "Beef roast"
+          },
+          "amount": 1500,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Rødvinseddik",
+            "en": "Red wine vinegar"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Rødvin",
+            "en": "Red wine"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Laurbærblad",
+            "en": "Bay leaves"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Nellik",
+            "en": "Cloves"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Pepperkorn",
+            "en": "Peppercorns"
+          },
+          "amount": 6,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Pepperkaker, knuste",
+            "en": "Gingersnaps, crushed"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Nøytral olje",
+            "en": "Neutral oil"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Bland eddik, vin, løk, laurbær, nellik og pepperkorn til en marinade.",
+          "2. Legg kjøttet i marinaden og la det stå kjølig i 2-3 dager, snu innimellom.",
+          "3. Ta kjøttet opp, tørk av og brun godt i olje i en gryte.",
+          "4. Sil marinaden og hell den over kjøttet i gryten.",
+          "5. La det braisere under lokk på svak varme i 2,5-3 timer til møre.",
+          "6. Ta ut kjøttet, rør inn knuste pepperkaker i sausen for å tykne den.",
+          "7. Skjær kjøttet i skiver og server med sausen."
+        ],
+        "en": [
+          "1. Mix the vinegar, wine, onion, bay leaves, cloves and peppercorns into a marinade.",
+          "2. Place the meat in the marinade and refrigerate for 2-3 days, turning occasionally.",
+          "3. Remove the meat, pat dry and brown well in oil in a pot.",
+          "4. Strain the marinade and pour it over the meat in the pot.",
+          "5. Braise covered on low heat for 2.5-3 hours until tender.",
+          "6. Remove the meat, stir crushed gingersnaps into the sauce to thicken it.",
+          "7. Slice the meat and serve with the sauce."
+        ]
+      }
+    },
+    {
+      "id": "wld_014",
+      "title": {
+        "no": "Pho med Storfekjøtt",
+        "en": "Beef Pho"
+      },
+      "subtitle": {
+        "no": "Vietnamesisk nudelsuppe med krydret buljong",
+        "en": "Vietnamese noodle soup with a spiced broth"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 90,
+      "servings": 4,
+      "category": "Soups & Stews",
+      "tags": [
+        "traditional",
+        "soup",
+        "cuisine:vietnamese"
+      ],
+      "allergens": [
+        "fish",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Oksekraft",
+            "en": "Beef stock"
+          },
+          "amount": 1500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Oksebiff, tynt skåret",
+            "en": "Beef sirloin, thinly sliced"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Risnudler",
+            "en": "Rice noodles"
+          },
+          "amount": 250,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Ingefær",
+            "en": "Ginger"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Stjerneanis",
+            "en": "Star anise"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Kanelstang",
+            "en": "Cinnamon stick"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Fiskesaus",
+            "en": "Fish sauce"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Bønnespirer",
+            "en": "Bean sprouts"
+          },
+          "amount": 100,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Fersk koriander og basilikum",
+            "en": "Fresh cilantro and basil"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "bunt",
+            "en": "bunch"
+          }
+        },
+        {
+          "name": {
+            "no": "Lime",
+            "en": "Lime"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Grill løk og ingefær til de er svidd på overflaten, dette gir buljongen dypere smak.",
+          "2. Kok oksekraften med løk, ingefær, stjerneanis og kanel i 45 minutter.",
+          "3. Smak til buljongen med fiskesaus, sil den deretter.",
+          "4. Kok risnudlene etter anvisning på pakken.",
+          "5. Fordel nudler i skåler, legg over tynne skiver rå oksebiff.",
+          "6. Hell over kokende varm buljong slik at kjøttet gjennomstekes.",
+          "7. Server med bønnespirer, urter og limebåter ved siden av."
+        ],
+        "en": [
+          "1. Char the onion and ginger until scorched on the surface, this gives the broth a deeper flavor.",
+          "2. Simmer the beef stock with the onion, ginger, star anise and cinnamon for 45 minutes.",
+          "3. Season the broth with fish sauce, then strain it.",
+          "4. Cook the rice noodles according to the package instructions.",
+          "5. Divide the noodles into bowls, layer thin slices of raw beef sirloin on top.",
+          "6. Pour over piping hot broth so the meat cooks through.",
+          "7. Serve with bean sprouts, herbs and lime wedges on the side."
+        ]
+      }
+    },
+    {
+      "id": "wld_015",
+      "title": {
+        "no": "Falafel med Tahinisaus",
+        "en": "Falafel with Tahini Sauce"
+      },
+      "subtitle": {
+        "no": "Sprøstekte kikertboller med sesamsaus",
+        "en": "Crispy chickpea fritters with sesame sauce"
+      },
+      "difficulty": "medium",
+      "cookTimeMinutes": 40,
+      "servings": 4,
+      "category": "Vegetarian",
+      "tags": [
+        "traditional",
+        "fried",
+        "cuisine:lebanese"
+      ],
+      "allergens": [
+        "sesame",
+        "gluten"
+      ],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Tørkede kikerter, bløtlagt over natten",
+            "en": "Dried chickpeas, soaked overnight"
+          },
+          "amount": 250,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Fersk persille",
+            "en": "Fresh parsley"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "bunt",
+            "en": "bunch"
+          }
+        },
+        {
+          "name": {
+            "no": "Spisskummen",
+            "en": "Cumin"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Koriander, malt",
+            "en": "Ground coriander"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "ts",
+            "en": "tsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvetemel",
+            "en": "Wheat flour"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Tahini",
+            "en": "Tahini"
+          },
+          "amount": 3,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Sitron",
+            "en": "Lemon"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Nøytral olje til frityr",
+            "en": "Neutral oil for frying"
+          },
+          "amount": 500,
+          "unit": {
+            "no": "ml",
+            "en": "ml"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt",
+            "en": "Salt"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kjør avrente kikerter, løk, hvitløk, persille og krydder i foodprosessor til en grov masse.",
+          "2. Rør inn mel og salt, la massen hvile i kjøleskap 20 minutter.",
+          "3. Form massen til små runde boller.",
+          "4. Frityrstek falaflene i varm olje til gyldenbrune og sprø, ca. 4 minutter.",
+          "5. Rør sammen tahini, sitronsaft, litt vann og salt til en jevn saus.",
+          "6. Server falaflene varme med tahinisausen, gjerne i flatbrød med salat."
+        ],
+        "en": [
+          "1. Process the drained chickpeas, onion, garlic, parsley and spices in a food processor into a coarse mixture.",
+          "2. Stir in the flour and salt, let the mixture rest in the fridge for 20 minutes.",
+          "3. Shape the mixture into small round balls.",
+          "4. Deep-fry the falafel in hot oil until golden brown and crisp, about 4 minutes.",
+          "5. Stir together the tahini, lemon juice, a little water and salt into a smooth sauce.",
+          "6. Serve the falafel hot with the tahini sauce, ideally in flatbread with salad."
+        ]
+      }
+    },
+    {
+      "id": "wld_016",
+      "title": {
+        "no": "Feijoada",
+        "en": "Feijoada"
+      },
+      "subtitle": {
+        "no": "Brasiliansk gryte med svarte bønner, svin og storfe",
+        "en": "Brazilian stew with black beans, pork and beef"
+      },
+      "difficulty": "hard",
+      "cookTimeMinutes": 150,
+      "servings": 6,
+      "category": "Soups & Stews",
+      "tags": [
+        "traditional",
+        "stew",
+        "cuisine:brazilian"
+      ],
+      "allergens": [],
+      "ingredients": [
+        {
+          "name": {
+            "no": "Tørkede svarte bønner, bløtlagt over natten",
+            "en": "Dried black beans, soaked overnight"
+          },
+          "amount": 400,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Røkt svinekjøtt, i biter",
+            "en": "Smoked pork, cubed"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Oksebryst, i biter",
+            "en": "Beef brisket, cubed"
+          },
+          "amount": 300,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Pølse (chorizo-type), i skiver",
+            "en": "Sausage (chorizo-style), sliced"
+          },
+          "amount": 200,
+          "unit": {
+            "no": "gram",
+            "en": "g"
+          }
+        },
+        {
+          "name": {
+            "no": "Løk",
+            "en": "Onion"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Hvitløk",
+            "en": "Garlic"
+          },
+          "amount": 4,
+          "unit": {
+            "no": "fedd",
+            "en": "cloves"
+          }
+        },
+        {
+          "name": {
+            "no": "Laurbærblad",
+            "en": "Bay leaves"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "stk",
+            "en": "pcs"
+          }
+        },
+        {
+          "name": {
+            "no": "Appelsin, i båter",
+            "en": "Orange, in wedges"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "stk",
+            "en": "pc"
+          }
+        },
+        {
+          "name": {
+            "no": "Nøytral olje",
+            "en": "Neutral oil"
+          },
+          "amount": 2,
+          "unit": {
+            "no": "ss",
+            "en": "tbsp"
+          }
+        },
+        {
+          "name": {
+            "no": "Salt og pepper",
+            "en": "Salt and pepper"
+          },
+          "amount": 1,
+          "unit": {
+            "no": "etter smak",
+            "en": "to taste"
+          }
+        }
+      ],
+      "instructions": {
+        "no": [
+          "1. Kok de avrente bønnene i rikelig med vann til de er nesten møre, ca. 45 minutter.",
+          "2. Brun svinekjøtt, oksebryst og pølse i olje i en stor gryte.",
+          "3. Tilsett løk og hvitløk, surr til blank.",
+          "4. Ha bønnene med noe av kokevannet, laurbærblad og kjøttet i gryten.",
+          "5. La det småkoke under lokk i 1,5-2 timer til alt er mørt og gryten har tyknet.",
+          "6. Smak til med salt og pepper, server med appelsinbåter, ris og grønnkål ved siden av."
+        ],
+        "en": [
+          "1. Boil the drained beans in plenty of water until almost tender, about 45 minutes.",
+          "2. Brown the pork, beef brisket and sausage in oil in a large pot.",
+          "3. Add the onion and garlic, sauté until translucent.",
+          "4. Add the beans with some of their cooking water, the bay leaves and the meat to the pot.",
+          "5. Simmer covered for 1.5-2 hours until everything is tender and the stew has thickened.",
+          "6. Season with salt and pepper, serve with orange wedges, rice and collard greens on the side."
+        ]
+      }
+    }
+  ]
+}

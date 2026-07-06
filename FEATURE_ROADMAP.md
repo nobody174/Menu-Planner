@@ -1,6 +1,6 @@
 # Menu Planner — Feature Roadmap
 
-Last updated: 2026-07-05
+Last updated: 2026-07-06
 
 ---
 
@@ -63,6 +63,12 @@ Last updated: 2026-07-05
 - F11 (partial): Quick Start Guide now notes recipes are sized for a family of 4
 - A full mobile viewport pass, a Claude-in-Chrome automated QA pass, and multi-household/multi-user isolation testing — all clean or fixed, see changelog
 
+### Round 7 (2026-07-06) — see `CHANGELOG.md` for full detail
+- Design-critique pass on the live site: fixed the All Recipes `[object Object]` bug, stale "0 MIN" recipe times, day-card headers rendering the wrong theme color, added a difficulty color indicator, and several copy/UX refinements
+- Found and fixed a related activity-log bug (raw dict reprs shown for swap actions)
+- Closed out B46's category-tag and ingredient-name scope; allergen tags remain open
+- Re-verified B17 at the code level; investigated a potential menu-write race condition and confirmed it's not currently exploitable (single gunicorn worker, no real concurrency yet)
+
 ---
 
 ## 🎯 Now — before public + paid launch
@@ -70,7 +76,7 @@ Last updated: 2026-07-05
 See `BACKLOG_2026-07-01.md` for full detail and live status on all of these.
 
 - **Legal/compliance:** privacy policy + terms of service (none exist yet), trial-to-paid pre-charge notice, self-serve cancellation, 14-day right-of-withdrawal disclosure, tax/business registration timing, confirm Patreon's creator terms
-- **B46 (remaining):** data-level i18n pass across the recipe database — category tags, ingredient names, and allergen text still inconsistently translated
+- **B46 (remaining):** recipe allergen-tag inconsistency — category tags and ingredient names are done
 - **B17:** watching for recurrence of the intermittent relogin/"Oops!" issue a few more days before calling it closed
 
 ## 🔜 Next — planned features, no fixed order yet

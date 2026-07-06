@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Side Stash (dev) - {{ household_name }}{% endblock %}
+
+{% block content %}
+<div style="padding: 20px 0;">
+    <div style="background: #fff3cd; border: 1px solid #ffe69c; border-radius: 8px; padding: 12px 16px; margin-bottom: 20px; font-size: 0.9rem;">
+        🚧 Hidden dev-only page (F8 foundation) - gated behind <code>FEATURE_SIDE_STASH</code>. Not linked from the public nav.
+    </div>
+
+    <h1>Sides ({{ sides|length }})</h1>
+    <div style="display: grid; gap: 12px;">
+        {% for recipe in sides %}
+        <div style="border: 1px solid #ddd; border-radius: 8px; padding: 14px 16px; background: #fafafa;">
+            <strong>{{ recipe.title }}</strong>
+            <span style="color: #888; font-size: 0.85rem;"> · {{ recipe.difficulty }} · {{ recipe.time_minutes|format_minutes if recipe.time_minutes else recipe.cookTimeMinutes ~ ' min' }}</span>
+            {% if recipe.subtitle %}<div style="color: #666; font-size: 0.9rem; margin-top: 4px;">{{ recipe.subtitle }}</div>{% endif %}
+        </div>
+        {% else %}
+        <p style="color: #999;">No sides found in the stash.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

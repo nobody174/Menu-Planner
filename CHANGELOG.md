@@ -5,6 +5,73 @@ See `BACKLOG_2026-07-01.md` for open tasks and `FEATURE_ROADMAP.md` for planned 
 
 ---
 
+## 2026-07-06 (4)
+
+### 🧱 Hidden foundation for dessert/drinks browsing (F2) and side stash (F8)
+
+- New `core/stash_library.py`: isolated, read-only loaders for `data/dessert-stash.json`, `data/drinks-stash.json`, `data/sides-stash.json` (87/4/21 recipes respectively - previously unused data sitting in the repo since 2026-06-30 with no code reading them). Deliberately kept separate from the recipe-pack/menu code per the "keep future work modular" ticket, plus a `suggest_dessert_for_menu()` stub as the documented (but not yet wired-in) hook point for a future F9 dinner-planner integration.
+- Four new routes, all gated behind the feature flags added earlier today and 404ing outright when off (not just hidden from nav): `/desserts-drinks` + `/api/desserts-drinks/list` (`desserts_drinks` flag), `/sides-stash` + `/api/sides-stash/list` (`side_stash` flag). Two new minimal templates (`desserts-drinks.html`, `sides-stash.html`), clearly marked as dev-only, not linked from any public nav.
+- Public UI/behavior is completely unchanged - verified via a Flask test client: with flags at their default (off), all four routes 404; with `FEATURE_DESSERTS_DRINKS=true`/`FEATURE_SIDE_STASH=true` set, all four return 200 with the real stash data. Full 50-test suite still passes.
+- Recovered again mid-edit from this session's file-truncation quirk - this time the corruption cut off well past both today's edits (inside an unrelated, untouched route further down the file), and a routine backup-refresh accidentally overwrote the last known-good copy with the broken one. Fixed by splicing the intact prefix of the current (truncated) file with the corresponding unmodified tail from `git show HEAD` (verified nothing between the splice point and EOF had changed this session), rather than trusting either copy alone. Backup now only refreshed *after* a file is confirmed compiling and test-passing, not before.
+
+---
+
+## 2026-07-06 (3)
+
+### 🚩 Local-only feature flags added
+
+- Added `FEATURE_FLAGS` (env-var-backed, default OFF) to `deployment/flask_app.py` right after `IS_PRODUCTION`: `FEATURE_DESSERTS_DRINKS` (F2), `FEATURE_SIDE_STASH` (F8), `FEATURE_DESSERT_PLANNER` (F9). Exposed to routes via `feature_enabled(name)` and to all templates via `feature_flags` in `inject_config()`.
+- Logs a loud warning at startup if any flag is ever truthy while `FLASK_ENV=production` - belt-and-suspenders, since Render's env never sets these.
+- Documented in new `docs/FEATURE_FLAGS.md`; `.env.example` updated with commented-out examples.
+- Recovered mid-edit from this session's known file-truncation quirk (see earlier entries) by restoring from a `/tmp` safe copy and reapplying both today's edits in one pass - verified via `py_compile` and the full 50-test suite (all passing) before moving on.
+
+---
+
+## 2026-07-06 (2)
+
+### 🌍 New import pack: "Around the World"
+
+- Added `data/recipe-packs/pack_around_the_world.json` — 16 recipes, one iconic dish per country (Italy, France, Spain, Greece, India, Thailand, Japan, China, Mexico, USA, Morocco, Turkey, Germany, Vietnam, Lebanon, Brazil), fully bilingual (title/subtitle/ingredients/instructions in `no`/`en`), matching the existing pack schema documented in `docs/RECIPE_PACK_FORMAT.md`.
+- All recipes are original write-ups of classic, traditional preparations (not copied from any specific website or publication) - no copyright-restricted content included. New ID prefix `wld_` added to the format doc's ID convention table.
+- Verified: JSON validates, all 16 IDs are unique against the other 260 existing recipe IDs across all packs, and the pack is correctly picked up by the existing pack-discovery logic (`get_available_recipe_packs()` globs `pack_*.json` - no registry/allowlist changes needed) - simulated the `/api/recipe-packs/list` response and confirmed it appears alongside the other 12 packs with correct name, description, icon, and recipe count.
+
+---
+
+## 2026-07-06
+
+Design-critique pass on the live site, followed by a round of bug-hunting the critique surfaced along the way, closing out the remaining scope of B46, and a proactive fix for a menu-write concurrency gap ahead of scaling up.
+
+### 🎨 Design critique fixes
+
+- **All Recipes sidebar showed `[object Object]` for every day.** `/api/menu` only resolved bilingual `{en, no}` recipe titles into plain strings when a day-translation map existed (Norwegian only) - in English, the raw dict was sent straight to the sidebar JS and stringified as `[object Object]`. Now always resolved regardless of language.
+- **Stale "0 MIN" recipe times** (e.g. a holiday-pack recipe that only ever carried `cookTimeMinutes`, not `time_minutes`) baked into old saved menus. Dashboard and `/api/menu` now self-heal by looking the recipe back up when `time_minutes` is falsy.
+- **Day-card headers rendered navy instead of each theme's own color.** Root cause: base `style.css`'s `.card-header`/`.hero` set an opaque gradient via the `background` shorthand; four theme overrides (Nordic Pantry and Pop Art Diner's card-header, Pop Art Diner and Chalkboard Bistro's hero) only set `background-color`, which the shorthand's `background-image` silently painted over. Fixed all four to use the `background` shorthand like every other theme already does.
+- Added a small colored difficulty dot (green/amber/red) next to difficulty text on dashboard and All Recipes cards.
+- "Export & Sync" → "Export" (button + modal heading) now that Todo/Todoist/TickTick sync is gone.
+- Settings page: added subtle "Preferences" / "Advanced" group labels to separate everyday settings from power-user ones.
+
+### 🐛 Bugs found while investigating the above
+
+- **Activity log showed raw Python dict reprs** (e.g. `Swapped Tuesday's dinner to '{'no': '...', 'en': '...'}'`) for "true swap" actions (exchanging two days' recipes) - `recipe_title` was pulled from the post-swap `target['title']`, which can still be the unresolved bilingual dict. Now resolves to a plain string the same way the direct-assign branch already did.
+- **Duplicate recipe on two different days** (both Tuesday and Wednesday showing the same recipe) - investigated via the activity log and 300 simulated regenerations against the household's actual data; the generator itself can't produce this. Concluded it was a household member deliberately picking the same recipe for two days via two manual swaps, which the app correctly allows - not a bug.
+
+### ✅ B46 fully closed (category tags, ingredient names, allergen tags)
+
+- **Category tags** ("Quick Dinners", "Fish & Seafood", etc.) stayed in English regardless of language. The Norwegian names already existed in `data/categories.json` - the dashboard's translation map was hand-maintained and simply missing three categories (Pork, Beef & Red Meat, Sides & Light Meals), and nowhere else (All Recipes cards, recipe detail page) translated categories at all. Replaced with a shared `_translate_category_name()` helper backed directly by `categories.json`, applied everywhere a category is shown.
+- Updated "Quick Dinners" Norwegian name to "Raske Middager" per an explicit wording preference (was "Rask Middag").
+- **Ingredient names** (Carrot/Potato/Parsley/Turnip etc.) - investigated and found these already have correct Norwegian translations in the data (Gulrot/Potet/Persille/Nepe); live-checked the shopping list in Norwegian and every item rendered correctly. Whatever prompted the original observation no longer reproduces - closing this scope of B46 rather than inventing translations that already exist.
+- **Allergen tags** ("fisk" vs "fish", etc.) - root cause: no bilingual structure at all (unlike title/ingredients). The 10 built-in sample recipes stored raw Norwegian allergen strings ('fisk', 'melk', 'soya'), while imported recipe packs stored raw English strings ('fish', 'dairy', 'soy', etc.), so whichever language a recipe happened to be authored in is what displayed, regardless of site language. Added a canonical `_translate_allergen()` table covering every raw spelling found in the data, applied to both the recipe detail page's allergen badges and the shopping list's per-item allergen tags.
+
+### 🔍 B17 re-verified (not newly reproduced)
+
+- Re-checked the 2026-07-03 fix (persistent 30-day sessions, Postgres `pool_pre_ping`/`pool_recycle`) at the code level: confirmed there's a single centralized login point that sets `session.permanent = True` (no path skips it), and the DB pool settings are correctly wired. Couldn't force a live reproduction without access to Render's actual logs/idle behavior - still just monitoring for recurrence.
+
+### 🔒 Menu-write concurrency fixed (built proactively ahead of scaling up)
+
+- Not an active bug today (gunicorn runs a single sync worker, so there's no real request-level concurrency yet) - but since the goal is to grow, this was fixed now rather than left for a future incident. Added `locked_household()`, a context manager that opens one DB session and locks the current household's row (`SELECT ... FOR UPDATE`) for the whole read-modify-write, so a concurrent request touching the same household blocks until the first one commits instead of both working from stale data. Refactored `/api/swap-recipe` and `/api/regenerate` to do their entire read + mutate + save inside this one locked transaction instead of two separate sessions. Verified with the full test suite (50/50 passing) plus a direct functional test of regenerate → swap → re-read through a live test client, confirming menu state and activity log entries are correct end-to-end.
+
+---
+
 ## 2026-07-05
 
 Full punch-list pass, multi-user/multi-household testing, a Claude-in-Chrome QA sweep, a legal/compliance check ahead of public launch, an engineering security pass, and removal of the Microsoft To Do/Todoist/TickTick sync and the "Login with Microsoft" feature. This was a big day - kept in full detail here since it's the day most of the pre-public-launch groundwork got done.

@@ -143,6 +143,7 @@ Use these exact strings (comma list in JSON array):
 | Holiday | `hol_` | `hol_037` |
 | Italian | `it_` | `it_005` |
 | Mexican | `mex_` | `mex_003` |
+| Around the World | `wld_` | `wld_001` |
 | New packs | Pick a short prefix | `bbq_001` |
 
 IDs must be **unique across all packs**.
