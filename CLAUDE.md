@@ -1,15 +1,20 @@
 # Menu Planner — Working Instructions for Claude Code
 
-## Deploy workflow (how pushes to production happen)
+## Branch model
 
-Pushes to `public-release-v1` auto-deploy to **menuplanner.no** via a Render
-webhook triggered by `.github/workflows/ci.yml`. A bad push goes live
-automatically unless caught first. Follow this every time, no shortcuts:
+- **`main`** — day-to-day working branch. "Push main" / "save" means: push
+  commits to `main`. Runs the full CI pipeline, never deploys.
+- **`public-release-v1`** — production. Protected: GitHub rejects any direct
+  push unless every required status check has already passed on that exact
+  commit (branch protection, configured 2026-07-06). The only way to land a
+  change here is a pull request from `main` that has gone green.
+
+## "Push main" / save
 
 1. **`git status`** first. If there's anything unexpected (stray files,
    more changes than expected, a lock file, a branch that's diverged from
-   `github/public-release-v1`), stop and investigate before doing anything
-   else. Don't just trust a summary of what changed — check it yourself.
+   `github/main`), stop and investigate before doing anything else. Don't
+   just trust a summary of what changed — check it yourself.
 2. **Read the actual diff**, not just the file list. `git diff --stat` to
    see scope, then read the real diff for anything non-trivial. If a
    commit message (yours, the user's, or a co-worker session's) describes
@@ -17,12 +22,9 @@ automatically unless caught first. Follow this every time, no shortcuts:
    migration, mass file changes — verify that description against the
    actual diff before trusting it. Don't commit on the strength of a
    write-up alone.
-3. **Pull/merge first if needed.** If local is behind
-   `github/public-release-v1`, fetch and merge before pushing. Resolve
-   conflicts carefully — don't blindly take one side; read both hunks and
-   keep what's real (see past merges in this repo for the pattern: keep
-   both additions when they're independent, don't discard either side
-   without reading it).
+3. **Pull/merge first if needed.** If local is behind `github/main`, fetch
+   and merge before pushing. Resolve conflicts carefully — don't blindly
+   take one side; read both hunks and keep what's real.
 4. **Stage deliberately.** Prefer `git add <specific files>` over blind
    `git add -A` when the changeset is mixed; at minimum, review
    `git status` after staging to confirm nothing surprising got included
@@ -30,24 +32,41 @@ automatically unless caught first. Follow this every time, no shortcuts:
    be gitignored, not committed).
 5. **Commit** with a message that describes the *why*, not just the *what*
    — matches the style already in this repo's git log and `CHANGELOG.md`.
-6. **Push**: `git push github public-release-v1` (the `github` remote is
-   `https://github.com/nobody174/Menu-Planner.git` — same target as
-   `origin`).
-7. **Confirm CI is green.** This repo runs several workflows on push
-   (`ci.yml`, `lint.yml`, `tests.yml`, `security.yml`, `build.yml`,
-   `frontend-checks.yml`, `data-validation.yml`) — the one that actually
-   triggers the Render deploy is `ci.yml`. Check
-   `gh run list --workflow=ci.yml --branch=public-release-v1 --limit=1` (or
-   `gh run watch <id>`) rather than assuming success. If it fails, the
-   Render deploy trigger may not have fired, or may have fired against
-   broken code — flag this immediately, don't treat the push as done.
-8. **Report back plainly**: what was pushed, in one or two sentences, plus
-   confirmation CI passed (or a clear flag if it didn't/couldn't be
-   checked).
+6. **Push**: `git push github main`.
+7. Report back plainly what was pushed, in one or two sentences.
 
-Tags (`v1.0.0`, `v1.1.0`, ...) are separate from this flow and only created
-on explicit request — a push to `public-release-v1` does not tag a release
-(see `.github/workflows/release.yml`).
+## "Ship it" / "push public" (deploy to menuplanner.no)
+
+**Always confirm `main` is fully pushed first** — check `git status` and
+whether local `main` is ahead of `github/main`. If there are uncommitted
+changes or unpushed commits, do the full "push main" sequence above first
+(committing/pushing them, or flagging anything that needs the user's input
+first) before proceeding. Never ship stale code because `main` on GitHub
+was behind local.
+
+Then:
+
+1. Open a pull request from `main` into `public-release-v1` (`gh pr create`).
+2. Wait for all 8 required status checks to pass (Stage 1: Lint & Format,
+   Data Validation, Frontend Checks; Stage 2: Tests, Security Scan, Build
+   Check ubuntu-latest, Build Check windows-latest, Build Docker Image) —
+   `gh pr checks <number> --watch`. This normally takes 3-5 minutes.
+3. If any check fails, stop — do not merge. Report what failed. Fix it on
+   `main`, push, and the same PR will pick up the new commit and re-run
+   checks.
+4. Once everything is green, merge the PR (`gh pr merge --merge`). This
+   merge commit lands on `public-release-v1` and triggers Stage 3:
+   - Render deploy hook fires
+   - `/health` is polled for up to 5 minutes to confirm the live site is
+     actually healthy, not just that the trigger fired
+   - A new patch version tag (vX.Y.Z+1) is created automatically, which
+     also fires `release.yml` to create a GitHub Release
+5. Report back: what was shipped, confirmation `/health` came back
+   healthy, and the new version tag.
+
+A manual minor/major version bump (`git tag vX.Y.0 && git push github
+vX.Y.0`) is separate from this flow and only done on explicit request, for
+a change that feels like a real milestone rather than a routine patch.
 
 ## Local dev
 
