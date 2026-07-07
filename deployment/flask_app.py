@@ -20,6 +20,7 @@ from flask import (
     redirect,
     url_for,
     abort,
+    g,
 )
 from datetime import datetime, timedelta
 import sys
@@ -28,15 +29,46 @@ from dotenv import load_dotenv
 # ── i18n helpers ─────────────────────────────────────────────────────────────
 
 
+_I18N_CACHE = {"mtime": None, "data": {}}
+
+
 def _load_i18n():
-    """Load i18n translations (reload on every request to catch updates)."""
+    """Load i18n translations, re-reading the file only when it has actually
+    changed on disk since the last load.
+
+    M6 (audit 2026-07-07): this used to unconditionally re-read and
+    re-parse the full ~29KB i18n.json on every single request (the comment
+    said "reload on every request to catch updates") - real in production,
+    since editing this file doesn't require a restart, but the vast
+    majority of requests happen between edits, where re-reading identical
+    content from disk every time was pure waste. Checking the file's mtime
+    (a single, cheap stat() call) keeps that same "an edit takes effect
+    immediately, no restart needed" behavior while skipping the actual
+    read+json.parse whenever the file hasn't changed since last time -
+    which in production is effectively always. A process-global cache (not
+    per-request) is correct here specifically because it's keyed on the
+    file's own mtime, not on anything request-specific.
+    """
     i18n_path = Path(__file__).parent.parent / "frontend" / "static" / "i18n.json"
     try:
+        current_mtime = i18n_path.stat().st_mtime
+    except OSError as e:
+        logger.warning(f"Could not stat i18n.json: {e}")
+        return _I18N_CACHE["data"]
+
+    if current_mtime == _I18N_CACHE["mtime"]:
+        return _I18N_CACHE["data"]
+
+    try:
         with open(i18n_path, "r", encoding="utf-8") as f:
-            return json.load(f)
+            data = json.load(f)
     except Exception as e:
-        print(f"WARNING: Could not load i18n.json: {e}")
-        return {}
+        logger.warning(f"Could not load i18n.json: {e}")
+        return _I18N_CACHE["data"]
+
+    _I18N_CACHE["mtime"] = current_mtime
+    _I18N_CACHE["data"] = data
+    return data
 
 
 def _get_lang():
@@ -550,6 +582,7 @@ app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(days=30)
 # frontend/templates); fetch()-based JSON requests send it via the
 # X-CSRFToken header, added automatically by the fetch wrapper in app.js.
 from flask_wtf import CSRFProtect
+from flask_wtf.csrf import CSRFError
 
 csrf = CSRFProtect(app)
 
@@ -838,7 +871,44 @@ def _restore_remembered_profile():
 
 def current_household_id():
     """Resolve the active household id for this request, picking the user's
-    first household if none is set in session yet."""
+    first household if none is set in session yet.
+
+    M6 (audit 2026-07-07): this ran a full DB query (get_user_households)
+    on every single call, and a single request can call it many times over
+    (the context processor, the route handler itself, several helpers each
+    routes call) - the same membership lookup repeated identically several
+    times per request for no reason. Cached on flask.g after computing it
+    once, including whatever session mutation the first call's cross-account
+    guard below performs - later calls in the same request just reuse that
+    result instead of re-querying and re-deriving it.
+
+    The cache key includes the session's user_id, not just a bare "have we
+    cached anything yet" flag - flask.g is documented as request-scoped, but
+    that only holds when a request context is pushed fresh (which is how
+    every real HTTP request under gunicorn actually works). Flask's own
+    test_request_context() reuses an already-active app context's `g` if one
+    is on the stack rather than starting a new one - confirmed directly: two
+    sequential test_request_context() blocks nested inside one outer
+    app_context() (exactly what tests/conftest.py's test_app fixture does)
+    shared the same g, so an initial cache-blind implementation returned the
+    FIRST request's household id for a SECOND request logged in as an
+    entirely different user. Keying on user_id as well means a mismatched
+    session (different user, or no user) always recomputes rather than
+    trusting a cache that was never actually this request's own.
+    """
+    user_id = session.get("user_id")
+    cached = getattr(g, "_cached_household_id", None)
+    if cached is not None and cached[0] == user_id:
+        return cached[1]
+
+    household_id = _resolve_current_household_id()
+    g._cached_household_id = (user_id, household_id)
+    return household_id
+
+
+def _resolve_current_household_id():
+    """The actual resolution logic for current_household_id() above, kept
+    separate so the caching wrapper doesn't have to duplicate it."""
     user_id = session.get("user_id")
     if not user_id:
         return None
@@ -965,7 +1035,17 @@ def log_activity(action_msg):
 
 
 def _load_pantry_db():
-    """Load pantry from database. If not yet migrated, seed from file into DB."""
+    """Load pantry from database. If not yet migrated, seed from file into DB.
+
+    M4 (audit 2026-07-07): this used to catch every exception, print() it,
+    and return [] - indistinguishable from a household that genuinely has an
+    empty pantry. A transient DB error (e.g. a dropped connection) silently
+    looked like "you have nothing in your pantry," which then gets written
+    right back out by a subsequent save, permanently erasing real pantry
+    data the household never asked to clear. Letting the exception propagate
+    means the caller's own error handling (or, for the routes that had none,
+    the JSON error handler added for M5) reports a real failure instead.
+    """
     household_id = current_household_id()
     if not household_id:
         return []
@@ -990,15 +1070,28 @@ def _load_pantry_db():
         household.pantry = sorted(set(file_pantry)) if file_pantry else []
         db.commit()
         return household.pantry
-    except Exception as e:
-        print(f"Error loading pantry from database: {e}")
-        return []
+    except Exception:
+        db.rollback()
+        raise
     finally:
         db.close()
 
 
 def _save_pantry_db(items):
-    """Save pantry to database (with fallback to file)."""
+    """Save pantry to database (with fallback to file for un-migrated
+    households only).
+
+    M4 (audit 2026-07-07): this used to catch a DB commit failure, print()
+    it, and then silently fall through to writing the file-based fallback
+    path instead - which the DB-first read path (_load_pantry_db above)
+    never looks at again once a household has a non-None `pantry` column.
+    The route reported success ("Added to pantry") while the actual save
+    was lost. Now: a DB-backed household's failure propagates as a real
+    error: it's not silently swapped for a write that goes nowhere useful.
+    The file fallback is now reached ONLY for genuinely un-migrated
+    (file-storage-only) households, matching every other *_db() helper's
+    fallback contract in this file.
+    """
     household_id = current_household_id()
     if household_id:
         from database.database import SessionLocal
@@ -1011,13 +1104,14 @@ def _save_pantry_db(items):
                 household.pantry = sorted(set(items))
                 db.commit()
                 return
-        except Exception as e:
+        except Exception:
             db.rollback()
-            print(f"Error saving pantry to database: {e}")
+            raise
         finally:
             db.close()
 
-    # Fallback to file-based for migration period
+    # Fallback to file-based for migration period - only reached above when
+    # there's no DB-backed household object for this id at all.
     from core.household_paths import save_pantry
 
     save_pantry(household_id, items)
@@ -1223,7 +1317,16 @@ def load_recipes_db():
 
 
 def save_recipes_db(recipes):
-    """Save recipes to database JSONB column."""
+    """Save recipes to database JSONB column.
+
+    M4 (audit 2026-07-07): the DB-backed branch used to catch a commit
+    failure, print() it, and return normally - every caller (recipe add/
+    edit/delete, pack import, unit normalization) reported success on a
+    lost write, the same "200 success, nothing saved" class of bug as
+    B53/B63. Now propagates so the caller's own error handling (or the
+    JSON error handler added for M5, for the routes that had none) reports
+    the real failure instead.
+    """
     household = current_household()
     if not household:
         # Fallback to file-based for migration period
@@ -1251,9 +1354,9 @@ def save_recipes_db(recipes):
         if h:
             h.recipes_db = recipes
             db.commit()
-    except Exception as e:
+    except Exception:
         db.rollback()
-        print(f"Error saving recipes to database: {e}")
+        raise
     finally:
         db.close()
 
@@ -1706,7 +1809,15 @@ def _load_household_categories(household_id):
 
 
 def _save_household_categories(household_id, categories):
-    """Save categories to database (with fallback to file)."""
+    """Save categories to database (with fallback to file for un-migrated
+    households only).
+
+    M4 (audit 2026-07-07): the DB-backed branch used to catch a commit
+    failure, print() it, and then fall through to an unconditional `return`
+    right after the try/finally - meaning a failed DB write didn't even
+    reach the file fallback, it just silently did nothing at all while the
+    caller believed the save succeeded. Now propagates the real failure.
+    """
     if household_id:
         from database.database import SessionLocal
         from database.models import Household
@@ -1718,14 +1829,15 @@ def _save_household_categories(household_id, categories):
                 household.categories = categories
                 db.commit()
                 return
-        except Exception as e:
+        except Exception:
             db.rollback()
-            print(f"Error saving categories to database: {e}")
+            raise
         finally:
             db.close()
         return
 
-    # Fallback to file-based for migration period
+    # Fallback to file-based for migration period - only reached above when
+    # there's no DB-backed household object for this id at all.
     from core.household_paths import categories_file
 
     path = categories_file(household_id)
@@ -1740,7 +1852,13 @@ def _mark_category_removed(household_id, code):
     2026-07-07). Previously always wrote to the file regardless of whether
     the household was otherwise fully DB-backed, meaning this one piece of
     category state didn't survive a disk loss/volume reset the way every
-    other household field already does."""
+    other household field already does.
+
+    M4 (audit 2026-07-07): also had the same silent-failure shape as
+    _save_household_categories above - a failed DB write printed and fell
+    through to an unconditional `return`, never reaching the file fallback,
+    so the tombstone was just dropped. Now propagates.
+    """
     if household_id:
         from database.database import SessionLocal
         from database.models import Household
@@ -1753,14 +1871,15 @@ def _mark_category_removed(household_id, code):
                 mark_category_removed_to_db(household, code)
                 db.commit()
                 return
-        except Exception as e:
+        except Exception:
             db.rollback()
-            print(f"Error saving category tombstone to database: {e}")
+            raise
         finally:
             db.close()
         return
 
-    # Fallback to file-based for migration period
+    # Fallback to file-based for migration period - only reached above when
+    # there's no DB-backed household object for this id at all.
     from core.household_paths import mark_category_removed
 
     mark_category_removed(household_id, code)
@@ -4549,13 +4668,56 @@ def api_recipes_import():
 
 @app.errorhandler(404)
 def not_found(error):
+    # M5 (audit 2026-07-07): an unmatched /api/* path (typo'd endpoint, a
+    # client hitting a route that was renamed/removed) used to get the same
+    # full HTML error page a browser navigation would - fetch()-based JS
+    # callers then had to guess at a non-JSON response rather than parse a
+    # real error, the same class of problem M5 already fixed for 500s below.
+    if request.path.startswith("/api/"):
+        return jsonify({"success": False, "message": "Not found"}), 404
     return render_template("error.html", message="Page not found"), 404
 
 
 @app.errorhandler(500)
 def server_error(error):
     logger.error(f"Server error: {error}")
+    # M5 (audit 2026-07-07): every /api/* route used to fall through to this
+    # same HTML error page on an unhandled exception, regardless of how the
+    # route's own JSON responses were shaped - this is exactly why B63's
+    # frontend error handling had to special-case "the server sent back HTML,
+    # not JSON" instead of just reading a real error message. A JSON client
+    # now always gets a JSON error back, even from a path this handler itself
+    # didn't anticipate.
+    if request.path.startswith("/api/"):
+        return jsonify({"success": False, "message": "Server error"}), 500
     return render_template("error.html", message="Server error"), 500
+
+
+@app.errorhandler(CSRFError)
+def csrf_error(error):
+    # M5 (audit 2026-07-07): CSRFProtect's own 400 (missing/expired token -
+    # most commonly a stale page left open across a session timeout) had no
+    # handler at all, so it returned Flask-WTF's default plain-text response
+    # to every route including /api/* fetch() callers - the same
+    # "JSON client gets something that isn't JSON" problem this whole fix is
+    # for, just via a different trigger than an unhandled exception.
+    logger.warning(f"CSRF validation failed on {request.path}: {error.description}")
+    if request.path.startswith("/api/"):
+        return (
+            jsonify(
+                {
+                    "success": False,
+                    "message": "Session expired - please refresh and try again",
+                }
+            ),
+            400,
+        )
+    return (
+        render_template(
+            "error.html", message="Session expired - please refresh and try again"
+        ),
+        400,
+    )
 
 
 # ── Entry point ───────────────────────────────────────────────────────────────
