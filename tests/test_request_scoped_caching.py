@@ -82,10 +82,14 @@ class TestI18nCaching:
     every request where nothing changed."""
 
     def test_repeated_calls_return_cached_object_without_reparsing(self):
-        from deployment import flask_app
+        # B57 moved _load_i18n() (and every other shared app helper) into
+        # app_core.py's create_app() factory module - flask_app.py now only
+        # imports the specific names its own routes call directly
+        # (_get_lang, _make_t), not this one.
+        from deployment import app_core
 
-        first = flask_app._load_i18n()
-        second = flask_app._load_i18n()
+        first = app_core._load_i18n()
+        second = app_core._load_i18n()
         assert first is second, (
             "a second call with no file change should return the exact same "
             "cached dict, not a freshly-parsed one"
@@ -100,14 +104,14 @@ class TestI18nCaching:
         import json
         import time
         from pathlib import Path
-        from deployment import flask_app
+        from deployment import app_core
 
         i18n_path = (
-            Path(flask_app.__file__).parent.parent / "frontend" / "static" / "i18n.json"
+            Path(app_core.__file__).parent.parent / "frontend" / "static" / "i18n.json"
         )
         original_content = i18n_path.read_text(encoding="utf-8")
         try:
-            baseline = flask_app._load_i18n()
+            baseline = app_core._load_i18n()
             assert "__m6_test_marker__" not in baseline
 
             parsed = json.loads(original_content)
@@ -115,12 +119,12 @@ class TestI18nCaching:
             time.sleep(0.05)  # ensure a distinct, newer mtime
             i18n_path.write_text(json.dumps(parsed), encoding="utf-8")
 
-            updated = flask_app._load_i18n()
+            updated = app_core._load_i18n()
             assert updated.get("__m6_test_marker__") == "present"
         finally:
             i18n_path.write_text(original_content, encoding="utf-8")
             # Force a re-read so the process-global cache doesn't keep
             # serving the test's marker-containing dict to anything else
             # that calls _load_i18n() later in this same test session.
-            flask_app._I18N_CACHE["mtime"] = None
-            flask_app._load_i18n()
+            app_core._I18N_CACHE["mtime"] = None
+            app_core._load_i18n()

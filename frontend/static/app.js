@@ -232,6 +232,11 @@ function renderCategories(cats) {
         var categoryValue = cat.name_en || cat.name || cat.value || '';
         checkbox.value = categoryValue;
         checkbox.checked = savedCats.includes(categoryValue);
+        // Ticking a category IS the "select it" action - saving on every
+        // change means there's nothing left for a separate "Apply" button
+        // to do, so checking a box takes effect immediately instead of
+        // requiring a second confirm click.
+        checkbox.addEventListener('change', applyCategories);
 
         // Display the translated name with icon
         var displayName = cat.name || cat.name_en || categoryValue;
@@ -274,6 +279,13 @@ function getSelectedCategories() {
 }
 
 function applyCategories() {
+    // No more explicit "Apply" button - this now fires on every checkbox/day
+    // count change instead (see the .addEventListener('change', ...) calls
+    // above and below), so ticking a category saves it immediately rather
+    // than requiring a separate confirm click. Deliberately does NOT close
+    // the dropdown anymore, since the user is likely still ticking more
+    // boxes - it closes normally via the existing outside-click handler
+    // once they're done.
     var cats = [];
     document.querySelectorAll('#categoryDropdownMenu input[type="checkbox"]').forEach(function(cb) {
         if (cb.checked) cats.push(cb.value);
@@ -282,9 +294,6 @@ function applyCategories() {
 
     var daySelect = document.getElementById('dayCountSelect');
     if (daySelect) localStorage.setItem('selectedDayCount', daySelect.value);
-
-    var menu = document.getElementById('categoryDropdownMenu');
-    if (menu) menu.classList.remove('open');
 }
 
 function getSelectedDayCount() {
@@ -295,7 +304,12 @@ function getSelectedDayCount() {
 
 document.addEventListener('DOMContentLoaded', function() {
     var daySelect = document.getElementById('dayCountSelect');
-    if (daySelect) daySelect.value = String(getSelectedDayCount());
+    if (daySelect) {
+        daySelect.value = String(getSelectedDayCount());
+        // Same as the category checkboxes above - changing the day count
+        // saves immediately instead of waiting for a separate "Apply" click.
+        daySelect.addEventListener('change', applyCategories);
+    }
 });
 
 // B53: show the "generated a shorter menu than requested" notice, if any,

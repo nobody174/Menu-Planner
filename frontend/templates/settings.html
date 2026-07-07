@@ -402,7 +402,7 @@
             <h2>{{ t.get('refer_a_friend', 'Refer a Friend') }}</h2>
             <p>{{ t.get('refer_a_friend_desc', 'Like using this? Share your link - friends who sign up get their own separate household, and we keep track of who invited whom.') }}</p>
             <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
-                <input type="text" id="referral-link" readonly value="{{ request.url_root.rstrip('/') }}{{ url_for('signup') }}?ref={{ referral_code }}"
+                <input type="text" id="referral-link" readonly value="{{ request.url_root.rstrip('/') }}{{ url_for('auth.signup') }}?ref={{ referral_code }}"
                        style="flex:1; min-width:240px; padding:8px; border:1px solid var(--color-border,#ddd); border-radius:4px; font-size:0.85em;" />
                 <button type="button" class="btn btn-secondary" onclick="copyReferralLink()">{{ t.get('copy_link', 'Copy Link') }}</button>
             </div>
@@ -835,7 +835,7 @@ function _esc(str) {
       <p style="color:#dc2626; font-size:0.9rem; font-weight:600; margin-bottom:12px;">
         {{ t.get('delete_confirm_msg', 'To confirm, enter your password:') }}
       </p>
-      <form id="delete-account-form" method="POST" action="{{ url_for('delete_own_account') }}" style="display:none;">
+      <form id="delete-account-form" method="POST" action="{{ url_for('auth.delete_own_account') }}" style="display:none;">
       <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
         <input type="password" name="password" id="delete-password" required>
       </form>

@@ -59,7 +59,7 @@
       </button>
 
       <p style="text-align:center; margin-top:12px; font-size:14px;">
-        <a href="{{ url_for('forgot_password_page') }}" style="color:#888;">
+        <a href="{{ url_for('auth.forgot_password_page') }}" style="color:#888;">
           {{ t.get('forgot_password', 'Forgot password?') }}
         </a>
       </p>
@@ -68,7 +68,7 @@
     <div class="auth-footer">
       <p>
         {{ t.get('no_account', "Don't have an account?") }}
-        <a href="{{ url_for('signup') }}">{{ t.get('signup', 'Sign up') }}</a>
+        <a href="{{ url_for('auth.signup') }}">{{ t.get('signup', 'Sign up') }}</a>
       </p>
     </div>
   </div>

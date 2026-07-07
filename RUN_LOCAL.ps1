@@ -37,4 +37,12 @@ Write-Host "   Press Ctrl+C to stop" -ForegroundColor Green
 Write-Host ""
 
 # Run the app
-python deployment/flask_app.py
+# B57 (2026-07): flask_app.py now imports from deployment/app_core.py, so
+# it must be launched as a package from the project root (python -m flask),
+# not as a standalone script (python deployment/flask_app.py) - the latter
+# doesn't put the project root on sys.path the way running as a module
+# does, so Python can't resolve the "deployment" package it's importing
+# from. --debug keeps the same auto-reload-on-change + in-browser
+# traceback behavior the old app.run(debug=True) call gave.
+$env:FLASK_DEBUG = "1"
+python -m flask --app deployment.flask_app run --host=0.0.0.0 --port=5000

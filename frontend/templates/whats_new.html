@@ -9,6 +9,44 @@
     <p style="font-size:1.05rem; color:var(--color-text-secondary,#555); margin-bottom:30px;">De siste forbedringene og rettelsene i Menu Planner, i vanlig språk.</p>
 
     <section>
+        <h2>2026-07-08</h2>
+        <ul>
+            <li>Kategori-velgeren i navigasjonsmenyen er forenklet: å huke av eller fjerne en kategori lagrer valget med det samme — du trenger ikke lenger trykke en egen "Bruk"-knapp etterpå.</li>
+            <li>"Vis handleliste"-knappen som lå under middagskortene på forsiden vises nå kun på mobil, siden den var overflødig ved siden av handlelisten som allerede ligger i navigasjonsmenyen på PC og nettbrett.</li>
+            <li>Rettet dårlig lesbar tekst i "Avansert brukerveiledning" og "Kom i gang"-guiden — enkelte overskrifter og tekniske ord vises nå med riktig, mørk farge i alle nettlesere og temaer (var nesten usynlig i Google Chrome i enkelte temaer).</li>
+            <li>Lokal utviklingsoppstart (<code>RUN_LOCAL.bat</code>) fikset etter en større bak-kulissene-opprydding i koden.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2026-07-07</h2>
+        <ul>
+            <li>Stor rydding og forenkling av selve programkoden bak nettsiden (ingen synlig endring for deg, men gjør fremtidige forbedringer tryggere og raskere å bygge).</li>
+            <li>Lagt til automatiske sikkerhetstiltak: begrenset antall innloggingsforsøk for å hindre gjetting av passord, og fjernet en feil som kunne avsløre om en e-postadresse var registrert eller ikke.</li>
+            <li>Rettet en feil der eksport av handleliste kunne feile i den offentlige, driftsatte versjonen av appen.</li>
+            <li>Rettet en feil der sletting av en konto kunne mislykkes hvis kontoen hadde eldre, historiske data.</li>
+            <li>Rettet en feil der "Import oppskriftspakker"-knappen på Alle oppskrifter-siden gikk til feil side.</li>
+            <li>Rettet et mobilvisningsproblem der Alle oppskrifter-siden ikke tilpasset seg smale skjermer skikkelig.</li>
+            <li>Rettet et søk-uten-treff-problem på Alle oppskrifter — søkte du på noe som ikke fantes, ble siden bare tom uten noen beskjed. Viser nå "Ingen oppskrifter funnet".</li>
+            <li>Menygenerering varsler nå tydelig hvis den ikke klarte å fylle alle dagene du ba om (f.eks. for få oppskrifter i valgte kategorier), i stedet for stille å levere en kortere meny uten forklaring.</li>
+            <li>Rettet en samtidighets-feil i den lokale utviklingsdatabasen som av og til kunne gi "terning"- og "bytt oppskrift"-knappene en generisk feilmelding.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2026-07-06</h2>
+        <ul>
+            <li>Lagt til <strong>terning-knapp (🎲)</strong> under hver middag på forsiden — bytt ut akkurat den ene dagens middag med et nytt tilfeldig forslag, uten å generere om hele uken.</li>
+            <li>Lagt til <strong>søk-og-velg</strong> — søk opp en spesifikk oppskrift og sett den rett på en valgt dag, direkte fra forsiden.</li>
+            <li>Rettet en alvorlig feil der bytting av dager i menyen (eller å sette inn en ny oppskrift på en dag) noen ganger ikke ble lagret, selv om appen sa "vellykket".</li>
+            <li>"Nyheter" og "Kommer snart" er flyttet inn under Hjelp-menyen i innstillinger, sammen med de andre hjelpe-guidene — de lå tidligere ved siden av "Alle oppskrifter" og kunne lett misforstås som noe annet.</li>
+            <li>Lagt til en ny oppskriftspakke: <strong>"Rundt om i verden"</strong> — 16 klassiske retter, én fra hvert av 16 land.</li>
+            <li>Kategoribetegnelsen som tidligere het "Sider & Lette Måltider" heter nå "Lette Måltider".</li>
+            <li>Ryddet opp i en rekke oppskrifter: fjernet duplikater, flyttet desserter og tilbehør ut av middagsforslagene, og rettet feil mengdeangivelser (blant annet en oppskrift som ba om 10 gram safran — rettet til en realistisk klype).</li>
+        </ul>
+    </section>
+
+    <section>
         <h2>2026-07-05</h2>
         <ul>
             <li>Lagt til en <strong>"Tilbake"</strong>-knapp øverst på hver side, slik at du enkelt kan gå tilbake dit du nettopp var — uten å navigere gjennom menyen på nytt.</li>
@@ -39,6 +77,44 @@
 
     <h1>🆕 What's New</h1>
     <p style="font-size:1.05rem; color:var(--color-text-secondary,#555); margin-bottom:30px;">The latest improvements and fixes in Menu Planner, in plain language.</p>
+
+    <section>
+        <h2>2026-07-08</h2>
+        <ul>
+            <li>The category picker in the nav bar is simpler now: ticking or unticking a category saves your choice right away — no more separate "Apply" button to remember to click.</li>
+            <li>The "View Shopping List" button that sat under the dinner cards on the dashboard now only shows up on mobile, since it was redundant next to the Shopping List link already in the nav bar on desktop and tablet.</li>
+            <li>Fixed hard-to-read text in the Advanced User Guide and Quick Start Guide — some headings and technical terms now show up in a proper, readable dark color across every browser and theme (was nearly invisible in Google Chrome on some themes).</li>
+            <li>Fixed local development startup (<code>RUN_LOCAL.bat</code>) after a larger behind-the-scenes code cleanup.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2026-07-07</h2>
+        <ul>
+            <li>Large cleanup and simplification of the code behind the website (no visible change for you, but makes future improvements safer and faster to build).</li>
+            <li>Added automatic security protections: limited the number of login attempts to prevent password guessing, and closed a gap that could reveal whether an email address was registered or not.</li>
+            <li>Fixed a bug where exporting the shopping list could fail on the live, deployed version of the app.</li>
+            <li>Fixed a bug where deleting an account could fail if the account had older, historical data.</li>
+            <li>Fixed the "Import Recipe Packs" button on the All Recipes page going to the wrong page.</li>
+            <li>Fixed a mobile display issue where the All Recipes page didn't properly adapt to narrow screens.</li>
+            <li>Fixed a no-results search issue on All Recipes — searching for something that didn't exist just left the page blank with no message. Now shows "No recipes found".</li>
+            <li>Menu generation now clearly warns you if it couldn't fill every day you asked for (e.g. too few recipes in the selected categories), instead of silently handing back a shorter menu with no explanation.</li>
+            <li>Fixed a concurrency bug in the local development database that could occasionally give the dice-reroll and recipe-swap buttons a generic error message.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2026-07-06</h2>
+        <ul>
+            <li>Added a <strong>dice/reroll button (🎲)</strong> under each dinner on the dashboard — swap out just that one day's dinner for a new random suggestion, without regenerating the whole week.</li>
+            <li>Added <strong>search-and-pick</strong> — look up a specific recipe and assign it straight to a chosen day, right from the dashboard.</li>
+            <li>Fixed a serious bug where swapping days in the menu (or assigning a new recipe to a day) sometimes didn't actually save, even though the app said "success".</li>
+            <li>"What's New" and "What's Planned" have been moved into the Help section in settings, alongside the other help guides — they used to sit next to "All Recipes" and could easily be misread as something else.</li>
+            <li>Added a new recipe pack: <strong>"Around the World"</strong> — 16 classic dishes, one from each of 16 countries.</li>
+            <li>The category previously called "Sides & Light Meals" is now called "Light Meals".</li>
+            <li>Cleaned up a range of recipes: removed duplicates, moved desserts and side dishes out of the dinner suggestions, and fixed incorrect ingredient amounts (including one recipe that called for 10 grams of saffron — corrected to a realistic pinch).</li>
+        </ul>
+    </section>
 
     <section>
         <h2>2026-07-05</h2>

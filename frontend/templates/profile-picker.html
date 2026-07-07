@@ -21,7 +21,7 @@
 
     {% for member in members %}
     {% if member.is_profile %}
-    <form method="POST" action="{{ url_for('select_profile') }}" class="profile-form">
+    <form method="POST" action="{{ url_for('household.select_profile') }}" class="profile-form">
       <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
       <input type="hidden" name="member_id" value="{{ member.member_id }}" />
       <button type="submit" class="profile-tile">
@@ -36,11 +36,11 @@
   </div>
 
   <p class="picker-hint">
-    <a href="{{ url_for('household_settings') }}">{{ t.get('manage_profiles', 'Manage household profiles') }}</a>
+    <a href="{{ url_for('household.household_settings') }}">{{ t.get('manage_profiles', 'Manage household profiles') }}</a>
   </p>
 
   <div id="owner-password-modal" class="owner-password-overlay">
-    <form method="POST" action="{{ url_for('select_profile') }}" class="owner-password-box">
+    <form method="POST" action="{{ url_for('household.select_profile') }}" class="owner-password-box">
       <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
       <input type="hidden" name="is_account_holder" value="1" />
       {% if owner_has_pin %}

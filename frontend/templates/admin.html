@@ -17,7 +17,7 @@
     <p style="margin:0 0 10px; font-size:0.9rem; color:#555;">
       Re-normalize measurement units (e.g. "tbsp"/"tsp" → "ss"/"ts") in recipes households already imported before the fix went in. Fixing the seed data only affects <em>future</em> imports - this updates what's already in each household's database.
     </p>
-    <form method="POST" action="{{ url_for('admin_normalize_recipe_units') }}"
+    <form method="POST" action="{{ url_for('admin.admin_normalize_recipe_units') }}"
           onsubmit="event.preventDefault(); pmConfirm('🔧', 'Normalize Recipe Units', 'Re-normalize measurement units across every household\'s already-imported recipes?').then(function(ok){ if(ok) event.target.submit(); });">
       <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
       <button type="submit" class="btn btn-secondary">Normalize Recipe Units for All Households</button>
@@ -49,7 +49,7 @@
         <td style="padding:10px 12px; color:#888;">{{ user.created_at }}</td>
         <td style="padding:10px 12px; font-family:monospace; font-size:0.85rem;">{{ user.referral_code }}</td>
         <td style="padding:10px 12px; text-align:right;">
-          <form method="POST" action="{{ url_for('admin_delete_user') }}" style="display:inline;"
+          <form method="POST" action="{{ url_for('admin.admin_delete_user') }}" style="display:inline;"
                 onsubmit="event.preventDefault(); pmConfirm('⚠️', 'Delete User', 'Delete {{ user.email }}? This cannot be undone.').then(function(ok){ if(ok) event.target.submit(); });">
       <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             <input type="hidden" name="user_id" value="{{ user.id }}">

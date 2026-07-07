@@ -28,10 +28,16 @@ def test_page_404_returns_html(client):
 def test_api_500_returns_json(client, monkeypatch):
     from deployment import flask_app
 
+    # B57 moved api_menu() into deployment/routes/menu_routes.py, which binds
+    # its own `load_menu` name from app_core at import time - patching
+    # flask_app.load_menu no longer affects it, since flask_app doesn't call
+    # this route's implementation directly anymore.
+    from deployment.routes import menu_routes
+
     def _boom():
         raise RuntimeError("simulated crash")
 
-    monkeypatch.setattr(flask_app, "load_menu", _boom)
+    monkeypatch.setattr(menu_routes, "load_menu", _boom)
     # Flask's TESTING=True (set by the test_app fixture) re-raises exceptions
     # instead of invoking the registered error handler, so this test would
     # never actually exercise the handler under test without disabling that.
