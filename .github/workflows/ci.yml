@@ -259,6 +259,7 @@ jobs:
         run: echo "Triggered and confirmed Render deploy for menuplanner.no"
 
       - name: Auto-tag patch version
+        id: autotag
         run: |
           git fetch --tags
           latest=$(git tag -l 'v*.*.*' | sort -V | tail -n1)
@@ -275,3 +276,20 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git tag -a "$new_tag" -m "Auto-tagged deploy to menuplanner.no"
           git push origin "$new_tag"
+          echo "new_tag=$new_tag" >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub Release
+        # release.yml (tag-triggered) never actually fires for this tag:
+        # GITHUB_TOKEN-authored pushes are deliberately excluded from
+        # triggering other workflows (GitHub's anti-loop protection), so
+        # every auto-tagged push here was silently invisible to it -
+        # confirmed via `gh run list --workflow=release.yml`, zero runs
+        # ever fired from a tag push despite the tags existing on GitHub.
+        # Creating the Release directly in this same job sidesteps the
+        # cross-workflow trigger entirely rather than fighting it.
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "${{ steps.autotag.outputs.new_tag }}" \
+            --title "Release ${{ steps.autotag.outputs.new_tag }}" \
+            --notes "Auto-deployed to menuplanner.no. See CHANGELOG.md for details."

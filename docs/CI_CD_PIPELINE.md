@@ -55,11 +55,11 @@ flowchart TD
         deploy["Trigger Render deploy hook"]
         health["Poll /health up to 5 min"]
         tag["Auto-tag vX.Y.Z+1"]
-        deploy --> health --> tag
+        ghrelease["gh release create (same job)"]
+        deploy --> health --> tag --> ghrelease
     end
 
-    tag -.->|tag push| release["release.yml: Create GitHub Release"]
-    manualtag["Manual: git tag vX.Y.0 for a milestone"] -.-> release
+    manualtag["Manual: git tag vX.Y.0 for a milestone,\npushed from a real user token"] -.->|tag push| release["release.yml: Create GitHub Release"]
 ```
 
 ## What each stage does
@@ -83,12 +83,22 @@ never on `main` pushes or PR-only runs)**
 - Triggers the Render deploy hook
 - Polls `https://menuplanner.no/health` for up to 5 minutes to confirm the
   live site is actually healthy
-- Auto-tags a new patch version (`vX.Y.Z` → `vX.Y.Z+1`), which also fires
-  `release.yml` to create a GitHub Release
+- Auto-tags a new patch version (`vX.Y.Z` → `vX.Y.Z+1`) and creates the
+  GitHub Release **directly in this same job** (`gh release create`) - NOT
+  via `release.yml`. GitHub deliberately blocks a `GITHUB_TOKEN`-authored
+  push from triggering other workflows (anti-loop protection), so a tag
+  pushed by this job's own token was silently invisible to `release.yml`'s
+  `on: push: tags:` trigger - confirmed 2026-07-07 via
+  `gh run list --workflow=release.yml` showing zero runs ever fired from
+  an auto-tag, despite tags like `v1.1.1`/`v1.1.2` genuinely existing on
+  GitHub with no Release to show for them. `release.yml` is now only
+  reachable via a manually-pushed tag from a real user token (see below).
 
-A manual minor/major bump (`git tag vX.Y.0 && git push github vX.Y.0`) is
-separate from this flow and only done on request, for a change that feels
-like a milestone rather than a routine patch.
+A manual minor/major bump (`git tag vX.Y.0 && git push github vX.Y.0`,
+pushed from a real user's local git, not CI) is separate from this flow
+and only done on request, for a change that feels like a milestone rather
+than a routine patch - this path still correctly triggers `release.yml`,
+since it isn't pushed by `GITHUB_TOKEN`.
 
 ## Rollback
 
