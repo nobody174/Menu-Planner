@@ -371,6 +371,35 @@ def load_pantry_from_db(household):
     return household.pantry if isinstance(household.pantry, list) else []
 
 
+def load_removed_categories_from_db(household) -> set:
+    """Codes of categories this DB-backed household has explicitly deleted or
+    merged away (M2, audit 2026-07-07). This used to live only in a file on
+    the Render disk (household_dir()/removed_categories.json) even for
+    otherwise fully DB-backed households - the one piece of category state
+    that wasn't actually in the database. Any disk loss/detach, or restoring
+    Postgres from a backup onto a fresh volume, would silently resurrect
+    every category a household had deliberately deleted, since the self-heal
+    below has no surviving tombstone to check against. Falls back to reading
+    the legacy file once (for households whose tombstones predate this
+    column existing) so upgrading doesn't itself resurrect anything."""
+    if isinstance(household.removed_categories, list):
+        return set(household.removed_categories)
+    if hasattr(household, "id"):
+        return load_removed_categories(household.id)
+    return set()
+
+
+def mark_category_removed_to_db(household, code: str):
+    """Record that this DB-backed household explicitly removed a category,
+    directly in the JSONB column (M2) rather than the file-only tombstone
+    `mark_category_removed()` still uses for un-migrated/file-backed
+    households. Caller is responsible for committing the session."""
+    removed = load_removed_categories_from_db(household)
+    removed.add(code)
+    household.removed_categories = sorted(removed)
+    flag_modified(household, "removed_categories")
+
+
 def load_categories_from_db(household):
     """Load categories from database JSONB column with self-heal logic."""
     # Note: households whose 'categories' column was never seeded (None)
@@ -391,9 +420,7 @@ def load_categories_from_db(household):
     except Exception:
         base_cats = []
 
-    removed_codes = (
-        load_removed_categories(household.id) if hasattr(household, "id") else set()
-    )
+    removed_codes = load_removed_categories_from_db(household)
     existing_codes = {c.get("code") for c in categories if isinstance(c, dict)}
     missing = [
         c

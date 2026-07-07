@@ -5,8 +5,13 @@ Test authentication functionality.
 import pytest
 from core.auth_helpers import (
     create_user, authenticate_user, is_valid_email, is_valid_password,
-    verify_password, hash_password, confirm_email, regenerate_confirmation_token
+    verify_password, hash_password, confirm_email, regenerate_confirmation_token,
+    delete_user_account
 )
+from core.household_helpers import create_household
+from database.database import SessionLocal
+from database.models import Recipe, RecipeIngredient, WeeklyMenu, ShoppingList, User
+from datetime import date
 
 
 class TestPasswordValidation:
@@ -176,11 +181,25 @@ class TestUserAuthentication:
         assert "password" in msg.lower()
 
     def test_authenticate_user_not_found(self):
-        """Non-existent user should fail."""
+        """Non-existent user should fail with the same generic message as a
+        wrong password (M7: distinguishing the two lets an attacker enumerate
+        registered emails)."""
         success, msg = authenticate_user('notfound@example.com', 'AnyPassword123')
 
         assert not success
-        assert "not found" in msg.lower()
+        assert "invalid email or password" in msg.lower()
+
+    def test_authenticate_user_not_found_same_message_as_wrong_password(self):
+        """The error for an unknown email and a known email/wrong password
+        must be identical text, or the login form leaks which emails exist."""
+        email = 'test@example.com'
+        _, user, _ = create_user(email, 'TestPassword123')
+        confirm_email(user.email_confirmation_token)
+
+        _, unknown_msg = authenticate_user('notfound@example.com', 'AnyPassword123')
+        _, wrong_pw_msg = authenticate_user(email, 'WrongPassword123')
+
+        assert unknown_msg == wrong_pw_msg
 
     def test_authenticate_user_email_normalized(self):
         """Email should be case-insensitive for login."""
@@ -264,3 +283,116 @@ class TestEmailConfirmation:
 
         assert not success
         assert "not found" in msg.lower()
+
+
+class TestDeleteUserAccount:
+    """M1 (audit 2026-07-07): delete_user_account() used to only delete
+    HouseholdMember and Household rows, never the legacy relational
+    Recipe/WeeklyMenu/ShoppingList tables (FK-constrained to households.id in
+    Postgres) or referred_by_user_id on accounts this user referred. Either
+    one left populated, the real Postgres FK constraints these tests can't
+    reproduce on SQLite would roll back the whole deletion - reporting a
+    generic "Database error" to a user exercising their GDPR erasure right.
+    These tests exercise the actual row cleanup this fix added."""
+
+    def test_delete_account_with_legacy_relational_rows(self):
+        """A household with real (pre-JSONB-migration-style) Recipe/
+        WeeklyMenu/ShoppingList rows should delete cleanly - those rows must
+        be gone afterward, not just orphaned."""
+        _, user, _ = create_user('owner@example.com', 'Owner12345')
+        confirm_email(user.email_confirmation_token)
+        _, household, household_id = create_household(str(user.id), 'Test Household')
+
+        db = SessionLocal()
+        try:
+            recipe = Recipe(household_id=household_id, title='Test Recipe', created_by=user.id)
+            db.add(recipe)
+            db.flush()
+            db.add(RecipeIngredient(recipe_id=recipe.id, name='Salt', quantity=1))
+            db.add(WeeklyMenu(
+                household_id=household_id,
+                week_start=date(2026, 7, 6),
+                week_end=date(2026, 7, 12),
+            ))
+            db.add(ShoppingList(household_id=household_id, data={}))
+            db.commit()
+            recipe_id = recipe.id
+        finally:
+            db.close()
+
+        success, msg = delete_user_account(str(user.id))
+        assert success, msg
+
+        db = SessionLocal()
+        try:
+            assert db.query(Recipe).filter(Recipe.id == recipe_id).first() is None
+            assert db.query(RecipeIngredient).filter(
+                RecipeIngredient.recipe_id == recipe_id
+            ).first() is None
+            assert db.query(WeeklyMenu).filter(
+                WeeklyMenu.household_id == household_id
+            ).first() is None
+            assert db.query(ShoppingList).filter(
+                ShoppingList.household_id == household_id
+            ).first() is None
+            assert db.query(User).filter(User.id == user.id).first() is None
+        finally:
+            db.close()
+
+    def test_delete_referrer_clears_referees_pointer(self):
+        """Deleting a user who referred someone else must null out the
+        referee's referred_by_user_id, not leave it pointing at a deleted
+        row - the referee's own account and referred_by_code (the raw code,
+        meant to survive referrer deletion) are untouched."""
+        _, referrer, _ = create_user('referrer@example.com', 'Referrer12345')
+        confirm_email(referrer.email_confirmation_token)
+        _, referee, _ = create_user(
+            'referee@example.com', 'Referee12345', referred_by_code=referrer.referral_code
+        )
+        confirm_email(referee.email_confirmation_token)
+
+        assert referee.referred_by_user_id == referrer.id
+
+        success, msg = delete_user_account(str(referrer.id))
+        assert success, msg
+
+        db = SessionLocal()
+        try:
+            refreshed_referee = db.query(User).filter(User.id == referee.id).first()
+            assert refreshed_referee is not None  # referee's own account survives
+            assert refreshed_referee.referred_by_user_id is None
+            assert refreshed_referee.referred_by_code == referrer.referral_code
+        finally:
+            db.close()
+
+    def test_delete_recipe_authored_elsewhere_nulls_created_by(self):
+        """A recipe the user authored (created_by) in a household they don't
+        own (e.g. left since, or a public recipe) must have created_by
+        cleared, not be deleted outright or left dangling."""
+        _, owner, _ = create_user('owner2@example.com', 'Owner12345')
+        confirm_email(owner.email_confirmation_token)
+        _, author, _ = create_user('author@example.com', 'Author12345')
+        confirm_email(author.email_confirmation_token)
+        _, household, household_id = create_household(str(owner.id), 'Owner Household')
+
+        db = SessionLocal()
+        try:
+            recipe = Recipe(
+                household_id=household_id, title='Authored Recipe', created_by=author.id
+            )
+            db.add(recipe)
+            db.commit()
+            recipe_id = recipe.id
+        finally:
+            db.close()
+
+        success, msg = delete_user_account(str(author.id))
+        assert success, msg
+
+        db = SessionLocal()
+        try:
+            refreshed_recipe = db.query(Recipe).filter(Recipe.id == recipe_id).first()
+            assert refreshed_recipe is not None  # still owned by the household
+            assert refreshed_recipe.created_by is None
+        finally:
+            db.close()

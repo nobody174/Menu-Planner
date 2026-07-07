@@ -144,6 +144,16 @@ def create_user(email, password, referred_by_code=None):
         session.close()
 
 
+# Fixed dummy hash checked when the email doesn't exist, so a login attempt
+# against an unknown address takes the same code path (and roughly the same
+# time) as one against a real address with the wrong password - otherwise an
+# early `if not user: return` both reveals account existence via response
+# text AND via timing (skips the pbkdf2 hash comparison entirely).
+_DUMMY_PASSWORD_HASH = generate_password_hash(
+    "not-a-real-password-only-used-to-equalize-auth-timing", method="pbkdf2:sha256"
+)
+
+
 def authenticate_user(email, password):
     """
     Authenticate user by email and password.
@@ -154,15 +164,26 @@ def authenticate_user(email, password):
     whatever format-valid string was typed at signup, which matters here
     because anyone could otherwise sign up with a fake/bot-generated address
     and get full app access immediately.
+
+    Deliberately returns the same generic error for "no such user" and
+    "wrong password" (M7, 2026-07 security pass) - distinguishing the two
+    lets an attacker enumerate registered emails one guess at a time. The
+    unconfirmed-email case stays distinct: it's necessary, legitimate UX for
+    an account that genuinely exists and just hasn't finished signup, not an
+    enumeration leak by itself (a user who owns that inbox already knows they
+    signed up).
     """
     email = email.lower().strip()
     user = get_user_by_email(email)
 
     if not user:
-        return False, "User not found"
+        # Compare against a dummy hash so this path costs the same as a real
+        # wrong-password check instead of returning immediately.
+        verify_password(_DUMMY_PASSWORD_HASH, password)
+        return False, "Invalid email or password"
 
     if not verify_password(user.password_hash, password):
-        return False, "Invalid password"
+        return False, "Invalid email or password"
 
     if not user.email_confirmed_at:
         return False, "EMAIL_NOT_CONFIRMED"
@@ -281,11 +302,34 @@ def reset_password(token, new_password):
 
 def delete_user_account(user_id):
     """Delete a user and all their data. Handles FK constraints in correct order
-    and removes household folders from disk."""
+    and removes household folders from disk.
+
+    M1 (audit 2026-07-07): this used to only delete HouseholdMember and
+    Household rows before the User row itself - it never touched the legacy
+    relational Recipe/WeeklyMenu/ShoppingList tables (superseded by the JSONB
+    columns on Household since the F4 migration, but still FK-constrained to
+    households.id/users.id in Postgres) or nulled out
+    User.referred_by_user_id on any account this user had referred. Either
+    one left dangling, real rows would make the whole delete transaction
+    roll back on a Postgres FK violation - reporting a generic "Database
+    error" to a user exercising exactly the GDPR erasure right the privacy
+    policy (L1) promises works. No production household is known to still
+    write to the legacy tables (grep shows nothing in the app instantiates
+    Recipe()/WeeklyMenu()/ShoppingList() outside database/models.py), but
+    historical rows from before the JSONB migration could still exist, so
+    this clears them defensively rather than assuming they're empty.
+    """
     session = SessionLocal()
     try:
         import shutil
-        from database.models import Household, HouseholdMember
+        from database.models import (
+            Household,
+            HouseholdMember,
+            Recipe,
+            RecipeIngredient,
+            WeeklyMenu,
+            ShoppingList,
+        )
         from core.household_paths import HOUSEHOLDS_DIR
 
         owned_ids = [
@@ -296,12 +340,49 @@ def delete_user_account(user_id):
         ]
 
         for hid in owned_ids:
+            # Legacy relational tables (pre-F4-migration; JSONB columns on
+            # Household are the real data now, but these are still
+            # FK-constrained in Postgres and must be cleared first.
+            recipe_ids = [
+                r.id
+                for r in session.query(Recipe).filter(Recipe.household_id == hid).all()
+            ]
+            if recipe_ids:
+                session.query(RecipeIngredient).filter(
+                    RecipeIngredient.recipe_id.in_(recipe_ids)
+                ).delete(synchronize_session=False)
+                session.query(Recipe).filter(Recipe.id.in_(recipe_ids)).delete(
+                    synchronize_session=False
+                )
+            session.query(WeeklyMenu).filter(WeeklyMenu.household_id == hid).delete(
+                synchronize_session=False
+            )
+            session.query(ShoppingList).filter(ShoppingList.household_id == hid).delete(
+                synchronize_session=False
+            )
+
             session.query(HouseholdMember).filter(
                 HouseholdMember.household_id == hid
             ).delete()
             household_folder = HOUSEHOLDS_DIR / str(hid)
             if household_folder.exists():
                 shutil.rmtree(household_folder)
+
+        # Recipes this user authored directly (created_by), independent of
+        # which household they ended up in - e.g. a household they've since
+        # left, or a public/no-household recipe.
+        session.query(Recipe).filter(Recipe.created_by == user_id).update(
+            {"created_by": None}, synchronize_session=False
+        )
+
+        # Anyone this user referred keeps their own account, but the
+        # dangling pointer back to a deleted user must be cleared - the raw
+        # code (referred_by_code) is kept regardless, since it's meant to
+        # survive referrer deletion (see User.referred_by_code's own
+        # docstring) and isn't itself a foreign key.
+        session.query(User).filter(User.referred_by_user_id == user_id).update(
+            {"referred_by_user_id": None}, synchronize_session=False
+        )
 
         session.query(HouseholdMember).filter(
             HouseholdMember.user_id == user_id

@@ -1160,6 +1160,21 @@ a:hover {
   border-radius: 16px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
   width: 100%;
+  /* This rule set (added for the Integrations modal) previously replaced the
+     original .pm-modal-box's max-height/overflow-y:auto with a plain
+     `overflow: hidden` and no height cap at all - since this block comes
+     later in the stylesheet, it silently won for every modal sharing this
+     class (same cascade-collision shape as B65's grid-template-columns
+     bug), not just the short Integrations modal it was written for. On a
+     long list (e.g. the recipe-packs import modal's pack list, or Import
+     Arsenal's), the box just grew past the viewport with no way to scroll
+     down to the Import/OK button in the footer - it was there, just
+     permanently off-screen. max-height + flex column + the pack
+     list/body scrolling internally (not the whole box) keeps the header and
+     footer always visible/reachable regardless of content length. */
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
 }
 
@@ -1196,6 +1211,31 @@ a:hover {
 .pm-modal-body,
 .pm-modal-box > div:not(.pm-modal-header) {
   padding: 16px 24px 20px;
+}
+
+/* .pm-modal-box is now a flex column (see above) so its header and footer
+   can stay fixed in place while only the middle content area - the pack
+   list / recipe list / whatever the modal's actual scrollable payload is -
+   scrolls internally. Without this, a long list pushes the footer's
+   Import/OK button below the fold with the whole box unable to scroll (the
+   bug this fix addresses). Header and footer opt out of growing/shrinking
+   and out of the generic padding rule above so their existing spacing is
+   unaffected; everything else in between absorbs the modal's height budget
+   and scrolls on its own. */
+.pm-modal-box > .pm-modal-header {
+  flex: 0 0 auto;
+}
+.pm-modal-box > div:not(.pm-modal-header):not(.pm-modal-footer):not(.pm-status) {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  min-height: 0;
+}
+.pm-modal-box > .pm-modal-footer {
+  flex: 0 0 auto;
+  padding-top: 0;
+}
+.pm-modal-box > .pm-status {
+  flex: 0 0 auto;
 }
 
 .pm-status {

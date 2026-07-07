@@ -75,7 +75,6 @@ def test_app():
         db.create_all()
         yield app
         # Clean up
-        db.session.remove()
         db.drop_all()
 
 

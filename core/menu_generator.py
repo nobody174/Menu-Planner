@@ -672,16 +672,3 @@ class MenuGenerator:
                 logger.info("")
 
         logger.info(f"✅ Menu generation complete!")
-
-
-def test_menu_generator():
-    logger.info("Testing menu generator...")
-
-    generator = MenuGenerator(seed=42)
-    menu = generator.run(num_dinners=6, save=True)
-
-    return menu
-
-
-if __name__ == "__main__":
-    test_menu_generator()

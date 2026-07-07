@@ -512,7 +512,24 @@ def format_minutes(value):
     return f"{hours} h {mins} min"
 
 
-app.config["SECRET_KEY"] = os.environ.get("FLASK_SECRET_KEY", secrets.token_hex(32))
+_flask_secret_key = os.environ.get("FLASK_SECRET_KEY")
+if not _flask_secret_key:
+    # H1 (audit 2026-07-07): this used to silently fall back to
+    # secrets.token_hex(32) if the env var was missing. That's a trap in
+    # production - every restart (every worker, under a multi-worker
+    # deployment) would mint a *different* signing key, silently
+    # invalidating every existing session with no error anywhere. A missing
+    # production secret should crash at boot, not degrade invisibly - that's
+    # exactly B17's symptom (intermittent relogin). Local/dev still gets a
+    # random per-process key so `run_local.bat` keeps working with no setup.
+    if IS_PRODUCTION:
+        raise RuntimeError(
+            "FLASK_SECRET_KEY is not set in production. Refusing to start "
+            "with a random per-process key, since that silently invalidates "
+            "every session on every restart (see B17/H1 in the backlog)."
+        )
+    _flask_secret_key = secrets.token_hex(32)
+app.config["SECRET_KEY"] = _flask_secret_key
 
 # Security: Use secure cookies in production
 app.config["SESSION_COOKIE_SECURE"] = IS_PRODUCTION
@@ -536,9 +553,56 @@ from flask_wtf import CSRFProtect
 
 csrf = CSRFProtect(app)
 
+# Request body size cap (LO1, audit 2026-07-07) - previously unset, so
+# routes like /api/recipes/import accepted an unbounded JSON body straight
+# into a household's JSONB column, validated only for id/title presence on
+# each item. 5MB comfortably covers a large recipe-pack export/import or a
+# big pantry list with room to spare, while still ruling out an accidental
+# or malicious multi-hundred-MB POST.
+app.config["MAX_CONTENT_LENGTH"] = 5 * 1024 * 1024
+
+# Rate limiting (H2, audit 2026-07-07) - /login, /signup, /forgot-password,
+# and /resend-confirmation previously accepted unlimited attempts, making
+# them scriptable for credential brute-forcing, fake-account creation, and
+# email-sending abuse. In-process storage (the default) is fine at the
+# single-worker Render deployment this app actually runs (see Procfile) -
+# revisit with a shared store (e.g. Redis) only if the app ever moves to
+# multiple gunicorn workers/processes, same caveat as the PIN lockout in
+# core/auth_helpers.py.
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
+
+limiter = Limiter(
+    get_remote_address,
+    app=app,
+    storage_uri="memory://",
+    default_limits=[],  # only the routes below are limited, not the whole app
+)
+
 # Disable Jinja2 cache in development for faster iteration
 if not IS_PRODUCTION:
     app.jinja_env.cache = None
+
+
+@app.after_request
+def _set_security_headers(response):
+    """Baseline security response headers (M8, audit 2026-07-07). The app's
+    own escaping discipline (see frontend/static/app.js's _esc() pattern) is
+    the primary XSS defense; these headers are the backstop for a sink that
+    discipline missed, plus clickjacking protection this app had zero of
+    before. CSP is intentionally minimal/permissive for now rather than
+    strict - the app relies on inline <script>/<style> throughout its
+    templates, and a real nonce-based CSP is a separate, larger effort (would
+    need every template audited, not just this one function)."""
+    response.headers["X-Frame-Options"] = "DENY"
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
+    if IS_PRODUCTION:
+        response.headers["Strict-Transport-Security"] = (
+            "max-age=31536000; includeSubDomains"
+        )
+    return response
+
 
 logger.info(f"Flask templates: {app.template_folder}")
 logger.info(f"Flask static: {app.static_folder}")
@@ -1669,6 +1733,39 @@ def _save_household_categories(household_id, categories):
         json.dump(categories, f, ensure_ascii=False, indent=2)
 
 
+def _mark_category_removed(household_id, code):
+    """Record a category-deletion tombstone in the database for DB-backed
+    households (with fallback to the legacy file for the migration period) -
+    mirrors _save_household_categories' own DB/file dispatch (M2, audit
+    2026-07-07). Previously always wrote to the file regardless of whether
+    the household was otherwise fully DB-backed, meaning this one piece of
+    category state didn't survive a disk loss/volume reset the way every
+    other household field already does."""
+    if household_id:
+        from database.database import SessionLocal
+        from database.models import Household
+        from core.household_paths import mark_category_removed_to_db
+
+        db = SessionLocal()
+        try:
+            household = db.query(Household).filter(Household.id == household_id).first()
+            if household:
+                mark_category_removed_to_db(household, code)
+                db.commit()
+                return
+        except Exception as e:
+            db.rollback()
+            print(f"Error saving category tombstone to database: {e}")
+        finally:
+            db.close()
+        return
+
+    # Fallback to file-based for migration period
+    from core.household_paths import mark_category_removed
+
+    mark_category_removed(household_id, code)
+
+
 @app.route("/api/categories/add", methods=["POST"])
 def api_add_category():
     """Owner-only: add a custom category to this household's category list."""
@@ -1798,9 +1895,7 @@ def api_remove_category():
 
     remaining = [c for c in categories if c.get("code") != code]
     _save_household_categories(household_id, remaining)
-    from core.household_paths import mark_category_removed
-
-    mark_category_removed(household_id, code)
+    _mark_category_removed(household_id, code)
     msg = f"Removed category '{code}'"
     if moved:
         msg += f" ({moved} recipes moved to Uncategorized)"
@@ -1865,9 +1960,7 @@ def api_merge_category():
 
     remaining = [c for c in categories if c.get("code") != from_code]
     _save_household_categories(household_id, remaining)
-    from core.household_paths import mark_category_removed
-
-    mark_category_removed(household_id, from_code)
+    _mark_category_removed(household_id, from_code)
     log_activity(
         f"Merged category '{from_cat.get('name_en')}' into '{into_cat.get('name_en')}' ({moved} recipe(s) moved)"
     )
@@ -2566,6 +2659,7 @@ def login_page():
 
 
 @app.route("/login", methods=["POST"])
+@limiter.limit("10 per minute")
 def login_local():
     """Handle local email/password login."""
     from core.auth_helpers import authenticate_user
@@ -2637,10 +2731,18 @@ def confirm_email_route(token):
 
 
 @app.route("/resend-confirmation", methods=["POST"])
+@limiter.limit("5 per hour")
 def resend_confirmation():
     """Re-send the confirmation email with a fresh token - the fallback for
     a tester whose first email landed in spam or was sent to a typo'd
-    address they've since corrected via a new signup."""
+    address they've since corrected via a new signup.
+
+    Always shows the same generic success message regardless of whether the
+    email exists, is already confirmed, or genuinely got a fresh token sent
+    (M7, 2026-07 security pass) - the old per-case error text ("User not
+    found" / "Email already confirmed") let anyone probe which addresses are
+    registered, the same enumeration issue already fixed on /login and
+    /forgot-password."""
     from core.auth_helpers import regenerate_confirmation_token
 
     email = request.form.get("email", "").strip()
@@ -2648,14 +2750,13 @@ def resend_confirmation():
         return render_template("login.html", error="Email required"), 400
 
     success, result = regenerate_confirmation_token(email)
-    if not success:
-        return render_template("login.html", error=result, email=email), 400
+    if success:
+        _send_confirmation_email(result)
+        logger.info(f"Resent confirmation email to {result.email}")
 
-    _send_confirmation_email(result)
-    logger.info(f"Resent confirmation email to {result.email}")
     return render_template(
         "login.html",
-        success="Confirmation email resent - please check your inbox.",
+        success="If that email is registered and not yet confirmed, a new confirmation link is on its way.",
         email=email,
     )
 
@@ -2670,6 +2771,7 @@ def forgot_password_page():
 
 
 @app.route("/forgot-password", methods=["POST"])
+@limiter.limit("5 per hour")
 def forgot_password():
     from core.auth_helpers import request_password_reset
 
@@ -2733,10 +2835,16 @@ def delete_own_account():
         return redirect(
             url_for("settings_page", error="Incorrect password — account not deleted")
         )
-    # Clean up household data on disk too
-    user_id_str = str(user_id)
-    from core.auth_helpers import delete_user_account
+    # LO8 (audit 2026-07-07): household_id must be captured *before*
+    # delete_user_account() runs - it deletes the user's own row, and
+    # current_household_id() resolves via a DB lookup keyed on that row, so
+    # calling it afterward always returned None and this folder cleanup was
+    # silently dead code (the file-storage fallback tree never actually got
+    # cleaned up on self-deletion). Also removed a duplicate import of
+    # delete_user_account - it was already imported above.
+    household_id = current_household_id()
 
+    user_id_str = str(user_id)
     success, msg = delete_user_account(user_id_str)
     if not success:
         return redirect(
@@ -2746,7 +2854,6 @@ def delete_own_account():
     from core.household_paths import HOUSEHOLDS_DIR
     import shutil
 
-    household_id = current_household_id()
     if household_id:
         hdir = HOUSEHOLDS_DIR / str(household_id)
         if hdir.exists():
@@ -2879,7 +2986,7 @@ def admin_delete_user():
     success, msg = delete_user_account(user_id)
     if success:
         logger.info(f"Admin deleted user {user_id}")
-        return redirect(url_for("admin_panel", success=f"User deleted successfully"))
+        return redirect(url_for("admin_panel", success="User deleted successfully"))
     return redirect(url_for("admin_panel", error=msg))
 
 
@@ -2902,6 +3009,7 @@ def signup():
 
 
 @app.route("/signup", methods=["POST"])
+@limiter.limit("10 per hour")
 def signup_local():
     """Handle local user registration."""
     from core.auth_helpers import create_user
@@ -3183,7 +3291,7 @@ def get_categories():
 def api_export_shopping_list():
     """Export shopping list in various formats."""
     try:
-        from shopping_integrations import (
+        from deployment.shopping_integrations import (
             export_csv,
             export_json,
             export_todoist_format,
@@ -3297,7 +3405,7 @@ def api_sync_shopping_list():
 
         if service == "reminders":
             # Return ICS file for Apple Reminders as direct download
-            from shopping_integrations import export_ics
+            from deployment.shopping_integrations import export_ics
             from flask import send_file
             import io
 
@@ -4008,11 +4116,13 @@ def api_reroll_recipe():
 
 @app.route("/health")
 def health_check():
+    # LO8 (audit 2026-07-07): dropped the "https": CERT_FILE.exists() field -
+    # a Pi-era local-HTTPS leftover (LO3) that's meaningless on Render, where
+    # Cloudflare terminates TLS in front of the app entirely.
     return jsonify(
         {
             "status": "healthy",
             "timestamp": datetime.now().isoformat(),
-            "https": CERT_FILE.exists(),
         }
     )
 
@@ -4020,32 +4130,14 @@ def health_check():
 # ── Theme gallery ─────────────────────────────────────────────────────────────
 
 
-@app.route("/themes")
-def theme_gallery():
-    import os as _os
-
-    preview_dir = Path(__file__).parent.parent / "frontend/static/theme-previews"
-    files = sorted([f for f in _os.listdir(preview_dir) if f.endswith(".html")])
-    themes = [
-        {
-            "file": f,
-            "name": f.replace("theme-", "")
-            .replace(".html", "")
-            .replace("-", " ")
-            .title(),
-        }
-        for f in files
-    ]
-    return render_template("theme_gallery.html", themes=themes)
-
-
-@app.route("/themes/<filename>")
-def theme_preview(filename):
-    from flask import send_from_directory
-
-    preview_dir = Path(__file__).parent.parent / "frontend/static/theme-previews"
-    return send_from_directory(preview_dir, filename)
-
+# H3 (audit 2026-07-07): the old /themes and /themes/<filename> routes were
+# deleted here - dead code from the theme refactor era. They listed
+# frontend/static/theme-previews/, a directory that never existed (the real
+# one is frontend/static/themes/previews/, which holds CSS, not the HTML
+# files these routes expected), so both 500'd unconditionally. No nav link
+# anywhere pointed to them - confirmed via a repo-wide search before
+# deleting. frontend/templates/theme_gallery.html (the only thing that
+# linked to itself) is now deleted too.
 
 # ── Recipe Packs API ──────────────────────────────────────────────────────────
 
