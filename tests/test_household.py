@@ -9,6 +9,12 @@ from core.household_helpers import (
     add_household_member, remove_household_member, update_member_role,
     user_can_access_household, user_can_edit_household
 )
+from core.household_paths import (
+    load_removed_categories_from_db, mark_category_removed_to_db,
+    load_categories_from_db
+)
+from database.database import SessionLocal
+from database.models import Household
 
 
 @pytest.fixture
@@ -224,3 +230,67 @@ class TestMemberRoles:
         )
         assert not success
         assert "owner" in msg.lower()
+
+
+class TestCategoryTombstonesInDatabase:
+    """M2 (audit 2026-07-07): a household's list of explicitly-deleted
+    categories used to live only in a file on the Render disk
+    (data/households/<id>/removed_categories.json), even for households that
+    are otherwise fully DB-backed. That meant this one piece of category
+    state didn't survive a disk loss/volume reset the way every other
+    household field already does - restoring Postgres onto a fresh volume,
+    or losing the Render disk, would silently resurrect every category a
+    household had deliberately deleted. These tests confirm the tombstone
+    now round-trips through the households.removed_categories JSONB column
+    instead."""
+
+    def test_mark_and_load_removed_categories_from_db(self, test_users):
+        owner = test_users['owner']
+        _, household, household_id = create_household(str(owner.id), 'My Family')
+
+        db = SessionLocal()
+        try:
+            db_household = db.query(Household).filter(Household.id == household_id).first()
+            assert load_removed_categories_from_db(db_household) == set()
+
+            mark_category_removed_to_db(db_household, 'desserts')
+            db.commit()
+        finally:
+            db.close()
+
+        # Fresh session/object, proving the tombstone was actually
+        # persisted to the database column - not just mutated in memory.
+        db2 = SessionLocal()
+        try:
+            reloaded = db2.query(Household).filter(Household.id == household_id).first()
+            assert load_removed_categories_from_db(reloaded) == {'desserts'}
+            assert reloaded.removed_categories == ['desserts']
+        finally:
+            db2.close()
+
+    def test_removed_category_not_resurrected_by_self_heal(self, test_users):
+        """load_categories_from_db()'s self-heal (which re-adds any base
+        category a household is missing) must never re-add one the
+        household explicitly deleted - the whole point of the tombstone.
+        'chicken' is a real base seed category (data/categories.json), so
+        this actually exercises the self-heal path rather than a code that
+        was never going to be re-added anyway."""
+        owner = test_users['owner']
+        _, household, household_id = create_household(str(owner.id), 'My Family')
+
+        db = SessionLocal()
+        try:
+            db_household = db.query(Household).filter(Household.id == household_id).first()
+            db_household.categories = []
+            mark_category_removed_to_db(db_household, 'chicken')
+            db.commit()
+        finally:
+            db.close()
+
+        db2 = SessionLocal()
+        try:
+            reloaded = db2.query(Household).filter(Household.id == household_id).first()
+            codes = {c.get('code') for c in load_categories_from_db(reloaded)}
+            assert 'chicken' not in codes
+        finally:
+            db2.close()

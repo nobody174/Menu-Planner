@@ -41,7 +41,14 @@ def seed():
     if not success:
         raise RuntimeError(f"Failed to create e2e test household: {household}")
 
-    generator = MenuGenerator(household_id=household_id)
+    # Fixed seed, not the default random one: without this, every seed run
+    # picks a different random set of recipes for the week, so a screenshot
+    # baseline captured from one run can never reliably match a later run -
+    # not a rendering bug, just non-deterministic test data. Confirmed via
+    # a real CI failure (2026-07-07): the dashboard's Monday/Tuesday/
+    # Wednesday recipes differed entirely between the baseline-capture run
+    # and a later run, failing the visual diff on content, not layout.
+    generator = MenuGenerator(household_id=household_id, seed=42)
     generator.run(save=True)
 
     print(f"Seeded e2e test user {E2E_EMAIL} / household {household_id}")

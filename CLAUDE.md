@@ -60,8 +60,16 @@ Then:
    - Render deploy hook fires
    - `/health` is polled for up to 5 minutes to confirm the live site is
      actually healthy, not just that the trigger fired
-   - A new patch version tag (vX.Y.Z+1) is created automatically, which
-     also fires `release.yml` to create a GitHub Release
+   - A new patch version tag (vX.Y.Z+1) is created automatically, and the
+     GitHub Release is created in this same job (`gh release create`) -
+     NOT by `release.yml`. GitHub deliberately blocks a `GITHUB_TOKEN`-
+     authored push from triggering other workflows (anti-loop
+     protection), so a tag pushed by this job's own token is invisible to
+     `release.yml`'s `on: push: tags:` trigger - confirmed via
+     `gh run list --workflow=release.yml`, zero runs ever fired from an
+     auto-tag despite the tags genuinely existing on GitHub. Found and
+     fixed 2026-07-07 (was live since this repo's tagging was set up -
+     `v1.1.1`/`v1.1.2` existed as tags but never got a Release).
 5. Report back: what was shipped, confirmation `/health` came back
    healthy, and the new version tag.
 
