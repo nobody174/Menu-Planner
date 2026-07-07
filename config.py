@@ -77,7 +77,7 @@ PREFERRED_CATEGORIES = ["Familie", "Rask Middag"]  # Prefer family-friendly reci
 # ============================================================================
 
 FUZZY_MATCH_THRESHOLD = 90  # Percentage (0-100)
-PANTRY_STAPLES_PATH = PROJECT_ROOT / "core" / "pantry_staples.json"
+PANTRY_STAPLES_PATH = PROJECT_ROOT / "data" / "pantry_staples.json"
 
 # ============================================================================
 # ALLERGEN FILTERS

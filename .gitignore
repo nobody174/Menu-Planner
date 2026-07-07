@@ -70,6 +70,8 @@ data/recipes_cache/
 data/token_cache.json
 *.db
 *.db-journal
+*.db-wal
+*.db-shm
 *.sqlite
 
 # Temporary files
@@ -85,3 +87,12 @@ new_chat_fresh_menu_planner.md
 # OS
 Thumbs.db
 .DS_Store
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+e2e/.auth/
+e2e_test.db

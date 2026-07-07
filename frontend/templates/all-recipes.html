@@ -3,7 +3,7 @@
 {% block title %}{{ t.all_recipes }} - {{ household_name }}{% endblock %}
 
 {% block content %}
-<div style="display: grid; grid-template-columns: 280px 1fr; gap: 24px; padding: 20px 0;">
+<div class="all-recipes-layout">
 
     <!-- SIDEBAR: Current Week Menu -->
     <aside class="weekly-menu-sidebar">
@@ -18,8 +18,8 @@
     <!-- MAIN: All Recipes -->
     <main>
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 4px;">
-            <h1 style="margin: 0;">{{ t.all_recipes }} ({{ recipes|length }})</h1>
-            <a href="/recipe-packs/manage" class="btn btn-secondary" style="white-space: nowrap;">📥 {{ t.import_recipe_packs }}</a>
+            <h1 style="margin: 0;">{{ t.all_recipes }} (<span id="recipeCount">{{ recipes|length }}</span>)</h1>
+            <button type="button" onclick="openRecipePacksModal()" class="btn btn-secondary" style="white-space: nowrap;">📥 {{ t.import_recipe_packs }}</button>
         </div>
 
         <div style="margin-bottom: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
@@ -40,6 +40,11 @@
                 <input type="checkbox" id="quickOnlyFilter">
                 ⚡ {{ t.get('quick_only', 'Quick only (≤30 min)') }}
             </label>
+        </div>
+
+        <div id="noRecipesFound" style="display: none; text-align: center; padding: 40px 20px; color: var(--color-text-secondary, #666); border: 1px dashed var(--color-border, #ddd); border-radius: 8px; margin-bottom: 16px;">
+            <p style="margin: 0 0 4px 0; font-weight: 600; color: var(--color-text-primary, #1a1a1a);">{{ t.get('no_recipes_found_title', 'No recipes found') }}</p>
+            <p style="margin: 0;">{{ t.get('no_recipes_found_msg', 'No recipes match your search or filters. Try a different search term or clear the filters.') }}</p>
         </div>
 
         <div id="recipesList" style="display: grid; gap: 16px;">
@@ -112,6 +117,12 @@
 </div>
 
 <style>
+.all-recipes-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 24px;
+    padding: 20px 0;
+}
 .weekly-menu-sidebar {
     background: var(--color-bg-secondary, #f9f9f9);
     border: 1px solid var(--color-border, #ddd);
@@ -159,12 +170,12 @@
     margin-top: 4px;
 }
 @media (max-width: 1024px) {
-    div[style*="grid-template-columns: 280px"] { grid-template-columns: 220px 1fr; gap: 16px; }
+    .all-recipes-layout { grid-template-columns: 220px 1fr; gap: 16px; }
     .weekly-menu-sidebar { padding: 12px; }
     .menu-day-item { padding: 10px; }
 }
 @media (max-width: 768px) {
-    div[style*="grid-template-columns: 280px"] { grid-template-columns: 1fr; }
+    .all-recipes-layout { grid-template-columns: 1fr; }
     .weekly-menu-sidebar {
         position: static;
         margin-bottom: 20px;
@@ -276,6 +287,7 @@ function filterRecipes() {
     var categoryTerm = document.getElementById('categoryFilter').value;
     var cuisineTerm = document.getElementById('cuisineFilter').value;
     var quickOnly = document.getElementById('quickOnlyFilter').checked;
+    var visibleCount = 0;
     document.querySelectorAll('.recipe-card').forEach(function(card) {
         var title    = card.getAttribute('data-title') || '';
         var category = card.getAttribute('data-category') || '';
@@ -286,8 +298,20 @@ function filterRecipes() {
                            (categoryTerm === '__FAVORITES__' ? localStorage.getItem('favorite-' + recipeId) === 'true' : category === categoryTerm);
         var matchCuisine  = cuisineTerm === '' || tags.indexOf(cuisineTerm) !== -1;
         var matchQuick    = !quickOnly || tags.indexOf('quick') !== -1;
-        card.style.display = (matchSearch && matchCategory && matchCuisine && matchQuick) ? 'block' : 'none';
+        var isMatch = matchSearch && matchCategory && matchCuisine && matchQuick;
+        card.style.display = isMatch ? 'block' : 'none';
+        if (isMatch) visibleCount++;
     });
+
+    // B55: previously the page just went blank under the search box with no
+    // explanation and a heading that still showed the unfiltered total.
+    var recipeCountEl = document.getElementById('recipeCount');
+    if (recipeCountEl) recipeCountEl.textContent = visibleCount;
+
+    var emptyState = document.getElementById('noRecipesFound');
+    var recipesList = document.getElementById('recipesList');
+    if (emptyState) emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+    if (recipesList) recipesList.style.display = visibleCount === 0 ? 'none' : 'grid';
 }
 
 document.querySelectorAll('.swap-dropdown').forEach(function(dropdown) {

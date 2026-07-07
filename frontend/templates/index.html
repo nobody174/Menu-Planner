@@ -16,36 +16,49 @@
       {% endif %}
   </div>
 
+  <div id="shortfall-banner" class="shortfall-banner" style="display:none">
+      <span id="shortfall-banner-text"></span>
+      <button type="button" id="shortfall-banner-dismiss" aria-label="Dismiss">&times;</button>
+  </div>
+
   <div class="menu-grid">
       {% for dinner in menu.dinners %}
-      <div class="menu-card">
+      <div class="menu-card" data-day="{{ dinner.day }}">
           <div class="card-header">
               <div class="card-header-left">
                   <h2 class="day-name">{{ dinner.day }}</h2>
                   <span class="meal-time">{{ dinner.time_minutes|format_minutes }}</span>
               </div>
-              <div class="card-header-icon">
-                  {%- if dinner.protein == 'chicken' -%}
-                  🍗
-                  {%- elif dinner.protein == 'beef' -%}
-                  🥩
-                  {%- elif dinner.protein == 'fish' -%}
-                  🐟
-                  {%- elif dinner.protein == 'pork' -%}
-                  🍖
-                  {%- elif dinner.protein == 'lamb' -%}
-                  🐑
-                  {%- elif dinner.protein == 'vegetarian' -%}
-                  🥗
-                  {%- elif dinner.protein == 'soup' -%}
-                  🍲
-                  {%- else -%}
-                  🍽️
-                  {%- endif -%}
+              {% if can_edit_menu %}
+              <div class="card-header-day-actions">
+                  <button type="button" class="day-action-icon" title="{{ t.reroll_recipe }}" onclick="rerollDayRecipe('{{ dinner.day }}', this)">🎲</button>
+                  <button type="button" class="day-action-icon" title="{{ t.pick_recipe }}" onclick="openRecipeSearchModal('{{ dinner.day }}')">🔍</button>
               </div>
+              {% endif %}
           </div>
           <div class="card-body">
-              <h3 class="recipe-title">{{ dinner.title if dinner.recipe_id else t.get('empty_slot', 'No recipe assigned') }}</h3>
+              <div class="recipe-title-row">
+                  <h3 class="recipe-title">{{ dinner.title if dinner.recipe_id else t.get('empty_slot', 'No recipe assigned') }}</h3>
+                  <span class="card-header-icon">
+                      {%- if dinner.protein == 'chicken' -%}
+                      🍗
+                      {%- elif dinner.protein == 'beef' -%}
+                      🥩
+                      {%- elif dinner.protein == 'fish' -%}
+                      🐟
+                      {%- elif dinner.protein == 'pork' -%}
+                      🍖
+                      {%- elif dinner.protein == 'lamb' -%}
+                      🐑
+                      {%- elif dinner.protein == 'vegetarian' -%}
+                      🥗
+                      {%- elif dinner.protein == 'soup' -%}
+                      🍲
+                      {%- else -%}
+                      🍽️
+                      {%- endif -%}
+                  </span>
+              </div>
               {% if dinner.recipe_id %}
               <p class="difficulty"><span class="difficulty-dot" data-difficulty="{{ dinner.difficulty_level }}"></span>{{ dinner.difficulty }}</p>
               {% endif %}
@@ -101,6 +114,11 @@
   </div>
   {% endif %}
 
+  <div id="shortfall-banner-rich" class="shortfall-banner tc-shortfall-banner" style="display:none">
+      <span id="shortfall-banner-rich-text"></span>
+      <button type="button" id="shortfall-banner-rich-dismiss" aria-label="Dismiss">&times;</button>
+  </div>
+
   {# ── Day selector ── #}
   <div class="tc-day-nav" id="tc-day-nav">
     {% for dinner in menu.dinners %}
@@ -116,7 +134,7 @@
   {# ── Cards grid ── #}
   <div class="tc-grid">
     {% for dinner in menu.dinners %}
-    <div class="tc-card tc-card-anim tc-card-delay-{{ loop.index }}" data-day-index="{{ loop.index0 }}">
+    <div class="tc-card tc-card-anim tc-card-delay-{{ loop.index }}" data-day-index="{{ loop.index0 }}" data-day="{{ dinner.day }}">
       <div class="tc-card-img-wrap">
         {% if dinner.image_url %}
         <img src="{{ dinner.image_url }}" alt="{{ dinner.title }}" class="tc-card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -146,7 +164,15 @@
         </div>
       </div>
       <div class="tc-card-body">
-        <h3 class="tc-card-title">{{ dinner.title if dinner.recipe_id else t.get('empty_slot', 'No recipe assigned') }}</h3>
+        <div class="tc-card-title-row">
+          <h3 class="tc-card-title">{{ dinner.title if dinner.recipe_id else t.get('empty_slot', 'No recipe assigned') }}</h3>
+          {% if can_edit_menu %}
+          <div class="tc-card-day-actions">
+            <button type="button" class="day-action-icon" title="{{ t.reroll_recipe }}" onclick="rerollDayRecipe('{{ dinner.day }}', this)">🎲</button>
+            <button type="button" class="day-action-icon" title="{{ t.pick_recipe }}" onclick="openRecipeSearchModal('{{ dinner.day }}')">🔍</button>
+          </div>
+          {% endif %}
+        </div>
         {% if dinner.subtitle %}
         <p class="tc-card-desc">{{ dinner.subtitle }}</p>
         {% endif %}
@@ -214,5 +240,240 @@
   </div>
 
 </div>{# /layout-rich #}
+
+{# ─────────────────────────────────────────────────────────────
+   Search-and-pick modal (shared by both layouts) - lets a user
+   assign a specific named recipe to a day instead of only being
+   able to reroll to something random or regenerate the whole week.
+   Feature request from user testing, 2026-07.
+   ───────────────────────────────────────────────────────────── #}
+<div id="recipe-search-overlay" class="ps-overlay" style="display:none;" onclick="if(event.target===this) closeRecipeSearchModal();">
+  <div class="ps-modal">
+    <div class="ps-modal-header">
+      <h3>{{ t.pick_recipe_modal_title }}</h3>
+      <button type="button" class="ps-modal-close" onclick="closeRecipeSearchModal()" aria-label="Close">×</button>
+    </div>
+    <input type="text" id="recipe-search-input" class="ps-search-input" placeholder="{{ t.search_recipe_placeholder }}" oninput="onRecipeSearchInput()">
+    <div id="recipe-search-results" class="ps-search-results"></div>
+  </div>
+</div>
+
+<style>
+  /* Reroll/search-recipe icon buttons - deliberately plain (no button bar/
+     background) per user feedback (2026-07): just the two icons, a bit
+     larger than body text, sitting inline next to other header content
+     rather than as a third full-width footer button. */
+  .day-action-icon {
+    background: none; border: none; cursor: pointer; padding: 2px 4px;
+    font-size: 1.3rem; line-height: 1; opacity: 0.85; transition: opacity 0.15s, transform 0.15s;
+  }
+  .day-action-icon:hover { opacity: 1; transform: scale(1.1); }
+  .day-action-icon:disabled { opacity: 0.4; cursor: default; transform: none; }
+  .card-header-day-actions { display: flex; align-items: center; gap: 6px; }
+  .tc-card-title-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+  .tc-card-title-row .tc-card-title { margin: 0; }
+  .tc-card-day-actions { display: flex; gap: 6px; flex-shrink: 0; margin-top: 2px; }
+  .ps-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.45);
+    display: flex; align-items: flex-start; justify-content: center;
+    padding-top: 10vh; z-index: 1000;
+  }
+  .ps-modal {
+    background: var(--color-surface, #fff); border-radius: 10px;
+    width: 92%; max-width: 480px; padding: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+    max-height: 70vh; display: flex; flex-direction: column;
+  }
+  .ps-modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+  .ps-modal-header h3 { margin: 0; }
+  .ps-modal-close { background: none; border: none; font-size: 1.5rem; cursor: pointer; line-height: 1; color: inherit; }
+  .ps-search-input { width: 100%; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; box-sizing: border-box; }
+  .ps-search-results { margin-top: 12px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px; }
+  .ps-result-item {
+    display: flex; justify-content: space-between; align-items: center; gap: 10px;
+    padding: 10px 12px; border: 1px solid #eee; border-radius: 6px; cursor: pointer; background: #fafafa;
+  }
+  .ps-result-item:hover { background: #f0e6d8; }
+  .ps-result-meta { color: #888; font-size: 0.85rem; white-space: nowrap; }
+  .ps-empty { color: #999; text-align: center; padding: 16px; font-size: 0.9rem; }
+</style>
+
+<script>
+  var _psCurrentDay = null;
+  var _psSearchTimer = null;
+
+  var PROTEIN_ICONS = {
+      chicken: '🍗', beef: '🥩', fish: '🐟', pork: '🍖',
+      lamb: '🐑', vegetarian: '🥗', soup: '🍲'
+  };
+  function _proteinIcon(protein) {
+      return PROTEIN_ICONS[protein] || '🍽️';
+  }
+
+  // Patches the one day-card's DOM in place with the rerolled recipe's
+  // fields, for both the standard (.menu-card) and rich/terracotta
+  // (.tc-card) layouts - whichever is actually on the page. No page
+  // reload: a reload used to cancel any OTHER still-in-flight request
+  // (e.g. a second reroll click on a different day before this one's
+  // reload fired), which could surface as a misleading CSRF error and
+  // leave that other button stuck disabled.
+  function _applyRerollToCard(day, data) {
+      var card = document.querySelector('[data-day="' + day + '"]');
+      if (!card) { return; }
+
+      var titleEl = card.querySelector('.recipe-title, .tc-card-title');
+      if (titleEl) { titleEl.textContent = data.title; }
+
+      var descEl = card.querySelector('.tc-card-desc');
+      if (descEl) { descEl.textContent = data.subtitle || ''; }
+
+      var diffDot = card.querySelector('.difficulty-dot');
+      if (diffDot) { diffDot.setAttribute('data-difficulty', data.difficulty_level); }
+      var diffText = card.querySelector('.difficulty, .tc-tag');
+      if (diffText) {
+          // Rebuild rather than just set textContent, since the dot span
+          // needs to stay inside for its CSS-driven color to still apply.
+          diffText.innerHTML = '';
+          if (diffDot) { diffText.appendChild(diffDot); }
+          diffText.appendChild(document.createTextNode(data.difficulty));
+      }
+
+      var timeEl = card.querySelector('.meal-time, .tc-time-badge');
+      if (timeEl) {
+          timeEl.textContent = timeEl.classList.contains('tc-time-badge')
+              ? '🕐 ' + data.time_display
+              : data.time_display;
+      }
+
+      var headerIcon = card.querySelector('.card-header-icon');
+      if (headerIcon) { headerIcon.textContent = _proteinIcon(data.protein); }
+      var placeholderIcon = card.querySelector('.tc-placeholder-icon');
+      if (placeholderIcon) { placeholderIcon.textContent = _proteinIcon(data.protein); }
+
+      var recipeLink = card.querySelector('.btn-primary, .tc-recipe-link');
+      if (recipeLink) { recipeLink.setAttribute('href', '/recipe/' + data.recipe_id); }
+  }
+
+  function rerollDayRecipe(day, btnEl) {
+      if (btnEl) { btnEl.disabled = true; }
+      fetch('/api/reroll-recipe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ day: day })
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+          if (data.status === 'success') {
+              // No confirmation popup - the card updating in place IS the
+              // confirmation, and a modal here would just be an extra
+              // click to dismiss for something already visibly done.
+              _applyRerollToCard(day, data);
+          } else {
+              pmAlert('❌', '{{ t.get("server_error", "Error") }}', data.message || '');
+          }
+          if (btnEl) { btnEl.disabled = false; }
+      })
+      .catch(function() {
+          pmAlert('❌', '{{ t.get("server_error", "Error") }}', '');
+          if (btnEl) { btnEl.disabled = false; }
+      });
+  }
+
+  function openRecipeSearchModal(day) {
+      _psCurrentDay = day;
+      var overlay = document.getElementById('recipe-search-overlay');
+      var input = document.getElementById('recipe-search-input');
+      var results = document.getElementById('recipe-search-results');
+      input.value = '';
+      results.innerHTML = '';
+      overlay.style.display = 'flex';
+      setTimeout(function() { input.focus(); }, 50);
+  }
+
+  function closeRecipeSearchModal() {
+      document.getElementById('recipe-search-overlay').style.display = 'none';
+      _psCurrentDay = null;
+  }
+
+  function onRecipeSearchInput() {
+      var query = document.getElementById('recipe-search-input').value.trim();
+      clearTimeout(_psSearchTimer);
+      if (query.length < 2) {
+          document.getElementById('recipe-search-results').innerHTML = '';
+          return;
+      }
+      _psSearchTimer = setTimeout(function() {
+          fetch('/api/recipes/search?q=' + encodeURIComponent(query))
+              .then(function(r) { return r.json(); })
+              .then(function(data) { renderRecipeSearchResults(data.recipes || []); })
+              .catch(function() { renderRecipeSearchResults([]); });
+      }, 250);
+  }
+
+  function renderRecipeSearchResults(recipes) {
+      var container = document.getElementById('recipe-search-results');
+      if (!recipes.length) {
+          container.innerHTML = '<div class="ps-empty">{{ t.no_recipes_found }}</div>';
+          return;
+      }
+      var lang = (document.documentElement.lang || 'en').slice(0, 2);
+      // Build via DOM nodes (not innerHTML + inline onclick) so recipe titles
+      // with quotes/apostrophes (e.g. "Nonna's Ravioli") can never break out
+      // of an HTML attribute - this bit us with JSON.stringify()-in-onclick
+      // during testing (2026-07).
+      container.innerHTML = '';
+      recipes.forEach(function(r) {
+          var title = (lang === 'no' ? (r.title_no || r.title_en) : (r.title_en || r.title_no)) || 'Recipe';
+          var meta = (r.category || '') + (r.time_minutes ? ' • ' + r.time_minutes + ' min' : '');
+          var item = document.createElement('div');
+          item.className = 'ps-result-item';
+          var titleSpan = document.createElement('span');
+          titleSpan.textContent = title;
+          var metaSpan = document.createElement('span');
+          metaSpan.className = 'ps-result-meta';
+          metaSpan.textContent = meta;
+          item.appendChild(titleSpan);
+          item.appendChild(metaSpan);
+          item.addEventListener('click', function() {
+              pickSearchedRecipe(r.id, title);
+          });
+          container.appendChild(item);
+      });
+  }
+
+  function pickSearchedRecipe(recipeId, recipeTitle) {
+      if (!_psCurrentDay) { return; }
+      var day = _psCurrentDay;
+      fetch('/api/swap-recipe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ recipe_id: recipeId, recipe_title: recipeTitle, day: day })
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+          closeRecipeSearchModal();
+          if (data.status === 'success') {
+              // No page reload (see rerollDayRecipe's comment) - patch
+              // every affected card in place. cards has 2 entries when
+              // this was a true swap between two days. No confirmation
+              // popup either - the card(s) updating IS the confirmation.
+              (data.cards || []).forEach(function(card) {
+                  _applyRerollToCard(card.day, card);
+              });
+          } else {
+              pmAlert('❌', '{{ t.get("server_error", "Error") }}', data.message || '');
+          }
+      })
+      .catch(function() {
+          closeRecipeSearchModal();
+          pmAlert('❌', '{{ t.get("server_error", "Error") }}', '');
+      });
+  }
+
+  if (typeof _esc !== 'function') {
+      function _esc(str) {
+          return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+      }
+  }
+</script>
 
 {% endblock %}

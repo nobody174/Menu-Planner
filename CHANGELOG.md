@@ -5,6 +5,163 @@ See `BACKLOG_2026-07-01.md` for open tasks and `FEATURE_ROADMAP.md` for planned 
 
 ---
 
+## 2026-07-06 (13)
+
+### Researched: automated cross-browser/cross-device testing (no more manual DevTools swapping)
+
+Prompted by hitting real friction this session: manually testing responsive layouts required a human to open DevTools, pick a device preset from a dropdown, and tell Claude which one was selected each time - and a genuine Firefox-only bug (white block at the bottom of a page, not reproducible in Chrome or Edge) couldn't be diagnosed at all without a real Firefox engine, which this sandbox can't run (outbound access to Playwright's browser-binary CDN is blocked by the sandbox's network allowlist).
+
+Dispatched two research subagents to find a genuinely free, unattended solution rather than guessing. Verified conclusion: install Playwright MCP (`microsoft/playwright-mcp`, confirmed actively maintained) for live interactive checks during development (`claude mcp add playwright npx @playwright/mcp@latest`), plus a Playwright test suite added to CI (`.github/workflows/ci.yml`) covering chromium/firefox/webkit x several device viewports, with `toHaveScreenshot()` visual-regression diffing to catch exactly this class of Firefox-only rendering bug automatically on every push. Confirmed fully free (GitHub Actions minutes free/unlimited on a public repo, Playwright's snapshot diffing is self-hosted). Cloud device farms (BrowserStack/Sauce Labs/LambdaTest) were checked and ruled out - their current free tiers are thin, time-limited trials, not worth it for this bug class.
+
+Written up in full in `docs/BACKLOG_2026-07-01.md` (B62). Not yet implemented - next step is for Claude Code (running locally, with real unrestricted internet access) to actually install and wire this up.
+
+---
+
+## 2026-07-06 (12)
+
+### Nav cleanup: moved What's New/Planned into Help, reordered Add Recipe / All Recipes
+
+More feedback from a friend testing the app: "What's New" and "What's
+Planned" sat as top-level items in the ⚙️ settings menu, right next to
+"All Recipes" and "+ Add Recipe" — he read "What's Planned" as "what's
+planned for my weekly menu" rather than what it actually is (the app's
+own feature roadmap), which is a reasonable misread given where it was
+sitting.
+
+Moved both links (`frontend/templates/base.html`) into the existing
+collapsed "Help" submenu, alongside Quick Start Guide / Advanced Guide /
+Tips & Tricks — all app-level info, not menu-planning actions, so grouping
+them together should remove the ambiguity without needing to rename
+anything.
+
+Also swapped the order of "+ Add Recipe" and "All Recipes" per his
+preference (Add Recipe now listed first).
+
+---
+
+## 2026-07-06 (11)
+
+### Added: reroll-one-recipe and search-and-pick-a-recipe dashboard controls
+
+Feedback from a friend testing the app: swapping out just one day's dinner
+required going to All Recipes and using its per-recipe "Swap Day" dropdown,
+which wasn't discoverable from the dashboard itself, and there was no way
+to just get a different random suggestion for one day without regenerating
+the whole week.
+
+Added two small buttons under each day card on the dashboard (both the
+standard and rich/terracotta layouts):
+
+- 🎲 **Reroll** — `POST /api/reroll-recipe {day}` (new,
+  `deployment/flask_app.py`). Picks a different random recipe for that day
+  only, staying within the current recipe's category where possible (falls
+  back to any unused recipe if the category has nothing left), and never
+  picks a recipe already used elsewhere in the week — same no-duplicates
+  guarantee as a full menu regeneration, just scoped to one day.
+- 🔍 **Search and pick** — opens a modal with a live-search text box
+  (`GET /api/recipes/search?q=`, new) that matches recipe titles in either
+  language, then assigns the chosen recipe via the existing
+  `/api/swap-recipe` endpoint (no new swap logic needed there).
+
+Both reuse the exact field-derivation logic `/api/swap-recipe` already has
+(title/subtitle bilingual fields, protein type, image) so a rerolled or
+picked recipe displays correctly everywhere the dashboard reads dinner
+fields from, not just `recipe_id`.
+
+Bug caught during testing: the search-result click handler was built by
+concatenating an `onclick="pickSearchedRecipe('id', ...)"` HTML attribute
+string with `JSON.stringify(title)`, which uses double quotes — colliding
+with the surrounding double-quoted HTML attribute for any and (eventually)
+breaking silently on titles containing a quote or apostrophe. Fixed by
+building the result rows as real DOM nodes with `addEventListener` instead
+of inline `onclick` string concatenation, so recipe titles can never break
+out of an HTML attribute.
+
+Verified live against the running local dev server via Claude in Chrome
+(not just the automated test client): rerolled Wednesday from "Grilled
+Salmon with Asparagus" to "Ceviche" and confirmed it survived a full page
+reload; searched "tikka", picked "Chicken Tikka Masala" for Friday, and
+confirmed the swap persisted the same way.
+
+Also added new i18n keys (`reroll_recipe`, `pick_recipe`,
+`pick_recipe_modal_title`, `search_recipe_placeholder`,
+`no_recipes_found`, `rerolled_title`) in both English and Norwegian.
+
+---
+
+## 2026-07-06 (10)
+
+### Fixed: swap-recipe/assign-to-day silently not saving (JSONB mutation-tracking gap)
+
+A friend testing the app reported that swapping a recipe onto a day (or
+swapping two days' recipes) sometimes did nothing, or put the recipe on
+the wrong day, even though the request came back as a success. Reproduced
+directly against the API (assign a new recipe to Monday, then swap Monday
+with Wednesday) and confirmed: the response said "success" and the
+in-memory menu really was correct, but a follow-up read of `/api/menu`
+showed the old, un-swapped menu — the change never reached the database.
+
+Root cause: `load_weekly_menu_from_db()` hands back the household's
+`weekly_menu` JSONB column value directly (not a copy). `/api/swap-recipe`
+mutates a nested dict inside that same object in place, then passes that
+identical object back into `save_weekly_menu_to_db()`. Because it's
+literally the same Python object SQLAlchemy already has loaded, plain
+attribute reassignment doesn't register as a change — there's no "before"
+distinguishable from "after" — so SQLAlchemy silently omitted the column
+from the UPDATE. This wasn't a permissions/read-only-user issue as
+initially suspected; it reproduced identically for a full read/write user.
+
+Fix: added `flag_modified(household, "<column>")` (from
+`sqlalchemy.orm.attributes`) to all six `save_*_to_db` functions in
+`core/household_paths.py` (`recipes_db`, `pantry`, `categories`,
+`weekly_menu`, `activity_log`, `imported_packs`) — a blanket fix for this
+whole class of bug, not just today's specific symptom, since every one of
+these functions had the same in-place-mutation exposure. Verified via
+direct API reproduction (both "assign new recipe to a day" and "swap two
+existing days" now persist correctly across a follow-up read) and the full
+test suite (49 passed, 1 pre-existing unrelated failure in
+`test_json_files_valid` referencing an already-deleted root
+`pantry_staples.json`).
+
+---
+
+## 2026-07-06 (9)
+
+### Project cleanup: removed stale files, consolidated docs
+
+Full audit of the repo for obsolete/duplicate/stale files (see chat for
+the full proposal). Deleted: a root-level `pantry_staples.json` that
+duplicated `data/pantry_staples.json` in an older schema and was never
+actually read by any code; `data/recipe-pack-experiments/` (30 JSON
+files across 5 sub-folders, confirmed unreferenced anywhere — leftover
+iteration snapshots from an earlier recipe-pack reorg); `summary.md` (a
+disposable single-session status report, superseded by this file);
+`deployment/.env` and `deployment/.env.template` (real leftover
+Pi-era config referencing Azure/Todoist/Trello/Notion sync — all
+already-removed features, and not even loaded by the app, which only
+reads the root `.env`); `scripts/test-api.py`, `test-local.py`,
+`pi-menu-cli.py`, `category-editor.py` (confirmed to operate on flat
+JSON files directly rather than the household/Postgres model the app
+has used since the JSONB migration - genuinely obsolete, not just
+old-looking). Archived (moved to `scripts/archive/`, not deleted, since
+a from-scratch fresh-install scenario might still need them):
+`seed_recipes.py`, `backfill_household_data.py`,
+`backfill_email_confirmed.py` (+ its `.sql` pair) - all one-time
+migration scripts already run against production. Merged
+`DEPLOYMENT_F4.md` (the original Railway→Render/Neon migration runbook)
+into this changelog as history (see the 2026-07-01 entry below) and its
+still-relevant rollback plan into `docs/CI_CD_PIPELINE.md`; deleted the
+standalone file. Deleted `.github/workflows/README.md` (duplicated
+`docs/CI_CD_PIPELINE.md` almost entirely; kept the doc with the diagram).
+Moved `ABOUT.md`, `BACKLOG_2026-07-01.md`, `FEATURE_ROADMAP.md`, and
+`SYSTEM_ARCHITECTURE.md` from the repo root into `docs/` for a cleaner
+root directory; updated every cross-reference. Fixed `config.py`'s
+`PANTRY_STAPLES_PATH`, which pointed at a `core/pantry_staples.json`
+that has never existed in this repo (dead constant, unrelated to the
+file deletions above - the app actually resolves the real pantry
+staples path through `SEED_DIR`/`core/household_paths.py`, not this
+constant).
+
 ## 2026-07-06 (8)
 
 ### Deploy tooling: tried a one-click script, reverted in favor of Claude Code

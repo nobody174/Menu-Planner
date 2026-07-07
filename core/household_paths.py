@@ -12,6 +12,8 @@ import json
 import shutil
 from pathlib import Path
 
+from sqlalchemy.orm.attributes import flag_modified
+
 DATA_DIR = Path(__file__).parent.parent / "data"
 HOUSEHOLDS_DIR = DATA_DIR / "households"
 
@@ -432,21 +434,41 @@ def load_imported_packs_from_db(household):
 def save_recipes_db_to_db(household, recipes_data):
     """Save recipes_db to database JSONB column."""
     household.recipes_db = recipes_data
+    flag_modified(household, "recipes_db")
 
 
 def save_pantry_to_db(household, pantry_items):
     """Save pantry to database JSONB column."""
     household.pantry = sorted(set(pantry_items))
+    flag_modified(household, "pantry")
 
 
 def save_categories_to_db(household, categories_data):
     """Save categories to database JSONB column."""
     household.categories = categories_data
+    flag_modified(household, "categories")
 
 
 def save_weekly_menu_to_db(household, menu_data):
-    """Save weekly_menu to database JSONB column."""
+    """Save weekly_menu to database JSONB column.
+
+    flag_modified() is required here, not optional: callers like
+    /api/swap-recipe call load_weekly_menu_from_db() (which hands back
+    household.weekly_menu directly, not a copy), mutate a nested dict
+    inside it in place (e.g. target['recipe_id'] = ...), and then pass that
+    SAME object straight back into this function. Because it's literally
+    the same Python object SQLAlchemy already has loaded, a plain
+    `household.weekly_menu = menu_data` assignment doesn't register as a
+    change - there's no "before" state distinguishable from "after", since
+    they're the same mutated object the whole time. That silently skipped
+    the UPDATE entirely: the API call returned 200 "success" (the in-memory
+    dict really was mutated correctly), but the swap never reached the
+    database, so a follow-up read showed the old, unswapped menu. This is
+    the root cause of the reported "swap day does nothing" / "recipe lands
+    on the wrong day" bug - flag_modified() forces SQLAlchemy to include
+    this column in the UPDATE regardless of object identity/equality."""
     household.weekly_menu = menu_data
+    flag_modified(household, "weekly_menu")
 
 
 def save_activity_to_db(household, activity_entries):
@@ -454,11 +476,13 @@ def save_activity_to_db(household, activity_entries):
     household.activity_log = (
         activity_entries[-200:] if len(activity_entries) > 200 else activity_entries
     )
+    flag_modified(household, "activity_log")
 
 
 def save_imported_packs_to_db(household, packs_data):
     """Save imported_packs to database JSONB column."""
     household.imported_packs = packs_data
+    flag_modified(household, "imported_packs")
 
 
 def append_activity_to_db(household, actor: str, action: str):

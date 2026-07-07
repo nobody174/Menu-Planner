@@ -159,6 +159,22 @@
   border-color: #d97b36;
 }
 
+/* ── Shortfall banner (B53: partial menu generation notice) ── */
+.tc-shortfall-banner {
+  background: #fdf1e4;
+  color: #8a5a2b;
+  border: 1px solid #ecb488;
+  border-radius: 12px;
+  padding: 10px 16px;
+  margin-bottom: 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+}
+
+.tc-shortfall-banner button {
+  color: #a34e23;
+}
+
 /* ── Day navigation ── */
 .tc-day-nav {
   display: flex;

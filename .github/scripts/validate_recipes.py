@@ -29,15 +29,11 @@ with open("data/categories.json", encoding="utf-8") as f:
     print("[OK] All categories have required fields")
 
 # Check pantry staples
-with open("pantry_staples.json", encoding="utf-8") as f:
+with open("data/pantry_staples.json", encoding="utf-8") as f:
     pantry = json.load(f)
-    if "pantry_staples_english" in pantry and "pantry_staples_norwegian" in pantry:
-        print(
-            f"[OK] Pantry staples has {len(pantry['pantry_staples_english'])} English items"
-        )
-        print(
-            f"[OK] Pantry staples has {len(pantry['pantry_staples_norwegian'])} Norwegian items"
-        )
+    staples = pantry.get("pantry_staples")
+    if staples and all("en" in s and "no" in s for s in staples):
+        print(f"[OK] Pantry staples has {len(staples)} bilingual entries")
     else:
-        print("[FAIL] Pantry staples missing language sections")
+        print("[FAIL] Pantry staples missing pantry_staples list or en/no pairs")
         exit(1)

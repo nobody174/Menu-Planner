@@ -47,10 +47,11 @@ was behind local.
 Then:
 
 1. Open a pull request from `main` into `public-release-v1` (`gh pr create`).
-2. Wait for all 8 required status checks to pass (Stage 1: Lint & Format,
+2. Wait for all required status checks to pass (Stage 1: Lint & Format,
    Data Validation, Frontend Checks; Stage 2: Tests, Security Scan, Build
-   Check ubuntu-latest, Build Check windows-latest, Build Docker Image) —
-   `gh pr checks <number> --watch`. This normally takes 3-5 minutes.
+   Check ubuntu-latest, Build Check windows-latest, Build Docker Image,
+   Visual Regression/Playwright) — `gh pr checks <number> --watch`. This
+   normally takes 3-5 minutes.
 3. If any check fails, stop — do not merge. Report what failed. Fix it on
    `main`, push, and the same PR will pick up the new commit and re-run
    checks.
@@ -80,7 +81,45 @@ a change that feels like a real milestone rather than a routine patch.
   (`DATABASE_URL=sqlite:///_predeploy_test.db` or similar), not the real dev
   DB, and clean up the throwaway file afterward.
 
+## Cross-browser/cross-device visual testing
+
+After any change to a template/HTML/CSS file, run the Playwright visual
+regression suite (`npx playwright test`) or drive Playwright MCP directly
+before considering a UI change complete — don't rely on manually swapping
+DevTools device presets. Local run needs: `DATABASE_URL=sqlite:///e2e_test.db
+python e2e/seed_test_data.py` once first (seeds a confirmed test user +
+household + generated menu), then `npx playwright test` (this boots the
+Flask app itself via `playwright.config.ts`'s `webServer`). If a page's
+rendering intentionally changed, regenerate baselines with
+`npx playwright test --update-snapshots` and commit the new PNGs under
+`e2e/visual-regression.spec.ts-snapshots/`. This suite also runs in CI
+(`.github/workflows/ci.yml`'s `playwright` job) and is a required check
+before merging to `public-release-v1`.
+
 ## Housekeeping learned the hard way
+
+- The SQLite dev database used to intermittently throw
+  `IndexError: tuple index out of range` / `sqlite3.InterfaceError` /
+  `sqlite3.OperationalError` under concurrent requests - this wasn't just
+  a test-suite artifact, it broke real live usage too (the 🎲 reroll and
+  recipe-search-swap buttons on the dashboard, 2026-07-07). Root cause:
+  `StaticPool` forced every thread onto one shared raw sqlite3 connection.
+  Fixed in `database/database.py` via SQLite's own WAL journal mode + a
+  5s `busy_timeout`, with `StaticPool` switched back to a normal
+  per-thread pool (WAL needs separate connections per thread to actually
+  work). Verified with 24 concurrent requests, 0 failures. Do NOT
+  re-attempt a global connection lock (deadlocks the whole app if a
+  request dies mid-flight without releasing it) or `threaded=False` on
+  the Flask dev server (chokes on a real browser's multiple simultaneous
+  connections per page load) - both were tried and made things worse
+  before WAL mode was found to be the actual fix. See B63 in
+  `docs/BACKLOG_2026-07-01.md` for the full story. Production is
+  unaffected either way - it runs Postgres, which already handles this.
+- Flask's auto-reloader (`flask run` without `--no-reload`) spawns a child
+  process that does not reliably inherit env vars set inline on the parent
+  command - `DATABASE_URL` silently fell back to `.env`'s real dev database
+  without `--no-reload`. Always pass `--no-reload` when starting Flask as a
+  subprocess for tooling (as `playwright.config.ts`'s `webServer` does).
 
 - `*.db-journal` files are SQLite leftovers from test runs — gitignored
   (alongside `*.db`), delete them if they show up untracked rather than

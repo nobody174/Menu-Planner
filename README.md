@@ -91,9 +91,12 @@ gunicorn -b 0.0.0.0:5000 deployment.flask_app:app
 | [Tips & Tricks](docs/TIPS_AND_TRICKS.md) | Power user tips |
 | [Recipe Pack Format](docs/RECIPE_PACK_FORMAT.md) | How to write new recipe packs (developer) |
 | [Developer Guide](docs/DEVELOPER_GUIDE.md) | Project structure and contribution guide |
-| [Deployment Guide](DEPLOYMENT_F4.md) | Render + Neon deployment instructions |
+| [System Architecture](docs/SYSTEM_ARCHITECTURE.md) | Render + Neon infrastructure overview |
+| [CI/CD Pipeline](docs/CI_CD_PIPELINE.md) | Branch model, pipeline stages, rollback |
 | [Changelog](CHANGELOG.md) | Full history of all work done |
-| [Feature Roadmap](FEATURE_ROADMAP.md) | Planned features |
+| [Feature Roadmap](docs/FEATURE_ROADMAP.md) | Planned features |
+| [Backlog](docs/BACKLOG_2026-07-01.md) | Open tasks |
+| [About](docs/ABOUT.md) | Project story |
 
 ---
 

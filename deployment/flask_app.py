@@ -3089,7 +3089,17 @@ def api_regenerate():
                 log_activity("Regenerated the weekly menu")
 
         logger.info("Menu regenerated via API")
-        return jsonify({"status": "success", "menu": menu})
+        response = {"status": "success", "menu": menu}
+        actual_dinners = len(menu.get("dinners", []))
+        requested_dinners = menu.get("requested_dinners", actual_dinners)
+        if actual_dinners < requested_dinners:
+            # Structured, not a pre-built sentence, so the frontend can
+            # localize it (see generate_shortfall_msg_no/en in i18n.json).
+            response["warning"] = {
+                "actual_dinners": actual_dinners,
+                "requested_dinners": requested_dinners,
+            }
+        return jsonify(response)
     except Exception as e:
         import traceback
 
@@ -3252,7 +3262,7 @@ def api_sync_shopping_list():
     TickTick sync were removed 2026-07-05 - they required each user to obtain
     and paste their own API token/Azure credentials, which is real setup
     friction and support burden for a friends-and-family/public audience.
-    See BACKLOG_2026-07-01.md for the note to re-add if users actually ask."""
+    See docs/BACKLOG_2026-07-01.md for the note to re-add if users actually ask."""
     try:
         data = request.get_json() or {}
         service = data.get("service", "reminders").lower()
@@ -3698,16 +3708,301 @@ def api_swap_recipe():
                 append_activity(household_id, current_actor_name(), activity_msg)
 
         logger.info(activity_msg)
+
+        # Same reasoning as /api/reroll-recipe: return everything the
+        # affected card(s) need to update in place client-side, instead of
+        # forcing a full page reload that can cancel another in-flight
+        # request (a second click on a different day's action before this
+        # one's reload fires).
+        lang = _get_lang()
+        t_dict = _make_t(lang)
+        diff_map = {
+            "Easy": t_dict.get("easy", "Easy"),
+            "Medium": t_dict.get("medium", "Medium"),
+            "Hard": t_dict.get("hard", "Hard"),
+        }
+
+        def _card_payload(dinner):
+            d_normalized = _normalize_difficulty(dinner.get("difficulty", ""))
+            time_minutes = dinner.get("time_minutes", 0)
+            title_en_ = dinner.get("title_en", "")
+            title_no_ = dinner.get("title_no", "")
+            subtitle_en_ = dinner.get("subtitle_en", "")
+            subtitle_no_ = dinner.get("subtitle_no", "")
+            return {
+                "day": dinner.get("day"),
+                "recipe_id": dinner.get("recipe_id"),
+                "title": title_no_ if lang == "no" else title_en_,
+                "subtitle": subtitle_no_ if lang == "no" else subtitle_en_,
+                "time_minutes": time_minutes,
+                "time_display": format_minutes(time_minutes),
+                "difficulty_level": d_normalized.lower(),
+                "difficulty": diff_map.get(d_normalized, d_normalized),
+                "protein": dinner.get("protein", ""),
+                "image_url": dinner.get("image_url", ""),
+            }
+
+        cards = [_card_payload(target)]
+        if swapped_with_day:
+            cards.append(_card_payload(source))
+
         return jsonify(
             {
                 "status": "success",
                 "message": activity_msg,
                 "swapped_with_day": swapped_with_day,
+                "cards": cards,
             }
         )
 
     except Exception as e:
         logger.error(f"Error swapping recipe: {e}")
+        return jsonify({"status": "error", "message": str(e)}), 500
+
+
+@app.route("/api/recipes/search")
+def api_recipes_search():
+    """Search this household's recipe library by title, for the "search and
+    pick a specific recipe for this day" dashboard control (B/feature request
+    from user testing, 2026-07). Returns a small flat list (id/title/category/
+    time) rather than full recipe records - this feeds a search dropdown, not
+    a detail view, so keep the payload light."""
+    query = (request.args.get("q") or "").strip().lower()
+    if len(query) < 2:
+        return jsonify({"status": "success", "recipes": []})
+
+    all_recipes = load_recipes_db()
+    sample_path = SEED_DIR / "sample_recipes.json"
+    if sample_path.exists():
+        try:
+            with open(sample_path, "r", encoding="utf-8") as f:
+                all_recipes = all_recipes + json.load(f)
+        except Exception:
+            pass
+
+    seen_ids = set()
+    results = []
+    for recipe in all_recipes:
+        recipe_id = recipe.get("id")
+        if not recipe_id or recipe_id in seen_ids:
+            continue
+        title = recipe.get("title")
+        if isinstance(title, dict):
+            title_en = title.get("en", "")
+            title_no = title.get("no", "")
+        else:
+            title_en = recipe.get("title_en", title or "")
+            title_no = recipe.get("title_no", title or "")
+        haystack = f"{title_en} {title_no}".strip().lower()
+        if query not in haystack:
+            continue
+        seen_ids.add(recipe_id)
+        results.append(
+            {
+                "id": recipe_id,
+                "title_en": title_en,
+                "title_no": title_no,
+                "category": recipe.get("category", ""),
+                "time_minutes": recipe.get("time_minutes")
+                or recipe.get("cookTimeMinutes")
+                or 0,
+            }
+        )
+        if len(results) >= 25:
+            break
+
+    return jsonify({"status": "success", "recipes": results})
+
+
+@app.route("/api/reroll-recipe", methods=["POST"])
+def api_reroll_recipe():
+    """Replace a single day's recipe with a different random one, without
+    touching the rest of the week (B/feature request from user testing,
+    2026-07: "just wanna reroll that 1 menu" instead of regenerating all 6).
+
+    Stays within the current recipe's own category where possible (so a
+    reroll on a "Fish & Seafood" day doesn't suddenly hand back a dessert),
+    and never picks a recipe already used elsewhere in this week's menu -
+    same no-duplicates guarantee MenuGenerator gives a fresh menu."""
+    if not acting_role_can_edit():
+        return (
+            jsonify({"status": "error", "message": "Viewers cannot change the menu"}),
+            403,
+        )
+    try:
+        import random
+
+        data = request.get_json() or {}
+        day = data.get("day")
+        if not day:
+            return jsonify({"status": "error", "message": "Day required"}), 400
+
+        household_id = current_household_id()
+
+        with locked_household() as (db, household):
+            if household:
+                from core.household_paths import (
+                    load_weekly_menu_from_db,
+                    save_weekly_menu_to_db,
+                    append_activity_to_db,
+                )
+
+                menu = load_weekly_menu_from_db(household)
+            else:
+                menu = load_menu()
+
+            if not menu:
+                return (
+                    jsonify({"status": "error", "message": "No menu generated yet"}),
+                    404,
+                )
+
+            dinners = menu.get("dinners", [])
+            target = next((d for d in dinners if d["day"] == day), None)
+            if not target:
+                return (
+                    jsonify(
+                        {"status": "error", "message": f"Day {day} not found in menu"}
+                    ),
+                    404,
+                )
+
+            used_recipe_ids = {
+                d.get("recipe_id") for d in dinners if d.get("recipe_id")
+            }
+
+            current_recipe = find_recipe(target.get("recipe_id"))
+            current_category = (
+                current_recipe.get("category", "") if current_recipe else ""
+            )
+
+            all_recipes = load_recipes_db()
+            sample_path = SEED_DIR / "sample_recipes.json"
+            if sample_path.exists():
+                try:
+                    with open(sample_path, "r", encoding="utf-8") as f:
+                        all_recipes = all_recipes + json.load(f)
+                except Exception:
+                    pass
+
+            # Prefer same-category candidates; if none are left (small/edge-
+            # case libraries), fall back to any unused recipe at all rather
+            # than failing outright.
+            candidates = [
+                r
+                for r in all_recipes
+                if r.get("id") not in used_recipe_ids
+                and (not current_category or r.get("category", "") == current_category)
+            ]
+            if not candidates:
+                candidates = [
+                    r for r in all_recipes if r.get("id") not in used_recipe_ids
+                ]
+            if not candidates:
+                return (
+                    jsonify(
+                        {
+                            "status": "error",
+                            "message": "No other recipes available to reroll to",
+                        }
+                    ),
+                    404,
+                )
+
+            new_recipe = random.choice(candidates)
+
+            from core.menu_generator import MenuGenerator, PROTEIN_IMAGES
+
+            title = new_recipe.get("title")
+            if isinstance(title, dict):
+                title_en = title.get("en", "")
+                title_no = title.get("no", "")
+            else:
+                title_en = new_recipe.get("title_en", title or "")
+                title_no = new_recipe.get("title_no", title or "")
+
+            subtitle = new_recipe.get("subtitle")
+            if isinstance(subtitle, dict):
+                subtitle_en = subtitle.get("en", "")
+                subtitle_no = subtitle.get("no", "")
+            else:
+                subtitle_en = new_recipe.get("subtitle_en", subtitle or "")
+                subtitle_no = new_recipe.get("subtitle_no", subtitle or "")
+
+            protein_type = MenuGenerator().get_protein_type(
+                title_en or title_no or "",
+                subtitle_en or subtitle_no or "",
+                new_recipe.get("category", ""),
+            )
+
+            target["recipe_id"] = new_recipe["id"]
+            target["title"] = new_recipe.get("title")
+            target["title_no"] = title_no
+            target["title_en"] = title_en
+            target["time_minutes"] = (
+                new_recipe.get("time_minutes") or new_recipe.get("cookTimeMinutes") or 0
+            )
+            target["difficulty"] = new_recipe.get("difficulty", "")
+            target["protein"] = protein_type
+            target["subtitle_no"] = subtitle_no
+            target["subtitle_en"] = subtitle_en
+            target["image_url"] = PROTEIN_IMAGES.get(
+                protein_type, PROTEIN_IMAGES.get("vegetarian")
+            )
+
+            recipe_title = title_en or title_no or "Recipe"
+            activity_msg = f"Rerolled {day}'s dinner to '{recipe_title}'"
+
+            if household:
+                save_weekly_menu_to_db(household, menu)
+                append_activity_to_db(household, current_actor_name(), activity_msg)
+            else:
+                from core.household_paths import menu_file, append_activity
+
+                with open(menu_file(household_id), "w", encoding="utf-8") as f:
+                    json.dump(menu, f, ensure_ascii=False, indent=2)
+                append_activity(household_id, current_actor_name(), activity_msg)
+
+        logger.info(activity_msg)
+
+        # Return every field the card needs to update itself in place
+        # client-side, matching what a full dashboard reload would show -
+        # avoids a page reload on every reroll, which used to race with a
+        # second in-flight click (a reload cancels other pending requests
+        # mid-flight, which could surface as a misleading CSRF error and
+        # leave that day's reroll button stuck disabled).
+        lang = _get_lang()
+        t_dict = _make_t(lang)
+        diff_map = {
+            "Easy": t_dict.get("easy", "Easy"),
+            "Medium": t_dict.get("medium", "Medium"),
+            "Hard": t_dict.get("hard", "Hard"),
+        }
+        d_normalized = _normalize_difficulty(new_recipe.get("difficulty", ""))
+        time_minutes = target["time_minutes"]
+
+        return jsonify(
+            {
+                "status": "success",
+                "message": activity_msg,
+                "recipe_id": new_recipe["id"],
+                "title_en": title_en,
+                "title_no": title_no,
+                "title": title_no if lang == "no" else title_en,
+                "subtitle_en": subtitle_en,
+                "subtitle_no": subtitle_no,
+                "subtitle": subtitle_no if lang == "no" else subtitle_en,
+                "time_minutes": time_minutes,
+                "time_display": format_minutes(time_minutes),
+                "difficulty_level": d_normalized.lower(),
+                "difficulty": diff_map.get(d_normalized, d_normalized),
+                "protein": protein_type,
+                "image_url": target["image_url"],
+            }
+        )
+
+    except Exception as e:
+        logger.error(f"Error rerolling recipe: {e}")
         return jsonify({"status": "error", "message": str(e)}), 500
 
 
@@ -4180,4 +4475,10 @@ if __name__ == "__main__":
     # HTTP only — local home network use, no "Not Secure" warning.
     # debug=True is local-dev-only: production runs via gunicorn (see
     # Dockerfile/requirements.txt), which never executes this block.
+    # Normal threaded default (do NOT set threaded=False here - tried that
+    # for the SQLite concurrency issue below, but a real browser opens
+    # several simultaneous connections per page load, so a single-worker
+    # server just queues them all behind each other and the app appears to
+    # hang on totally unrelated actions. The actual fix is WAL mode on the
+    # SQLite connection itself - see database/database.py.
     app.run(host="0.0.0.0", port=5000, debug=True)  # nosec B201
