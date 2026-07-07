@@ -98,15 +98,23 @@ before merging to `public-release-v1`.
 
 ## Housekeeping learned the hard way
 
-- The app's SQLite dev database (`StaticPool`, one shared connection)
-  intermittently throws `IndexError: tuple index out of range` deep in
-  SQLAlchemy under concurrent requests - confirmed while building the
-  Playwright suite (flaky with parallel test workers, 100% reliable at
-  `workers: 1`). `playwright.config.ts` is deliberately pinned to
-  `workers: 1` for this reason. Production runs Postgres and would not hit
-  this exact failure mode, but any future local tooling that fires
-  concurrent requests against a SQLite-backed dev server should expect
-  this.
+- The SQLite dev database used to intermittently throw
+  `IndexError: tuple index out of range` / `sqlite3.InterfaceError` /
+  `sqlite3.OperationalError` under concurrent requests - this wasn't just
+  a test-suite artifact, it broke real live usage too (the 🎲 reroll and
+  recipe-search-swap buttons on the dashboard, 2026-07-07). Root cause:
+  `StaticPool` forced every thread onto one shared raw sqlite3 connection.
+  Fixed in `database/database.py` via SQLite's own WAL journal mode + a
+  5s `busy_timeout`, with `StaticPool` switched back to a normal
+  per-thread pool (WAL needs separate connections per thread to actually
+  work). Verified with 24 concurrent requests, 0 failures. Do NOT
+  re-attempt a global connection lock (deadlocks the whole app if a
+  request dies mid-flight without releasing it) or `threaded=False` on
+  the Flask dev server (chokes on a real browser's multiple simultaneous
+  connections per page load) - both were tried and made things worse
+  before WAL mode was found to be the actual fix. See B63 in
+  `docs/BACKLOG_2026-07-01.md` for the full story. Production is
+  unaffected either way - it runs Postgres, which already handles this.
 - Flask's auto-reloader (`flask run` without `--no-reload`) spawns a child
   process that does not reliably inherit env vars set inline on the parent
   command - `DATABASE_URL` silently fell back to `.env`'s real dev database

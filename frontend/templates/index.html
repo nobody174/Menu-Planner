@@ -18,7 +18,7 @@
 
   <div class="menu-grid">
       {% for dinner in menu.dinners %}
-      <div class="menu-card">
+      <div class="menu-card" data-day="{{ dinner.day }}">
           <div class="card-header">
               <div class="card-header-left">
                   <h2 class="day-name">{{ dinner.day }}</h2>
@@ -30,28 +30,30 @@
                   <button type="button" class="day-action-icon" title="{{ t.pick_recipe }}" onclick="openRecipeSearchModal('{{ dinner.day }}')">🔍</button>
               </div>
               {% endif %}
-              <div class="card-header-icon">
-                  {%- if dinner.protein == 'chicken' -%}
-                  🍗
-                  {%- elif dinner.protein == 'beef' -%}
-                  🥩
-                  {%- elif dinner.protein == 'fish' -%}
-                  🐟
-                  {%- elif dinner.protein == 'pork' -%}
-                  🍖
-                  {%- elif dinner.protein == 'lamb' -%}
-                  🐑
-                  {%- elif dinner.protein == 'vegetarian' -%}
-                  🥗
-                  {%- elif dinner.protein == 'soup' -%}
-                  🍲
-                  {%- else -%}
-                  🍽️
-                  {%- endif -%}
-              </div>
           </div>
           <div class="card-body">
-              <h3 class="recipe-title">{{ dinner.title if dinner.recipe_id else t.get('empty_slot', 'No recipe assigned') }}</h3>
+              <div class="recipe-title-row">
+                  <h3 class="recipe-title">{{ dinner.title if dinner.recipe_id else t.get('empty_slot', 'No recipe assigned') }}</h3>
+                  <span class="card-header-icon">
+                      {%- if dinner.protein == 'chicken' -%}
+                      🍗
+                      {%- elif dinner.protein == 'beef' -%}
+                      🥩
+                      {%- elif dinner.protein == 'fish' -%}
+                      🐟
+                      {%- elif dinner.protein == 'pork' -%}
+                      🍖
+                      {%- elif dinner.protein == 'lamb' -%}
+                      🐑
+                      {%- elif dinner.protein == 'vegetarian' -%}
+                      🥗
+                      {%- elif dinner.protein == 'soup' -%}
+                      🍲
+                      {%- else -%}
+                      🍽️
+                      {%- endif -%}
+                  </span>
+              </div>
               {% if dinner.recipe_id %}
               <p class="difficulty"><span class="difficulty-dot" data-difficulty="{{ dinner.difficulty_level }}"></span>{{ dinner.difficulty }}</p>
               {% endif %}
@@ -122,7 +124,7 @@
   {# ── Cards grid ── #}
   <div class="tc-grid">
     {% for dinner in menu.dinners %}
-    <div class="tc-card tc-card-anim tc-card-delay-{{ loop.index }}" data-day-index="{{ loop.index0 }}">
+    <div class="tc-card tc-card-anim tc-card-delay-{{ loop.index }}" data-day-index="{{ loop.index0 }}" data-day="{{ dinner.day }}">
       <div class="tc-card-img-wrap">
         {% if dinner.image_url %}
         <img src="{{ dinner.image_url }}" alt="{{ dinner.title }}" class="tc-card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -289,6 +291,58 @@
   var _psCurrentDay = null;
   var _psSearchTimer = null;
 
+  var PROTEIN_ICONS = {
+      chicken: '🍗', beef: '🥩', fish: '🐟', pork: '🍖',
+      lamb: '🐑', vegetarian: '🥗', soup: '🍲'
+  };
+  function _proteinIcon(protein) {
+      return PROTEIN_ICONS[protein] || '🍽️';
+  }
+
+  // Patches the one day-card's DOM in place with the rerolled recipe's
+  // fields, for both the standard (.menu-card) and rich/terracotta
+  // (.tc-card) layouts - whichever is actually on the page. No page
+  // reload: a reload used to cancel any OTHER still-in-flight request
+  // (e.g. a second reroll click on a different day before this one's
+  // reload fired), which could surface as a misleading CSRF error and
+  // leave that other button stuck disabled.
+  function _applyRerollToCard(day, data) {
+      var card = document.querySelector('[data-day="' + day + '"]');
+      if (!card) { return; }
+
+      var titleEl = card.querySelector('.recipe-title, .tc-card-title');
+      if (titleEl) { titleEl.textContent = data.title; }
+
+      var descEl = card.querySelector('.tc-card-desc');
+      if (descEl) { descEl.textContent = data.subtitle || ''; }
+
+      var diffDot = card.querySelector('.difficulty-dot');
+      if (diffDot) { diffDot.setAttribute('data-difficulty', data.difficulty_level); }
+      var diffText = card.querySelector('.difficulty, .tc-tag');
+      if (diffText) {
+          // Rebuild rather than just set textContent, since the dot span
+          // needs to stay inside for its CSS-driven color to still apply.
+          diffText.innerHTML = '';
+          if (diffDot) { diffText.appendChild(diffDot); }
+          diffText.appendChild(document.createTextNode(data.difficulty));
+      }
+
+      var timeEl = card.querySelector('.meal-time, .tc-time-badge');
+      if (timeEl) {
+          timeEl.textContent = timeEl.classList.contains('tc-time-badge')
+              ? '🕐 ' + data.time_display
+              : data.time_display;
+      }
+
+      var headerIcon = card.querySelector('.card-header-icon');
+      if (headerIcon) { headerIcon.textContent = _proteinIcon(data.protein); }
+      var placeholderIcon = card.querySelector('.tc-placeholder-icon');
+      if (placeholderIcon) { placeholderIcon.textContent = _proteinIcon(data.protein); }
+
+      var recipeLink = card.querySelector('.btn-primary, .tc-recipe-link');
+      if (recipeLink) { recipeLink.setAttribute('href', '/recipe/' + data.recipe_id); }
+  }
+
   function rerollDayRecipe(day, btnEl) {
       if (btnEl) { btnEl.disabled = true; }
       fetch('/api/reroll-recipe', {
@@ -299,13 +353,14 @@
       .then(function(r) { return r.json(); })
       .then(function(data) {
           if (data.status === 'success') {
-              pmAlert('🎲', '{{ t.rerolled_title }}', data.message).then(function() {
-                  location.reload();
-              });
+              // No confirmation popup - the card updating in place IS the
+              // confirmation, and a modal here would just be an extra
+              // click to dismiss for something already visibly done.
+              _applyRerollToCard(day, data);
           } else {
               pmAlert('❌', '{{ t.get("server_error", "Error") }}', data.message || '');
-              if (btnEl) { btnEl.disabled = false; }
           }
+          if (btnEl) { btnEl.disabled = false; }
       })
       .catch(function() {
           pmAlert('❌', '{{ t.get("server_error", "Error") }}', '');
@@ -387,8 +442,12 @@
       .then(function(data) {
           closeRecipeSearchModal();
           if (data.status === 'success') {
-              pmAlert('✅', '{{ t.get("swapped", "Swapped") }}', data.message || '').then(function() {
-                  location.reload();
+              // No page reload (see rerollDayRecipe's comment) - patch
+              // every affected card in place. cards has 2 entries when
+              // this was a true swap between two days. No confirmation
+              // popup either - the card(s) updating IS the confirmation.
+              (data.cards || []).forEach(function(card) {
+                  _applyRerollToCard(card.day, card);
               });
           } else {
               pmAlert('❌', '{{ t.get("server_error", "Error") }}', data.message || '');

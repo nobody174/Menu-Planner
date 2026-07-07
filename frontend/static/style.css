@@ -418,9 +418,34 @@ a:hover {
   gap: var(--spacing-xs);
 }
 
+.card-header-day-actions {
+  display: flex;
+  gap: var(--spacing-xs);
+}
+
+.day-action-icon {
+  background: rgba(255, 255, 255, 0.16);
+  border: none;
+  border-radius: var(--radius-md);
+  width: 2rem;
+  height: 2rem;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.day-action-icon:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.day-action-icon:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .card-header-icon {
   font-size: 1.5rem;
-  opacity: 0.85;
   flex-shrink: 0;
 }
 
@@ -447,6 +472,13 @@ a:hover {
   flex: 1;
   display: flex;
   flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.recipe-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   gap: var(--spacing-sm);
 }
 

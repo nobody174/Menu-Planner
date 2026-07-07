@@ -1,6 +1,5 @@
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, event
 from sqlalchemy.orm import declarative_base, sessionmaker, Session
-from sqlalchemy.pool import StaticPool
 import os
 from dotenv import load_dotenv
 
@@ -11,11 +10,34 @@ DATABASE_URL = os.getenv(
     "sqlite:///./menu_planner.db",  # Default to SQLite for local dev if no env var
 )
 
-# Use StaticPool for SQLite (thread-safe for development)
+# Concurrent requests against the SQLite dev database used to corrupt
+# cursor state (confirmed: intermittent sqlite3.InterfaceError,
+# sqlite3.OperationalError, and IndexError from two overlapping requests
+# to /api/reroll-recipe or /api/swap-recipe - a double-click, a slow
+# retry, or just a browser's normal multiple simultaneous connections per
+# page load). Two things were tried and reverted before this: a global
+# lock around connection checkout (deadlocked the whole app if a request
+# died mid-flight without releasing it), and threaded=False on the Flask
+# dev server (choked on a real browser's several simultaneous
+# connections per page, since only one could ever be served at a time).
+#
+# The actual fix: SQLite's own WAL (Write-Ahead Logging) journal mode,
+# which is specifically designed for "multiple readers + one writer"
+# concurrent access - no custom locking needed, and it's the standard
+# fix for exactly this Flask+SQLite combination. WAL only works with
+# genuinely separate connections per thread, so this also switches off
+# StaticPool (which forced every thread onto one shared connection,
+# defeating WAL's purpose) back to SQLAlchemy's normal per-thread pool.
 if DATABASE_URL.startswith("sqlite"):
-    engine = create_engine(
-        DATABASE_URL, connect_args={"check_same_thread": False}, poolclass=StaticPool
-    )
+    engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
+
+    @event.listens_for(engine, "connect")
+    def _enable_wal_mode(dbapi_connection, connection_record):
+        cursor = dbapi_connection.cursor()
+        cursor.execute("PRAGMA journal_mode=WAL")
+        cursor.execute("PRAGMA busy_timeout=5000")
+        cursor.close()
+
 else:
     # PostgreSQL. pool_pre_ping tests each connection with a lightweight
     # query before handing it out and transparently reconnects if it's gone

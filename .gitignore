@@ -70,6 +70,8 @@ data/recipes_cache/
 data/token_cache.json
 *.db
 *.db-journal
+*.db-wal
+*.db-shm
 *.sqlite
 
 # Temporary files

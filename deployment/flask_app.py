@@ -3698,11 +3698,50 @@ def api_swap_recipe():
                 append_activity(household_id, current_actor_name(), activity_msg)
 
         logger.info(activity_msg)
+
+        # Same reasoning as /api/reroll-recipe: return everything the
+        # affected card(s) need to update in place client-side, instead of
+        # forcing a full page reload that can cancel another in-flight
+        # request (a second click on a different day's action before this
+        # one's reload fires).
+        lang = _get_lang()
+        t_dict = _make_t(lang)
+        diff_map = {
+            "Easy": t_dict.get("easy", "Easy"),
+            "Medium": t_dict.get("medium", "Medium"),
+            "Hard": t_dict.get("hard", "Hard"),
+        }
+
+        def _card_payload(dinner):
+            d_normalized = _normalize_difficulty(dinner.get("difficulty", ""))
+            time_minutes = dinner.get("time_minutes", 0)
+            title_en_ = dinner.get("title_en", "")
+            title_no_ = dinner.get("title_no", "")
+            subtitle_en_ = dinner.get("subtitle_en", "")
+            subtitle_no_ = dinner.get("subtitle_no", "")
+            return {
+                "day": dinner.get("day"),
+                "recipe_id": dinner.get("recipe_id"),
+                "title": title_no_ if lang == "no" else title_en_,
+                "subtitle": subtitle_no_ if lang == "no" else subtitle_en_,
+                "time_minutes": time_minutes,
+                "time_display": format_minutes(time_minutes),
+                "difficulty_level": d_normalized.lower(),
+                "difficulty": diff_map.get(d_normalized, d_normalized),
+                "protein": dinner.get("protein", ""),
+                "image_url": dinner.get("image_url", ""),
+            }
+
+        cards = [_card_payload(target)]
+        if swapped_with_day:
+            cards.append(_card_payload(source))
+
         return jsonify(
             {
                 "status": "success",
                 "message": activity_msg,
                 "swapped_with_day": swapped_with_day,
+                "cards": cards,
             }
         )
 
@@ -3915,6 +3954,23 @@ def api_reroll_recipe():
                 append_activity(household_id, current_actor_name(), activity_msg)
 
         logger.info(activity_msg)
+
+        # Return every field the card needs to update itself in place
+        # client-side, matching what a full dashboard reload would show -
+        # avoids a page reload on every reroll, which used to race with a
+        # second in-flight click (a reload cancels other pending requests
+        # mid-flight, which could surface as a misleading CSRF error and
+        # leave that day's reroll button stuck disabled).
+        lang = _get_lang()
+        t_dict = _make_t(lang)
+        diff_map = {
+            "Easy": t_dict.get("easy", "Easy"),
+            "Medium": t_dict.get("medium", "Medium"),
+            "Hard": t_dict.get("hard", "Hard"),
+        }
+        d_normalized = _normalize_difficulty(new_recipe.get("difficulty", ""))
+        time_minutes = target["time_minutes"]
+
         return jsonify(
             {
                 "status": "success",
@@ -3922,6 +3978,16 @@ def api_reroll_recipe():
                 "recipe_id": new_recipe["id"],
                 "title_en": title_en,
                 "title_no": title_no,
+                "title": title_no if lang == "no" else title_en,
+                "subtitle_en": subtitle_en,
+                "subtitle_no": subtitle_no,
+                "subtitle": subtitle_no if lang == "no" else subtitle_en,
+                "time_minutes": time_minutes,
+                "time_display": format_minutes(time_minutes),
+                "difficulty_level": d_normalized.lower(),
+                "difficulty": diff_map.get(d_normalized, d_normalized),
+                "protein": protein_type,
+                "image_url": target["image_url"],
             }
         )
 
@@ -4399,4 +4465,10 @@ if __name__ == "__main__":
     # HTTP only — local home network use, no "Not Secure" warning.
     # debug=True is local-dev-only: production runs via gunicorn (see
     # Dockerfile/requirements.txt), which never executes this block.
+    # Normal threaded default (do NOT set threaded=False here - tried that
+    # for the SQLite concurrency issue below, but a real browser opens
+    # several simultaneous connections per page load, so a single-worker
+    # server just queues them all behind each other and the app appears to
+    # hang on totally unrelated actions. The actual fix is WAL mode on the
+    # SQLite connection itself - see database/database.py.
     app.run(host="0.0.0.0", port=5000, debug=True)  # nosec B201
