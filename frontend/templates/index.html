@@ -16,6 +16,11 @@
       {% endif %}
   </div>
 
+  <div id="shortfall-banner" class="shortfall-banner" style="display:none">
+      <span id="shortfall-banner-text"></span>
+      <button type="button" id="shortfall-banner-dismiss" aria-label="Dismiss">&times;</button>
+  </div>
+
   <div class="menu-grid">
       {% for dinner in menu.dinners %}
       <div class="menu-card" data-day="{{ dinner.day }}">
@@ -108,6 +113,11 @@
     {% endfor %}
   </div>
   {% endif %}
+
+  <div id="shortfall-banner-rich" class="shortfall-banner tc-shortfall-banner" style="display:none">
+      <span id="shortfall-banner-rich-text"></span>
+      <button type="button" id="shortfall-banner-rich-dismiss" aria-label="Dismiss">&times;</button>
+  </div>
 
   {# ── Day selector ── #}
   <div class="tc-day-nav" id="tc-day-nav">

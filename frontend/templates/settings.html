@@ -560,148 +560,11 @@
     .btn { width: 100%; }
 }
 
-/* ── Modals ── */
-.pm-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.6);
-    z-index: 1000;
-    align-items: center;
-    justify-content: center;
-}
-.pm-overlay.active { display: flex; }
-.pm-modal-box {
-    background: var(--color-bg-primary, white);
-    border-radius: 12px;
-    padding: 30px;
-    max-width: 600px;
-    width: 90%;
-    max-height: 80vh;
-    overflow-y: auto;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-}
-.pm-modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    border-bottom: 1px solid var(--color-border, #e5e7eb);
-    padding-bottom: 15px;
-}
-.pm-modal-header h2 { margin: 0; }
-.pm-close-btn {
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: var(--color-text-secondary, #666);
-    line-height: 1;
-}
-.pm-modal-footer {
-    margin-top: 20px;
-    display: flex;
-    gap: 10px;
-    justify-content: flex-end;
-}
-.pm-status {
-    margin-top: 16px;
-    padding: 12px 16px;
-    border-radius: 6px;
-    display: none;
-}
-.pm-status.success {
-    display: block;
-    background: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
-}
-.pm-status.error {
-    display: block;
-    background: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
-}
-
-/* Recipe pack cards */
-.pack-list { display: flex; flex-direction: column; gap: 14px; }
-.pack-card {
-    border: 2px solid var(--color-border, #e5e7eb);
-    border-radius: 8px;
-    padding: 16px;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-.pack-card:hover {
-    border-color: var(--color-primary, #d97706);
-    background: var(--color-bg-secondary, #f9fafb);
-    transform: translateY(-1px);
-}
-.pack-card.selected {
-    border-color: var(--color-primary, #d97706);
-    background: rgba(217,119,6,0.07);
-}
-.pack-card-imported {
-    cursor: default;
-    opacity: 0.6;
-}
-.pack-card-imported:hover {
-    border-color: var(--color-border, #e5e7eb);
-    background: none;
-    transform: none;
-}
-.pack-imported-badge {
-    font-size: 0.75em;
-    font-weight: 600;
-    color: var(--color-success, #16a34a);
-    margin-left: 8px;
-    white-space: nowrap;
-}
-.pack-card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 8px;
-}
-.pack-card-title {
-    font-size: 1.05em;
-    font-weight: 600;
-    color: var(--color-primary, #d97706);
-}
-.pack-count {
-    background: var(--color-primary, #d97706);
-    color: white;
-    padding: 3px 10px;
-    border-radius: 20px;
-    font-size: 0.82em;
-    font-weight: 600;
-    white-space: nowrap;
-}
-.pack-desc {
-    color: var(--color-text-secondary, #666);
-    font-size: 0.9em;
-    margin-bottom: 8px;
-    line-height: 1.4;
-}
-.pack-meta {
-    display: flex;
-    gap: 14px;
-    font-size: 0.82em;
-    color: var(--color-text-secondary, #666);
-}
-.pack-select-label {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 10px;
-    cursor: pointer;
-    font-size: 0.9em;
-}
-.pack-select-label input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    cursor: pointer;
-}
+/* Modal (.pm-overlay/.pm-modal-box/...) and recipe pack card
+   (.pack-list/.pack-card/...) styles moved to static/style.css as part of
+   B66, so the Recipe Packs Import modal can be shared globally instead of
+   living only on this page. importArsenalModal below still uses these
+   classes - now sourced from the global stylesheet. */
 
 .category-add-form,
 .pantry-add-form {
@@ -808,23 +671,8 @@
 }
 </style>
 
-<!-- Recipe Packs Import Modal -->
-<div id="recipePacksModal" class="pm-overlay">
-    <div class="pm-modal-box">
-        <div class="pm-modal-header">
-            <h2>📦 {{ t.import_modal_title }}</h2>
-            <button class="pm-close-btn" onclick="closeRecipePacksModal()">✕</button>
-        </div>
-        <div id="recipePacksList" class="pack-list">
-            <p>{{ t.loading_packs }}</p>
-        </div>
-        <div class="pm-modal-footer">
-            <button class="btn btn-secondary" onclick="closeRecipePacksModal()">{{ t.cancel }}</button>
-            <button class="btn btn-primary" onclick="importSelectedPacks()">{{ t.import_selected }}</button>
-        </div>
-        <div id="importStatus" class="pm-status"></div>
-    </div>
-</div>
+<!-- Recipe Packs Import Modal moved to base.html as part of B66 (shared
+     globally via openRecipePacksModal(), instead of only living here). -->
 
 <!-- Import from File Modal -->
 <div id="importArsenalModal" class="pm-overlay">
@@ -852,132 +700,19 @@
 
 <script>
 // ── i18n strings passed from server ──────────────────────────────────────────
+// B66: the loading_packs/error_loading/select_at_least/import_failed/
+// import_error/select_pack/recipes_label/already_imported keys moved to
+// base.html's own script alongside the Recipe Packs Modal functions
+// (openRecipePacksModal etc.), which now live there too.
 var LANG = '{{ lang }}';
 var STR = {
-    loading_packs:      '{{ t.loading_packs }}',
-    error_loading:      '{{ t.error_loading_packs }}',
-    select_at_least:    '{{ t.select_at_least_one }}',
-    import_failed:      '{{ t.import_failed }}',
-    import_error:       '{{ t.import_error }}',
     export_error:       '{{ t.export_error }}',
     exported_success:   '{{ t.exported_success }}',
     invalid_file:       '{{ t.invalid_file }}',
     file_read_error:    '{{ t.file_read_error }}',
-    select_pack:        '{{ t.select_pack }}',
     recipes_label:      '{{ t.recipes_label }}',
-    already_imported:   '{{ t.already_imported }}'
+    import_error:       '{{ t.import_error }}'
 };
-
-// ── Recipe Packs Modal ────────────────────────────────────────────────────────
-
-async function openRecipePacksModal() {
-    document.getElementById('recipePacksModal').classList.add('active');
-    await loadAvailablePacks();
-}
-
-function closeRecipePacksModal() {
-    document.getElementById('recipePacksModal').classList.remove('active');
-    document.getElementById('importStatus').className = 'pm-status';
-    document.getElementById('importStatus').textContent = '';
-}
-
-async function loadAvailablePacks() {
-    var list = document.getElementById('recipePacksList');
-    list.innerHTML = '<p>' + STR.loading_packs + '</p>';
-    try {
-        var resp = await fetch('/api/recipe-packs/list');
-        if (!resp.ok) throw new Error('HTTP ' + resp.status);
-        var packs = await resp.json();
-        displayRecipePacks(packs);
-    } catch(err) {
-        console.error('Error loading recipe packs:', err);
-        list.innerHTML = '<p style="color:red;">' + STR.error_loading + '</p>';
-    }
-}
-
-function displayRecipePacks(packs) {
-    var list = document.getElementById('recipePacksList');
-    list.innerHTML = '';
-
-    if (!packs || packs.length === 0) {
-        list.innerHTML = '<p style="color:#666;">No packs available.</p>';
-        return;
-    }
-
-    packs.forEach(function(pack) {
-        var name = (pack.packName && pack.packName[LANG]) || (pack.packName && pack.packName.en) || '';
-        var desc = (pack.packDescription && pack.packDescription[LANG]) || (pack.packDescription && pack.packDescription.en) || '';
-
-        var card = document.createElement('div');
-        card.className = 'pack-card' + (pack.alreadyImported ? ' pack-card-imported' : '');
-        if (!pack.alreadyImported) {
-            card.onclick = function() { togglePackSelection(card); };
-        }
-        card.innerHTML =
-            '<div class="pack-card-header">' +
-                '<div>' +
-                    '<div class="pack-card-title">' + _esc(name) + (pack.alreadyImported ? ' <span class="pack-imported-badge">✓ ' + STR.already_imported + '</span>' : '') + '</div>' +
-                    '<div class="pack-desc">' + _esc(desc) + '</div>' +
-                '</div>' +
-                '<div class="pack-count">' + pack.recipeCount + ' ' + STR.recipes_label + '</div>' +
-            '</div>' +
-            '<div class="pack-meta">' +
-                '<span>⏱️ ' + _esc(pack.estimatedCookTime || '') + '</span>' +
-                '<span>📊 ' + _esc(pack.difficulty || '') + '</span>' +
-            '</div>' +
-            (pack.alreadyImported ? '' :
-            '<label class="pack-select-label" onclick="event.stopPropagation()">' +
-                '<input type="checkbox" data-pack-id="' + _esc(pack.packId) + '" onchange="event.stopPropagation()">' +
-                ' ' + STR.select_pack +
-            '</label>');
-        list.appendChild(card);
-    });
-}
-
-function togglePackSelection(card) {
-    card.classList.toggle('selected');
-    var cb = card.querySelector('input[type="checkbox"]');
-    if (cb) cb.checked = !cb.checked;
-}
-
-async function importSelectedPacks() {
-    var checked = document.querySelectorAll('#recipePacksList input[type="checkbox"]:checked');
-    var packIds = Array.from(checked).map(function(cb) { return cb.dataset.packId; });
-
-    if (packIds.length === 0) {
-        setStatus('importStatus', STR.select_at_least, 'error');
-        return;
-    }
-
-    try {
-        var resp = await fetch('/api/recipe-packs/import', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ packIds: packIds })
-        });
-        var result = await resp.json();
-        if (result.success) {
-            // Imported recipes keep their own existing dish-type category
-            // (Chicken, Salads, etc.) rather than a new pack-name category,
-            // so there's nothing new to add to selectedCategories here.
-            setStatus('importStatus', '✅ ' + result.imported_count + ' ' + STR.recipes_label + ' imported from ' + packIds.length + ' pack(s)!', 'success');
-            setTimeout(function() {
-                closeRecipePacksModal();
-                location.reload();
-            }, 1800);
-        } else {
-            setStatus('importStatus', STR.import_error + ': ' + (result.message || ''), 'error');
-        }
-    } catch(err) {
-        console.error('Import error:', err);
-        setStatus('importStatus', STR.import_failed, 'error');
-    }
-}
-
-// Click outside to close
-document.getElementById('recipePacksModal').addEventListener('click', function(e) {
-    if (e.target === this) closeRecipePacksModal();
-});
 
 // ── Personal Recipe Arsenal ───────────────────────────────────────────────────
 

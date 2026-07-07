@@ -3089,7 +3089,17 @@ def api_regenerate():
                 log_activity("Regenerated the weekly menu")
 
         logger.info("Menu regenerated via API")
-        return jsonify({"status": "success", "menu": menu})
+        response = {"status": "success", "menu": menu}
+        actual_dinners = len(menu.get("dinners", []))
+        requested_dinners = menu.get("requested_dinners", actual_dinners)
+        if actual_dinners < requested_dinners:
+            # Structured, not a pre-built sentence, so the frontend can
+            # localize it (see generate_shortfall_msg_no/en in i18n.json).
+            response["warning"] = {
+                "actual_dinners": actual_dinners,
+                "requested_dinners": requested_dinners,
+            }
+        return jsonify(response)
     except Exception as e:
         import traceback
 

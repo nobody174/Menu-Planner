@@ -298,6 +298,38 @@ document.addEventListener('DOMContentLoaded', function() {
     if (daySelect) daySelect.value = String(getSelectedDayCount());
 });
 
+// B53: show the "generated a shorter menu than requested" notice, if any,
+// left behind by refreshMenu() before its redirect. Shown once, then
+// cleared - a manual reload of the dashboard won't keep re-showing it.
+// Both dashboard layouts (standard + rich/warm-terracotta) have their own
+// copy of this banner markup (only one is visible per theme at a time), so
+// this populates whichever one(s) actually exist in the current layout.
+document.addEventListener('DOMContentLoaded', function() {
+    var raw = sessionStorage.getItem('menu-shortfall-warning');
+    sessionStorage.removeItem('menu-shortfall-warning');
+    if (!raw) return;
+
+    var warning;
+    try { warning = JSON.parse(raw); } catch (e) { return; }
+    if (!warning || !warning.actual_dinners || !warning.requested_dinners) return;
+
+    var text = _t('generate_shortfall_msg')
+        .replace(/\{actual\}/g, warning.actual_dinners)
+        .replace(/\{requested\}/g, warning.requested_dinners);
+
+    [
+        { banner: 'shortfall-banner', text: 'shortfall-banner-text', dismiss: 'shortfall-banner-dismiss' },
+        { banner: 'shortfall-banner-rich', text: 'shortfall-banner-rich-text', dismiss: 'shortfall-banner-rich-dismiss' }
+    ].forEach(function(ids) {
+        var banner = document.getElementById(ids.banner);
+        if (!banner) return;
+        document.getElementById(ids.text).textContent = text;
+        banner.style.display = 'flex';
+        var dismiss = document.getElementById(ids.dismiss);
+        if (dismiss) dismiss.onclick = function() { banner.style.display = 'none'; };
+    });
+});
+
 // ── Menu generation ───────────────────────────────────────────────────────────
 
 function refreshMenu() {
@@ -328,6 +360,15 @@ function refreshMenu() {
         .then(function(r) { return r.json(); })
         .then(function(data) {
             if (data.status === 'success') {
+                // B53: if fewer recipes matched than requested, the menu was
+                // generated short rather than failing outright - stash the
+                // warning so it survives the redirect below and shows once
+                // as a dismissible banner on the dashboard.
+                if (data.warning) {
+                    try {
+                        sessionStorage.setItem('menu-shortfall-warning', JSON.stringify(data.warning));
+                    } catch (e) { /* sessionStorage unavailable - skip silently */ }
+                }
                 // Redirect to main page to show newly generated menu
                 var stored = localStorage.getItem('menu-planner-language');
                 if (stored) {

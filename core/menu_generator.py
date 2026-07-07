@@ -431,6 +431,7 @@ class MenuGenerator:
             logger.error("No recipes available. Run filter_recipes() first.")
             return {}
 
+        requested_dinners = num_dinners
         if len(self.filtered_recipes) < num_dinners:
             logger.warning(
                 f"Only {len(self.filtered_recipes)} recipes available, need {num_dinners}"
@@ -558,6 +559,7 @@ class MenuGenerator:
             "selected_categories": self.selected_categories,
             "dinners": dinners,
             "shopping_list": shopping_list,
+            "requested_dinners": requested_dinners,
         }
 
         return menu

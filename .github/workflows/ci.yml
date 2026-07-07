@@ -126,11 +126,19 @@ jobs:
           cache: 'pip'
       - run: |
           python -m pip install --upgrade pip
-          pip install bandit safety
+          pip install bandit pip-audit
       - name: Bandit (fails on high-severity findings only)
         run: bandit -r core/ deployment/ --severity-level high
-      - name: Safety dependency check (reported, non-blocking)
-        run: safety check || true
+      - name: Dependency vulnerability scan (fails the build on any finding)
+        # B54: previously used `safety check || true`. Two problems with
+        # that: (1) `|| true` meant a CVE finding never actually failed the
+        # build, just got logged; (2) modern `safety` (v3.x) requires
+        # signing in to Safety's own hosted platform to run at all, so this
+        # step may well have been silently failing to even authenticate in
+        # CI and falling through to `|| true` regardless of findings.
+        # pip-audit (PyPI's own recommended tool, backed by the OSV
+        # database) needs no account/API key and actually gates the build.
+        run: pip-audit -r requirements.txt
 
   build:
     name: "Stage 2: Build Check"

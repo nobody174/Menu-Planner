@@ -422,6 +422,174 @@
         <p style="font-size: 0.8em; margin-top: 4px;"><a href="{{ patreon_url }}" target="_blank">{{ t.support_patreon }}</a> • Built with Claude Code</p>
     </footer>
 
+    <!-- B66: Recipe Packs Import Modal - global so any page (Settings, All
+         Recipes, ...) can call openRecipePacksModal() directly instead of
+         navigating to /recipe-packs/manage (which only manages already-
+         imported packs and has no way to import a new one). -->
+    <div id="recipePacksModal" class="pm-overlay">
+        <div class="pm-modal-box">
+            <div class="pm-modal-header">
+                <h2>📦 {{ t.import_modal_title }}</h2>
+                <button class="pm-close-btn" onclick="closeRecipePacksModal()">✕</button>
+            </div>
+            <div id="recipePacksList" class="pack-list">
+                <p>{{ t.loading_packs }}</p>
+            </div>
+            <div class="pm-modal-footer">
+                <button class="btn btn-secondary" onclick="closeRecipePacksModal()">{{ t.cancel }}</button>
+                <button class="btn btn-primary" onclick="importSelectedPacks()">{{ t.import_selected }}</button>
+            </div>
+            <div id="importStatus" class="pm-status"></div>
+        </div>
+    </div>
+
+    <script>
+    // B66: Recipe Packs Import modal logic - made global (previously lived
+    // only in settings.html) so any page can call openRecipePacksModal()
+    // directly. Wrapped in an IIFE so internal helpers don't leak into the
+    // global scope of whichever page includes this - only the three
+    // functions actually referenced by onclick="" attributes are attached
+    // to window.
+    (function() {
+        var RPM_LANG = '{{ lang }}';
+        var RPM_STR = {
+            loading_packs:    '{{ t.loading_packs }}',
+            error_loading:    '{{ t.error_loading_packs }}',
+            select_at_least:  '{{ t.select_at_least_one }}',
+            import_failed:    '{{ t.import_failed }}',
+            import_error:     '{{ t.import_error }}',
+            select_pack:      '{{ t.select_pack }}',
+            recipes_label:    '{{ t.recipes_label }}',
+            already_imported: '{{ t.already_imported }}'
+        };
+
+        function rpmEsc(str) {
+            return String(str || '')
+                .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+        }
+
+        function rpmSetStatus(id, msg, type) {
+            var el = document.getElementById(id);
+            if (!el) return;
+            el.textContent = msg;
+            el.className = 'pm-status ' + type;
+        }
+
+        window.openRecipePacksModal = async function() {
+            document.getElementById('recipePacksModal').classList.add('active');
+            await loadAvailablePacks();
+        };
+
+        window.closeRecipePacksModal = function() {
+            document.getElementById('recipePacksModal').classList.remove('active');
+            document.getElementById('importStatus').className = 'pm-status';
+            document.getElementById('importStatus').textContent = '';
+        };
+
+        async function loadAvailablePacks() {
+            var list = document.getElementById('recipePacksList');
+            list.innerHTML = '<p>' + RPM_STR.loading_packs + '</p>';
+            try {
+                var resp = await fetch('/api/recipe-packs/list');
+                if (!resp.ok) throw new Error('HTTP ' + resp.status);
+                var packs = await resp.json();
+                displayRecipePacks(packs);
+            } catch(err) {
+                console.error('Error loading recipe packs:', err);
+                list.innerHTML = '<p style="color:red;">' + RPM_STR.error_loading + '</p>';
+            }
+        }
+
+        function displayRecipePacks(packs) {
+            var list = document.getElementById('recipePacksList');
+            list.innerHTML = '';
+
+            if (!packs || packs.length === 0) {
+                list.innerHTML = '<p style="color:#666;">No packs available.</p>';
+                return;
+            }
+
+            packs.forEach(function(pack) {
+                var name = (pack.packName && pack.packName[RPM_LANG]) || (pack.packName && pack.packName.en) || '';
+                var desc = (pack.packDescription && pack.packDescription[RPM_LANG]) || (pack.packDescription && pack.packDescription.en) || '';
+
+                var card = document.createElement('div');
+                card.className = 'pack-card' + (pack.alreadyImported ? ' pack-card-imported' : '');
+                if (!pack.alreadyImported) {
+                    card.onclick = function() { togglePackSelection(card); };
+                }
+                card.innerHTML =
+                    '<div class="pack-card-header">' +
+                        '<div>' +
+                            '<div class="pack-card-title">' + rpmEsc(name) + (pack.alreadyImported ? ' <span class="pack-imported-badge">✓ ' + RPM_STR.already_imported + '</span>' : '') + '</div>' +
+                            '<div class="pack-desc">' + rpmEsc(desc) + '</div>' +
+                        '</div>' +
+                        '<div class="pack-count">' + pack.recipeCount + ' ' + RPM_STR.recipes_label + '</div>' +
+                    '</div>' +
+                    '<div class="pack-meta">' +
+                        '<span>⏱️ ' + rpmEsc(pack.estimatedCookTime || '') + '</span>' +
+                        '<span>📊 ' + rpmEsc(pack.difficulty || '') + '</span>' +
+                    '</div>' +
+                    (pack.alreadyImported ? '' :
+                    '<label class="pack-select-label" onclick="event.stopPropagation()">' +
+                        '<input type="checkbox" data-pack-id="' + rpmEsc(pack.packId) + '" onchange="event.stopPropagation()">' +
+                        ' ' + RPM_STR.select_pack +
+                    '</label>');
+                list.appendChild(card);
+            });
+        }
+
+        function togglePackSelection(card) {
+            card.classList.toggle('selected');
+            var cb = card.querySelector('input[type="checkbox"]');
+            if (cb) cb.checked = !cb.checked;
+        }
+
+        window.importSelectedPacks = async function() {
+            var checked = document.querySelectorAll('#recipePacksList input[type="checkbox"]:checked');
+            var packIds = Array.from(checked).map(function(cb) { return cb.dataset.packId; });
+
+            if (packIds.length === 0) {
+                rpmSetStatus('importStatus', RPM_STR.select_at_least, 'error');
+                return;
+            }
+
+            try {
+                var resp = await fetch('/api/recipe-packs/import', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ packIds: packIds })
+                });
+                var result = await resp.json();
+                if (result.success) {
+                    // Imported recipes keep their own existing dish-type
+                    // category rather than a new pack-name category, so
+                    // there's nothing new to add to selectedCategories here.
+                    rpmSetStatus('importStatus', '✅ ' + result.imported_count + ' ' + RPM_STR.recipes_label + ' imported from ' + packIds.length + ' pack(s)!', 'success');
+                    setTimeout(function() {
+                        window.closeRecipePacksModal();
+                        location.reload();
+                    }, 1800);
+                } else {
+                    rpmSetStatus('importStatus', RPM_STR.import_error + ': ' + (result.message || ''), 'error');
+                }
+            } catch(err) {
+                console.error('Import error:', err);
+                rpmSetStatus('importStatus', RPM_STR.import_failed, 'error');
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var modal = document.getElementById('recipePacksModal');
+            if (modal) {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) window.closeRecipePacksModal();
+                });
+            }
+        });
+    })();
+    </script>
+
     <script>
     // When the "Back" button (or the browser's own back/forward) restores a
     // page from the bfcache, the DOM comes back exactly as it looked the
@@ -474,6 +642,7 @@
         menu_updated: {{ t.menu_updated|tojson }},
         generation_failed: {{ t.generation_failed|tojson }},
         generation_error: {{ t.generation_error|tojson }},
+        generate_shortfall_msg: {{ t.generate_shortfall_msg|tojson }},
         no_category_title: {{ t.no_category_title|tojson }},
         no_category_msg: {{ t.no_category_msg|tojson }},
         categories_saved_title: {{ t.categories_saved_title|tojson }},
