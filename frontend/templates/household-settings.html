@@ -111,7 +111,7 @@
         ({{ profile_count }}/{{ max_profiles }})</p>
 
       {% if profile_count < max_profiles %}
-      <form method="POST" action="{{ url_for('add_household_profile') }}" class="add-member-form">
+      <form method="POST" action="{{ url_for('household.add_household_profile') }}" class="add-member-form">
       <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
         <div class="form-group">
           <label for="profile-name">{{ t.get('profile_name', 'Name') }}</label>
@@ -171,7 +171,7 @@
       {% for household in other_households %}
       <div class="household-item">
         <span class="household-name">{{ household.name }}</span>
-        <form method="POST" action="{{ url_for('set_current_household') }}" style="display:inline;">
+        <form method="POST" action="{{ url_for('household.set_current_household') }}" style="display:inline;">
       <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
           <input type="hidden" name="household_id" value="{{ household.id }}" />
           <button type="submit" class="btn-small">
@@ -189,7 +189,7 @@
   <div class="settings-card">
     <p>{{ t.get('no_household', 'No household selected. Create one or join an existing one.') }}</p>
 
-    <form method="POST" action="{{ url_for('create_household_handler') }}" class="create-household-form">
+    <form method="POST" action="{{ url_for('household.create_household_handler') }}" class="create-household-form">
       <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
       <div class="form-group">
         <label for="new-household-name">{{ t.get('household_name', 'Household Name') }}</label>
@@ -219,7 +219,7 @@
       <button class="modal-close" onclick="closeEditHouseholdModal()">×</button>
     </div>
 
-    <form method="POST" action="{{ url_for('update_household_handler') }}" class="modal-form">
+    <form method="POST" action="{{ url_for('household.update_household_handler') }}" class="modal-form">
       <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
       <div class="form-group">
         <label for="new-name">{{ t.get('new_name', 'New Name') }}</label>
@@ -252,7 +252,7 @@
 
     <p>{{ t.get('delete_warning', 'Are you sure? This cannot be undone.') }}</p>
 
-    <form method="POST" action="{{ url_for('delete_household_handler') }}" class="modal-form">
+    <form method="POST" action="{{ url_for('household.delete_household_handler') }}" class="modal-form">
       <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
       <div class="modal-buttons">
         <button type="submit" class="btn btn-danger">{{ t.get('delete', 'Delete') }}</button>

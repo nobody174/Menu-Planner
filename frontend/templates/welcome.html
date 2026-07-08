@@ -14,7 +14,7 @@
               frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
 
-    <a href="{{ url_for('signup', ref=ref, from_welcome=1) }}" class="btn btn-primary welcome-cta">
+    <a href="{{ url_for('auth.signup', ref=ref, from_welcome=1) }}" class="btn btn-primary welcome-cta">
       Sign Up Free
     </a>
   </div>
@@ -29,12 +29,12 @@
   </div>
 
   <div class="welcome-footer">
-    <a href="{{ url_for('signup', ref=ref, from_welcome=1) }}" class="btn btn-primary welcome-cta">
+    <a href="{{ url_for('auth.signup', ref=ref, from_welcome=1) }}" class="btn btn-primary welcome-cta">
       Sign Up Free
     </a>
     <p>
       Already have an account?
-      <a href="{{ url_for('login_page') }}">Login</a>
+      <a href="{{ url_for('auth.login_page') }}">Login</a>
     </p>
   </div>
 </div>

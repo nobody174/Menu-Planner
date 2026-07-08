@@ -79,7 +79,7 @@ class Household(Base):
 
     id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
     name = Column(String(255), nullable=False)
-    owner_id = Column(String(36), ForeignKey("users.id"), nullable=False)
+    owner_id = Column(String(36), ForeignKey("users.id"), nullable=False, index=True)
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
@@ -121,9 +121,11 @@ class HouseholdMember(Base):
     __tablename__ = "household_members"
 
     id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
-    household_id = Column(String(36), ForeignKey("households.id"), nullable=False)
+    household_id = Column(
+        String(36), ForeignKey("households.id"), nullable=False, index=True
+    )
     user_id = Column(
-        String(36), ForeignKey("users.id"), nullable=True
+        String(36), ForeignKey("users.id"), nullable=True, index=True
     )  # NULL for profiles (no own login)
     role = Column(String(50), default="viewer", nullable=False)  # owner, editor, viewer
     joined_at = Column(DateTime, default=datetime.utcnow)
@@ -152,7 +154,7 @@ class Recipe(Base):
 
     id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
     household_id = Column(
-        String(36), ForeignKey("households.id"), nullable=True
+        String(36), ForeignKey("households.id"), nullable=True, index=True
     )  # NULL = public recipes
     title = Column(String(255), nullable=False)
     subtitle = Column(String(255), nullable=True)
@@ -222,7 +224,9 @@ class WeeklyMenu(Base):
     __tablename__ = "weekly_menus"
 
     id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
-    household_id = Column(String(36), ForeignKey("households.id"), nullable=False)
+    household_id = Column(
+        String(36), ForeignKey("households.id"), nullable=False, index=True
+    )
     week_start = Column(Date, nullable=False)
     week_end = Column(Date, nullable=False)
     dinners = Column(JSON, nullable=True)  # Array of {day, recipe_id}
@@ -248,7 +252,9 @@ class ShoppingList(Base):
     __tablename__ = "shopping_lists"
 
     id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
-    household_id = Column(String(36), ForeignKey("households.id"), nullable=False)
+    household_id = Column(
+        String(36), ForeignKey("households.id"), nullable=False, index=True
+    )
     menu_id = Column(String(36), ForeignKey("weekly_menus.id"), nullable=True)
     data = Column(JSON, nullable=True)  # Full shopping list structure
     created_at = Column(DateTime, default=datetime.utcnow)

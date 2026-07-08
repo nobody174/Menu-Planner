@@ -47,7 +47,7 @@
             <button type="button" class="nav-lang-toggle" onclick="switchLanguage('{{ 'en' if lang == 'no' else 'no' }}')" title="{{ t.get('switch_to_english', 'Switch to English') if lang == 'no' else t.get('switch_to_norwegian', 'Switch to Norwegian') }}" style="background:none; border:none; padding:0; margin-left:10px; cursor:pointer; display:inline-flex; align-items:center; line-height:0;">
                 <img src="{{ url_for('static', filename='flags/' + ('no' if lang == 'no' else 'gb') + '.svg') }}" alt="{{ 'NO' if lang == 'no' else 'GB' }}" width="22" height="16" style="border-radius:2px; display:block;">
             </button>
-            <a href="{{ url_for('profile_picker') }}" class="avatar-circle nav-current-user" title="{{ t.get('switch_profile', 'Switch profile') }}: {{ active_profile_name or user_email }}" style="width:40px;height:40px;font-size:20px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;color:white;font-weight:700;background:{{ avatar_color(active_profile_name or user_email) }};margin-left:6px;cursor:pointer;text-decoration:none;">
+            <a href="{{ url_for('household.profile_picker') }}" class="avatar-circle nav-current-user" title="{{ t.get('switch_profile', 'Switch profile') }}: {{ active_profile_name or user_email }}" style="width:40px;height:40px;font-size:20px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;color:white;font-weight:700;background:{{ avatar_color(active_profile_name or user_email) }};margin-left:6px;cursor:pointer;text-decoration:none;">
                 {{ avatar_display(active_profile_name or user_email, active_avatar_type, active_avatar_value) }}
             </a>
             {% endif %}
@@ -76,9 +76,6 @@
                                     <option value="5">5</option>
                                     <option value="6" selected>6</option>
                                 </select>
-                            </div>
-                            <div class="dropdown-actions">
-                                <button onclick="applyCategories()" class="btn-apply">{{ t.apply }}</button>
                             </div>
                         </div>
                     </div>
@@ -109,7 +106,7 @@
                                 </a>
                                 <div id="household-submenu" class="theme-submenu" style="display:none;">
                                     {% if is_household_owner %}
-                                    <a href="{{ url_for('household_settings') }}" class="settings-item">{{ t.get('household', 'Household') }}</a>
+                                    <a href="{{ url_for('household.household_settings') }}" class="settings-item">{{ t.get('household', 'Household') }}</a>
                                     <a href="/settings" class="settings-item">{{ t.settings }}</a>
                                     {% endif %}
                                     <span id="nav-user-display-settings" style="font-size:0.85rem; color:var(--color-text-secondary,#888); padding:8px 16px; display:flex; align-items:center; gap:8px;">
@@ -118,7 +115,7 @@
                                         </span>
                                         {{ active_profile_name or user_email }}
                                     </span>
-                                    <a href="{{ url_for('profile_picker') }}" class="settings-item" style="color: var(--color-text-primary, #333);">
+                                    <a href="{{ url_for('household.profile_picker') }}" class="settings-item" style="color: var(--color-text-primary, #333);">
                                         {{ t.get('switch_profile', 'Switch Profile') }}
                                     </a>
                                 </div>
@@ -153,7 +150,7 @@
                                     <a href="/feedback" class="settings-item">💬 {{ t.get('send_feedback', 'Send Feedback') }}</a>
                                     {% if is_app_admin %}
                                     <a href="/feedback/list" class="settings-item">📋 View Feedback</a>
-                                    <a href="{{ url_for('admin_panel') }}" class="settings-item" style="color:#dc2626;">🔧 Admin</a>
+                                    <a href="{{ url_for('admin.admin_panel') }}" class="settings-item" style="color:#dc2626;">🔧 Admin</a>
                                     {% endif %}
                                 </div>
                             </div>
@@ -164,10 +161,10 @@
                                         {{ t.get('logout', 'Logout') }}
                                     </a>
                                 {% else %}
-                                    <a href="{{ url_for('login') }}" class="settings-item" style="color: var(--color-text-primary, #333);">
+                                    <a href="{{ url_for('auth.login') }}" class="settings-item" style="color: var(--color-text-primary, #333);">
                                         {{ t.get('login', 'Login') }}
                                     </a>
-                                    <a href="{{ url_for('signup') }}" class="settings-item" style="color: var(--color-text-primary, #333);">
+                                    <a href="{{ url_for('auth.signup') }}" class="settings-item" style="color: var(--color-text-primary, #333);">
                                         {{ t.get('signup', 'Sign Up') }}
                                     </a>
                                 {% endif %}
@@ -791,6 +788,14 @@
         transition: opacity 0.2s, background 0.2s;
     }
     .help-btn:hover { opacity: 1; background: rgba(255,255,255,0.3); }
+    /* The Quick Start Guide modal's numbered step headings (1-6) had no
+       color set at all, so they fell back to whatever default a browser
+       gives an unstyled <h4> against a white modal background - readable in
+       some browsers/themes, nearly invisible (pale gray-on-white) in others.
+       Match the same primary-color treatment the modal's own <h3> already
+       gets, for a heading that's guaranteed readable regardless of theme or
+       browser default. */
+    #help-modal h4 { color: var(--color-text-primary, #1a1a1a); }
     </style>
 </body>
 </html>
