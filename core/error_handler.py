@@ -2,7 +2,7 @@
 # Menu Planner - Weekly Meal Planner
 # Creator: nobody174 (nobodylearn174@gmail.com)
 # GitHub: https://github.com/nobody174/Menu-Planner
-# License: MIT
+# License: PolyForm Noncommercial 1.0.0 - see LICENSE
 #
 
 """

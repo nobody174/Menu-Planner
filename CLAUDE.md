@@ -121,7 +121,7 @@ before merging to `public-release-v1`.
   the Flask dev server (chokes on a real browser's multiple simultaneous
   connections per page load) - both were tried and made things worse
   before WAL mode was found to be the actual fix. See B63 in
-  `docs/BACKLOG_2026-07-01.md` for the full story. Production is
+  `docs/BACKLOG.md` for the full story. Production is
   unaffected either way - it runs Postgres, which already handles this.
 - Flask's auto-reloader (`flask run` without `--no-reload`) spawns a child
   process that does not reliably inherit env vars set inline on the parent

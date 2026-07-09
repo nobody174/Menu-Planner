@@ -16,7 +16,9 @@ local `.env` file.
 | `FEATURE_SIDE_STASH` | off | F8: Side stash feature |
 | `FEATURE_DESSERT_PLANNER` | off | F9: Dessert system integrated into the dinner planner |
 
-These map 1:1 to `FEATURE_FLAGS` in `deployment/flask_app.py`.
+These map 1:1 to `FEATURE_FLAGS` in `deployment/app_core.py` (moved here from
+`flask_app.py` during the B57 blueprint split, 2026-07-07 - `flask_app.py`
+still re-exports it, so existing imports keep working).
 
 ---
 
@@ -61,12 +63,12 @@ Templates: `feature_flags` is injected into every template's context via
 ## Safety notes
 
 - If a flag somehow ends up set to a truthy value while `FLASK_ENV=production`,
-  `flask_app.py` logs a loud warning at startup (`FEATURE_FLAGS` block, right
-  after `IS_PRODUCTION` is defined) — this should never happen in practice,
+  `deployment/app_core.py` logs a loud warning at startup (`FEATURE_FLAGS` block,
+  right after `IS_PRODUCTION` is defined) — this should never happen in practice,
   since Render's environment doesn't define these vars, but the warning is a
   cheap safety net in case someone copies `.env` values into production by mistake.
 - Adding a new hidden feature: pick a new `FEATURE_<NAME>` env var, add it to
-  the `FEATURE_FLAGS` dict in `flask_app.py`, and add a row to the table above.
+  the `FEATURE_FLAGS` dict in `deployment/app_core.py`, and add a row to the table above.
 - Don't gate anything security-sensitive behind a flag alone (e.g. don't rely
   on a flag to hide data a user shouldn't be able to fetch some other way) —
   flags are for hiding unfinished UI/routes, not for access control.

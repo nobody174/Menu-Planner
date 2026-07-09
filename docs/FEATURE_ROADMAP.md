@@ -1,6 +1,6 @@
 # Menu Planner — Feature Roadmap
 
-Last updated: 2026-07-06
+Last updated: 2026-07-08
 
 ---
 
@@ -66,18 +66,30 @@ Last updated: 2026-07-06
 ### Round 7 (2026-07-06) — see `CHANGELOG.md` for full detail
 - Design-critique pass on the live site: fixed the All Recipes `[object Object]` bug, stale "0 MIN" recipe times, day-card headers rendering the wrong theme color, added a difficulty color indicator, and several copy/UX refinements
 - Found and fixed a related activity-log bug (raw dict reprs shown for swap actions)
-- Closed out B46's category-tag and ingredient-name scope; allergen tags remain open
+- B46 fully closed same day (category tags, ingredient names, and allergen tags all translate correctly now)
 - Re-verified B17 at the code level; investigated a potential menu-write race condition and confirmed it's not currently exploitable (single gunicorn worker, no real concurrency yet)
+
+### Round 8 (2026-07-07) — see `CHANGELOG.md` for full detail
+- Comprehensive read-only audit (`docs/AUDIT_2026-07-07.md`), then fixed nearly everything it found the same day: a shopping-list export bug that was likely broken in production (C1), a `SECRET_KEY` fail-hard guard (H1), rate limiting + login-enumeration hardening (H2/M7), a dead `/themes` route (H3), account-deletion data-integrity fixes (M1/M2), silent write-failure and HTML-error-to-JSON-client bugs (M4/M5), per-request DB-query caching (M6), missing DB indexes (B56), and route-level test coverage (B59)
+- The big one: split `deployment/flask_app.py` (~4,700 lines) into an app-factory (`deployment/app_core.py`) + 7 Flask blueprints (`deployment/routes/*.py`) - B57, long-planned
+- Separately, a QA/production-readiness pass fixed silent partial menu generation (B53), a CI vulnerability scan that wasn't actually gating anything (B54), a missing "no results" search state (B55), a real SQLite concurrency bug affecting live usage not just tests (B63), a broken mobile layout on All Recipes (B65), a wrong-page link (B66), missing GitHub Releases on auto-tagged versions (B67), and flaky visual-regression tests (B68) - plus shipped the Playwright MCP + CI visual-regression suite (B62)
+- The Firefox-only white-block bug (B58) that motivated B62 is still unreproduced and still open
+
+### Round 9 (2026-07-08) — see `CHANGELOG.md` for full detail
+- Security Hardening PR: found rate limiting, login-enumeration protection, and the body-size cap (H2/M7/LO1) were already done from Round 8; closed the one real remaining gap, a missing Content-Security-Policy header (M8)
+- Bookkeeping cleanup: renamed `BACKLOG_2026-07-01.md` → `BACKLOG.md` (a living file shouldn't have a date baked into its name), and backfilled the Round 8 CHANGELOG entries that never got written the day of
 
 ---
 
 ## 🎯 Now — before public + paid launch
 
-See `BACKLOG_2026-07-01.md` for full detail and live status on all of these.
+See `BACKLOG.md` for full detail and live status on all of these.
 
 - **Legal/compliance:** privacy policy + terms of service (none exist yet), trial-to-paid pre-charge notice, self-serve cancellation, 14-day right-of-withdrawal disclosure, tax/business registration timing, confirm Patreon's creator terms
-- **B46 (remaining):** recipe allergen-tag inconsistency — category tags and ingredient names are done
-- **B17:** watching for recurrence of the intermittent relogin/"Oops!" issue a few more days before calling it closed
+- **M3:** deployment definition split-brain (Railway-era Docker vs. Render Procfile) - decide which is actually live, delete/demote the other
+- **B61:** dual storage path (JSONB vs. legacy per-household files) consolidation
+- **B58:** Firefox-only white-block rendering bug, still unreproduced
+- **B17:** watching for recurrence of the intermittent relogin/"Oops!" issue before calling it closed
 
 ## 🔜 Next — planned features, no fixed order yet
 

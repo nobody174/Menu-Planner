@@ -3,7 +3,7 @@
 A web application for families to plan weekly dinners, manage recipes, and generate shopping lists — available at **[menuplanner.no](https://menuplanner.no)**.
 
 **Created by:** [nobody174](https://github.com/nobody174)
-**License:** MIT
+**License:** [PolyForm Noncommercial 1.0.0](LICENSE) — free to view, clone, and self-host for personal/noncommercial use; commercial use (charging for access, running it as a competing hosted service) is not permitted without a separate agreement
 **Support:** [Patreon](https://www.patreon.com/Nobody174/posts/menu-planner-161473082)
 
 ---
@@ -24,7 +24,7 @@ A web application for families to plan weekly dinners, manage recipes, and gener
 ✅ **Email Confirmation & Password Reset** — via Resend
 ✅ **Responsive Design** — Works on desktop, tablet and mobile
 ✅ **PWA** — Installable on mobile home screen
-✅ **Open Source** — Free to self-host
+✅ **Source Available** — Free to self-host for personal/noncommercial use ([license](LICENSE))
 
 ---
 
@@ -37,6 +37,11 @@ Hosted on Render.com (web) + Neon.tech (PostgreSQL).
 ---
 
 ## Self-Hosting
+
+For your own personal or household use — running your own copy of Menu
+Planner for yourself/your family. See [LICENSE](LICENSE): this does **not**
+cover running a modified or unmodified copy as a paid or public
+commercial service.
 
 ### Prerequisites
 
@@ -59,7 +64,7 @@ source venv/bin/activate  # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 
 # 4. Configure environment variables
-cp .env.template .env
+cp .env.example .env
 # Edit .env: set DATABASE_URL, SECRET_KEY, FLASK_ENV
 
 # 5. Run database migrations
@@ -95,7 +100,7 @@ gunicorn -b 0.0.0.0:5000 deployment.flask_app:app
 | [CI/CD Pipeline](docs/CI_CD_PIPELINE.md) | Branch model, pipeline stages, rollback |
 | [Changelog](CHANGELOG.md) | Full history of all work done |
 | [Feature Roadmap](docs/FEATURE_ROADMAP.md) | Planned features |
-| [Backlog](docs/BACKLOG_2026-07-01.md) | Open tasks |
+| [Backlog](docs/BACKLOG.md) | Open tasks |
 | [About](docs/ABOUT.md) | Project story |
 
 ---
@@ -104,7 +109,7 @@ gunicorn -b 0.0.0.0:5000 deployment.flask_app:app
 
 | Layer | Technology |
 |---|---|
-| Backend | Python 3.11, Flask 3.0 |
+| Backend | Python 3.11, Flask 3.1 |
 | Database | PostgreSQL (Neon) + SQLAlchemy + Alembic |
 | Frontend | Vanilla JS, CSS custom properties, Jinja2 templates |
 | Hosting | Render.com (web) |
@@ -116,7 +121,14 @@ gunicorn -b 0.0.0.0:5000 deployment.flask_app:app
 
 ## License
 
-MIT License — see [LICENSE](LICENSE)
+PolyForm Noncommercial License 1.0.0 — see [LICENSE](LICENSE). Free to
+view, clone, modify, and self-host for personal/noncommercial use.
+Commercial use (charging for access, running it as a competing hosted
+service, etc.) requires a separate agreement with the licensor.
+
+**Note:** this repo was MIT-licensed before 2026-07-08 — anyone who
+obtained a copy under those terms before the relicense keeps their MIT
+rights to that copy; the new terms apply going forward.
 
 ## Credits
 

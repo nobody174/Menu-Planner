@@ -2,7 +2,7 @@
 # Menu Planner - Weekly Meal Planner
 # Creator: nobody174 (nobodylearn174@gmail.com)
 # GitHub: https://github.com/nobody174/Menu-Planner
-# License: MIT
+# License: PolyForm Noncommercial 1.0.0 - see LICENSE
 #
 
 """
@@ -624,7 +624,7 @@ def api_sync_shopping_list():
     TickTick sync were removed 2026-07-05 - they required each user to obtain
     and paste their own API token/Azure credentials, which is real setup
     friction and support burden for a friends-and-family/public audience.
-    See docs/BACKLOG_2026-07-01.md for the note to re-add if users actually ask."""
+    See docs/BACKLOG.md for the note to re-add if users actually ask."""
     try:
         data = request.get_json() or {}
         service = data.get("service", "reminders").lower()
