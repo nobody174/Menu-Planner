@@ -6,6 +6,20 @@ with its own recipes_db.json, weekly_menu.json, categories.json, etc.
 The original flat data/ directory's pre-existing files are treated as
 the seed/default content copied into a household's folder the first
 time that household needs it, so existing test data isn't lost.
+
+B61 (2026-07-09): this file used to also hold a full parallel file-based
+implementation of every household data type (categories, removed-category
+tombstones, pantry, activity log) as a fallback for households with no
+matching database row. Deleted after confirming, via Neon, that exactly 3
+households exist and all are real DB rows, and that this Render service has
+no persistent Disk attached - so a file-only household could not have
+survived any deploy to exist. What remains here (household_dir(),
+menu_file(), recipes_db_file(), the imported-packs file functions) is
+either still genuinely used as a last-resort fallback inside a try/except
+around a real DB call (core/menu_generator.py), or - imported_packs
+specifically - is still the *only* implementation that feature has; it was
+never actually wired up to the DB columns that exist for it. See B61 in
+docs/BACKLOG.md.
 """
 
 import json
@@ -92,8 +106,8 @@ def default_pantry_staples() -> list:
     """The sorted list of pantry staple items (both languages) a fresh
     household is seeded with. Pure read of the static seed file - no
     household-specific file I/O. Used directly by the DB-backed pantry seed
-    path (B61, 2026-07-09); _seed_pantry() below still wraps this for the
-    legacy file-backed path, which needs the result written to disk too."""
+    path (B61, 2026-07-09); _seed_pantry() below still wraps this for
+    household_dir()'s own directory-seeding step."""
     if not _PANTRY_STAPLES_FILE.exists():
         return []
     try:
@@ -111,11 +125,10 @@ def default_pantry_staples() -> list:
 
 
 def _seed_pantry(hdir: Path):
-    """New households start with a pre-filled pantry of common staples in
-    both languages (so the per-language filter in the UI has something to
-    show regardless of which language the household is using) rather than
-    empty - the household then edits it (removes what they never keep, adds
-    what they always have) to make it their own."""
+    """Writes the static staples list into a freshly-created household
+    directory's pantry.json - part of household_dir()'s one-time directory
+    seed, not something read back from again (B61, 2026-07-09: the DB pantry
+    seed path no longer touches this at all, see default_pantry_staples())."""
     items = default_pantry_staples()
     if not items:
         return
@@ -129,7 +142,11 @@ def _seed_pantry(hdir: Path):
 def household_dir(household_id: str) -> Path:
     """Return (creating if needed) the data directory for a household, seeded
     from the legacy global data/ files on first use. recipes_db.json starts
-    empty so households don't inherit global recipes."""
+    empty so households don't inherit global recipes.
+
+    B61 (2026-07-09): only reached today via menu_file()/recipes_db_file()'s
+    callers in core/menu_generator.py's own try/except DB-failure fallback -
+    a genuine last resort, not a routine code path."""
     hdir = HOUSEHOLDS_DIR / str(household_id)
     if not hdir.exists():
         hdir.mkdir(parents=True, exist_ok=True)
@@ -154,101 +171,6 @@ def recipes_db_file(household_id: str) -> Path:
     return household_dir(household_id) / "recipes_db.json"
 
 
-def _removed_categories_file(household_id: str) -> Path:
-    return household_dir(household_id) / "removed_categories.json"
-
-
-def load_removed_categories(household_id: str):
-    """Codes of categories this household has explicitly deleted or merged
-    away - a tombstone list, so the self-heal below knows the difference
-    between "never had this category" (should be added) and "had it, removed
-    it on purpose" (must NOT be silently re-added next time the base seed is
-    re-checked)."""
-    path = _removed_categories_file(household_id)
-    if not path.exists():
-        return set()
-    try:
-        with open(path, "r", encoding="utf-8") as f:
-            return set(json.load(f))
-    except Exception:
-        return set()
-
-
-def mark_category_removed(household_id: str, code: str):
-    """Record that this household explicitly removed a category, so the
-    self-heal in categories_file() never re-adds it."""
-    removed = load_removed_categories(household_id)
-    removed.add(code)
-    path = _removed_categories_file(household_id)
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(sorted(removed), f, ensure_ascii=False, indent=2)
-
-
-def categories_file(household_id: str) -> Path:
-    """The household's categories file, self-healed to include any base
-    categories (by code) it's missing - e.g. if a category was added to the
-    global seed after this household was already created. Never removes or
-    overwrites a category the household already has, even if they renamed or
-    customized it, so household-level edits are always preserved. Categories
-    the household explicitly deleted (tracked in removed_categories.json)
-    are never re-added by this self-heal, even if they still exist in the
-    base seed file."""
-    path = household_dir(household_id) / "categories.json"
-    base_path = SEED_DIR / "categories.json"
-
-    if not path.exists() or not base_path.exists():
-        return path
-
-    try:
-        with open(path, "r", encoding="utf-8") as f:
-            household_cats = json.load(f)
-        with open(base_path, "r", encoding="utf-8") as f:
-            base_cats = json.load(f)
-    except Exception:
-        return path
-
-    removed_codes = load_removed_categories(household_id)
-    existing_codes = {c.get("code") for c in household_cats}
-    missing = [
-        c
-        for c in base_cats
-        if c.get("code") not in existing_codes and c.get("code") not in removed_codes
-    ]
-    changed = False
-
-    if missing:
-        household_cats.extend(missing)
-        existing_codes.update(c.get("code") for c in missing)
-        changed = True
-
-    # One-time cleanup: 'rask' ("Quick Dinner") and 'quick_dinners' ("Quick
-    # Dinners") were accidentally added as two separate categories for the
-    # same thing in an earlier fix. Drop the redundant older one if both
-    # ended up present, the same way the seed file itself was corrected.
-    if "rask" in existing_codes and "quick_dinners" in existing_codes:
-        household_cats = [c for c in household_cats if c.get("code") != "rask"]
-        changed = True
-
-    # Backfill the 'imported' flag onto built-in recipe-pack categories that
-    # were seeded before this flag existed, so sort order (imported packs at
-    # the bottom) works for households created before this fix too.
-    base_imported_codes = {c.get("code") for c in base_cats if c.get("imported")}
-    for c in household_cats:
-        if c.get("code") in base_imported_codes and not c.get("imported"):
-            c["imported"] = True
-            changed = True
-
-    if changed:
-        with open(path, "w", encoding="utf-8") as f:
-            json.dump(household_cats, f, ensure_ascii=False, indent=2)
-
-    return path
-
-
-def activity_log_file(household_id: str) -> Path:
-    return household_dir(household_id) / "activity_log.json"
-
-
 def imported_packs_file(household_id: str) -> Path:
     return household_dir(household_id) / "imported_packs.json"
 
@@ -258,7 +180,17 @@ def load_imported_packs(household_id: str) -> dict:
     has imported, keyed by pack id - written at import time, read by the
     "Manage Recipe Packs" page. Tracked separately from recipe categories so
     importing a pack no longer overwrites a recipe's real dish-type category
-    with the pack name (see BACKLOG_2026-06-30.md B4b)."""
+    with the pack name (see BACKLOG_2026-06-30.md B4b).
+
+    B61 (2026-07-09): unlike every other data type in this file, this one
+    was never actually wired up to the DB columns that exist for it
+    (load_imported_packs_from_db()/save_imported_packs_to_db() below are
+    defined but have no real caller anywhere) - this file-based version is
+    genuinely the only implementation, called unconditionally from
+    deployment/routes/recipe_pack_routes.py. Since this Render service has
+    no persistent Disk, this metadata likely doesn't survive a redeploy
+    today - a real gap, not something this cleanup pass fixes. Flagged as a
+    new backlog item rather than silently patched mid-cleanup."""
     path = imported_packs_file(household_id)
     if not path.exists():
         return {}
@@ -288,89 +220,6 @@ def remove_imported_pack_metadata(household_id: str, pack_id: str):
             json.dump(packs, f, ensure_ascii=False, indent=2)
 
 
-def pantry_file(household_id: str) -> Path:
-    return household_dir(household_id) / "pantry.json"
-
-
-def _pantry_seeded_marker(household_id: str) -> Path:
-    return household_dir(household_id) / ".pantry_seeded"
-
-
-def load_pantry(household_id: str):
-    """List of ingredient names (lowercased) this household already has on
-    hand. Self-heals households created before the pantry pre-fill existed:
-    an empty pantry with no seeded-marker file gets backfilled with the
-    staples list once. A marker (not just "is the list empty") distinguishes
-    "never seeded" from "household deliberately removed everything" - the
-    latter must stay empty, not get re-filled every time it's loaded."""
-    hdir = household_dir(household_id)
-    marker = _pantry_seeded_marker(household_id)
-    path = pantry_file(household_id)
-
-    if not marker.exists():
-        existing = []
-        if path.exists():
-            try:
-                with open(path, "r", encoding="utf-8") as f:
-                    existing = json.load(f)
-            except Exception:
-                existing = []
-        if not existing:
-            _seed_pantry(hdir)
-        marker.touch()
-
-    if not path.exists():
-        return []
-    try:
-        with open(path, "r", encoding="utf-8") as f:
-            return json.load(f)
-    except Exception:
-        return []
-
-
-def save_pantry(household_id: str, items):
-    path = pantry_file(household_id)
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(sorted(set(items)), f, ensure_ascii=False, indent=2)
-
-
-def append_activity(household_id: str, actor: str, action: str):
-    """Append one entry to a household's activity log (owner-visible audit trail)."""
-    from datetime import datetime
-
-    path = activity_log_file(household_id)
-    entries = []
-    if path.exists():
-        try:
-            with open(path, "r", encoding="utf-8") as f:
-                entries = json.load(f)
-        except Exception:
-            entries = []
-
-    entries.append(
-        {
-            "timestamp": datetime.now().isoformat(),
-            "actor": actor,
-            "action": action,
-        }
-    )
-    entries = entries[-200:]  # cap log size
-
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(entries, f, ensure_ascii=False, indent=2)
-
-
-def load_activity(household_id: str):
-    path = activity_log_file(household_id)
-    if not path.exists():
-        return []
-    try:
-        with open(path, "r", encoding="utf-8") as f:
-            return list(reversed(json.load(f)))
-    except Exception:
-        return []
-
-
 # Database-backed functions for F4 migration (PostgreSQL JSONB storage)
 def load_recipes_db_from_db(household):
     """Load recipes_db from database JSONB column."""
@@ -394,21 +243,22 @@ def load_removed_categories_from_db(household) -> set:
     that wasn't actually in the database. Any disk loss/detach, or restoring
     Postgres from a backup onto a fresh volume, would silently resurrect
     every category a household had deliberately deleted, since the self-heal
-    below has no surviving tombstone to check against. Falls back to reading
-    the legacy file once (for households whose tombstones predate this
-    column existing) so upgrading doesn't itself resurrect anything."""
+    below has no surviving tombstone to check against.
+
+    B61 (2026-07-09): the legacy-file read fallback has been removed - this
+    Render service has no persistent Disk attached, so
+    households/<id>/removed_categories.json could never have survived a
+    deploy to read back here anyway. A non-list column now just means
+    "nothing removed yet," which is the correct default."""
     if isinstance(household.removed_categories, list):
         return set(household.removed_categories)
-    if hasattr(household, "id"):
-        return load_removed_categories(household.id)
     return set()
 
 
 def mark_category_removed_to_db(household, code: str):
     """Record that this DB-backed household explicitly removed a category,
-    directly in the JSONB column (M2) rather than the file-only tombstone
-    `mark_category_removed()` still uses for un-migrated/file-backed
-    households. Caller is responsible for committing the session."""
+    directly in the JSONB column (M2). Caller is responsible for committing
+    the session."""
     removed = load_removed_categories_from_db(household)
     removed.add(code)
     household.removed_categories = sorted(removed)
