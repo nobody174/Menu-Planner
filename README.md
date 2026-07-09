@@ -95,7 +95,7 @@ gunicorn -b 0.0.0.0:5000 deployment.flask_app:app
 | [CI/CD Pipeline](docs/CI_CD_PIPELINE.md) | Branch model, pipeline stages, rollback |
 | [Changelog](CHANGELOG.md) | Full history of all work done |
 | [Feature Roadmap](docs/FEATURE_ROADMAP.md) | Planned features |
-| [Backlog](docs/BACKLOG_2026-07-01.md) | Open tasks |
+| [Backlog](docs/BACKLOG.md) | Open tasks |
 | [About](docs/ABOUT.md) | Project story |
 
 ---
@@ -104,7 +104,7 @@ gunicorn -b 0.0.0.0:5000 deployment.flask_app:app
 
 | Layer | Technology |
 |---|---|
-| Backend | Python 3.11, Flask 3.0 |
+| Backend | Python 3.11, Flask 3.1 |
 | Database | PostgreSQL (Neon) + SQLAlchemy + Alembic |
 | Frontend | Vanilla JS, CSS custom properties, Jinja2 templates |
 | Hosting | Render.com (web) |

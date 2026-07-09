@@ -14,7 +14,7 @@ module's create_app() returns.
 This is a straight behavior-preserving move, not a rewrite - every function
 here is unchanged from its original flask_app.py version except for being
 wrapped in create_app() where it depends on `app` directly (decorators,
-config, jinja globals). See docs/BACKLOG_2026-07-01.md's B57 entry for why
+config, jinja globals). See docs/BACKLOG.md's B57 entry for why
 this was necessary: flask_app.py had grown to ~4,700 lines / ~80 routes, all
 sharing one module scope with no boundaries.
 """

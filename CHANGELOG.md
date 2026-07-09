@@ -1,11 +1,47 @@
 # Menu Planner — Project Changelog
 
 Complete history of all work done on the project, newest first.
-See `BACKLOG_2026-07-01.md` for open tasks and `FEATURE_ROADMAP.md` for planned features.
+See `BACKLOG.md` for open tasks and `FEATURE_ROADMAP.md` for planned features.
 
 ---
 
-## 2026-07-08
+## 2026-07-08 (2)
+
+### Bookkeeping cleanup: renamed backlog file, backfilled the missing 2026-07-07 changelog entries
+
+The prior session (2026-07-07: comprehensive audit + B57 blueprint split +
+QA pass B53-B68) did a large amount of real, verified work but never wrote
+any of it up here - `CHANGELOG.md` jumped straight from `2026-07-06 (13)`
+to this file's own `2026-07-08` entry with nothing in between, and
+`docs/BACKLOG_2026-07-01.md` (see rename below) still listed roughly a
+dozen items as open that were already fixed that same day. Caught only
+because the user asked "are you sure everything's actually reflected here"
+after spotting the file's own header contradicting its filename.
+
+Fixes, in order:
+1. Re-audited every open backlog item against the actual code (not the
+   backlog's own prior text) - found M1, M2, M4, M5, M6, B56, B57, and B59
+   were all already resolved 2026-07-07 and never marked as such.
+2. Renamed `docs/BACKLOG_2026-07-01.md` → `docs/BACKLOG.md`. The file is a
+   living, continuously-edited document, not a dated snapshot (unlike
+   `docs/AUDIT_2026-07-07.md`, which correctly *is* one) - a date baked
+   into the filename of something that changes every session is
+   guaranteed to go stale the first time anyone updates it without also
+   renaming the file, which is exactly what happened here. Dates that
+   matter now live inside the file's own entries instead. Updated every
+   reference across the repo (`CLAUDE.md`, `README.md`,
+   `docs/FEATURE_ROADMAP.md`, `docs/AUDIT_2026-07-07.md`,
+   `deployment/app_core.py`, `deployment/flask_app.py`, this file).
+3. Backfilled the two missing 2026-07-07 entries below, covering the
+   audit/hardening/blueprint-split pass and the separate QA pass (B53-B68)
+   that also went unlogged.
+4. Trimmed `docs/BACKLOG.md`'s resolved-item entries down to short
+   pointers back to these changelog entries, restoring the file's own
+   stated contract ("this file holds only what's still genuinely open").
+
+---
+
+## 2026-07-08 (1)
 
 ### Security Hardening PR: closed the M8 CSP gap, added missing test coverage (H2, M7, LO1, M8)
 
@@ -46,8 +82,218 @@ command is `python -m flask --app deployment.flask_app run --host=0.0.0.0
 this in the same prior session).
 
 **No further code changes needed for H2/M7/LO1** - confirmed correct as
-built. `docs/BACKLOG_2026-07-01.md` updated to reflect all four items
-resolved.
+built. `docs/BACKLOG.md` updated to reflect all four items resolved.
+
+---
+
+## 2026-07-07 (2)
+
+### Comprehensive read-only audit → same-day fix pass: C1, H1-H3, M1-M2, M4-M7, LO1, LO8, B56, B57, B59, B60
+
+Ran a full read-only architecture/security/QA audit (`docs/AUDIT_2026-07-07.md`,
+verified against a clean `main`) ahead of the planned public + paid launch,
+then fixed everything it found the same day except M3 (deployment
+split-brain) and B61 (dual storage path consolidation), both left as
+deliberate technical debt for a dedicated pass later.
+
+**Critical**
+- **C1 — shopping-list export/sync likely broken in production.** Both
+  `/api/export-shopping-list` and the Apple Reminders sync path used a bare
+  `from shopping_integrations import ...`, which only resolves when
+  `flask_app.py` is run as a standalone script (auto-adds its own
+  directory to `sys.path`) - not under gunicorn's `deployment.flask_app:app`
+  invocation, which is what production actually runs. The route's own
+  try/except silently swallowed the resulting `ImportError` and 500'd.
+  Fixed to `from deployment.shopping_integrations import ...`; live-tested
+  CSV export end-to-end to confirm.
+
+**High**
+- **H1 — `SECRET_KEY` silently fell back to a random per-process value.**
+  Owner confirmed `FLASK_SECRET_KEY` genuinely is set on Render, so this
+  wasn't B17's root cause after all - fixed anyway as insurance: now
+  raises `RuntimeError` at boot if the key is missing *and*
+  `FLASK_ENV=production`, instead of silently minting a key that would
+  invalidate every session on every restart.
+- **H2 — no rate limiting on `/login`, `/signup`, `/forgot-password`.**
+  Added `flask-limiter` (in-process memory store, fine at the current
+  single-worker Render deployment): `/login` 10/min, `/signup` 10/hour,
+  `/forgot-password` and `/resend-confirmation` 5/hour each.
+- **H3 — `/themes` gallery route 500'd.** Listed a directory
+  (`frontend/static/theme-previews/`) that never existed - dead route from
+  the theme refactor era, no nav link anywhere pointed to it. Deleted both
+  `/themes` routes; `theme_gallery.html` was left orphaned this session
+  (sandbox couldn't delete it) and removed in a later pass.
+
+**Medium**
+- **M1 — account deletion could fail or leave dangling references.**
+  `delete_user_account()` never touched legacy relational `Recipe`/
+  `WeeklyMenu`/`ShoppingList` rows (superseded by JSONB columns but still
+  FK-constrained in Postgres) or nulled `referred_by_user_id` for accounts
+  this user had referred - either could roll back the whole deletion on a
+  real FK violation, undermining the GDPR erasure promise the not-yet-written
+  privacy policy (L1) will make. Now clears both defensively.
+- **M2 — category-deletion tombstones only ever wrote to the filesystem**,
+  never to the `removed_categories` JSONB column that exists for exactly
+  this purpose - a disk loss on Render would have silently resurrected
+  every category a household had deleted. Added the DB-writing path
+  (`flag_modified()` + `removed_categories` column), file path kept only
+  for genuinely un-migrated households.
+- **M4 — silent write-failure swallowing.** `save_recipes_db()` and
+  `_save_pantry_db()` caught DB commit exceptions, `print()`'d them, and
+  returned normally - routes reported success on a lost write, the same
+  "200 success, nothing saved" class of bug as B53/B63. Now propagates the
+  real exception instead.
+- **M5 — API 500s/404s/CSRF errors returned HTML to JSON clients.** Added
+  branching in all three global error handlers: a JSON response for any
+  `/api/*` path, the existing HTML error page for everything else. This is
+  exactly why B63's frontend error handling previously had to guess at a
+  non-JSON response instead of reading a real error message.
+- **M6 — `current_household_id()` re-queried the DB on every single call**
+  (46 call sites, several per request). Now cached on `flask.g`, one query
+  per request; verified no cross-request leakage via a dedicated test
+  (`tests/test_request_scoped_caching.py`).
+- **M7 — login/resend-confirmation leaked which emails were registered**,
+  plus a timing oracle (no-such-user skipped the password hash entirely).
+  `authenticate_user()` now returns one generic error for both cases and
+  runs a dummy hash comparison on the no-such-user path so timing doesn't
+  give it away either. `/resend-confirmation` returns one generic message
+  regardless of account state.
+
+**Low**
+- **LO1 — no request body size limit.** Set `MAX_CONTENT_LENGTH` to 5MB.
+- **LO8 — misc cosmetics.** Removed a duplicate import in
+  `delete_own_account`; fixed household-folder cleanup on self-deletion
+  actually running (it captured `current_household_id()` *after* the user
+  row was already gone, so it always silently no-op'd); removed a
+  meaningless `"https"` field from `/health`.
+
+**B56 — missing DB indexes.** Added indexes on `households.owner_id`,
+`household_members.household_id`/`user_id`, `recipes.household_id`,
+`weekly_menus.household_id`, `shopping_lists.household_id`
+(`alembic/versions/d7ad4d9fa3eb_add_missing_indexes_b56.py`).
+
+**B57 — the big one: split `flask_app.py` (~4,700 lines, ~80 routes, one
+module scope) into an app-factory + blueprints.** New `deployment/app_core.py`
+holds `create_app()` (config, CSRF, rate limiter, security headers, error
+handlers, i18n, jinja globals) plus every shared helper function, unchanged
+from its original `flask_app.py` version except where it needed wrapping
+inside `create_app()` to access `app` directly. Seven new
+`deployment/routes/*.py` blueprint modules (auth, admin, household,
+pantry_category, menu, recipe, recipe_pack) hold the actual route bodies,
+moved verbatim. `flask_app.py` itself is now just the entry point + blueprint
+registration (731 lines). Rate-limit decorators needed a `register(bp,
+limiter)` pattern per blueprint module rather than bare `@limiter.limit(...)`
+at import time, since the real `Limiter` instance doesn't exist until
+`create_app()` runs. **Breaking change for local dev:** `deployment/` is now
+a real package with absolute imports, so `python deployment/flask_app.py`
+no longer works (doesn't put the project root on `sys.path`) -
+`RUN_LOCAL.bat`/`RUN_LOCAL.ps1` updated to `python -m flask --app
+deployment.flask_app run --host=0.0.0.0 --port=5000` instead.
+
+**B59 — zero route-level test coverage.** Added the recommended smoke-test
+starter (`tests/test_routes_smoke.py`: hits every registered route both
+logged-in and logged-out, asserts none 500) plus real coverage on the
+previously-untested high-complexity routes: `tests/test_menu_mutation_routes.py`
+(swap/reroll/regenerate), `tests/test_pantry_routes.py`,
+`tests/test_category_routes.py`, `tests/test_api_error_handlers.py`,
+`tests/test_login_signup_csrf.py` (also the first tests to actually
+exercise CSRF protection at all, rather than disabling it for every test).
+
+**B60 — dead code housekeeping.** Removed a pointless f-string with no
+interpolation and a leftover `if __name__ == "__main__":` self-test block
+in `core/menu_generator.py` (confirmed unused first).
+
+Full pytest suite green throughout. `docs/AUDIT_2026-07-07.md` has the
+full findings detail this summary condenses.
+
+---
+
+## 2026-07-07 (1)
+
+### QA / production-readiness pass: B53-B55, B60, B63, B65-B68 fixed; B58 investigated (still open); B64 decided against
+
+Full code + live-functional review following up on the 2026-07-06 QA
+session's findings (see that date's entries for the session itself).
+
+- **B53 — silent partial/degraded menu generation.** A household with
+  fewer eligible recipes than the requested day count got a `200 success`
+  with a shorter menu and no indication why. `generate_menu()` now records
+  the requested vs. actual day count; `/api/regenerate` surfaces a
+  structured warning the frontend shows as a one-time dismissible banner
+  on dashboard load.
+- **B54 — CI's dependency vulnerability scan didn't gate anything.**
+  `safety check || true` never failed the build even on a real finding,
+  and modern `safety` (v3.x) requires a hosted-platform login just to run,
+  so it may have been silently failing to even authenticate. Ran
+  `pip-audit` (free, offline) directly, found 13 real CVEs across 5
+  packages, bumped all 5 pins to patched versions, switched CI's security
+  scan job to `pip-audit` with the `|| true` removed entirely.
+- **B55 — All Recipes search had no "no results" empty state.** Searching
+  a nonsense term correctly hid every card but left a blank page with no
+  message and a heading still showing the unfiltered total. Added a live
+  result count and a "No recipes found" empty state.
+- **B60 — dead code**: pointless f-string, leftover self-test block in
+  `menu_generator.py` (see also the 2026-07-07 (2) entry above, same fix).
+- **B63 — SQLite concurrency bug, genuinely affecting live usage, not just
+  CI.** The 🎲 reroll and recipe-search swap buttons intermittently failed
+  with a blank client-side error. Root cause: SQLAlchemy's `StaticPool`
+  forced every thread onto one shared raw sqlite3 connection, and Flask's
+  threaded dev server corrupted that connection's cursor state under real
+  overlapping requests. Two fix attempts made things worse first (a global
+  connection lock deadlocked the whole app on any request dying mid-flight;
+  `threaded=False` choked on a real browser's multiple simultaneous
+  connections per page load) before landing on the actual fix: SQLite's own
+  WAL journal mode + a 5s `busy_timeout`, with `StaticPool` switched back to
+  a normal per-thread pool (WAL needs separate connections per thread to
+  work). Verified with 24 concurrent requests, 0 failures. Production
+  (gunicorn + Postgres) was never affected.
+- **B65 — All Recipes never collapsed to a mobile layout.** An inline
+  `style="display: grid; grid-template-columns: 280px 1fr"` attribute
+  always wins over any CSS rule regardless of selector specificity, so the
+  mobile media query trying to override it could never fire - the sidebar
+  took its full 280px on every viewport, pushing content almost entirely
+  off-screen on phones. Moved the layout into a real `.all-recipes-layout`
+  class so the existing (already-correct) media queries could finally apply.
+- **B66 — "Import Recipe Packs" on All Recipes linked to the wrong page**
+  (a management page with no actual import control). Moved the import
+  modal's markup/CSS/JS out of `settings.html` into the shared `base.html`
+  so any page can open it directly; All Recipes' button now opens it in
+  place.
+- **B67 — auto-tagged versions never got a GitHub Release.** The CI
+  deploy job's auto-tag push used `GITHUB_TOKEN`, which GitHub deliberately
+  blocks from triggering other workflows (anti-loop protection) - so
+  `release.yml`'s tag-push trigger never fired for any auto-tag, ever,
+  despite the tags genuinely existing. Fixed by creating the Release
+  directly inside the same deploy job instead of relying on a second
+  workflow to catch the tag push.
+- **B68 — Playwright e2e seed data was non-deterministic**, causing a real
+  CI flake on a push that touched no template/CSS/JS at all -
+  `e2e/seed_test_data.py` never passed a `seed=` to `MenuGenerator`, so
+  every run produced a different random weekly menu, which any committed
+  visual-regression baseline could only ever match by chance. Fixed with a
+  fixed `seed=42`; regenerated every affected baseline.
+- **B58 — Firefox-only white block at the bottom of the page — still
+  unresolved.** Tested all 4 key pages in a real Firefox engine via the
+  new Playwright MCP at default viewport, a shortened viewport (`100vh`
+  hypothesis), and with the settings dropdown open (`backdrop-filter`
+  hypothesis) - could not reproduce in any of these. Genuinely still open;
+  needs the exact page/window-size/screenshot from whoever saw it, or it
+  surfaces on its own via the new Playwright CI suite.
+- **B64 — welcome-page marketing videos — decided to keep the originals.**
+  Built two automated candidate replacement videos (Playwright screen
+  recording + moviepy trimming/captions/fades + a generated original
+  soundtrack, since no free-music source had a clean unauthenticated
+  download path). Neither captured everything wanted, and the UI is still
+  changing fast enough that re-recording now would likely need redoing
+  soon anyway - kept the live videos, owner plans to record new ones once
+  the UI settles.
+- **B62 — Playwright MCP + CI suite shipped** (researched and written up
+  2026-07-06, actually installed and wired up this session): MCP
+  registered for interactive Firefox/Chromium/WebKit checks during
+  development; a 7-project Playwright test suite (3 desktop browsers + 4
+  device viewports) with `toHaveScreenshot()` visual-regression checks
+  added to CI, gating Stage 2 - a rendering regression on any of the 7
+  environments now blocks deploy automatically.
 
 ---
 

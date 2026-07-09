@@ -1,6 +1,6 @@
 # Menu Planner — System Architecture
 
-Last updated: 2026-07-02
+Last updated: 2026-07-08
 
 ---
 
@@ -63,9 +63,15 @@ All active household data lives in JSONB columns on the `households` table:
 
 ---
 
-## Backend — Flask (`deployment/flask_app.py`)
+## Backend — Flask (`deployment/`)
 
-Single-file Flask app with all routes and API endpoints.
+App-factory + Flask blueprints (split from a single ~4,700-line
+`flask_app.py` during the B57 blueprint split, 2026-07-07): `app_core.py`
+holds `create_app()`, shared helpers, and app-wide config (CSRF, rate
+limiter, security headers, error handlers); `flask_app.py` is now just the
+entry point + blueprint registration; route bodies live in
+`deployment/routes/*.py`, one module per area (auth, admin, household,
+pantry_category, menu, recipe, recipe_pack).
 
 ### Key Route Groups
 

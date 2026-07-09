@@ -1,6 +1,6 @@
 # Menu Planner — Developer Guide
 
-Last updated: 2026-07-02
+Last updated: 2026-07-08
 
 For the complete technical architecture, see `SYSTEM_ARCHITECTURE.md`.
 For the recipe pack JSON format, see `RECIPE_PACK_FORMAT.md`.
@@ -24,10 +24,21 @@ Menu-Planner/
 ├── alembic/
 │   └── versions/                  # Migration scripts (add new ones here)
 ├── deployment/
-│   ├── flask_app.py               # ALL routes, API endpoints, helpers
+│   ├── flask_app.py               # Entry point + blueprint registration only
+│   ├── app_core.py                # App factory (create_app), shared helpers,
+│   │                               # FEATURE_FLAGS, security headers, error handlers
+│   ├── routes/                    # Flask blueprints, one module per area
+│   │   ├── auth_routes.py         # Login, signup, password reset, account delete
+│   │   ├── admin_routes.py
+│   │   ├── household_routes.py
+│   │   ├── pantry_category_routes.py
+│   │   ├── menu_routes.py
+│   │   ├── recipe_routes.py
+│   │   └── recipe_pack_routes.py
+│   ├── shopping_integrations.py   # CSV/ICS export, Apple Reminders sync
 │   ├── email_notifier.py          # Resend email sending
-│   ├── scheduler.py               # APScheduler background jobs
-│   └── to_do_sync.py              # Microsoft To Do integration (optional)
+│   ├── scheduler.py                 ┐ Dead Pi-era modules (LO3, docs/BACKLOG.md) -
+│   └── to_do_sync.py                ┘ imported nowhere, kept only pending cleanup
 ├── frontend/
 │   ├── static/
 │   │   ├── app.js                 # Main UI logic
@@ -56,18 +67,20 @@ Menu-Planner/
 │   ├── delete_user.py             # Admin: delete a user + their data
 │   ├── delete_test_users.py       # Admin: bulk-delete test accounts
 │   └── archive/                   # One-time migration scripts, already run
-├── tests/
-│   ├── test_auth.py
-│   ├── test_core_modules.py
-│   └── test_household.py
+├── e2e/                            # Playwright cross-browser/visual-regression suite
+├── tests/                          # pytest suite (route smoke tests, auth,
+│                                    # household, category/pantry/menu-mutation
+│                                    # routes, CSRF, security headers, caching)
 ├── docs/                          # All documentation (guides, backlog,
 │                                   # roadmap, architecture, about)
 ├── requirements.txt
-├── Procfile                       # Render start command
+├── Procfile                       # Render start command (gunicorn)
+├── Dockerfile / docker-compose.yml / docker-entrypoint.sh  # Railway-era Docker
+│                                   # path - see M3 in docs/BACKLOG.md, currently
+│                                   # unclear whether this or Procfile is authoritative
 ├── runtime.txt                    # Python version (3.11.9)
 ├── CHANGELOG.md                   # Full project history
-├── CLAUDE.md                      # Working instructions / deploy flow
-└── new_chat_fresh_menu_planner.md # Context file for new Claude sessions
+└── CLAUDE.md                      # Working instructions / deploy flow
 ```
 
 ---
@@ -91,8 +104,17 @@ venv\Scripts\activate       # Windows
 pip install -r requirements.txt
 
 # Run without DATABASE_URL to use local SQLite
-python deployment/flask_app.py
+# NOTE: deployment/ is a real package (deployment.app_core, deployment.routes.*)
+# as of the B57 blueprint split (2026-07-07) - "python deployment/flask_app.py"
+# no longer works (ModuleNotFoundError: No module named 'deployment'), since
+# running a file directly as a script doesn't put the project root on
+# sys.path the way "python -m" does. Must run as a module instead:
+set FLASK_DEBUG=1
+python -m flask --app deployment.flask_app run --host=0.0.0.0 --port=5000
 ```
+
+Or just run `RUN_LOCAL.bat` (Windows) / `RUN_LOCAL.ps1`, which do the same
+thing plus venv/`.env` bootstrapping.
 
 Open http://localhost:5000
 
@@ -102,7 +124,7 @@ Open http://localhost:5000
 # Set DATABASE_URL before running
 $env:DATABASE_URL="postgresql://user:pass@host/dbname"
 alembic upgrade head
-python deployment/flask_app.py
+python -m flask --app deployment.flask_app run --host=0.0.0.0 --port=5000
 ```
 
 ---
@@ -131,16 +153,27 @@ def downgrade():
 
 ## Adding a New Route
 
-All routes live in `deployment/flask_app.py`. Add your route near related routes.
+Routes live in `deployment/routes/*.py`, one blueprint module per area (auth,
+admin, household, pantry_category, menu, recipe, recipe_pack) - add your
+route to whichever module it belongs with, or create a new blueprint module
+for a genuinely new area. `deployment/flask_app.py` itself only registers
+blueprints; it shouldn't gain new route bodies directly.
 
 ```python
-@app.route('/api/my-feature', methods=['POST'])
+# inside the relevant deployment/routes/*.py's register(bp, limiter) function
+@bp.route('/api/my-feature', methods=['POST'])
 def my_feature():
     if not session.get('user_id'):
         return jsonify({'success': False}), 401
     # ... your logic
     return jsonify({'success': True})
 ```
+
+If your route needs rate limiting, use the `limiter` argument
+`register(bp, limiter)` receives: `@limiter.limit("10 per minute")` - it
+can't be a bare module-level decorator here, since the real `Limiter`
+instance doesn't exist until `deployment/app_core.py`'s `create_app()` runs,
+which happens after blueprint modules are imported.
 
 ---
 
@@ -203,9 +236,19 @@ Render + Neon infrastructure, and
 
 ## Running Tests
 
+Run against a dedicated test database, never the real local dev DB - the
+suite drops and recreates all tables before every single test
+(`tests/conftest.py` refuses to run at all if `DATABASE_URL` looks like it
+might be `menu_planner.db`):
+
 ```bash
-pytest tests/ -v
+DATABASE_URL=sqlite:///test.db pytest tests/ -v      # bash
+$env:DATABASE_URL='sqlite:///test.db'; pytest tests/ -v   # PowerShell
 ```
+
+Also run the Playwright visual-regression suite after any
+template/HTML/CSS change - see "Cross-browser/cross-device visual testing"
+in `CLAUDE.md` for the exact commands.
 
 ---
 
