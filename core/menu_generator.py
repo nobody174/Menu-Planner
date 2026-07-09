@@ -210,14 +210,10 @@ class MenuGenerator:
                 recipes_imported_file = recipes_db_file(self.household_id)
                 if recipes_imported_file.exists():
                     try:
-                        with open(
-                            recipes_imported_file, "r", encoding="utf-8"
-                        ) as f:
+                        with open(recipes_imported_file, "r", encoding="utf-8") as f:
                             all_recipes.extend(json.load(f))
                     except Exception as fe:
-                        logger.error(
-                            f"Error loading {recipes_imported_file}: {fe}"
-                        )
+                        logger.error(f"Error loading {recipes_imported_file}: {fe}")
         elif self.recipes_imported_file.exists():
             try:
                 with open(self.recipes_imported_file, "r", encoding="utf-8") as f:
