@@ -5,6 +5,37 @@ See `BACKLOG.md` for open tasks and `FEATURE_ROADMAP.md` for planned features.
 
 ---
 
+## 2026-07-09 (4)
+
+### CI: fixed two real pipeline problems found while shipping M3/B61's PR
+
+**1. Branch protection required a check that no longer exists.**
+`public-release-v1`'s required status checks still listed "Stage 2: Build
+Docker Image" - deleted from `ci.yml` as part of M3, but never removed from
+GitHub's branch protection settings. Every PR merge attempt was blocked
+indefinitely waiting for a check that would never report. Updated the
+required-checks list via the GitHub API to match the actual workflow (8
+checks now, not 9) - also added "Stage 2: Visual Regression (Playwright)",
+which turned out to have never actually been added as required despite
+existing in the workflow since 2026-07-07.
+
+**2. Every push to `main` while a PR was open fired two full pipeline runs
+for the same commit** - one for the `push` event, one for the PR's
+`synchronize` event - doubling real GitHub Actions job load and queue time
+on every single push. Added a `concurrency` block to `ci.yml`
+(`group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}`,
+`cancel-in-progress: true`) so the older, now-redundant run for the same
+branch gets cancelled instead of piling up. Doesn't affect deploy safety -
+Stage 3 only runs on a real push to `public-release-v1`, which has no open
+PR pointed at it by the time that push happens.
+
+Both found live, mid-session, while merging PR #6 (M3 + B61) - the PR
+itself was correctly green throughout; these were pre-existing pipeline
+configuration problems the merge attempt exposed, not caused by that PR's
+code changes.
+
+---
+
 ## 2026-07-09 (3)
 
 ### B61 fully resolved: production verified clean without Shell access, every dead file-fallback branch deleted, two real bugs found and fixed along the way
