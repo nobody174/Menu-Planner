@@ -1278,6 +1278,101 @@ def _mark_category_removed(household_id, code):
         db_session.close()
 
 
+def _load_imported_packs_db(household_id):
+    """Load imported-pack display metadata (name/icon/color for "Manage
+    Recipe Packs") from the database.
+
+    B61 follow-up (2026-07-09): replaces the old file-based
+    core.household_paths.load_imported_packs() - unlike every other data
+    type, this one was never actually wired to the imported_packs DB column
+    that exists for it. Since Render has no persistent Disk, the file
+    version silently reset on every deploy - nothing to migrate, that data
+    was already gone on every currently-running instance.
+    """
+    if not household_id:
+        return {}
+
+    from database.database import SessionLocal
+    from database.models import Household
+    from core.household_paths import load_imported_packs_from_db
+
+    db_session = SessionLocal()
+    try:
+        household = (
+            db_session.query(Household).filter(Household.id == household_id).first()
+        )
+        if not household:
+            return {}
+        return load_imported_packs_from_db(household)
+    finally:
+        db_session.close()
+
+
+def _save_imported_pack_metadata_db(household_id, pack_id, display_name, icon, color):
+    """Record (or update) display metadata for one imported pack, directly
+    in the DB JSONB column (B61 follow-up, 2026-07-09)."""
+    if not household_id:
+        return
+
+    from database.database import SessionLocal
+    from database.models import Household
+    from core.household_paths import (
+        load_imported_packs_from_db,
+        save_imported_packs_to_db,
+    )
+
+    db_session = SessionLocal()
+    try:
+        household = (
+            db_session.query(Household).filter(Household.id == household_id).first()
+        )
+        if household:
+            packs = load_imported_packs_from_db(household)
+            packs[pack_id] = {
+                "display_name": display_name,
+                "icon": icon,
+                "color": color,
+            }
+            save_imported_packs_to_db(household, packs)
+            db_session.commit()
+    except Exception:
+        db_session.rollback()
+        raise
+    finally:
+        db_session.close()
+
+
+def _remove_imported_pack_metadata_db(household_id, pack_id):
+    """Forget a pack's display metadata once its recipes have all been
+    removed (B61 follow-up, 2026-07-09)."""
+    if not household_id:
+        return
+
+    from database.database import SessionLocal
+    from database.models import Household
+    from core.household_paths import (
+        load_imported_packs_from_db,
+        save_imported_packs_to_db,
+    )
+
+    db_session = SessionLocal()
+    try:
+        household = (
+            db_session.query(Household).filter(Household.id == household_id).first()
+        )
+        if household:
+            packs = load_imported_packs_from_db(household)
+            if pack_id in packs:
+                del packs[pack_id]
+                save_imported_packs_to_db(household, packs)
+                db_session.commit()
+    except Exception:
+        db_session.rollback()
+        raise
+    finally:
+        db_session.close()
+
+
 def _sort_categories(categories):
     """Favorites always sorts first; everything else is alphabetical by
     display name."""

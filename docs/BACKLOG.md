@@ -43,8 +43,6 @@ Flagged 2026-07-05 during a legal/compliance check ahead of the planned public l
 
 ## OPEN — technical debt / cleanup (from the 2026-07-07 audit)
 
-**NEW: imported-pack display metadata never wired to the DB (found during B61, 2026-07-09)**
-- `load_imported_packs`/`save_imported_pack_metadata`/`remove_imported_pack_metadata` in `core/household_paths.py` are the only implementation for a recipe pack's display name/icon/color on "Manage Recipe Packs" - always file-based, despite an `imported_packs` DB JSONB column + `load_imported_packs_from_db()`/`save_imported_packs_to_db()` helper functions existing for exactly this purpose (defined, but zero real callers anywhere). Since this Render service has no persistent Disk (confirmed 2026-07-09, see B61 in Recently Resolved below), this metadata likely resets on every deploy. The packs' actual recipes are safe (properly DB-backed via `recipes_db`) - only the cosmetic display metadata is at risk. Needs: wire `deployment/routes/recipe_pack_routes.py` to call the DB functions instead of the file ones, verify with a live import test across a real deploy.
 
 **B57 follow-up: near-duplicate `api_swap_recipe`/`api_reroll_recipe`**
 - The 2026-07-07 audit flagged these two routes (~225 and ~190 lines) as near-duplicate giants worth extracting once the blueprint split (B57, now done) landed. Not separately verified/addressed - worth a look next time either function is touched.

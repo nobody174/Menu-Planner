@@ -5,6 +5,41 @@ See `BACKLOG.md` for open tasks and `FEATURE_ROADMAP.md` for planned features.
 
 ---
 
+## 2026-07-09 (5)
+
+### Imported recipe-pack display metadata wired to the DB (B61 follow-up)
+
+Closed the gap B61 found and deliberately left open: a recipe pack's
+display name/icon/color (shown on "Manage Recipe Packs") was the one data
+type never actually wired to the `imported_packs` DB column that existed
+for it - `load_imported_packs_from_db()`/`save_imported_packs_to_db()`
+were defined but had zero real callers anywhere. The only working
+implementation was file-based, and since this Render service has no
+persistent Disk, that metadata silently reset on every deploy.
+
+Added three DB-backed wrapper functions in `deployment/app_core.py`
+(`_load_imported_packs_db`, `_save_imported_pack_metadata_db`,
+`_remove_imported_pack_metadata_db`), matching the same fresh-session/
+re-query-by-id pattern already used for categories. Switched all three
+call sites in `deployment/routes/recipe_pack_routes.py` (import, list,
+remove) to use them instead of the old file functions. No migration
+needed - since the file version was already being wiped on every deploy,
+there was nothing real to carry over.
+
+Deleted the now-fully-orphaned file functions
+(`load_imported_packs`/`save_imported_pack_metadata`/
+`remove_imported_pack_metadata`/`imported_packs_file`) from
+`core/household_paths.py`.
+
+Added `tests/test_recipe_pack_routes.py` (2 tests, previously zero
+coverage on any recipe-pack route) - specifically opens a *fresh* DB
+session after the write to confirm the metadata is genuinely in the
+`households.imported_packs` column, not just readable within the same
+request that wrote it, mirroring what a real redeploy would see. Full
+suite green: 272/272 (up from 270). Black/flake8 clean.
+
+---
+
 ## 2026-07-09 (4)
 
 ### CI: fixed two real pipeline problems found while shipping M3/B61's PR
