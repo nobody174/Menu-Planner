@@ -14,7 +14,7 @@ before.
 
 ## 🚨 LAUNCH BLOCKERS — must resolve before public + paid launch (do NOT skip)
 
-Flagged 2026-07-05 during a legal/compliance check ahead of the planned public launch + paid Patreon tier (99 kr/mo, 7-10 day trial). None of this blocks the current friends-and-family soft launch — this is specifically gating the move to (a) truly public signups and (b) turning on the paywall.
+Flagged 2026-07-05 during a legal/compliance check ahead of the planned public launch + paid Patreon tier (69 kr/mo, 7-10 day trial). None of this blocks the current friends-and-family soft launch — this is specifically gating the move to (a) truly public signups and (b) turning on the paywall.
 
 ### L1. No privacy policy or terms of service exist anywhere (repo or live site)
 - Required before any paid or public launch. You're the data controller (Norway/EEA, GDPR applies); Neon + Resend are both EU-hosted per your confirmation, which simplifies this.
@@ -23,7 +23,7 @@ Flagged 2026-07-05 during a legal/compliance check ahead of the planned public l
 
 ### L2. Trial-to-paid conversion needs an explicit pre-charge notice
 - Norway's Forbrukertilsynet actively enforces against subscriptions that silently convert a free/trial period into a paid one (negative option billing, markedsføringsloven §11).
-- Needs: a clear email/in-app reminder before the 7-10 day trial converts to the 99 kr/month charge, not just a UI countdown.
+- Needs: a clear email/in-app reminder before the 7-10 day trial converts to the 69 kr/month charge, not just a UI countdown.
 
 ### L3. Cancellation must be self-serve and as easy as signup
 - Not yet built (no paywall exists yet). When built, cancellation must live in Settings, not "email us to cancel."
@@ -34,7 +34,7 @@ Flagged 2026-07-05 during a legal/compliance check ahead of the planned public l
 ### L5. Tax / business registration timing undecided
 - Currently running as an individual (no enkeltpersonforetak). Not a blocker for friends-and-family, but recurring subscription income is taxable from day one regardless of registration status. Decide a real trigger point (e.g. before X paying users or €X/month) rather than leaving it open-ended.
 
-### L6. Confirm Patreon's own creator/refund terms don't conflict with your stated "99 kr/month" terms
+### L6. Confirm Patreon's own creator/refund terms don't conflict with your stated "69 kr/month" terms
 - Patreon acts as payment processor and imposes its own refund/payout rules on you as a creator — read these once before publishing your own subscription terms.
 
 **Also discussed, not yet decided:** whether Patreon is the right payment path at all vs. Stripe or another processor (Lemon Squeezy/Paddle also discussed as merchant-of-record options that absorb EU VAT complexity) — worth revisiting once ready to build the actual paywall.
