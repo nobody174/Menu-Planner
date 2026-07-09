@@ -88,14 +88,14 @@ def pantry_item_translation(item: str):
     return None
 
 
-def _seed_pantry(hdir: Path):
-    """New households start with a pre-filled pantry of common staples in
-    both languages (so the per-language filter in the UI has something to
-    show regardless of which language the household is using) rather than
-    empty - the household then edits it (removes what they never keep, adds
-    what they always have) to make it their own."""
+def default_pantry_staples() -> list:
+    """The sorted list of pantry staple items (both languages) a fresh
+    household is seeded with. Pure read of the static seed file - no
+    household-specific file I/O. Used directly by the DB-backed pantry seed
+    path (B61, 2026-07-09); _seed_pantry() below still wraps this for the
+    legacy file-backed path, which needs the result written to disk too."""
     if not _PANTRY_STAPLES_FILE.exists():
-        return
+        return []
     try:
         with open(_PANTRY_STAPLES_FILE, "r", encoding="utf-8") as f:
             pairs = json.load(f).get("pantry_staples", [])
@@ -105,8 +105,23 @@ def _seed_pantry(hdir: Path):
                 items.add(pair["en"].strip().lower())
             if pair.get("no"):
                 items.add(pair["no"].strip().lower())
+        return sorted(items)
+    except Exception:
+        return []
+
+
+def _seed_pantry(hdir: Path):
+    """New households start with a pre-filled pantry of common staples in
+    both languages (so the per-language filter in the UI has something to
+    show regardless of which language the household is using) rather than
+    empty - the household then edits it (removes what they never keep, adds
+    what they always have) to make it their own."""
+    items = default_pantry_staples()
+    if not items:
+        return
+    try:
         with open(hdir / "pantry.json", "w", encoding="utf-8") as f:
-            json.dump(sorted(items), f, ensure_ascii=False, indent=2)
+            json.dump(items, f, ensure_ascii=False, indent=2)
     except Exception:
         pass
 

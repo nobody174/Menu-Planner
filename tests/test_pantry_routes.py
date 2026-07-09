@@ -114,3 +114,43 @@ class TestResetPantry:
     def test_viewer_cannot_reset_pantry(self, client, viewer_session):
         resp = client.post("/api/pantry/reset")
         assert resp.status_code == 403
+
+
+class TestPantrySeedNoFileIO:
+    """B61 (2026-07-09): a fresh household's first pantry read used to seed
+    via core.household_paths.load_pantry(), which wrote a per-household
+    pantry.json + .pantry_seeded marker file purely to hold the same static
+    staples content every household gets - real disk I/O on the hot path of
+    every new household's very first pantry load, for a DB-backed household
+    that never needed it. Confirms the DB column gets the full staples list
+    directly, and that no household directory is created on disk to do it."""
+
+    def test_first_read_seeds_staples_with_no_file_created(self, client, owner_session):
+        from core.household_paths import HOUSEHOLDS_DIR
+
+        _, household_id = owner_session
+        hdir = HOUSEHOLDS_DIR / str(household_id)
+        assert not hdir.exists(), "household dir should not exist before first pantry read"
+
+        resp = client.get("/api/pantry")
+        assert resp.status_code == 200
+        data = resp.get_json()
+        assert data["success"] is True
+        assert len(data["pantry"]) > 0
+
+        assert not hdir.exists(), (
+            "first pantry read must seed the DB column directly, "
+            "not fall through to a per-household file"
+        )
+
+    def test_seeded_pantry_matches_static_staples_source(self, client, owner_session):
+        from core.household_paths import default_pantry_staples
+
+        resp = client.get("/api/pantry")
+        assert resp.status_code == 200
+        db_pantry_via_route = set(resp.get_json()["pantry"])
+
+        # The route filters to the current display language, so every item
+        # it returns must be a subset of the full bilingual staples list.
+        assert db_pantry_via_route.issubset(set(default_pantry_staples()))
+        assert len(default_pantry_staples()) > 0

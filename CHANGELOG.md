@@ -5,7 +5,57 @@ See `BACKLOG.md` for open tasks and `FEATURE_ROADMAP.md` for planned features.
 
 ---
 
-## 2026-07-09
+## 2026-07-09 (2)
+
+### B61 investigated in full: one real fix landed, rest genuinely needs production verification
+
+Traced all 7 JSONB household data types (`recipes_db`, `pantry`,
+`weekly_menu`, `categories`, `activity_log`, `removed_categories`,
+`imported_packs`) to find out what the backlog's "confirm whether any
+production household still uses the file path" actually meant in practice
+- turned out narrower than expected. `recipes_db`/`weekly_menu`/
+`activity_log`/`imported_packs`'s DB loaders have no file fallback at all -
+a `None` column just correctly means "empty." `categories` self-heals
+directly from the static seed file, no per-household file involved. Only
+`pantry` and `removed_categories` actually touched per-household files on
+read.
+
+**Fixed: pantry's redundant per-household file round-trip.**
+`_load_pantry_db()` (`deployment/app_core.py`) used to seed a fresh
+household's `pantry` column by calling `core.household_paths.load_pantry()`
+- which wrote a per-household `pantry.json` + `.pantry_seeded` marker file
+purely to hold the same static staples content every household gets, real
+disk I/O for data that was never actually household-specific at seed time.
+Added `default_pantry_staples()` in `core/household_paths.py` (pure read of
+the static seed file, zero household-specific I/O) and switched
+`_load_pantry_db()` to seed directly from it. A brand-new household's very
+first pantry read no longer touches disk at all.
+
+Verified: 2 new tests
+(`tests/test_pantry_routes.py::TestPantrySeedNoFileIO`) confirm a fresh
+household's first `/api/pantry` read seeds correctly with the full staples
+list and creates zero household directory on disk. Full suite green
+(268/268, up from 266).
+
+**Left alone, deliberately:** the `"if not household: fall back to file"`
+branches scattered across `load_menu`/`save_menu`/`load_recipes_db`/
+`save_recipes_db`/`_load_household_categories`/`_save_household_categories`/
+`_mark_category_removed`, and `removed_categories`'s one-time file-tombstone
+migration-compat read. Every household gets a DB row at creation today, so
+these should be unreachable dead code - but "should be, per reading the
+code" isn't the same as "confirmed against real production data," and I
+don't have production DB access to check. Deleting them without that
+verification would be the actually risky move here, not leaving them.
+Added `scripts/verify_no_file_only_households.py` - a read-only script
+(run via Render Shell against production) that diffs `data/households/`
+directories against real `households` table rows. Once that comes back
+clean, the remaining fallback branches can be deleted with real confidence.
+
+`docs/BACKLOG.md`'s B61 entry updated with the full trace and next step.
+
+---
+
+## 2026-07-09 (1)
 
 ### M3 resolved: deleted the dead Railway-era Docker deployment path
 

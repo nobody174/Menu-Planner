@@ -912,7 +912,8 @@ def log_activity(action_msg):
 
 
 def _load_pantry_db():
-    """Load pantry from database. If not yet migrated, seed from file into DB.
+    """Load pantry from database, seeding fresh households with the static
+    staples list directly on first read.
 
     M4 (audit 2026-07-07): this used to catch every exception, print() it,
     and return [] - indistinguishable from a household that genuinely has an
@@ -922,6 +923,17 @@ def _load_pantry_db():
     data the household never asked to clear. Letting the exception propagate
     means the caller's own error handling (or, for the routes that had none,
     the JSON error handler added for M5) reports a real failure instead.
+
+    B61 (2026-07-09): the seed step used to call core.household_paths'
+    load_pantry(), which round-trips through a per-household pantry.json +
+    .pantry_seeded marker file purely to hold the exact same static staples
+    content every fresh household gets - no household-specific customization
+    was ever actually being read back at this point (a DB household.pantry
+    column is only None once, right after creation, before its first read -
+    there's no legacy "empty but already-marked" state a JSONB column can be
+    in the way an old flat file could). Seeding directly from the static
+    seed data means a brand-new household's very first pantry read no longer
+    touches disk at all.
     """
     household_id = current_household_id()
     if not household_id:
@@ -942,11 +954,10 @@ def _load_pantry_db():
         if household.pantry is not None:
             return household.pantry if isinstance(household.pantry, list) else []
 
-        # First time: seed from file into database
-        from core.household_paths import load_pantry
+        # First time: seed with the static staples list directly - no file I/O.
+        from core.household_paths import default_pantry_staples
 
-        file_pantry = load_pantry(household_id)
-        household.pantry = sorted(set(file_pantry)) if file_pantry else []
+        household.pantry = default_pantry_staples()
         db_session.commit()
         return household.pantry
     except Exception:
