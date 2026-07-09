@@ -175,20 +175,21 @@ def shopping_list():
         # Rebuild shopping list ingredient names in Norwegian from the recipe data
         shopping = {}
         recipe_ids = [d["recipe_id"] for d in menu.get("dinners", [])]
-        from core.household_paths import recipes_db_file
 
         all_recipes_raw = []
-        # Load from all sources: sample recipes, imported recipes, and recipe packs
-        for db_path in (
-            SEED_DIR / "sample_recipes.json",
-            recipes_db_file(current_household_id()),
-        ):
-            if db_path.exists():
-                try:
-                    with open(db_path, "r", encoding="utf-8") as f:
-                        all_recipes_raw.extend(json.load(f))
-                except Exception:
-                    pass
+        # Load from all sources: sample recipes, imported/custom recipes
+        # (DB-backed - B61, 2026-07-09: this used to read
+        # households/<id>/recipes_db.json directly via
+        # core.household_paths.recipes_db_file(), a file real households
+        # never actually write to, so imported/custom recipes' ingredients
+        # silently never contributed a Norwegian name here), and recipe packs
+        if (SEED_DIR / "sample_recipes.json").exists():
+            try:
+                with open(SEED_DIR / "sample_recipes.json", "r", encoding="utf-8") as f:
+                    all_recipes_raw.extend(json.load(f))
+            except Exception:
+                pass
+        all_recipes_raw.extend(load_recipes_db())
         # Also load from recipe packs (which have bilingual data)
         packs_dir = SEED_DIR / "recipe-packs"
         if packs_dir.exists():
@@ -258,9 +259,14 @@ def shopping_list():
     else:
         shopping = menu["shopping_list"]
 
-    from core.household_paths import load_pantry
-
-    pantry = set(load_pantry(current_household_id()))
+    # B61 (2026-07-09): this used to call core.household_paths.load_pantry()
+    # directly, which both reads AND seeds/writes a per-household pantry.json
+    # file - meaning every /shopping page view compared against a freshly
+    # reseeded default-staples file, not the household's actual customized
+    # DB pantry (any items added/removed via /api/pantry were silently
+    # ignored here). _load_pantry_db() is the same DB-backed function the
+    # /api/pantry route itself already uses.
+    pantry = set(_load_pantry_db())
     for category, items in shopping.items():
         for item in items:
             item["in_pantry"] = item.get("ingredient", "").strip().lower() in pantry
@@ -722,8 +728,8 @@ def health_check():
 # point was removed here - flask_app.py imports from deployment/app_core.py
 # now (a sibling module in the same package), which only resolves when this
 # file is loaded AS a package (python -m flask --app deployment.flask_app,
-# or gunicorn deployment.flask_app:app - what production/Docker/CI/
-# RUN_LOCAL.bat all already used or have been updated to use). Running this
+# or gunicorn deployment.flask_app:app - what production/CI/RUN_LOCAL.bat
+# all already used or have been updated to use). Running this
 # file directly as a script (python deployment/flask_app.py) doesn't put the
 # project root on sys.path the way "python -m" does, so the import fails
 # with ModuleNotFoundError: No module named 'deployment' before this block

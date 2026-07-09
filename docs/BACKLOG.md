@@ -43,13 +43,8 @@ Flagged 2026-07-05 during a legal/compliance check ahead of the planned public l
 
 ## OPEN — technical debt / cleanup (from the 2026-07-07 audit)
 
-**M3. Deployment definition split-brain: Railway-era Docker vs. Render Procfile**
-- `docker-entrypoint.sh` (4 gunicorn workers, runs migrations) and `Procfile` (1 worker, no migration step) contradict each other, and code comments bake in single-worker assumptions (PIN lockout, in-memory rate limiter) that the Docker path would silently violate. Decide which one is actually live on Render, delete/demote the other, document where migrations run.
-- Re-confirmed still open 2026-07-08: both definitions still exist unchanged.
-
-**B61. Two full parallel storage implementations**
-- JSONB-in-Postgres vs. legacy per-household flat-file storage, both live throughout `core/household_paths.py`. This dual-path shape is exactly what produced the swap-day JSONB `flag_modified()` bug fixed 2026-07-06 - every future menu-write feature has to get both paths right, or the JSONB path right and silently leave the file-fallback path stale. Worth confirming whether any production household still uses the file path at all, then deleting it if not.
-- Category-tombstone JSONB persistence (M2) is now fixed as of 2026-07-07, but that only closed one specific gap in this dual-path shape - the consolidation itself hasn't happened. `feedback.json`'s status (a real-user-email file outside the DB/backups, flagged alongside B61 in the original audit) hasn't been re-checked either.
+**NEW: imported-pack display metadata never wired to the DB (found during B61, 2026-07-09)**
+- `load_imported_packs`/`save_imported_pack_metadata`/`remove_imported_pack_metadata` in `core/household_paths.py` are the only implementation for a recipe pack's display name/icon/color on "Manage Recipe Packs" - always file-based, despite an `imported_packs` DB JSONB column + `load_imported_packs_from_db()`/`save_imported_packs_to_db()` helper functions existing for exactly this purpose (defined, but zero real callers anywhere). Since this Render service has no persistent Disk (confirmed 2026-07-09, see B61 in Recently Resolved below), this metadata likely resets on every deploy. The packs' actual recipes are safe (properly DB-backed via `recipes_db`) - only the cosmetic display metadata is at risk. Needs: wire `deployment/routes/recipe_pack_routes.py` to call the DB functions instead of the file ones, verify with a live import test across a real deploy.
 
 **B57 follow-up: near-duplicate `api_swap_recipe`/`api_reroll_recipe`**
 - The 2026-07-07 audit flagged these two routes (~225 and ~190 lines) as near-duplicate giants worth extracting once the blueprint split (B57, now done) landed. Not separately verified/addressed - worth a look next time either function is touched.
@@ -103,5 +98,11 @@ Flagged 2026-07-05 during a legal/compliance check ahead of the planned public l
 **2026-07-08 (1) — Security Hardening PR:** M8 (missing CSP header - the one real gap left after H2/M7/LO1 were found already done).
 
 **2026-07-08 (2) — bookkeeping cleanup:** this file renamed from `BACKLOG_2026-07-01.md` → `BACKLOG.md` (it's a living document, not a dated snapshot); backfilled two missing CHANGELOG entries for 2026-07-07's work, which had never been written up there; trimmed this file down to open items only, per its own stated contract.
+
+**2026-07-09 (1) — M3 (deployment split-brain):** confirmed Render actually runs the native Python buildpack (`Procfile` + `runtime.txt`), never the Dockerfile - deleted `Dockerfile`, `docker-compose.yml`, `docker-entrypoint.sh`, `.dockerignore`, and the CI "Build Docker Image" job/required check entirely, rather than keeping them as an unused smoke test. `Procfile` is now the only deployment definition.
+
+**2026-07-09 (2)+(3) — B61 (dual storage) fully resolved:** verified production clean via Neon (exactly 3 households, all DB rows) + confirmed no persistent Disk on Render (filesystem resets every deploy, so a file-only household couldn't have survived to exist) - no Shell access needed after all. Fixed two real bugs found along the way (`/shopping` was reading a stale reseeded pantry file and a recipes file real households never write to, instead of the DB). Made `menu_generator.py` stop creating a household file directory on every single menu generation. Deleted 11 fully-dead functions and every remaining file-fallback branch. New gap found and deliberately left open: imported-pack display metadata was never wired to the DB at all (see the open item above).
+
+**2026-07-09 (2) — B61 (partial):** pantry's redundant per-household seed-file round-trip fixed (see B61 entry above for full detail) - the remaining file-fallback branches are still open, genuinely blocked on production DB verification via the new `scripts/verify_no_file_only_households.py`.
 
 **Process note:** the prior two sessions' write-ups lived entirely in this file as inline "RESOLVED" notes and were never actually moved to `CHANGELOG.md` or trimmed out here, despite this file's own header saying that's the contract. If you're picking this file up cold, trust the code over any status text you find - grep for the actual function/pattern before assuming a note is current.

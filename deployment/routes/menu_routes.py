@@ -27,7 +27,6 @@ from deployment.app_core import (
     current_household_id,
     acting_role_can_edit,
     locked_household,
-    log_activity,
     current_actor_name,
     format_minutes,
     load_menu,
@@ -124,6 +123,11 @@ def register(bp):
                     400,
                 )
 
+            # B61 (2026-07-09): the file-fallback branch has been removed -
+            # confirmed via Neon that exactly 3 households exist and all are
+            # real DB rows, and this Render service has no persistent Disk
+            # attached, so a file-only household could not have survived any
+            # deploy to exist today.
             with locked_household() as (db, household):
                 if household:
                     from core.household_paths import (
@@ -135,11 +139,6 @@ def register(bp):
                     append_activity_to_db(
                         household, current_actor_name(), "Regenerated the weekly menu"
                     )
-                else:
-                    # No DB-backed household (file-storage fallback) - fall back
-                    # to the generator's own file-based save path.
-                    generator.save_menu(menu)
-                    log_activity("Regenerated the weekly menu")
 
             logger.info("Menu regenerated via API")
             response = {"status": "success", "menu": menu}
@@ -196,8 +195,8 @@ def register(bp):
                     400,
                 )
 
-            household_id = current_household_id()
-
+            # B61 (2026-07-09): the file-fallback branch has been removed,
+            # same reasoning as the /api/regenerate route above.
             with locked_household() as (db, household):
                 if household:
                     from core.household_paths import (
@@ -208,10 +207,7 @@ def register(bp):
 
                     menu = load_weekly_menu_from_db(household)
                 else:
-                    # No DB-backed household (file-storage fallback) - no
-                    # locking needed, there's no concurrent access to a single
-                    # Pi's local file.
-                    menu = load_menu()
+                    menu = None
 
                 if not menu:
                     return (
@@ -328,19 +324,15 @@ def register(bp):
                     else f"Swapped {day}'s dinner to '{recipe_title}'"
                 )
 
-                # Save the updated menu. Menus live in the household's DB row, not
-                # the flat file, once a household exists - writing only to the file
-                # here silently discarded the swap (menu kept loading the old DB
-                # copy on every subsequent page view).
+                # Save the updated menu. Menus live in the household's DB row.
+                # B61 (2026-07-09): the file-fallback branch has been removed -
+                # confirmed via Neon that exactly 3 households exist and all
+                # are real DB rows, and this Render service has no persistent
+                # Disk attached, so a file-only household could not have
+                # survived any deploy to exist today.
                 if household:
                     save_weekly_menu_to_db(household, menu)
                     append_activity_to_db(household, current_actor_name(), activity_msg)
-                else:
-                    from core.household_paths import menu_file, append_activity
-
-                    with open(menu_file(household_id), "w", encoding="utf-8") as f:
-                        json.dump(menu, f, ensure_ascii=False, indent=2)
-                    append_activity(household_id, current_actor_name(), activity_msg)
 
             logger.info(activity_msg)
 
@@ -419,8 +411,8 @@ def register(bp):
             if not day:
                 return jsonify({"status": "error", "message": "Day required"}), 400
 
-            household_id = current_household_id()
-
+            # B61 (2026-07-09): the file-fallback branch has been removed,
+            # same reasoning as /api/swap-recipe above.
             with locked_household() as (db, household):
                 if household:
                     from core.household_paths import (
@@ -431,7 +423,7 @@ def register(bp):
 
                     menu = load_weekly_menu_from_db(household)
                 else:
-                    menu = load_menu()
+                    menu = None
 
                 if not menu:
                     return (
@@ -548,12 +540,6 @@ def register(bp):
                 if household:
                     save_weekly_menu_to_db(household, menu)
                     append_activity_to_db(household, current_actor_name(), activity_msg)
-                else:
-                    from core.household_paths import menu_file, append_activity
-
-                    with open(menu_file(household_id), "w", encoding="utf-8") as f:
-                        json.dump(menu, f, ensure_ascii=False, indent=2)
-                    append_activity(household_id, current_actor_name(), activity_msg)
 
             logger.info(activity_msg)
 

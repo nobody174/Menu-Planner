@@ -5,6 +5,183 @@ See `BACKLOG.md` for open tasks and `FEATURE_ROADMAP.md` for planned features.
 
 ---
 
+## 2026-07-09 (3)
+
+### B61 fully resolved: production verified clean without Shell access, every dead file-fallback branch deleted, two real bugs found and fixed along the way
+
+Follow-up to the "(2)" entry below, once a way to verify production without
+paid Render Shell/Disk access was found. Owner ran `SELECT id FROM
+households;` directly in Neon's own SQL console (Neon hosts the Postgres
+DB, separately from Render): exactly 3 households, all real DB rows.
+Separately confirmed via the Render dashboard that this service has never
+had a persistent Disk attached (it's a paid add-on, and the Disks tab shows
+an upsell rather than an existing disk) - meaning the filesystem resets on
+every deploy, so a file-only household could not have survived any deploy
+to exist today. That combination was enough to proceed with full confidence
+- no need to actually run `scripts/verify_no_file_only_households.py`
+against production after all (kept in the repo anyway as a general
+diagnostic).
+
+**Traced every direct caller of the file-based functions across the whole
+codebase**, not just the `"if not household"` pattern originally scoped -
+this surfaced two genuinely active bugs, not dead fallback code:
+
+- **`/shopping` called `core.household_paths.load_pantry()` directly and
+  unconditionally** (not inside any fallback branch). That function both
+  reads *and* reseeds a fresh default-staples `pantry.json` file on every
+  call - so the shopping list's "already have this" pantry match was
+  silently comparing against a stale reseeded default pantry, not the
+  household's actual customized DB pantry (anything added/removed via
+  `/api/pantry` was ignored on this one page). Fixed to use
+  `_load_pantry_db()`, the same DB-backed function `/api/pantry` itself
+  already used.
+- **Same route also read `recipes_db_file()` directly** for the Norwegian
+  ingredient-name rebuild - a file real households never write to (their
+  imported/custom recipes live in `household.recipes_db`, the DB column) -
+  so those recipes' ingredients silently never contributed a Norwegian name
+  here. Fixed to use `load_recipes_db()` instead.
+
+**Also found `core/menu_generator.py`'s constructor unconditionally created
+a household's file directory on every single menu generation** - via eager
+`recipes_db_file()`/`categories_file()`/`menu_file()` calls, which trigger
+`household_dir()`'s side effect (creates `data/households/<id>/`, copies
+seed files) - even though those paths were only ever actually read inside
+genuine DB-exception fallback branches. Made all three lazy (computed only
+if a real DB failure reaches the fallback code, not in `__init__`). Also
+deleted `load_categories()`/`self.categories` entirely: tracing showed the
+result was assigned and never read by anything else in the class - pure
+dead weight, unrelated to the DB/file question, just found along the way.
+
+**Deleted 11 now-fully-dead functions** from `core/household_paths.py`
+(`categories_file`, `mark_category_removed`, `load_removed_categories`,
+`_removed_categories_file`, `activity_log_file`, `append_activity`,
+`load_activity`, `pantry_file`, `_pantry_seeded_marker`, `load_pantry`,
+`save_pantry`) after confirming zero real callers remained anywhere.
+Removed every `"if not household: fall back to file"` branch in
+`deployment/app_core.py` (`load_menu`, `save_menu`, `load_recipes_db`,
+`save_recipes_db`, `_load_household_categories`,
+`_save_household_categories`, `_mark_category_removed`, `log_activity`)
+and `deployment/routes/menu_routes.py` (regenerate, swap-recipe,
+reroll-recipe - 5 occurrences total). Kept `household_dir()`/`menu_file()`/
+`recipes_db_file()` themselves - still genuinely used as the last-resort
+inside `menu_generator.py`'s real DB-exception fallback, not dead.
+
+**New finding, deliberately NOT fixed this session:**
+`load_imported_packs`/`save_imported_pack_metadata`/
+`remove_imported_pack_metadata` (a recipe pack's display name/icon/color on
+"Manage Recipe Packs") turned out to be the *only* implementation for that
+feature - unlike every other data type traced, it was never actually wired
+to the `imported_packs` DB column that exists for exactly this purpose
+(`load_imported_packs_from_db`/`save_imported_packs_to_db` are defined but
+have zero real callers anywhere in the app). Given no persistent Disk, this
+metadata likely doesn't survive a redeploy today. The packs' actual
+recipes are safe (properly DB-backed) - only this cosmetic display
+metadata is at risk. Left untouched - this needs a real fix (wiring
+`deployment/routes/recipe_pack_routes.py` to the DB functions), not a
+delete-dead-code pass, and deserves its own careful session. Added as a
+new item in `docs/BACKLOG.md`.
+
+**Verified:** 4 new tests (`tests/test_pantry_routes.py::TestPantrySeedNoFileIO`
+x2, `tests/test_shopping_list_db_paths.py` x2) plus a live manual smoke
+test against the real local dev server as an existing real user
+(login → dashboard → `/api/pantry` → `/shopping` → `/api/categories`, all
+200, zero errors in the server log across the whole session). Full suite
+green: 270/270. `python -m flake8 ... --select=E9,F63,F7,F82` (CI's actual
+blocking lint check) clean.
+
+`docs/BACKLOG.md`'s B61 entry marked resolved; new imported-packs item added.
+
+---
+
+## 2026-07-09 (2)
+
+### B61 investigated in full: one real fix landed, rest genuinely needs production verification
+
+Traced all 7 JSONB household data types (`recipes_db`, `pantry`,
+`weekly_menu`, `categories`, `activity_log`, `removed_categories`,
+`imported_packs`) to find out what the backlog's "confirm whether any
+production household still uses the file path" actually meant in practice
+- turned out narrower than expected. `recipes_db`/`weekly_menu`/
+`activity_log`/`imported_packs`'s DB loaders have no file fallback at all -
+a `None` column just correctly means "empty." `categories` self-heals
+directly from the static seed file, no per-household file involved. Only
+`pantry` and `removed_categories` actually touched per-household files on
+read.
+
+**Fixed: pantry's redundant per-household file round-trip.**
+`_load_pantry_db()` (`deployment/app_core.py`) used to seed a fresh
+household's `pantry` column by calling `core.household_paths.load_pantry()`
+- which wrote a per-household `pantry.json` + `.pantry_seeded` marker file
+purely to hold the same static staples content every household gets, real
+disk I/O for data that was never actually household-specific at seed time.
+Added `default_pantry_staples()` in `core/household_paths.py` (pure read of
+the static seed file, zero household-specific I/O) and switched
+`_load_pantry_db()` to seed directly from it. A brand-new household's very
+first pantry read no longer touches disk at all.
+
+Verified: 2 new tests
+(`tests/test_pantry_routes.py::TestPantrySeedNoFileIO`) confirm a fresh
+household's first `/api/pantry` read seeds correctly with the full staples
+list and creates zero household directory on disk. Full suite green
+(268/268, up from 266).
+
+**Left alone, deliberately:** the `"if not household: fall back to file"`
+branches scattered across `load_menu`/`save_menu`/`load_recipes_db`/
+`save_recipes_db`/`_load_household_categories`/`_save_household_categories`/
+`_mark_category_removed`, and `removed_categories`'s one-time file-tombstone
+migration-compat read. Every household gets a DB row at creation today, so
+these should be unreachable dead code - but "should be, per reading the
+code" isn't the same as "confirmed against real production data," and I
+don't have production DB access to check. Deleting them without that
+verification would be the actually risky move here, not leaving them.
+Added `scripts/verify_no_file_only_households.py` - a read-only script
+(run via Render Shell against production) that diffs `data/households/`
+directories against real `households` table rows. Once that comes back
+clean, the remaining fallback branches can be deleted with real confidence.
+
+`docs/BACKLOG.md`'s B61 entry updated with the full trace and next step.
+
+---
+
+## 2026-07-09 (1)
+
+### M3 resolved: deleted the dead Railway-era Docker deployment path
+
+Confirmed which of the two contradictory deployment definitions this repo
+carried was actually live: `docs/DEVELOPER_GUIDE.md`'s documented Render
+Build/Start commands (`pip install ... && alembic upgrade head` /
+`gunicorn -b 0.0.0.0:$PORT deployment.flask_app:app`) match `Procfile`'s
+single-worker invocation exactly - that's the native Python buildpack, not
+Docker. `docker-entrypoint.sh` explicitly referenced Railway persistent
+volumes throughout (a different, no-longer-used hosting platform), and no
+`render.yaml` or any Docker-based Render config existed anywhere in the
+repo. Render never ran the Dockerfile at all.
+
+Deleted `Dockerfile`, `docker-compose.yml`, `docker-entrypoint.sh`, and the
+now-orphaned `.dockerignore` outright, along with the CI "Build Docker
+Image" job (`.github/workflows/ci.yml`) and its slot in the `deploy` job's
+`needs:` list - it was one of the 9 required status checks gating merges
+into `public-release-v1`, now 8. Chose full deletion over keeping the
+Dockerfile as a buildable-only smoke test, per explicit owner preference.
+
+Also fixed two comments this cleanup surfaced: `deployment/app_core.py`'s
+`SEED_DIR` used to describe pointing at `/app/data-seed`, a directory only
+the (now-deleted) Dockerfile ever created - since Render never ran that
+Dockerfile, this was already always silently falling through to the
+`DATA_DIR` fallback in the real deployment, every time; simplified to just
+`SEED_DIR = DATA_DIR` directly rather than keeping dead existence-check
+logic around. And `deployment/flask_app.py`'s B57 entry-point comment no
+longer lists Docker among what actually runs `gunicorn deployment.flask_app:app`.
+
+Verified: full pytest suite green (266/266) after the code changes; YAML
+syntax-validated `ci.yml` after the job removal.
+
+`docs/BACKLOG.md`, `docs/FEATURE_ROADMAP.md`, `docs/CI_CD_PIPELINE.md`,
+`docs/DEVELOPER_GUIDE.md`, and `CLAUDE.md` updated to drop every reference
+to the deleted Docker path and the now-8 (not 9) required checks.
+
+---
+
 ## 2026-07-08 (2)
 
 ### Bookkeeping cleanup: renamed backlog file, backfilled the missing 2026-07-07 changelog entries

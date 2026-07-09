@@ -451,19 +451,19 @@ CACHE_DIR = DATA_DIR / "recipes_cache"
 
 # Static recipe/category seed content (sample_recipes.json, recipe-packs/,
 # the base categories.json, pantry_staples.json, dessert/drinks stashes)
-# is read from here instead of DATA_DIR. On Render, DATA_DIR sits on a
-# persistent disk that's deliberately never overwritten on redeploy (so
-# real household data survives across deploys) - but that also means any
-# fix to these static seed files would silently never reach production,
-# since the disk's stale copy from whenever it was first created always
-# wins. SEED_DIR points at a pristine, always-fresh-from-the-image copy the
-# Dockerfile bakes in at /app/data-seed specifically so static content isn't
-# subject to the volume's no-clobber protection. Falls back to DATA_DIR
-# itself when data-seed doesn't exist (e.g. local dev, where there's no
-# volume shadowing to worry about).
-SEED_DIR = Path(__file__).parent.parent / "data-seed"
-if not SEED_DIR.exists():
-    SEED_DIR = DATA_DIR
+# is read from here instead of DATA_DIR.
+#
+# M3 (2026-07-09): this used to point at /app/data-seed, a directory only
+# the now-deleted Dockerfile ever created (baked in at image build time so
+# a Railway persistent volume's no-clobber behavior on DATA_DIR wouldn't
+# shadow static content fixes). Render - the platform actually in
+# production - never ran that Dockerfile at all (see Procfile / the
+# Build/Start commands in docs/DEVELOPER_GUIDE.md), so /app/data-seed never
+# existed there either; this always silently fell through to the DATA_DIR
+# fallback below in the real deployment, every single time. Kept the
+# fallback path itself (still correct, still what actually runs), removed
+# only the dead Docker-creates-this-directory branch and comment.
+SEED_DIR = DATA_DIR
 PROFILE_COOKIE_MAX_AGE = 60 * 60 * 24 * 365  # 1 year
 
 # Certificate paths (relative to the deployment dir where the service runs from)
@@ -886,8 +886,12 @@ def log_activity(action_msg):
     object obtained elsewhere (e.g. from `current_household()`) doesn't work:
     that helper closes its session before returning, so the object is
     detached and mutating it (as `append_activity_to_db` does) never
-    persists. Falls back to the legacy file-based log only if there's no
-    database-backed household yet (pre-migration period).
+    persists.
+
+    B61 (2026-07-09): the legacy file-based log fallback has been removed -
+    confirmed via Neon that exactly 3 households exist and all are real DB
+    rows, and this Render service has no persistent Disk attached, so a
+    file-only household could not have survived any deploy to exist today.
     """
     household_id = current_household_id()
     if not household_id:
@@ -895,7 +899,7 @@ def log_activity(action_msg):
 
     from database.database import SessionLocal
     from database.models import Household
-    from core.household_paths import append_activity_to_db, append_activity
+    from core.household_paths import append_activity_to_db
 
     db_session = SessionLocal()
     try:
@@ -905,14 +909,13 @@ def log_activity(action_msg):
         if db_household:
             append_activity_to_db(db_household, current_actor_name(), action_msg)
             db_session.commit()
-        else:
-            append_activity(household_id, current_actor_name(), action_msg)
     finally:
         db_session.close()
 
 
 def _load_pantry_db():
-    """Load pantry from database. If not yet migrated, seed from file into DB.
+    """Load pantry from database, seeding fresh households with the static
+    staples list directly on first read.
 
     M4 (audit 2026-07-07): this used to catch every exception, print() it,
     and return [] - indistinguishable from a household that genuinely has an
@@ -922,6 +925,17 @@ def _load_pantry_db():
     data the household never asked to clear. Letting the exception propagate
     means the caller's own error handling (or, for the routes that had none,
     the JSON error handler added for M5) reports a real failure instead.
+
+    B61 (2026-07-09): the seed step used to call core.household_paths'
+    load_pantry(), which round-trips through a per-household pantry.json +
+    .pantry_seeded marker file purely to hold the exact same static staples
+    content every fresh household gets - no household-specific customization
+    was ever actually being read back at this point (a DB household.pantry
+    column is only None once, right after creation, before its first read -
+    there's no legacy "empty but already-marked" state a JSONB column can be
+    in the way an old flat file could). Seeding directly from the static
+    seed data means a brand-new household's very first pantry read no longer
+    touches disk at all.
     """
     household_id = current_household_id()
     if not household_id:
@@ -942,11 +956,10 @@ def _load_pantry_db():
         if household.pantry is not None:
             return household.pantry if isinstance(household.pantry, list) else []
 
-        # First time: seed from file into database
-        from core.household_paths import load_pantry
+        # First time: seed with the static staples list directly - no file I/O.
+        from core.household_paths import default_pantry_staples
 
-        file_pantry = load_pantry(household_id)
-        household.pantry = sorted(set(file_pantry)) if file_pantry else []
+        household.pantry = default_pantry_staples()
         db_session.commit()
         return household.pantry
     except Exception:
@@ -957,45 +970,44 @@ def _load_pantry_db():
 
 
 def _save_pantry_db(items):
-    """Save pantry to database (with fallback to file for un-migrated
-    households only).
+    """Save pantry to database.
 
     M4 (audit 2026-07-07): this used to catch a DB commit failure, print()
-    it, and then silently fall through to writing the file-based fallback
+    it, and then silently fall through to writing a file-based fallback
     path instead - which the DB-first read path (_load_pantry_db above)
     never looks at again once a household has a non-None `pantry` column.
     The route reported success ("Added to pantry") while the actual save
     was lost. Now: a DB-backed household's failure propagates as a real
-    error: it's not silently swapped for a write that goes nowhere useful.
-    The file fallback is now reached ONLY for genuinely un-migrated
-    (file-storage-only) households, matching every other *_db() helper's
-    fallback contract in this file.
+    error, not silently swapped for a write that goes nowhere useful.
+
+    B61 (2026-07-09): the file-fallback branch (for a household_id with no
+    matching DB row) has been removed - confirmed via Neon that exactly 3
+    households exist and all are real DB rows, and this Render service has
+    no persistent Disk attached, so a file-only household could not have
+    survived any deploy to exist today. If household_id is set but somehow
+    doesn't resolve to a household, this now simply does nothing, same as
+    the "no household_id at all" case already did.
     """
     household_id = current_household_id()
-    if household_id:
-        from database.database import SessionLocal
-        from database.models import Household
+    if not household_id:
+        return
 
-        db_session = SessionLocal()
-        try:
-            household = (
-                db_session.query(Household).filter(Household.id == household_id).first()
-            )
-            if household:
-                household.pantry = sorted(set(items))
-                db_session.commit()
-                return
-        except Exception:
-            db_session.rollback()
-            raise
-        finally:
-            db_session.close()
+    from database.database import SessionLocal
+    from database.models import Household
 
-    # Fallback to file-based for migration period - only reached above when
-    # there's no DB-backed household object for this id at all.
-    from core.household_paths import save_pantry
-
-    save_pantry(household_id, items)
+    db_session = SessionLocal()
+    try:
+        household = (
+            db_session.query(Household).filter(Household.id == household_id).first()
+        )
+        if household:
+            household.pantry = sorted(set(items))
+            db_session.commit()
+    except Exception:
+        db_session.rollback()
+        raise
+    finally:
+        db_session.close()
 
 
 def acting_role_is_owner():
@@ -1065,19 +1077,16 @@ def _is_admin():
 
 
 def load_menu():
-    """Load weekly menu from database JSONB column."""
+    """Load weekly menu from database JSONB column.
+
+    B61 (2026-07-09): the file-fallback branch (for a household with no
+    matching DB row) has been removed - confirmed via Neon that exactly 3
+    households exist and all are real DB rows, and this Render service has
+    no persistent Disk attached, so a file-only household could not have
+    survived any deploy to exist today.
+    """
     household = current_household()
     if not household:
-        # Fallback to file-based for migration period
-        from core.household_paths import menu_file
-
-        household_id = current_household_id()
-        if not household_id:
-            return None
-        path = menu_file(household_id)
-        if path.exists():
-            with open(path, "r", encoding="utf-8") as f:
-                return json.load(f)
         return None
 
     from core.household_paths import load_weekly_menu_from_db
@@ -1086,48 +1095,44 @@ def load_menu():
 
 
 def save_menu(menu):
-    """Save the weekly menu, DB-backed households first, file as fallback.
-    Mirrors the save pattern already proven correct in /api/swap-recipe:
-    opens its own fresh session and re-queries the household by id rather
-    than reusing a possibly-detached object, so the write actually commits."""
-    household_id = current_household_id()
+    """Save the weekly menu. Opens its own fresh session and re-queries the
+    household by id rather than reusing a possibly-detached object, so the
+    write actually commits - mirrors the save pattern already proven correct
+    in /api/swap-recipe.
+
+    B61 (2026-07-09): the file-fallback branch has been removed, same
+    reasoning as load_menu() above.
+    """
     household = current_household()
-    if household:
-        from database.database import SessionLocal
-        from database.models import Household
-        from core.household_paths import save_weekly_menu_to_db
+    if not household:
+        return
 
-        db_session = SessionLocal()
-        try:
-            db_household = (
-                db_session.query(Household).filter(Household.id == household.id).first()
-            )
-            if db_household:
-                save_weekly_menu_to_db(db_household, menu)
-                db_session.commit()
-        finally:
-            db_session.close()
-    else:
-        from core.household_paths import menu_file
+    from database.database import SessionLocal
+    from database.models import Household
+    from core.household_paths import save_weekly_menu_to_db
 
-        with open(menu_file(household_id), "w", encoding="utf-8") as f:
-            json.dump(menu, f, ensure_ascii=False, indent=2)
+    db_session = SessionLocal()
+    try:
+        db_household = (
+            db_session.query(Household).filter(Household.id == household.id).first()
+        )
+        if db_household:
+            save_weekly_menu_to_db(db_household, menu)
+            db_session.commit()
+    finally:
+        db_session.close()
 
 
 def load_recipes_db():
-    """Load recipes from database JSONB column."""
+    """Load recipes from database JSONB column.
+
+    B61 (2026-07-09): the file-fallback branch has been removed - confirmed
+    via Neon that exactly 3 households exist and all are real DB rows, and
+    this Render service has no persistent Disk attached, so a file-only
+    household could not have survived any deploy to exist today.
+    """
     household = current_household()
     if not household:
-        # Fallback to file-based for migration period
-        from core.household_paths import recipes_db_file
-
-        household_id = current_household_id()
-        if not household_id:
-            return []
-        path = recipes_db_file(household_id)
-        if path.exists():
-            with open(path, "r", encoding="utf-8") as f:
-                return json.load(f)
         return []
 
     from core.household_paths import load_recipes_db_from_db
@@ -1145,23 +1150,12 @@ def save_recipes_db(recipes):
     B53/B63. Now propagates so the caller's own error handling (or the
     JSON error handler added for M5, for the routes that had none) reports
     the real failure instead.
+
+    B61 (2026-07-09): the file-fallback branch has been removed, same
+    reasoning as load_recipes_db() above.
     """
     household = current_household()
     if not household:
-        # Fallback to file-based for migration period
-        from core.household_paths import recipes_db_file
-        import tempfile
-
-        household_id = current_household_id()
-        path = recipes_db_file(household_id)
-        dir_ = path.parent
-        with tempfile.NamedTemporaryFile(
-            "w", encoding="utf-8", dir=dir_, delete=False, suffix=".tmp"
-        ) as tf:
-            json.dump(recipes, tf, ensure_ascii=False, indent=2)
-            tf.write("\n")
-            tmp_path = tf.name
-        os.replace(tmp_path, path)
         return
 
     from database.database import SessionLocal
@@ -1198,108 +1192,90 @@ def find_recipe(recipe_id):
 
 
 def _load_household_categories(household_id):
-    """Load categories from database (with fallback to file).
+    """Load categories from database.
 
     B57 (audit 2026-07-07): kept in app_core.py rather than moved into the
     categories blueprint - settings_page() (still a main-app route, not part
     of the categories blueprint) also calls this directly for its "Manage
     Categories" section, so it's genuinely shared, not blueprint-local.
+
+    B61 (2026-07-09): the file-fallback branch has been removed - confirmed
+    via Neon that exactly 3 households exist and all are real DB rows, and
+    this Render service has no persistent Disk attached, so a file-only
+    household could not have survived any deploy to exist today.
     """
     household = current_household()
-    if household:
-        from core.household_paths import load_categories_from_db
-
-        return load_categories_from_db(household)
-
-    # Fallback to file-based for migration period
-    from core.household_paths import categories_file
-
-    path = categories_file(household_id)
-    if not path.exists():
+    if not household:
         return []
-    with open(path, "r", encoding="utf-8") as f:
-        return json.load(f)
+
+    from core.household_paths import load_categories_from_db
+
+    return load_categories_from_db(household)
 
 
 def _save_household_categories(household_id, categories):
-    """Save categories to database (with fallback to file for un-migrated
-    households only).
+    """Save categories to database.
 
     M4 (audit 2026-07-07): the DB-backed branch used to catch a commit
     failure, print() it, and then fall through to an unconditional `return`
-    right after the try/finally - meaning a failed DB write didn't even
-    reach the file fallback, it just silently did nothing at all while the
-    caller believed the save succeeded. Now propagates the real failure.
-    """
-    if household_id:
-        from database.database import SessionLocal
-        from database.models import Household
+    right after the try/finally, silently doing nothing while the caller
+    believed the save succeeded. Now propagates the real failure.
 
-        db_session = SessionLocal()
-        try:
-            household = (
-                db_session.query(Household).filter(Household.id == household_id).first()
-            )
-            if household:
-                household.categories = categories
-                db_session.commit()
-                return
-        except Exception:
-            db_session.rollback()
-            raise
-        finally:
-            db_session.close()
+    B61 (2026-07-09): the file-fallback branch has been removed, same
+    reasoning as _load_household_categories() above.
+    """
+    if not household_id:
         return
 
-    # Fallback to file-based for migration period - only reached above when
-    # there's no DB-backed household object for this id at all.
-    from core.household_paths import categories_file
+    from database.database import SessionLocal
+    from database.models import Household
 
-    path = categories_file(household_id)
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(categories, f, ensure_ascii=False, indent=2)
+    db_session = SessionLocal()
+    try:
+        household = (
+            db_session.query(Household).filter(Household.id == household_id).first()
+        )
+        if household:
+            household.categories = categories
+            db_session.commit()
+    except Exception:
+        db_session.rollback()
+        raise
+    finally:
+        db_session.close()
 
 
 def _mark_category_removed(household_id, code):
-    """Record a category-deletion tombstone in the database for DB-backed
-    households (with fallback to the legacy file for the migration period) -
-    mirrors _save_household_categories' own DB/file dispatch (M2, audit
-    2026-07-07). Previously always wrote to the file regardless of whether
-    the household was otherwise fully DB-backed, meaning this one piece of
-    category state didn't survive a disk loss/volume reset the way every
-    other household field already does.
+    """Record a category-deletion tombstone in the database.
 
-    M4 (audit 2026-07-07): also had the same silent-failure shape as
+    M4 (audit 2026-07-07): had the same silent-failure shape as
     _save_household_categories above - a failed DB write printed and fell
-    through to an unconditional `return`, never reaching the file fallback,
-    so the tombstone was just dropped. Now propagates.
-    """
-    if household_id:
-        from database.database import SessionLocal
-        from database.models import Household
-        from core.household_paths import mark_category_removed_to_db
+    through to an unconditional `return`, dropping the tombstone silently.
+    Now propagates.
 
-        db_session = SessionLocal()
-        try:
-            household = (
-                db_session.query(Household).filter(Household.id == household_id).first()
-            )
-            if household:
-                mark_category_removed_to_db(household, code)
-                db_session.commit()
-                return
-        except Exception:
-            db_session.rollback()
-            raise
-        finally:
-            db_session.close()
+    B61 (2026-07-09): the file-fallback branch has been removed, same
+    reasoning as _load_household_categories() above.
+    """
+    if not household_id:
         return
 
-    # Fallback to file-based for migration period - only reached above when
-    # there's no DB-backed household object for this id at all.
-    from core.household_paths import mark_category_removed
+    from database.database import SessionLocal
+    from database.models import Household
+    from core.household_paths import mark_category_removed_to_db
 
-    mark_category_removed(household_id, code)
+    db_session = SessionLocal()
+    try:
+        household = (
+            db_session.query(Household).filter(Household.id == household_id).first()
+        )
+        if household:
+            mark_category_removed_to_db(household, code)
+            db_session.commit()
+    except Exception:
+        db_session.rollback()
+        raise
+    finally:
+        db_session.close()
 
 
 def _sort_categories(categories):

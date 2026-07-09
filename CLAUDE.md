@@ -49,8 +49,8 @@ Then:
 1. Open a pull request from `main` into `public-release-v1` (`gh pr create`).
 2. Wait for all required status checks to pass (Stage 1: Lint & Format,
    Data Validation, Frontend Checks; Stage 2: Tests, Security Scan, Build
-   Check ubuntu-latest, Build Check windows-latest, Build Docker Image,
-   Visual Regression/Playwright) — `gh pr checks <number> --watch`. This
+   Check ubuntu-latest, Build Check windows-latest, Visual Regression/
+   Playwright) — `gh pr checks <number> --watch`. This
    normally takes 3-5 minutes.
 3. If any check fails, stop — do not merge. Report what failed. Fix it on
    `main`, push, and the same PR will pick up the new commit and re-run

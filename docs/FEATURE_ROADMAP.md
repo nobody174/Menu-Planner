@@ -86,7 +86,6 @@ Last updated: 2026-07-08
 See `BACKLOG.md` for full detail and live status on all of these.
 
 - **Legal/compliance:** privacy policy + terms of service (none exist yet), trial-to-paid pre-charge notice, self-serve cancellation, 14-day right-of-withdrawal disclosure, tax/business registration timing, confirm Patreon's creator terms
-- **M3:** deployment definition split-brain (Railway-era Docker vs. Render Procfile) - decide which is actually live, delete/demote the other
 - **B61:** dual storage path (JSONB vs. legacy per-household files) consolidation
 - **B58:** Firefox-only white-block rendering bug, still unreproduced
 - **B17:** watching for recurrence of the intermittent relogin/"Oops!" issue before calling it closed
