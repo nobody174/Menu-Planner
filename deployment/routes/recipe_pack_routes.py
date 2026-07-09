@@ -21,6 +21,9 @@ from deployment.app_core import (
     load_recipes_db,
     save_recipes_db,
     log_activity,
+    _load_imported_packs_db,
+    _save_imported_pack_metadata_db,
+    _remove_imported_pack_metadata_db,
 )
 
 
@@ -172,8 +175,6 @@ def register(bp):
             # Save updated database
             save_recipes_db(existing_recipes)
 
-            from core.household_paths import save_imported_pack_metadata
-
             log_activity(
                 f"Imported {imported_count} recipes from {len(pack_ids)} pack(s)"
             )
@@ -185,7 +186,7 @@ def register(bp):
             # category right away. Pack display metadata (for "Manage Recipe
             # Packs") is tracked separately instead.
             for pack_id, meta in pack_metadata.items():
-                save_imported_pack_metadata(
+                _save_imported_pack_metadata_db(
                     current_household_id(),
                     pack_id,
                     meta["display_name"],
@@ -212,9 +213,7 @@ def register(bp):
         a recipe's category is its own dish-type, e.g. Chicken/Salads, kept
         separate from which pack it came from)."""
         try:
-            from core.household_paths import load_imported_packs
-
-            pack_meta = load_imported_packs(current_household_id())
+            pack_meta = _load_imported_packs_db(current_household_id())
 
             recipe_counts = {}
             recipes = load_recipes_db()
@@ -271,10 +270,8 @@ def register(bp):
 
                 save_recipes_db(filtered_recipes)
 
-                from core.household_paths import remove_imported_pack_metadata
-
                 log_activity(f"Removed pack '{pack_id}' ({removed_count} recipes)")
-                remove_imported_pack_metadata(current_household_id(), pack_id)
+                _remove_imported_pack_metadata_db(current_household_id(), pack_id)
 
                 logger.info(f"Removed {removed_count} recipes from pack '{pack_id}'")
 

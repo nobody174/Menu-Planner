@@ -9,17 +9,16 @@ time that household needs it, so existing test data isn't lost.
 
 B61 (2026-07-09): this file used to also hold a full parallel file-based
 implementation of every household data type (categories, removed-category
-tombstones, pantry, activity log) as a fallback for households with no
-matching database row. Deleted after confirming, via Neon, that exactly 3
-households exist and all are real DB rows, and that this Render service has
-no persistent Disk attached - so a file-only household could not have
-survived any deploy to exist. What remains here (household_dir(),
-menu_file(), recipes_db_file(), the imported-packs file functions) is
-either still genuinely used as a last-resort fallback inside a try/except
-around a real DB call (core/menu_generator.py), or - imported_packs
-specifically - is still the *only* implementation that feature has; it was
-never actually wired up to the DB columns that exist for it. See B61 in
-docs/BACKLOG.md.
+tombstones, pantry, activity log, imported-pack display metadata) as a
+fallback for households with no matching database row - or, for
+imported-pack metadata specifically, as the *only* implementation, never
+actually wired up to the imported_packs DB column that existed for it.
+Deleted after confirming, via Neon, that exactly 3 households exist and
+all are real DB rows, and that this Render service has no persistent Disk
+attached - so a file-only household could not have survived any deploy to
+exist. What remains here (household_dir(), menu_file(), recipes_db_file())
+is still genuinely used as a last-resort fallback inside a try/except
+around a real DB call (core/menu_generator.py). See B61 in docs/BACKLOG.md.
 """
 
 import json
@@ -169,55 +168,6 @@ def menu_file(household_id: str) -> Path:
 
 def recipes_db_file(household_id: str) -> Path:
     return household_dir(household_id) / "recipes_db.json"
-
-
-def imported_packs_file(household_id: str) -> Path:
-    return household_dir(household_id) / "imported_packs.json"
-
-
-def load_imported_packs(household_id: str) -> dict:
-    """Display metadata (name, icon, color) for recipe packs this household
-    has imported, keyed by pack id - written at import time, read by the
-    "Manage Recipe Packs" page. Tracked separately from recipe categories so
-    importing a pack no longer overwrites a recipe's real dish-type category
-    with the pack name (see BACKLOG_2026-06-30.md B4b).
-
-    B61 (2026-07-09): unlike every other data type in this file, this one
-    was never actually wired up to the DB columns that exist for it
-    (load_imported_packs_from_db()/save_imported_packs_to_db() below are
-    defined but have no real caller anywhere) - this file-based version is
-    genuinely the only implementation, called unconditionally from
-    deployment/routes/recipe_pack_routes.py. Since this Render service has
-    no persistent Disk, this metadata likely doesn't survive a redeploy
-    today - a real gap, not something this cleanup pass fixes. Flagged as a
-    new backlog item rather than silently patched mid-cleanup."""
-    path = imported_packs_file(household_id)
-    if not path.exists():
-        return {}
-    try:
-        with open(path, "r", encoding="utf-8") as f:
-            return json.load(f)
-    except Exception:
-        return {}
-
-
-def save_imported_pack_metadata(
-    household_id: str, pack_id: str, display_name: str, icon: str, color: str
-):
-    """Record (or update) display metadata for one imported pack."""
-    packs = load_imported_packs(household_id)
-    packs[pack_id] = {"display_name": display_name, "icon": icon, "color": color}
-    with open(imported_packs_file(household_id), "w", encoding="utf-8") as f:
-        json.dump(packs, f, ensure_ascii=False, indent=2)
-
-
-def remove_imported_pack_metadata(household_id: str, pack_id: str):
-    """Forget a pack's display metadata once its recipes have all been removed."""
-    packs = load_imported_packs(household_id)
-    if pack_id in packs:
-        del packs[pack_id]
-        with open(imported_packs_file(household_id), "w", encoding="utf-8") as f:
-            json.dump(packs, f, ensure_ascii=False, indent=2)
 
 
 # Database-backed functions for F4 migration (PostgreSQL JSONB storage)

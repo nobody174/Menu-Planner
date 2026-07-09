@@ -5,6 +5,109 @@ See `BACKLOG.md` for open tasks and `FEATURE_ROADMAP.md` for planned features.
 
 ---
 
+## 2026-07-09 (6)
+
+### B57 follow-up: extracted the near-duplicate swap/reroll recipe-field-derivation block
+
+The 2026-07-07 audit flagged `/api/swap-recipe` and `/api/reroll-recipe`
+(~225 and ~190 lines) as near-duplicate giants worth extracting once the
+blueprint split landed. Traced the actual duplication rather than
+extracting blindly: most of each route (the `locked_household()`
+boilerplate, the response-card building) either isn't truly identical or
+is control-flow-entangled enough that merging it would be higher risk than
+value. The one real, exact, high-value duplicate was the ~35-line block
+that derives bilingual title/subtitle fields, protein type, and image URL
+from a recipe dict and populates a menu day slot - mirroring
+`MenuGenerator.generate_menu()`'s own field derivation. This is exactly
+the class of logic that caused the real B35 bug (dashboard silently
+showing the old recipe's name after a "successful" swap) when the two
+copies drifted apart in the past.
+
+Extracted into `_apply_recipe_to_dinner_slot(target, recipe)` in
+`deployment/routes/menu_routes.py`, called from both routes. Mutates the
+target day dict in place; returns the resolved bilingual/protein fields
+each caller's own response payload needs (swap only needs
+title_en/title_no; reroll needs all five). Deliberately left the
+`locked_household()`-scoped "load menu, find target day, 404 if missing"
+boilerplate and the differently-shaped response-building duplicated - not
+worth the restructuring risk for lower-value savings.
+
+`deployment/routes/menu_routes.py`: 584 → 562 lines. Verified: full suite
+green (272/272), including the existing `test_menu_mutation_routes.py`
+swap/reroll behavioral tests (unchanged, still passing - confirms the
+refactor is behavior-preserving, not just line-count cosmetic). Black/
+flake8 clean. Also live-smoke-tested against the real local dev server
+(auto-reloaded cleanly, zero errors) - dashboard, recipe-pack list/import,
+all 200.
+
+---
+
+## 2026-07-09 (5)
+
+### Imported recipe-pack display metadata wired to the DB (B61 follow-up)
+
+Closed the gap B61 found and deliberately left open: a recipe pack's
+display name/icon/color (shown on "Manage Recipe Packs") was the one data
+type never actually wired to the `imported_packs` DB column that existed
+for it - `load_imported_packs_from_db()`/`save_imported_packs_to_db()`
+were defined but had zero real callers anywhere. The only working
+implementation was file-based, and since this Render service has no
+persistent Disk, that metadata silently reset on every deploy.
+
+Added three DB-backed wrapper functions in `deployment/app_core.py`
+(`_load_imported_packs_db`, `_save_imported_pack_metadata_db`,
+`_remove_imported_pack_metadata_db`), matching the same fresh-session/
+re-query-by-id pattern already used for categories. Switched all three
+call sites in `deployment/routes/recipe_pack_routes.py` (import, list,
+remove) to use them instead of the old file functions. No migration
+needed - since the file version was already being wiped on every deploy,
+there was nothing real to carry over.
+
+Deleted the now-fully-orphaned file functions
+(`load_imported_packs`/`save_imported_pack_metadata`/
+`remove_imported_pack_metadata`/`imported_packs_file`) from
+`core/household_paths.py`.
+
+Added `tests/test_recipe_pack_routes.py` (2 tests, previously zero
+coverage on any recipe-pack route) - specifically opens a *fresh* DB
+session after the write to confirm the metadata is genuinely in the
+`households.imported_packs` column, not just readable within the same
+request that wrote it, mirroring what a real redeploy would see. Full
+suite green: 272/272 (up from 270). Black/flake8 clean.
+
+---
+
+## 2026-07-09 (4)
+
+### CI: fixed two real pipeline problems found while shipping M3/B61's PR
+
+**1. Branch protection required a check that no longer exists.**
+`public-release-v1`'s required status checks still listed "Stage 2: Build
+Docker Image" - deleted from `ci.yml` as part of M3, but never removed from
+GitHub's branch protection settings. Every PR merge attempt was blocked
+indefinitely waiting for a check that would never report. Updated the
+required-checks list via the GitHub API to match the actual workflow (8
+checks now, not 9) - also added "Stage 2: Visual Regression (Playwright)",
+which turned out to have never actually been added as required despite
+existing in the workflow since 2026-07-07.
+
+**2. Every push to `main` while a PR was open fired two full pipeline runs
+for the same commit** - one for the `push` event, one for the PR's
+`synchronize` event - doubling real GitHub Actions job load and queue time
+on every single push. Added a `concurrency` block to `ci.yml`
+(`group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}`,
+`cancel-in-progress: true`) so the older, now-redundant run for the same
+branch gets cancelled instead of piling up. Doesn't affect deploy safety -
+Stage 3 only runs on a real push to `public-release-v1`, which has no open
+PR pointed at it by the time that push happens.
+
+Both found live, mid-session, while merging PR #6 (M3 + B61) - the PR
+itself was correctly green throughout; these were pre-existing pipeline
+configuration problems the merge attempt exposed, not caused by that PR's
+code changes.
+
+---
+
 ## 2026-07-09 (3)
 
 ### B61 fully resolved: production verified clean without Shell access, every dead file-fallback branch deleted, two real bugs found and fixed along the way
