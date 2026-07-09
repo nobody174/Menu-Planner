@@ -5,6 +5,43 @@ See `BACKLOG.md` for open tasks and `FEATURE_ROADMAP.md` for planned features.
 
 ---
 
+## 2026-07-09 (6)
+
+### B57 follow-up: extracted the near-duplicate swap/reroll recipe-field-derivation block
+
+The 2026-07-07 audit flagged `/api/swap-recipe` and `/api/reroll-recipe`
+(~225 and ~190 lines) as near-duplicate giants worth extracting once the
+blueprint split landed. Traced the actual duplication rather than
+extracting blindly: most of each route (the `locked_household()`
+boilerplate, the response-card building) either isn't truly identical or
+is control-flow-entangled enough that merging it would be higher risk than
+value. The one real, exact, high-value duplicate was the ~35-line block
+that derives bilingual title/subtitle fields, protein type, and image URL
+from a recipe dict and populates a menu day slot - mirroring
+`MenuGenerator.generate_menu()`'s own field derivation. This is exactly
+the class of logic that caused the real B35 bug (dashboard silently
+showing the old recipe's name after a "successful" swap) when the two
+copies drifted apart in the past.
+
+Extracted into `_apply_recipe_to_dinner_slot(target, recipe)` in
+`deployment/routes/menu_routes.py`, called from both routes. Mutates the
+target day dict in place; returns the resolved bilingual/protein fields
+each caller's own response payload needs (swap only needs
+title_en/title_no; reroll needs all five). Deliberately left the
+`locked_household()`-scoped "load menu, find target day, 404 if missing"
+boilerplate and the differently-shaped response-building duplicated - not
+worth the restructuring risk for lower-value savings.
+
+`deployment/routes/menu_routes.py`: 584 → 562 lines. Verified: full suite
+green (272/272), including the existing `test_menu_mutation_routes.py`
+swap/reroll behavioral tests (unchanged, still passing - confirms the
+refactor is behavior-preserving, not just line-count cosmetic). Black/
+flake8 clean. Also live-smoke-tested against the real local dev server
+(auto-reloaded cleanly, zero errors) - dashboard, recipe-pack list/import,
+all 200.
+
+---
+
 ## 2026-07-09 (5)
 
 ### Imported recipe-pack display metadata wired to the DB (B61 follow-up)

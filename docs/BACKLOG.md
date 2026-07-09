@@ -43,10 +43,6 @@ Flagged 2026-07-05 during a legal/compliance check ahead of the planned public l
 
 ## OPEN — technical debt / cleanup (from the 2026-07-07 audit)
 
-
-**B57 follow-up: near-duplicate `api_swap_recipe`/`api_reroll_recipe`**
-- The 2026-07-07 audit flagged these two routes (~225 and ~190 lines) as near-duplicate giants worth extracting once the blueprint split (B57, now done) landed. Not separately verified/addressed - worth a look next time either function is touched.
-
 **B58. Firefox-only rendering bug: white block at bottom of page — STILL UNRESOLVED**
 - Reported by user 2026-07-06: a white block covers the bottom of the page in Firefox; switching to Edge, the page renders correctly. Tested all 4 key pages (dashboard, shopping list, all-recipes, add-recipe) in a real Firefox engine via Playwright MCP at default desktop viewport, a shortened viewport (`100vh` hypothesis), and with the settings dropdown open (`backdrop-filter` hypothesis) - could not reproduce in any of these. Genuinely still open. Next step: whoever saw it originally needs to note the *exact* page, browser window size, and ideally a screenshot - or it surfaces on its own via the Playwright CI suite (B62, shipped) if it's still present and gets hit by one of the 7 test environments on a future push.
 
@@ -102,5 +98,9 @@ Flagged 2026-07-05 during a legal/compliance check ahead of the planned public l
 **2026-07-09 (2)+(3) — B61 (dual storage) fully resolved:** verified production clean via Neon (exactly 3 households, all DB rows) + confirmed no persistent Disk on Render (filesystem resets every deploy, so a file-only household couldn't have survived to exist) - no Shell access needed after all. Fixed two real bugs found along the way (`/shopping` was reading a stale reseeded pantry file and a recipes file real households never write to, instead of the DB). Made `menu_generator.py` stop creating a household file directory on every single menu generation. Deleted 11 fully-dead functions and every remaining file-fallback branch. New gap found and deliberately left open: imported-pack display metadata was never wired to the DB at all (see the open item above).
 
 **2026-07-09 (2) — B61 (partial):** pantry's redundant per-household seed-file round-trip fixed (see B61 entry above for full detail) - the remaining file-fallback branches are still open, genuinely blocked on production DB verification via the new `scripts/verify_no_file_only_households.py`.
+
+**2026-07-09 (5) — imported-pack display metadata (B61 follow-up):** wired `deployment/routes/recipe_pack_routes.py` to the `imported_packs` DB column via three new `deployment/app_core.py` wrapper functions, matching the existing categories pattern. Deleted the now-orphaned file functions from `core/household_paths.py`. New tests confirm the metadata survives a fresh DB session, not just the request that wrote it.
+
+**2026-07-09 (6) — B57 follow-up (near-duplicate swap/reroll):** extracted the ~35-line recipe-field-derivation block (bilingual title/subtitle, protein type, image URL) that `/api/swap-recipe` and `/api/reroll-recipe` each duplicated into a shared `_apply_recipe_to_dinner_slot()` helper in `deployment/routes/menu_routes.py` - the exact class of logic that caused the real B35 bug when two copies drifted apart. Left the `locked_household()` boilerplate and the (differently-shaped) response-building duplicated deliberately - lower value, higher restructuring risk. File shrank from 584 to 562 lines; full suite green throughout (272/272), including the existing swap/reroll behavioral tests.
 
 **Process note:** the prior two sessions' write-ups lived entirely in this file as inline "RESOLVED" notes and were never actually moved to `CHANGELOG.md` or trimmed out here, despite this file's own header saying that's the contract. If you're picking this file up cold, trust the code over any status text you find - grep for the actual function/pattern before assuming a note is current.

@@ -35,6 +35,63 @@ from deployment.app_core import (
 )
 
 
+def _apply_recipe_to_dinner_slot(target, recipe):
+    """Populate a menu day's dict fields from a recipe, mirroring
+    MenuGenerator.generate_menu()'s own field derivation exactly (see B35 -
+    the dashboard prefers title_en/title_no over the raw 'title' field, so
+    leaving those stale silently kept showing the old recipe's name even
+    after a "successful" swap/reroll).
+
+    B57 follow-up (2026-07-09): /api/swap-recipe (when inserting a
+    brand-new recipe not already in this week's menu) and
+    /api/reroll-recipe used to duplicate this ~35-line block identically -
+    exactly the kind of logic that caused B35 in the first place when two
+    copies of the same derivation drifted apart. Mutates target in place;
+    returns the resolved bilingual/protein fields each caller's own
+    response payload needs.
+    """
+    from core.menu_generator import MenuGenerator, PROTEIN_IMAGES
+
+    title = recipe.get("title")
+    if isinstance(title, dict):
+        title_en = title.get("en", "")
+        title_no = title.get("no", "")
+    else:
+        title_en = recipe.get("title_en", title or "")
+        title_no = recipe.get("title_no", title or "")
+
+    subtitle = recipe.get("subtitle")
+    if isinstance(subtitle, dict):
+        subtitle_en = subtitle.get("en", "")
+        subtitle_no = subtitle.get("no", "")
+    else:
+        subtitle_en = recipe.get("subtitle_en", subtitle or "")
+        subtitle_no = recipe.get("subtitle_no", subtitle or "")
+
+    protein_type = MenuGenerator().get_protein_type(
+        title_en or title_no or "",
+        subtitle_en or subtitle_no or "",
+        recipe.get("category", ""),
+    )
+
+    target["recipe_id"] = recipe["id"]
+    target["title"] = recipe.get("title")
+    target["title_no"] = title_no
+    target["title_en"] = title_en
+    target["time_minutes"] = (
+        recipe.get("time_minutes") or recipe.get("cookTimeMinutes") or 0
+    )
+    target["difficulty"] = recipe.get("difficulty", "")
+    target["protein"] = protein_type
+    target["subtitle_no"] = subtitle_no
+    target["subtitle_en"] = subtitle_en
+    target["image_url"] = PROTEIN_IMAGES.get(
+        protein_type, PROTEIN_IMAGES.get("vegetarian")
+    )
+
+    return title_en, title_no, subtitle_en, subtitle_no, protein_type
+
+
 def register(bp):
     @bp.route("/api/menu")
     def api_menu():
@@ -271,50 +328,8 @@ def register(bp):
                             404,
                         )
 
-                    # Mirror MenuGenerator.generate_menu()'s field derivation exactly -
-                    # this used to only set recipe_id/title/time_minutes/difficulty,
-                    # leaving title_no/title_en/subtitle_no/subtitle_en/protein/
-                    # image_url stale from whatever recipe used to be on this day.
-                    # The dashboard prefers title_en/title_no over the raw 'title'
-                    # field when resolving what to display, so it kept silently
-                    # showing the OLD recipe's name even though the swap "worked".
-                    from core.menu_generator import MenuGenerator, PROTEIN_IMAGES
-
-                    title = recipe.get("title")
-                    if isinstance(title, dict):
-                        title_en = title.get("en", "")
-                        title_no = title.get("no", "")
-                    else:
-                        title_en = recipe.get("title_en", title or "")
-                        title_no = recipe.get("title_no", title or "")
-
-                    subtitle = recipe.get("subtitle")
-                    if isinstance(subtitle, dict):
-                        subtitle_en = subtitle.get("en", "")
-                        subtitle_no = subtitle.get("no", "")
-                    else:
-                        subtitle_en = recipe.get("subtitle_en", subtitle or "")
-                        subtitle_no = recipe.get("subtitle_no", subtitle or "")
-
-                    protein_type = MenuGenerator().get_protein_type(
-                        title_en or title_no or "",
-                        subtitle_en or subtitle_no or "",
-                        recipe.get("category", ""),
-                    )
-
-                    target["recipe_id"] = recipe["id"]
-                    target["title"] = recipe["title"]
-                    target["title_no"] = title_no
-                    target["title_en"] = title_en
-                    target["time_minutes"] = (
-                        recipe.get("time_minutes") or recipe.get("cookTimeMinutes") or 0
-                    )
-                    target["difficulty"] = recipe.get("difficulty", "")
-                    target["protein"] = protein_type
-                    target["subtitle_no"] = subtitle_no
-                    target["subtitle_en"] = subtitle_en
-                    target["image_url"] = PROTEIN_IMAGES.get(
-                        protein_type, PROTEIN_IMAGES.get("vegetarian")
+                    title_en, title_no, _, _, _ = _apply_recipe_to_dinner_slot(
+                        target, recipe
                     )
                     recipe_title = title_en or title_no or "Recipe"
 
@@ -493,45 +508,8 @@ def register(bp):
 
                 new_recipe = random.choice(candidates)
 
-                from core.menu_generator import MenuGenerator, PROTEIN_IMAGES
-
-                title = new_recipe.get("title")
-                if isinstance(title, dict):
-                    title_en = title.get("en", "")
-                    title_no = title.get("no", "")
-                else:
-                    title_en = new_recipe.get("title_en", title or "")
-                    title_no = new_recipe.get("title_no", title or "")
-
-                subtitle = new_recipe.get("subtitle")
-                if isinstance(subtitle, dict):
-                    subtitle_en = subtitle.get("en", "")
-                    subtitle_no = subtitle.get("no", "")
-                else:
-                    subtitle_en = new_recipe.get("subtitle_en", subtitle or "")
-                    subtitle_no = new_recipe.get("subtitle_no", subtitle or "")
-
-                protein_type = MenuGenerator().get_protein_type(
-                    title_en or title_no or "",
-                    subtitle_en or subtitle_no or "",
-                    new_recipe.get("category", ""),
-                )
-
-                target["recipe_id"] = new_recipe["id"]
-                target["title"] = new_recipe.get("title")
-                target["title_no"] = title_no
-                target["title_en"] = title_en
-                target["time_minutes"] = (
-                    new_recipe.get("time_minutes")
-                    or new_recipe.get("cookTimeMinutes")
-                    or 0
-                )
-                target["difficulty"] = new_recipe.get("difficulty", "")
-                target["protein"] = protein_type
-                target["subtitle_no"] = subtitle_no
-                target["subtitle_en"] = subtitle_en
-                target["image_url"] = PROTEIN_IMAGES.get(
-                    protein_type, PROTEIN_IMAGES.get("vegetarian")
+                title_en, title_no, subtitle_en, subtitle_no, protein_type = (
+                    _apply_recipe_to_dinner_slot(target, new_recipe)
                 )
 
                 recipe_title = title_en or title_no or "Recipe"
