@@ -10,16 +10,21 @@ on:
 # separate pipeline runs for the exact same commit - one for the push
 # event, one for the PR's "synchronize" event - doubling real GitHub
 # Actions job load and queue time on every single push (2026-07-09).
-# github.head_ref is only set on pull_request events (the PR's head branch
-# name, e.g. "main"); github.ref is used for push events instead (falls
-# back to it via the || since head_ref is empty there) - so both events
-# for the same branch land in the same concurrency group, and the older,
-# now-redundant run gets cancelled instead of piling up alongside the new
-# one. Does not affect Stage 3 (deploy) safety: that only ever runs on a
-# real push to public-release-v1, which has no open PR pointed at it by
-# the time that push happens (the PR is already merged/closed).
+#
+# First attempt at fixing this used `github.head_ref || github.ref` -
+# looked right but didn't actually work: github.ref is the LONG ref
+# ("refs/heads/main") on a push event, while github.head_ref is the SHORT
+# branch name ("main") on a pull_request event. Those never matched, so
+# the two events landed in different concurrency groups and neither ever
+# got cancelled - confirmed live, both runs kept running in parallel on
+# the very next PR. github.ref_name is the short form for push events too
+# ("main"), matching head_ref's format - now both event types genuinely
+# land in the same group, and the older, now-redundant run gets cancelled.
+# Does not affect Stage 3 (deploy) safety: that only ever runs on a real
+# push to public-release-v1, which has no open PR pointed at it by the
+# time that push happens (the PR is already merged/closed).
 concurrency:
-  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref_name }}
   cancel-in-progress: true
 
 env:
