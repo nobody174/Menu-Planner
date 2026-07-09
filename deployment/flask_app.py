@@ -722,8 +722,8 @@ def health_check():
 # point was removed here - flask_app.py imports from deployment/app_core.py
 # now (a sibling module in the same package), which only resolves when this
 # file is loaded AS a package (python -m flask --app deployment.flask_app,
-# or gunicorn deployment.flask_app:app - what production/Docker/CI/
-# RUN_LOCAL.bat all already used or have been updated to use). Running this
+# or gunicorn deployment.flask_app:app - what production/CI/RUN_LOCAL.bat
+# all already used or have been updated to use). Running this
 # file directly as a script (python deployment/flask_app.py) doesn't put the
 # project root on sys.path the way "python -m" does, so the import fails
 # with ModuleNotFoundError: No module named 'deployment' before this block

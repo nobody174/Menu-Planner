@@ -5,6 +5,45 @@ See `BACKLOG.md` for open tasks and `FEATURE_ROADMAP.md` for planned features.
 
 ---
 
+## 2026-07-09
+
+### M3 resolved: deleted the dead Railway-era Docker deployment path
+
+Confirmed which of the two contradictory deployment definitions this repo
+carried was actually live: `docs/DEVELOPER_GUIDE.md`'s documented Render
+Build/Start commands (`pip install ... && alembic upgrade head` /
+`gunicorn -b 0.0.0.0:$PORT deployment.flask_app:app`) match `Procfile`'s
+single-worker invocation exactly - that's the native Python buildpack, not
+Docker. `docker-entrypoint.sh` explicitly referenced Railway persistent
+volumes throughout (a different, no-longer-used hosting platform), and no
+`render.yaml` or any Docker-based Render config existed anywhere in the
+repo. Render never ran the Dockerfile at all.
+
+Deleted `Dockerfile`, `docker-compose.yml`, `docker-entrypoint.sh`, and the
+now-orphaned `.dockerignore` outright, along with the CI "Build Docker
+Image" job (`.github/workflows/ci.yml`) and its slot in the `deploy` job's
+`needs:` list - it was one of the 9 required status checks gating merges
+into `public-release-v1`, now 8. Chose full deletion over keeping the
+Dockerfile as a buildable-only smoke test, per explicit owner preference.
+
+Also fixed two comments this cleanup surfaced: `deployment/app_core.py`'s
+`SEED_DIR` used to describe pointing at `/app/data-seed`, a directory only
+the (now-deleted) Dockerfile ever created - since Render never ran that
+Dockerfile, this was already always silently falling through to the
+`DATA_DIR` fallback in the real deployment, every time; simplified to just
+`SEED_DIR = DATA_DIR` directly rather than keeping dead existence-check
+logic around. And `deployment/flask_app.py`'s B57 entry-point comment no
+longer lists Docker among what actually runs `gunicorn deployment.flask_app:app`.
+
+Verified: full pytest suite green (266/266) after the code changes; YAML
+syntax-validated `ci.yml` after the job removal.
+
+`docs/BACKLOG.md`, `docs/FEATURE_ROADMAP.md`, `docs/CI_CD_PIPELINE.md`,
+`docs/DEVELOPER_GUIDE.md`, and `CLAUDE.md` updated to drop every reference
+to the deleted Docker path and the now-8 (not 9) required checks.
+
+---
+
 ## 2026-07-08 (2)
 
 ### Bookkeeping cleanup: renamed backlog file, backfilled the missing 2026-07-07 changelog entries

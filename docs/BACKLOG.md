@@ -43,10 +43,6 @@ Flagged 2026-07-05 during a legal/compliance check ahead of the planned public l
 
 ## OPEN — technical debt / cleanup (from the 2026-07-07 audit)
 
-**M3. Deployment definition split-brain: Railway-era Docker vs. Render Procfile**
-- `docker-entrypoint.sh` (4 gunicorn workers, runs migrations) and `Procfile` (1 worker, no migration step) contradict each other, and code comments bake in single-worker assumptions (PIN lockout, in-memory rate limiter) that the Docker path would silently violate. Decide which one is actually live on Render, delete/demote the other, document where migrations run.
-- Re-confirmed still open 2026-07-08: both definitions still exist unchanged.
-
 **B61. Two full parallel storage implementations**
 - JSONB-in-Postgres vs. legacy per-household flat-file storage, both live throughout `core/household_paths.py`. This dual-path shape is exactly what produced the swap-day JSONB `flag_modified()` bug fixed 2026-07-06 - every future menu-write feature has to get both paths right, or the JSONB path right and silently leave the file-fallback path stale. Worth confirming whether any production household still uses the file path at all, then deleting it if not.
 - Category-tombstone JSONB persistence (M2) is now fixed as of 2026-07-07, but that only closed one specific gap in this dual-path shape - the consolidation itself hasn't happened. `feedback.json`'s status (a real-user-email file outside the DB/backups, flagged alongside B61 in the original audit) hasn't been re-checked either.
@@ -103,5 +99,7 @@ Flagged 2026-07-05 during a legal/compliance check ahead of the planned public l
 **2026-07-08 (1) — Security Hardening PR:** M8 (missing CSP header - the one real gap left after H2/M7/LO1 were found already done).
 
 **2026-07-08 (2) — bookkeeping cleanup:** this file renamed from `BACKLOG_2026-07-01.md` → `BACKLOG.md` (it's a living document, not a dated snapshot); backfilled two missing CHANGELOG entries for 2026-07-07's work, which had never been written up there; trimmed this file down to open items only, per its own stated contract.
+
+**2026-07-09 — M3 (deployment split-brain):** confirmed Render actually runs the native Python buildpack (`Procfile` + `runtime.txt`), never the Dockerfile - deleted `Dockerfile`, `docker-compose.yml`, `docker-entrypoint.sh`, `.dockerignore`, and the CI "Build Docker Image" job/required check entirely, rather than keeping them as an unused smoke test. `Procfile` is now the only deployment definition.
 
 **Process note:** the prior two sessions' write-ups lived entirely in this file as inline "RESOLVED" notes and were never actually moved to `CHANGELOG.md` or trimmed out here, despite this file's own header saying that's the contract. If you're picking this file up cold, trust the code over any status text you find - grep for the actual function/pattern before assuming a note is current.

@@ -74,10 +74,11 @@ Menu-Planner/
 ├── docs/                          # All documentation (guides, backlog,
 │                                   # roadmap, architecture, about)
 ├── requirements.txt
-├── Procfile                       # Render start command (gunicorn)
-├── Dockerfile / docker-compose.yml / docker-entrypoint.sh  # Railway-era Docker
-│                                   # path - see M3 in docs/BACKLOG.md, currently
-│                                   # unclear whether this or Procfile is authoritative
+├── Procfile                       # Render start command (gunicorn) - the
+│                                   # only deployment definition (M3, 2026-07-09:
+│                                   # deleted the unused Railway-era
+│                                   # Dockerfile/docker-compose.yml/
+│                                   # docker-entrypoint.sh - Render never ran them)
 ├── runtime.txt                    # Python version (3.11.9)
 ├── CHANGELOG.md                   # Full project history
 └── CLAUDE.md                      # Working instructions / deploy flow

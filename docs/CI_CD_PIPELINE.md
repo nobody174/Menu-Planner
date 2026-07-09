@@ -5,12 +5,12 @@
 - **`main`** — day-to-day working branch. Pushes here run the full pipeline
   (Stages 1–2) but never deploy. No branch protection — pushing is instant.
 - **`public-release-v1`** — production. Protected: GitHub rejects any direct
-  push unless all 9 required status checks have already passed on that
+  push unless all 8 required status checks have already passed on that
   exact commit (3 in Stage 1 + Tests, Security Scan, Build Check x2 OSes,
-  Build Docker Image, and Playwright visual regression in Stage 2 - the
-  Playwright job was added 2026-07-07, see B62 in `CHANGELOG.md`). The only
-  way to land a change here is a pull request from `main` that has gone
-  fully green, then merged.
+  and Playwright visual regression in Stage 2 - the Playwright job was
+  added 2026-07-07, see B62 in `CHANGELOG.md`). The only way to land a
+  change here is a pull request from `main` that has gone fully green,
+  then merged.
 
 ## Pipeline
 
@@ -38,7 +38,6 @@ flowchart TD
         tests1["Tests - pytest + Postgres"]
         security1["Security Scan - Bandit + pip-audit"]
         build1["Build Check - Ubuntu + Windows"]
-        docker1["Build Docker Image"]
         pw1["Playwright Visual Regression"]
     end
 
@@ -46,12 +45,11 @@ flowchart TD
         tests2["Tests"]
         security2["Security Scan"]
         build2["Build Check"]
-        docker2["Build Docker Image"]
         pw2["Playwright Visual Regression"]
     end
 
     stage2 --> savedone["main updated - no deploy"]
-    stage2pr -->|all 9 checks green| mergeok["PR mergeable"]
+    stage2pr -->|all 8 checks green| mergeok["PR mergeable"]
 
     mergeok --> merge["Merge PR"]
     merge -->|real push to public-release-v1| stage3
@@ -87,7 +85,6 @@ flowchart TD
   the build.
 - **Build Check** — dependency install + Flask/core import check on Ubuntu
   and Windows
-- **Build Docker Image** — confirms the production Docker image builds
 - **Playwright Visual Regression** (added 2026-07-07, B62) — 7 projects
   (chromium/firefox/webkit desktop + iPhone SE/iPhone 14/iPad Pro
   11/Pixel 7), `toHaveScreenshot()` diffing against committed baselines on
@@ -116,6 +113,21 @@ pushed from a real user's local git, not CI) is separate from this flow
 and only done on request, for a change that feels like a milestone rather
 than a routine patch - this path still correctly triggers `release.yml`,
 since it isn't pushed by `GITHUB_TOKEN`.
+
+## Deployment platform (M3, resolved 2026-07-09)
+
+Render runs this app via its native Python buildpack (`Procfile` +
+`runtime.txt`), **not** Docker - confirmed via the documented Render
+Build/Start commands (see "Deployment" in `docs/DEVELOPER_GUIDE.md`),
+which match `Procfile`'s single-worker `gunicorn` invocation exactly, and
+via `docker-entrypoint.sh` (now deleted) explicitly referencing Railway
+persistent volumes, a different, no-longer-used hosting platform. The
+`Dockerfile`/`docker-compose.yml`/`docker-entrypoint.sh` split-brain this
+repo used to carry (4 workers + auto-migrations in the unused Docker path
+vs. 1 worker + no migration step in the actually-live Procfile path) has
+been deleted outright, along with the CI "Build Docker Image" job that
+built it as a smoke test. `Procfile` is now the only deployment
+definition, so there's nothing left to disagree with it.
 
 ## Rollback
 

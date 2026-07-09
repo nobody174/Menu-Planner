@@ -451,19 +451,19 @@ CACHE_DIR = DATA_DIR / "recipes_cache"
 
 # Static recipe/category seed content (sample_recipes.json, recipe-packs/,
 # the base categories.json, pantry_staples.json, dessert/drinks stashes)
-# is read from here instead of DATA_DIR. On Render, DATA_DIR sits on a
-# persistent disk that's deliberately never overwritten on redeploy (so
-# real household data survives across deploys) - but that also means any
-# fix to these static seed files would silently never reach production,
-# since the disk's stale copy from whenever it was first created always
-# wins. SEED_DIR points at a pristine, always-fresh-from-the-image copy the
-# Dockerfile bakes in at /app/data-seed specifically so static content isn't
-# subject to the volume's no-clobber protection. Falls back to DATA_DIR
-# itself when data-seed doesn't exist (e.g. local dev, where there's no
-# volume shadowing to worry about).
-SEED_DIR = Path(__file__).parent.parent / "data-seed"
-if not SEED_DIR.exists():
-    SEED_DIR = DATA_DIR
+# is read from here instead of DATA_DIR.
+#
+# M3 (2026-07-09): this used to point at /app/data-seed, a directory only
+# the now-deleted Dockerfile ever created (baked in at image build time so
+# a Railway persistent volume's no-clobber behavior on DATA_DIR wouldn't
+# shadow static content fixes). Render - the platform actually in
+# production - never ran that Dockerfile at all (see Procfile / the
+# Build/Start commands in docs/DEVELOPER_GUIDE.md), so /app/data-seed never
+# existed there either; this always silently fell through to the DATA_DIR
+# fallback below in the real deployment, every single time. Kept the
+# fallback path itself (still correct, still what actually runs), removed
+# only the dead Docker-creates-this-directory branch and comment.
+SEED_DIR = DATA_DIR
 PROFILE_COOKIE_MAX_AGE = 60 * 60 * 24 * 365  # 1 year
 
 # Certificate paths (relative to the deployment dir where the service runs from)
