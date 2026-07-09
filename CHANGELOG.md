@@ -5,6 +5,52 @@ See `BACKLOG_2026-07-01.md` for open tasks and `FEATURE_ROADMAP.md` for planned 
 
 ---
 
+## 2026-07-08
+
+### Security Hardening PR: closed the M8 CSP gap, added missing test coverage (H2, M7, LO1, M8)
+
+Scoped audit of the four items together (H2 rate limiting, M7 account
+enumeration, M8 security headers, LO1 body size cap). Found H2, M7, and
+LO1 were already fully implemented and (for H2/M7) already tested as of
+the 2026-07-07 audit session - verified each against the actual code
+(`deployment/app_core.py`, `core/auth_helpers.py`,
+`deployment/routes/auth_routes.py`) rather than trusting the backlog
+text alone.
+
+M8 was only partially done: `X-Frame-Options`, `X-Content-Type-Options`,
+`Referrer-Policy`, and HSTS were live, but no `Content-Security-Policy`
+header existed at all, despite a comment claiming it was "intentionally
+deferred." Added a permissive-but-real CSP (`deployment/app_core.py`) -
+`object-src 'none'`, `frame-ancestors 'none'`, `base-uri 'self'`,
+`form-action 'self'`, restricted `frame-src`/`img-src`/`font-src`/
+`style-src` - rather than a strict nonce-based policy, since the app
+relies on inline `<script>`/`<style>` throughout its templates and a real
+nonce audit is a separate, larger effort (unchanged conclusion from the
+original audit). Confirmed via `grep` this covers the app's entire actual
+external surface: Google Fonts `@import`s and two YouTube iframe embeds,
+no external `fetch()`/XHR calls anywhere.
+
+Added `tests/test_security_headers.py` (3 tests: headers present on a
+normal response, HSTS absent outside production, oversized request body
+rejected with 413) - M8 and LO1 had zero test coverage before this.
+Full suite verified: 266/266 passing.
+
+Also verified live against the local dev server, and in doing so found
+the launch command in scratch/session notes was stale - `deployment/`
+became a real package during the B57 blueprint split (2026-07-07), so
+`python deployment/flask_app.py` no longer works
+(`ModuleNotFoundError: No module named 'deployment'`, by design - see the
+comment left at the old entry-point site in `flask_app.py`). Correct
+command is `python -m flask --app deployment.flask_app run --host=0.0.0.0
+--port=5000` (matches `RUN_LOCAL.bat`/`RUN_LOCAL.ps1`, already updated for
+this in the same prior session).
+
+**No further code changes needed for H2/M7/LO1** - confirmed correct as
+built. `docs/BACKLOG_2026-07-01.md` updated to reflect all four items
+resolved.
+
+---
+
 ## 2026-07-06 (13)
 
 ### Researched: automated cross-browser/cross-device testing (no more manual DevTools swapping)

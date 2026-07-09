@@ -1421,19 +1421,40 @@ def create_app():
     app.jinja_env.globals["avatar_emoji_choices"] = AVATAR_EMOJI_CHOICES
     app.jinja_env.globals["avatar_display"] = _avatar_display
 
+    # Permissive-but-real CSP (M8, 2026-07-08): a strict nonce-based policy
+    # isn't practical yet - the app relies on inline <script>/<style>
+    # throughout its templates, and auditing every one of them for nonces is
+    # a separate, larger effort. This policy still closes the highest-value
+    # gaps (no plugins, no framing, no foreign form targets, no base-tag
+    # hijack) while allowing what the app actually, legitimately loads:
+    # inline scripts/styles, Google Fonts (@import in style.css/theme CSS),
+    # and the two YouTube iframe embeds on the welcome page. Verified via
+    # `grep` that there are no external fetch()/XHR targets and no other
+    # third-party script/style/frame sources anywhere in frontend/.
+    _CSP = (
+        "default-src 'self'; "
+        "script-src 'self' 'unsafe-inline'; "
+        "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
+        "font-src 'self' https://fonts.gstatic.com; "
+        "img-src 'self' data: https:; "
+        "frame-src https://www.youtube.com; "
+        "object-src 'none'; "
+        "base-uri 'self'; "
+        "form-action 'self'; "
+        "frame-ancestors 'none'"
+    )
+
     @app.after_request
     def _set_security_headers(response):
         """Baseline security response headers (M8, audit 2026-07-07). The app's
         own escaping discipline (see frontend/static/app.js's _esc() pattern) is
         the primary XSS defense; these headers are the backstop for a sink that
         discipline missed, plus clickjacking protection this app had zero of
-        before. CSP is intentionally minimal/permissive for now rather than
-        strict - the app relies on inline <script>/<style> throughout its
-        templates, and a real nonce-based CSP is a separate, larger effort (would
-        need every template audited, not just this one function)."""
+        before."""
         response.headers["X-Frame-Options"] = "DENY"
         response.headers["X-Content-Type-Options"] = "nosniff"
         response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
+        response.headers["Content-Security-Policy"] = _CSP
         if IS_PRODUCTION:
             response.headers["Strict-Transport-Security"] = (
                 "max-age=31536000; includeSubDomains"
