@@ -16,7 +16,7 @@ from core.household_helpers import create_household
 
 def _confirmed_user_with_household(email):
     _, user, _ = create_user(email, "TestPassword123")
-    confirm_email(user.email_confirmation_token)
+    confirm_email(user.raw_confirmation_token)
     _, household, household_id = create_household(str(user.id), "Test Household")
     return user, household_id
 

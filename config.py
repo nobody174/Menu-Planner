@@ -69,7 +69,6 @@ FLASK_DEBUG = False  # Set to True only for development
 # MENU GENERATION SETTINGS
 # ============================================================================
 
-MENU_DAYS = 5  # Monday-Saturday (5 dinners; Sunday = leftovers)
 PREFERRED_CATEGORIES = ["Familie", "Rask Middag"]  # Prefer family-friendly recipes
 
 # ============================================================================
@@ -96,7 +95,7 @@ LOG_FILE = LOGS_DIR / "pi-menu.log"
 LOG_LEVEL = "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
 
 # ============================================================================
-# HOUSEHPLD SETTINGS
+# HOUSEHOLD SETTINGS
 # ============================================================================
 
 HOUSEHOLD_NAME = os.getenv("HOUSEHOLD_NAME", "{Family_Name}")

@@ -83,7 +83,7 @@ class TestSignupFlow:
 class TestLoginFlow:
     def test_login_with_valid_credentials_and_csrf_redirects(self, csrf_enabled_client):
         _, user, _ = create_user("login-flow@example.com", "LoginFlow123")
-        confirm_email(user.email_confirmation_token)
+        confirm_email(user.raw_confirmation_token)
 
         page = csrf_enabled_client.get("/login-page")
         token = _extract_csrf_token(page.get_data(as_text=True))
@@ -104,7 +104,7 @@ class TestLoginFlow:
 
     def test_login_without_csrf_token_rejected(self, csrf_enabled_client):
         _, user, _ = create_user("login-no-csrf@example.com", "LoginFlow123")
-        confirm_email(user.email_confirmation_token)
+        confirm_email(user.raw_confirmation_token)
 
         resp = csrf_enabled_client.post(
             "/login",
@@ -133,7 +133,7 @@ class TestLoginFlow:
         """M7: the error message must not distinguish "wrong password" from
         "no such account" - see core/auth_helpers.py's authenticate_user()."""
         _, user, _ = create_user("wrong-pw@example.com", "LoginFlow123")
-        confirm_email(user.email_confirmation_token)
+        confirm_email(user.raw_confirmation_token)
 
         page = csrf_enabled_client.get("/login-page")
         token = _extract_csrf_token(page.get_data(as_text=True))

@@ -31,7 +31,7 @@ def _cleanup_sendt_forms_backup():
 @pytest.fixture
 def owner_session(client):
     _, user, _ = create_user("cat-owner@example.com", "CatOwner123")
-    confirm_email(user.email_confirmation_token)
+    confirm_email(user.raw_confirmation_token)
     _, household, household_id = create_household(str(user.id), "Category Test Household")
 
     with client.session_transaction() as sess:
@@ -49,7 +49,7 @@ def editor_session(client, owner_session):
     be able to manage categories (owner-only, stricter than acting_role_can_edit())."""
     owner, household_id = owner_session
     _, editor_user, _ = create_user("cat-editor@example.com", "CatEditor123")
-    confirm_email(editor_user.email_confirmation_token)
+    confirm_email(editor_user.raw_confirmation_token)
     add_household_member(household_id, editor_user.email, "editor")
 
     with client.session_transaction() as sess:

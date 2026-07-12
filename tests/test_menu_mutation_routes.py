@@ -17,7 +17,7 @@ from core.household_helpers import create_household, add_household_member
 @pytest.fixture
 def owner_session(client):
     _, user, _ = create_user("menu-owner@example.com", "MenuOwner123")
-    confirm_email(user.email_confirmation_token)
+    confirm_email(user.raw_confirmation_token)
     _, household, household_id = create_household(str(user.id), "Menu Test Household")
 
     with client.session_transaction() as sess:
@@ -33,7 +33,7 @@ def owner_session(client):
 def viewer_session(client, owner_session):
     owner, household_id = owner_session
     _, viewer_user, _ = create_user("menu-viewer@example.com", "MenuViewer123")
-    confirm_email(viewer_user.email_confirmation_token)
+    confirm_email(viewer_user.raw_confirmation_token)
     add_household_member(household_id, viewer_user.email, "viewer")
 
     with client.session_transaction() as sess:

@@ -22,7 +22,7 @@ from core.household_helpers import create_household
 @pytest.fixture
 def household_id():
     _, user, _ = create_user("storage-test@example.com", "StorageTest123")
-    confirm_email(user.email_confirmation_token)
+    confirm_email(user.raw_confirmation_token)
     _, household, household_id = create_household(str(user.id), "Storage Test Household")
     return household_id
 

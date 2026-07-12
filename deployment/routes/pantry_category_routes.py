@@ -47,7 +47,9 @@ def register(bp):
 
         lang = _get_lang()
         pantry = _load_pantry_db()
-        visible = [p for p in pantry if pantry_item_language(p) in (lang, "both")]
+        visible = [
+            p for p in pantry if pantry_item_language(p, default=lang) in (lang, "both")
+        ]
         return jsonify({"success": True, "pantry": sorted(visible)})
 
     @bp.route("/api/pantry/add", methods=["POST"])
@@ -85,7 +87,9 @@ def register(bp):
             log_activity(f"Added '{item}' to pantry")
 
         lang = _get_lang()
-        visible = [p for p in pantry if pantry_item_language(p) in (lang, "both")]
+        visible = [
+            p for p in pantry if pantry_item_language(p, default=lang) in (lang, "both")
+        ]
         return jsonify({"success": True, "pantry": sorted(visible)})
 
     @bp.route("/api/pantry/reset", methods=["POST"])

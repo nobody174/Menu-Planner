@@ -17,7 +17,7 @@ def owner_session(client):
     already created (owner role, full edit rights, no profile picker
     needed)."""
     _, user, _ = create_user("pantry-owner@example.com", "PantryOwner123")
-    confirm_email(user.email_confirmation_token)
+    confirm_email(user.raw_confirmation_token)
     _, household, household_id = create_household(str(user.id), "Pantry Test Household")
 
     with client.session_transaction() as sess:
@@ -35,7 +35,7 @@ def viewer_session(client, owner_session):
     swapped to act as that viewer."""
     owner, household_id = owner_session
     _, viewer_user, _ = create_user("pantry-viewer@example.com", "PantryViewer123")
-    confirm_email(viewer_user.email_confirmation_token)
+    confirm_email(viewer_user.raw_confirmation_token)
     add_household_member(household_id, viewer_user.email, "viewer")
 
     with client.session_transaction() as sess:

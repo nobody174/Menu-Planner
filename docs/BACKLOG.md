@@ -46,27 +46,6 @@ Flagged 2026-07-05 during a legal/compliance check ahead of the planned public l
 **B58. Firefox-only rendering bug: white block at bottom of page — STILL UNRESOLVED**
 - Reported by user 2026-07-06: a white block covers the bottom of the page in Firefox; switching to Edge, the page renders correctly. Tested all 4 key pages (dashboard, shopping list, all-recipes, add-recipe) in a real Firefox engine via Playwright MCP at default desktop viewport, a shortened viewport (`100vh` hypothesis), and with the settings dropdown open (`backdrop-filter` hypothesis) - could not reproduce in any of these. Genuinely still open. Next step: whoever saw it originally needs to note the *exact* page, browser window size, and ideally a screenshot - or it surfaces on its own via the Playwright CI suite (B62, shipped) if it's still present and gets hit by one of the 7 test environments on a future push.
 
-**LO2. No `@login_required`-style decorator**
-- Every route hand-rolls its own auth gate; safety currently rests on every data helper resolving through household scoping. Worth a small decorator, adopted incrementally.
-
-**LO3. Dead Pi-era modules and stale config**
-- `deployment/scheduler.py`, `email_notifier.py`, `to_do_sync.py` confirmed still imported nowhere (re-checked 2026-07-08). `config.py` still has the stale `MENU_DAYS = 5` (real list is 6-day) and the `HOUSEHPLD SETTINGS` typo, both confirmed still present. An afternoon of deletion.
-
-**LO4. Alembic filename/revision mismatch**
-- `alembic/versions/a1b2c3d4e5f6_add_password_reset_to_users.py`'s actual `revision` is `g6h7i8j9k0l1`, not `a1b2c3d4e5f6` (that prefix belongs to a different file, `..._add_profile_support_to_household_members.py`). Chain itself is valid, this is a pure future-confusion trap - rename the file to match its real revision id.
-
-**LO5. `datetime.utcnow` throughout models/helpers**
-- Deprecated since Python 3.12; future debt only at the current 3.11.9/3.12 pin.
-
-**LO6. Confirmation/reset tokens stored in plaintext**
-- Reset tokens expire in 1h (fine), confirmation tokens never expire. Low priority at this threat model; hash at rest eventually.
-
-**LO7. `/health` doesn't touch the DB; deploy gate can false-pass**
-- Returns healthy unconditionally, and CI's health poll can catch the *old* instance still answering healthy mid-rolling-deploy. Add a cheap `SELECT 1`.
-
-**LO8 (remainder). Possible `households/None/` path on unauthenticated fallback writes**
-- In `save_menu`/`_save_pantry_db`'s file-fallback path when there's no household id at all. Not touched - needs its own look rather than a one-line fix. (The other 2 of 3 LO8 items - duplicate import, dead household-cleanup code, meaningless `/health` field - are resolved, see below.)
-
 ---
 
 ## OPEN BUGS
@@ -84,6 +63,26 @@ Flagged 2026-07-05 during a legal/compliance check ahead of the planned public l
 ---
 
 ## Recently resolved (pointers into CHANGELOG.md - not duplicated here)
+
+**2026-07-12 (2) — LO5 (`datetime.utcnow` deprecation), done properly with a real migration:**
+- Added `alembic/versions/h7i8j9k0l1m2_make_timestamp_columns_timezone_aware.py` - converts all 13 `datetime.utcnow()`-populated columns across 6 tables (`users`, `households`, `household_members`, `recipes`, `weekly_menus`, `shopping_lists`) from `TIMESTAMP` to `TIMESTAMPTZ` on Postgres (metadata-only reinterpretation, existing naive values tagged as UTC, no row rewrite, no data change). SQLite has no separate tz-aware column type, so the migration is a no-op there by design.
+- `database/models.py`: all affected columns now `DateTime(timezone=True)`; added a shared `utcnow()` helper (`datetime.now(timezone.utc)`) used as every column's `default=`/`onupdate=`.
+- `core/auth_helpers.py`: the 3 `datetime.utcnow()` call sites converted. The one real comparison (`reset_password()`'s 1-hour token-expiry check) got an explicit guard: SQLite hands back naive datetimes even for values written as UTC-aware (confirmed directly - Postgres would return them aware), so the comparison re-attaches `tzinfo=timezone.utc` when a naive value comes back, before subtracting. This was the one line capable of crashing on naive/aware mismatch - handled explicitly rather than assumed away.
+- Verified manually end-to-end (not just the test suite): requested a real password reset, confirmed the stored timestamp round-trips as naive on SQLite as predicted, reset succeeded with a fresh token, and correctly rejected as expired after backdating the timestamp 2 hours - no crash either way.
+- Full test suite: 271/272 passing (same single pre-existing unrelated failure, `test_oversized_request_body_rejected` - a rate-limiter-vs-body-size-check ordering issue, not related to this change).
+- Display-only sites (`member.joined_at.strftime(...)`, `user.created_at.strftime(...)`, `.order_by(created_at.desc())`) needed no changes - `strftime`/sorting work identically on naive or aware datetimes.
+
+**2026-07-12 (1) — LO2, LO3, LO4, LO6, LO7, LO8 (remainder) + pantry language bug:**
+- LO2: added `deployment/decorators.py` (`@login_required`), applied to household_routes.py, auth_routes.py, and the feedback route.
+- LO3: deleted the 3 confirmed-dead Pi-era modules (`scheduler.py`, `email_notifier.py`, `to_do_sync.py`), removed unused `MENU_DAYS`, fixed the `HOUSEHPLD` typo.
+- LO4: renamed the mismatched Alembic file to match its real revision id (no revision chain values touched).
+- LO6: hashed both confirmation *and* reset tokens at rest with sha256 (backlog had assumed reset tokens were already fine - they weren't). Raw token kept only transiently so email links still work.
+- LO7: `/health` now runs a real `SELECT 1`, returns 503 if the DB is unreachable instead of always reporting healthy.
+- LO8 (remainder): investigated, confirmed moot - the `households/None/` file-fallback path can no longer be reached after the 2026-07-09 B61 cleanup. No code change needed.
+- **New bug found and fixed (not from the audit list):** a household on the Norwegian UI adding an unrecognized/custom pantry item (e.g. "fisk") had it silently vanish from their own pantry view - `pantry_item_language()` defaulted every unknown word to `"en"` regardless of which language it was actually typed in, and the Norwegian view only shows `no`/`both`-tagged items. Fixed by defaulting to the household's *current* viewing language instead of hardcoding `"en"` (`core/household_paths.py` + the 3 call sites in `pantry_category_routes.py`/`flask_app.py`). Verified live: custom words now show correctly in the language they were added in.
+- **Known, accepted limitation (not a bug):** custom/unrecognized pantry words are never translated (no dictionary exists for arbitrary free text) - they now show correctly in the language they were added in, and untranslated-as-is in the other language too. Only a real gap for mixed-language households (one member Norwegian UI, another English UI) sharing a pantry. Decided 2026-07-12: not worth building translation infra pre-emptively - revisit only if an actual mixed-language household reports it.
+- Full test suite: 271/272 passing (1 pre-existing unrelated failure, `test_oversized_request_body_rejected`).
+- LO5 deferred - see its own entry above, needs a DB migration first.
 
 **2026-07-07 (2) — comprehensive audit + same-day fix pass:** C1 (shopping export broken in prod), H1 (SECRET_KEY fallback), H2 (rate limiting), H3 (`/themes` 500), M1 (account deletion cascades), M2 (category tombstone JSONB), M4 (silent write-failure swallowing), M5 (HTML errors to JSON clients), M6 (per-request caching), M7 (login enumeration), LO1 (body size cap), LO8 (2 of 3 items), B56 (missing DB indexes), B57 (blueprint split), B59 (route test coverage), B60 (dead code).
 

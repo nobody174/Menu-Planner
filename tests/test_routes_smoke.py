@@ -58,7 +58,7 @@ def _request(client, method, path):
 def confirmed_user():
     success, user, user_id = create_user("smoketest@example.com", "SmokeTest123")
     assert success
-    confirm_email(user.email_confirmation_token)
+    confirm_email(user.raw_confirmation_token)
     return user, user_id
 
 

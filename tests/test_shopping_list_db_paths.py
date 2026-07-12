@@ -24,7 +24,7 @@ from core.household_helpers import create_household
 @pytest.fixture
 def owner_session(client):
     _, user, _ = create_user("shopping-owner@example.com", "ShoppingOwner123")
-    confirm_email(user.email_confirmation_token)
+    confirm_email(user.raw_confirmation_token)
     _, household, household_id = create_household(str(user.id), "Shopping Test Household")
 
     with client.session_transaction() as sess:

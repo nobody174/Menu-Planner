@@ -31,6 +31,7 @@ from flask import (
 )
 from datetime import datetime
 
+from deployment.decorators import login_required
 from deployment.app_core import (
     create_app,
     logger,
@@ -89,6 +90,9 @@ limiter = app.extensions["limiter"]
 def dashboard():
     if not session.get("user_id"):
         return redirect(url_for("auth.welcome"))
+    # NOTE: this guard redirects to auth.welcome, not auth.login_page - the
+    # login_required decorator centralizes the auth.login_page variant used
+    # everywhere else, so this one stays hand-rolled deliberately.
 
     menu = load_menu()
     if not menu:
@@ -315,10 +319,9 @@ def help_tips():
 
 
 @app.route("/feedback")
+@login_required
 def feedback_page():
     """Simple feedback form for trial testers - any logged-in user can report."""
-    if not session.get("user_id"):
-        return redirect(url_for("auth.login_page"))
     return render_template("feedback.html", success=request.args.get("success"))
 
 
@@ -478,7 +481,9 @@ def settings_page():
 
         lang = _get_lang()
         pantry = sorted(
-            p for p in _load_pantry_db() if pantry_item_language(p) in (lang, "both")
+            p
+            for p in _load_pantry_db()
+            if pantry_item_language(p, default=lang) in (lang, "both")
         )
 
     return render_template(
@@ -698,6 +703,33 @@ def health_check():
     # LO8 (audit 2026-07-07): dropped the "https": CERT_FILE.exists() field -
     # a Pi-era local-HTTPS leftover (LO3) that's meaningless on Render, where
     # Cloudflare terminates TLS in front of the app entirely.
+    # LO7 (2026-07-12): actually touch the DB with a cheap SELECT 1 - this
+    # feeds a CI/deploy gate, so a healthy response used to mean nothing more
+    # than "the Flask process is up," even if the DB itself was unreachable.
+    from sqlalchemy import text
+    from database.database import SessionLocal
+
+    db_session = SessionLocal()
+    try:
+        db_session.execute(text("SELECT 1"))
+        db_healthy = True
+    except Exception as e:
+        logger.error(f"Health check DB query failed: {e}")
+        db_healthy = False
+    finally:
+        db_session.close()
+
+    if not db_healthy:
+        return (
+            jsonify(
+                {
+                    "status": "unhealthy",
+                    "timestamp": datetime.now().isoformat(),
+                }
+            ),
+            503,
+        )
+
     return jsonify(
         {
             "status": "healthy",

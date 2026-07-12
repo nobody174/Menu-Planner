@@ -5,11 +5,21 @@ Authentication helpers for email/password and session management.
 from werkzeug.security import generate_password_hash, check_password_hash
 from database.database import SessionLocal
 from database.models import User
+import hashlib
 import re
 import secrets
 import string
 import time
 import threading
+
+
+def _hash_token(raw_token):
+    """Hash a confirmation/reset token for storage (LO6, 2026-07-12).
+    sha256 hex digest is 64 chars - fits the existing String(64) columns
+    without a migration. Tokens are unguessable secrets.token_urlsafe(32)
+    values, not user-chosen secrets, so a fast hash is fine here (unlike
+    passwords, there's no low-entropy-guessing concern to slow down)."""
+    return hashlib.sha256(raw_token.encode("utf-8")).hexdigest()
 
 
 def is_valid_email(email):
@@ -125,17 +135,23 @@ def create_user(email, password, referred_by_code=None):
                 referred_by_user_id = referrer.id
                 referred_by_code_clean = referrer.referral_code
 
+        raw_confirmation_token = _generate_confirmation_token()
         user = User(
             email=email,
             password_hash=password_hash,
             referral_code=referral_code,
             referred_by_user_id=referred_by_user_id,
             referred_by_code=referred_by_code_clean,
-            email_confirmation_token=_generate_confirmation_token(),
+            email_confirmation_token=_hash_token(raw_confirmation_token),
         )
         session.add(user)
         session.commit()
         user_id = str(user.id)
+        # Transient, non-persisted attribute: only the hash is stored in the
+        # DB (LO6) - the raw token is attached here so the caller (which
+        # sends the confirmation email) can still build the link with the
+        # actual token the user needs to click.
+        user.raw_confirmation_token = raw_confirmation_token
         return True, user, user_id
     except Exception as e:
         session.rollback()
@@ -200,7 +216,9 @@ def confirm_email(token):
     session = SessionLocal()
     try:
         user = (
-            session.query(User).filter(User.email_confirmation_token == token).first()
+            session.query(User)
+            .filter(User.email_confirmation_token == _hash_token(token))
+            .first()
         )
         if not user:
             return False, "Invalid or expired confirmation link"
@@ -208,9 +226,9 @@ def confirm_email(token):
         if user.email_confirmed_at:
             return True, user  # already confirmed - clicking the link twice is harmless
 
-        from datetime import datetime
+        from datetime import datetime, timezone
 
-        user.email_confirmed_at = datetime.utcnow()
+        user.email_confirmed_at = datetime.now(timezone.utc)
         user.email_confirmation_token = None  # one-time use, prevents replay
         session.commit()
         session.refresh(user)
@@ -236,9 +254,11 @@ def regenerate_confirmation_token(email):
         if user.email_confirmed_at:
             return False, "Email already confirmed"
 
-        user.email_confirmation_token = _generate_confirmation_token()
+        raw_confirmation_token = _generate_confirmation_token()
+        user.email_confirmation_token = _hash_token(raw_confirmation_token)
         session.commit()
         session.refresh(user)
+        user.raw_confirmation_token = raw_confirmation_token
         return True, user
     except Exception as e:
         session.rollback()
@@ -250,7 +270,7 @@ def regenerate_confirmation_token(email):
 def request_password_reset(email):
     """Generate a password reset token. Always returns True even if email not
     found — never reveals whether an account exists (prevents enumeration)."""
-    from datetime import datetime
+    from datetime import datetime, timezone
 
     email = email.lower().strip()
     session = SessionLocal()
@@ -258,10 +278,12 @@ def request_password_reset(email):
         user = session.query(User).filter(User.email == email).first()
         if not user:
             return True, None
-        user.password_reset_token = _generate_confirmation_token()
-        user.password_reset_requested_at = datetime.utcnow()
+        raw_reset_token = _generate_confirmation_token()
+        user.password_reset_token = _hash_token(raw_reset_token)
+        user.password_reset_requested_at = datetime.now(timezone.utc)
         session.commit()
         session.refresh(user)
+        user.raw_reset_token = raw_reset_token
         return True, user
     except Exception as e:
         session.rollback()
@@ -272,7 +294,7 @@ def request_password_reset(email):
 
 def reset_password(token, new_password):
     """Reset password via a valid token. Tokens expire after 1 hour."""
-    from datetime import datetime, timedelta
+    from datetime import datetime, timedelta, timezone
 
     if not token:
         return False, "Missing reset token"
@@ -281,11 +303,20 @@ def reset_password(token, new_password):
         return False, msg
     session = SessionLocal()
     try:
-        user = session.query(User).filter(User.password_reset_token == token).first()
+        user = (
+            session.query(User)
+            .filter(User.password_reset_token == _hash_token(token))
+            .first()
+        )
         if not user:
             return False, "Invalid or expired reset link"
         if user.password_reset_requested_at:
-            age = datetime.utcnow() - user.password_reset_requested_at
+            requested_at = user.password_reset_requested_at
+            if requested_at.tzinfo is None:
+                # SQLite doesn't persist tzinfo - values written as UTC come
+                # back naive. Postgres (TIMESTAMPTZ) returns them aware.
+                requested_at = requested_at.replace(tzinfo=timezone.utc)
+            age = datetime.now(timezone.utc) - requested_at
             if age > timedelta(hours=1):
                 return False, "Reset link has expired — please request a new one"
         user.password_hash = hash_password(new_password)

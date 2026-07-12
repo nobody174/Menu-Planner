@@ -71,13 +71,14 @@ def _pantry_translations():
     return _pantry_translation_cache
 
 
-def pantry_item_language(item: str) -> str:
+def pantry_item_language(item: str, default: str = "en") -> str:
     """Best guess at which language a pantry item string is in, based on the
     known staples translation list. Returns 'en', 'no', or 'both' (identical
     in both languages, e.g. 'salt') - callers treat 'both' as matching either
-    language filter. Unknown/custom items default to 'en' (most users typing
-    a fresh item are typing in whichever language they're currently using,
-    and since it has no pair anyway, defaulting doesn't affect translation)."""
+    language filter. Unknown/custom items fall back to `default`, which
+    callers should set to whichever language the household is currently
+    viewing in - typing a custom word (e.g. a Norwegian household adding
+    'fisk') means it was typed in that language, not necessarily English."""
     en_to_no, no_to_en = _pantry_translations()
     item = item.strip().lower()
     is_en = item in en_to_no
@@ -86,7 +87,9 @@ def pantry_item_language(item: str) -> str:
         return "both"
     if is_no:
         return "no"
-    return "en"
+    if is_en:
+        return "en"
+    return default
 
 
 def pantry_item_translation(item: str):

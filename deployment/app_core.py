@@ -613,8 +613,15 @@ def _send_confirmation_email(user):
         return False
 
     from_addr = os.getenv("RESEND_FROM_EMAIL", "feedback@menuplanner.app").strip()
+    # LO6 (2026-07-12): only a sha256 hash of the token is persisted to the DB
+    # now, so the raw token must come from the transient raw_confirmation_token
+    # attribute the caller (create_user/regenerate_confirmation_token) set on
+    # this same in-memory user object - NOT from user.email_confirmation_token,
+    # which is the hash and can't be turned back into a working link.
     confirm_url = url_for(
-        "auth.confirm_email_route", token=user.email_confirmation_token, _external=True
+        "auth.confirm_email_route",
+        token=getattr(user, "raw_confirmation_token", None),
+        _external=True,
     )
     body = (
         f"Welcome to Menu Planner!\n\n"
@@ -660,8 +667,13 @@ def _send_password_reset_email(user):
         )
         return False
     from_addr = os.getenv("RESEND_FROM_EMAIL", "onboarding@resend.dev").strip()
+    # LO6 (2026-07-12): same as _send_confirmation_email above - only the hash
+    # is persisted, so use the transient raw_reset_token attribute set by
+    # request_password_reset().
     reset_url = url_for(
-        "auth.reset_password_page", token=user.password_reset_token, _external=True
+        "auth.reset_password_page",
+        token=getattr(user, "raw_reset_token", None),
+        _external=True,
     )
     body = (
         f"You requested a password reset for your Menu Planner account.\n\n"

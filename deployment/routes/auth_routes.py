@@ -19,6 +19,7 @@ from deployment.app_core import (
     _send_confirmation_email,
     _send_password_reset_email,
 )
+from deployment.decorators import login_required
 
 bp_name = "auth"
 
@@ -186,11 +187,10 @@ def register(bp, limiter):
         )
 
     @bp.route("/account/delete", methods=["POST"])
+    @login_required
     def delete_own_account():
         """User deletes their own account. Requires password confirmation."""
         user_id = session.get("user_id")
-        if not user_id:
-            return redirect(url_for("auth.login_page"))
         from core.auth_helpers import (
             delete_user_account,
             get_user_by_email,

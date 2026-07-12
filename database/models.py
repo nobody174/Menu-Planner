@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from sqlalchemy import (
     Column,
     Integer,
@@ -16,6 +16,10 @@ from sqlalchemy.orm import relationship
 from sqlalchemy.dialects.postgresql import UUID as PG_UUID
 import uuid
 from database.database import Base
+
+
+def utcnow():
+    return datetime.now(timezone.utc)
 
 
 # Use String for SQLite compatibility, UUID for PostgreSQL
@@ -40,8 +44,8 @@ class User(Base):
     id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
     email = Column(String(255), unique=True, nullable=False, index=True)
     password_hash = Column(String(255), nullable=False)
-    created_at = Column(DateTime, default=datetime.utcnow)
-    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    created_at = Column(DateTime(timezone=True), default=utcnow)
+    updated_at = Column(DateTime(timezone=True), default=utcnow, onupdate=utcnow)
 
     # Referral tracking (attribution only - no reward logic yet)
     referral_code = Column(String(12), unique=True, nullable=False, index=True)
@@ -59,12 +63,12 @@ class User(Base):
     # core/auth_helpers.py create_user/confirm_email). NULL = not yet
     # confirmed. email_confirmation_token is cleared once used, so a stale
     # token can't be replayed after confirmation already happened.
-    email_confirmed_at = Column(DateTime, nullable=True)
+    email_confirmed_at = Column(DateTime(timezone=True), nullable=True)
     email_confirmation_token = Column(String(64), nullable=True, index=True)
 
     # Password reset: token is set when user requests a reset, cleared once used.
     password_reset_token = Column(String(64), nullable=True, index=True)
-    password_reset_requested_at = Column(DateTime, nullable=True)
+    password_reset_requested_at = Column(DateTime(timezone=True), nullable=True)
 
     # Relationships
     households = relationship("Household", back_populates="owner")
@@ -80,8 +84,8 @@ class Household(Base):
     id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
     name = Column(String(255), nullable=False)
     owner_id = Column(String(36), ForeignKey("users.id"), nullable=False, index=True)
-    created_at = Column(DateTime, default=datetime.utcnow)
-    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    created_at = Column(DateTime(timezone=True), default=utcnow)
+    updated_at = Column(DateTime(timezone=True), default=utcnow, onupdate=utcnow)
 
     # Unused (servings-based shopping list scaling was removed 2026-06-30 -
     # households just edit a recipe's own ingredient list if they need to
@@ -128,7 +132,7 @@ class HouseholdMember(Base):
         String(36), ForeignKey("users.id"), nullable=True, index=True
     )  # NULL for profiles (no own login)
     role = Column(String(50), default="viewer", nullable=False)  # owner, editor, viewer
-    joined_at = Column(DateTime, default=datetime.utcnow)
+    joined_at = Column(DateTime(timezone=True), default=utcnow)
 
     # Profile fields (used when user_id is NULL - a "Netflix-style" profile under an account holder)
     is_profile = Column(Boolean, default=False, nullable=False)
@@ -166,8 +170,8 @@ class Recipe(Base):
     comment = Column(Text, nullable=True)
     allergens = Column(JSON, nullable=True)  # Array of allergen strings
     created_by = Column(String(36), ForeignKey("users.id"), nullable=True)
-    created_at = Column(DateTime, default=datetime.utcnow)
-    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    created_at = Column(DateTime(timezone=True), default=utcnow)
+    updated_at = Column(DateTime(timezone=True), default=utcnow, onupdate=utcnow)
 
     # Relationships
     household = relationship("Household", back_populates="recipes")
@@ -230,8 +234,8 @@ class WeeklyMenu(Base):
     week_start = Column(Date, nullable=False)
     week_end = Column(Date, nullable=False)
     dinners = Column(JSON, nullable=True)  # Array of {day, recipe_id}
-    created_at = Column(DateTime, default=datetime.utcnow)
-    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    created_at = Column(DateTime(timezone=True), default=utcnow)
+    updated_at = Column(DateTime(timezone=True), default=utcnow, onupdate=utcnow)
 
     # Relationships
     household = relationship("Household", back_populates="menus")
@@ -257,8 +261,8 @@ class ShoppingList(Base):
     )
     menu_id = Column(String(36), ForeignKey("weekly_menus.id"), nullable=True)
     data = Column(JSON, nullable=True)  # Full shopping list structure
-    created_at = Column(DateTime, default=datetime.utcnow)
-    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    created_at = Column(DateTime(timezone=True), default=utcnow)
+    updated_at = Column(DateTime(timezone=True), default=utcnow, onupdate=utcnow)
 
     # Relationships
     household = relationship("Household", back_populates="shopping_lists")

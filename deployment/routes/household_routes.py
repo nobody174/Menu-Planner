@@ -15,16 +15,16 @@ from deployment.app_core import (
     AVATAR_EMOJI_CHOICES,
     PROFILE_COOKIE_MAX_AGE,
 )
+from deployment.decorators import login_required
 
 
 def register(bp):
     @bp.route("/household-settings")
+    @login_required
     def household_settings():
         """View and manage household settings. Owner-only: this is a dinner-planning app,
         not a playground, so non-owner members have no business here even to look."""
         user_id = session.get("user_id")
-        if not user_id:
-            return redirect(url_for("auth.login_page"))
 
         from core.household_helpers import (
             get_user_households,
@@ -103,11 +103,10 @@ def register(bp):
         )
 
     @bp.route("/household/create", methods=["POST"])
+    @login_required
     def create_household_handler():
         """Create a new household."""
         user_id = session.get("user_id")
-        if not user_id:
-            return redirect(url_for("auth.login_page"))
 
         from core.household_helpers import create_household
 
@@ -126,11 +125,10 @@ def register(bp):
             return redirect(url_for("household.household_settings", error=result))
 
     @bp.route("/household/set-current", methods=["POST"])
+    @login_required
     def set_current_household():
         """Switch to a different household."""
         user_id = session.get("user_id")
-        if not user_id:
-            return redirect(url_for("auth.login_page"))
 
         household_id = request.form.get("household_id")
 
@@ -147,12 +145,9 @@ def register(bp):
             )
 
     @bp.route("/household/update", methods=["POST"])
+    @login_required
     def update_household_handler():
         """Update household details."""
-        user_id = session.get("user_id")
-        if not user_id:
-            return redirect(url_for("auth.login_page"))
-
         household_id = current_household_id()
         if not household_id:
             return redirect(
@@ -179,11 +174,10 @@ def register(bp):
             return redirect(url_for("household.household_settings", error=result))
 
     @bp.route("/household/delete", methods=["POST"])
+    @login_required
     def delete_household_handler():
         """Delete household (owner only)."""
         user_id = session.get("user_id")
-        if not user_id:
-            return redirect(url_for("auth.login_page"))
 
         household_id = current_household_id()
         if not household_id:
@@ -204,11 +198,10 @@ def register(bp):
             return redirect(url_for("household.household_settings", error=result))
 
     @bp.route("/profile-picker")
+    @login_required
     def profile_picker():
         """Show 'who's using this' profile picker if the current household has profiles."""
         user_id = session.get("user_id")
-        if not user_id:
-            return redirect(url_for("auth.login_page"))
 
         from core.household_helpers import get_user_households, get_household_members
 
@@ -252,11 +245,10 @@ def register(bp):
         )
 
     @bp.route("/profile-picker/select", methods=["POST"])
+    @login_required
     def select_profile():
         """Set the active profile for this session after picking from the picker."""
         user_id = session.get("user_id")
-        if not user_id:
-            return redirect(url_for("auth.login_page"))
 
         member_id = request.form.get("member_id")
         is_account_holder = request.form.get("is_account_holder")
@@ -336,12 +328,9 @@ def register(bp):
         return response
 
     @bp.route("/household/add-profile", methods=["POST"])
+    @login_required
     def add_household_profile():
         """Add a lightweight member profile (no login of its own) to the household."""
-        user_id = session.get("user_id")
-        if not user_id:
-            return redirect(url_for("auth.login_page"))
-
         household_id = current_household_id()
         if not household_id:
             return redirect(

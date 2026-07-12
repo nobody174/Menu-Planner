@@ -150,7 +150,7 @@ class TestUserAuthentication:
         password = 'TestPassword123'
 
         _, user, _ = create_user(email, password)
-        confirm_email(user.email_confirmation_token)
+        confirm_email(user.raw_confirmation_token)
         success, user = authenticate_user(email, password)
 
         assert success
@@ -174,7 +174,7 @@ class TestUserAuthentication:
         password = 'TestPassword123'
 
         _, user, _ = create_user(email, password)
-        confirm_email(user.email_confirmation_token)
+        confirm_email(user.raw_confirmation_token)
         success, msg = authenticate_user(email, 'WrongPassword123')
 
         assert not success
@@ -194,7 +194,7 @@ class TestUserAuthentication:
         must be identical text, or the login form leaks which emails exist."""
         email = 'test@example.com'
         _, user, _ = create_user(email, 'TestPassword123')
-        confirm_email(user.email_confirmation_token)
+        confirm_email(user.raw_confirmation_token)
 
         _, unknown_msg = authenticate_user('notfound@example.com', 'AnyPassword123')
         _, wrong_pw_msg = authenticate_user(email, 'WrongPassword123')
@@ -207,7 +207,7 @@ class TestUserAuthentication:
         password = 'TestPassword123'
 
         _, user, _ = create_user(email, password)
-        confirm_email(user.email_confirmation_token)
+        confirm_email(user.raw_confirmation_token)
         success, user = authenticate_user('TEST@EXAMPLE.COM', password)
 
         assert success
@@ -227,7 +227,7 @@ class TestEmailConfirmation:
     def test_confirm_email_success(self):
         """Confirming with the correct token should succeed and clear the token."""
         _, user, _ = create_user('test@example.com', 'TestPassword123')
-        token = user.email_confirmation_token
+        token = user.raw_confirmation_token
 
         success, confirmed_user = confirm_email(token)
 
@@ -246,7 +246,7 @@ class TestEmailConfirmation:
         """Clicking the confirmation link twice (e.g. double-click, email
         client prefetch) should not error - the second click is a no-op."""
         _, user, _ = create_user('test@example.com', 'TestPassword123')
-        token = user.email_confirmation_token
+        token = user.raw_confirmation_token
 
         confirm_email(token)
         # Token is now cleared - simulate a second request with the same
@@ -270,7 +270,7 @@ class TestEmailConfirmation:
     def test_regenerate_confirmation_token_already_confirmed(self):
         """Resend should refuse once the email is already confirmed."""
         _, user, _ = create_user('test@example.com', 'TestPassword123')
-        confirm_email(user.email_confirmation_token)
+        confirm_email(user.raw_confirmation_token)
 
         success, msg = regenerate_confirmation_token('test@example.com')
 
@@ -300,7 +300,7 @@ class TestDeleteUserAccount:
         WeeklyMenu/ShoppingList rows should delete cleanly - those rows must
         be gone afterward, not just orphaned."""
         _, user, _ = create_user('owner@example.com', 'Owner12345')
-        confirm_email(user.email_confirmation_token)
+        confirm_email(user.raw_confirmation_token)
         _, household, household_id = create_household(str(user.id), 'Test Household')
 
         db = SessionLocal()
@@ -345,11 +345,11 @@ class TestDeleteUserAccount:
         row - the referee's own account and referred_by_code (the raw code,
         meant to survive referrer deletion) are untouched."""
         _, referrer, _ = create_user('referrer@example.com', 'Referrer12345')
-        confirm_email(referrer.email_confirmation_token)
+        confirm_email(referrer.raw_confirmation_token)
         _, referee, _ = create_user(
             'referee@example.com', 'Referee12345', referred_by_code=referrer.referral_code
         )
-        confirm_email(referee.email_confirmation_token)
+        confirm_email(referee.raw_confirmation_token)
 
         assert referee.referred_by_user_id == referrer.id
 
@@ -370,9 +370,9 @@ class TestDeleteUserAccount:
         own (e.g. left since, or a public recipe) must have created_by
         cleared, not be deleted outright or left dangling."""
         _, owner, _ = create_user('owner2@example.com', 'Owner12345')
-        confirm_email(owner.email_confirmation_token)
+        confirm_email(owner.raw_confirmation_token)
         _, author, _ = create_user('author@example.com', 'Author12345')
-        confirm_email(author.email_confirmation_token)
+        confirm_email(author.raw_confirmation_token)
         _, household, household_id = create_household(str(owner.id), 'Owner Household')
 
         db = SessionLocal()
