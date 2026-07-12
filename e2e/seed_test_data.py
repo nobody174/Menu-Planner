@@ -31,7 +31,11 @@ def seed():
 
     # Confirm via the real production code path (same one the email-link
     # click uses), rather than writing to email_confirmed_at directly.
-    confirm_success, _ = confirm_email(user.email_confirmation_token)
+    # NOTE (LO6, 2026-07-12): user.email_confirmation_token is now a sha256
+    # hash, not the raw token - confirm_email() needs the raw value (same
+    # transient attribute _send_confirmation_email() uses for the real
+    # email link), or hashing an already-hashed value never matches.
+    confirm_success, _ = confirm_email(user.raw_confirmation_token)
     if not confirm_success:
         raise RuntimeError("Failed to confirm e2e test user's email")
 
